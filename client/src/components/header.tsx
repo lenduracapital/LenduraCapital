@@ -6,8 +6,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleApplyNow = () => {
-    // In a real implementation, this would redirect to an application form
-    alert("Redirecting to funding application...");
+    window.location.href = "/apply";
   };
 
   const scrollToSection = (sectionId: string) => {

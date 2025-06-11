@@ -3,7 +3,7 @@ import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 
 export default function HeroSection() {
   const handleApplyNow = () => {
-    alert("Redirecting to funding application...");
+    window.location.href = "/apply";
   };
 
   return (
