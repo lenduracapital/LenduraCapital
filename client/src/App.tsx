@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import MerchantCashAdvance from "@/pages/merchant-cash-advance";
 import TermLoans from "@/pages/term-loans";
+import LoanApplication from "@/pages/loan-application";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
       <Route path="/term-loans" component={TermLoans} />
+      <Route path="/apply" component={LoanApplication} />
       <Route component={NotFound} />
     </Switch>
   );
