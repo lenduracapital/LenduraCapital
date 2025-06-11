@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ChartLine, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM (1)_1749675966252.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleApplyNow = () => {
-    window.location.href = "/apply";
+    window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -23,10 +24,12 @@ export default function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-[--primary] rounded-lg flex items-center justify-center">
-              <ChartLine className="text-white text-lg" />
-            </div>
-            <span className="text-xl font-bold text-[--text-primary]">FundTek Capital Group</span>
+            <img 
+              src={logoPath} 
+              alt="FundTek Capital Group" 
+              className="h-10 w-auto"
+            />
+            <span className="text-xl font-bold text-[--text-primary] hidden sm:block">FundTek Capital Group</span>
           </div>
           
           {/* Desktop Navigation */}

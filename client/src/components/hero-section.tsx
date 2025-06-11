@@ -3,7 +3,7 @@ import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 
 export default function HeroSection() {
   const handleApplyNow = () => {
-    window.location.href = "/apply";
+    window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
   return (
@@ -26,15 +26,18 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-          <span className="text-white">Flexible Financing Solutions</span><br />
+          <span className="text-white">Flexible Financing</span><br />
           <span className="text-white">for </span>
           <span className="text-[--primary]">Every Industry</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto mb-8">
-          Empower your business with custom tailored financial and business solutions, call us at (877) 
-          <span className="text-[--primary]">763-6196</span> to see your options
-        </p>
+        <div className="bg-[--primary] bg-opacity-80 p-6 rounded-lg max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white leading-relaxed">
+            Empower your business with custom tailored<br />
+            financial and business solutions, call us at <br />
+            <span className="text-yellow-300 font-bold">(646) 329-4622</span> to see your options
+          </p>
+        </div>
         
         <Button 
           onClick={handleApplyNow}

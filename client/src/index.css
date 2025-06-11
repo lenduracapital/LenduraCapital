@@ -15,7 +15,7 @@
   --card-foreground: hsl(20, 14.3%, 4.1%);
   --border: hsl(20, 5.9%, 90%);
   --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(217, 91%, 60%);
+  --primary: hsl(217, 58%, 71%);
   --primary-foreground: hsl(212, 100%, 99%);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
@@ -32,7 +32,7 @@
   --bg-tertiary: hsl(215, 16%, 32%);
   --text-primary: hsl(210, 40%, 98%);
   --text-secondary: hsl(215, 14%, 70%);
-  --primary-dark: hsl(217, 91%, 50%);
+  --primary-dark: hsl(217, 58%, 65%);
   --accent-dark: hsl(142, 76%, 26%);
 }
 
@@ -47,7 +47,7 @@
   --card-foreground: hsl(0, 0%, 98%);
   --border: hsl(240, 3.7%, 15.9%);
   --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(217, 91%, 60%);
+  --primary: hsl(217, 58%, 71%);
   --primary-foreground: hsl(212, 100%, 99%);
   --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
