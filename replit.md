@@ -206,11 +206,13 @@ Changelog:
 - June 17, 2025. Navigation menu update:
   * Changed navigation menu item from "Contact" to "Contact Us" in both desktop and mobile navigation
   * Kept contact page heading as "Contact FundTek Capital Group" for brand consistency
-- June 17, 2025. Testimonials authenticity improvement:
-  * Replaced overly promotional first testimonial with more authentic and believable content
-  * Updated Robert Chen's auto shop story to sound more genuine and relatable
-  * Fixed Maria Rodriguez restaurant testimonial by removing fake promotional language like "Loan paid for itself in 1-2 years!"
-  * Removed exaggerated claims and focused on realistic business scenarios across testimonials
+- June 17, 2025. Complete testimonials authenticity overhaul:
+  * Fixed all fake testimonials across entire website including more-testimonials.tsx page
+  * Replaced "Fine Dining Restaurant" and other generic titles with specific business names
+  * Removed promotional language like "Loan paid for itself in 1-2 years!" and "doubled production capacity"
+  * Updated all 6 testimonials in grid view with authentic business scenarios
+  * Fixed homepage testimonials section to match realistic content
+  * Focused on genuine business challenges like equipment breakdowns, seasonal cash flow, and expansion needs
 ```
 
 ## User Preferences

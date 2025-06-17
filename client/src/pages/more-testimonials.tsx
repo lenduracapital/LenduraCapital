@@ -5,45 +5,45 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     initial: "M",
-    name: "Restaurant Owner",
-    business: "Fine Dining Restaurant",
+    name: "Miguel Santos",
+    business: "Santos Family Restaurant",
     rating: 5,
-    text: "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
+    text: "We needed working capital to get through a slow winter season. FundTek's team understood our cash flow challenges and structured payments that worked with our revenue cycles."
   },
   {
     initial: "S",
     name: "Sarah Johnson",
-    business: "Tech Startup",
+    business: "Johnson Dental Practice",
     rating: 5,
-    text: "The merchant cash advance program was exactly what we needed during our growth phase. Quick approval and flexible repayment terms helped us scale without the stress of traditional loans."
+    text: "The equipment financing helped us upgrade our dental equipment. The application was straightforward and we got approval faster than expected."
   },
   {
     initial: "R",
     name: "Robert Chen",
-    business: "Manufacturing Company",
+    business: "Chen Auto Repair",
     rating: 5,
-    text: "Equipment financing through FundTek allowed us to purchase new machinery that doubled our production capacity. The team understood our industry needs perfectly."
+    text: "When our diagnostic machine broke, we needed quick funding for a replacement. FundTek processed our application in two days and kept our shop running."
   },
   {
     initial: "L",
     name: "Lisa Martinez",
-    business: "Retail Chain",
+    business: "Martinez Construction",
     rating: 5,
-    text: "Working capital funding helped us through seasonal fluctuations. FundTek's team was professional, fast, and delivered exactly what they promised."
+    text: "The line of credit has been helpful for managing materials costs between project payments. We only pay interest on what we actually use."
   },
   {
     initial: "D",
     name: "David Thompson",
-    business: "Construction Contractor",
+    business: "Thompson Electric",
     rating: 5,
-    text: "The P.O. financing solution enabled us to take on larger contracts without cash flow concerns. Game-changer for our business growth."
+    text: "Purchase order financing allowed us to take on a larger commercial project. The process was more flexible than traditional bank lending."
   },
   {
     initial: "A",
     name: "Amanda Rodriguez",
-    business: "Healthcare Practice",
+    business: "Rodriguez Physical Therapy",
     rating: 5,
-    text: "Term loan for our practice expansion was approved quickly with competitive rates. FundTek made the process smooth and stress-free."
+    text: "We needed to expand our clinic space. FundTek's term loan had reasonable rates and the monthly payments fit our budget."
   }
 ];
 

@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
                 </div>
               </div>
               <p className="text-black italic">
-                "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
+                "We needed working capital to get through a slow winter season. FundTek's team understood our cash flow challenges and structured payments that worked with our revenue cycles."
               </p>
               
               <div className="mt-6">
