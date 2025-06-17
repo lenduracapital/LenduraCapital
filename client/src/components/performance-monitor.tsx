@@ -96,9 +96,9 @@ export default function PerformanceMonitor() {
 
         // Resource loading performance
         const resourceObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry) => {
+          list.getEntries().forEach((entry: any) => {
             if (entry.name.includes('.js') || entry.name.includes('.css')) {
-              const duration = entry.responseEnd - entry.startTime;
+              const duration = entry.responseEnd ? entry.responseEnd - entry.startTime : entry.duration || 0;
               
               if (typeof window !== 'undefined' && (window as any).gtag) {
                 (window as any).gtag('event', 'resource_timing', {

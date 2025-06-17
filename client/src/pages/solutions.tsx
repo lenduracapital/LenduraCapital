@@ -160,7 +160,7 @@ export default function Solutions() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {solutions.map((solution, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group cursor-pointer">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">
                   <img 
                     src={solution.image}
@@ -181,16 +181,26 @@ export default function Solutions() {
                 </div>
                 
                 <div className="p-6">
-                  <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                  {/* Collapsed state - only shows title when not hovered */}
+                  <div className="group-hover:hidden">
+                    <div className="h-20 flex items-center justify-center">
+                      <p className="text-gray-500 text-center italic">Hover to see details</p>
+                    </div>
+                  </div>
                   
-                  <ul className="space-y-2 mb-6">
-                    {solution.features.map((feature, idx) => (
-                      <li key={idx} className="text-gray-700 text-sm flex items-center">
-                        <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Expanded state - shows full details on hover */}
+                  <div className="hidden group-hover:block transition-all duration-300">
+                    <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                    
+                    <ul className="space-y-2 mb-6">
+                      {solution.features.map((feature, idx) => (
+                        <li key={idx} className="text-gray-700 text-sm flex items-center">
+                          <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   
                   <Button 
                     onClick={() => setLocation(solution.route)}
