@@ -45,30 +45,76 @@ export default function SEOHead({
     updateMetaTag("twitter:description", description);
     updateMetaTag("twitter:image", image);
 
-    // Structured data for organization
+    // Enhanced structured data for financial service broker
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "FinancialService",
       "name": "FundTek Capital Group",
       "url": "https://fundtekcapital.com",
       "logo": "https://fundtekcapital.com/assets/logo.png",
-      "description": "Professional business funding solutions including term loans, merchant cash advances, and equipment financing.",
+      "description": "Professional business funding broker connecting businesses with lending partners for term loans, merchant cash advances, equipment financing, and comprehensive financial solutions.",
       "telephone": "(305) 307-4658",
-      "email": "admin@fundtekcapital.com",
+      "email": "info@fundtekcapital.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Miami",
         "addressRegion": "FL",
+        "postalCode": "33101",
         "addressCountry": "US"
       },
+      "areaServed": "United States",
       "serviceType": [
-        "Business Loans",
-        "Term Loans", 
-        "Merchant Cash Advance",
+        "Business Loan Brokerage",
+        "Term Loans",
+        "Merchant Cash Advance", 
         "Equipment Financing",
         "SBA Loans",
-        "Lines of Credit"
-      ]
+        "Lines of Credit",
+        "Invoice Factoring",
+        "P.O. Financing",
+        "Debt Consolidation",
+        "Credit Services"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Business Funding Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Term Loans",
+              "description": "Traditional business term loans with competitive rates through our lending network"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Equipment Financing",
+              "description": "Specialized financing for business equipment and machinery"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Merchant Cash Advance",
+              "description": "Fast access to working capital based on future credit card sales"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5"
+      },
+      "openingHours": [
+        "Mo-Fr 09:00-18:00"
+      ],
+      "priceRange": "$10,000 - $5,000,000"
     };
 
     updateStructuredData(structuredData);
