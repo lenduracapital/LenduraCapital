@@ -9,11 +9,11 @@ interface PerformanceMetric {
 }
 
 interface WebVitalsReport {
-  lcp: number;
-  fid: number;
-  cls: number;
-  fcp: number;
-  ttfb: number;
+  lcp?: number;
+  inp?: number;
+  cls?: number;
+  fcp?: number;
+  ttfb?: number;
   timestamp: number;
   url: string;
   userAgent: string;
@@ -23,7 +23,7 @@ class PerformanceMonitor {
   private vitals: Partial<WebVitalsReport> = {};
   private thresholds = {
     lcp: { good: 2500, poor: 4000 },
-    fid: { good: 100, poor: 300 },
+    inp: { good: 200, poor: 500 },
     cls: { good: 0.1, poor: 0.25 },
     fcp: { good: 1800, poor: 3000 },
     ttfb: { good: 800, poor: 1800 }
@@ -36,7 +36,7 @@ class PerformanceMonitor {
   private initializeTracking() {
     // Track Core Web Vitals
     onLCP(this.handleMetric.bind(this, 'lcp'));
-    onFID(this.handleMetric.bind(this, 'fid'));
+    onINP(this.handleMetric.bind(this, 'inp'));
     onCLS(this.handleMetric.bind(this, 'cls'));
     onFCP(this.handleMetric.bind(this, 'fcp'));
     onTTFB(this.handleMetric.bind(this, 'ttfb'));
