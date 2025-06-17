@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard, ArrowLeft, CheckCircle, Star, Phone } from "lucide-react";
+import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard, ArrowLeft, CheckCircle, Star, Phone, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
+import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -114,6 +115,7 @@ const solutions = [
 
 export default function Solutions() {
   const [, setLocation] = useLocation();
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -121,6 +123,10 @@ export default function Solutions() {
 
   const handleBackToHome = () => {
     setLocation("/");
+  };
+
+  const toggleCard = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
   };
 
   return (
@@ -159,60 +165,77 @@ export default function Solutions() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {solutions.map((solution, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group cursor-pointer">
-                <div className="aspect-video bg-gray-200 relative overflow-hidden">
-                  <img 
-                    src={solution.image}
-                    alt={solution.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                  <div className="absolute top-4 left-4">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                      <div style={{ color: '#85abe4' }}>
-                        {solution.icon}
+            {solutions.map((solution, index) => {
+              const isExpanded = expandedCard === index;
+              return (
+                <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                    <img 
+                      src={solution.image}
+                      alt={solution.title}
+                      className="w-full h-full object-cover transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                    <div className="absolute top-4 left-4">
+                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                        <div style={{ color: '#85abe4' }}>
+                          {solution.icon}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  {/* Collapsed state - only shows title when not hovered */}
-                  <div className="group-hover:hidden">
-                    <div className="h-20 flex items-center justify-center">
-                      <p className="text-gray-500 text-center italic">Hover to see details</p>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
                     </div>
                   </div>
                   
-                  {/* Expanded state - shows full details on hover */}
-                  <div className="hidden group-hover:block transition-all duration-300">
-                    <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                  <div className="p-6">
+                    {/* Tap to expand button */}
+                    <button
+                      onClick={() => toggleCard(index)}
+                      className="w-full flex items-center justify-between p-3 mb-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200 touch-target focus-ring"
+                      aria-expanded={isExpanded}
+                      aria-label={`${isExpanded ? 'Hide' : 'Show'} details for ${solution.title}`}
+                    >
+                      <span className="text-gray-700 font-medium">
+                        {isExpanded ? 'Hide Details' : 'Tap for Details'}
+                      </span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-5 h-5 text-gray-600" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-600" />
+                      )}
+                    </button>
                     
-                    <ul className="space-y-2 mb-6">
-                      {solution.features.map((feature, idx) => (
-                        <li key={idx} className="text-gray-700 text-sm flex items-center">
-                          <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Expandable content with smooth animation */}
+                    <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                      <div className="pb-4">
+                        <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                        
+                        <ul className="space-y-2 mb-6">
+                          {solution.features.map((feature, idx) => (
+                            <li key={idx} className="text-gray-700 text-sm flex items-center">
+                              <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <Button 
+                      onClick={() => setLocation(solution.route)}
+                      style={{ backgroundColor: '#85abe4' }}
+                      className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity touch-target focus-ring"
+                    >
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                   </div>
-                  
-                  <Button 
-                    onClick={() => setLocation(solution.route)}
-                    style={{ backgroundColor: '#85abe4' }}
-                    className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

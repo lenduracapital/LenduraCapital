@@ -60,16 +60,16 @@ export default function ContactFormSection() {
               <p className="text-base text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
             </div>
             
-            {/* Mobile-optimized iframe container */}
-            <div className="relative w-full jotform-container">
+            {/* Mobile-optimized iframe container with focus enhancements */}
+            <div className="relative w-full jotform-container form-focus">
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
                 height="800"
                 frameBorder="0"
                 scrolling="yes"
-                title="Business Funding Application Form"
-                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0"
+                title="Business Funding Application Form - Step 1 of 2"
+                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
                 style={{ 
                   border: 'none',
                   background: 'white',
@@ -79,6 +79,11 @@ export default function ContactFormSection() {
                 loading="lazy"
                 sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
               ></iframe>
+              
+              {/* Mobile form progress indicator */}
+              <div className="block md:hidden absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
+                Tap fields for focus
+              </div>
             </div>
           </div>
         </div>
