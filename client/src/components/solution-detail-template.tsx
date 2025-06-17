@@ -100,6 +100,40 @@ export default function SolutionDetailTemplate({
         </div>
       </section>
 
+      {/* Testimonial Section with Full Background Image */}
+      <section 
+        className="relative py-32 bg-cover bg-center"
+        style={{
+          backgroundImage: `url('${contentImage}')`
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-8">
+            What our clients are saying about our solutions
+          </h2>
+          
+          <div className="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-lg">
+            <p className="text-xl text-white italic leading-relaxed mb-6">
+              "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
+            </p>
+            
+            <div className="flex items-center justify-center">
+              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                M
+              </div>
+              <div className="text-left">
+                <p className="text-white font-semibold">Restaurant Owner</p>
+                <div className="flex text-yellow-400">
+                  ★★★★★
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
