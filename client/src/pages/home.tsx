@@ -1,11 +1,11 @@
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
-import WorkingCapitalSection from "@/components/working-capital-section";
-import WhyFundTekSection from "@/components/why-fundtek-section";
-import HowItWorksSection from "@/components/how-it-works-section";
-import TestimonialsSection from "@/components/testimonials-section";
 import ProcessSection from "@/components/process-section";
 import ContactFormSection from "@/components/contact-form-section";
+import WorkingCapitalSection from "@/components/working-capital-section";
+import TestimonialsSection from "@/components/testimonials-section";
+import MoveBusinessForwardSection from "@/components/move-business-forward-section";
+import BusinessSolutionsSection from "@/components/business-solutions-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -16,9 +16,9 @@ export default function Home() {
       <ProcessSection />
       <ContactFormSection />
       <WorkingCapitalSection />
-      <WhyFundTekSection />
-      <HowItWorksSection />
       <TestimonialsSection />
+      <MoveBusinessForwardSection />
+      <BusinessSolutionsSection />
       <Footer />
     </div>
   );

@@ -18,15 +18,16 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="bg-[--bg-secondary] rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-[--text-primary] mb-6">Contact Us</h3>
+          <div className="bg-white rounded-lg p-8">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Get working capital today</h3>
+            <p className="text-sm text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
             <div className="w-full">
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="800"
+                height="600"
                 frameBorder="0"
-                scrolling="yes"
+                scrolling="no"
                 title="Contact Form"
                 className="rounded-lg"
               ></iframe>
