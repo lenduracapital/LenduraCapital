@@ -10,7 +10,7 @@ export default function TermsPage() {
         description="Terms and conditions for FundTek Capital Group business funding services. Review our policies and procedures."
         canonical="/terms"
       />
-      <Header transparent={false} />
+      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>

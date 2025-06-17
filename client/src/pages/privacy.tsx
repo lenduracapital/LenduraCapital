@@ -10,7 +10,7 @@ export default function PrivacyPage() {
         description="Privacy policy for FundTek Capital Group. Learn how we protect and handle your personal and business information."
         canonical="/privacy"
       />
-      <Header transparent={false} />
+      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>

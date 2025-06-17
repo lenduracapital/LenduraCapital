@@ -10,7 +10,7 @@ export default function CookiesPage() {
         description="Learn about how FundTek Capital Group uses cookies to improve your browsing experience and website functionality."
         canonical="/cookies"
       />
-      <Header transparent={false} />
+      <Header />
       
       {/* Hero Section */}
       <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>
