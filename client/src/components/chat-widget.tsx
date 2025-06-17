@@ -41,7 +41,7 @@ export default function ChatWidget() {
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       const welcomeMessage: ChatMessage = {
-        id: '1',
+        id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         text: "Hi there! Looking to speak to a FundTek representative? I can help! Let us know what kind of support you are looking for and I will route your chat to the appropriate department!",
         sender: 'bot',
         timestamp: new Date()
@@ -52,7 +52,7 @@ export default function ChatWidget() {
 
   const addMessage = (text: string, sender: 'bot' | 'user') => {
     const newMessage: ChatMessage = {
-      id: Date.now().toString(),
+      id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       text,
       sender,
       timestamp: new Date()
