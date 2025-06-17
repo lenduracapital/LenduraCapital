@@ -20,11 +20,11 @@ export default function TestimonialsSection() {
             <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold mr-4">
-                  M
+                  S
                 </div>
                 <div>
-                  <p className="text-black font-semibold">Maria Gonzalez</p>
-                  <p className="text-black text-sm">Gonzalez Bistro</p>
+                  <p className="text-black font-semibold">Sarah Mitchell</p>
+                  <p className="text-black text-sm">Mitchell's Restaurant</p>
                   <div className="flex text-yellow-400">
                     <Star className="h-4 w-4 fill-current" />
                     <Star className="h-4 w-4 fill-current" />

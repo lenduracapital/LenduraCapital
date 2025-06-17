@@ -67,7 +67,7 @@ export default function HeroSection() {
       
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md text-left ml-4 md:ml-8 lg:ml-16 w-full md:w-auto">
+        <div className="max-w-md text-left ml-0 md:ml-0 lg:ml-0 w-full md:w-auto">
           <h1 className="responsive-heading-lg font-bold text-white mb-4 leading-tight hero-text">
             Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
           </h1>
