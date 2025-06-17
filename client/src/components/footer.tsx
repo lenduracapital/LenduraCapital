@@ -41,7 +41,7 @@ export default function Footer() {
               <img 
                 src={fundTekLogo} 
                 alt="FundTek Capital Group" 
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-[--text-secondary] text-sm">

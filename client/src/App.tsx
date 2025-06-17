@@ -10,6 +10,8 @@ import MerchantCashAdvance from "@/pages/merchant-cash-advance";
 import TermLoans from "@/pages/term-loans";
 import LoanApplication from "@/pages/loan-application";
 import MerchantCashAdvanceDetail from "@/pages/solutions/merchant-cash-advance";
+import TermLoansDetail from "@/pages/solutions/term-loans";
+import TestimonialsPage from "@/pages/testimonials";
 import NotFound from "@/pages/not-found";
 
 function Router() {

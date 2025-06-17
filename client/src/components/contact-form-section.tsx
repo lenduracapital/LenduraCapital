@@ -8,16 +8,18 @@ export default function ContactFormSection() {
               <h3 className="text-3xl font-bold mb-6 leading-relaxed">Over $1B in working capital provided to U.S. small-medium sized businesses.</h3>
             </div>
             
-            <div className="space-y-8 text-center">
+            <div className="text-center space-y-6">
               <h4 className="text-2xl font-semibold text-gray-800 leading-relaxed">
                 Fast, flexible, revenue-based capital solutions built for growing businesses.
               </h4>
-            </div>
-            
-            <div className="text-center">
               <p className="text-gray-600 text-xl leading-relaxed">
                 A funding partner aligned with your business goals.
               </p>
+              <div className="bg-white p-6 rounded-lg shadow-lg inline-block">
+                <p className="text-lg text-gray-700 mb-2">Ready to get started?</p>
+                <p className="text-2xl font-bold text-gray-900">Call (305) 307-4658</p>
+                <p className="text-sm text-gray-600">Speak with a specialist today</p>
+              </div>
             </div>
           </div>
           

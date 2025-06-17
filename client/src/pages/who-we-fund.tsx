@@ -4,7 +4,6 @@ import { ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import IndustryServicesSection from "@/components/industry-services-section";
 
 const industries = [
   {
@@ -117,7 +116,7 @@ export default function WhoWeFund() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Qualified <span className="text-yellow-400">Industries</span>
+            Qualified <span style={{ color: '#85abe4' }}>Industries</span>
           </h1>
         </div>
       </section>
@@ -177,9 +176,6 @@ export default function WhoWeFund() {
           </div>
         </div>
       </section>
-
-      {/* Industry Expertise Section */}
-      <IndustryServicesSection />
 
       <Footer />
     </div>
