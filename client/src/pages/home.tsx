@@ -14,7 +14,7 @@ import Analytics from "@/components/analytics";
 import EnhancedSchema from "@/components/enhanced-schema";
 import ConversionTracking from "@/components/conversion-tracking";
 import PerformanceMonitor from "@/components/performance-monitor";
-// import ChatWidget from "@/components/chat-widget";
+import ChatWidget from "@/components/chat-widget";
 
 export default function Home() {
   return (
@@ -65,6 +65,7 @@ export default function Home() {
         <BusinessSolutionsSection />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

@@ -29,12 +29,10 @@ export default function ChatWidget() {
     responses: {}
   });
 
-  // Prevent chat widget from interfering with page links
-  const handleContainerClick = (e: React.MouseEvent) => {
-    // Only prevent propagation for clicks within the chat widget area
-    if (e.currentTarget === e.target || e.currentTarget.contains(e.target as Node)) {
-      e.stopPropagation();
-    }
+  // Proper event isolation - only handle clicks within widget boundaries
+  const handleWidgetClick = (e: React.MouseEvent) => {
+    // Only stop propagation for clicks originating from widget elements
+    e.stopPropagation();
   };
 
   // Show widget after 3 seconds
@@ -261,24 +259,22 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Chat Widget Container */}
+      {/* Chat Widget Container - Isolated Event Handling */}
       <div 
         className={`fixed bottom-4 right-4 z-40 transition-all duration-300 ease-in-out ${
           isOpen ? 'transform-none' : 'transform'
         }`}
         style={{ 
           maxWidth: 'calc(100vw - 2rem)',
-          width: isOpen ? 'min(380px, 80vw)' : 'auto',
-          pointerEvents: isOpen ? 'auto' : 'none'
+          width: isOpen ? 'min(380px, 80vw)' : 'auto'
         }}
-        onClick={handleContainerClick}
-        onMouseDown={handleContainerClick}
       >
         {/* Chat Window */}
         <div 
           className={`bg-white rounded-lg shadow-2xl border overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
           }`}
+          onClick={handleWidgetClick}
         >
           {/* Header */}
           <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
