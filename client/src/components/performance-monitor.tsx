@@ -29,8 +29,8 @@ export default function PerformanceMonitor() {
 
         // First Input Delay (FID) / Interaction to Next Paint (INP)
         const fidObserver = new PerformanceObserver((list) => {
-          list.getEntries().forEach((entry) => {
-            const fid = entry.processingStart - entry.startTime;
+          list.getEntries().forEach((entry: any) => {
+            const fid = entry.processingStart ? entry.processingStart - entry.startTime : entry.duration || 0;
             
             if (typeof window !== 'undefined' && (window as any).gtag) {
               (window as any).gtag('event', 'web_vitals', {

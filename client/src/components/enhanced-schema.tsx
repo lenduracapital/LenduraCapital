@@ -8,8 +8,8 @@ interface EnhancedSchemaProps {
 
 export default function EnhancedSchema({ pageType, solutionName, faqData }: EnhancedSchemaProps) {
   useEffect(() => {
-    // Base organization schema
-    const organizationSchema = {
+    // Base organization schema - using any type to avoid TypeScript conflicts
+    const organizationSchema: any = {
       "@context": "https://schema.org",
       "@type": "FinancialService",
       "name": "FundTek Capital Group",

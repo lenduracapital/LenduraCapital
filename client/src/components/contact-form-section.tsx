@@ -54,24 +54,30 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-lg p-1 md:p-2 lg:p-3 w-full max-w-none">
-            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 px-1 md:px-2">Get working capital today</h3>
-            <p className="text-sm text-gray-600 mb-6 px-1 md:px-2">Fill out the form below, and a team member will be in touch.</p>
-            <div className="w-full overflow-hidden -mx-1 md:-mx-2">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
+            <div className="p-4 md:p-6 lg:p-8">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Get working capital today</h3>
+              <p className="text-base text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
+            </div>
+            
+            {/* Mobile-optimized iframe container */}
+            <div className="relative w-full jotform-container">
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
                 height="800"
                 frameBorder="0"
-                scrolling="no"
-                title="Contact Form"
-                className="rounded-lg h-[700px] md:h-[800px] w-full"
+                scrolling="yes"
+                title="Business Funding Application Form"
+                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0"
                 style={{ 
-                  transform: 'scale(1.0)',
-                  transformOrigin: 'top left',
-                  width: '100%',
-                  height: '800px'
+                  border: 'none',
+                  background: 'white',
+                  maxWidth: '100%',
+                  overflow: 'hidden'
                 }}
+                loading="lazy"
+                sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
               ></iframe>
             </div>
           </div>
