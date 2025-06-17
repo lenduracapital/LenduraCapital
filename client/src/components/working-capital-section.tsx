@@ -83,7 +83,7 @@ export default function WorkingCapitalSection() {
           </div>
           <div className="text-center bg-white p-6 rounded-lg shadow-md">
             <p className="text-5xl font-black text-[--primary] mb-2">
-              <CountUp end={48} />
+              <CountUp end={24} />
             </p>
             <p className="text-[--primary] font-semibold text-lg">Hours</p>
             <p className="text-gray-500 mt-2">Typical turnaround</p>
