@@ -248,6 +248,15 @@ Changelog:
   * Integrated backend API endpoint routing submissions to Brian@fundtekcapitalgroup.com
   * Applied accessibility features including keyboard navigation, focus states, and ARIA labels
   * Widget starts fully expanded by default with close button for better user visibility
+- June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
+  * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
+  * Replaced all window.location.href calls with proper wouter useLocation hook navigation
+  * Updated header navigation (desktop and mobile) to use client-side routing
+  * Fixed footer links to use proper navigation handlers instead of page reloads
+  * Updated all component navigation: industry services, testimonials, solutions, working capital
+  * Ensured trust signals section buttons are properly clickable with pointer events
+  * Completed comprehensive audit removing all problematic window.location.href usages
+  * Website now functions properly as Single Page Application with persistent JavaScript state
 ```
 
 ## User Preferences
