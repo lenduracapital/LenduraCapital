@@ -101,6 +101,19 @@ FundTek Capital Group is a comprehensive business funding platform built as a fu
 ```
 Changelog:
 - June 17, 2025. Initial setup
+- June 17, 2025. Major homepage redesign:
+  * Made navigation invisible/transparent over video
+  * Moved logo from nav bar to left side of video section
+  * Updated hero section with right-aligned text overlay
+  * Changed 3-steps background to signature color #85abe4
+  * Added working capital section with rolling statistics (50+ specialists, 5+ options, $20M, 48 hours)
+  * Removed About Us page completely
+  * Moved industry expertise section to Who We Fund page
+  * Created new Solutions page with P.O. Financing and all funding options
+  * Made industry cards clickable to link to Solutions page
+  * Added mobile-responsive hamburger navigation
+  * Applied signature color #85abe4 throughout replacing all green elements
+  * Updated all Apply Now buttons to link to Jotform: https://form.jotform.com/251417715331047
 ```
 
 ## User Preferences
