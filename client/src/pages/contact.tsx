@@ -86,9 +86,6 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-black mb-6">
                 Request Information
               </h3>
-              <p className="text-gray-600 mb-6">
-                Fill out the form below and one of our funding specialists will contact you to discuss your financing options.
-              </p>
               
               <div className="w-full">
                 <iframe
