@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 const CountUp = ({ end, duration = 3000, suffix = "", prefix = "" }: { 
   end: number; 

@@ -149,7 +149,7 @@ export default function WhoWeFund() {
                   
                   <div className="pt-4">
                     <Button 
-                      onClick={() => window.location.href = '/solutions'}
+                      onClick={() => setLocation('/solutions')}
                       style={{ backgroundColor: '#85abe4' }}
                       className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
                     >

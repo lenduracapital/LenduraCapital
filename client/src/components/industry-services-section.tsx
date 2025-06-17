@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 import { Truck, Building2, Wrench, ShoppingCart, Car, Stethoscope, ArrowRight } from "lucide-react";
 
 const industries = [
@@ -85,6 +86,8 @@ const services = [
 ];
 
 export default function IndustryServicesSection() {
+  const [, setLocation] = useLocation();
+  
   return (
     <section className="py-20 bg-[--bg-secondary]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +106,7 @@ export default function IndustryServicesSection() {
             {industries.map((industry, index) => {
               const Icon = industry.icon;
               return (
-                <Card key={index} className="bg-[--bg-primary] border border-[--bg-tertiary]/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer" onClick={() => window.location.href = "/solutions"}>
+                <Card key={index} className="bg-[--bg-primary] border border-[--bg-tertiary]/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer" onClick={() => setLocation("/solutions")}>
                   <div 
                     className="h-48 bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${industry.image})` }}
@@ -155,9 +158,9 @@ export default function IndustryServicesSection() {
                     className="w-full bg-[--primary] hover:bg-[--primary-dark] text-white text-xs"
                     onClick={() => {
                       if (service.title === "Term Loans") {
-                        window.location.href = "/term-loans";
+                        setLocation("/term-loans");
                       } else if (service.title === "Revenue-Based Financing") {
-                        window.location.href = "/merchant-cash-advance";
+                        setLocation("/merchant-cash-advance");
                       } else {
                         window.open("https://form.jotform.com/251417715331047", "_blank");
                       }
