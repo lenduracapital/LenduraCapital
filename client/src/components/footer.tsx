@@ -33,21 +33,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-12">
+    <footer className="bg-white border-t border-gray-200 py-8 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-3">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="space-y-3 md:space-y-4 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start space-x-3">
               <img 
                 src={fundTekLogo} 
                 alt="FundTek Capital Group" 
-                className="h-32 w-auto"
+                className="h-20 md:h-32 w-auto"
               />
             </div>
-            <p className="text-black text-sm">
+            <p className="text-black text-xs md:text-sm">
               Would you like a free, no strings attached consultation?
             </p>
-            <p className="text-black text-sm">
+            <p className="text-black text-xs md:text-sm">
               Call us today at (305) 307-4658
             </p>
             <div className="flex space-x-4">
