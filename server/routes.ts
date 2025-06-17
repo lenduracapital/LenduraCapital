@@ -77,6 +77,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // XML Sitemap generation for SEO
+  app.get("/sitemap.xml", (_req: Request, res: Response) => {
+    const baseUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://fundtekcapital.com' 
+      : 'http://localhost:5000';
+    
+    const pages = [
+      { url: '/', priority: '1.0', changefreq: 'weekly' },
+      { url: '/solutions', priority: '0.9', changefreq: 'weekly' },
+      { url: '/solutions/term-loans', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/merchant-cash-advance', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/lines-of-credit', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/equipment-financing', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/sba-loans', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/invoice-factoring', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/po-financing', priority: '0.8', changefreq: 'monthly' },
+      { url: '/solutions/debt-consolidation', priority: '0.7', changefreq: 'monthly' },
+      { url: '/solutions/credit-services', priority: '0.7', changefreq: 'monthly' },
+      { url: '/who-we-fund', priority: '0.8', changefreq: 'monthly' },
+      { url: '/testimonials', priority: '0.7', changefreq: 'monthly' },
+      { url: '/contact', priority: '0.9', changefreq: 'monthly' }
+    ];
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join('\n')}
+</urlset>`;
+
+    res.setHeader('Content-Type', 'application/xml');
+    res.status(200).send(sitemap);
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;
