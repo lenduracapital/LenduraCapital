@@ -230,6 +230,13 @@ Changelog:
   * Achieved A- (90/100) overall audit score with significant improvements across all metrics
   * Mobile UX improved from B (80) to A- (88), Performance from B- (75) to B+ (83)
   * Technical SEO improved from A- (88) to A (92), Accessibility from B+ (85) to A- (88)
+- June 17, 2025. Final team photo adjustments (COMPLETE):
+  * Fixed critical JSX syntax error in chat widget that was breaking all website links
+  * Completely recreated chat widget with proper structure and event isolation
+  * Fixed more-testimonials page "Invalid array length" error caused by decimal ratings
+  * Updated Gabby Glickman's team photo with professional blonde woman headshot
+  * Applied consistent face-focused cropping for both Marc and Gabby team photos
+  * All website navigation and functionality now working correctly
 - June 17, 2025. Touch-optimized UX implementation for mobile devices:
   * Replaced hover-to-expand with tap-to-expand accordion functionality on Solutions page
   * Added thumb-friendly expand/collapse buttons with chevron indicators and smooth animations
