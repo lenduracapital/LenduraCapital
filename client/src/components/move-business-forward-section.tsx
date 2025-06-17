@@ -4,8 +4,7 @@ export default function MoveBusinessForwardSection() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* First section - centered text with icons */}
-        <div className="text-center mb-20">
+        <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6" style={{ color: '#85abe4' }}>
             Move your Business Forward
           </h2>
@@ -50,8 +49,6 @@ export default function MoveBusinessForwardSection() {
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );
