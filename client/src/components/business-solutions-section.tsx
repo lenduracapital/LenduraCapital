@@ -26,9 +26,9 @@ export default function BusinessSolutionsSection() {
               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
             </div>
             
-            {/* Overlay text on image */}
-            <div className="absolute bottom-8 left-8 bg-white p-6 rounded-lg max-w-sm">
-              <h3 className="text-2xl font-bold text-slate-800 mb-3">
+            {/* Bottom overlay text spanning full width */}
+            <div className="absolute bottom-0 left-0 right-0 bg-white p-6 m-4 rounded-lg">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">
                 Completely customized financial solution to meet your business needs
               </h3>
               <p className="text-gray-600 text-sm">
