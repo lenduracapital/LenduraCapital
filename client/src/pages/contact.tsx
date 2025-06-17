@@ -8,13 +8,13 @@ export default function Contact() {
       <Header transparent={true} />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 lg:pt-40 pb-20 bg-white">
+      <section className="pt-24 md:pt-32 lg:pt-40 pb-20" style={{ backgroundColor: '#85abe4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-black mb-6">
-              Contact <span style={{ color: '#85abe4' }}>FundTek Capital Group</span>
+            <h1 className="text-4xl font-bold text-white mb-6">
+              Contact <span className="text-white">FundTek Capital Group</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-3xl mx-auto">
               Ready to secure funding for your business? Our team of financial experts is here to help you find the perfect financing solution.
             </p>
           </div>
@@ -22,17 +22,17 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form Section */}
-      <section className="py-20" style={{ backgroundColor: '#85abe4' }}>
+      <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6">
+                <h2 className="text-3xl font-bold text-black mb-6">
                   Partner with FundTek Capital Group
                 </h2>
-                <p className="text-white text-lg mb-8">
+                <p className="text-gray-600 text-lg mb-8">
                   Ready to accelerate your business growth? Our dedicated funding specialists provide personalized solutions tailored to your unique business needs. From same-day approvals to flexible terms, we make business financing simple and accessible.
                 </p>
               </div>
@@ -40,38 +40,38 @@ export default function Contact() {
               {/* Contact Details */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-white p-3 rounded-lg">
-                    <Phone className="h-6 w-6" style={{ color: '#85abe4' }} />
+                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
+                    <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Direct Line</h3>
-                    <p className="text-white">(305) 307-4658</p>
+                    <h3 className="font-semibold text-black">Direct Line</h3>
+                    <p className="text-gray-600">(305) 307-4658</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="bg-white p-3 rounded-lg">
-                    <Mail className="h-6 w-6" style={{ color: '#85abe4' }} />
+                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
+                    <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Email</h3>
-                    <p className="text-white">admin@fundtekcapital.com</p>
+                    <h3 className="font-semibold text-black">Email</h3>
+                    <p className="text-gray-600">admin@fundtekcapital.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="bg-white p-3 rounded-lg">
-                    <Clock className="h-6 w-6" style={{ color: '#85abe4' }} />
+                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
+                    <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Business Hours</h3>
-                    <p className="text-white">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                    <h3 className="font-semibold text-black">Business Hours</h3>
+                    <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
                   </div>
                 </div>
               </div>
 
               {/* Quick Response Promise */}
-              <div className="bg-white/20 backdrop-blur-sm border border-white/30 p-6 rounded-lg">
+              <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
                 <h3 className="text-white font-semibold text-lg mb-2">
                   Same-Day Response Guarantee
                 </h3>
