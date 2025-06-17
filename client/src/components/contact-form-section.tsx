@@ -3,14 +3,18 @@ export default function ContactFormSection() {
     <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div style={{ display: 'flex', flexDirection: 'column', height: '600px' }}>
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            justifyContent: 'space-between',
+            height: '700px'
+          }}>
             {/* Blue box at the TOP */}
             <div style={{ 
               backgroundColor: '#85abe4', 
               padding: '30px', 
               borderRadius: '8px',
-              width: '400px',
-              marginBottom: '0'
+              width: '400px'
             }}>
               <div style={{
                 color: 'white',
@@ -26,12 +30,7 @@ export default function ContactFormSection() {
             </div>
             
             {/* Fast flexible text in the MIDDLE */}
-            <div style={{ 
-              width: '400px',
-              flex: '1',
-              display: 'flex',
-              alignItems: 'center'
-            }}>
+            <div style={{ width: '400px' }}>
               <div style={{
                 color: 'black',
                 fontSize: '24px',
