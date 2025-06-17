@@ -22,7 +22,7 @@ const testimonials = [
     title: "Restaurant Owner",
     company: "La Casa Restaurant",
     rating: 5,
-    text: "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!",
+    text: "We needed to upgrade our kitchen equipment before the busy season. FundTek's team walked us through the options and helped us find financing that worked with our cash flow. The approval process was much faster than our bank.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
     solution: "Equipment Financing"
   },

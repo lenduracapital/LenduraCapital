@@ -209,7 +209,8 @@ Changelog:
 - June 17, 2025. Testimonials authenticity improvement:
   * Replaced overly promotional first testimonial with more authentic and believable content
   * Updated Robert Chen's auto shop story to sound more genuine and relatable
-  * Removed exaggerated claims and focused on realistic business scenarios
+  * Fixed Maria Rodriguez restaurant testimonial by removing fake promotional language like "Loan paid for itself in 1-2 years!"
+  * Removed exaggerated claims and focused on realistic business scenarios across testimonials
 ```
 
 ## User Preferences
