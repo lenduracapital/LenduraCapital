@@ -1,19 +1,19 @@
 User-agent: *
 Allow: /
 
-# XML Sitemap
 Sitemap: https://fundtekcapital.com/sitemap.xml
 
-# Block common bot paths
+# Block admin areas
 Disallow: /admin/
 Disallow: /api/
-Disallow: /*.json$
+Disallow: /_next/
+Disallow: /node_modules/
 
-# Allow important pages for SEO
-Allow: /solutions/
-Allow: /contact/
-Allow: /testimonials/
-Allow: /who-we-fund/
+# Allow specific resources
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
 
-# Crawl delay for respectful indexing
+# Crawl delay (optional - helps prevent server overload)
 Crawl-delay: 1

@@ -46,7 +46,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             <img 
               src={logoPath}
               alt="FundTek Capital Group Logo" 
-              className="h-20 md:h-32 w-auto"
+              className="h-16 sm:h-20 md:h-24 lg:h-32 w-auto"
             />
           </div>
 
