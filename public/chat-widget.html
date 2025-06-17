@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FundTek Chat Widget</title>
+    <style>
+        /* Chat Widget Styles */
+        .chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: calc(100vw - 40px);
+        }
+
+        /* Chat toggle button */
+        .chat-toggle {
+            background: #1E88E5;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(30, 136, 229, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+        }
+
+        .chat-toggle:hover {
+            background: #1976D2;
+            transform: scale(1.05);
+        }
+
+        .chat-toggle:focus {
+            box-shadow: 0 0 0 4px rgba(30, 136, 229, 0.3);
+        }
+
+        /* Chat window */
+        .chat-window {
+            width: 380px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .chat-window.open {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .chat-window.closed {
+            pointer-events: none;
+        }
+
+        /* Chat header */
+        .chat-header {
+            background: #1E88E5;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1E88E5;
+            font-size: 20px;
+        }
+
+        .chat-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .chat-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 2px 0 0 0;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .chat-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Messages area */
+        .chat-messages {
+            height: 320px;
+            padding: 16px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            display: flex;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message.bot .message-bubble {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message.user .message-bubble {
+            background: #1E88E5;
+            color: white;
+        }
+
+        /* Button options */
+        .chat-options {
+            padding: 0 16px 16px;
+            background: #f8f9fa;
+        }
+
+        .option-button {
+            width: 100%;
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            color: #1565c0;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: left;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .option-button:hover {
+            background: #bbdefb;
+            transform: translateY(-1px);
+        }
+
+        .option-button:focus {
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+        }
+
+        .option-button:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .chat-widget-container {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+
+            .chat-window {
+                width: 100%;
+                max-width: none;
+            }
+
+            .chat-toggle {
+                margin-left: auto;
+            }
+        }
+
+        /* Animation classes */
+        .slide-up-enter {
+            animation: slideUpEnter 0.3s ease forwards;
+        }
+
+        @keyframes slideUpEnter {
+            from {
+                transform: translateY(100px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Robot icon */
+        .robot-icon::before {
+            content: "🤖";
+            font-size: 20px;
+        }
+
+        /* Message typing indicator */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 0;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-widget-container" id="chatWidget" style="display: none;">
+        <!-- Chat Window -->
+        <div class="chat-window closed" id="chatWindow">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="chat-avatar">
+                        <div class="robot-icon"></div>
+                    </div>
+                    <div>
+                        <div class="chat-title">FundTek</div>
+                        <div class="chat-subtitle">Here to assist!</div>
+                    </div>
+                </div>
+                <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+            </div>
+
+            <!-- Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be added here dynamically -->
+            </div>
+
+            <!-- Options -->
+            <div class="chat-options" id="chatOptions">
+                <!-- Options will be added here dynamically -->
+            </div>
+        </div>
+
+        <!-- Toggle Button -->
+        <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" aria-label="Open chat">
+            💬
+        </button>
+    </div>
+
+    <script>
+        // Chat widget state
+        let chatState = {
+            isOpen: false,
+            step: 'initial',
+            responses: {}
+        };
+
+        // Initialize widget after 3 seconds
+        setTimeout(() => {
+            document.getElementById('chatWidget').style.display = 'block';
+            document.getElementById('chatWidget').classList.add('slide-up-enter');
+        }, 3000);
+
+        // Toggle chat window
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            const chatToggle = document.getElementById('chatToggle');
+            
+            chatState.isOpen = !chatState.isOpen;
+            
+            if (chatState.isOpen) {
+                chatWindow.classList.remove('closed');
+                chatWindow.classList.add('open');
+                chatToggle.style.opacity = '0';
+                chatToggle.style.pointerEvents = 'none';
+                
+                // Initialize chat if first time opening
+                if (chatState.step === 'initial') {
+                    initializeChat();
+                }
+            } else {
+                chatWindow.classList.remove('open');
+                chatWindow.classList.add('closed');
+                chatToggle.style.opacity = '1';
+                chatToggle.style.pointerEvents = 'auto';
+            }
+        }
+
+        // Initialize chat with welcome message
+        function initializeChat() {
+            const welcomeMessage = "Hi there! Looking to speak to a FundTek representative? I can help! Let us know what kind of support you are looking for and I will route your chat to the appropriate department!";
+            
+            addMessage(welcomeMessage, 'bot');
+            
+            setTimeout(() => {
+                showOptions([
+                    "I am a business looking for financing"
+                ]);
+            }, 1000);
+        }
+
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            bubbleDiv.textContent = text;
+            
+            messageDiv.appendChild(bubbleDiv);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTyping() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator';
+            typingIndicator.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+            
+            bubbleDiv.appendChild(typingIndicator);
+            typingDiv.appendChild(bubbleDiv);
+            messagesContainer.appendChild(typingDiv);
+            
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Remove typing indicator
+        function removeTyping() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Show option buttons
+        function showOptions(options) {
+            const optionsContainer = document.getElementById('chatOptions');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'option-button';
+                button.textContent = option;
+                button.onclick = () => handleOptionClick(option);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        // Handle option click
+        function handleOptionClick(option) {
+            // Add user's response
+            addMessage(option, 'user');
+            
+            // Clear options
+            document.getElementById('chatOptions').innerHTML = '';
+            
+            // Show typing indicator
+            showTyping();
+            
+            // Process response after delay
+            setTimeout(() => {
+                removeTyping();
+                processUserResponse(option);
+            }, 1500);
+        }
+
+        // Process user response and advance conversation
+        function processUserResponse(response) {
+            switch (chatState.step) {
+                case 'initial':
+                    if (response === "I am a business looking for financing") {
+                        chatState.responses.userType = response;
+                        chatState.step = 'timeline';
+                        addMessage("Great! What's your ideal funding timeline?", 'bot');
+                        setTimeout(() => {
+                            showOptions(['ASAP', '1-2 weeks', 'Longer']);
+                        }, 500);
+                    }
+                    break;
+                    
+                case 'timeline':
+                    chatState.responses.timeline = response;
+                    chatState.step = 'product';
+                    addMessage("Which product interests you most?", 'bot');
+                    setTimeout(() => {
+                        showOptions(['Term loan', 'Line of credit', 'Consolidation']);
+                    }, 500);
+                    break;
+                    
+                case 'product':
+                    chatState.responses.product = response;
+                    chatState.step = 'revenue';
+                    addMessage("What's your monthly revenue range?", 'bot');
+                    setTimeout(() => {
+                        showOptions(['<$50K', '$50K-$200K', '>$200K']);
+                    }, 500);
+                    break;
+                    
+                case 'revenue':
+                    chatState.responses.revenue = response;
+                    chatState.step = 'complete';
+                    addMessage("Perfect! I'm connecting you with one of our funding specialists who will reach out shortly. Thank you for your interest in FundTek Capital Group!", 'bot');
+                    
+                    // Send data to backend
+                    sendChatData();
+                    break;
+            }
+        }
+
+        // Send chat data to backend
+        async function sendChatData() {
+            try {
+                const chatData = {
+                    timestamp: new Date().toISOString(),
+                    userType: chatState.responses.userType,
+                    timeline: chatState.responses.timeline,
+                    product: chatState.responses.product,
+                    revenue: chatState.responses.revenue,
+                    source: 'Chat Widget'
+                };
+
+                const response = await fetch('/api/chat-submissions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(chatData)
+                });
+
+                if (response.ok) {
+                    console.log('Chat submission sent successfully');
+                } else {
+                    console.error('Failed to send chat submission');
+                }
+            } catch (error) {
+                console.error('Error sending chat data:', error);
+            }
+        }
+
+        // Close chat when clicking outside (optional)
+        document.addEventListener('click', function(event) {
+            const chatWidget = document.getElementById('chatWidget');
+            const chatWindow = document.getElementById('chatWindow');
+            const chatToggle = document.getElementById('chatToggle');
+            
+            if (chatState.isOpen && !chatWidget.contains(event.target)) {
+                // Uncomment the line below if you want to close chat when clicking outside
+                // toggleChat();
+            }
+        });
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && chatState.isOpen) {
+                toggleChat();
+            }
+        });
+    </script>
+</body>
+</html>

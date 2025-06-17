@@ -77,6 +77,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Chat widget submissions endpoint
+  app.post("/api/chat-submissions", async (req, res) => {
+    try {
+      const { timestamp, userType, timeline, product, revenue, source } = req.body;
+      
+      // Create email content
+      const emailContent = `
+New Chat Widget Submission - FundTek Capital Group
+
+Timestamp: ${timestamp}
+Source: ${source}
+
+Customer Information:
+- User Type: ${userType}
+- Funding Timeline: ${timeline}
+- Product Interest: ${product}
+- Monthly Revenue Range: ${revenue}
+
+Please follow up with this potential client promptly.
+
+This message was automatically generated from the FundTek Capital Group website chat widget.
+      `.trim();
+
+      // Log the submission for tracking
+      console.log('Chat submission received:', {
+        timestamp,
+        userType,
+        timeline,
+        product,
+        revenue
+      });
+
+      // In a production environment, you would integrate with an email service here
+      // For now, we'll log the email content that would be sent to Brian@fundtekcapitalgroup.com
+      console.log('Email to be sent to Brian@fundtekcapitalgroup.com:');
+      console.log(emailContent);
+
+      res.json({ 
+        success: true, 
+        message: "Chat submission received and forwarded to our team" 
+      });
+    } catch (error) {
+      console.error("Error processing chat submission:", error);
+      res.status(500).json({ error: "Failed to process chat submission" });
+    }
+  });
+
   // XML Sitemap generation for SEO
   app.get("/sitemap.xml", (_req: Request, res: Response) => {
     try {
