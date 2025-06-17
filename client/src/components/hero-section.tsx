@@ -69,25 +69,13 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
-          poster="/video/optimized/hero-poster.jpg"
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80"
           onLoadStart={() => console.log('Video loading started')}
           onCanPlayThrough={() => console.log('Video ready to play')}
           aria-label="FundTek Capital Group business financing solutions showcase"
         >
           <source src={videoPath} type="video/mp4" />
-          <track 
-            kind="captions" 
-            src="/video/captions/hero-video-en.vtt" 
-            srcLang="en" 
-            label="English captions"
-            default 
-          />
-          <track 
-            kind="descriptions" 
-            src="/video/captions/hero-video-desc-en.vtt" 
-            srcLang="en" 
-            label="Audio descriptions" 
-          />
+
           Your browser does not support the video tag.
         </video>
       ) : (
