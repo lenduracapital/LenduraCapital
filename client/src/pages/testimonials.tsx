@@ -99,11 +99,7 @@ export default function TestimonialsPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <nav className="flex items-center justify-center space-x-2 text-sm text-gray-300 mb-8">
-            <button onClick={handleBackToHome} className="hover:text-white transition-colors">Home</button>
-            <span>›</span>
-            <span className="text-white font-medium">Client Success Stories</span>
-          </nav>
+
           
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
             Real Stories, Real Results
