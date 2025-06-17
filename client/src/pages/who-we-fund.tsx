@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import IndustryServicesSection from "@/components/industry-services-section";
 
 const industries = [
   {
@@ -140,6 +141,9 @@ export default function WhoWeFund() {
           </div>
         </div>
       </section>
+
+      {/* Industry Expertise Section */}
+      <IndustryServicesSection />
 
       <Footer />
     </div>

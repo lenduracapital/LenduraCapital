@@ -103,7 +103,7 @@ export default function IndustryServicesSection() {
             {industries.map((industry, index) => {
               const Icon = industry.icon;
               return (
-                <Card key={index} className="bg-[--bg-primary] border border-[--bg-tertiary]/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                <Card key={index} className="bg-[--bg-primary] border border-[--bg-tertiary]/30 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer" onClick={() => window.location.href = "/solutions"}>
                   <div 
                     className="h-48 bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${industry.image})` }}
