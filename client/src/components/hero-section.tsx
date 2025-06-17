@@ -29,7 +29,7 @@ export default function HeroSection() {
         <img 
           src={newLogoPath}
           alt="FundTek Capital Group" 
-          className="h-32 w-auto"
+          className="h-40 w-auto"
         />
       </div>
       
