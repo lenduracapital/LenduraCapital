@@ -5,7 +5,7 @@ export default function ContactFormSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-12 flex flex-col justify-center h-full">
             <div style={{ backgroundColor: '#85abe4' }} className="p-10 rounded-lg">
-              <h3 className="text-3xl font-normal mb-0 leading-relaxed text-white">
+              <h3 className="text-3xl font-normal mb-0 leading-normal text-white">
                 Over $1B in working capital<br />
                 provided to U.S. small-medium<br />
                 sized businesses.
