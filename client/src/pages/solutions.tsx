@@ -138,39 +138,10 @@ export default function Solutions() {
         />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Financing Solutions for Every Business
+          <div className="text-left max-w-4xl">
+            <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
+              Solutions
             </h1>
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-              Discover tailored funding options designed to help your business grow, expand, and succeed in today's competitive market.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                onClick={handleApplyNow}
-                style={{ backgroundColor: '#85abe4' }}
-                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90"
-              >
-                Get Pre-Qualified
-              </Button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">24hr</div>
-                <div className="text-gray-300 text-sm">Fast Approval</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">$20M+</div>
-                <div className="text-gray-300 text-sm">Funded</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">50+</div>
-                <div className="text-gray-300 text-sm">Specialists</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
