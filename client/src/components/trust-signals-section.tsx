@@ -7,11 +7,6 @@ const certifications = [
     description: "Fully licensed financial services provider with comprehensive insurance coverage"
   },
   {
-    icon: Award,
-    title: "BBB A+ Rating",
-    description: "Better Business Bureau accredited with highest rating for customer satisfaction"
-  },
-  {
     icon: Users,
     title: "5,000+ Clients Served",
     description: "Successfully funded thousands of businesses across multiple industries"
@@ -35,22 +30,22 @@ const certifications = [
 
 const teamMembers = [
   {
-    name: "Michael Rodriguez",
+    name: "Eric Crawford",
     title: "Senior Funding Specialist",
     experience: "15+ years",
     specialties: ["Equipment Financing", "SBA Loans", "Term Loans"],
     credentials: "Certified Commercial Lending Professional"
   },
   {
-    name: "Sarah Chen", 
+    name: "Lilly Harris", 
     title: "Business Capital Advisor",
     experience: "12+ years",
     specialties: ["Merchant Cash Advance", "Working Capital", "Invoice Factoring"],
     credentials: "MBA Finance, Commercial Credit Analyst"
   },
   {
-    name: "David Thompson",
-    title: "Credit Solutions Manager", 
+    name: "Brian Higgins",
+    title: "Business Development Director", 
     experience: "18+ years",
     specialties: ["Credit Repair", "Debt Consolidation", "Business Credit Building"],
     credentials: "Certified Credit Professional, NACM Member"
