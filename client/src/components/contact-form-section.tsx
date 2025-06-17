@@ -61,16 +61,16 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="400"
+                height="800"
                 frameBorder="0"
                 scrolling="no"
                 title="Contact Form"
-                className="rounded-lg h-[400px] md:h-[450px] w-full"
+                className="rounded-lg h-[700px] md:h-[800px] w-full"
                 style={{ 
-                  transform: 'scale(0.75)',
+                  transform: 'scale(1.0)',
                   transformOrigin: 'top left',
-                  width: '133%',
-                  height: '533px'
+                  width: '100%',
+                  height: '800px'
                 }}
               ></iframe>
             </div>

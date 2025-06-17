@@ -199,6 +199,10 @@ Changelog:
   * Fixed qualification requirements black box to signature blue (#85abe4) with white text across all solution pages
   * Changed "Back to Home" button to "Back to Solutions" linking to /solutions page
   * Applied fixes to solution detail template affecting all 9 financing solution pages automatically
+- June 17, 2025. Contact form optimization:
+  * Optimized "Get working capital today" form to display in single view without scrolling
+  * Expanded form height to 650px and scale to 0.9 to fill available space efficiently
+  * Removed internal scrolling while maintaining full form visibility
 ```
 
 ## User Preferences
