@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 export default function Contact() {
   return (
     <div className="min-h-screen bg-white">
-      <Header transparent={false} />
+      <Header transparent={true} />
       
       {/* Hero Section */}
       <section className="pt-24 md:pt-32 lg:pt-40 pb-20 bg-white">
