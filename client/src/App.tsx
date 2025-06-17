@@ -26,6 +26,7 @@ const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
 const Terms = lazy(() => import("@/pages/terms"));
 const Privacy = lazy(() => import("@/pages/privacy"));
+const Cookies = lazy(() => import("@/pages/cookies"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 // Loading fallback component
@@ -60,6 +61,7 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/terms" component={Terms} />
         <Route path="/privacy" component={Privacy} />
+        <Route path="/cookies" component={Cookies} />
         <Route path="/apply" component={LoanApplication} />
         <Route component={NotFound} />
       </Switch>
