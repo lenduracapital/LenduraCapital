@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
+import logoPath from "@assets/image_1749676077493.png";
 
 export default function HeroSection() {
   const handleApplyNow = () => {
@@ -7,7 +8,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen overflow-hidden">
       {/* Background Video */}
       <video 
         autoPlay 
@@ -21,30 +22,40 @@ export default function HeroSection() {
       </video>
       
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-          <span className="text-white">Flexible Financing</span><br />
-          <span className="text-white">for </span>
-          <span className="text-[--primary]">Every Industry</span>
-        </h1>
-        
-        <div className="bg-[--primary] bg-opacity-80 p-6 rounded-lg max-w-2xl mx-auto mb-8">
-          <p className="text-lg md:text-xl text-white leading-relaxed">
-            Empower your business with custom tailored<br />
-            financial and business solutions, call us at <br />
-            <span className="text-yellow-300 font-bold">(646) 329-4622</span> to see your options
-          </p>
+      {/* Logo on Left */}
+      <div className="absolute top-8 left-8 z-20">
+        <img 
+          src={logoPath} 
+          alt="FundTek Capital Group" 
+          className="h-16 w-auto"
+        />
+        <div className="text-white text-sm font-light mt-1 tracking-wider">
+          Capital Group
         </div>
-        
-        <Button 
-          onClick={handleApplyNow}
-          className="bg-[--primary] hover:bg-[--primary-dark] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
-        >
-          Apply Now
-        </Button>
+      </div>
+      
+      {/* Content on Right */}
+      <div className="relative z-10 h-full flex items-center justify-end px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md text-right mr-8 lg:mr-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight text-shadow">
+            Flexible Financing for Every Industry
+          </h1>
+          <p className="text-white text-lg mb-6 leading-relaxed text-shadow">
+            Empower your business with custom tailored financial and business solutions
+          </p>
+          <p className="text-white text-lg mb-8 text-shadow">
+            Call us at <span className="text-[--primary] font-bold">(646) 329-4622</span> to see your options
+          </p>
+          
+          <Button 
+            onClick={handleApplyNow}
+            className="bg-[--primary] hover:bg-[--primary-dark] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+          >
+            Apply Now
+          </Button>
+        </div>
       </div>
     </section>
   );
