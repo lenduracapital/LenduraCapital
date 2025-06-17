@@ -6,37 +6,43 @@ export default function BusinessSolutionsSection() {
       title: "Term Loans",
       description: "Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs.",
       features: ["$10K - $5M funding", "12-60 month terms", "Fixed or variable rates"],
-      route: "/solutions/term-loans"
+      route: "/solutions/term-loans",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop"
     },
     {
       title: "Lines of Credit", 
       description: "Revolving credit lines that provide flexible access to capital when you need it most for operational expenses.",
       features: ["$25K - $1M available", "Draw as needed", "Pay interest only on used funds"],
-      route: "/solutions/lines-of-credit"
+      route: "/solutions/lines-of-credit",
+      image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop"
     },
     {
       title: "SBA Loans",
       description: "Government-backed loans offering favorable terms and lower down payments for qualifying small businesses.",
       features: ["Up to $5M funding", "Lower down payments", "Longer repayment terms"],
-      route: "/solutions/sba-loans"
+      route: "/solutions/sba-loans",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
     },
     {
       title: "Equipment Financing",
       description: "Acquire essential business equipment with the equipment itself serving as collateral for the loan.",
       features: ["Up to 100% financing", "Equipment as collateral", "2-7 year terms"],
-      route: "/solutions/equipment-financing"
+      route: "/solutions/equipment-financing",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
     },
     {
       title: "Invoice Factoring",
       description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
       features: ["80-90% advance rate", "24-48 hour funding", "No long-term commitment"],
-      route: "/solutions/invoice-factoring"
+      route: "/solutions/invoice-factoring",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
     },
     {
       title: "P.O. Financing",
       description: "Fulfill large orders with purchase order funding to bridge the gap between order and payment.",
       features: ["Fund large orders", "Quick approval", "Competitive rates"],
-      route: "/solutions/po-financing"
+      route: "/solutions/po-financing",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop"
     }
   ];
 
