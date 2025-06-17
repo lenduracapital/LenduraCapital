@@ -12,12 +12,12 @@ export default function BusinessSolutionsSection() {
   ];
 
   return (
-    <section className="py-24 bg-gray-100">
+    <section className="py-12 md:py-24 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Left side - Cityscape image */}
-          <div className="relative">
-            <div className="bg-slate-800 rounded-lg overflow-hidden h-[500px]">
+          <div className="relative order-2 lg:order-1">
+            <div className="bg-slate-800 rounded-lg overflow-hidden h-[300px] md:h-[400px] lg:h-[500px]">
               <img 
                 src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop"
                 alt="City skyline at night"
@@ -27,22 +27,22 @@ export default function BusinessSolutionsSection() {
             </div>
             
             {/* Bottom overlay text spanning full width */}
-            <div className="absolute bottom-0 left-0 right-0 bg-slate-800 p-6 m-4 rounded-lg">
-              <h3 className="text-xl font-bold text-white mb-2">
+            <div className="absolute bottom-0 left-0 right-0 bg-slate-800 p-4 md:p-6 m-2 md:m-4 rounded-lg">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-2">
                 Completely customized financial solution to meet your business needs
               </h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-300 text-xs md:text-sm">
                 Fast and flexible custom financing solutions help you overcome your business challenges.
               </p>
             </div>
           </div>
 
           {/* Right side - Content */}
-          <div>
-            <h2 className="text-4xl font-bold text-slate-800 mb-6">
+          <div className="order-1 lg:order-2">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6">
               Premium Business Financing Solutions
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
               FundTek understands how a loan at the right time can make a huge difference in the success of your business. To that end, we've made it fast and easy to access financing solutions completely designed around your small business needs.
             </p>
             

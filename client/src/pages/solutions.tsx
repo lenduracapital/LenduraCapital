@@ -128,7 +128,7 @@ export default function Solutions() {
       <Header />
       
       {/* Hero Section with Professional Design */}
-      <section className="relative pt-24 pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+      <section className="relative pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/20 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
@@ -138,8 +138,8 @@ export default function Solutions() {
         />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left max-w-4xl mt-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+          <div className="text-left max-w-4xl mt-8 md:mt-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Solutions
             </h1>
           </div>
@@ -147,18 +147,18 @@ export default function Solutions() {
       </section>
 
       {/* Solutions Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Choose Your Perfect Financing Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
               From traditional term loans to innovative funding options, we have the right solution for your business needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {solutions.map((solution, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
                 <div className="aspect-video bg-gray-200 relative overflow-hidden">

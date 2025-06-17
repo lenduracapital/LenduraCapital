@@ -26,20 +26,20 @@ export default function HeroSection() {
       
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md text-left ml-8 lg:ml-16">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight text-shadow">
+        <div className="max-w-md text-left ml-4 md:ml-8 lg:ml-16 w-full md:w-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight text-shadow">
             Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
           </h1>
-          <p className="text-white text-lg mb-6 leading-relaxed text-shadow">
+          <p className="text-white text-base md:text-lg mb-6 leading-relaxed text-shadow">
             Empower your business with custom tailored financial and business solutions
           </p>
-          <p className="text-white text-lg mb-8 text-shadow">
+          <p className="text-white text-base md:text-lg mb-8 text-shadow">
             Call us at <span className="text-[--primary] font-bold">(305) 307-4658</span> to see your options
           </p>
           
           <Button 
             onClick={handleApplyNow}
-            className="bg-[--primary] hover:bg-[--primary-dark] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+            className="bg-[--primary] hover:bg-[--primary-dark] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
           >
             Apply Now
           </Button>

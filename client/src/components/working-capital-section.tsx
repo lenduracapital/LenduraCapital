@@ -48,45 +48,45 @@ const CountUp = ({ end, duration = 3000, suffix = "", prefix = "" }: {
 
 export default function WorkingCapitalSection() {
   return (
-    <section className="bg-gray-50 py-16">
+    <section className="bg-gray-50 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+        <div className="text-center space-y-3 md:space-y-4 mb-12 md:mb-16">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-gray-800">
             Accelerate the growth of your business
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-base md:text-lg text-gray-600">
             Small Business Loans · Merchant Cash Advances · Lines of Credit
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mb-12">
-          <div className="text-center bg-white p-6 rounded-lg shadow-md">
-            <p className="text-5xl font-black text-[--primary] mb-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto mb-8 md:mb-12">
+          <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
+            <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
               <CountUp end={50} suffix="+" />
             </p>
-            <p className="text-[--primary] font-semibold text-lg">Specialists</p>
-            <p className="text-gray-500 mt-2">Experienced funding experts</p>
+            <p className="text-[--primary] font-semibold text-sm md:text-lg">Specialists</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Experienced funding experts</p>
           </div>
-          <div className="text-center bg-white p-6 rounded-lg shadow-md">
-            <p className="text-5xl font-black text-[--primary] mb-2">
+          <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
+            <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
               <CountUp end={5} suffix="+" />
             </p>
-            <p className="text-[--primary] font-semibold text-lg">Financing options</p>
-            <p className="text-gray-500 mt-2">Multiple capital products</p>
+            <p className="text-[--primary] font-semibold text-sm md:text-lg">Financing options</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Multiple capital products</p>
           </div>
-          <div className="text-center bg-white p-6 rounded-lg shadow-md">
-            <p className="text-5xl font-black text-[--primary] mb-2">
+          <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
+            <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
               $<CountUp end={20} suffix="M" />
             </p>
-            <p className="text-[--primary] font-semibold text-lg">Funding up to</p>
-            <p className="text-gray-500 mt-2">Unsecured capital available</p>
+            <p className="text-[--primary] font-semibold text-sm md:text-lg">Funding up to</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Unsecured capital available</p>
           </div>
-          <div className="text-center bg-white p-6 rounded-lg shadow-md">
-            <p className="text-5xl font-black text-[--primary] mb-2">
+          <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
+            <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
               <CountUp end={24} />
             </p>
-            <p className="text-[--primary] font-semibold text-lg">Hours</p>
-            <p className="text-gray-500 mt-2">Typical turnaround</p>
+            <p className="text-[--primary] font-semibold text-sm md:text-lg">Hours</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Typical turnaround</p>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ export default function WorkingCapitalSection() {
           <Button 
             onClick={() => window.location.href = '/solutions'}
             style={{ backgroundColor: '#85abe4' }}
-            className="hover:opacity-90 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+            className="hover:opacity-90 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-base md:text-lg w-full sm:w-auto"
           >
             See full list of services
           </Button>
