@@ -203,9 +203,9 @@ Changelog:
   * Optimized "Get working capital today" form to display in single view without scrolling
   * Reduced form height to 800px and section height to eliminate excess white space
   * Removed internal scrolling while maintaining full form visibility and perfect space utilization
-- June 17, 2025. Contact page heading update:
-  * Changed contact page main heading from "Contact FundTek Capital Group" to "Contact Us"
-  * Simplified page title for cleaner, more direct user experience
+- June 17, 2025. Navigation menu update:
+  * Changed navigation menu item from "Contact" to "Contact Us" in both desktop and mobile navigation
+  * Kept contact page heading as "Contact FundTek Capital Group" for brand consistency
 ```
 
 ## User Preferences

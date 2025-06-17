@@ -80,7 +80,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               onClick={() => window.location.href = "/contact"}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
-              Contact
+              Contact Us
             </button>
           </div>
 
@@ -126,7 +126,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               onClick={() => { window.location.href = "/contact"; setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
-              Contact
+              Contact Us
             </button>
           </div>
         )}

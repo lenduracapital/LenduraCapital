@@ -12,7 +12,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-6">
-              Contact Us
+              Contact <span className="text-white">FundTek Capital Group</span>
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
               Ready to secure funding for your business? Our team of financial experts is here to help you find the perfect financing solution.
