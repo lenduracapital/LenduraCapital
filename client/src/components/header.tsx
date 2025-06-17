@@ -41,10 +41,16 @@ export default function Header() {
               Services
             </button>
             <button 
-              onClick={() => scrollToSection("about")}
+              onClick={() => window.location.href = "/about"}
               className="text-[--text-secondary] hover:text-[--text-primary] transition-colors duration-200"
             >
               About Us
+            </button>
+            <button 
+              onClick={() => window.location.href = "/who-we-fund"}
+              className="text-[--text-secondary] hover:text-[--text-primary] transition-colors duration-200"
+            >
+              Who We Fund
             </button>
             <button 
               onClick={() => scrollToSection("contact")}
@@ -81,10 +87,16 @@ export default function Header() {
               Services
             </button>
             <button 
-              onClick={() => scrollToSection("about")}
+              onClick={() => window.location.href = "/about"}
               className="block text-[--text-secondary] hover:text-[--text-primary] transition-colors py-2 w-full text-left"
             >
               About Us
+            </button>
+            <button 
+              onClick={() => window.location.href = "/who-we-fund"}
+              className="block text-[--text-secondary] hover:text-[--text-primary] transition-colors py-2 w-full text-left"
+            >
+              Who We Fund
             </button>
             <button 
               onClick={() => scrollToSection("contact")}

@@ -1,0 +1,80 @@
+💻  PAGE LAYOUT SPEC
+
+HOMEPAGE
+┌───────────────────────────────────────────────────────────────┐
+│ (1) NAV BAR – *hidden by default, fades in on scroll 40 px*   │
+│     • fixed, full-width, black (#000). 0 → 1 opacity in 250 ms│
+│     • left: logo.svg  (48 px tall) ; just below it “Capital   │
+│       Group” in 14 px, 300 weight, letter-spacing 1 px.       │
+│     • right: simple hamburger → slide-out menu.               │
+│     • code hint (vanilla JS):                                 │
+│       const nav=document.querySelector('nav');                │
+│       window.addEventListener('scroll',()=>{                 │
+│         nav.classList.toggle('visible',window.scrollY>40);});│
+│       .visible{transform:translateY(0);opacity:1}             │
+│       nav{transform:translateY(-100%);opacity:0;transition:.25s}
+│                                                               │
+├───────────────────────────────────────────────────────────────┤
+│ (2) HERO VIDEO SECTION                                        │
+│     • 100 vh autoplay-muted industry montage (loop, plays     │
+│       inline, lazy-loaded).                                   │
+│     • right-aligned overlay copy (max-width 420 px):          │
+│          h1 28 px / 1.2em ; p 15 px  ; no boxes, white text   │
+│          with subtle text-shadow for legibility.              │
+│     • left third kept clear for visual breathing room.        │
+│     • light-grey page background behind everything else       │
+│       (#f4f4f4 test up to #e9e9e9).                           │
+│                                                               │
+│     <!-- HTML scaffold -->                                    │
+│     <section id="hero">                                       │
+│       <video playsinline autoplay muted loop poster="poster.jpg">
+│         <source src="industry.mp4" type="video/mp4">          │
+│       </video>                                                │
+│       <div class="copy"> … </div>                             │
+│     </section>                                                │
+│                                                               │
+├───────────────────────────────────────────────────────────────┤
+│ (3) CHATBOT PROMPT                                            │
+│     • Load after 4 s idle. Use open-source widget (e.g.       │
+│       Tidio) pre-styled to match merchantsolutions.com pop-up │
+│       vibe: circle avatar bottom-right → expands to chat.     │
+│     • Event: fires GA4 “chat_opened”.                         │
+└───────────────────────────────────────────────────────────────┘
+
+SOLUTIONS PAGE
+• Grid of products (MCA, LOC, Term Loan, Consolidation, SBA 7a, Equipment,
+  PO Financing…). Each card = icon + 40-word blurb + “Find out more →”.
+• “Find out more” = anchor to **/solutions/[slug]** (hidden lander).
+  Hidden landers carry `robots:noindex` and are omitted from XML sitemap.
+
+HIDDEN LANDER TEMPLATE
+• Hero: full-bleed skyline / bridge photo (New York, Miami, Chicago, rotate).
+  Parallax reveal on scroll—mimic FundingMetrics’ cover image behaviour.  [oai_citation:0‡fundingmetrics.com](https://www.fundingmetrics.com/?utm_source=chatgpt.com)  
+• Under hero: 3-section explainer (How it works, Qualify, Apply) + testimonial
+  slider (3 quotes).                               
+• “← Back to Solutions” sticky text-link top-left for easy navigation.
+
+WHO-WE-FUND PAGE
+• Responsive masonry or 4-column grid. 20+ industries (use Royal’s list as base
+  then add Medical, Trucking, Construction, e-Commerce, Agriculture, Fitness,
+  SaaS, Beauty, Education, Auto Repair, Hospitality). Royal layout reference.  [oai_citation:1‡royalfundinggroup.com](https://royalfundinggroup.com/qualified-industries/?utm_source=chatgpt.com) [oai_citation:2‡royalfundinggroup.com](https://royalfundinggroup.com/?utm_source=chatgpt.com)  
+• Hover state: industry photo desaturates, overlay copy fades in.
+
+GLOBAL COMPONENTS
+• **Testimonials** – light grey slider can appear on any page via `<div class="testimonials" data-page="home|solutions|who">`.
+• **Footer** – dark-grey (#1a1a1a):
+     FundTek Capital Group, LLC © 2025 · 646-XXX-XXXX  
+     Icons: IG, LinkedIn, FB, Yelp, Trustpilot, TikTok, X (placeholders).  
+     Mini nav: Privacy | Terms | Contact · pulls style cues from PMFUS footer.  [oai_citation:3‡pmfus.com](https://www.pmfus.com/contact-us/?utm_source=chatgpt.com) [oai_citation:4‡pmfus.com](https://www.pmfus.com/apply/?utm_source=chatgpt.com)  
+
+TECH NOTES
+• Use `<picture>` + modern formats (webp/avif) for hero images.  
+• Lazy-load videos & iframes.  
+• All interactive JS vanilla or Alpine.js—keep bundle < 60 kB gz.  
+• ARIA labels on all nav links & buttons.  
+• JSON-LD: `Organization`, `FAQ`, `Product`, `Breadcrumb` schemas injected per
+  page for SEO parity with pmfus.com (strong organic footprint).  [oai_citation:5‡pmfus.com](https://www.pmfus.com/?utm_source=chatgpt.com) [oai_citation:6‡pmfus.com](https://www.pmfus.com/about-pmf/?utm_source=chatgpt.com)  
+
+✔ After dropping this module in, tell the agent:  
+“Confirm you understand the blueprint; then generate the component scaffolds and first pass CSS so I can review in Git preview.”  
+Expect one commit called **ui-scaffold** with `index.html`, `style.css`, `app.js`, plus placeholder media. 

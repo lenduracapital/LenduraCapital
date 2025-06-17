@@ -159,7 +159,7 @@ export default function IndustryServicesSection() {
                       } else if (service.title === "Revenue-Based Financing") {
                         window.location.href = "/merchant-cash-advance";
                       } else {
-                        alert(`${service.title} page coming soon!`);
+                        window.open("https://form.jotform.com/251417715331047", "_blank");
                       }
                     }}
                   >
