@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
+import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 export default function HeroSection() {
@@ -73,8 +74,7 @@ export default function HeroSection() {
           onCanPlayThrough={() => console.log('Video ready to play')}
           aria-label="FundTek Capital Group business financing solutions showcase"
         >
-          <source src="/video/hero-video-original.mp4" type="video/mp4" />
-          <source src={`/video/optimized/hero-video-${videoQuality}.mp4`} type="video/mp4" />
+          <source src={videoPath} type="video/mp4" />
           <track 
             kind="captions" 
             src="/video/captions/hero-video-en.vtt" 
@@ -94,7 +94,7 @@ export default function HeroSection() {
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/video/optimized/hero-poster.jpg')"
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"
           }}
         />
       )}
