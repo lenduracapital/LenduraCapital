@@ -28,7 +28,7 @@ export default function HeroSection() {
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8">
         <div className="max-w-md text-left ml-8 lg:ml-16">
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight text-shadow">
-            Flexible Financing for <span style={{ backgroundColor: '#85abe4', padding: '4px 12px', borderRadius: '4px' }}>Every Industry</span>
+            Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
           </h1>
           <p className="text-white text-lg mb-6 leading-relaxed text-shadow">
             Empower your business with custom tailored financial and business solutions
