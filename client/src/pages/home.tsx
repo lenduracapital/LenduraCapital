@@ -6,8 +6,11 @@ import WorkingCapitalSection from "@/components/working-capital-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import MoveBusinessForwardSection from "@/components/move-business-forward-section";
 import BusinessSolutionsSection from "@/components/business-solutions-section";
+import TrustSignalsSection from "@/components/trust-signals-section";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
+import SkipNavigation from "@/components/skip-navigation";
+import Analytics from "@/components/analytics";
 
 export default function Home() {
   return (
@@ -18,14 +21,19 @@ export default function Home() {
         keywords="business funding, term loans, merchant cash advance, equipment financing, SBA loans, business capital, commercial lending"
         canonical="/"
       />
+      <Analytics />
+      <SkipNavigation />
       <Header />
-      <HeroSection />
-      <ProcessSection />
-      <ContactFormSection />
-      <WorkingCapitalSection />
-      <TestimonialsSection />
-      <MoveBusinessForwardSection />
-      <BusinessSolutionsSection />
+      <main id="main-content">
+        <HeroSection />
+        <ProcessSection />
+        <ContactFormSection />
+        <WorkingCapitalSection />
+        <TestimonialsSection />
+        <TrustSignalsSection />
+        <MoveBusinessForwardSection />
+        <BusinessSolutionsSection />
+      </main>
       <Footer />
     </div>
   );
