@@ -30,9 +30,9 @@ const fundTekPages = [
 export default function Footer() {
 
   return (
-    <footer className="bg-[#f5f6f6] border-t border-gray-200 py-8 md:py-12 relative z-10">
+    <footer className="bg-[#f5f6f6] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" style={{ pointerEvents: 'auto' }}>
           <div className="space-y-3 md:space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-3">
               <img 
@@ -67,7 +67,11 @@ export default function Footer() {
                 <li key={index}>
                   <Link 
                     to={service.href}
-                    className="hover:opacity-75 transition-colors text-black underline"
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
+                    onClick={(e) => {
+                      console.log('Business financing link clicked:', service.name, service.href);
+                      e.stopPropagation();
+                    }}
                   >
                     {service.name}
                   </Link>
@@ -83,7 +87,11 @@ export default function Footer() {
                 <li key={index}>
                   <Link 
                     to={solution.href}
-                    className="hover:opacity-75 transition-colors text-black underline"
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
+                    onClick={(e) => {
+                      console.log('Custom solutions link clicked:', solution.name, solution.href);
+                      e.stopPropagation();
+                    }}
                   >
                     {solution.name}
                   </Link>
@@ -99,7 +107,11 @@ export default function Footer() {
                 <li key={index}>
                   <Link 
                     to={page.href}
-                    className="hover:opacity-75 transition-colors text-black underline"
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
+                    onClick={(e) => {
+                      console.log('Footer link clicked:', page.name, page.href);
+                      e.stopPropagation();
+                    }}
                   >
                     {page.name}
                   </Link>
