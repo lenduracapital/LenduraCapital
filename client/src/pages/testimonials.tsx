@@ -102,15 +102,15 @@ export default function TestimonialsPage() {
             backgroundImage: "url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=600&fit=crop')"
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-800/60"></div>
+
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Real Stories, Real Results
           </h1>
-          <p className="text-xl text-gray-200 max-w-4xl mx-auto mb-12">
+          <p className="text-xl text-white max-w-4xl mx-auto mb-12" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
             Discover how FundTek Capital Group has empowered businesses across industries to achieve their growth goals with tailored financing solutions
           </p>
           
