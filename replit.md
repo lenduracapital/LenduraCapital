@@ -153,6 +153,14 @@ Changelog:
   * Completely redesigned "Move your Business Forward" section with city skyline and financing list
   * Enhanced testimonials page with modern hero, professional slideshow, and compelling CTA section
   * Added "More Testimonials" button to homepage testimonials section linking to dedicated page
+- June 17, 2025. Contact form section layout redesign:
+  * Redesigned contact form section with precise vertical spacing per user requirements
+  * Blue box positioned at top with "Over $1B in working capital" message
+  * "Fast, flexible..." text positioned in middle of section
+  * "A funding partner..." text positioned at bottom of section
+  * Enlarged all text to 32px for better visibility and impact
+  * Used 900px height container with space-between layout for proper separation
+  * Applied signature blue #85abe4 for blue box background
 ```
 
 ## User Preferences
