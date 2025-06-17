@@ -193,6 +193,38 @@ export default function ChatWidget() {
           </div>
         );
       
+      case 'consolidation':
+        return (
+          <div className="flex flex-col gap-3 mt-3">
+            <input
+              type="text"
+              placeholder="Current lender/funder name"
+              className="border border-gray-300 px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#85abe4]"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  const target = e.target as HTMLInputElement;
+                  if (target.value.trim()) {
+                    handleUserSelection(`Lender: ${target.value}`, 'lenderName');
+                  }
+                }
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Current balance(s)"
+              className="border border-gray-300 px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#85abe4]"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  const target = e.target as HTMLInputElement;
+                  if (target.value.trim()) {
+                    handleUserSelection(`Balance: ${target.value}`, 'currentBalance');
+                  }
+                }
+              }}
+            />
+          </div>
+        );
+      
       case 'revenue':
         return (
           <div className="flex flex-col gap-2 mt-3">
@@ -261,7 +293,7 @@ export default function ChatWidget() {
                 >
                   <div className={`max-w-[80%] p-3 rounded-lg ${
                     message.sender === 'user'
-                      ? 'bg-[#1E88E5] text-white'
+                      ? 'bg-[#85abe4] text-white'
                       : 'bg-white text-gray-800 border'
                   }`}>
                     <div className="text-sm leading-relaxed">{message.text}</div>

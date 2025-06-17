@@ -39,10 +39,10 @@ export default function Header({ transparent = true }: HeaderProps) {
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
-      <nav className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-4">
-        <div className="flex justify-between items-center py-2 md:py-4">
+      <nav className="max-w-7xl mx-auto px-0 sm:px-0 lg:px-0">
+        <div className="flex justify-between items-center py-2 md:py-4 mx-4 sm:mx-6 lg:mx-8">
           {/* Logo on the left - aligned with hero text */}
-          <div className="flex items-center -ml-2 md:-ml-4 lg:-ml-8">
+          <div className="flex items-center -ml-4 md:-ml-8 lg:-ml-12">
             <img 
               src={logoPath}
               alt="FundTek Capital Group Logo" 
