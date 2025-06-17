@@ -127,6 +127,14 @@ Changelog:
   * Updated Solutions page with correct service order and FundTek branding
   * Applied signature color #85abe4 throughout all new sections
   * Added "Copyright 2025 FundTek Capital Group. All rights reserved." to footer
+- June 17, 2025. Major user-requested improvements:
+  * Fixed contact form layout: centered text, increased form height to 800px for full visibility
+  * Updated all phone numbers throughout website to (305) 307-4658
+  * Replaced footer "FundTek Capital" text with custom logo image
+  * Completely redesigned Business Solutions section with detailed descriptions and better spacing
+  * Enhanced "Who We Fund" page with 16 comprehensive industries in modern grid layout
+  * Applied FundTek signature blue #85abe4 consistently across all sections
+  * Improved visual hierarchy and spacing throughout all updated sections
 ```
 
 ## User Preferences
