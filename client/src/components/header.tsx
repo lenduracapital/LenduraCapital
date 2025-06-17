@@ -51,38 +51,43 @@ export default function Header({ transparent = true }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
             <button 
               onClick={() => window.location.href = "/"}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              aria-label="Go to homepage"
             >
               Home
             </button>
             <button 
               onClick={() => window.location.href = "/solutions"}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              aria-label="View business funding solutions"
             >
               Solutions
             </button>
             <button 
               onClick={() => window.location.href = "/who-we-fund"}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              aria-label="See industries we fund"
             >
               Who We Fund
             </button>
             <button 
               onClick={handleApplyNow}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              aria-label="Apply for business funding - Opens in new window"
             >
               Apply Now
             </button>
             <button 
               onClick={() => window.location.href = "/contact"}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              aria-label="Contact FundTek Capital Group"
             >
               Contact Us
             </button>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <Button

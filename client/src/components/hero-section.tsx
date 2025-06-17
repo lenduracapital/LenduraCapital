@@ -46,6 +46,8 @@ export default function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
           poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80"
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlayThrough={() => console.log('Video ready to play')}
         >
           <source src={videoPath} type="video/mp4" />
           <source src={videoPath.replace('.mp4', '.webm')} type="video/webm" />
@@ -66,7 +68,7 @@ export default function HeroSection() {
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8">
         <div className="max-w-md text-left ml-4 md:ml-8 lg:ml-16 w-full md:w-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight text-shadow">
+          <h1 className="responsive-heading-lg font-bold text-white mb-4 leading-tight hero-text">
             Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
           </h1>
           <p className="text-white text-base md:text-lg mb-6 leading-relaxed text-shadow">
