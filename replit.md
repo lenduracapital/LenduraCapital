@@ -144,12 +144,15 @@ Changelog:
   * Applied consistent design patterns across all solution pages with signature blue #85abe4
   * Added qualification requirements and service details for each financing option
 - June 17, 2025. Navigation and hero section improvements:
-  * Added FundTek Capital Group logo to navigation header (h-24 size)
+  * Added FundTek Capital Group logo to navigation header (h-32 size) with ml-12 margin positioning
   * Logo stays visible when scrolling and positioned on left side
   * Moved hero section text to left side with original "Flexible Financing for Every Industry" content
   * Updated phone number to (305) 307-4658 throughout
   * Changed working capital section from 48 to 24 hours turnaround
-  * Redesigned business solutions section with modern card layout and image overlays
+  * Redesigned business solutions section with modern card layout and enlarged city image (h-[500px])
+  * Completely redesigned "Move your Business Forward" section with city skyline and financing list
+  * Enhanced testimonials page with modern hero, professional slideshow, and compelling CTA section
+  * Added "More Testimonials" button to homepage testimonials section linking to dedicated page
 ```
 
 ## User Preferences

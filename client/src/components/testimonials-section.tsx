@@ -1,6 +1,10 @@
 import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function TestimonialsSection() {
+  const handleMoreTestimonials = () => {
+    window.location.href = "/testimonials";
+  };
   return (
     <section className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,6 +36,16 @@ export default function TestimonialsSection() {
               <p className="text-gray-300 italic">
                 "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
               </p>
+              
+              <div className="mt-6">
+                <Button 
+                  onClick={handleMoreTestimonials}
+                  variant="outline"
+                  className="text-white border-white hover:bg-white hover:text-gray-900"
+                >
+                  More Testimonials →
+                </Button>
+              </div>
             </div>
           </div>
           
