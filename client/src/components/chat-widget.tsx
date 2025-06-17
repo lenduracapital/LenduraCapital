@@ -118,12 +118,6 @@ export default function ChatWidget() {
             >
               I am a business looking for financing
             </button>
-            <button
-              onClick={() => handleUserSelection("I am a broker/referral partner", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
-            >
-              I am a broker/referral partner
-            </button>
           </div>
         );
         
