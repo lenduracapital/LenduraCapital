@@ -11,11 +11,27 @@ export default function HeroSection() {
   };
 
   useEffect(() => {
-    // Lazy load video after initial page load
-    const timer = setTimeout(() => {
-      setVideoLoaded(true);
-    }, 100);
-    return () => clearTimeout(timer);
+    // Progressive video loading with intersection observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Load video only when hero section is visible
+          const timer = setTimeout(() => {
+            setVideoLoaded(true);
+          }, 100);
+          observer.disconnect();
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.1, rootMargin: "50px" }
+    );
+
+    const heroElement = document.querySelector('.hero-section');
+    if (heroElement) {
+      observer.observe(heroElement);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   return (

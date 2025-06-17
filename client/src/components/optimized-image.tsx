@@ -46,22 +46,58 @@ export default function OptimizedImage({
     return () => observer.disconnect();
   }, [src, priority]);
 
-  // Generate WebP and fallback sources
-  const getOptimizedSrc = (originalSrc: string, format: 'webp' | 'original' = 'original') => {
+  // Generate optimized sources with multiple formats and sizes
+  const getOptimizedSrc = (originalSrc: string, format: 'avif' | 'webp' | 'original' = 'original') => {
     if (originalSrc.startsWith('http')) {
       // External images - add query params for optimization
       const url = new URL(originalSrc);
-      if (format === 'webp') {
+      if (format === 'avif') {
+        url.searchParams.set('fm', 'avif');
+        url.searchParams.set('q', '75');
+      } else if (format === 'webp') {
         url.searchParams.set('fm', 'webp');
+        url.searchParams.set('q', '85');
+      } else {
+        url.searchParams.set('q', '90');
       }
-      url.searchParams.set('q', '85');
       if (width) url.searchParams.set('w', width.toString());
       if (height) url.searchParams.set('h', height.toString());
       return url.toString();
     }
     
-    // Local images - return as-is (Vite handles optimization)
+    // Local images - create optimized versions
+    if (format === 'avif') {
+      return originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+    } else if (format === 'webp') {
+      return originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+    }
     return originalSrc;
+  };
+
+  // Generate responsive srcset for different screen densities
+  const getResponsiveSrcset = (src: string, format: 'avif' | 'webp' | 'original' = 'original') => {
+    if (!width) return getOptimizedSrc(src, format);
+    
+    const densities = [1, 1.5, 2];
+    return densities
+      .map(density => {
+        const scaledWidth = Math.round(width * density);
+        if (src.startsWith('http')) {
+          const url = new URL(src);
+          if (format === 'avif') {
+            url.searchParams.set('fm', 'avif');
+            url.searchParams.set('q', '75');
+          } else if (format === 'webp') {
+            url.searchParams.set('fm', 'webp');
+            url.searchParams.set('q', '85');
+          }
+          url.searchParams.set('w', scaledWidth.toString());
+          if (height) url.searchParams.set('h', Math.round(height * density).toString());
+          return `${url.toString()} ${density}x`;
+        }
+        return `${getOptimizedSrc(src, format)} ${density}x`;
+      })
+      .join(', ');
   };
 
   return (
@@ -69,15 +105,22 @@ export default function OptimizedImage({
       {imageSrc ? (
         <picture>
           <source 
-            srcSet={getOptimizedSrc(imageSrc, 'webp')} 
+            srcSet={getResponsiveSrcset(imageSrc, 'avif')} 
+            type="image/avif" 
+            sizes={sizes}
+          />
+          <source 
+            srcSet={getResponsiveSrcset(imageSrc, 'webp')} 
             type="image/webp" 
             sizes={sizes}
           />
           <img
             src={getOptimizedSrc(imageSrc)}
+            srcSet={getResponsiveSrcset(imageSrc)}
             alt={alt}
             width={width}
             height={height}
+            sizes={sizes}
             className={`transition-opacity duration-300 ${
               isLoaded ? 'opacity-100' : 'opacity-0'
             } w-full h-full object-cover`}
