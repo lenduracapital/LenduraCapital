@@ -138,8 +138,8 @@ export default function Solutions() {
         />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left max-w-4xl">
-            <h1 className="text-6xl md:text-7xl font-bold text-white leading-tight">
+          <div className="text-left max-w-4xl mt-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Solutions
             </h1>
           </div>
