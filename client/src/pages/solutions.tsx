@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard } from "lucide-react";
+import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard, ArrowLeft, CheckCircle, Star } from "lucide-react";
+import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -11,10 +12,12 @@ const solutions = [
     description: "Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs.",
     features: [
       "$10K - $5M funding",
-      "12-60 month terms",
-      "Fixed or variable rates"
+      "12-60 month terms", 
+      "Fixed or variable rates",
+      "Quick approval process"
     ],
-    color: "bg-blue-500"
+    route: "/solutions/term-loans",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
   },
   {
     title: "Lines of Credit",
@@ -23,9 +26,11 @@ const solutions = [
     features: [
       "$25K - $1M available",
       "Draw as needed",
-      "Pay interest only on used funds"
+      "Pay interest only on used funds",
+      "Flexible repayment"
     ],
-    color: "bg-green-500"
+    route: "/solutions/lines-of-credit",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop"
   },
   {
     title: "Merchant Cash Advance",
@@ -33,10 +38,12 @@ const solutions = [
     description: "Quick access to working capital based on your future credit card sales with flexible repayment structure.",
     features: [
       "Fast approval process",
-      "No fixed monthly payments",
-      "Repayment tied to sales"
+      "No fixed monthly payments", 
+      "Repayment tied to sales",
+      "No collateral required"
     ],
-    color: "bg-purple-500"
+    route: "/solutions/merchant-cash-advance",
+    image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop"
   },
   {
     title: "Equipment Financing",
@@ -45,9 +52,11 @@ const solutions = [
     features: [
       "100% financing available",
       "Equipment as collateral",
-      "Flexible terms"
+      "2-7 year terms",
+      "Tax advantages"
     ],
-    color: "bg-orange-500"
+    route: "/solutions/equipment-financing", 
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
   },
   {
     title: "SBA Loans",
@@ -56,9 +65,24 @@ const solutions = [
     features: [
       "Lower down payments",
       "Competitive rates",
-      "Longer repayment terms"
+      "Longer repayment terms",
+      "Government backed"
     ],
-    color: "bg-red-500"
+    route: "/solutions/sba-loans",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Invoice Factoring",
+    icon: <FileText className="w-8 h-8" />,
+    description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
+    features: [
+      "80-90% advance rate",
+      "24-48 hour funding", 
+      "No long-term commitment",
+      "Improve cash flow"
+    ],
+    route: "/solutions/invoice-factoring",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
   },
   {
     title: "P.O. Financing",
@@ -67,9 +91,24 @@ const solutions = [
     features: [
       "Fulfill large orders",
       "No personal guarantees",
-      "Quick turnaround"
+      "Quick turnaround",
+      "Competitive rates"
     ],
-    color: "bg-indigo-500"
+    route: "/solutions/po-financing",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Debt Consolidation",
+    icon: <Building className="w-8 h-8" />,
+    description: "Consolidate multiple business debts into a single payment with potentially lower rates and simplified management.",
+    features: [
+      "Simplify payments",
+      "Potentially lower rates",
+      "Improve cash flow",
+      "Reduce stress"
+    ],
+    route: "/solutions/debt-consolidation",
+    image: "https://images.unsplash.com/photo-1554224154-26032fced8bd?w=600&h=400&fit=crop"
   }
 ];
 
