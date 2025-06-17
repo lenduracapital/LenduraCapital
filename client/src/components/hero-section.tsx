@@ -73,6 +73,7 @@ export default function HeroSection() {
           onCanPlayThrough={() => console.log('Video ready to play')}
           aria-label="FundTek Capital Group business financing solutions showcase"
         >
+          <source src="/video/hero-video-original.mp4" type="video/mp4" />
           <source src={`/video/optimized/hero-video-${videoQuality}.mp4`} type="video/mp4" />
           <track 
             kind="captions" 
