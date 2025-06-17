@@ -195,6 +195,10 @@ Changelog:
   * Modified "Apply Online" button to white background with black text reading "Apply Now"
   * Updated Brian Higgins' specialties to business development focused areas
   * Enhanced footer logo size and visibility with brightness filters
+- June 17, 2025. Solution detail pages UI fixes:
+  * Fixed qualification requirements black box to signature blue (#85abe4) with white text across all solution pages
+  * Changed "Back to Home" button to "Back to Solutions" linking to /solutions page
+  * Applied fixes to solution detail template affecting all 9 financing solution pages automatically
 ```
 
 ## User Preferences

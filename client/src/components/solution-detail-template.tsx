@@ -26,8 +26,8 @@ export default function SolutionDetailTemplate({
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
-  const handleBackToHome = () => {
-    window.location.href = "/";
+  const handleBackToSolutions = () => {
+    window.location.href = "/solutions";
   };
 
   return (
@@ -122,16 +122,16 @@ export default function SolutionDetailTemplate({
                   Apply Now
                 </Button>
                 <Button 
-                  onClick={handleBackToHome}
+                  onClick={handleBackToSolutions}
                   variant="outline"
                   className="w-full py-3 rounded font-semibold text-base md:text-lg border-black text-black hover:bg-black hover:text-white"
                 >
-                  Back to Home
+                  Back to Solutions
                 </Button>
               </div>
             </div>
 
-            <div className="bg-black p-6 md:p-8 rounded-lg">
+            <div className="p-6 md:p-8 rounded-lg" style={{ backgroundColor: '#85abe4' }}>
               <h4 className="text-lg md:text-xl font-bold text-white mb-4">Qualification Requirements</h4>
               <ul className="space-y-2 text-white">
                 {qualificationRequirements.map((req, index) => (
