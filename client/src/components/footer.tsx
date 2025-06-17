@@ -20,7 +20,10 @@ const customSolutions = [
 const fundTekPages = [
   { name: "About FundTek", href: "/about" },
   { name: "Who We Fund", href: "/who-we-fund" },
-  { name: "Contact Us", href: "/contact" }
+  { name: "Contact Us", href: "/contact" },
+  { name: "Terms & Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Cookies Policy", href: "/cookies" }
 ];
 
 export default function Footer() {

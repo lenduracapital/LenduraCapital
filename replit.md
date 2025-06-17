@@ -214,6 +214,10 @@ Changelog:
   * Fixed homepage testimonials section with unique "Maria Gonzalez" from "Gonzalez Bistro"
   * Focused on genuine business challenges like equipment breakdowns, seasonal cash flow, and expansion needs
   * Replaced fake-sounding "Licensed & Insured" trust signal with "Trusted Network" appropriate for broker business model
+- June 17, 2025. Legal compliance enhancement:
+  * Added Terms & Conditions and Privacy Policy pages to footer navigation under "Contact Us"
+  * Created comprehensive legal pages with broker-specific content and FundTek branding
+  * Implemented proper routing for /terms and /privacy pages with lazy loading
 ```
 
 ## User Preferences

@@ -24,6 +24,8 @@ const CreditServicesDetail = lazy(() => import("@/pages/solutions/credit-service
 const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
 const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
+const Terms = lazy(() => import("@/pages/terms"));
+const Privacy = lazy(() => import("@/pages/privacy"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 // Loading fallback component
@@ -56,6 +58,8 @@ function Router() {
         <Route path="/testimonials" component={TestimonialsPage} />
         <Route path="/more-testimonials" component={MoreTestimonials} />
         <Route path="/contact" component={Contact} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/privacy" component={Privacy} />
         <Route path="/apply" component={LoanApplication} />
         <Route component={NotFound} />
       </Switch>
