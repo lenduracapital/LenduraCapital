@@ -88,6 +88,15 @@ export default function ChatWidget() {
           addMessage("Which product interests you most?", 'bot');
           break;
         case 'product':
+          if (selection === 'Consolidation') {
+            newState.step = 'consolidation';
+            addMessage("Please provide your current lender or funder name and current balance(s).", 'bot');
+          } else {
+            newState.step = 'revenue';
+            addMessage("What's your monthly revenue range?", 'bot');
+          }
+          break;
+        case 'consolidation':
           newState.step = 'revenue';
           addMessage("What's your monthly revenue range?", 'bot');
           break;

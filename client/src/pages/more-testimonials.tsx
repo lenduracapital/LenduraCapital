@@ -7,14 +7,14 @@ const testimonials = [
     initial: "M",
     name: "Miguel Santos",
     business: "Santos Family Restaurant",
-    rating: 5,
+    rating: 4.5,
     text: "We needed working capital to get through a slow winter season. FundTek's team understood our cash flow challenges and structured payments that worked with our revenue cycles."
   },
   {
     initial: "S",
     name: "Sarah Johnson",
     business: "Johnson Dental Practice",
-    rating: 5,
+    rating: 4,
     text: "The equipment financing helped us upgrade our dental equipment. The application was straightforward and we got approval faster than expected."
   },
   {

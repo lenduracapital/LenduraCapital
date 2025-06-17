@@ -30,25 +30,20 @@ const certifications = [
 
 const teamMembers = [
   {
-    name: "Marc Hoffman",
-    title: "Senior Funding Specialist",
+    name: "Marc Khouli",
+    title: "Founder & CEO",
+    experience: "15+ years",
+    specialties: ["Strategic Leadership", "Business Development", "Financial Solutions"],
+    credentials: "Certified Executive Leader",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+  },
+  {
+    name: "Gabby Glickman", 
+    title: "Co Founder & COO",
     experience: "12+ years",
-    specialties: ["Equipment Financing", "SBA Loans", "Term Loans"],
-    credentials: "Licensed Commercial Lender"
-  },
-  {
-    name: "Lilly Harris", 
-    title: "Business Capital Advisor",
-    experience: "8+ years",
-    specialties: ["Merchant Cash Advance", "Working Capital", "Invoice Factoring"],
-    credentials: "Business Finance Specialist"
-  },
-  {
-    name: "Brian Higgins",
-    title: "Business Development Director", 
-    experience: "10+ years",
-    specialties: ["Strategic Planning", "Market Analysis", "Growth Consulting"],
-    credentials: "Certified Business Advisor"
+    specialties: ["Operations Management", "Client Relations", "Process Optimization"],
+    credentials: "Business Operations Specialist",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1c3?w=150&h=150&fit=crop&crop=face"
   }
 ];
 
@@ -107,11 +102,12 @@ export default function TrustSignalsSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
-                <div 
-                  className="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold"
-                  style={{ backgroundColor: '#85abe4' }}
-                >
-                  {member.name.split(' ').map(n => n[0]).join('')}
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
+                  <img 
+                    src={member.avatar || `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face`}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">
                   {member.name}
