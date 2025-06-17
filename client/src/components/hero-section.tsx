@@ -29,9 +29,9 @@ export default function HeroSection() {
         <img 
           src={logoPath} 
           alt="FundTek Capital Group" 
-          className="h-16 w-auto"
+          className="h-20 w-auto"
         />
-        <div className="text-white text-sm font-light mt-1 tracking-wider">
+        <div className="text-white text-sm font-light mt-2 tracking-wider text-center">
           Capital Group
         </div>
       </div>

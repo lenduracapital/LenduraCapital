@@ -83,73 +83,135 @@ export default function Solutions() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-[--primary] to-blue-800">
+      <section className="relative pt-24 pb-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop')"
           }}
         >
-          <div className="absolute inset-0 bg-blue-900 bg-opacity-80"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Financing <span className="text-yellow-400">Solutions</span>
-          </h1>
-          <p className="text-xl text-white max-w-3xl mx-auto">
-            Comprehensive business funding options tailored to meet your specific needs and industry requirements
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              Solutions
+            </h1>
+          </div>
+          
+          {/* Contact CTA Box */}
+          <div className="bg-green-500 text-white p-8 rounded-lg max-w-md ml-auto mr-8">
+            <div className="flex items-center mb-4">
+              <div className="bg-white text-green-500 p-2 rounded-full mr-4">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold">Contact PMF to learn more</h3>
+            </div>
+            <p className="text-sm mb-4">
+              Call us at (877) 753-6156 to speak to a loan specialist today
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Solutions Grid */}
+      {/* Main Content */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Choose the Right Solution for Your Business
+          <div className="mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+              Whatever your financial needs are<br />
+              - we got you covered
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Each product is designed to address specific business challenges and opportunities
+            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed mb-8">
+              We provide working business capital based on your business' projected future sales. Businesses in 
+              high-risk industries, with financial problems or bad credit, can be approved without any collateral.
             </p>
+            <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
+              If you are still not sure what solution is right for your company, that's what we do. We analyze your 
+              financial and organizational situation and determine what financing options are right for you.
+            </p>
+            
+            <Button 
+              onClick={handleApplyNow}
+              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg mt-8 inline-flex items-center"
+            >
+              View your options →
+            </Button>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {solutions.map((solution, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-[--primary]">
-                <CardHeader className="pb-4">
-                  <div className={`w-16 h-16 ${solution.color} rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    {solution.icon}
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-[--primary] transition-colors">
-                    {solution.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-600 leading-relaxed">
-                    {solution.description}
+          {/* Service Cards */}
+          <div className="space-y-16">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <img 
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop" 
+                  alt="Merchant Cash Advance" 
+                  className="w-full h-80 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                  Merchant Cash Advance
+                </h3>
+                <div className="w-16 h-1 bg-green-500 mb-6"></div>
+                <p className="text-lg text-gray-600 mb-6">
+                  An alternative to traditional bank loans
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-8">
+                  Applying for a merchant cash advance (MCA) is a fast and convenient process with 
+                  minimal paperwork and the opportunity for same-day funding availability. Funding 
+                  amounts range from $2,000 to $2,000,000.
+                </p>
+                <Button 
+                  onClick={() => window.location.href = "/solutions/merchant-cash-advance"}
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded"
+                >
+                  Find out more →
+                </Button>
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="lg:order-2">
+                <img 
+                  src="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=600&h=400&fit=crop" 
+                  alt="Line of Credit" 
+                  className="w-full h-80 object-cover rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="lg:order-1">
+                <h3 className="text-3xl font-bold text-gray-800 mb-4">
+                  Line of Credit
+                </h3>
+                <div className="w-16 h-1 bg-green-500 mb-6"></div>
+                <p className="text-lg text-gray-600 mb-6">
+                  Fast approvals available to provide instant access to funds
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  A flexible loan to provide small business owners with a defined amount of money 
+                  that can be accessed as needed and repaid either immediately or over time. Funds 
+                  are revolving and can be accessed repeatedly without reapplying.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-8">
+                  Great, low rate option for small business owners with a 600+ FICO score and 
+                  grossing at least $20,000 per month.
+                </p>
+                <div className="bg-gray-100 p-6 rounded-lg mb-6">
+                  <h4 className="text-xl font-bold text-gray-800 mb-4">Flexible alternative</h4>
+                  <p className="text-gray-600">
+                    More funds are available to draw from as the principal is paid down
                   </p>
-                  
-                  <ul className="space-y-2">
-                    {solution.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <div className="w-2 h-2 bg-[--primary] rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <Button 
-                    onClick={handleApplyNow}
-                    className="w-full bg-[--primary] hover:bg-[--primary-dark] text-white mt-4 group-hover:bg-gray-800 transition-colors"
-                  >
-                    Find out more
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+                <Button 
+                  onClick={() => window.location.href = "/solutions/line-of-credit"}
+                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded"
+                >
+                  Find out more →
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

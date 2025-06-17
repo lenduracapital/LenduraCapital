@@ -13,12 +13,12 @@ export default function Home() {
     <div className="min-h-screen bg-[--bg-primary] text-[--text-primary]">
       <Header />
       <HeroSection />
+      <ProcessSection />
+      <ContactFormSection />
       <WorkingCapitalSection />
       <WhyFundTekSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      <ProcessSection />
-      <ContactFormSection />
       <Footer />
     </div>
   );

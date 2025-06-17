@@ -32,43 +32,45 @@ const CountUp = ({ end, duration = 2000, suffix = "", prefix = "" }: {
 export default function WorkingCapitalSection() {
   return (
     <section className="bg-gray-50 py-16">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold">
-          Accelerate the growth of your business
-        </h1>
-        <p className="text-lg text-gray-600">
-          Small Business Loans · Merchant Cash Advances · Lines of Credit
-        </p>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+            Accelerate the growth of your business
+          </h1>
+          <p className="text-lg text-gray-600">
+            Small Business Loans · Merchant Cash Advances · Lines of Credit
+          </p>
+        </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-5xl mx-auto">
-        <div className="text-center">
-          <p className="text-5xl font-black">
-            <CountUp end={50} suffix="+" />
-          </p>
-          <p className="text-indigo-600 font-semibold">Specialists</p>
-          <p className="text-gray-500 mt-2">Experienced funding experts</p>
-        </div>
-        <div className="text-center">
-          <p className="text-5xl font-black">
-            <CountUp end={5} suffix="+" />
-          </p>
-          <p className="text-indigo-600 font-semibold">Financing options</p>
-          <p className="text-gray-500 mt-2">Multiple capital products</p>
-        </div>
-        <div className="text-center">
-          <p className="text-5xl font-black">
-            $<CountUp end={20} suffix="M" />
-          </p>
-          <p className="text-indigo-600 font-semibold">Funding up to</p>
-          <p className="text-gray-500 mt-2">Unsecured capital available</p>
-        </div>
-        <div className="text-center">
-          <p className="text-5xl font-black">
-            <CountUp end={48} />
-          </p>
-          <p className="text-indigo-600 font-semibold">Hours</p>
-          <p className="text-gray-500 mt-2">Typical turnaround</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <p className="text-5xl font-black text-[--primary] mb-2">
+              <CountUp end={50} suffix="+" />
+            </p>
+            <p className="text-[--primary] font-semibold text-lg">Specialists</p>
+            <p className="text-gray-500 mt-2">Experienced funding experts</p>
+          </div>
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <p className="text-5xl font-black text-[--primary] mb-2">
+              <CountUp end={5} suffix="+" />
+            </p>
+            <p className="text-[--primary] font-semibold text-lg">Financing options</p>
+            <p className="text-gray-500 mt-2">Multiple capital products</p>
+          </div>
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <p className="text-5xl font-black text-[--primary] mb-2">
+              $<CountUp end={20} suffix="M" />
+            </p>
+            <p className="text-[--primary] font-semibold text-lg">Funding up to</p>
+            <p className="text-gray-500 mt-2">Unsecured capital available</p>
+          </div>
+          <div className="text-center bg-white p-6 rounded-lg shadow-md">
+            <p className="text-5xl font-black text-[--primary] mb-2">
+              <CountUp end={48} />
+            </p>
+            <p className="text-[--primary] font-semibold text-lg">Hours</p>
+            <p className="text-gray-500 mt-2">Typical turnaround</p>
+          </div>
         </div>
       </div>
     </section>

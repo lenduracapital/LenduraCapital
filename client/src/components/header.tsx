@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoPath from "@assets/IMG_4080_1750166138303.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -19,25 +28,11 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-transparent fixed w-full top-0 z-50">
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo on Left */}
-          <div className="flex items-center">
-            <div className="flex flex-col items-center">
-              <img 
-                src={logoPath} 
-                alt="FundTek Capital Group" 
-                className="h-12 w-auto"
-              />
-              <span className="text-white text-xs font-light tracking-wider mt-1">
-                Capital Group
-              </span>
-            </div>
-          </div>
-
+        <div className="flex justify-center items-center py-4">
           {/* Desktop Navigation - Hidden on mobile */}
-          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
+          <div className="hidden lg:flex items-center space-x-8">
             <button 
               onClick={() => window.location.href = "/"}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
@@ -80,7 +75,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:text-[--primary] ml-auto"
+            className="lg:hidden text-white hover:text-[--primary] absolute right-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
