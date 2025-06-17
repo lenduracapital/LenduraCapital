@@ -17,13 +17,13 @@ export default function TestimonialsSection() {
               Our Financial Solutions and Business Services support our clients as they stay competitive and grow to keep our nation's economy alive.
             </p>
             
-            <div className="bg-gray-800 p-6 rounded-lg">
+            <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   M
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Restaurant Owner</p>
+                  <p className="text-black font-semibold">Restaurant Owner</p>
                   <div className="flex text-yellow-400">
                     <Star className="h-4 w-4 fill-current" />
                     <Star className="h-4 w-4 fill-current" />
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-300 italic">
+              <p className="text-black italic">
                 "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
               </p>
               
