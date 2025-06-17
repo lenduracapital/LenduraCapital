@@ -54,10 +54,10 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-lg p-2 md:p-4 lg:p-6 w-full max-w-none">
-            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 px-2 md:px-4">Get working capital today</h3>
-            <p className="text-sm text-gray-600 mb-6 px-2 md:px-4">Fill out the form below, and a team member will be in touch.</p>
-            <div className="w-full overflow-hidden">
+          <div className="bg-white rounded-lg p-1 md:p-2 lg:p-3 w-full max-w-none">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 px-1 md:px-2">Get working capital today</h3>
+            <p className="text-sm text-gray-600 mb-6 px-1 md:px-2">Fill out the form below, and a team member will be in touch.</p>
+            <div className="w-full overflow-hidden -mx-1 md:-mx-2">
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
@@ -65,11 +65,11 @@ export default function ContactFormSection() {
                 frameBorder="0"
                 scrolling="yes"
                 title="Contact Form"
-                className="rounded-lg h-96 md:h-[800px] w-full min-w-full"
+                className="rounded-lg h-96 md:h-[800px] w-full"
                 style={{ 
-                  transform: 'scale(0.95)',
+                  transform: 'scale(0.85)',
                   transformOrigin: 'top left',
-                  width: '105%',
+                  width: '118%',
                   minHeight: '600px'
                 }}
               ></iframe>
