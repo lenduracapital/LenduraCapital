@@ -110,7 +110,7 @@ export default function Solutions() {
               <h3 className="text-xl font-bold">Contact FundTek to learn more</h3>
             </div>
             <p className="text-sm mb-4">
-              Call us at (646) 329-4622 to speak to a loan specialist today
+              Call us at (305) 307-4658 to speak to a loan specialist today
             </p>
           </div>
         </div>

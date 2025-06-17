@@ -3,15 +3,18 @@ export default function ContactFormSection() {
     <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-12">
+          <div className="space-y-12 flex flex-col justify-center h-full">
             <div className="bg-[--primary] p-10 rounded-lg text-white">
               <h3 className="text-3xl font-bold mb-6 leading-relaxed">Over $1B in working capital provided to U.S. small-medium sized businesses.</h3>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-8 text-center">
               <h4 className="text-2xl font-semibold text-gray-800 leading-relaxed">
                 Fast, flexible, revenue-based capital solutions built for growing businesses.
               </h4>
+            </div>
+            
+            <div className="text-center">
               <p className="text-gray-600 text-xl leading-relaxed">
                 A funding partner aligned with your business goals.
               </p>
@@ -25,9 +28,9 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="600"
+                height="800"
                 frameBorder="0"
-                scrolling="no"
+                scrolling="yes"
                 title="Contact Form"
                 className="rounded-lg"
               ></iframe>

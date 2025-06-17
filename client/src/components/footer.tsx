@@ -1,5 +1,6 @@
 import { ChartLine } from "lucide-react";
 import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
@@ -37,16 +38,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-[--primary] rounded-lg flex items-center justify-center">
-                <ChartLine className="text-white text-sm" />
-              </div>
-              <span className="text-lg font-bold text-[--text-primary]">FundTek Capital</span>
+              <img 
+                src={fundTekLogo} 
+                alt="FundTek Capital Group" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-[--text-secondary] text-sm">
               Would you like a free, no strings attached consultation?
             </p>
             <p className="text-[--text-secondary] text-sm">
-              Call us today at (646) 329-4622
+              Call us today at (305) 307-4658
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-[--text-secondary] hover:text-[--primary] transition-colors">
