@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -22,12 +23,14 @@ export default function SolutionDetailTemplate({
   perfectFor,
   qualificationRequirements
 }: SolutionDetailProps) {
+  const [, setLocation] = useLocation();
+  
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
   const handleBackToSolutions = () => {
-    window.location.href = "/solutions";
+    setLocation("/solutions");
   };
 
   return (

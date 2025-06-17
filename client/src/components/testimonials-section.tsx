@@ -1,9 +1,12 @@
 import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export default function TestimonialsSection() {
+  const [, setLocation] = useLocation();
+  
   const handleMoreTestimonials = () => {
-    window.location.href = "/more-testimonials";
+    setLocation("/more-testimonials");
   };
   return (
     <section className="py-20 bg-white">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 
 interface HeaderProps {
@@ -10,6 +11,7 @@ interface HeaderProps {
 export default function Header({ transparent = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,21 +55,21 @@ export default function Header({ transparent = true }: HeaderProps) {
           {/* Desktop Navigation - Left aligned */}
           <nav className="hidden lg:flex items-center space-x-6 ml-8" aria-label="Main navigation">
             <button 
-              onClick={() => window.location.href = "/"}
+              onClick={() => setLocation("/")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
               aria-label="Go to homepage"
             >
               Home
             </button>
             <button 
-              onClick={() => window.location.href = "/solutions"}
+              onClick={() => setLocation("/solutions")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
               aria-label="View business funding solutions"
             >
               Solutions
             </button>
             <button 
-              onClick={() => window.location.href = "/who-we-fund"}
+              onClick={() => setLocation("/who-we-fund")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
               aria-label="See industries we fund"
             >
@@ -81,7 +83,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               Apply Now
             </button>
             <button 
-              onClick={() => window.location.href = "/contact"}
+              onClick={() => setLocation("/contact")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
               aria-label="Contact FundTek Capital Group"
             >
@@ -104,19 +106,19 @@ export default function Header({ transparent = true }: HeaderProps) {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-black bg-opacity-90 backdrop-blur-sm border-t border-white/20 p-4 space-y-4 absolute left-0 right-0 top-full">
             <button 
-              onClick={() => { window.location.href = "/"; setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Home
             </button>
             <button 
-              onClick={() => { window.location.href = "/solutions"; setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/solutions"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Solutions
             </button>
             <button 
-              onClick={() => { window.location.href = "/who-we-fund"; setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/who-we-fund"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Who We Fund
@@ -128,7 +130,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               Apply Now
             </button>
             <button 
-              onClick={() => { window.location.href = "/contact"; setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/contact"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Contact Us
