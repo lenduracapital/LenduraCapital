@@ -35,8 +35,8 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background Video with Lazy Loading */}
+    <section className="hero-section relative h-screen overflow-hidden">
+      {/* Background Video with Enhanced Optimization */}
       {videoLoaded ? (
         <video 
           autoPlay 
@@ -45,8 +45,10 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
+          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80"
         >
           <source src={videoPath} type="video/mp4" />
+          <source src={videoPath.replace('.mp4', '.webm')} type="video/webm" />
           Your browser does not support the video tag.
         </video>
       ) : (
