@@ -113,13 +113,6 @@ export default function SolutionDetailTemplate({
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Text content */}
             <div className="text-white">
-              <h2 className="text-3xl font-bold mb-6">
-                What our clients are saying about our solutions
-              </h2>
-              <p className="text-gray-200 mb-8 leading-relaxed">
-                Our Financial Solutions and Business Services support our clients as they stay competitive and grow to keep our nation's economy alive.
-              </p>
-              
               {/* Large Quote */}
               <div className="mb-8">
                 <div className="text-6xl text-gray-400 mb-4">"</div>
