@@ -3,8 +3,8 @@ import { Shield, Award, Users, TrendingUp, Clock, CheckCircle } from "lucide-rea
 const certifications = [
   {
     icon: Shield,
-    title: "Licensed & Insured",
-    description: "Fully licensed financial services provider with comprehensive insurance coverage"
+    title: "Regulated Partner",
+    description: "Operating under federal and state financial regulations with transparent lending practices"
   },
   {
     icon: Users,

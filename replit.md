@@ -211,8 +211,9 @@ Changelog:
   * Replaced "Fine Dining Restaurant" and other generic titles with specific business names
   * Removed promotional language like "Loan paid for itself in 1-2 years!" and "doubled production capacity"
   * Updated all 6 testimonials in grid view with authentic business scenarios
-  * Fixed homepage testimonials section to match realistic content
+  * Fixed homepage testimonials section with unique "Maria Gonzalez" from "Gonzalez Bistro"
   * Focused on genuine business challenges like equipment breakdowns, seasonal cash flow, and expansion needs
+  * Replaced fake-sounding "Licensed & Insured" trust signal with "Regulated Partner" for more authentic financial industry messaging
 ```
 
 ## User Preferences
