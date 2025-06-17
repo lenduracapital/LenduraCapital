@@ -3,23 +3,17 @@ export default function ContactFormSection() {
     <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'space-between',
-            height: '900px'
-          }} className="lg:h-auto lg:space-y-8">
+          <div className="flex flex-col justify-between h-[600px] md:h-[700px] lg:h-[900px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
             {/* Blue box at the TOP */}
             <div style={{ 
               backgroundColor: '#85abe4', 
-              padding: '20px md:30px', 
               borderRadius: '8px'
-            }} className="w-full max-w-md mx-auto lg:mx-0 lg:w-96">
+            }} className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 p-4 md:p-6 lg:p-8">
               <div style={{
                 color: 'white',
-                fontSize: 'clamp(20px, 4vw, 32px)',
+                fontSize: 'clamp(16px, 3.5vw, 32px)',
                 fontWeight: 'normal',
-                lineHeight: '1.5',
+                lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
                 Over $1B in working capital<br />
@@ -29,12 +23,12 @@ export default function ContactFormSection() {
             </div>
             
             {/* Fast flexible text in the MIDDLE */}
-            <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-96">
+            <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 px-2 md:px-0">
               <div style={{
                 color: 'black',
-                fontSize: 'clamp(20px, 4vw, 32px)',
+                fontSize: 'clamp(16px, 3.5vw, 32px)',
                 fontWeight: 'normal',
-                lineHeight: '1.5',
+                lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
                 Fast, flexible,<br />
@@ -45,12 +39,12 @@ export default function ContactFormSection() {
             </div>
             
             {/* A funding partner at the BOTTOM */}
-            <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-96">
+            <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 px-2 md:px-0">
               <div style={{
                 color: 'black',
-                fontSize: 'clamp(20px, 4vw, 32px)',
+                fontSize: 'clamp(16px, 3.5vw, 32px)',
                 fontWeight: 'normal',
-                lineHeight: '1.5',
+                lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
                 A funding partner<br />
