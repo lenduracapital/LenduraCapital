@@ -186,6 +186,13 @@ Changelog:
   * Enhanced video optimization with intersection observer and WebM format support
   * Added comprehensive robots.txt and site.webmanifest for search engine crawling optimization
   * Completed all March 2025 search algorithm compliance requirements for maximum ranking potential
+- June 17, 2025. Final UI/UX and branding adjustments:
+  * Fixed navigation text color to black on transparent headers for better readability on contact page
+  * Updated footer branding from "Premium Merchant Funding" to "FundTek Capital Group"
+  * Removed "Resources" section from footer navigation
+  * Changed LinkedIn icon to Instagram icon in footer social media
+  * Updated team member "Eric Crawford" to "Marc Hoffman" with more realistic credentials
+  * Modified "Apply Online" button to white background with black text reading "Apply Now"
 ```
 
 ## User Preferences

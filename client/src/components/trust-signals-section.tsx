@@ -151,9 +151,9 @@ export default function TrustSignalsSection() {
               </a>
               <button
                 onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-                className="px-8 py-3 bg-gray-800 text-white rounded-lg font-semibold text-lg hover:bg-gray-900 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                className="px-8 py-3 bg-white text-black rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg border border-gray-300"
               >
-                Apply Online
+                Apply Now
               </button>
             </div>
           </div>
