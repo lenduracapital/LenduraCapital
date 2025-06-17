@@ -30,25 +30,25 @@ const certifications = [
 
 const teamMembers = [
   {
-    name: "Eric Crawford",
+    name: "Marc Hoffman",
     title: "Senior Funding Specialist",
-    experience: "15+ years",
+    experience: "12+ years",
     specialties: ["Equipment Financing", "SBA Loans", "Term Loans"],
-    credentials: "Certified Commercial Lending Professional"
+    credentials: "Licensed Commercial Lender"
   },
   {
     name: "Lilly Harris", 
     title: "Business Capital Advisor",
-    experience: "12+ years",
+    experience: "8+ years",
     specialties: ["Merchant Cash Advance", "Working Capital", "Invoice Factoring"],
-    credentials: "MBA Finance, Commercial Credit Analyst"
+    credentials: "Business Finance Specialist"
   },
   {
     name: "Brian Higgins",
     title: "Business Development Director", 
-    experience: "18+ years",
+    experience: "10+ years",
     specialties: ["Credit Repair", "Debt Consolidation", "Business Credit Building"],
-    credentials: "Certified Credit Professional, NACM Member"
+    credentials: "Certified Business Advisor"
   }
 ];
 
