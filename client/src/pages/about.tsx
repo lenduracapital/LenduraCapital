@@ -46,7 +46,7 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-[#85abe4] to-blue-600">
+      <section className="relative pt-32 pb-16 bg-gradient-to-br from-[#85abe4] to-blue-600">
         <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -55,7 +55,7 @@ export default function About() {
           }}
         />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               About FundTek Capital Group
