@@ -17,6 +17,7 @@ import EquipmentFinancingDetail from "@/pages/solutions/equipment-financing";
 import InvoiceFactoringDetail from "@/pages/solutions/invoice-factoring";
 import POFinancingDetail from "@/pages/solutions/po-financing";
 import DebtConsolidationDetail from "@/pages/solutions/debt-consolidation";
+import CreditServicesDetail from "@/pages/solutions/credit-services";
 import TestimonialsPage from "@/pages/testimonials";
 import NotFound from "@/pages/not-found";
 
@@ -31,6 +32,8 @@ function Router() {
       <Route path="/solutions/equipment-financing" component={EquipmentFinancingDetail} />
       <Route path="/solutions/invoice-factoring" component={InvoiceFactoringDetail} />
       <Route path="/solutions/po-financing" component={POFinancingDetail} />
+      <Route path="/solutions/debt-consolidation" component={DebtConsolidationDetail} />
+      <Route path="/solutions/credit-services" component={CreditServicesDetail} />
       <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
       <Route path="/who-we-fund" component={WhoWeFund} />
       <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
