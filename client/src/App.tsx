@@ -19,6 +19,7 @@ import POFinancingDetail from "@/pages/solutions/po-financing";
 import DebtConsolidationDetail from "@/pages/solutions/debt-consolidation";
 import CreditServicesDetail from "@/pages/solutions/credit-services";
 import TestimonialsPage from "@/pages/testimonials";
+import MoreTestimonials from "@/pages/more-testimonials";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -39,6 +40,7 @@ function Router() {
       <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
       <Route path="/term-loans" component={TermLoans} />
       <Route path="/testimonials" component={TestimonialsPage} />
+      <Route path="/more-testimonials" component={MoreTestimonials} />
       <Route path="/apply" component={LoanApplication} />
       <Route component={NotFound} />
     </Switch>
