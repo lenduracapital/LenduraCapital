@@ -1,6 +1,6 @@
 import { ChartLine } from "lucide-react";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
 const businessFinancing = [
@@ -28,19 +28,6 @@ const fundTekPages = [
 ];
 
 export default function Footer() {
-  const [, setLocation] = useLocation();
-  
-  const handleLinkClick = (href: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    if (href.startsWith('#')) {
-      const element = document.getElementById(href.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      setLocation(href);
-    }
-  };
 
   return (
     <footer className="bg-[#f5f6f6] border-t border-gray-200 py-8 md:py-12 relative z-10">
@@ -78,13 +65,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <button 
-                    onClick={(e) => handleLinkClick(service.href, e)}
-                    className="hover:opacity-75 transition-colors text-left cursor-pointer bg-transparent border-none p-0 text-black underline"
-                    style={{ pointerEvents: 'auto' }}
+                  <Link 
+                    to={service.href}
+                    className="hover:opacity-75 transition-colors text-black underline"
                   >
                     {service.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -95,13 +81,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <button 
-                    onClick={(e) => handleLinkClick(solution.href, e)}
-                    className="hover:opacity-75 transition-colors text-left cursor-pointer bg-transparent border-none p-0 text-black underline"
-                    style={{ pointerEvents: 'auto' }}
+                  <Link 
+                    to={solution.href}
+                    className="hover:opacity-75 transition-colors text-black underline"
                   >
                     {solution.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -112,13 +97,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <button 
-                    onClick={(e) => handleLinkClick(page.href, e)}
-                    className="hover:opacity-75 transition-colors text-left cursor-pointer bg-transparent border-none p-0 text-black underline"
-                    style={{ pointerEvents: 'auto' }}
+                  <Link 
+                    to={page.href}
+                    className="hover:opacity-75 transition-colors text-black underline"
                   >
                     {page.name}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
