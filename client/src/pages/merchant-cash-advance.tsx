@@ -60,7 +60,7 @@ export default function MerchantCashAdvance() {
             backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop')"
           }}
         >
-          <div className="absolute inset-0 bg-teal-900 bg-opacity-80"></div>
+          <div className="absolute inset-0 bg-teal-900 bg-opacity-20"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

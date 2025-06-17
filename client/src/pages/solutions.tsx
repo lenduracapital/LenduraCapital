@@ -134,10 +134,10 @@ export default function Solutions() {
       <Header />
       
       {/* Hero Section with Professional Design */}
-      <section className="relative pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/20 to-transparent"></div>
+      <section className="relative pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-[#85abe4] to-blue-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop')"
           }}
