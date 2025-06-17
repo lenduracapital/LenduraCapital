@@ -108,7 +108,7 @@ const solutions = [
       "Expert guidance"
     ],
     route: "/solutions/credit-services",
-    image: "https://images.unsplash.com/photo-1554224154-26032fced8bd?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop"
   }
 ];
 
