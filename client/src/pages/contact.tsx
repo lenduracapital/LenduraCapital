@@ -91,7 +91,7 @@ export default function Contact() {
                 <iframe
                   src="https://form.jotform.com/251674789886078"
                   width="100%"
-                  height="600"
+                  height="744"
                   frameBorder="0"
                   scrolling="no"
                   title="Contact Form"
