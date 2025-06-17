@@ -3,7 +3,7 @@ export default function ContactFormSection() {
     <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          <div className="flex flex-col justify-between h-[600px] md:h-[700px] lg:h-[900px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
+          <div className="flex flex-col justify-between h-[600px] md:h-[700px] lg:h-[800px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
             {/* Blue box at the TOP */}
             <div style={{ 
               backgroundColor: '#85abe4', 
@@ -61,16 +61,16 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="1200"
+                height="800"
                 frameBorder="0"
                 scrolling="no"
                 title="Contact Form"
-                className="rounded-lg h-[950px] md:h-[1200px] w-full"
+                className="rounded-lg h-[700px] md:h-[800px] w-full"
                 style={{ 
                   transform: 'scale(1.0)',
                   transformOrigin: 'top left',
                   width: '100%',
-                  height: '1200px'
+                  height: '800px'
                 }}
               ></iframe>
             </div>
