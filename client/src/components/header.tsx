@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM (1)_1749675966252.png";
+import logoPath from "@assets/IMG_4080_1750166138303.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,8 +22,22 @@ export default function Header() {
     <header className="bg-transparent fixed w-full top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
+          {/* Logo on Left */}
+          <div className="flex items-center">
+            <div className="flex flex-col items-center">
+              <img 
+                src={logoPath} 
+                alt="FundTek Capital Group" 
+                className="h-12 w-auto"
+              />
+              <span className="text-white text-xs font-light tracking-wider mt-1">
+                Capital Group
+              </span>
+            </div>
+          </div>
+
           {/* Desktop Navigation - Hidden on mobile */}
-          <div className="hidden lg:flex items-center space-x-8 w-full justify-center">
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
             <button 
               onClick={() => window.location.href = "/"}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
@@ -37,16 +51,10 @@ export default function Header() {
               Solutions
             </button>
             <button 
-              onClick={() => window.location.href = "/cre-lending"}
+              onClick={() => window.location.href = "/who-we-fund"}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
             >
-              CRE Lending
-            </button>
-            <button 
-              onClick={() => window.location.href = "/pmf-advisory"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
-            >
-              PMF Advisory
+              Who We Fund
             </button>
             <button 
               onClick={handleApplyNow}
@@ -55,34 +63,16 @@ export default function Header() {
               Apply Now
             </button>
             <button 
-              onClick={() => window.location.href = "/careers"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
-            >
-              Careers
-            </button>
-            <button 
-              onClick={() => window.location.href = "/pmf-partner"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
-            >
-              PMF Partner
-            </button>
-            <button 
               onClick={() => window.location.href = "/resources"}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
             >
               Resources
             </button>
             <button 
-              onClick={() => window.location.href = "/customer-support"}
+              onClick={() => scrollToSection("contact")}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
             >
-              Customer Support
-            </button>
-            <button 
-              onClick={() => window.location.href = "/credit-portal"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
-            >
-              Credit Portal
+              Contact
             </button>
           </div>
 
@@ -113,16 +103,10 @@ export default function Header() {
               Solutions
             </button>
             <button 
-              onClick={() => { window.location.href = "/cre-lending"; setIsMobileMenuOpen(false); }}
+              onClick={() => { window.location.href = "/who-we-fund"; setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
-              CRE Lending
-            </button>
-            <button 
-              onClick={() => { window.location.href = "/pmf-advisory"; setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
-            >
-              PMF Advisory
+              Who We Fund
             </button>
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
@@ -131,34 +115,16 @@ export default function Header() {
               Apply Now
             </button>
             <button 
-              onClick={() => { window.location.href = "/careers"; setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
-            >
-              Careers
-            </button>
-            <button 
-              onClick={() => { window.location.href = "/pmf-partner"; setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
-            >
-              PMF Partner
-            </button>
-            <button 
               onClick={() => { window.location.href = "/resources"; setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Resources
             </button>
             <button 
-              onClick={() => { window.location.href = "/customer-support"; setIsMobileMenuOpen(false); }}
+              onClick={() => { scrollToSection("contact"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
-              Customer Support
-            </button>
-            <button 
-              onClick={() => { window.location.href = "/credit-portal"; setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
-            >
-              Credit Portal
+              Contact
             </button>
           </div>
         )}
