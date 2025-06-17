@@ -2,6 +2,12 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
+import sgMail from '@sendgrid/mail';
+
+// Initialize SendGrid
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Loan Applications
@@ -109,10 +115,54 @@ This message was automatically generated from the FundTek Capital Group website 
         revenue
       });
 
-      // In a production environment, you would integrate with an email service here
-      // For now, we'll log the email content that would be sent to Brian@fundtekcapitalgroup.com
-      console.log('Email to be sent to Brian@fundtekcapitalgroup.com:');
-      console.log(emailContent);
+      // Send email using SendGrid
+      if (process.env.SENDGRID_API_KEY) {
+        try {
+          const msg = {
+            to: 'Brian@fundtekcapitalgroup.com',
+            from: 'noreply@sendgrid.net', // Using SendGrid's sandbox domain
+            subject: 'New Chat Widget Lead - FundTek Capital Group',
+            text: emailContent,
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                <h2 style="color: #1E88E5; border-bottom: 2px solid #1E88E5; padding-bottom: 10px;">
+                  New Chat Widget Submission - FundTek Capital Group
+                </h2>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                  <p><strong>Timestamp:</strong> ${new Date(timestamp).toLocaleString()}</p>
+                  <p><strong>Source:</strong> ${source}</p>
+                </div>
+
+                <h3 style="color: #333;">Customer Information:</h3>
+                <ul style="line-height: 1.6;">
+                  <li><strong>User Type:</strong> ${userType}</li>
+                  <li><strong>Funding Timeline:</strong> ${timeline}</li>
+                  <li><strong>Product Interest:</strong> ${product}</li>
+                  <li><strong>Monthly Revenue Range:</strong> ${revenue}</li>
+                </ul>
+
+                <div style="background: #e3f2fd; border-left: 4px solid #1E88E5; padding: 15px; margin: 20px 0;">
+                  <p style="margin: 0; font-weight: bold;">Please follow up with this potential client promptly.</p>
+                </div>
+
+                <p style="color: #666; font-size: 12px; margin-top: 30px;">
+                  This message was automatically generated from the FundTek Capital Group website chat widget.
+                </p>
+              </div>
+            `
+          };
+
+          await sgMail.send(msg);
+          console.log('Email sent successfully to Brian@fundtekcapitalgroup.com');
+        } catch (emailError) {
+          console.error('SendGrid email error:', emailError);
+          // Continue with success response even if email fails
+        }
+      } else {
+        console.log('SendGrid not configured, email content logged to console:');
+        console.log(emailContent);
+      }
 
       res.json({ 
         success: true, 
