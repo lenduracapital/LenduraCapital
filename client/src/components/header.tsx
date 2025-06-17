@@ -42,7 +42,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
       <nav className="w-full px-0">
-        <div className="flex justify-between items-center py-2 md:py-4">
+        <div className="flex items-center justify-between py-2 md:py-4 w-full">
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
             <img 
@@ -52,8 +52,8 @@ export default function Header({ transparent = true }: HeaderProps) {
             />
           </div>
 
-          {/* Desktop Navigation - Left aligned */}
-          <nav className="hidden lg:flex items-center space-x-6 ml-8" aria-label="Main navigation">
+          {/* Desktop Navigation - Positioned more to the right */}
+          <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={() => setLocation("/")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
