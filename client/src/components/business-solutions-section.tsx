@@ -26,7 +26,7 @@ export default function BusinessSolutionsSection() {
                 alt="City skyline at night"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
             </div>
             
             {/* Bottom overlay text spanning full width */}

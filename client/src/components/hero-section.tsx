@@ -87,8 +87,7 @@ export default function HeroSection() {
         />
       )}
       
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
       
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8">

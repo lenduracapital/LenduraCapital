@@ -175,7 +175,7 @@ export default function Solutions() {
                       alt={solution.title}
                       className="w-full h-full object-cover transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
                     <div className="absolute top-4 left-4">
                       <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
                         <div style={{ color: '#85abe4' }}>

@@ -97,7 +97,6 @@ export default function TestimonialsPage() {
       {/* Hero Section with Video Background */}
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <nav className="flex items-center justify-center space-x-2 text-sm text-gray-300 mb-8">
