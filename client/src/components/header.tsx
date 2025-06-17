@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 
-export default function Header() {
+interface HeaderProps {
+  transparent?: boolean;
+}
+
+export default function Header({ transparent = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -28,8 +32,13 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   };
 
+  // Determine header background and text colors
+  const isTransparent = transparent && !isScrolled;
+  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black';
+  const textColor = isTransparent ? 'text-white' : 'text-white';
+
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2 md:py-4">
           {/* Logo on the left - aligned with hero text */}
@@ -45,31 +54,31 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-8">
             <button 
               onClick={() => window.location.href = "/"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
               Home
             </button>
             <button 
               onClick={() => window.location.href = "/solutions"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
               Solutions
             </button>
             <button 
               onClick={() => window.location.href = "/who-we-fund"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
               Who We Fund
             </button>
             <button 
               onClick={handleApplyNow}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
               Apply Now
             </button>
             <button 
               onClick={() => window.location.href = "/contact"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium`}
             >
               Contact
             </button>
