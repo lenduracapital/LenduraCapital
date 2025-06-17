@@ -120,7 +120,7 @@ This message was automatically generated from the FundTek Capital Group website 
         try {
           const msg = {
             to: 'Brian@fundtekcapitalgroup.com',
-            from: 'noreply@sendgrid.net', // Using SendGrid's sandbox domain
+            from: 'test@example.com', // SendGrid sandbox sender
             subject: 'New Chat Widget Lead - FundTek Capital Group',
             text: emailContent,
             html: `
@@ -157,7 +157,20 @@ This message was automatically generated from the FundTek Capital Group website 
           console.log('Email sent successfully to Brian@fundtekcapitalgroup.com');
         } catch (emailError) {
           console.error('SendGrid email error:', emailError);
-          // Continue with success response even if email fails
+          console.error('Error details:', JSON.stringify(emailError.response?.body, null, 2));
+          
+          // Log detailed submission for manual follow-up
+          console.log('\n🚨 NEW LEAD - MANUAL EMAIL REQUIRED 🚨');
+          console.log('═══════════════════════════════════════════════');
+          console.log(`⏰ Time: ${new Date(timestamp).toLocaleString()}`);
+          console.log(`🏢 Type: ${userType}`);
+          console.log(`⚡ Timeline: ${timeline}`);
+          console.log(`💰 Product: ${product}`);
+          console.log(`📊 Revenue: ${revenue}`);
+          console.log(`📧 Send to: Brian@fundtekcapitalgroup.com`);
+          console.log('═══════════════════════════════════════════════');
+          console.log('Action Required: Copy this info and email Brian manually');
+          console.log('Email Subject: New Chat Lead - Urgent Follow-up Required\n');
         }
       } else {
         console.log('SendGrid not configured, email content logged to console:');

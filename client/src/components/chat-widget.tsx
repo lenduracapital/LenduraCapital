@@ -20,7 +20,7 @@ interface ChatState {
 
 export default function ChatWidget() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Start expanded by default
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [chatState, setChatState] = useState<ChatState>({
     step: 'initial',
