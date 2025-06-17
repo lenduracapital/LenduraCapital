@@ -25,13 +25,13 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       
       {/* Logo on Left */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-8 left-8 z-20 flex flex-col items-center">
         <img 
           src={newLogoPath}
           alt="FundTek Capital Group" 
-          className="h-32 w-auto"
+          className="h-32 w-auto mb-2"
         />
-        <div className="text-white text-lg font-light tracking-wider text-center -mt-2">
+        <div className="text-white text-lg font-light tracking-wider text-center">
           Capital Group
         </div>
       </div>
