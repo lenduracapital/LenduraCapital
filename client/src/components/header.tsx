@@ -68,12 +68,6 @@ export default function Header() {
               Apply Now
             </button>
             <button 
-              onClick={() => window.location.href = "/resources"}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
-            >
-              Resources
-            </button>
-            <button 
               onClick={() => scrollToSection("contact")}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
             >
@@ -118,12 +112,6 @@ export default function Header() {
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Apply Now
-            </button>
-            <button 
-              onClick={() => { window.location.href = "/resources"; setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
-            >
-              Resources
             </button>
             <button 
               onClick={() => { scrollToSection("contact"); setIsMobileMenuOpen(false); }}

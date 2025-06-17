@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function TestimonialsSection() {
   const handleMoreTestimonials = () => {
-    window.location.href = "/testimonials";
+    window.location.href = "/more-testimonials";
   };
   return (
     <section className="py-20 bg-white">
