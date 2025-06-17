@@ -8,13 +8,13 @@ import Footer from "@/components/footer";
 const testimonials = [
   {
     id: 1,
-    name: "James Martinez",
-    title: "Manufacturing Company Owner",
-    company: "Martinez Manufacturing LLC",
+    name: "Robert Chen",
+    title: "Auto Shop Owner",
+    company: "Chen's Auto Repair",
     rating: 5,
-    text: "FundTek's term loan helped us purchase the equipment we needed to expand our manufacturing capacity. The fixed monthly payments made budgeting easy, and we were able to increase our revenue by 40% within the first year.",
+    text: "When our main diagnostic machine broke down, we needed quick funding to replace it. FundTek helped us get approved within two days. The application process was straightforward and the team was responsive.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop",
-    solution: "Term Loans"
+    solution: "Equipment Financing"
   },
   {
     id: 2,

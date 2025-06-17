@@ -206,6 +206,10 @@ Changelog:
 - June 17, 2025. Navigation menu update:
   * Changed navigation menu item from "Contact" to "Contact Us" in both desktop and mobile navigation
   * Kept contact page heading as "Contact FundTek Capital Group" for brand consistency
+- June 17, 2025. Testimonials authenticity improvement:
+  * Replaced overly promotional first testimonial with more authentic and believable content
+  * Updated Robert Chen's auto shop story to sound more genuine and relatable
+  * Removed exaggerated claims and focused on realistic business scenarios
 ```
 
 ## User Preferences
