@@ -319,7 +319,7 @@ export default function ChatWidget() {
         }`}>
           <button
             onClick={toggleChat}
-            className="bg-[#1E88E5] hover:bg-[#1976D2] text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 mt-4 ml-auto block"
+            className="bg-[#85abe4] hover:bg-[#7299d9] text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300 mt-4 ml-auto block"
             aria-label="Open chat"
           >
             <MessageCircle className="w-6 h-6" />

@@ -238,8 +238,10 @@ Changelog:
   * Optimized for mobile-first interaction patterns eliminating hover dependencies
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
   * Created floating chat widget appearing after 3-second delay in bottom-right corner
-  * Designed with rounded blue header (#1E88E5), robot avatar, "FundTek" title and "Here to assist!" subtitle
+  * Designed with signature blue (#85abe4) throughout - header, messages, and floating button
   * Implemented conversational flow: business financing → timeline → product → revenue range
+  * Added consolidation flow with lender name and balance input fields
+  * Enhanced with full product list (9 options: Term Loans, SBA, Equipment Financing, etc.)
   * Added smooth slide-up animation, mobile responsiveness (80% width max on small screens)
   * Built both React component and standalone HTML/CSS/JS versions for maximum compatibility
   * Integrated backend API endpoint routing submissions to Brian@fundtekcapitalgroup.com
