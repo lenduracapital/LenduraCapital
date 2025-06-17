@@ -7,7 +7,7 @@ export default function ContactFormSection() {
             display: 'flex', 
             flexDirection: 'column', 
             justifyContent: 'space-between',
-            height: '700px'
+            height: '900px'
           }}>
             {/* Blue box at the TOP */}
             <div style={{ 
