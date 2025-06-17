@@ -25,7 +25,7 @@ const fundTekPages = [
   { name: "Terms & Conditions", href: "/terms" },
   { name: "Privacy Policy", href: "/privacy" },
   { name: "Cookies Policy", href: "/cookies" },
-  { name: "Testimonials", href: "/testimonials" }
+  { name: "Testimonials", href: "/more-testimonials" }
 ];
 
 export default function Footer() {
