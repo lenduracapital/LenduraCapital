@@ -114,7 +114,8 @@ export default function Footer() {
                 <li key={index}>
                   <button 
                     onClick={(e) => handleLinkClick(page.href, e)}
-                    className="hover:opacity-75 transition-colors text-left"
+                    className="hover:opacity-75 transition-colors text-left cursor-pointer bg-transparent border-none p-0 text-black underline"
+                    style={{ pointerEvents: 'auto' }}
                   >
                     {page.name}
                   </button>

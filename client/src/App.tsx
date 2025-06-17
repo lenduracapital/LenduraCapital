@@ -24,6 +24,7 @@ const CreditServicesDetail = lazy(() => import("@/pages/solutions/credit-service
 const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
 const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
+const About = lazy(() => import("@/pages/about"));
 const Terms = lazy(() => import("@/pages/terms"));
 const Privacy = lazy(() => import("@/pages/privacy"));
 const Cookies = lazy(() => import("@/pages/cookies"));
@@ -58,6 +59,7 @@ function Router() {
         <Route path="/term-loans" component={TermLoans} />
         <Route path="/testimonials" component={TestimonialsPage} />
         <Route path="/more-testimonials" component={MoreTestimonials} />
+        <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
         <Route path="/terms" component={Terms} />
         <Route path="/privacy" component={Privacy} />
