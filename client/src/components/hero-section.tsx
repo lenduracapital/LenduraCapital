@@ -1,29 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
+import { useState, useEffect, useRef } from "react";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoQuality, setVideoQuality] = useState('720p');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
+  // Detect optimal video quality based on viewport and connection
   useEffect(() => {
-    // Progressive video loading with intersection observer
+    const getOptimalQuality = () => {
+      const width = window.innerWidth;
+      const connection = (navigator as any).connection;
+      
+      if (width <= 768 || (connection && connection.effectiveType === '3g')) {
+        return '480p';
+      }
+      return '720p';
+    };
+
+    setVideoQuality(getOptimalQuality());
+    
+    const handleResize = () => setVideoQuality(getOptimalQuality());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Enhanced intersection observer with performance optimization
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Load video only when hero section is visible
+          setIsIntersecting(true);
+          // Delay video loading slightly to prioritize critical content
           const timer = setTimeout(() => {
             setVideoLoaded(true);
-          }, 100);
+          }, 150);
           observer.disconnect();
           return () => clearTimeout(timer);
         }
       },
-      { threshold: 0.1, rootMargin: "50px" }
+      { threshold: 0.1, rootMargin: "100px" }
     );
 
     const heroElement = document.querySelector('.hero-section');
@@ -39,25 +61,39 @@ export default function HeroSection() {
       {/* Background Video with Enhanced Optimization */}
       {videoLoaded ? (
         <video 
+          ref={videoRef}
           autoPlay 
           muted 
           loop 
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
-          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80"
+          poster="/video/optimized/hero-poster.jpg"
           onLoadStart={() => console.log('Video loading started')}
           onCanPlayThrough={() => console.log('Video ready to play')}
+          aria-label="FundTek Capital Group business financing solutions showcase"
         >
-          <source src={videoPath} type="video/mp4" />
-          <source src={videoPath.replace('.mp4', '.webm')} type="video/webm" />
+          <source src={`/video/optimized/hero-video-${videoQuality}.mp4`} type="video/mp4" />
+          <track 
+            kind="captions" 
+            src="/video/captions/hero-video-en.vtt" 
+            srcLang="en" 
+            label="English captions"
+            default 
+          />
+          <track 
+            kind="descriptions" 
+            src="/video/captions/hero-video-desc-en.vtt" 
+            srcLang="en" 
+            label="Audio descriptions" 
+          />
           Your browser does not support the video tag.
         </video>
       ) : (
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/video/optimized/hero-poster.jpg')"
           }}
         />
       )}
