@@ -4,16 +4,25 @@ export default function ContactFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-12 flex flex-col justify-center h-full">
-            <div style={{ backgroundColor: '#85abe4' }} className="p-10 rounded-lg text-white">
-              <h3 className="text-3xl font-normal mb-0 leading-relaxed">Over $1B in working capital provided to U.S. small-medium sized businesses.</h3>
+            <div className="border-2 border-purple-500 p-10 rounded-lg bg-white">
+              <h3 className="text-3xl font-normal mb-0 leading-relaxed text-black">
+                Over $1B in working capital<br />
+                provided to U.S. small-<br />
+                medium sized businesses.
+              </h3>
             </div>
             
-            <div className="text-left space-y-8">
-              <p className="text-2xl font-normal text-gray-800 leading-relaxed">
-                Fast, flexible, revenue-based capital solutions built for growing businesses.
+            <div className="text-left space-y-12">
+              <p className="text-2xl font-normal text-black leading-relaxed">
+                Fast, flexible,<br />
+                revenue-based capital<br />
+                solutions built for growing<br />
+                businesses.
               </p>
-              <p className="text-2xl font-normal text-gray-800 leading-relaxed">
-                A funding partner aligned with your business goals.
+              <p className="text-2xl font-normal text-black leading-relaxed">
+                A funding partner<br />
+                aligned with your<br />
+                business goals.
               </p>
             </div>
           </div>
