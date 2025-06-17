@@ -35,7 +35,7 @@ const teamMembers = [
     experience: "15+ years",
     specialties: ["Strategic Leadership", "Business Development", "Financial Solutions"],
     credentials: "Certified Executive Leader",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face&auto=format&q=80"
   },
   {
     name: "Gabby Glickman", 
@@ -43,7 +43,7 @@ const teamMembers = [
     experience: "12+ years",
     specialties: ["Operations Management", "Client Relations", "Process Optimization"],
     credentials: "Business Operations Specialist",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face&auto=format&q=80"
   }
 ];
 
