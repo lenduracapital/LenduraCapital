@@ -32,8 +32,8 @@ export default function Header() {
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo on the left */}
-          <div className="flex items-center">
+          {/* Logo on the left - aligned with hero text */}
+          <div className="flex items-center ml-8 lg:ml-16">
             <img 
               src={logoPath}
               alt="FundTek Capital Group Logo" 
