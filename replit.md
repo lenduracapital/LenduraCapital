@@ -116,6 +116,17 @@ Changelog:
   * Updated all Apply Now buttons to link to Jotform: https://form.jotform.com/251417715331047
   * Replaced logo with official FundTek Capital Group branding in hero section
   * Fixed logo positioning and sizing in hero section per user specifications
+- June 17, 2025. Complete homepage enhancement with new sections:
+  * Updated contact form section with #f5f6f6 background, spread-out text, removed title
+  * Enhanced working capital section with scroll-triggered rolling statistics
+  * Added "See full list of services" button linking to solutions page
+  * Created new "Move Your Business Forward" section with FundTek-specific content
+  * Built business solutions section with cityscape background
+  * Updated testimonials section with professional client testimonial design
+  * Completely redesigned footer with comprehensive navigation to all pages
+  * Updated Solutions page with correct service order and FundTek branding
+  * Applied signature color #85abe4 throughout all new sections
+  * Added "Copyright 2025 FundTek Capital Group. All rights reserved." to footer
 ```
 
 ## User Preferences

@@ -1,28 +1,26 @@
 import { ChartLine } from "lucide-react";
 import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 
-const services = [
-  "Working Capital",
-  "Equipment Financing", 
-  "Revenue-Based Financing",
-  "SBA Loans",
-  "Real Estate"
+const businessFinancing = [
+  { name: "Term Loans", href: "/solutions/term-loans" },
+  { name: "Lines of Credit", href: "/solutions/lines-of-credit" },
+  { name: "Equipment Financing", href: "/solutions/equipment-financing" },
+  { name: "Invoice Factoring", href: "/solutions/invoice-factoring" },
+  { name: "P.O. Financing", href: "/solutions/po-financing" }
 ];
 
-const company = [
-  { name: "About Us", href: "#about" },
-  { name: "Our Team", href: "#" },
-  { name: "Careers", href: "#" },
-  { name: "Press", href: "#" },
-  { name: "Contact", href: "#contact" }
+const customSolutions = [
+  { name: "Credit Services", href: "/solutions/credit-services" },
+  { name: "SBA Loans", href: "/solutions/sba-loans" },
+  { name: "Debt Consolidation", href: "/solutions/debt-consolidation" },
+  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" }
 ];
 
-const resources = [
-  "FAQ",
-  "Blog",
-  "Case Studies", 
-  "Privacy Policy",
-  "Terms of Service"
+const fundTekPages = [
+  { name: "About FundTek", href: "/about" },
+  { name: "Who We Fund", href: "/who-we-fund" },
+  { name: "Resources", href: "/resources" },
+  { name: "Contact Us", href: "/contact" }
 ];
 
 export default function Footer() {
@@ -45,7 +43,10 @@ export default function Footer() {
               <span className="text-lg font-bold text-[--text-primary]">FundTek Capital</span>
             </div>
             <p className="text-[--text-secondary] text-sm">
-              Empowering businesses with innovative funding solutions and exceptional service since 2015.
+              Would you like a free, no strings attached consultation?
+            </p>
+            <p className="text-[--text-secondary] text-sm">
+              Call us today at (646) 329-4622
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-[--text-secondary] hover:text-[--primary] transition-colors">
@@ -61,12 +62,12 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Services</h4>
+            <h4 className="text-[--text-primary] font-semibold mb-4">Premium Business Financing Services</h4>
             <ul className="space-y-2 text-sm text-[--text-secondary]">
-              {services.map((service, index) => (
+              {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-[--text-primary] transition-colors">
-                    {service}
+                  <a href={service.href} className="hover:text-[--text-primary] transition-colors">
+                    {service.name}
                   </a>
                 </li>
               ))}
@@ -74,28 +75,25 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Company</h4>
+            <h4 className="text-[--text-primary] font-semibold mb-4">Custom Small Business Solutions</h4>
             <ul className="space-y-2 text-sm text-[--text-secondary]">
-              {company.map((item, index) => (
+              {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <button 
-                    onClick={() => item.href.startsWith("#") ? scrollToSection(item.href) : null}
-                    className="hover:text-[--text-primary] transition-colors text-left"
-                  >
-                    {item.name}
-                  </button>
+                  <a href={solution.href} className="hover:text-[--text-primary] transition-colors">
+                    {solution.name}
+                  </a>
                 </li>
               ))}
             </ul>
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Resources</h4>
+            <h4 className="text-[--text-primary] font-semibold mb-4">Premium Merchant Funding</h4>
             <ul className="space-y-2 text-sm text-[--text-secondary]">
-              {resources.map((resource, index) => (
+              {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <a href="#" className="hover:text-[--text-primary] transition-colors">
-                    {resource}
+                  <a href={page.href} className="hover:text-[--text-primary] transition-colors">
+                    {page.name}
                   </a>
                 </li>
               ))}
@@ -105,7 +103,7 @@ export default function Footer() {
         
         <div className="border-t border-[--bg-tertiary]/30 mt-8 pt-8 text-center">
           <p className="text-[--text-secondary] text-sm">
-            © 2024 FundTek Capital Group. All rights reserved. | NMLS ID: 123456
+            Copyright 2025 FundTek Capital Group. All rights reserved.
           </p>
         </div>
       </div>

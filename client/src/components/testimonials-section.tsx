@@ -1,11 +1,48 @@
+import { Star } from "lucide-react";
+
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
-          Testimonials
-        </h2>
-        {/* Content will be added later */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="text-white">
+            <h2 className="text-2xl font-bold mb-4">
+              What our clients are saying about our solutions
+            </h2>
+            <p className="text-gray-300 mb-8">
+              Our Financial Solutions and Business Services support our clients as they stay competitive and grow to keep our nation's economy alive.
+            </p>
+            
+            <div className="bg-gray-800 p-6 rounded-lg">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  M
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Restaurant Owner</p>
+                  <div className="flex text-yellow-400">
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                    <Star className="h-4 w-4 fill-current" />
+                  </div>
+                </div>
+              </div>
+              <p className="text-gray-300 italic">
+                "FundTek Capital Group helped us get the funding we needed to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!"
+              </p>
+            </div>
+          </div>
+          
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop" 
+              alt="Business meeting" 
+              className="w-full h-80 object-cover rounded-lg"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

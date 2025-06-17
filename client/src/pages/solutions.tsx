@@ -100,17 +100,17 @@ export default function Solutions() {
           </div>
           
           {/* Contact CTA Box */}
-          <div className="bg-green-500 text-white p-8 rounded-lg max-w-md ml-auto mr-8">
+          <div style={{ backgroundColor: '#85abe4' }} className="text-white p-8 rounded-lg max-w-md ml-auto mr-8">
             <div className="flex items-center mb-4">
-              <div className="bg-white text-green-500 p-2 rounded-full mr-4">
+              <div className="bg-white p-2 rounded-full mr-4" style={{ color: '#85abe4' }}>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
               </div>
-              <h3 className="text-xl font-bold">Contact PMF to learn more</h3>
+              <h3 className="text-xl font-bold">Contact FundTek to learn more</h3>
             </div>
             <p className="text-sm mb-4">
-              Call us at (877) 753-6156 to speak to a loan specialist today
+              Call us at (646) 329-4622 to speak to a loan specialist today
             </p>
           </div>
         </div>
@@ -135,83 +135,39 @@ export default function Solutions() {
             
             <Button 
               onClick={handleApplyNow}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg mt-8 inline-flex items-center"
+              style={{ backgroundColor: '#85abe4' }}
+              className="hover:opacity-90 text-white px-8 py-3 rounded-lg font-semibold text-lg mt-8 inline-flex items-center"
             >
               View your options →
             </Button>
           </div>
 
           {/* Service Cards */}
-          <div className="space-y-16">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <img 
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop" 
-                  alt="Merchant Cash Advance" 
-                  className="w-full h-80 object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                  Merchant Cash Advance
-                </h3>
-                <div className="w-16 h-1 bg-green-500 mb-6"></div>
-                <p className="text-lg text-gray-600 mb-6">
-                  An alternative to traditional bank loans
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Applying for a merchant cash advance (MCA) is a fast and convenient process with 
-                  minimal paperwork and the opportunity for same-day funding availability. Funding 
-                  amounts range from $2,000 to $2,000,000.
-                </p>
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {[
+              { title: "Term Loans", description: "Traditional business financing with predictable payments", route: "/solutions/term-loans" },
+              { title: "Lines of Credit", description: "Flexible credit access for ongoing business needs", route: "/solutions/lines-of-credit" },
+              { title: "SBA Loans", description: "Government-backed loans with favorable terms", route: "/solutions/sba-loans" },
+              { title: "Debt Consolidation", description: "Combine multiple debts into one manageable payment", route: "/solutions/debt-consolidation" },
+              { title: "Equipment Financing", description: "Funding for machinery, vehicles, and business equipment", route: "/solutions/equipment-financing" },
+              { title: "Invoice Factoring", description: "Convert outstanding invoices into immediate cash", route: "/solutions/invoice-factoring" },
+              { title: "P.O. Financing", description: "Fulfill large orders with purchase order funding", route: "/solutions/po-financing" },
+              { title: "Credit Services", description: "Business credit building and repair solutions", route: "/solutions/credit-services" },
+              { title: "Merchant Cash Advance", description: "Quick funding based on future credit card sales", route: "/solutions/merchant-cash-advance" }
+            ].map((service, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg border hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
+                <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#85abe4' }}></div>
+                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                 <Button 
-                  onClick={() => window.location.href = "/solutions/merchant-cash-advance"}
-                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded"
+                  onClick={() => window.location.href = service.route}
+                  style={{ backgroundColor: '#85abe4' }}
+                  className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold"
                 >
                   Find out more →
                 </Button>
               </div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="lg:order-2">
-                <img 
-                  src="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=600&h=400&fit=crop" 
-                  alt="Line of Credit" 
-                  className="w-full h-80 object-cover rounded-lg shadow-lg"
-                />
-              </div>
-              <div className="lg:order-1">
-                <h3 className="text-3xl font-bold text-gray-800 mb-4">
-                  Line of Credit
-                </h3>
-                <div className="w-16 h-1 bg-green-500 mb-6"></div>
-                <p className="text-lg text-gray-600 mb-6">
-                  Fast approvals available to provide instant access to funds
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  A flexible loan to provide small business owners with a defined amount of money 
-                  that can be accessed as needed and repaid either immediately or over time. Funds 
-                  are revolving and can be accessed repeatedly without reapplying.
-                </p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  Great, low rate option for small business owners with a 600+ FICO score and 
-                  grossing at least $20,000 per month.
-                </p>
-                <div className="bg-gray-100 p-6 rounded-lg mb-6">
-                  <h4 className="text-xl font-bold text-gray-800 mb-4">Flexible alternative</h4>
-                  <p className="text-gray-600">
-                    More funds are available to draw from as the principal is paid down
-                  </p>
-                </div>
-                <Button 
-                  onClick={() => window.location.href = "/solutions/line-of-credit"}
-                  className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded"
-                >
-                  Find out more →
-                </Button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
