@@ -31,18 +31,11 @@ export default function ChatWidget() {
 
   // Prevent chat widget from interfering with page links
   const handleContainerClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
+    // Only prevent propagation for clicks within the chat widget area
+    if (e.currentTarget === e.target || e.currentTarget.contains(e.target as Node)) {
+      e.stopPropagation();
+    }
   };
-
-  // Add global event listener cleanup on unmount
-  useEffect(() => {
-    return () => {
-      // Clean up any potential event listeners when component unmounts
-      document.removeEventListener('click', handleContainerClick as any);
-      document.removeEventListener('mousedown', handleContainerClick as any);
-    };
-  }, []);
 
   // Show widget after 3 seconds
   useEffect(() => {
@@ -276,7 +269,7 @@ export default function ChatWidget() {
         style={{ 
           maxWidth: 'calc(100vw - 2rem)',
           width: isOpen ? 'min(380px, 80vw)' : 'auto',
-          pointerEvents: 'auto'
+          pointerEvents: isOpen ? 'auto' : 'none'
         }}
         onClick={handleContainerClick}
         onMouseDown={handleContainerClick}
@@ -286,8 +279,6 @@ export default function ChatWidget() {
           className={`bg-white rounded-lg shadow-2xl border overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
           }`}
-          onClick={(e) => e.stopPropagation()}
-          onMouseDown={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
