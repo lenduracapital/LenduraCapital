@@ -213,7 +213,7 @@ Changelog:
   * Updated all 6 testimonials in grid view with authentic business scenarios
   * Fixed homepage testimonials section with unique "Maria Gonzalez" from "Gonzalez Bistro"
   * Focused on genuine business challenges like equipment breakdowns, seasonal cash flow, and expansion needs
-  * Replaced fake-sounding "Licensed & Insured" trust signal with "Regulated Partner" for more authentic financial industry messaging
+  * Replaced fake-sounding "Licensed & Insured" trust signal with "Trusted Network" appropriate for broker business model
 ```
 
 ## User Preferences
