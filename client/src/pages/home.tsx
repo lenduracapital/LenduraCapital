@@ -1,9 +1,8 @@
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProcessSection from "@/components/process-section";
+import WorkingCapitalSection from "@/components/working-capital-section";
 import ContactFormSection from "@/components/contact-form-section";
-import IndustryServicesSection from "@/components/industry-services-section";
-import AboutSection from "@/components/about-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -12,8 +11,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <ProcessSection />
+      <WorkingCapitalSection />
       <ContactFormSection />
-      <IndustryServicesSection />
       <Footer />
     </div>
   );
