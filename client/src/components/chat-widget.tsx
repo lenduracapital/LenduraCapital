@@ -29,6 +29,21 @@ export default function ChatWidget() {
     responses: {}
   });
 
+  // Prevent chat widget from interfering with page links
+  const handleContainerClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  // Add global event listener cleanup on unmount
+  useEffect(() => {
+    return () => {
+      // Clean up any potential event listeners when component unmounts
+      document.removeEventListener('click', handleContainerClick as any);
+      document.removeEventListener('mousedown', handleContainerClick as any);
+    };
+  }, []);
+
   // Show widget after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -135,7 +150,11 @@ export default function ChatWidget() {
     }
   };
 
-  const toggleChat = () => {
+  const toggleChat = (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setIsOpen(!isOpen);
   };
 
@@ -251,18 +270,25 @@ export default function ChatWidget() {
     <>
       {/* Chat Widget Container */}
       <div 
-        className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out ${
+        className={`fixed bottom-4 right-4 z-40 transition-all duration-300 ease-in-out ${
           isOpen ? 'transform-none' : 'transform'
         }`}
         style={{ 
           maxWidth: 'calc(100vw - 2rem)',
-          width: isOpen ? 'min(380px, 80vw)' : 'auto'
+          width: isOpen ? 'min(380px, 80vw)' : 'auto',
+          pointerEvents: 'auto'
         }}
+        onClick={handleContainerClick}
+        onMouseDown={handleContainerClick}
       >
         {/* Chat Window */}
-        <div className={`bg-white rounded-lg shadow-2xl border overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
-        }`}>
+        <div 
+          className={`bg-white rounded-lg shadow-2xl border overflow-hidden transition-all duration-300 ease-in-out ${
+            isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
+          }`}
+          onClick={(e) => e.stopPropagation()}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
           {/* Header */}
           <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
