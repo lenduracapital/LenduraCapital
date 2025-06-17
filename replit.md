@@ -201,8 +201,8 @@ Changelog:
   * Applied fixes to solution detail template affecting all 9 financing solution pages automatically
 - June 17, 2025. Contact form optimization:
   * Optimized "Get working capital today" form to display in single view without scrolling
-  * Expanded form height to 650px and scale to 0.9 to fill available space efficiently
-  * Removed internal scrolling while maintaining full form visibility
+  * Progressively expanded form height to 1000px with full scale (1.0) to maximize space utilization
+  * Removed internal scrolling while maintaining full form visibility and eliminating white space
 ```
 
 ## User Preferences
