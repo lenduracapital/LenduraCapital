@@ -59,18 +59,18 @@ export default function ContactFormSection() {
             <p className="text-sm text-gray-600 mb-6 px-1 md:px-2">Fill out the form below, and a team member will be in touch.</p>
             <div className="w-full overflow-hidden -mx-1 md:-mx-2">
               <iframe
-                src="https://form.jotform.com/251581480799066"
+                src="https://form.jotform.com/251674789886078"
                 width="100%"
-                height="1000"
+                height="900"
                 frameBorder="0"
                 scrolling="no"
                 title="Contact Form"
-                className="rounded-lg h-[850px] md:h-[1000px] w-full"
+                className="rounded-lg h-[800px] md:h-[900px] w-full"
                 style={{ 
                   transform: 'scale(1.0)',
                   transformOrigin: 'top left',
                   width: '100%',
-                  height: '1000px'
+                  height: '900px'
                 }}
               ></iframe>
             </div>
