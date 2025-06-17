@@ -9,6 +9,7 @@ import WhoWeFund from "@/pages/who-we-fund";
 import MerchantCashAdvance from "@/pages/merchant-cash-advance";
 import TermLoans from "@/pages/term-loans";
 import LoanApplication from "@/pages/loan-application";
+import MerchantCashAdvanceDetail from "@/pages/solutions/merchant-cash-advance";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/solutions" component={Solutions} />
+      <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
       <Route path="/who-we-fund" component={WhoWeFund} />
       <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
       <Route path="/term-loans" component={TermLoans} />
