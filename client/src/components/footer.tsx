@@ -1,5 +1,5 @@
 import { ChartLine } from "lucide-react";
-import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
 const businessFinancing = [
@@ -51,7 +51,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <FaLinkedin className="text-xl" />
+                <FaInstagram className="text-xl" />
               </a>
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaTwitter className="text-xl" />
