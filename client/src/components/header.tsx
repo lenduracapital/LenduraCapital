@@ -68,7 +68,7 @@ export default function Header() {
               Apply Now
             </button>
             <button 
-              onClick={() => scrollToSection("contact")}
+              onClick={() => window.location.href = "/contact"}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium"
             >
               Contact
@@ -114,7 +114,7 @@ export default function Header() {
               Apply Now
             </button>
             <button 
-              onClick={() => { scrollToSection("contact"); setIsMobileMenuOpen(false); }}
+              onClick={() => { window.location.href = "/contact"; setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
               Contact
