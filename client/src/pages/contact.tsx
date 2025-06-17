@@ -22,61 +22,61 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form Section */}
-      <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
+      <section className="py-20" style={{ backgroundColor: '#85abe4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-black mb-6">
-                  Get in Touch
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Partner with FundTek Capital Group
                 </h2>
-                <p className="text-gray-600 text-lg mb-8">
-                  Whether you need working capital, equipment financing, or any other business funding solution, we're here to help. Contact us today to discuss your financing needs.
+                <p className="text-white text-lg mb-8">
+                  Ready to accelerate your business growth? Our dedicated funding specialists provide personalized solutions tailored to your unique business needs. From same-day approvals to flexible terms, we make business financing simple and accessible.
                 </p>
               </div>
 
               {/* Contact Details */}
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-white" />
+                  <div className="bg-white p-3 rounded-lg">
+                    <Phone className="h-6 w-6" style={{ color: '#85abe4' }} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-black">Phone</h3>
-                    <p className="text-gray-600">(305) 307-4658</p>
+                    <h3 className="font-semibold text-white">Direct Line</h3>
+                    <p className="text-white">(305) 307-4658</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-white" />
+                  <div className="bg-white p-3 rounded-lg">
+                    <Mail className="h-6 w-6" style={{ color: '#85abe4' }} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-black">Email</h3>
-                    <p className="text-gray-600">admin@fundtekcapital.com</p>
+                    <h3 className="font-semibold text-white">Email</h3>
+                    <p className="text-white">admin@fundtekcapital.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Clock className="h-6 w-6 text-white" />
+                  <div className="bg-white p-3 rounded-lg">
+                    <Clock className="h-6 w-6" style={{ color: '#85abe4' }} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-black">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                    <h3 className="font-semibold text-white">Business Hours</h3>
+                    <p className="text-white">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
                   </div>
                 </div>
               </div>
 
               {/* Quick Response Promise */}
-              <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
+              <div className="bg-white/20 backdrop-blur-sm border border-white/30 p-6 rounded-lg">
                 <h3 className="text-white font-semibold text-lg mb-2">
-                  Fast Response Guarantee
+                  Same-Day Response Guarantee
                 </h3>
                 <p className="text-white">
-                  We respond to all inquiries within 24 hours. For urgent funding needs, call us directly at (305) 307-4658.
+                  Get funding decisions within 24 hours. Our specialists are standing by to provide immediate assistance with your business financing needs.
                 </p>
               </div>
             </div>
