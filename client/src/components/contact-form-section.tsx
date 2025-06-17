@@ -1,18 +1,18 @@
 export default function ContactFormSection() {
   return (
-    <section className="py-20 bg-[--bg-primary]">
+    <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="space-y-8">
-            <div className="bg-[--primary] p-8 rounded-lg text-white">
-              <h3 className="text-2xl font-bold mb-4">Over $1B in working capital provided to U.S. small-medium sized businesses.</h3>
+          <div className="space-y-12">
+            <div className="bg-[--primary] p-10 rounded-lg text-white">
+              <h3 className="text-3xl font-bold mb-6 leading-relaxed">Over $1B in working capital provided to U.S. small-medium sized businesses.</h3>
             </div>
             
-            <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-[--text-primary]">
+            <div className="space-y-8">
+              <h4 className="text-2xl font-semibold text-gray-800 leading-relaxed">
                 Fast, flexible, revenue-based capital solutions built for growing businesses.
               </h4>
-              <p className="text-[--text-secondary] text-lg">
+              <p className="text-gray-600 text-xl leading-relaxed">
                 A funding partner aligned with your business goals.
               </p>
             </div>
