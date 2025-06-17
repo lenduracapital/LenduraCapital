@@ -1,6 +1,6 @@
 import { ChartLine } from "lucide-react";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
-import { Link } from "wouter";
+import { useLocation } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
 const businessFinancing = [
@@ -28,6 +28,12 @@ const fundTekPages = [
 ];
 
 export default function Footer() {
+  const [, setLocation] = useLocation();
+
+  const handleNavigation = (href: string) => {
+    console.log('Navigating to:', href);
+    setLocation(href);
+  };
 
   return (
     <footer className="bg-[#f5f6f6] border-t border-gray-200 py-8 md:py-12 relative z-50">
@@ -65,16 +71,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <Link 
-                    to={service.href}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
-                    onClick={(e) => {
-                      console.log('Business financing link clicked:', service.name, service.href);
-                      e.stopPropagation();
-                    }}
+                  <button
+                    onClick={() => handleNavigation(service.href)}
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {service.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -85,16 +87,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <Link 
-                    to={solution.href}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
-                    onClick={(e) => {
-                      console.log('Custom solutions link clicked:', solution.name, solution.href);
-                      e.stopPropagation();
-                    }}
+                  <button
+                    onClick={() => handleNavigation(solution.href)}
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {solution.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -105,16 +103,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <Link 
-                    to={page.href}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1"
-                    onClick={(e) => {
-                      console.log('Footer link clicked:', page.name, page.href);
-                      e.stopPropagation();
-                    }}
+                  <button
+                    onClick={() => handleNavigation(page.href)}
+                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {page.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
