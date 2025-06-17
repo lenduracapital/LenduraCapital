@@ -23,8 +23,8 @@ export default function TestimonialsSection() {
                   M
                 </div>
                 <div>
-                  <p className="text-black font-semibold">Miguel Santos</p>
-                  <p className="text-black text-sm">Santos Family Restaurant</p>
+                  <p className="text-black font-semibold">Maria Gonzalez</p>
+                  <p className="text-black text-sm">Gonzalez Bistro</p>
                   <div className="flex text-yellow-400">
                     <Star className="h-4 w-4 fill-current" />
                     <Star className="h-4 w-4 fill-current" />
