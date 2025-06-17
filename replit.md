@@ -192,9 +192,9 @@ Changelog:
   * Updated footer branding from "Premium Merchant Funding" to "FundTek Capital Group"
   * Removed "Resources" section from footer navigation
   * Changed LinkedIn icon to Instagram icon in footer social media
-  * Updated team member "Eric Crawford" to "Marc Hoffman" with more realistic credentials
+  * Updated team members: Marc Khouli as Founder & CEO (younger professional), Gabby Glickman as Co-Founder & COO (blonde hair, blue eyes)
   * Modified "Apply Online" button to white background with black text reading "Apply Now"
-  * Updated Brian Higgins' specialties to business development focused areas
+  * Enhanced team section spacing with 2-column layout and increased gaps for better visual balance
   * Enhanced footer logo size and visibility with brightness filters
 - June 17, 2025. Solution detail pages UI fixes:
   * Fixed qualification requirements black box to signature blue (#85abe4) with white text across all solution pages

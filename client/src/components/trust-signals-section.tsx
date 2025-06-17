@@ -35,7 +35,7 @@ const teamMembers = [
     experience: "15+ years",
     specialties: ["Strategic Leadership", "Business Development", "Financial Solutions"],
     credentials: "Certified Executive Leader",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
   },
   {
     name: "Gabby Glickman", 
@@ -43,7 +43,7 @@ const teamMembers = [
     experience: "12+ years",
     specialties: ["Operations Management", "Client Relations", "Process Optimization"],
     credentials: "Business Operations Specialist",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1c3?w=150&h=150&fit=crop&crop=face"
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
   }
 ];
 
@@ -99,7 +99,7 @@ export default function TrustSignalsSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
