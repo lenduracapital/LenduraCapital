@@ -145,74 +145,38 @@ export default function Solutions() {
             <span className="text-white font-medium">Solutions</span>
           </nav>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Financing Solutions for Every Business
-              </h1>
-              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
-                Discover tailored funding options designed to help your business grow, expand, and succeed in today's competitive market.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <Button 
-                  onClick={handleApplyNow}
-                  style={{ backgroundColor: '#85abe4' }}
-                  className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90"
-                >
-                  Get Pre-Qualified
-                </Button>
-                <Button 
-                  onClick={handleBackToHome}
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg"
-                >
-                  <ArrowLeft className="h-5 w-5 mr-2" />
-                  Back to Home
-                </Button>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">24hr</div>
-                  <div className="text-gray-300 text-sm">Fast Approval</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">$20M+</div>
-                  <div className="text-gray-300 text-sm">Funded</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">50+</div>
-                  <div className="text-gray-300 text-sm">Specialists</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Card */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ backgroundColor: '#85abe4' }}>
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Speak with a Specialist</h3>
-                  <p className="text-gray-300">Get personalized guidance today</p>
-                </div>
-              </div>
-              
-              <div className="text-center mb-6">
-                <p className="text-4xl font-bold text-white mb-2">(305) 307-4658</p>
-                <p className="text-gray-300">Available Monday - Friday, 9AM - 6PM EST</p>
-              </div>
-              
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Financing Solutions for Every Business
+            </h1>
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+              Discover tailored funding options designed to help your business grow, expand, and succeed in today's competitive market.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button 
                 onClick={handleApplyNow}
                 style={{ backgroundColor: '#85abe4' }}
-                className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90"
+                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90"
               >
-                Apply Online Now
+                Get Pre-Qualified
               </Button>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">24hr</div>
+                <div className="text-gray-300 text-sm">Fast Approval</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">$20M+</div>
+                <div className="text-gray-300 text-sm">Funded</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-2">50+</div>
+                <div className="text-gray-300 text-sm">Specialists</div>
+              </div>
             </div>
           </div>
         </div>
