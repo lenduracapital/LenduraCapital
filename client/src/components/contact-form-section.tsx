@@ -18,7 +18,7 @@ export default function ContactFormSection() {
             }}>
               <div style={{
                 color: 'white',
-                fontSize: '24px',
+                fontSize: '32px',
                 fontWeight: 'normal',
                 lineHeight: '1.5',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
@@ -33,7 +33,7 @@ export default function ContactFormSection() {
             <div style={{ width: '400px' }}>
               <div style={{
                 color: 'black',
-                fontSize: '24px',
+                fontSize: '32px',
                 fontWeight: 'normal',
                 lineHeight: '1.5',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
@@ -49,7 +49,7 @@ export default function ContactFormSection() {
             <div style={{ width: '400px' }}>
               <div style={{
                 color: 'black',
-                fontSize: '24px',
+                fontSize: '32px',
                 fontWeight: 'normal',
                 lineHeight: '1.5',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
