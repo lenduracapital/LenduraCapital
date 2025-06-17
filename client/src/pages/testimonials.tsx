@@ -95,7 +95,7 @@ export default function TestimonialsPage() {
       <Header />
       
       {/* Hero Section with Skyline Background */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-32 pb-32 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -104,7 +104,7 @@ export default function TestimonialsPage() {
         />
 
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-8">
 
           
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>

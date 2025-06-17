@@ -284,6 +284,12 @@ Changelog:
   * Ensured trust signals section buttons are properly clickable with pointer events
   * Completed comprehensive audit removing all problematic window.location.href usages
   * Website now functions properly as Single Page Application with persistent JavaScript state
+- June 17, 2025. Navigation positioning and text spacing fixes (COMPLETE):
+  * Fixed text overlap issues on more-testimonials and about pages by lowering hero text positioning
+  * Repositioned navigation menu items (Home, Solutions, Who We Fund, Apply Now, Contact Us) further to the right
+  * Maintained FundTek Capital Group logo position unchanged as per user requirements
+  * Applied proper spacing with increased top padding (pt-32) and margin (mt-8) on hero sections
+  * Enhanced navigation layout with center justification and increased left margin (ml-32)
 - June 17, 2025. Footer navigation fixes and comprehensive website audit (COMPLETE):
   * Identified and fixed footer Link component issues causing navigation failures
   * Replaced all footer Link components with working button navigation handlers using setLocation
