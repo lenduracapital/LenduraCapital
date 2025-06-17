@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
-import logoPath from "@assets/image_1749676077493.png";
+import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 export default function HeroSection() {
   const handleApplyNow = () => {
@@ -27,10 +27,13 @@ export default function HeroSection() {
       {/* Logo on Left */}
       <div className="absolute top-8 left-8 z-20">
         <img 
-          src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png"
+          src={newLogoPath}
           alt="FundTek Capital Group" 
-          className="h-24 w-auto"
+          className="h-24 w-auto mb-2"
         />
+        <div className="text-white text-lg font-light tracking-wider text-center">
+          Capital Group
+        </div>
       </div>
       
       {/* Content on Right */}
