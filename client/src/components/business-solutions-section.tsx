@@ -17,7 +17,7 @@ export default function BusinessSolutionsSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Cityscape image */}
           <div className="relative">
-            <div className="bg-slate-800 rounded-lg overflow-hidden h-96">
+            <div className="bg-slate-800 rounded-lg overflow-hidden h-[500px]">
               <img 
                 src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop"
                 alt="City skyline at night"
