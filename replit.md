@@ -201,8 +201,11 @@ Changelog:
   * Applied fixes to solution detail template affecting all 9 financing solution pages automatically
 - June 17, 2025. Contact form optimization:
   * Optimized "Get working capital today" form to display in single view without scrolling
-  * Progressively expanded form height to 1200px with full scale (1.0) to completely eliminate white space
+  * Reduced form height to 800px and section height to eliminate excess white space
   * Removed internal scrolling while maintaining full form visibility and perfect space utilization
+- June 17, 2025. Contact page heading update:
+  * Changed contact page main heading from "Contact FundTek Capital Group" to "Contact Us"
+  * Simplified page title for cleaner, more direct user experience
 ```
 
 ## User Preferences
