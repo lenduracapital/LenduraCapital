@@ -111,7 +111,7 @@ export default function IndustryServicesSection() {
                     className="h-48 bg-cover bg-center relative"
                     style={{ backgroundImage: `url(${industry.image})` }}
                   >
-                    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+
                     <div className="absolute bottom-4 left-4">
                       <div className="w-10 h-10 bg-[--primary] rounded-lg flex items-center justify-center">
                         <Icon className="text-white" />

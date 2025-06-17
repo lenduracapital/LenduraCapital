@@ -94,11 +94,17 @@ export default function TestimonialsPage() {
     <div className="min-h-screen bg-white text-gray-900">
       <Header />
       
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with Skyline Background */}
       <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=600&fit=crop')"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-800/60"></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
           
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">

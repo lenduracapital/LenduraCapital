@@ -30,7 +30,7 @@ export default function TermsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-8">Last updated: December 2024</p>
+            <p className="text-gray-600 mb-8">Last updated: May 2025</p>
             
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Agreement to Terms</h2>
             <p className="text-gray-700 mb-6">
