@@ -82,7 +82,7 @@ export default function MoreTestimonials() {
                     <p className="text-black font-semibold">{testimonial.name}</p>
                     <p className="text-black text-sm">{testimonial.business}</p>
                     <div className="flex text-yellow-400">
-                      {[...Array(testimonial.rating)].map((_, i) => (
+                      {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
                         <Star key={i} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
