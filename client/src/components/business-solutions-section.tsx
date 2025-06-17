@@ -27,11 +27,11 @@ export default function BusinessSolutionsSection() {
             </div>
             
             {/* Bottom overlay text spanning full width */}
-            <div className="absolute bottom-0 left-0 right-0 bg-white p-6 m-4 rounded-lg">
-              <h3 className="text-xl font-bold text-slate-800 mb-2">
+            <div className="absolute bottom-0 left-0 right-0 bg-slate-800 p-6 m-4 rounded-lg">
+              <h3 className="text-xl font-bold text-white mb-2">
                 Completely customized financial solution to meet your business needs
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-300 text-sm">
                 Fast and flexible custom financing solutions help you overcome your business challenges.
               </p>
             </div>
