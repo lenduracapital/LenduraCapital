@@ -20,7 +20,6 @@ const customSolutions = [
 const fundTekPages = [
   { name: "About FundTek", href: "/about" },
   { name: "Who We Fund", href: "/who-we-fund" },
-  { name: "Resources", href: "/resources" },
   { name: "Contact Us", href: "/contact" }
 ];
 
@@ -90,7 +89,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-black font-semibold mb-4">Premium Merchant Funding</h4>
+            <h4 className="text-black font-semibold mb-4">FundTek Capital Group</h4>
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
