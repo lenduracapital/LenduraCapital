@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Priority pages for crawling
+Allow: /solutions
+Allow: /who-we-fund
+Allow: /contact
+Allow: /testimonials
+
+# Block development/admin paths
+Disallow: /api/
+Disallow: /_vite/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://fundtekcapital.com/sitemap.xml

@@ -108,7 +108,7 @@ function updateLinkTag(rel: string, href: string) {
 }
 
 function updateStructuredData(data: object) {
-  let script = document.querySelector('script[type="application/ld+json"]');
+  let script = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
   if (!script) {
     script = document.createElement("script");
     script.type = "application/ld+json";
