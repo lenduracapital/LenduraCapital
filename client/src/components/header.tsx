@@ -34,7 +34,7 @@ export default function Header() {
           {/* Logo on the left */}
           <div className="flex items-center">
             <img 
-              src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176058839.png" 
+              src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png" 
               alt="FundTek Capital Group Logo" 
               className="h-12 w-auto"
             />
