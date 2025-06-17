@@ -138,13 +138,6 @@ export default function Solutions() {
         />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="flex items-center space-x-2 text-sm text-gray-300 mb-12">
-            <button onClick={handleBackToHome} className="hover:text-white transition-colors">Home</button>
-            <span>›</span>
-            <span className="text-white font-medium">Solutions</span>
-          </nav>
-
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Financing Solutions for Every Business
