@@ -50,8 +50,8 @@ export default function Header({ transparent = true }: HeaderProps) {
             />
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
+          {/* Desktop Navigation - Left aligned */}
+          <nav className="hidden lg:flex items-center space-x-6 ml-8" aria-label="Main navigation">
             <button 
               onClick={() => window.location.href = "/"}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
