@@ -100,44 +100,7 @@ export default function SolutionDetailTemplate({
         </div>
       </section>
 
-      {/* Testimonial Section with Full Background Image */}
-      <section 
-        className="relative py-32 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('${contentImage}')`
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Text content */}
-            <div className="text-white">
-              {/* Large Quote */}
-              <div className="mb-8">
-                <div className="text-6xl text-gray-400 mb-4">"</div>
-                <p className="text-xl text-white leading-relaxed mb-6">
-                  Premium Merchant Funding helped us get the funding we need to get some upgrades done. With low rates we were able to borrow and pay back overtime and noticed how we got more customers as a result. Loan paid for itself in 1-2 years!
-                </p>
-              </div>
-              
-              {/* Client info */}
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Marjorie K</h3>
-                <p className="text-gray-300">Owns Small Insurance Company</p>
-              </div>
-              
-              {/* More testimonials button */}
-              <button className="bg-green-500 text-white px-6 py-3 rounded font-semibold hover:bg-green-600 transition-colors">
-                More testimonials
-              </button>
-            </div>
-            
-            {/* Right side - Image space (already covered by background) */}
-            <div></div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
