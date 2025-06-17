@@ -1,25 +1,46 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 export default function HeroSection() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
+  useEffect(() => {
+    // Lazy load video after initial page load
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background Video */}
-      <video 
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={videoPath} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Background Video with Lazy Loading */}
+      {videoLoaded ? (
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          preload="metadata"
+        >
+          <source src={videoPath} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"
+          }}
+        />
+      )}
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
