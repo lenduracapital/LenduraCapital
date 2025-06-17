@@ -244,6 +244,7 @@ Changelog:
   * Built both React component and standalone HTML/CSS/JS versions for maximum compatibility
   * Integrated backend API endpoint routing submissions to Brian@fundtekcapitalgroup.com
   * Applied accessibility features including keyboard navigation, focus states, and ARIA labels
+  * Widget starts fully expanded by default with close button for better user visibility
 ```
 
 ## User Preferences
