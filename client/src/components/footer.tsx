@@ -1,5 +1,6 @@
 import { ChartLine } from "lucide-react";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
+import { useLocation } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
 const businessFinancing = [
@@ -27,10 +28,17 @@ const fundTekPages = [
 ];
 
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId.replace("#", ""));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const [, setLocation] = useLocation();
+  
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (href.startsWith('#')) {
+      const element = document.getElementById(href.replace("#", ""));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      setLocation(href);
     }
   };
 
@@ -70,9 +78,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <a href={service.href} className="hover:opacity-75 transition-colors">
+                  <button 
+                    onClick={(e) => handleLinkClick(service.href, e)}
+                    className="hover:opacity-75 transition-colors text-left"
+                  >
                     {service.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -83,9 +94,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <a href={solution.href} className="hover:opacity-75 transition-colors">
+                  <button 
+                    onClick={(e) => handleLinkClick(solution.href, e)}
+                    className="hover:opacity-75 transition-colors text-left"
+                  >
                     {solution.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -96,9 +110,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <a href={page.href} className="hover:opacity-75 transition-colors">
+                  <button 
+                    onClick={(e) => handleLinkClick(page.href, e)}
+                    className="hover:opacity-75 transition-colors text-left"
+                  >
                     {page.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
