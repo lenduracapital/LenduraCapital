@@ -33,7 +33,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[--bg-primary] border-t border-[--bg-tertiary]/30 py-12">
+    <footer className="bg-white border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -41,34 +41,34 @@ export default function Footer() {
               <img 
                 src={fundTekLogo} 
                 alt="FundTek Capital Group" 
-                className="h-20 w-auto"
+                className="h-32 w-auto"
               />
             </div>
-            <p className="text-[--text-secondary] text-sm">
+            <p className="text-black text-sm">
               Would you like a free, no strings attached consultation?
             </p>
-            <p className="text-[--text-secondary] text-sm">
+            <p className="text-black text-sm">
               Call us today at (305) 307-4658
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-[--text-secondary] hover:text-[--primary] transition-colors">
+              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaLinkedin className="text-xl" />
               </a>
-              <a href="#" className="text-[--text-secondary] hover:text-[--primary] transition-colors">
+              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaTwitter className="text-xl" />
               </a>
-              <a href="#" className="text-[--text-secondary] hover:text-[--primary] transition-colors">
+              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaFacebook className="text-xl" />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Premium Business Financing Services</h4>
-            <ul className="space-y-2 text-sm text-[--text-secondary]">
+            <h4 className="text-black font-semibold mb-4">Premium Business Financing Services</h4>
+            <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <a href={service.href} className="hover:text-[--text-primary] transition-colors">
+                  <a href={service.href} className="hover:opacity-75 transition-colors">
                     {service.name}
                   </a>
                 </li>
@@ -77,11 +77,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Custom Small Business Solutions</h4>
-            <ul className="space-y-2 text-sm text-[--text-secondary]">
+            <h4 className="text-black font-semibold mb-4">Custom Small Business Solutions</h4>
+            <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <a href={solution.href} className="hover:text-[--text-primary] transition-colors">
+                  <a href={solution.href} className="hover:opacity-75 transition-colors">
                     {solution.name}
                   </a>
                 </li>
@@ -90,11 +90,11 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[--text-primary] font-semibold mb-4">Premium Merchant Funding</h4>
-            <ul className="space-y-2 text-sm text-[--text-secondary]">
+            <h4 className="text-black font-semibold mb-4">Premium Merchant Funding</h4>
+            <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <a href={page.href} className="hover:text-[--text-primary] transition-colors">
+                  <a href={page.href} className="hover:opacity-75 transition-colors">
                     {page.name}
                   </a>
                 </li>
@@ -103,8 +103,8 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-[--bg-tertiary]/30 mt-8 pt-8 text-center">
-          <p className="text-[--text-secondary] text-sm">
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p className="text-black text-sm">
             Copyright 2025 FundTek Capital Group. All rights reserved.
           </p>
         </div>
