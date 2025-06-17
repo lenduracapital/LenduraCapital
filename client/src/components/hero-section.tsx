@@ -27,13 +27,10 @@ export default function HeroSection() {
       {/* Logo on Left */}
       <div className="absolute top-8 left-8 z-20">
         <img 
-          src={logoPath} 
+          src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png"
           alt="FundTek Capital Group" 
-          className="h-20 w-auto"
+          className="h-24 w-auto"
         />
-        <div className="text-white text-sm font-light mt-2 tracking-wider text-center">
-          Capital Group
-        </div>
       </div>
       
       {/* Content on Right */}

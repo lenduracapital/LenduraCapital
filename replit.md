@@ -114,6 +114,7 @@ Changelog:
   * Added mobile-responsive hamburger navigation
   * Applied signature color #85abe4 throughout replacing all green elements
   * Updated all Apply Now buttons to link to Jotform: https://form.jotform.com/251417715331047
+  * Replaced logo with official FundTek Capital Group branding in hero section
 ```
 
 ## User Preferences
