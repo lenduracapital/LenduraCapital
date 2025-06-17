@@ -8,7 +8,7 @@ export default function Contact() {
       <Header transparent={false} />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-white">
+      <section className="pt-24 md:pt-32 lg:pt-40 pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-black mb-6">

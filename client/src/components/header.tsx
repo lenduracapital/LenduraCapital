@@ -34,7 +34,7 @@ export default function Header({ transparent = true }: HeaderProps) {
 
   // Determine header background and text colors
   const isTransparent = transparent && !isScrolled;
-  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black';
+  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black/90 backdrop-blur-sm';
   const textColor = isTransparent ? 'text-white' : 'text-white';
 
   return (
