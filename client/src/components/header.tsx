@@ -30,8 +30,17 @@ export default function Header() {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black' : 'bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center items-center py-4">
-          {/* Desktop Navigation - Hidden on mobile */}
+        <div className="flex justify-between items-center py-4">
+          {/* Logo on the left */}
+          <div className="flex items-center">
+            <img 
+              src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png" 
+              alt="FundTek Capital Group Logo" 
+              className="h-10 w-auto"
+            />
+          </div>
+
+          {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center space-x-8">
             <button 
               onClick={() => window.location.href = "/"}
@@ -75,7 +84,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:text-[--primary] absolute right-4"
+            className="lg:hidden text-white hover:text-[--primary]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
