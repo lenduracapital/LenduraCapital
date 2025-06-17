@@ -47,10 +47,10 @@ export default function BusinessSolutionsSection() {
   ];
 
   return (
-    <section className="py-24 bg-gray-900">
+    <section className="py-24 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-white mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Premium Business Financing Solutions
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -60,39 +60,55 @@ export default function BusinessSolutionsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution, index) => (
-            <div key={index} className="bg-gray-800 p-8 rounded-lg hover:bg-gray-700 transition-colors border border-gray-700">
-              <h3 className="text-xl font-bold text-white mb-4">{solution.title}</h3>
-              <div className="w-12 h-1 mb-6" style={{ backgroundColor: '#85abe4' }}></div>
-              <p className="text-gray-300 mb-6 leading-relaxed">{solution.description}</p>
+            <div key={index} className="bg-slate-700 rounded-lg overflow-hidden hover:bg-slate-600 transition-all duration-300 group">
+              <div className="aspect-video bg-gray-600 relative overflow-hidden">
+                <img 
+                  src={solution.image} 
+                  alt={solution.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
+                  <div className="w-12 h-1" style={{ backgroundColor: '#85abe4' }}></div>
+                </div>
+              </div>
               
-              <ul className="space-y-2 mb-6">
-                {solution.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-400 text-sm flex items-center">
-                    <span className="w-2 h-2 rounded-full mr-3" style={{ backgroundColor: '#85abe4' }}></span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              
-              <Button 
-                onClick={() => window.location.href = solution.route}
-                style={{ backgroundColor: '#85abe4' }}
-                className="text-white px-4 py-2 rounded font-semibold hover:opacity-90 transition-opacity w-full"
-              >
-                Find out more →
-              </Button>
+              <div className="p-6">
+                <p className="text-gray-300 mb-4 leading-relaxed">{solution.description}</p>
+                
+                <ul className="space-y-2 mb-6">
+                  {solution.features.map((feature, idx) => (
+                    <li key={idx} className="text-gray-400 text-sm flex items-center">
+                      <span className="w-2 h-2 rounded-full mr-3" style={{ backgroundColor: '#85abe4' }}></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button 
+                  onClick={() => window.location.href = solution.route}
+                  style={{ backgroundColor: '#85abe4' }}
+                  className="text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity w-full"
+                >
+                  Find out more →
+                </Button>
+              </div>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-gray-400 mb-8">
-            FundTek offers merchant cash advances, small business loans, SBA loans, equipment financing, factoring, purchase order financing, lines of credit, and commercial mortgages nationwide.
-          </p>
+          <div className="bg-slate-700 rounded-lg p-8 mb-8">
+            <h3 className="text-2xl font-bold text-white mb-4">Ready to get started?</h3>
+            <p className="text-xl text-[#85abe4] font-bold mb-2">Call (305) 307-4658</p>
+            <p className="text-gray-300">Speak with a specialist today</p>
+          </div>
+          
           <Button 
             onClick={() => window.location.href = '/solutions'}
             style={{ backgroundColor: '#85abe4' }}
-            className="hover:opacity-90 text-white px-8 py-3 rounded font-semibold text-lg"
+            className="hover:opacity-90 text-white px-8 py-4 rounded-lg font-semibold text-lg"
           >
             View All Solutions →
           </Button>
