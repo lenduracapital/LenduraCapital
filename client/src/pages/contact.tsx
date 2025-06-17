@@ -55,17 +55,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-black">Email</h3>
-                    <p className="text-gray-600">info@fundtekcapital.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-black">Office</h3>
-                    <p className="text-gray-600">Miami, Florida</p>
+                    <p className="text-gray-600">admin@fundtekcapital.com</p>
                   </div>
                 </div>
 
@@ -76,7 +66,6 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-black">Business Hours</h3>
                     <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                    <p className="text-gray-600">Saturday: 10:00 AM - 2:00 PM EST</p>
                   </div>
                 </div>
               </div>
