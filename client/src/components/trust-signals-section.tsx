@@ -43,7 +43,7 @@ const teamMembers = [
     experience: "12+ years",
     specialties: ["Operations Management", "Client Relations", "Process Optimization"],
     credentials: "Business Operations Specialist",
-    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&h=200&fit=crop&crop=face&auto=format&q=80"
+    avatar: "https://images.unsplash.com/photo-1553267751-1c148a7280a1?w=200&h=200&fit=crop&crop=face&auto=format&q=80"
   }
 ];
 
