@@ -47,7 +47,7 @@ const teamMembers = [
     name: "Brian Higgins",
     title: "Business Development Director", 
     experience: "10+ years",
-    specialties: ["Credit Repair", "Debt Consolidation", "Business Credit Building"],
+    specialties: ["Strategic Planning", "Market Analysis", "Growth Consulting"],
     credentials: "Certified Business Advisor"
   }
 ];
