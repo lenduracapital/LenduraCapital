@@ -9,11 +9,13 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'timeline' | 'product' | 'revenue' | 'complete';
+  step: 'initial' | 'timeline' | 'product' | 'consolidation' | 'revenue' | 'complete';
   responses: {
     userType?: string;
     timeline?: string;
     product?: string;
+    lenderName?: string;
+    currentBalance?: string;
     revenue?: string;
   };
 }
@@ -160,7 +162,17 @@ export default function ChatWidget() {
       case 'product':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {['Term loan', 'Line of credit', 'Consolidation'].map((option) => (
+            {[
+              'Term Loans', 
+              'Line of Credit', 
+              'SBA', 
+              'Consolidation', 
+              'Equipment Financing', 
+              'Invoice Factoring', 
+              'P.O Financing', 
+              'Merchant Cash Advance', 
+              'Credit Services'
+            ].map((option) => (
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'product')}
@@ -211,10 +223,10 @@ export default function ChatWidget() {
           isOpen ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95 pointer-events-none'
         }`}>
           {/* Header */}
-          <div className="bg-[#1E88E5] text-white p-4 flex items-center justify-between">
+          <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <Bot className="w-6 h-6 text-[#1E88E5]" />
+                <Bot className="w-6 h-6 text-[#85abe4]" />
               </div>
               <div>
                 <div className="font-semibold text-lg">FundTek</div>
