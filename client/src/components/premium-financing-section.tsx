@@ -36,28 +36,20 @@ export default function PremiumFinancingSection() {
             
             <div className="space-y-3 mb-8">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Merchant Cash Advance</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <span className="text-gray-700">Credit Servicing (Personal & Business)</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Line of Credit</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <span className="text-gray-700">Credit Card Processing</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Equipment Financing</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <span className="text-gray-700">HR and Payroll Services</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Mortgage Financing</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Term Loans</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Factoring</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <span className="text-gray-700">Search Engine Optimization (SEO) and Web Development</span>
               </div>
             </div>
           </div>
