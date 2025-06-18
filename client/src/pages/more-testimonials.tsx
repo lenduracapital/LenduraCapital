@@ -74,7 +74,7 @@ export default function MoreTestimonials() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
-            See why businesses trust FundTek Capital Group.
+            Don't take our word for it.
           </h2>
           
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
