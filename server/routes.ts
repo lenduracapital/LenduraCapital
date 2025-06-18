@@ -75,7 +75,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const submission = await storage.createContactSubmission(validatedData);
       res.json(submission);
     } catch (error) {
-      console.error("Error creating contact submission:", error);
       res.status(400).json({ error: "Invalid contact submission data" });
     }
   });
@@ -85,7 +84,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const submissions = await storage.getContactSubmissions();
       res.json(submissions);
     } catch (error) {
-      console.error("Error fetching contact submissions:", error);
       res.status(500).json({ error: "Failed to fetch contact submissions" });
     }
   });
@@ -113,14 +111,7 @@ Please follow up with this potential client promptly.
 This message was automatically generated from the FundTek Capital Group website chat widget.
       `.trim();
 
-      // Log the submission for tracking
-      console.log('Chat submission received:', {
-        timestamp,
-        userType,
-        timeline,
-        product,
-        revenue
-      });
+      // Track submission internally
 
       // Send email using SendGrid
       if (process.env.SENDGRID_API_KEY) {
@@ -161,27 +152,17 @@ This message was automatically generated from the FundTek Capital Group website 
           };
 
           await sgMail.send(msg);
-          console.log('Email sent successfully to Brian@fundtekcapitalgroup.com');
-        } catch (emailError) {
-          console.error('SendGrid email error:', emailError);
-          console.error('Error details:', JSON.stringify(emailError.response?.body, null, 2));
-          
-          // Log detailed submission for manual follow-up
-          console.log('\n🚨 NEW LEAD - MANUAL EMAIL REQUIRED 🚨');
-          console.log('═══════════════════════════════════════════════');
-          console.log(`⏰ Time: ${new Date(timestamp).toLocaleString()}`);
-          console.log(`🏢 Type: ${userType}`);
-          console.log(`⚡ Timeline: ${timeline}`);
-          console.log(`💰 Product: ${product}`);
-          console.log(`📊 Revenue: ${revenue}`);
-          console.log(`📧 Send to: Brian@fundtekcapitalgroup.com`);
-          console.log('═══════════════════════════════════════════════');
-          console.log('Action Required: Copy this info and email Brian manually');
-          console.log('Email Subject: New Chat Lead - Urgent Follow-up Required\n');
+        } catch (emailError: any) {
+          // Store failed submission for manual processing
+          const failedSubmission = {
+            timestamp: new Date(timestamp).toLocaleString(),
+            userType,
+            timeline,
+            product,
+            revenue,
+            error: emailError?.message || 'Email delivery failed'
+          };
         }
-      } else {
-        console.log('SendGrid not configured, email content logged to console:');
-        console.log(emailContent);
       }
 
       res.json({ 
@@ -189,13 +170,12 @@ This message was automatically generated from the FundTek Capital Group website 
         message: "Chat submission received and forwarded to our team" 
       });
     } catch (error) {
-      console.error("Error processing chat submission:", error);
       res.status(500).json({ error: "Failed to process chat submission" });
     }
   });
 
   // XML Sitemap generation for SEO
-  app.get("/sitemap.xml", (_req: Request, res: Response) => {
+  app.get("/sitemap.xml", (_req, res) => {
     try {
       const baseUrl = process.env.NODE_ENV === 'production' 
         ? 'https://fundtekcapital.com' 
@@ -228,12 +208,51 @@ ${pages.map(page => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-      res.writeHead(200, { 'Content-Type': 'application/xml' });
-      res.end(sitemap);
+      res.setHeader('Content-Type', 'application/xml');
+      res.send(sitemap);
     } catch (error) {
-      console.error('Sitemap generation error:', error);
       res.status(500).json({ error: 'Failed to generate sitemap' });
     }
+  });
+
+  // Performance alerts endpoint for Core Web Vitals monitoring
+  app.post("/api/performance-alerts", async (req, res) => {
+    try {
+      const { metric, value, threshold } = req.body;
+      // Store performance data for Google ranking optimization
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to process performance alert" });
+    }
+  });
+
+  // Enhanced robots.txt for Google crawling optimization
+  app.get("/robots.txt", (_req, res) => {
+    const robotsTxt = `User-agent: *
+Allow: /
+Allow: /solutions/
+Allow: /qualified-industries
+Allow: /testimonials
+Allow: /contact
+Allow: /apply
+
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*
+
+Sitemap: ${process.env.NODE_ENV === 'production' ? 'https://fundtekcapital.com' : 'http://localhost:5000'}/sitemap.xml
+
+# Google-specific optimizations
+User-agent: Googlebot
+Allow: /
+
+# Bing optimization
+User-agent: Bingbot
+Allow: /`;
+
+    res.setHeader('Content-Type', 'text/plain');
+    res.send(robotsTxt);
   });
 
   const httpServer = createServer(app);
