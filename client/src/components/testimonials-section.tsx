@@ -5,39 +5,39 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    initial: "S",
-    name: "Sarah Mitchell",
-    business: "Mitchell's Restaurant",
+    initial: "A",
+    name: "Antonio Valdez",
+    business: "Valdez Brothers Plumbing",
     rating: 5,
-    text: "We needed working capital to get through a slow winter season. FundTek's team understood our cash flow challenges and structured payments that worked with our revenue cycles."
+    text: "Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. FundTek came through when my bank couldn't even see me until next month."
+  },
+  {
+    initial: "K",
+    name: "Keisha Washington",
+    business: "Sunshine Daycare Center",
+    rating: 4,
+    text: "State inspector said we needed new playground equipment by December or we'd lose our license. Got approved in 3 days, kids love the new swings."
+  },
+  {
+    initial: "D",
+    name: "Danny O'Brien",
+    business: "Dublin's Irish Pub",
+    rating: 5,
+    text: "Our walk-in cooler died during St. Patrick's week. Would've lost thousands in spoiled food and had to cancel our biggest event. FundTek saved our season."
+  },
+  {
+    initial: "M",
+    name: "Maria Santos-Lopez",
+    business: "Bella Vista Hair Studio",
+    rating: 5,
+    text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash to cover the deposit. Now I own the building next door too."
   },
   {
     initial: "J",
-    name: "Jennifer Walsh",
-    business: "Walsh Landscaping",
-    rating: 5,
-    text: "Our truck broke down right before spring season. FundTek got us approved in 24 hours so we could buy a replacement and not lose our biggest contracts."
-  },
-  {
-    initial: "C",
-    name: "Carlos Mendez",
-    business: "Mendez Roofing",
-    rating: 5,
-    text: "Insurance was taking forever to pay on a big job. The merchant cash advance kept my crew working while we waited for that check to come in."
-  },
-  {
-    initial: "T",
-    name: "Tracy Williams",
-    business: "Williams Bakery",
+    name: "Jake Kowalski",
+    business: "Precision Auto Glass",
     rating: 4,
-    text: "My oven died on a Tuesday. By Friday I had funding to replace it. Saved my weekend wedding orders and probably my business."
-  },
-  {
-    initial: "R",
-    name: "Robert Kim",
-    business: "Kim's Auto Body",
-    rating: 5,
-    text: "Equipment financing let me buy the paint booth I needed to take insurance work. Now I'm booked solid and payments are manageable."
+    text: "Insurance companies take forever to pay. Had 40 windshields to install but couldn't buy inventory. The line of credit keeps me stocked while I wait for payments."
   }
 ];
 
