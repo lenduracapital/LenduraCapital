@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import truckImage from "@assets/Truck_1750271749729.jpg";
 
 export default function SBALoansDetail() {
   return (
     <SolutionDetailTemplate
       title="SBA Loans"
       description="Government-backed loans offering favorable terms and lower down payments for qualified businesses."
-      heroImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
+      heroImage={truckImage}
+      contentImage={truckImage}
       features={[
         "Lower down payments",
         "Competitive rates",
