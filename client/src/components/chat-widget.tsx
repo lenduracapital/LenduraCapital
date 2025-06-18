@@ -227,10 +227,11 @@ export default function ChatWidget() {
       {/* Chat Widget Container - Only when open */}
       {isOpen && (
         <div 
-          className="fixed bottom-4 right-4 z-40 transition-all duration-300 ease-in-out"
+          className="fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out"
           style={{ 
             maxWidth: 'calc(100vw - 2rem)',
-            width: 'min(380px, 80vw)'
+            width: 'min(380px, 80vw)',
+            maxHeight: 'calc(100vh - 2rem)'
           }}
         >
           <div className="bg-white rounded-lg shadow-2xl border overflow-hidden">
