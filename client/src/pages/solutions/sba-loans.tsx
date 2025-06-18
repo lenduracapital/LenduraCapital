@@ -5,7 +5,7 @@ export default function SBALoansDetail() {
     <SolutionDetailTemplate
       title="SBA Loans"
       description="Government-backed loans offering favorable terms and lower down payments for qualified businesses."
-      heroImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=1200&h=600&fit=crop"
       contentImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
       features={[
         "Lower down payments",
