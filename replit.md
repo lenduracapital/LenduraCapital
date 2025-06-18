@@ -377,6 +377,8 @@ Changelog:
   * Removed "HR and Payroll Services" from Custom Small Business Solutions section per user request
   * Added descriptive text under city image overlay explaining business challenges and growth obstacles
   * Updated all instances of "Premium Business Financing Solutions" to "Custom Business Financing Solutions"
+  * Changed "Custom Small Business Solutions" to "Personalized Small Business Solutions" for better messaging
+  * Updated "PMF" references to "FundTek" for consistent branding throughout sections
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
