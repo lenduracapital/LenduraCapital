@@ -46,7 +46,7 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 bg-gradient-to-br from-[#85abe4] to-blue-600">
+      <section className="relative pt-40 md:pt-48 pb-16 bg-gradient-to-br from-[#85abe4] to-blue-600">
         <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -68,15 +68,21 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Our Track Record</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Since our founding, FundTek Capital Group has established itself as a trusted leader in business financing solutions.
+            </p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-[#85abe4] mb-2">
+              <div key={index} className="text-center bg-white p-8 rounded-lg shadow-lg">
+                <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-4">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 text-sm md:text-base">
+                <div className="text-gray-700 text-base md:text-lg font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -86,56 +92,63 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Our Story
-              </h2>
-              <p className="text-gray-600 mb-6">
-                FundTek Capital Group was founded with a simple mission: to provide businesses with fast, flexible, and reliable funding solutions. We understand that traditional banking can be slow and restrictive, which is why we've built a network of trusted lenders to offer alternative financing options.
-              </p>
-              <p className="text-gray-600 mb-6">
-                Over the years, we've helped thousands of businesses access the capital they need to grow, expand, and overcome financial challenges. Our team of experienced professionals works tirelessly to match each business with the right funding solution for their unique needs.
-              </p>
-              <p className="text-gray-600">
-                Today, we continue to innovate and expand our services, always putting our clients' success at the center of everything we do.
-              </p>
+              <h2 className="text-4xl font-bold text-black mb-8">Our Story</h2>
+              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                <p>
+                  FundTek Capital Group was founded with a simple mission: to bridge the gap between traditional banking limitations and the real financing needs of growing businesses. We recognized that entrepreneurs and business owners needed more than just capital – they needed a partner who understood their challenges.
+                </p>
+                <p>
+                  Our journey began when our founders experienced firsthand the frustrations of lengthy bank approval processes, excessive documentation requirements, and rigid lending criteria that often left qualified businesses without the funding they deserved.
+                </p>
+                <p>
+                  Today, we've built a comprehensive network of funding sources and developed streamlined processes that deliver results. We don't just provide financing – we provide solutions that are tailored to each business's unique situation, timeline, and growth objectives.
+                </p>
+                <p>
+                  Every business has a story, and we're here to help write the next successful chapter of yours.
+                </p>
+              </div>
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
-                alt="Team meeting"
-                className="rounded-lg shadow-lg"
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop"
+                alt="FundTek Capital Group office"
+                className="w-full h-80 md:h-96 object-cover rounded-lg shadow-xl"
               />
+              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
+                <div className="text-2xl font-bold">2019</div>
+                <div className="text-sm">Founded</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Values
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-black mb-6">
+              Our Core Values
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              These core values guide everything we do and shape how we serve our clients every day.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              These fundamental principles guide everything we do and shape how we serve our clients every day. They're not just words on a wall – they're the foundation of our company culture.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#85abe4]/10 rounded-full mb-4">
-                  <value.icon className="h-8 w-8 text-[#85abe4]" />
+              <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#85abe4]/10 rounded-full mb-6">
+                  <value.icon className="h-10 w-10 text-[#85abe4]" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-black mb-4">
                   {value.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   {value.description}
                 </p>
               </div>

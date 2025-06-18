@@ -35,7 +35,7 @@ export default function SBALoansDetail() {
           "Repayment terms up to 25 years for real estate, 10 years for equipment",
           "Lower down payment requirements (as low as 10%)",
           "Comprehensive application process including business plan",
-          "Funding amounts range from $50,000 up to $5,000,000"
+          "Funding amounts range from $5,000 up to $5,000,000"
         ]
       }}
       ratesBasedOn={[
