@@ -19,7 +19,7 @@ export default function PremiumFinancingSection() {
               <div className="absolute bottom-6 left-6 text-white max-w-md">
                 <h3 className="text-xl md:text-2xl font-bold mb-2">Meet your Goals. Grow your Business.</h3>
                 <p className="text-sm md:text-base text-blue-100 leading-relaxed">
-                  Small businesses face big problems finding real solutions to streamline financial and marketing functions. A poor credit rating, expensive credit card processing, outdated payroll systems, or a nonexistent web presence can all negatively affect your growth.
+                  Small businesses face big problems finding real solutions to streamline financial and marketing functions. A poor credit rating, expensive credit card processing, or a nonexistent web presence can all negatively affect your growth.
                 </p>
               </div>
             </div>
