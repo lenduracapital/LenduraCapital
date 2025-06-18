@@ -270,3 +270,66 @@ textarea:focus {
 .nav-text-shadow {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
+
+/* Critical performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Video performance enhancement */
+video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style paint;
+}
+
+/* Layout optimization */
+.hero-section {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Font rendering optimization */
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce animations for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  video {
+    animation: none !important;
+  }
+}
+
+/* Intersection observer performance */
+.lazy-load {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image optimization */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
+}
+
+/* Carousel performance */
+.testimonial-carousel {
+  contain: layout style paint;
+  will-change: transform;
+}
