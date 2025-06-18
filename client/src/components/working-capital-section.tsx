@@ -226,9 +226,9 @@ export default function WorkingCapitalSection() {
                     </p>
                     
                     {/* Information Needed */}
-                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-8">
-                      <h4 className="font-bold text-gray-800 text-xl mb-6 text-center">Information Needed</h4>
-                      <div className="flex justify-between items-center max-w-4xl mx-auto">
+                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-8 max-w-4xl">
+                      <h4 className="font-bold text-gray-800 text-xl mb-6">Information Needed</h4>
+                      <div className="flex justify-between items-center">
                         <div className="text-center flex-1">
                           <div className="text-[#85abe4] font-bold text-lg mb-1">Personal Info</div>
                           <div className="text-gray-600 text-sm">To Verify Identity</div>
@@ -247,9 +247,9 @@ export default function WorkingCapitalSection() {
                     </div>
 
                     {/* Minimum Qualifications */}
-                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
-                      <h4 className="font-bold text-gray-800 text-xl mb-6 text-center">Minimum Qualifications</h4>
-                      <div className="flex justify-between items-center max-w-4xl mx-auto">
+                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 max-w-4xl">
+                      <h4 className="font-bold text-gray-800 text-xl mb-6">Minimum Qualifications</h4>
+                      <div className="flex justify-between items-center">
                         <div className="text-center flex-1">
                           <div className="text-[#85abe4] font-bold text-3xl mb-1">480+</div>
                           <div className="text-gray-600 text-sm">Min. Credit Score</div>
