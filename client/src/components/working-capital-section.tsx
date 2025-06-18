@@ -145,7 +145,7 @@ export default function WorkingCapitalSection() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                  <span className="text-gray-700 text-sm md:text-base">9 different financing solutions</span>
+                  <span className="text-gray-700 text-sm md:text-base">10 different financing solutions</span>
                 </li>
               </ul>
             </div>

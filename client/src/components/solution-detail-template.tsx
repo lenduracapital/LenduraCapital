@@ -232,7 +232,7 @@ export default function SolutionDetailTemplate({
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">9 different financing solutions</span>
+                  <span className="text-gray-700">10 different financing solutions</span>
                 </li>
               </ul>
             </div>

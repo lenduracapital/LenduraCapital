@@ -221,7 +221,7 @@ export default function About() {
                   <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="text-lg font-semibold text-black mb-2">Multiple Options</h4>
-                    <p className="text-gray-700">Access to 9 different financing solutions ensures we find the right fit for your business.</p>
+                    <p className="text-gray-700">Access to 10 different financing solutions ensures we find the right fit for your business.</p>
                   </div>
                 </div>
               </div>
