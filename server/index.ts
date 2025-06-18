@@ -1,37 +1,27 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { 
+  initializeSentry, 
+  configureSecurityHeaders, 
+  configureSentryErrorHandler,
+  configureRateLimiting,
+  configureHealthCheck 
+} from "./security-middleware";
 
 const app = express();
 
-// Security headers middleware
-app.use((req, res, next) => {
-  // Content Security Policy
-  res.setHeader('Content-Security-Policy', 
-    "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://form.jotform.com https://js.jotform.com; " +
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-    "font-src 'self' https://fonts.gstatic.com; " +
-    "img-src 'self' data: https: blob:; " +
-    "media-src 'self' data: blob:; " +
-    "frame-src 'self' https://form.jotform.com; " +
-    "connect-src 'self' https://form.jotform.com;"
-  );
-  
-  // Security headers
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
-  
-  // HSTS in production
-  if (process.env.NODE_ENV === 'production') {
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-  }
-  
-  next();
-});
+// Initialize Sentry for error monitoring
+initializeSentry(app);
+
+// Configure production-grade security headers
+configureSecurityHeaders(app);
+
+// Configure rate limiting
+configureRateLimiting(app);
+
+// Configure health check endpoints
+configureHealthCheck(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -69,13 +59,8 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
-  });
+  // Configure Sentry error handler
+  configureSentryErrorHandler(app);
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
