@@ -75,7 +75,7 @@ export default function WorkingCapitalSection() {
               <CountUp end={10} duration={2000} />
             </p>
             <p className="text-[--primary] font-semibold text-sm md:text-lg">Financing options</p>
-            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Multiple capital products</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">10 financing solutions and small business products</p>
           </div>
           <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
             <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
