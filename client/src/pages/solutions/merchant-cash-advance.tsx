@@ -27,6 +27,43 @@ export default function MerchantCashAdvanceDetail() {
         "Personal credit score 500+",
         "No recent bankruptcies"
       ]}
+      howItWorks={{
+        title: "How funding works",
+        items: [
+          "Factor rate range: 15% – 49%; the advance is at a fixed rate, not an APR",
+          "Repayment can be made on either a Daily, Weekly, Bi-Weekly, or Monthly payment",
+          "Repayment terms range from 30 days up to 24 months",
+          "Repayment can be made through ACH Debits or Credit Card Processing Holdbacks",
+          "Funds can be sent in as quick as one business day",
+          "Funding amounts range from $2,000 up to $2,000,000"
+        ]
+      }}
+      ratesBasedOn={[
+        "Average monthly revenue",
+        "Time in business",
+        "Credit profile",
+        "Overall financial health / profitability",
+        "Industry"
+      ]}
+      requiredDocuments={[
+        "1-page data form (application)",
+        "3-6 months of business bank statements",
+        "Driver's license",
+        "Voided check",
+        "Additional stipulations may be requested, such as: proof of ownership, financials (P&L and balance sheet), tax returns, accounts receivable reports"
+      ]}
+      askYourself={[
+        "Do you have any existing debt on your balance sheet? If yes, what are the balances owed and who are the balances owed to?",
+        "How do you plan on using the funding?",
+        "How quickly do you need funding?"
+      ]}
+      goodToKnow={[
+        "Even if your credit score is low or you have negative financial history or the business is less than one year old, there are still funding options with a merchant cash advance",
+        "We can consolidate existing merchant cash advances to lower payments and increase cash flow",
+        "This is a fast and convenient process with minimal paperwork and same-day funding available",
+        "When the balance is 50% paid, your business will be eligible for additional funding",
+        "Great option of any business that is grossing $10,000 in revenue per month and has been in business for at least 6 months"
+      ]}
     />
   );
 }

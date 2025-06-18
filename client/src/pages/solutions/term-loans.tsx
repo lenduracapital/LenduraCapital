@@ -27,6 +27,47 @@ export default function TermLoansDetail() {
         "Personal credit score 550+",
         "No recent bankruptcies"
       ]}
+      howItWorks={{
+        title: "How term loans work",
+        items: [
+          "Interest rates range from 6% - 35% based on creditworthiness and business profile",
+          "Repayment can be made on Daily, Weekly, or Monthly payment schedules",
+          "Repayment terms range from 12 months up to 60 months",
+          "Funds can be sent in as quick as one business day after approval",
+          "Funding amounts range from $10,000 up to $5,000,000",
+          "Fixed monthly payments make budgeting predictable and manageable"
+        ]
+      }}
+      ratesBasedOn={[
+        "Average monthly revenue",
+        "Time in business",
+        "Credit profile and score",
+        "Overall financial health and profitability",
+        "Industry type and risk assessment",
+        "Loan amount and term length"
+      ]}
+      requiredDocuments={[
+        "Completed application form",
+        "3-6 months of business bank statements",
+        "Personal credit authorization",
+        "Business tax returns (if available)",
+        "Proof of business ownership and registration",
+        "Financial statements (P&L and balance sheet if available)"
+      ]}
+      askYourself={[
+        "Do you have any existing debt on your balance sheet? If yes, what are the balances owed and who are they owed to?",
+        "How do you plan on using the funding for your business growth?",
+        "How quickly do you need the funding to be available?",
+        "What monthly payment amount fits comfortably within your cash flow?"
+      ]}
+      goodToKnow={[
+        "Term loans provide the most predictable payment structure with fixed monthly amounts",
+        "These loans typically offer the lowest cost of capital compared to other funding options",
+        "Perfect for businesses with steady revenue and good credit seeking long-term financing",
+        "Can be used for any business purpose including expansion, equipment, or working capital",
+        "Early payoff options available with most lenders to save on interest costs",
+        "Great option for businesses seeking to build commercial credit history"
+      ]}
     />
   );
 }
