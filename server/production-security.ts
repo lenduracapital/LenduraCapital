@@ -11,7 +11,6 @@ export function configureProductionSecurity(app: Express) {
         defaultSrc: ["'self'"],
         styleSrc: [
           "'self'",
-          "'unsafe-inline'",
           "https://fonts.googleapis.com",
           "https://cdn.jsdelivr.net"
         ],
@@ -22,7 +21,6 @@ export function configureProductionSecurity(app: Express) {
         ],
         scriptSrc: [
           "'self'",
-          "'unsafe-inline'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
           "https://connect.facebook.net",
