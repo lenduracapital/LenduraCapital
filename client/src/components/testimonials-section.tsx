@@ -77,14 +77,7 @@ export default function TestimonialsSection() {
             </p>
             
             <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg relative">
-              {/* Navigation Arrows */}
-              <button
-                onClick={prevTestimonial}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
+              {/* Navigation Arrow */}
               <button
                 onClick={nextTestimonial}
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
