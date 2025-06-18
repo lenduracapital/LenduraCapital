@@ -82,7 +82,7 @@ export default function WorkingCapitalSection() {
               $<CountUp end={20} suffix="M" />
             </p>
             <p className="text-[--primary] font-semibold text-sm md:text-lg">Funding up to</p>
-            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Unsecured capital available</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Unsecured funding up to $20,000,000</p>
           </div>
           <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
             <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">

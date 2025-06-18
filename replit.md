@@ -396,6 +396,7 @@ Changelog:
   * Changed "Browse 9 Funding Solutions" button text to "Browse 10 Funding Solutions" to reflect accurate solution count
   * Updated rolling statistics from "5+ Financing options" to "10 Financing options" for accurate product count display
   * Changed description text from "Multiple capital products" to "10 financing solutions and small business products" for more specific messaging
+  * Updated funding description from "Unsecured capital available" to "Unsecured funding up to $20,000,000" for more impactful messaging
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
