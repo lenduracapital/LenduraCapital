@@ -65,7 +65,7 @@ export default function SEOWebDevelopment() {
                 onClick={handleMoreTestimonials}
                 variant="outline"
                 size="lg" 
-                className="text-white border-white hover:bg-white hover:text-black px-8 py-4 text-lg"
+                className="text-black border-black bg-white hover:bg-gray-100 hover:text-black px-8 py-4 text-lg"
               >
                 Read Success Stories
               </Button>
