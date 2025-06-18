@@ -27,6 +27,43 @@ export default function InvoiceFactoringDetail() {
         "Creditworthy customers",
         "Clean invoicing process"
       ]}
+      howItWorks={{
+        title: "How invoice factoring works",
+        items: [
+          "Factor rates range from 1% - 5% of invoice value depending on terms",
+          "Receive 80-90% advance on approved invoices immediately",
+          "Factor company collects payment directly from your customers",
+          "Receive remaining balance minus fees once customer pays",
+          "Can factor individual invoices or ongoing receivables",
+          "Funding amounts based on monthly invoicing volume"
+        ]
+      }}
+      ratesBasedOn={[
+        "Customer creditworthiness",
+        "Invoice payment terms",
+        "Monthly invoicing volume",
+        "Industry type",
+        "Length of relationship"
+      ]}
+      requiredDocuments={[
+        "Sample invoices and aging reports",
+        "Customer list and credit information",
+        "3-6 months of business bank statements",
+        "Accounts receivable aging report",
+        "Business formation documents"
+      ]}
+      askYourself={[
+        "Do your customers typically pay invoices within 30-90 days?",
+        "Are your customers creditworthy businesses or government entities?",
+        "Would faster access to cash improve your business operations?"
+      ]}
+      goodToKnow={[
+        "Invoice factoring is not a loan - you're selling your receivables",
+        "Your customers will know you're factoring as they pay the factor company",
+        "Great solution for businesses with long payment cycles",
+        "Can improve cash flow without taking on additional debt",
+        "Factor company may provide credit protection and collection services"
+      ]}
     />
   );
 }
