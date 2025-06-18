@@ -394,6 +394,7 @@ Changelog:
   * Fixed scroll-to-top navigation issue across all solution detail pages and navigation components to ensure proper page positioning when using client-side routing
   * Updated SBA Loans page to use professional truck image replacing generic business photos
   * Changed "Browse 9 Funding Solutions" button text to "Browse 10 Funding Solutions" to reflect accurate solution count
+  * Updated rolling statistics from "5+ Financing options" to "10 Financing options" for accurate product count display
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
