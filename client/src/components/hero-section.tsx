@@ -68,8 +68,8 @@ export default function HeroSection() {
           loop 
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          preload="metadata"
-          poster=""
+          preload="none"
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23000'/%3E%3C/svg%3E"
           onLoadStart={() => console.log('Video loading started')}
           onCanPlayThrough={() => console.log('Video ready to play')}
           aria-label="FundTek Capital Group business financing solutions showcase"
