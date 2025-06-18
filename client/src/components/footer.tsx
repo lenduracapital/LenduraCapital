@@ -6,16 +6,16 @@ import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_17501705
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
   { name: "Lines of Credit", href: "/solutions/lines-of-credit" },
+  { name: "SBA Loans", href: "/solutions/sba-loans" },
+  { name: "Debt Consolidation", href: "/solutions/debt-consolidation" },
   { name: "Equipment Financing", href: "/solutions/equipment-financing" },
   { name: "Invoice Factoring", href: "/solutions/invoice-factoring" },
-  { name: "P.O. Financing", href: "/solutions/po-financing" }
+  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" }
 ];
 
 const customSolutions = [
   { name: "Credit Services", href: "/solutions/credit-services" },
-  { name: "SBA Loans", href: "/solutions/sba-loans" },
-  { name: "Debt Consolidation", href: "/solutions/debt-consolidation" },
-  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" }
+  { name: "Digital Marketing", href: "/solutions/seo-web-development" }
 ];
 
 const fundTekPages = [
@@ -38,7 +38,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#a6a6a6] border-t border-gray-200 py-8 md:py-12 relative z-50">
+    <footer className="bg-[#d9d9d9] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" style={{ pointerEvents: 'auto' }}>
           <div className="space-y-3 md:space-y-4 text-center md:text-left">

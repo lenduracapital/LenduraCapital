@@ -389,6 +389,7 @@ Changelog:
   * Added trust-building section under hero on More Testimonials page with "Don't take our word for it" heading highlighting FundTek's advantages over traditional banks
   * Converted homepage testimonials section from single testimonial to dynamic carousel with 3 authentic client stories, auto-advance, right arrow navigation, and dot indicators
   * Replaced generic testimonial names with diverse, realistic client profiles featuring specific business scenarios and authentic conversational language
+  * Updated footer background color to #d9d9d9 and reorganized services: all financing solutions under Custom Business Financing, Credit Services and Digital Marketing under Personalized Solutions
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
