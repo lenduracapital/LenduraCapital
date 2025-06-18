@@ -221,8 +221,8 @@ export default function WorkingCapitalSection() {
                     <h3 className="text-2xl md:text-3xl font-bold text-[#85abe4] mb-4 leading-tight">
                       Get 1-2-1 advice from an in-house team of experts on funding
                     </h3>
-                    <p className="text-gray-700 text-base md:text-lg mb-8 leading-relaxed">
-                      Tired of funding roadblocks? Get 1-2-1 advice from our experts and tackle cash flow bottlenecks, equipment needs, growth plans, marketing expenses, payroll obligations, and inventory shortages with targeted financing solutions.
+                    <p className="text-gray-700 text-sm md:text-base mb-8 leading-relaxed">
+                      Frustrated by funding delays? Connect one-on-one with a dedicated specialist to overcome cash flow challenges, cover equipment purchases, support growth initiatives, manage payroll, fund marketing efforts, or restock inventory. Get tailored financing solutions designed around your business needs — with speed, clarity, and reliability.
                     </p>
                     
                     {/* Information Needed */}
