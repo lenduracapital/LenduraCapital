@@ -54,11 +54,11 @@ export default function SEOWebDevelopment() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={handleApplyNow}
+                onClick={() => setLocation('/contact')}
                 size="lg"
                 className="bg-white text-[#85abe4] hover:bg-blue-50 hover:text-[#85abe4] font-bold px-8 py-4 text-lg border-0"
               >
-                Get Approved in 24 Hours
+                Contact Us
               </Button>
               <Button 
                 onClick={handleMoreTestimonials}
@@ -484,11 +484,11 @@ export default function SEOWebDevelopment() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={handleApplyNow}
+              onClick={() => setLocation('/contact')}
               size="lg"
               className="bg-[#85abe4] hover:bg-[#6b8cc4] text-white px-8 py-4 text-lg"
             >
-              Get Approved in 24 Hours
+              Contact Us
             </Button>
             <Button 
               onClick={handleBackToSolutions}

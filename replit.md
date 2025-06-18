@@ -382,6 +382,7 @@ Changelog:
   * Removed "(SEO)" from "Search Engine Optimization and Web Development" service title throughout website
   * Removed Credit Servicing card from Solutions page and changed SEO service title to "Digital Marketing" for clean text display
   * Fixed invisible text in all white buttons on SEO and Web Development page by updating to signature blue (#85abe4) text with no borders
+  * Changed "Get Approved in 24 Hours" buttons to "Contact Us" linking to contact page on SEO and Web Development page
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
