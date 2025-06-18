@@ -44,11 +44,17 @@ export default function Header({ transparent = true }: HeaderProps) {
       <nav className="w-full px-0">
         <div className="flex items-center justify-between py-0 w-full">
           {/* Logo on the left - aligned with hero text */}
-          <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
+          <div className="flex items-center ml-4 md:ml-8 lg:ml-8 overflow-hidden">
             <img 
               src={logoPath}
               alt="FundTek Capital Group Logo" 
-              className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto"
+              className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
+              style={{ 
+                clipPath: 'inset(15% 0 15% 0)',
+                transform: 'scale(1.2)',
+                marginTop: '-4px',
+                marginBottom: '-4px'
+              }}
             />
           </div>
 
