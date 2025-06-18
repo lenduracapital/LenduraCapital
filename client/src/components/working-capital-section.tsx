@@ -226,38 +226,42 @@ export default function WorkingCapitalSection() {
                     </p>
                     
                     {/* Information Needed */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-200 mb-8">
-                      <h4 className="font-bold text-gray-800 mb-6 text-xl">Information Needed</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-lg mb-1">Personal Info</div>
+                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 mb-8">
+                      <h4 className="font-bold text-gray-800 text-xl mb-6 text-center">Information Needed</h4>
+                      <div className="flex justify-between items-center max-w-4xl mx-auto">
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-lg mb-1">Personal Info</div>
                           <div className="text-gray-600 text-sm">To Verify Identity</div>
                         </div>
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-lg mb-1">Business Info</div>
+                        <div className="w-px h-12 bg-gray-300 mx-8"></div>
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-lg mb-1">Business Info</div>
                           <div className="text-gray-600 text-sm">For Verification</div>
                         </div>
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-lg mb-1">Bank Connection</div>
+                        <div className="w-px h-12 bg-gray-300 mx-8"></div>
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-lg mb-1">Bank Connection</div>
                           <div className="text-gray-600 text-sm">To Evaluate Revenue</div>
                         </div>
                       </div>
                     </div>
 
                     {/* Minimum Qualifications */}
-                    <div className="bg-white p-6 rounded-lg border border-gray-200">
-                      <h4 className="font-bold text-gray-800 mb-6 text-xl">Minimum Qualifications</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-2xl mb-1">480+</div>
+                    <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
+                      <h4 className="font-bold text-gray-800 text-xl mb-6 text-center">Minimum Qualifications</h4>
+                      <div className="flex justify-between items-center max-w-4xl mx-auto">
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-3xl mb-1">480+</div>
                           <div className="text-gray-600 text-sm">Min. Credit Score</div>
                         </div>
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-2xl mb-1">3+ Months</div>
-                          <div className="text-gray-600 text-sm">Time In Business</div>
+                        <div className="w-px h-16 bg-gray-300 mx-8"></div>
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-3xl mb-1">3+</div>
+                          <div className="text-gray-600 text-sm">Months Time In Business</div>
                         </div>
-                        <div>
-                          <div className="font-bold text-[#85abe4] text-2xl mb-1">$5K +</div>
+                        <div className="w-px h-16 bg-gray-300 mx-8"></div>
+                        <div className="text-center flex-1">
+                          <div className="text-[#85abe4] font-bold text-3xl mb-1">$5K+</div>
                           <div className="text-gray-600 text-sm">Min. Monthly Revenue</div>
                         </div>
                       </div>
