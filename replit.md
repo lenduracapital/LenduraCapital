@@ -380,7 +380,7 @@ Changelog:
   * Changed "Custom Small Business Solutions" to "Personalized Small Business Solutions" for better messaging
   * Updated "PMF" references to "FundTek" for consistent branding throughout sections
   * Removed "(SEO)" from "Search Engine Optimization and Web Development" service title throughout website
-  * Removed Credit Servicing card from Solutions page and shortened SEO service title to "SEO & Web Development" for better text display
+  * Removed Credit Servicing card from Solutions page and changed SEO service title to "Digital Marketing" for clean text display
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
