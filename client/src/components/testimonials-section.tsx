@@ -45,9 +45,9 @@ export default function TestimonialsSection() {
                 <Button 
                   onClick={handleMoreTestimonials}
                   variant="outline"
-                  className="text-black border-black hover:bg-black hover:text-white"
+                  className="text-black border-black hover:bg-black hover:text-white min-h-[44px] px-6 py-3"
                 >
-                  More Testimonials →
+                  Read More Success Stories →
                 </Button>
               </div>
             </div>
