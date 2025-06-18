@@ -296,7 +296,7 @@ Changelog:
   * Generated detailed UX/UI audit report (ux-ui-audit-report.md) with B+ (85/100) overall score and prioritized fix roadmap
   * REVERTED: Removed black overlay from navigation per user request, returned to transparent background
   * OPTIMIZED: Large logo (h-20/24/28/32) with clipPath trimming and 1.2x scaling for maximum prominence without thick navigation bar
-  * TRIMMED: Navigation header uses py-0, overflow hidden, and negative margins to minimize black bar while keeping large logo
+  * FORCE TRIMMED: Navigation header uses py-0, clipPath 25% inset, 1.3x scaling, and -8px margins for minimal black bar intrusion
 - June 18, 2025. Qualified Industries page transformation:
   * Changed navigation menu item from "Who We Fund" to "Qualified Industries" in desktop and mobile menus
   * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)

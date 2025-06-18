@@ -50,10 +50,10 @@ export default function Header({ transparent = true }: HeaderProps) {
               alt="FundTek Capital Group Logo" 
               className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto"
               style={{ 
-                clipPath: 'inset(15% 0 15% 0)',
-                transform: 'scale(1.2)',
-                marginTop: '-4px',
-                marginBottom: '-4px'
+                clipPath: 'inset(25% 0 25% 0)',
+                transform: 'scale(1.3)',
+                marginTop: '-8px',
+                marginBottom: '-8px'
               }}
             />
           </div>
