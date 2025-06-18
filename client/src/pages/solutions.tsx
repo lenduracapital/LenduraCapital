@@ -110,6 +110,32 @@ const solutions = [
     ],
     route: "/solutions/credit-services",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Credit Servicing (Personal & Business)",
+    icon: <Star className="w-8 h-8" />,
+    description: "Comprehensive credit servicing solutions for both personal and business credit management and optimization.",
+    features: [
+      "Personal credit repair",
+      "Business credit building",
+      "Score optimization",
+      "Credit monitoring services"
+    ],
+    route: "/solutions/credit-servicing",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Search Engine Optimization (SEO) and Web Development",
+    icon: <Building className="w-8 h-8" />,
+    description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
+    features: [
+      "SEO optimization",
+      "Website development",
+      "Digital marketing",
+      "Online presence management"
+    ],
+    route: "/solutions/seo-web-development",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   }
 ];
 

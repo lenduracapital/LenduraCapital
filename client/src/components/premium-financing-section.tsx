@@ -25,32 +25,41 @@ export default function PremiumFinancingSection() {
           {/* Right side - Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Premium Business Financing Solutions
+              Custom Small Business Solutions
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              FundTek understands how a loan at the right time can make a huge difference in the success of your business. To that end, we've made it fast and easy to access financing solutions completely designed around your small business needs.
+              Streamline financial and marketing systems to increase sales and improve the customer experience.
             </p>
             <p className="text-gray-700 font-medium mb-8">
-              We actively help small businesses just like yours with:
+              PMF and its team of dedicated service advisors will help identify, optimize, and deploy the right business solutions to meet your needs, including:
             </p>
             
             <div className="space-y-3 mb-8">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">Credit Servicing (Personal & Business)</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">Credit Card Processing</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">HR and Payroll Services</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">Search Engine Optimization (SEO) and Web Development</span>
               </div>
+            </div>
+
+            <div className="mt-8">
+              <button 
+                onClick={() => setLocation('/solutions')}
+                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Find out more →
+              </button>
             </div>
           </div>
         </div>
