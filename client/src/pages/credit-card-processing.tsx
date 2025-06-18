@@ -36,7 +36,8 @@ export default function CreditCardProcessing() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=600&fit=crop')",
+            backgroundPosition: "center 30%"
           }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
