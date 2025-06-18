@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/testimonials-section";
 import MoveBusinessForwardSection from "@/components/move-business-forward-section";
 import BusinessSolutionsSection from "@/components/business-solutions-section";
 import TrustSignalsSection from "@/components/trust-signals-section";
+import PremiumFinancingSection from "@/components/premium-financing-section";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 import SkipNavigation from "@/components/skip-navigation";
@@ -63,6 +64,7 @@ export default function Home() {
         <TrustSignalsSection />
         <MoveBusinessForwardSection />
         <BusinessSolutionsSection />
+        <PremiumFinancingSection />
       </main>
       <Footer />
       <ChatWidget />
