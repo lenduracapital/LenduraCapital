@@ -158,27 +158,46 @@ export default function WorkingCapitalSection() {
             {/* Left Side - No Impact & Application */}
             <div className="space-y-8">
               {/* No Impact on Credit Score */}
-              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">No Impact</h3>
-                  <p className="text-gray-600">On Your Credit Score</p>
+              <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 p-8 md:p-10 rounded-2xl shadow-xl border border-emerald-200 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-200 rounded-full opacity-20 -translate-y-16 translate-x-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-300 rounded-full opacity-15 translate-y-12 -translate-x-12"></div>
+                <div className="relative text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-full mb-6">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-bold text-emerald-800 mb-3">No Impact</h3>
+                  <p className="text-lg text-emerald-700 font-medium">On Your Credit Score</p>
+                  <div className="mt-4 text-sm text-emerald-600">
+                    Soft credit check only - won't affect your rating
+                  </div>
                 </div>
               </div>
               
               {/* Application Process */}
-              <div className="bg-[#4a5568] p-6 md:p-8 rounded-lg text-white">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl md:text-2xl font-bold mb-4">Get Started in Minutes and See Your Options</h3>
-                  <Button 
-                    onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-                    className="bg-[#85abe4] hover:bg-[#6b8cc4] text-white px-6 py-3 rounded-lg font-semibold w-full sm:w-auto"
-                  >
-                    Apply Now ➤
-                  </Button>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold mb-2">5 Min.</div>
-                  <div className="text-sm md:text-base opacity-90">Application Process</div>
+              <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 p-8 md:p-10 rounded-2xl text-white shadow-2xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#85abe4] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-400 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
+                <div className="relative">
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-[#85abe4] rounded-full mb-6">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">Get Started in Minutes and See Your Options</h3>
+                    <Button 
+                      onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+                      className="bg-gradient-to-r from-[#85abe4] to-[#6b8cc4] hover:from-[#6b8cc4] hover:to-[#5a7ab8] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full sm:w-auto"
+                    >
+                      Apply Now ➤
+                    </Button>
+                  </div>
+                  <div className="text-center border-t border-slate-600 pt-6">
+                    <div className="text-5xl md:text-6xl font-black mb-3 bg-gradient-to-r from-[#85abe4] to-blue-300 bg-clip-text text-transparent">5 Min.</div>
+                    <div className="text-lg opacity-90 font-medium">Application Process</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -186,55 +205,85 @@ export default function WorkingCapitalSection() {
             {/* Right Side - Expert Advice & Requirements */}
             <div className="space-y-8">
               {/* Expert Advice */}
-              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
-                <div className="flex items-start space-x-4">
+              <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 p-8 md:p-10 rounded-2xl shadow-xl border border-blue-200 overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#85abe4] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-300 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
+                
+                <div className="relative flex items-start space-x-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
-                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#85abe4] to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl md:text-2xl font-bold text-[#85abe4] mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold text-[#85abe4] mb-4 leading-tight">
                       Get 1-2-1 advice from an in-house team of experts on funding
                     </h3>
-                    <p className="text-gray-600 text-sm md:text-base mb-6">
+                    <p className="text-gray-700 text-base md:text-lg mb-8 leading-relaxed">
                       Tired of funding roadblocks? Get 1-2-1 advice from our experts and tackle cash flow bottlenecks, equipment needs, growth plans, marketing expenses, payroll obligations, and inventory shortages with targeted financing solutions.
                     </p>
                     
                     {/* Information Needed */}
-                    <div className="bg-blue-50 p-4 rounded-lg mb-6">
-                      <h4 className="font-semibold text-gray-800 mb-3">Information Needed</h4>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <div>
-                          <div className="font-medium text-[#85abe4]">Personal Info</div>
-                          <div className="text-gray-600">To Verify Identity</div>
+                    <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl mb-8 shadow-lg border border-white/50">
+                      <h4 className="font-bold text-gray-800 mb-6 text-lg flex items-center">
+                        <svg className="w-5 h-5 text-[#85abe4] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Information Needed
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                          </div>
+                          <div className="font-bold text-[#85abe4] text-lg">Personal Info</div>
+                          <div className="text-gray-600 text-sm mt-1">To Verify Identity</div>
                         </div>
-                        <div>
-                          <div className="font-medium text-[#85abe4]">Business Info</div>
-                          <div className="text-gray-600">For Verification</div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                          </div>
+                          <div className="font-bold text-[#85abe4] text-lg">Business Info</div>
+                          <div className="text-gray-600 text-sm mt-1">For Verification</div>
                         </div>
-                        <div>
-                          <div className="font-medium text-[#85abe4]">Bank Connection</div>
-                          <div className="text-gray-600">To Evaluate Revenue</div>
+                        <div className="text-center">
+                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                          </div>
+                          <div className="font-bold text-[#85abe4] text-lg">Bank Connection</div>
+                          <div className="text-gray-600 text-sm mt-1">To Evaluate Revenue</div>
                         </div>
                       </div>
                     </div>
 
                     {/* Minimum Qualifications */}
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-3">Minimum Qualifications</h4>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <div>
-                          <div className="text-2xl font-bold text-[#85abe4]">480+</div>
-                          <div className="text-gray-600">Min. Credit Score</div>
+                    <div className="bg-gradient-to-r from-[#85abe4] to-blue-600 p-6 rounded-xl shadow-lg text-white">
+                      <h4 className="font-bold text-white mb-6 text-lg flex items-center">
+                        <svg className="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Minimum Qualifications
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">480+</div>
+                          <div className="text-blue-100 font-medium">Min. Credit Score</div>
                         </div>
-                        <div>
-                          <div className="text-2xl font-bold text-[#85abe4]">3+ Months</div>
-                          <div className="text-gray-600">Time in Business</div>
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">3+ Months</div>
+                          <div className="text-blue-100 font-medium">Time in Business</div>
                         </div>
-                        <div>
-                          <div className="text-2xl font-bold text-[#85abe4]">$5K +</div>
-                          <div className="text-gray-600">Min. Monthly Revenue</div>
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">$5K +</div>
+                          <div className="text-blue-100 font-medium">Min. Monthly Revenue</div>
                         </div>
                       </div>
                     </div>
