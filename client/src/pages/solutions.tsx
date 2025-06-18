@@ -125,7 +125,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
   },
   {
-    title: "Search Engine Optimization (SEO) and Web Development",
+    title: "Search Engine Optimization and Web Development",
     icon: <Building className="w-8 h-8" />,
     description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
     features: [

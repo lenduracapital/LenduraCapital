@@ -48,7 +48,7 @@ export default function SEOWebDevelopment() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-wider">
-              Search Engine Optimization (SEO) and Web Development
+              Search Engine Optimization and Web Development
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl">
               Professional digital solutions that drive online visibility, enhance user experience, and accelerate business growth through strategic SEO and cutting-edge web development.

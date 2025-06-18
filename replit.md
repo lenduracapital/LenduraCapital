@@ -379,6 +379,7 @@ Changelog:
   * Updated all instances of "Premium Business Financing Solutions" to "Custom Business Financing Solutions"
   * Changed "Custom Small Business Solutions" to "Personalized Small Business Solutions" for better messaging
   * Updated "PMF" references to "FundTek" for consistent branding throughout sections
+  * Removed "(SEO)" from "Search Engine Optimization and Web Development" service title throughout website
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 

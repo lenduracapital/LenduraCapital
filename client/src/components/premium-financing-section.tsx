@@ -49,7 +49,7 @@ export default function PremiumFinancingSection() {
 
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">Search Engine Optimization (SEO) and Web Development</span>
+                <span className="text-gray-700">Search Engine Optimization and Web Development</span>
               </div>
             </div>
 
