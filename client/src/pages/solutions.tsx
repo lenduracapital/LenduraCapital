@@ -124,6 +124,19 @@ const solutions = [
     ],
     route: "/solutions/seo-web-development",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Credit Card Processing",
+    icon: <CreditCard className="w-8 h-8" />,
+    description: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing for all business types.",
+    features: [
+      "Multi-channel processing",
+      "Fast funding",
+      "Secure transactions",
+      "24/7 support"
+    ],
+    route: "/solutions/credit-card-processing",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
   }
 ];
 
