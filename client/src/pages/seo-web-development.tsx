@@ -40,7 +40,7 @@ export default function SEOWebDevelopment() {
               <Button 
                 onClick={handleBackToSolutions}
                 variant="outline" 
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] mb-4"
+                className="text-black border-black bg-white hover:bg-gray-100 hover:text-black mb-4"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Solutions
