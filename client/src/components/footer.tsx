@@ -38,7 +38,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#f5f6f6] border-t border-gray-200 py-8 md:py-12 relative z-50">
+    <footer className="bg-[#a6a6a6] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" style={{ pointerEvents: 'auto' }}>
           <div className="space-y-3 md:space-y-4 text-center md:text-left">
