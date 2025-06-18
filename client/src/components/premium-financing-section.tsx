@@ -28,7 +28,7 @@ export default function PremiumFinancingSection() {
           {/* Right side - Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Custom Small Business Solutions
+              Personalized Small Business Solutions
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
               Streamline financial and marketing systems to increase sales and improve the customer experience.

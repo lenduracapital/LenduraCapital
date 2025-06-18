@@ -85,7 +85,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-black font-semibold mb-4">Custom Small Business Solutions</h4>
+            <h4 className="text-black font-semibold mb-4">Personalized Small Business Solutions</h4>
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
