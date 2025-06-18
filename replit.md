@@ -381,6 +381,7 @@ Changelog:
   * Updated "PMF" references to "FundTek" for consistent branding throughout sections
   * Removed "(SEO)" from "Search Engine Optimization and Web Development" service title throughout website
   * Removed Credit Servicing card from Solutions page and changed SEO service title to "Digital Marketing" for clean text display
+  * Fixed invisible text in white buttons on SEO and Web Development page by changing text color to black
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 

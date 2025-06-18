@@ -57,7 +57,7 @@ export default function SEOWebDevelopment() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                className="bg-white text-[#85abe4] hover:bg-blue-50 font-bold px-8 py-4 text-lg"
+                className="bg-white text-black hover:bg-blue-50 hover:text-black font-bold px-8 py-4 text-lg"
               >
                 Get Approved in 24 Hours
               </Button>
@@ -65,7 +65,7 @@ export default function SEOWebDevelopment() {
                 onClick={handleMoreTestimonials}
                 variant="outline"
                 size="lg" 
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg"
+                className="text-white border-white hover:bg-white hover:text-black px-8 py-4 text-lg"
               >
                 Read Success Stories
               </Button>
