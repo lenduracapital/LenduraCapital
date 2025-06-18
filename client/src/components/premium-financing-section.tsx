@@ -17,7 +17,7 @@ export default function PremiumFinancingSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Completely customized financial solution to meet your business needs</h3>
+                <h3 className="text-2xl font-bold mb-2">Meet your Goals. Grow your Business.</h3>
               </div>
             </div>
           </div>
