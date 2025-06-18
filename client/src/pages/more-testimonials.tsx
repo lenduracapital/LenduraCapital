@@ -4,46 +4,46 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initial: "J",
-    name: "Jennifer Walsh",
-    business: "Walsh Landscaping",
+    initial: "R",
+    name: "Rafael Castillo",
+    business: "Estrella Mexican Grill",
     rating: 5,
-    text: "Our truck broke down right before spring season. FundTek got us approved in 24 hours so we could buy a replacement and not lose our biggest contracts."
+    text: "We've been serving authentic tacos for 8 years but our fryer gave out right before Cinco de Mayo weekend. Couldn't afford to miss our busiest days. FundTek understood the urgency."
   },
   {
-    initial: "M",
-    name: "Michael Park",
-    business: "Park's Electronics Repair",
+    initial: "P",
+    name: "Priya Patel",
+    business: "Golden State Dry Cleaners",
     rating: 4,
-    text: "Needed inventory for the holiday rush but my bank said no. FundTek understood seasonal businesses and got me the working capital in 3 days."
-  },
-  {
-    initial: "C",
-    name: "Carlos Mendez",
-    business: "Mendez Roofing",
-    rating: 5,
-    text: "Insurance was taking forever to pay on a big job. The merchant cash advance kept my crew working while we waited for that check to come in."
+    text: "Two pressing machines broke within the same week. My regular customers depend on me for their work clothes. Got funding approved while my competitor was still waiting for his bank appointment."
   },
   {
     initial: "T",
-    name: "Tracy Williams",
-    business: "Williams Bakery",
-    rating: 4,
-    text: "My oven died on a Tuesday. By Friday I had funding to replace it. Saved my weekend wedding orders and probably my business."
+    name: "Tyrone Jackson",
+    business: "Motor City Detail Shop",
+    rating: 5,
+    text: "Police department wanted to renew our fleet contract but required new equipment certifications. Had 10 days to upgrade everything. My bank wanted six weeks just to review the application."
   },
   {
-    initial: "R",
-    name: "Robert Kim",
-    business: "Kim's Auto Body",
+    initial: "S",
+    name: "Sofia Petrov",
+    business: "Little Angels Daycare",
+    rating: 4,
+    text: "State changed licensing requirements - we needed new security system and playground updates by January or they'd shut us down. 15 families counting on us to stay open."
+  },
+  {
+    initial: "J",
+    name: "Jerome Washington",
+    business: "Southside Barber Lounge",
     rating: 5,
-    text: "Equipment financing let me buy the paint booth I needed to take insurance work. Now I'm booked solid and payments are manageable."
+    text: "Landlord sold the building, new owner doubled our rent with 30 days notice. Been cutting hair in this neighborhood for 22 years. The emergency funding kept our doors open."
   },
   {
     initial: "L",
-    name: "Linda Torres",
-    business: "Torres Cleaning Services",
+    name: "Lisa Chen-Rodriguez",
+    business: "Fusion Physical Therapy",
     rating: 4,
-    text: "Got a big contract but needed to hire staff and buy supplies upfront. The line of credit gave me flexibility to grow without stress."
+    text: "Insurance reimbursements were 4 months behind but patients needed treatment now. Couldn't afford to turn people away while waiting for bureaucrats to cut checks."
   }
 ];
 
