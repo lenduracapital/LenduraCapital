@@ -70,6 +70,29 @@ export default function MoreTestimonials() {
         </div>
       </section>
 
+      {/* Trust Building Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">
+            See why businesses trust FundTek Capital Group.
+          </h2>
+          
+          <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
+            <p>
+              Small businesses are the backbone of our economy, and they deserve funding partners who understand their unique challenges. Unlike traditional banks with rigid requirements, FundTek Capital Group specializes in flexible financing solutions that work for real business situations.
+            </p>
+            
+            <p>
+              From retail stores and restaurants to construction companies and service providers, our funding solutions help businesses navigate cash flow gaps, equipment failures, seasonal fluctuations, and growth opportunities. We've built our reputation by delivering fast approvals, transparent terms, and personalized service.
+            </p>
+            
+            <p className="font-semibold text-gray-800">
+              Hear directly from business owners who've experienced our commitment firsthand:
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Grid */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
