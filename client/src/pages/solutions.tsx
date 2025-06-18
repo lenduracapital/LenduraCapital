@@ -113,7 +113,7 @@ const solutions = [
   },
 
   {
-    title: "SEO & Web Development",
+    title: "Digital Marketing",
     icon: <Building className="w-8 h-8" />,
     description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
     features: [
@@ -198,7 +198,7 @@ export default function Solutions() {
                       </div>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-2xl font-bold text-white mb-2">{solution.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight break-words">{solution.title}</h3>
                     </div>
                   </div>
                   
