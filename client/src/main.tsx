@@ -10,8 +10,8 @@ performanceMonitor;
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
-      .then(() => console.log('SW registered successfully'))
-      .catch(() => console.log('SW registration failed'));
+      .then(() => {})
+      .catch(() => {});
   });
 }
 

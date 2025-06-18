@@ -10,6 +10,17 @@ if (process.env.SENDGRID_API_KEY) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Enhanced security headers middleware for Google trust signals
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    next();
+  });
+
   // Loan Applications
   app.post("/api/loan-applications", async (req, res) => {
     try {
@@ -17,7 +28,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const application = await storage.createLoanApplication(validatedData);
       res.json(application);
     } catch (error) {
-      console.error("Error creating loan application:", error);
       res.status(400).json({ error: "Invalid loan application data" });
     }
   });
@@ -27,7 +37,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const applications = await storage.getLoanApplications();
       res.json(applications);
     } catch (error) {
-      console.error("Error fetching loan applications:", error);
       res.status(500).json({ error: "Failed to fetch loan applications" });
     }
   });
@@ -41,7 +50,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.json(application);
     } catch (error) {
-      console.error("Error fetching loan application:", error);
       res.status(500).json({ error: "Failed to fetch loan application" });
     }
   });
@@ -56,7 +64,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.json(application);
     } catch (error) {
-      console.error("Error updating loan application status:", error);
       res.status(500).json({ error: "Failed to update loan application status" });
     }
   });
