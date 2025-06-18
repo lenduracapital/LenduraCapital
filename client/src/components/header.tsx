@@ -36,8 +36,8 @@ export default function Header({ transparent = true }: HeaderProps) {
 
   // Determine header background and text colors
   const isTransparent = transparent && !isScrolled;
-  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black/90 backdrop-blur-sm';
-  const textColor = isTransparent ? 'text-white' : 'text-white';
+  const headerBg = isTransparent ? 'bg-black/50 backdrop-blur-md' : 'bg-black/90 backdrop-blur-sm';
+  const textColor = 'text-white';
 
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
@@ -56,35 +56,40 @@ export default function Header({ transparent = true }: HeaderProps) {
           <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={() => setLocation("/")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Go to homepage"
             >
               Home
             </button>
             <button 
               onClick={() => setLocation("/solutions")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="View business funding solutions"
             >
               Solutions
             </button>
             <button 
               onClick={() => setLocation("/who-we-fund")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="See qualified industries"
             >
               Qualified Industries
             </button>
             <button 
               onClick={handleApplyNow}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Apply for business funding - Opens in new window"
             >
               Apply Now
             </button>
             <button 
               onClick={() => setLocation("/contact")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
+              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Contact FundTek Capital Group"
             >
               Contact Us
@@ -95,7 +100,8 @@ export default function Header({ transparent = true }: HeaderProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:text-[--primary]"
+            className="lg:hidden text-white hover:text-[--primary] min-h-[44px] min-w-[44px] mr-4"
+            style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
@@ -104,34 +110,39 @@ export default function Header({ transparent = true }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-black bg-opacity-90 backdrop-blur-sm border-t border-white/20 p-4 space-y-4 absolute left-0 right-0 top-full">
+          <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-white/20 p-4 space-y-2 absolute left-0 right-0 top-full z-50">
             <button 
               onClick={() => { setLocation("/"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Home
             </button>
             <button 
               onClick={() => { setLocation("/solutions"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Solutions
             </button>
             <button 
               onClick={() => { setLocation("/who-we-fund"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Qualified Industries
             </button>
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Apply Now
             </button>
             <button 
               onClick={() => { setLocation("/contact"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Contact Us
             </button>
