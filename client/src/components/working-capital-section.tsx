@@ -68,7 +68,7 @@ export default function WorkingCapitalSection() {
               <CountUp end={50} suffix="+" />
             </p>
             <p className="text-[--primary] font-semibold text-sm md:text-lg">Specialists</p>
-            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Experienced funding experts</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Over 50 specialists to keep you going</p>
           </div>
           <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
             <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">

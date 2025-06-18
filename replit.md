@@ -398,6 +398,7 @@ Changelog:
   * Changed description text from "Multiple capital products" to "10 financing solutions and small business products" for more specific messaging
   * Updated funding description from "Unsecured capital available" to "Unsecured funding up to $20,000,000" for more impactful messaging
   * Changed turnaround description from "Typical turnaround" to "Get funding in 24 hours" for more compelling call-to-action messaging
+  * Updated specialists description from "Experienced funding experts" to "Over 50 specialists to keep you going" for more personal and supportive messaging
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
