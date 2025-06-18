@@ -292,6 +292,7 @@ Changelog:
   * Fixed button text visibility using text-blue-900 for white buttons and proper hover states
   * Enhanced hero content with comprehensive industry expertise messaging and call-to-action buttons
   * Applied larger typography scaling (text-5xl to text-7xl) and improved content hierarchy
+  * Reverted Solutions page to maintain original tap-to-expand accordion functionality per user request
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
   * Created floating chat widget appearing after 3-second delay in bottom-right corner
   * Designed with signature blue (#85abe4) throughout - header, messages, and floating button
