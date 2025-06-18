@@ -294,6 +294,8 @@ Changelog:
   * Implemented CTA button enhancements with shadow effects, hover animations, and improved visual feedback
   * Created comprehensive mobile form optimizations with 16px padding and 8px border-radius
   * Generated detailed UX/UI audit report (ux-ui-audit-report.md) with B+ (85/100) overall score and prioritized fix roadmap
+  * REVERTED: Removed black overlay from navigation per user request, returned to transparent background
+  * ENLARGED: Logo sizing increased from h-12/14/18/20 to h-16/20/24/28 for better visibility and prominence
 - June 18, 2025. Qualified Industries page transformation:
   * Changed navigation menu item from "Who We Fund" to "Qualified Industries" in desktop and mobile menus
   * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)

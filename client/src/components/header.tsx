@@ -36,7 +36,7 @@ export default function Header({ transparent = true }: HeaderProps) {
 
   // Determine header background and text colors
   const isTransparent = transparent && !isScrolled;
-  const headerBg = isTransparent ? 'bg-black/50 backdrop-blur-md' : 'bg-black/90 backdrop-blur-sm';
+  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black/90 backdrop-blur-sm';
   const textColor = 'text-white';
 
   return (
@@ -48,7 +48,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             <img 
               src={logoPath}
               alt="FundTek Capital Group Logo" 
-              className="h-12 sm:h-14 md:h-18 lg:h-20 w-auto"
+              className="h-20 sm:h-24 md:h-32 lg:h-40 w-auto"
             />
           </div>
 
