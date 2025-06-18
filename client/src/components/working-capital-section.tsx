@@ -272,18 +272,18 @@ export default function WorkingCapitalSection() {
                         </svg>
                         Minimum Qualifications
                       </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">480+</div>
-                          <div className="text-blue-100 font-medium">Min. Credit Score</div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 min-h-[100px] flex flex-col justify-center">
+                          <div className="text-2xl md:text-3xl font-black mb-1 text-white">480+</div>
+                          <div className="text-blue-100 font-medium text-xs md:text-sm leading-tight">Min. Credit Score</div>
                         </div>
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">3+ Months</div>
-                          <div className="text-blue-100 font-medium">Time in Business</div>
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 min-h-[100px] flex flex-col justify-center">
+                          <div className="text-2xl md:text-3xl font-black mb-1 text-white">3+ Months</div>
+                          <div className="text-blue-100 font-medium text-xs md:text-sm leading-tight">Time in Business</div>
                         </div>
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl md:text-4xl font-black mb-2 text-white">$5K +</div>
-                          <div className="text-blue-100 font-medium">Min. Monthly Revenue</div>
+                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-3 min-h-[100px] flex flex-col justify-center">
+                          <div className="text-2xl md:text-3xl font-black mb-1 text-white">$5K+</div>
+                          <div className="text-blue-100 font-medium text-xs md:text-sm leading-tight">Min. Monthly Revenue</div>
                         </div>
                       </div>
                     </div>
