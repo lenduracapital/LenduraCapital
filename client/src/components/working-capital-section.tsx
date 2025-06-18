@@ -152,6 +152,99 @@ export default function WorkingCapitalSection() {
           </div>
         </div>
 
+        {/* FundTek Tailored Section */}
+        <div className="max-w-7xl mx-auto mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+            {/* Left Side - No Impact & Application */}
+            <div className="space-y-8">
+              {/* No Impact on Credit Score */}
+              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">No Impact</h3>
+                  <p className="text-gray-600">On Your Credit Score</p>
+                </div>
+              </div>
+              
+              {/* Application Process */}
+              <div className="bg-[#4a5568] p-6 md:p-8 rounded-lg text-white">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold mb-4">Get Started in Minutes and See Your Options</h3>
+                  <Button 
+                    onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+                    className="bg-[#85abe4] hover:bg-[#6b8cc4] text-white px-6 py-3 rounded-lg font-semibold w-full sm:w-auto"
+                  >
+                    Apply Now ➤
+                  </Button>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold mb-2">5 Min.</div>
+                  <div className="text-sm md:text-base opacity-90">Application Process</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Expert Advice & Requirements */}
+            <div className="space-y-8">
+              {/* Expert Advice */}
+              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-200">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#85abe4] mb-4">
+                      Get 1-2-1 advice from an in-house team of experts on funding
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base mb-6">
+                      Tired of funding roadblocks? Get 1-2-1 advice from our experts and tackle cash flow bottlenecks, equipment needs, growth plans, marketing expenses, payroll obligations, and inventory shortages with targeted financing solutions.
+                    </p>
+                    
+                    {/* Information Needed */}
+                    <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                      <h4 className="font-semibold text-gray-800 mb-3">Information Needed</h4>
+                      <div className="grid grid-cols-3 gap-4 text-sm">
+                        <div>
+                          <div className="font-medium text-[#85abe4]">Personal Info</div>
+                          <div className="text-gray-600">To Verify Identity</div>
+                        </div>
+                        <div>
+                          <div className="font-medium text-[#85abe4]">Business Info</div>
+                          <div className="text-gray-600">For Verification</div>
+                        </div>
+                        <div>
+                          <div className="font-medium text-[#85abe4]">Bank Connection</div>
+                          <div className="text-gray-600">To Evaluate Revenue</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Minimum Qualifications */}
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <h4 className="font-semibold text-gray-800 mb-3">Minimum Qualifications</h4>
+                      <div className="grid grid-cols-3 gap-4 text-sm">
+                        <div>
+                          <div className="text-2xl font-bold text-[#85abe4]">480+</div>
+                          <div className="text-gray-600">Min. Credit Score</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-[#85abe4]">3+ Months</div>
+                          <div className="text-gray-600">Time in Business</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-[#85abe4]">$5K +</div>
+                          <div className="text-gray-600">Min. Monthly Revenue</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center">
           <Button 
             onClick={() => setLocation('/solutions')}
