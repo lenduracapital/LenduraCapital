@@ -226,42 +226,42 @@ export default function WorkingCapitalSection() {
                     </p>
                     
                     {/* Information Needed */}
-                    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 mb-6 max-w-4xl">
-                      <h4 className="font-bold text-gray-800 text-lg mb-4">Information Needed</h4>
+                    <div className="bg-white p-4 rounded-lg shadow-md border border-gray-200 mb-4 max-w-3xl">
+                      <h4 className="font-bold text-gray-800 text-base mb-3">Information Needed</h4>
                       <div className="flex justify-between items-center">
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-base mb-1">Personal Info</div>
+                          <div className="text-[#85abe4] font-bold text-sm">Personal Info</div>
                           <div className="text-gray-600 text-xs">To Verify Identity</div>
                         </div>
-                        <div className="w-px h-8 bg-gray-300 mx-4"></div>
+                        <div className="w-px h-6 bg-gray-300 mx-3"></div>
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-base mb-1">Business Info</div>
+                          <div className="text-[#85abe4] font-bold text-sm">Business Info</div>
                           <div className="text-gray-600 text-xs">For Verification</div>
                         </div>
-                        <div className="w-px h-8 bg-gray-300 mx-4"></div>
+                        <div className="w-px h-6 bg-gray-300 mx-3"></div>
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-base mb-1">Bank Connection</div>
+                          <div className="text-[#85abe4] font-bold text-sm">Bank Connection</div>
                           <div className="text-gray-600 text-xs">To Evaluate Revenue</div>
                         </div>
                       </div>
                     </div>
 
                     {/* Minimum Qualifications */}
-                    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 max-w-4xl">
-                      <h4 className="font-bold text-gray-800 text-lg mb-4">Minimum Qualifications</h4>
+                    <div className="bg-white p-4 rounded-lg shadow-md border border-gray-200 max-w-3xl">
+                      <h4 className="font-bold text-gray-800 text-base mb-3">Minimum Qualifications</h4>
                       <div className="flex justify-between items-center">
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-2xl mb-1">480+</div>
+                          <div className="text-[#85abe4] font-bold text-xl">480+</div>
                           <div className="text-gray-600 text-xs">Min. Credit Score</div>
                         </div>
-                        <div className="w-px h-10 bg-gray-300 mx-4"></div>
+                        <div className="w-px h-8 bg-gray-300 mx-3"></div>
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-2xl mb-1">3+</div>
+                          <div className="text-[#85abe4] font-bold text-xl">3+</div>
                           <div className="text-gray-600 text-xs">Months Time In Business</div>
                         </div>
-                        <div className="w-px h-10 bg-gray-300 mx-4"></div>
+                        <div className="w-px h-8 bg-gray-300 mx-3"></div>
                         <div className="text-center flex-1">
-                          <div className="text-[#85abe4] font-bold text-2xl mb-1">$5K+</div>
+                          <div className="text-[#85abe4] font-bold text-xl">$5K+</div>
                           <div className="text-gray-600 text-xs">Min. Monthly Revenue</div>
                         </div>
                       </div>
