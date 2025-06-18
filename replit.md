@@ -284,6 +284,12 @@ Changelog:
   * Updated footer background color to #a6a6a6 for improved visual appearance
   * Significantly reduced navigation header height with minimal padding (py-0.5 md:py-1) and compact logo sizing
   * Applied ultra-compact responsive logo sizing: h-12 sm:h-14 md:h-18 lg:h-20 for minimal header footprint
+- June 18, 2025. Qualified Industries page transformation:
+  * Changed navigation menu item from "Who We Fund" to "Qualified Industries" in desktop and mobile menus
+  * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)
+  * Replaced background image with industry-focused city skyline for better visual representation
+  * Enhanced hero content with comprehensive industry expertise messaging and call-to-action buttons
+  * Applied larger typography scaling (text-5xl to text-7xl) and improved content hierarchy
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
   * Created floating chat widget appearing after 3-second delay in bottom-right corner
   * Designed with signature blue (#85abe4) throughout - header, messages, and floating button

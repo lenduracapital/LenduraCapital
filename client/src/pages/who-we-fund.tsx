@@ -104,20 +104,43 @@ export default function WhoWeFund() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-[--primary] to-blue-800">
+      <section className="relative pt-40 md:pt-48 pb-32 md:pb-40 bg-gradient-to-br from-[--primary] to-blue-800">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop')"
           }}
         >
-          <div className="absolute inset-0 bg-blue-900 bg-opacity-20"></div>
+          <div className="absolute inset-0 bg-blue-900 bg-opacity-60"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-wider">
             Qualified <span style={{ color: '#85abe4' }}>Industries</span>
           </h1>
+          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+            FundTek Capital Group specializes in providing tailored financing solutions across diverse industries. 
+            Our expertise spans multiple sectors, ensuring we understand your unique business challenges.
+          </p>
+          <p className="text-lg md:text-xl text-blue-200 mb-12 max-w-3xl mx-auto">
+            From healthcare and construction to technology and manufacturing, we have the industry knowledge 
+            and funding solutions to accelerate your business growth.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button 
+              onClick={handleApplyNow}
+              className="bg-white text-[--primary] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
+            >
+              Apply for Funding
+            </Button>
+            <Button 
+              variant="outline"
+              onClick={() => setLocation('/contact')}
+              className="border-2 border-white text-white hover:bg-white hover:text-[--primary] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+            >
+              Speak with Specialist
+            </Button>
+          </div>
         </div>
       </section>
 

@@ -71,9 +71,9 @@ export default function Header({ transparent = true }: HeaderProps) {
             <button 
               onClick={() => setLocation("/who-we-fund")}
               className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium touch-target focus-ring`}
-              aria-label="See industries we fund"
+              aria-label="See qualified industries"
             >
-              Who We Fund
+              Qualified Industries
             </button>
             <button 
               onClick={handleApplyNow}
@@ -121,7 +121,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               onClick={() => { setLocation("/who-we-fund"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-2 w-full text-left"
             >
-              Who We Fund
+              Qualified Industries
             </button>
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
