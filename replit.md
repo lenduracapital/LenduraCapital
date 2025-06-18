@@ -391,6 +391,7 @@ Changelog:
   * Replaced generic testimonial names with diverse, realistic client profiles featuring specific business scenarios and authentic conversational language
   * Updated footer background color to #d9d9d9 and reorganized services: all financing solutions under Custom Business Financing, Credit Services, Digital Marketing, and Credit Card Processing under Personalized Solutions
   * Created comprehensive Credit Card Processing detail page with multi-channel processing features, benefits comparison, industry applications, and authentic client testimonials
+  * Fixed scroll-to-top navigation issue across all solution detail pages and navigation components to ensure proper page positioning when using client-side routing
   * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 

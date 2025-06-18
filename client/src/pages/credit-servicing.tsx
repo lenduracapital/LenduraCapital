@@ -14,10 +14,12 @@ export default function CreditServicing() {
 
   const handleBackToSolutions = () => {
     setLocation("/solutions");
+    window.scrollTo(0, 0);
   };
 
   const handleMoreTestimonials = () => {
     setLocation("/more-testimonials");
+    window.scrollTo(0, 0);
   };
 
   return (

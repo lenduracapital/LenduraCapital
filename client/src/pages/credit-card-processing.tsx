@@ -8,10 +8,12 @@ export default function CreditCardProcessing() {
 
   const handleContactUs = () => {
     setLocation("/contact");
+    window.scrollTo(0, 0);
   };
 
   const handleBackToSolutions = () => {
     setLocation("/solutions");
+    window.scrollTo(0, 0);
   };
 
   const testimonials = [

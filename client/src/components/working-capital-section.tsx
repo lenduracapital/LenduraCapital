@@ -275,7 +275,10 @@ export default function WorkingCapitalSection() {
 
         <div className="text-center">
           <Button 
-            onClick={() => setLocation('/solutions')}
+            onClick={() => {
+              setLocation('/solutions');
+              window.scrollTo(0, 0);
+            }}
             style={{ backgroundColor: '#85abe4' }}
             className="hover:opacity-90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg w-full sm:w-auto min-h-[44px]"
           >

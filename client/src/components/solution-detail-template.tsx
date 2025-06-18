@@ -44,10 +44,12 @@ export default function SolutionDetailTemplate({
 
   const handleBackToSolutions = () => {
     setLocation("/solutions");
+    window.scrollTo(0, 0);
   };
 
   const handleBackToHome = () => {
     setLocation("/");
+    window.scrollTo(0, 0);
   };
 
   return (
