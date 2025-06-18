@@ -9,7 +9,12 @@ export function configureProductionSecurity(app: Express) {
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        styleSrc: [
+        styleSrc: process.env.NODE_ENV === 'development' ? [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+          "https://cdn.jsdelivr.net"
+        ] : [
           "'self'",
           "https://fonts.googleapis.com",
           "https://cdn.jsdelivr.net"
@@ -19,7 +24,16 @@ export function configureProductionSecurity(app: Express) {
           "https://fonts.gstatic.com",
           "data:"
         ],
-        scriptSrc: [
+        scriptSrc: process.env.NODE_ENV === 'development' ? [
+          "'self'",
+          "'unsafe-inline'",
+          "'unsafe-eval'",
+          "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
+          "https://connect.facebook.net",
+          "https://form.jotform.com",
+          "https://js.jotform.com"
+        ] : [
           "'self'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
