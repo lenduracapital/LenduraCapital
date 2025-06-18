@@ -2,26 +2,31 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { 
-  initializeSentry, 
-  configureSecurityHeaders, 
-  configureSentryErrorHandler,
-  configureRateLimiting,
-  configureHealthCheck 
-} from "./security-middleware";
+  configureProductionSecurity,
+  configureApiRateLimit,
+  configureProductionErrorHandler,
+  configureHealthMonitoring,
+  configureRobotsTxt,
+  addSecurityHeaders
+} from "./production-security";
 
 const app = express();
 
-// Initialize Sentry for error monitoring
-initializeSentry(app);
+// Configure trust proxy for rate limiting
+app.set('trust proxy', 1);
 
-// Configure production-grade security headers
-configureSecurityHeaders(app);
+// Configure production-grade security
+configureProductionSecurity(app);
+addSecurityHeaders(app);
 
-// Configure rate limiting
-configureRateLimiting(app);
+// Configure API rate limiting
+configureApiRateLimit(app);
 
-// Configure health check endpoints
-configureHealthCheck(app);
+// Configure health monitoring
+configureHealthMonitoring(app);
+
+// Configure SEO robots.txt
+configureRobotsTxt(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -59,8 +64,8 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
-  // Configure Sentry error handler
-  configureSentryErrorHandler(app);
+  // Configure production error handler
+  configureProductionErrorHandler(app);
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
