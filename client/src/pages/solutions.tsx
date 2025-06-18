@@ -5,6 +5,7 @@ import { useLocation } from "wouter";
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import truckImage from "@assets/Truck_1750271749729.jpg";
 
 const solutions = [
   {
@@ -70,7 +71,7 @@ const solutions = [
       "Government backed"
     ],
     route: "/solutions/sba-loans",
-    image: "/image_1750273835191.png"
+    image: truckImage
   },
   {
     title: "Invoice Factoring",
