@@ -189,39 +189,18 @@ export default function Solutions() {
                   </div>
                   
                   <div className="p-6">
-                    {/* Tap to expand button */}
-                    <button
-                      onClick={() => toggleCard(index)}
-                      className="w-full flex items-center justify-between p-3 mb-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200 touch-target focus-ring"
-                      aria-expanded={isExpanded}
-                      aria-label={`${isExpanded ? 'Hide' : 'Show'} details for ${solution.title}`}
-                    >
-                      <span className="text-gray-700 font-medium">
-                        {isExpanded ? 'Hide Details' : 'Tap for Details'}
-                      </span>
-                      {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-600" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-600" />
-                      )}
-                    </button>
-                    
-                    {/* Expandable content with smooth animation */}
-                    <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <div className="pb-4">
-                        <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
-                        
-                        <ul className="space-y-2 mb-6">
-                          {solution.features.map((feature, idx) => (
-                            <li key={idx} className="text-gray-700 text-sm flex items-center">
-                              <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    {/* Always visible content */}
+                    <div className="pb-4">
+                      <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                      
+                      <ul className="space-y-2 mb-6">
+                        {solution.features.map((feature, idx) => (
+                          <li key={idx} className="text-gray-700 text-sm flex items-center">
+                            <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#85abe4' }} />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                     
                     <Button 
