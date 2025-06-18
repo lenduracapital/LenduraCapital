@@ -43,10 +43,7 @@ export default function PremiumFinancingSection() {
                 <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">Credit Card Processing</span>
               </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
-                <span className="text-gray-700">HR and Payroll Services</span>
-              </div>
+
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
                 <span className="text-gray-700">Search Engine Optimization (SEO) and Web Development</span>
