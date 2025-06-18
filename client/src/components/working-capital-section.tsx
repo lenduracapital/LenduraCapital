@@ -89,7 +89,7 @@ export default function WorkingCapitalSection() {
               <CountUp end={24} />
             </p>
             <p className="text-[--primary] font-semibold text-sm md:text-lg">Hours</p>
-            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Typical turnaround</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">Get funding in 24 hours</p>
           </div>
         </div>
 
