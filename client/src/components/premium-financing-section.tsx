@@ -16,8 +16,11 @@ export default function PremiumFinancingSection() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Meet your Goals. Grow your Business.</h3>
+              <div className="absolute bottom-6 left-6 text-white max-w-md">
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">Meet your Goals. Grow your Business.</h3>
+                <p className="text-lg text-blue-100 leading-relaxed">
+                  Small businesses face big problems finding real solutions to streamline financial and marketing functions. A poor credit rating, expensive credit card processing, outdated payroll systems, or a nonexistent web presence can all negatively affect your growth.
+                </p>
               </div>
             </div>
           </div>

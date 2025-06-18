@@ -374,6 +374,8 @@ Changelog:
   * Added both new services to Solutions page with proper routing integration
   * Enhanced hero sections with large padding, no black overlay blockage, professional layout
   * Applied consistent FundTek branding and signature blue (#85abe4) throughout all new pages
+  * Removed "HR and Payroll Services" from Custom Small Business Solutions section per user request
+  * Added descriptive text under city image overlay explaining business challenges and growth obstacles
 ```
 
 ## User Preferences
