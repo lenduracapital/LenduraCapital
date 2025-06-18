@@ -129,14 +129,18 @@ export default function WhoWeFund() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleApplyNow}
-              className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
+              className="bg-white hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
+              style={{ color: '#85abe4' }}
             >
               Apply for Funding
             </Button>
             <Button 
               variant="outline"
               onClick={() => setLocation('/contact')}
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              className="border-2 border-white text-white hover:bg-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              style={{ '--hover-color': '#85abe4' } as React.CSSProperties}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#85abe4'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}
             >
               Speak with Specialist
             </Button>
