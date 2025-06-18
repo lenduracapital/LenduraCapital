@@ -39,8 +39,7 @@ export default function SEOWebDevelopment() {
             <div className="mb-6">
               <Button 
                 onClick={handleBackToSolutions}
-                variant="outline" 
-                className="text-black border-black bg-white hover:bg-gray-100 hover:text-black mb-4"
+                className="bg-white text-[#85abe4] hover:bg-blue-50 hover:text-[#85abe4] mb-4 border-0"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Solutions
@@ -57,15 +56,14 @@ export default function SEOWebDevelopment() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                className="bg-white text-black hover:bg-blue-50 hover:text-black font-bold px-8 py-4 text-lg"
+                className="bg-white text-[#85abe4] hover:bg-blue-50 hover:text-[#85abe4] font-bold px-8 py-4 text-lg border-0"
               >
                 Get Approved in 24 Hours
               </Button>
               <Button 
                 onClick={handleMoreTestimonials}
-                variant="outline"
                 size="lg" 
-                className="text-black border-black bg-white hover:bg-gray-100 hover:text-black px-8 py-4 text-lg"
+                className="bg-white text-[#85abe4] hover:bg-blue-50 hover:text-[#85abe4] px-8 py-4 text-lg border-0"
               >
                 Read Success Stories
               </Button>
