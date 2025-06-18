@@ -55,7 +55,7 @@ export default function SolutionDetailTemplate({
       <Header />
       
       {/* Hero Section with Image */}
-      <section className="relative pt-40 md:pt-48 pb-12 md:pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -76,28 +76,47 @@ export default function SolutionDetailTemplate({
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-12 md:py-20 bg-white">
+      {/* Introduction Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Everything You Need to Know About {title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              {description} Our comprehensive guide covers all aspects of this financing solution to help you make an informed decision for your business.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-start">
             <div className="relative order-2 lg:order-1">
               <img 
                 src={contentImage}
                 alt={`${title} financing solution`}
-                className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
+              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
+                <div className="text-sm font-medium">Fast Approval</div>
+                <div className="text-2xl font-bold">24-48hrs</div>
+              </div>
             </div>
             
             <div className="order-1 lg:order-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 md:mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8">
                 What are {title}?
               </h2>
-              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
-                {description}
-              </p>
+              <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
+                <p>{description}</p>
+                <p>This financing solution is designed for businesses that need flexible access to capital without the lengthy approval processes and strict requirements of traditional bank loans.</p>
+              </div>
               
-              <h3 className="text-xl md:text-2xl font-bold text-black mb-3 md:mb-4">Key Features</h3>
-              <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
+              <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Key Features & Benefits</h3>
+              <ul className="space-y-4 mb-8 md:mb-12">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-center">
                     <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 flex-shrink-0" style={{ color: '#85abe4' }} />
@@ -120,10 +139,112 @@ export default function SolutionDetailTemplate({
         </div>
       </section>
 
+      {/* Industry Focus Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Perfect For These Industries
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {title} work exceptionally well for businesses in these sectors due to their unique operational characteristics and cash flow patterns.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {perfectFor.map((industry, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
+                <div className="w-16 h-16 bg-[#85abe4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-2xl font-bold text-[#85abe4]">{index + 1}</div>
+                </div>
+                <h3 className="text-lg font-bold text-black mb-2">{industry}</h3>
+                <p className="text-gray-600 text-sm">Ideal financing solution for growth and operational needs</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Comparison */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              How We Compare to Traditional Banks
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See the clear advantages of choosing FundTek Capital Group over traditional banking institutions.
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
+              <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Banks</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1">✗</span>
+                  <span className="text-gray-700">30-90 day approval process</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1">✗</span>
+                  <span className="text-gray-700">Extensive documentation required</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1">✗</span>
+                  <span className="text-gray-700">High credit score requirements</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1">✗</span>
+                  <span className="text-gray-700">Rigid qualification criteria</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1">✗</span>
+                  <span className="text-gray-700">Limited product options</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
+              <h3 className="text-2xl font-bold text-green-800 mb-6">FundTek Capital Group</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <span className="text-gray-700">24-48 hour approval process</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <span className="text-gray-700">Minimal documentation needed</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <span className="text-gray-700">Flexible credit requirements</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <span className="text-gray-700">Revenue-based qualification</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <span className="text-gray-700">9 different financing solutions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Detailed Information Sections */}
       {(howItWorks || ratesBasedOn || requiredDocuments || askYourself || goodToKnow) && (
-        <section className="py-16 bg-white">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                Complete {title} Guide
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Everything you need to know about {title.toLowerCase()}, from how they work to what documents you'll need.
+              </p>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               
               {/* How It Works */}
