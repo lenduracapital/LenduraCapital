@@ -4,46 +4,46 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initial: "M",
-    name: "Miguel Santos",
-    business: "Santos Family Restaurant",
-    rating: 4.5,
-    text: "We needed working capital to get through a slow winter season. FundTek's team understood our cash flow challenges and structured payments that worked with our revenue cycles."
+    initial: "J",
+    name: "Jennifer Walsh",
+    business: "Walsh Landscaping",
+    rating: 5,
+    text: "Our truck broke down right before spring season. FundTek got us approved in 24 hours so we could buy a replacement and not lose our biggest contracts."
   },
   {
-    initial: "S",
-    name: "Sarah Johnson",
-    business: "Johnson Dental Practice",
+    initial: "M",
+    name: "Michael Park",
+    business: "Park's Electronics Repair",
     rating: 4,
-    text: "The equipment financing helped us upgrade our dental equipment. The application was straightforward and we got approval faster than expected."
+    text: "Needed inventory for the holiday rush but my bank said no. FundTek understood seasonal businesses and got me the working capital in 3 days."
+  },
+  {
+    initial: "C",
+    name: "Carlos Mendez",
+    business: "Mendez Roofing",
+    rating: 5,
+    text: "Insurance was taking forever to pay on a big job. The merchant cash advance kept my crew working while we waited for that check to come in."
+  },
+  {
+    initial: "T",
+    name: "Tracy Williams",
+    business: "Williams Bakery",
+    rating: 4,
+    text: "My oven died on a Tuesday. By Friday I had funding to replace it. Saved my weekend wedding orders and probably my business."
   },
   {
     initial: "R",
-    name: "Robert Chen",
-    business: "Chen Auto Repair",
+    name: "Robert Kim",
+    business: "Kim's Auto Body",
     rating: 5,
-    text: "When our diagnostic machine broke, we needed quick funding for a replacement. FundTek processed our application in two days and kept our shop running."
+    text: "Equipment financing let me buy the paint booth I needed to take insurance work. Now I'm booked solid and payments are manageable."
   },
   {
     initial: "L",
-    name: "Lisa Martinez",
-    business: "Martinez Construction",
-    rating: 5,
-    text: "The line of credit has been helpful for managing materials costs between project payments. We only pay interest on what we actually use."
-  },
-  {
-    initial: "D",
-    name: "David Thompson",
-    business: "Thompson Electric",
-    rating: 5,
-    text: "Purchase order financing allowed us to take on a larger commercial project. The process was more flexible than traditional bank lending."
-  },
-  {
-    initial: "A",
-    name: "Amanda Rodriguez",
-    business: "Rodriguez Physical Therapy",
-    rating: 5,
-    text: "We needed to expand our clinic space. FundTek's term loan had reasonable rates and the monthly payments fit our budget."
+    name: "Linda Torres",
+    business: "Torres Cleaning Services",
+    rating: 4,
+    text: "Got a big contract but needed to hire staff and buy supplies upfront. The line of credit gave me flexibility to grow without stress."
   }
 ];
 
