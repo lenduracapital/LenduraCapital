@@ -50,65 +50,7 @@ export default function MoveBusinessForwardSection() {
           </div>
         </div>
       </div>
-      
-      {/* Comparison Chart Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Traditional Banks */}
-          <div className="bg-red-50 p-8 rounded-lg border border-red-200">
-            <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Banks</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
-                <span className="text-gray-700">30-90 day approval process</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
-                <span className="text-gray-700">Extensive documentation required</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
-                <span className="text-gray-700">High credit score requirements</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
-                <span className="text-gray-700">Rigid qualification criteria</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
-                <span className="text-gray-700">Limited product options</span>
-              </li>
-            </ul>
-          </div>
-          
-          {/* FundTek Capital Group */}
-          <div className="bg-green-50 p-8 rounded-lg border border-green-200">
-            <h3 className="text-2xl font-bold text-green-800 mb-6">FundTek Capital Group</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                <span className="text-gray-700">24-48 hour approval process</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                <span className="text-gray-700">Minimal documentation needed</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                <span className="text-gray-700">Flexible credit requirements</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                <span className="text-gray-700">Revenue-based qualification</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                <span className="text-gray-700">9 different financing solutions</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
     </section>
   );
 }

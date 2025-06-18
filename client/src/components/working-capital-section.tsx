@@ -93,6 +93,65 @@ export default function WorkingCapitalSection() {
           </div>
         </div>
 
+        {/* Comparison Chart Section */}
+        <div className="max-w-6xl mx-auto mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+            {/* Traditional Banks */}
+            <div className="bg-red-50 p-6 md:p-8 rounded-lg border border-red-200">
+              <h3 className="text-xl md:text-2xl font-bold text-red-800 mb-4 md:mb-6">Traditional Banks</h3>
+              <ul className="space-y-3 md:space-y-4">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
+                  <span className="text-gray-700 text-sm md:text-base">30-90 day approval process</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
+                  <span className="text-gray-700 text-sm md:text-base">Extensive documentation required</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
+                  <span className="text-gray-700 text-sm md:text-base">High credit score requirements</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
+                  <span className="text-gray-700 text-sm md:text-base">Rigid qualification criteria</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-3 mt-1 text-lg">✗</span>
+                  <span className="text-gray-700 text-sm md:text-base">Limited product options</span>
+                </li>
+              </ul>
+            </div>
+            
+            {/* FundTek Capital Group */}
+            <div className="bg-green-50 p-6 md:p-8 rounded-lg border border-green-200">
+              <h3 className="text-xl md:text-2xl font-bold text-green-800 mb-4 md:mb-6">FundTek Capital Group</h3>
+              <ul className="space-y-3 md:space-y-4">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
+                  <span className="text-gray-700 text-sm md:text-base">24-48 hour approval process</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
+                  <span className="text-gray-700 text-sm md:text-base">Minimal documentation needed</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
+                  <span className="text-gray-700 text-sm md:text-base">Flexible credit requirements</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
+                  <span className="text-gray-700 text-sm md:text-base">Revenue-based qualification</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
+                  <span className="text-gray-700 text-sm md:text-base">9 different financing solutions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center">
           <Button 
             onClick={() => setLocation('/solutions')}

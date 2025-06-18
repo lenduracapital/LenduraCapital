@@ -273,6 +273,12 @@ Changelog:
   * Updated SBA Loans minimum funding from $50,000 to $5,000
   * Fixed title typography spacing with tracking-wider class and navigation positioning (pt-40 md:pt-48)
   * Applied consistent FundTek branding and professional layout throughout all enhanced pages
+- June 18, 2025. Homepage comparison chart addition:
+  * Added Traditional Banks vs FundTek Capital Group comparison chart under "Accelerate the growth of your business" section
+  * Positioned chart between rolling statistics and "See full list of services" button
+  * Used red styling with X marks for Traditional Banks disadvantages (slow approval, high requirements)
+  * Used green styling with checkmarks for FundTek advantages (fast approval, flexible requirements)
+  * Implemented mobile-responsive design with proper spacing and typography
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
   * Created floating chat widget appearing after 3-second delay in bottom-right corner
   * Designed with signature blue (#85abe4) throughout - header, messages, and floating button
