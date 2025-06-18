@@ -427,11 +427,11 @@ export default function SEOWebDevelopment() {
                 ))}
               </div>
               <blockquote className="text-lg md:text-xl text-gray-700 italic mb-6">
-                "FundTek completely transformed our online presence. Within 6 months, we achieved first-page Google rankings for all our target keywords, and our website traffic increased by 400%. The new website design converted 60% better than our old site."
+                "We needed a better website fast because our old one looked terrible on phones. FundTek rebuilt everything and now customers can actually find us online. The phone rings more and people say they found us on Google."
               </blockquote>
               <div className="text-center">
-                <div className="font-bold text-gray-800">Sarah Chen</div>
-                <div className="text-[#85abe4]">Chen Digital Marketing Agency</div>
+                <div className="font-bold text-gray-800">David Martinez</div>
+                <div className="text-[#85abe4]">Martinez Auto Repair</div>
               </div>
             </CardContent>
           </Card>
