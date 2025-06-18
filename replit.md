@@ -289,7 +289,7 @@ Changelog:
   * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)
   * Updated background to professional highrise/corporate building image for better business representation
   * Enhanced text visibility with white text and stronger black overlay (70% opacity) for optimal contrast
-  * Fixed button text visibility using signature blue (#85abe4) for white buttons and proper hover states
+  * Fixed both button text visibility issues - both white buttons now display signature blue (#85abe4) text clearly
   * Enhanced hero content with comprehensive industry expertise messaging and call-to-action buttons
   * Applied larger typography scaling (text-5xl to text-7xl) and improved content hierarchy
   * Reverted Solutions page to maintain original tap-to-expand accordion functionality per user request

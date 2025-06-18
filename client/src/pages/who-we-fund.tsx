@@ -137,10 +137,12 @@ export default function WhoWeFund() {
             <Button 
               variant="outline"
               onClick={() => setLocation('/contact')}
-              className="border-2 border-white text-white hover:bg-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
-              style={{ '--hover-color': '#85abe4' } as React.CSSProperties}
-              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#85abe4'}
-              onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'white'}
+              className="border-2 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              style={{ 
+                borderColor: '#85abe4', 
+                color: '#85abe4',
+                backgroundColor: 'white'
+              }}
             >
               Speak with Specialist
             </Button>
