@@ -108,21 +108,21 @@ export default function WhoWeFund() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop')"
           }}
         >
-          <div className="absolute inset-0 bg-blue-900 bg-opacity-60"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-70"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-wider">
             Qualified <span style={{ color: '#85abe4' }}>Industries</span>
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
             FundTek Capital Group specializes in providing tailored financing solutions across diverse industries. 
             Our expertise spans multiple sectors, ensuring we understand your unique business challenges.
           </p>
-          <p className="text-lg md:text-xl text-blue-200 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
             From healthcare and construction to technology and manufacturing, we have the industry knowledge 
             and funding solutions to accelerate your business growth.
           </p>

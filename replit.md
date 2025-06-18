@@ -287,7 +287,8 @@ Changelog:
 - June 18, 2025. Qualified Industries page transformation:
   * Changed navigation menu item from "Who We Fund" to "Qualified Industries" in desktop and mobile menus
   * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)
-  * Replaced background image with industry-focused city skyline for better visual representation
+  * Updated background to professional highrise/corporate building image for better business representation
+  * Enhanced text visibility with white text and stronger black overlay (70% opacity) for optimal contrast
   * Enhanced hero content with comprehensive industry expertise messaging and call-to-action buttons
   * Applied larger typography scaling (text-5xl to text-7xl) and improved content hierarchy
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
