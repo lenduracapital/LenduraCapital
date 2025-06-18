@@ -33,6 +33,10 @@ export default function SolutionDetailTemplate({
     setLocation("/solutions");
   };
 
+  const handleBackToHome = () => {
+    setLocation("/");
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -124,13 +128,22 @@ export default function SolutionDetailTemplate({
                 >
                   Apply Now
                 </Button>
-                <Button 
-                  onClick={handleBackToSolutions}
-                  variant="outline"
-                  className="w-full py-3 rounded font-semibold text-base md:text-lg border-black text-black hover:bg-black hover:text-white"
-                >
-                  Back to Solutions
-                </Button>
+                <div className="grid grid-cols-2 gap-3">
+                  <Button 
+                    onClick={handleBackToSolutions}
+                    variant="outline"
+                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white"
+                  >
+                    Back to Solutions
+                  </Button>
+                  <Button 
+                    onClick={handleBackToHome}
+                    variant="outline"
+                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white"
+                  >
+                    Back to Home
+                  </Button>
+                </div>
               </div>
             </div>
 
