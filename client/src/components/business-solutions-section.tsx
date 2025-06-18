@@ -43,7 +43,7 @@ export default function BusinessSolutionsSection() {
           {/* Right side - Content */}
           <div className="order-1 lg:order-2">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6">
-              Premium Business Financing Solutions
+              Custom Business Financing Solutions
             </h2>
             <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
               FundTek understands how a loan at the right time can make a huge difference in the success of your business. To that end, we've made it fast and easy to access financing solutions completely designed around your small business needs.

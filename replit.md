@@ -376,6 +376,8 @@ Changelog:
   * Applied consistent FundTek branding and signature blue (#85abe4) throughout all new pages
   * Removed "HR and Payroll Services" from Custom Small Business Solutions section per user request
   * Added descriptive text under city image overlay explaining business challenges and growth obstacles
+  * Updated all instances of "Premium Business Financing Solutions" to "Custom Business Financing Solutions"
+  * Refined overlay text size and removed "outdated payroll systems" reference for better alignment
 ```
 
 ## User Preferences
