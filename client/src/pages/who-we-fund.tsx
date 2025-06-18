@@ -135,16 +135,14 @@ export default function WhoWeFund() {
               Apply for Funding
             </Button>
             <Button 
-              variant="outline"
               onClick={() => setLocation('/contact')}
-              className="border-2 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
               style={{ 
-                borderColor: '#85abe4', 
                 color: '#85abe4',
                 backgroundColor: 'white'
               }}
             >
-              Speak with Specialist
+              Speak with a Specialist
             </Button>
           </div>
         </div>
