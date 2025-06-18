@@ -226,64 +226,39 @@ export default function WorkingCapitalSection() {
                     </p>
                     
                     {/* Information Needed */}
-                    <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl mb-8 shadow-lg border border-white/50">
-                      <h4 className="font-bold text-gray-800 mb-6 text-lg flex items-center">
-                        <svg className="w-5 h-5 text-[#85abe4] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                        Information Needed
-                      </h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                          </div>
-                          <div className="font-bold text-[#85abe4] text-lg">Personal Info</div>
-                          <div className="text-gray-600 text-sm mt-1">To Verify Identity</div>
+                    <div className="bg-white p-6 rounded-lg border border-gray-200 mb-8">
+                      <h4 className="font-bold text-gray-800 mb-6 text-xl">Information Needed</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-lg mb-1">Personal Info</div>
+                          <div className="text-gray-600 text-sm">To Verify Identity</div>
                         </div>
-                        <div className="text-center">
-                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                            </svg>
-                          </div>
-                          <div className="font-bold text-[#85abe4] text-lg">Business Info</div>
-                          <div className="text-gray-600 text-sm mt-1">For Verification</div>
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-lg mb-1">Business Info</div>
+                          <div className="text-gray-600 text-sm">For Verification</div>
                         </div>
-                        <div className="text-center">
-                          <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-3">
-                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                            </svg>
-                          </div>
-                          <div className="font-bold text-[#85abe4] text-lg">Bank Connection</div>
-                          <div className="text-gray-600 text-sm mt-1">To Evaluate Revenue</div>
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-lg mb-1">Bank Connection</div>
+                          <div className="text-gray-600 text-sm">To Evaluate Revenue</div>
                         </div>
                       </div>
                     </div>
 
                     {/* Minimum Qualifications */}
-                    <div className="bg-gradient-to-r from-[#85abe4] to-blue-600 p-6 rounded-xl shadow-lg text-white">
-                      <h4 className="font-bold text-white mb-6 text-lg flex items-center">
-                        <svg className="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Minimum Qualifications
-                      </h4>
-                      <div className="space-y-4 lg:grid lg:grid-cols-3 lg:gap-4 lg:space-y-0">
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl font-black mb-2 text-white">480+</div>
-                          <div className="text-blue-100 font-medium text-sm">Min. Credit Score</div>
+                    <div className="bg-white p-6 rounded-lg border border-gray-200">
+                      <h4 className="font-bold text-gray-800 mb-6 text-xl">Minimum Qualifications</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-2xl mb-1">480+</div>
+                          <div className="text-gray-600 text-sm">Min. Credit Score</div>
                         </div>
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl font-black mb-2 text-white">3+ Months</div>
-                          <div className="text-blue-100 font-medium text-sm">Time in Business</div>
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-2xl mb-1">3+ Months</div>
+                          <div className="text-gray-600 text-sm">Time In Business</div>
                         </div>
-                        <div className="text-center bg-white/20 backdrop-blur-sm rounded-lg p-4">
-                          <div className="text-3xl font-black mb-2 text-white">$5K+</div>
-                          <div className="text-blue-100 font-medium text-sm">Monthly Revenue</div>
+                        <div>
+                          <div className="font-bold text-[#85abe4] text-2xl mb-1">$5K +</div>
+                          <div className="text-gray-600 text-sm">Min. Monthly Revenue</div>
                         </div>
                       </div>
                     </div>
