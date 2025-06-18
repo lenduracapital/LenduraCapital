@@ -42,7 +42,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
       <nav className="w-full px-0">
-        <div className="flex items-center justify-between py-0.5 md:py-1 w-full">
+        <div className="flex items-center justify-between py-0 w-full">
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
             <img 
