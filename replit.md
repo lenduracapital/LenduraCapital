@@ -351,6 +351,12 @@ Changelog:
   * Added canonical URLs and keyword meta tags for better search engine indexing
   * Enhanced favicon references with multiple formats (ICO, SVG) for browser compatibility
   * Website now optimized for Google search results with logo, proper page links, and professional appearance
+- June 18, 2025. Navigation logo optimization and hero text positioning (COMPLETE):
+  * Fixed navigation logo display from clipped to full FundTek Capital Group branding
+  * Optimized logo sizing: h-28 to h-56 across device breakpoints for maximum visibility
+  * Implemented compact navigation bar (h-16) with absolute-positioned logo to prevent nav expansion
+  * Moved hero text up using items-start alignment and pt-32/pt-40 top padding
+  * Created professional balance between large prominent logo and minimal navigation footprint
 ```
 
 ## User Preferences
