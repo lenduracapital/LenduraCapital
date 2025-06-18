@@ -47,14 +47,17 @@ class PerformanceMonitor {
         break;
 
       case 'first-input':
-        this.metrics.fid = (entry as any).processingStart - entry.startTime;
-        this.checkThresholds('FID', this.metrics.fid, 100);
+        const fidValue = (entry as any).processingStart - entry.startTime;
+        this.metrics.fid = fidValue;
+        this.checkThresholds('FID', fidValue, 100);
         break;
 
       case 'layout-shift':
         if (!(entry as any).hadRecentInput) {
           this.metrics.cls = (this.metrics.cls || 0) + (entry as any).value;
-          this.checkThresholds('CLS', this.metrics.cls, 0.1);
+          if (this.metrics.cls !== undefined) {
+            this.checkThresholds('CLS', this.metrics.cls, 0.1);
+          }
         }
         break;
     }
@@ -93,8 +96,9 @@ class PerformanceMonitor {
     }
 
     if ('PerformanceNavigationTiming' in window) {
-      const navTiming = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-      if (navTiming) {
+      const navEntries = performance.getEntriesByType('navigation');
+      if (navEntries.length > 0) {
+        const navTiming = navEntries[0] as PerformanceNavigationTiming;
         this.metrics.ttfb = navTiming.responseStart - navTiming.fetchStart;
       }
     }
