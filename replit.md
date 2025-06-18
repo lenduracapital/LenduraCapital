@@ -289,6 +289,7 @@ Changelog:
   * Completely redesigned hero section with significantly enlarged height (pt-40 md:pt-48 pb-32 md:pb-40)
   * Updated background to professional highrise/corporate building image for better business representation
   * Enhanced text visibility with white text and stronger black overlay (70% opacity) for optimal contrast
+  * Fixed button text visibility using text-blue-900 for white buttons and proper hover states
   * Enhanced hero content with comprehensive industry expertise messaging and call-to-action buttons
   * Applied larger typography scaling (text-5xl to text-7xl) and improved content hierarchy
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):

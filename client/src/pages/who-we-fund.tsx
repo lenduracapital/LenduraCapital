@@ -129,14 +129,14 @@ export default function WhoWeFund() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleApplyNow}
-              className="bg-white text-[--primary] hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
+              className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
             >
               Apply for Funding
             </Button>
             <Button 
               variant="outline"
               onClick={() => setLocation('/contact')}
-              className="border-2 border-white text-white hover:bg-white hover:text-[--primary] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
             >
               Speak with Specialist
             </Button>
