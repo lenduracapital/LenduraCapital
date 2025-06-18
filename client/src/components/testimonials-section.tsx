@@ -12,13 +12,6 @@ const testimonials = [
     text: "Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. FundTek came through when my bank couldn't even see me until next month."
   },
   {
-    initial: "K",
-    name: "Keisha Washington",
-    business: "Sunshine Daycare Center",
-    rating: 4,
-    text: "State inspector said we needed new playground equipment by December or we'd lose our license. Got approved in 3 days, kids love the new swings."
-  },
-  {
     initial: "D",
     name: "Danny O'Brien",
     business: "Dublin's Irish Pub",
@@ -31,13 +24,6 @@ const testimonials = [
     business: "Bella Vista Hair Studio",
     rating: 5,
     text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash to cover the deposit. Now I own the building next door too."
-  },
-  {
-    initial: "J",
-    name: "Jake Kowalski",
-    business: "Precision Auto Glass",
-    rating: 4,
-    text: "Insurance companies take forever to pay. Had 40 windshields to install but couldn't buy inventory. The line of credit keeps me stocked while I wait for payments."
   }
 ];
 
