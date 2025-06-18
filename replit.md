@@ -365,6 +365,15 @@ Changelog:
   * Added "Information Needed" grid: Personal Info, Business Info, Bank Connection
   * Created "Minimum Qualifications" section: 480+ credit score, 3+ months business, $5K+ revenue
   * Applied FundTek signature blue (#85abe4) throughout for brand consistency
+- June 18, 2025. Custom Small Business Solutions section and new service pages (COMPLETE):
+  * Added Custom Small Business Solutions section above footer with city image overlay
+  * Updated section content: "Meet your Goals. Grow your Business." and streamlined financial systems messaging
+  * Added "Find out more" button (blue, no arrow) linking to solutions page
+  * Created comprehensive Credit Servicing (Personal & Business) detail page with PMF-style layout
+  * Built complete SEO and Web Development detail page with technology expertise sections
+  * Added both new services to Solutions page with proper routing integration
+  * Enhanced hero sections with large padding, no black overlay blockage, professional layout
+  * Applied consistent FundTek branding and signature blue (#85abe4) throughout all new pages
 ```
 
 ## User Preferences

@@ -21,6 +21,8 @@ const InvoiceFactoringDetail = lazy(() => import("@/pages/solutions/invoice-fact
 const POFinancingDetail = lazy(() => import("@/pages/solutions/po-financing"));
 const DebtConsolidationDetail = lazy(() => import("@/pages/solutions/debt-consolidation"));
 const CreditServicesDetail = lazy(() => import("@/pages/solutions/credit-services"));
+const CreditServicing = lazy(() => import("@/pages/credit-servicing"));
+const SEOWebDevelopment = lazy(() => import("@/pages/seo-web-development"));
 const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
 const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
@@ -54,6 +56,8 @@ function Router() {
         <Route path="/solutions/po-financing" component={POFinancingDetail} />
         <Route path="/solutions/debt-consolidation" component={DebtConsolidationDetail} />
         <Route path="/solutions/credit-services" component={CreditServicesDetail} />
+        <Route path="/solutions/credit-servicing" component={CreditServicing} />
+        <Route path="/solutions/seo-web-development" component={SEOWebDevelopment} />
         <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
         <Route path="/who-we-fund" component={WhoWeFund} />
         <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
