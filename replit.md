@@ -267,8 +267,9 @@ Changelog:
 - June 18, 2025. Comprehensive solution pages enhancement and typography fixes:
   * Enhanced all 9 solution detail pages with comprehensive PMF-style information structure
   * Added 5 detailed sections per page: How It Works, Rates Based On, Required Documents, Ask Yourself, Good to Know
-  * Updated SBA Loans page with professional team member photo
-  * Fixed title typography spacing with tracking-wide class for better readability across all solution pages
+  * Updated SBA Loans page with professional business imagery
+  * Fixed title typography spacing with tracking-wider class and increased hero section padding (pt-40 md:pt-48)
+  * Resolved navigation overlap issues by lowering hero text positioning across all solution pages
   * Applied consistent FundTek branding and professional layout throughout solution detail pages
 - June 17, 2025. Interactive chat widget implementation (COMPLETE):
   * Created floating chat widget appearing after 3-second delay in bottom-right corner

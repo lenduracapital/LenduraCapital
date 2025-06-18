@@ -55,7 +55,7 @@ export default function SolutionDetailTemplate({
       <Header />
       
       {/* Hero Section with Image */}
-      <section className="relative pt-32 md:pt-40 pb-12 md:pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
+      <section className="relative pt-40 md:pt-48 pb-12 md:pb-20 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
