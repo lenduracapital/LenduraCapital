@@ -12,6 +12,10 @@ interface SolutionDetailProps {
   features: string[];
   perfectFor: string[];
   qualificationRequirements: string[];
+  approvalTime?: {
+    label: string;
+    duration: string;
+  };
   howItWorks?: {
     title: string;
     items: string[];
@@ -30,6 +34,7 @@ export default function SolutionDetailTemplate({
   features,
   perfectFor,
   qualificationRequirements,
+  approvalTime,
   howItWorks,
   ratesBasedOn,
   requiredDocuments,
@@ -103,8 +108,8 @@ export default function SolutionDetailTemplate({
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
-                <div className="text-sm font-medium">Fast Approval</div>
-                <div className="text-2xl font-bold">24-48hrs</div>
+                <div className="text-sm font-medium">{approvalTime?.label || "Fast Approval"}</div>
+                <div className="text-2xl font-bold">{approvalTime?.duration || "24-48hrs"}</div>
               </div>
             </div>
             

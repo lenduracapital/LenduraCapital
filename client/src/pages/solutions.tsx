@@ -70,7 +70,7 @@ const solutions = [
       "Government backed"
     ],
     route: "/solutions/sba-loans",
-    image: "/attached_assets/image_1750273835191.png"
+    image: "/image_1750273835191.png"
   },
   {
     title: "Invoice Factoring",

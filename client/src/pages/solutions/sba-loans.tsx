@@ -8,6 +8,10 @@ export default function SBALoansDetail() {
       description="Government-backed loans offering favorable terms and lower down payments for qualified businesses."
       heroImage={truckImage}
       contentImage={truckImage}
+      approvalTime={{
+        label: "SBA Process",
+        duration: "30-90 days"
+      }}
       features={[
         "Lower down payments",
         "Competitive rates",
