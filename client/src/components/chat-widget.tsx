@@ -307,7 +307,7 @@ export default function ChatWidget() {
       case 'revenue':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {['<$50K', '$50K - $200K', '>$200K'].map((option) => (
+            {['<$100K', '$100K - $250K', '$250K - $500K', '$500K - $1M', '$1M+'].map((option) => (
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'revenue')}
