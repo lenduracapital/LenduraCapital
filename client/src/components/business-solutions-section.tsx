@@ -32,7 +32,7 @@ export default function BusinessSolutionsSection() {
             {/* Bottom overlay text spanning full width */}
             <div className="absolute bottom-0 left-0 right-0 bg-slate-800 p-4 md:p-6 m-2 md:m-4 rounded-lg">
               <h3 className="text-lg md:text-xl font-bold text-white mb-2">
-                Completely customized financial solution to meet your business needs
+                Fully Customized Business Financing Designed for Your Success
               </h3>
               <p className="text-gray-300 text-xs md:text-sm">
                 Fast and flexible custom financing solutions help you overcome your business challenges.
