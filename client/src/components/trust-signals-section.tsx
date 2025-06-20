@@ -1,4 +1,4 @@
-import { Shield, Award, Users, TrendingUp, Clock, CheckCircle } from "lucide-react";
+import { Shield, Award, Users, TrendingUp, Clock } from "lucide-react";
 
 const certifications = [
   {
@@ -22,7 +22,14 @@ const certifications = [
     description: "Rapid approval process with funding decisions within one business day"
   },
   {
-    icon: CheckCircle,
+    icon: () => (
+      <div className="w-6 h-6 relative">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    ),
     title: "No Prepayment Penalties",
     description: "Flexible terms with no hidden fees or early payment penalties"
   }
@@ -73,7 +80,9 @@ export default function TrustSignalsSection() {
                     className="p-3 rounded-lg mr-4"
                     style={{ backgroundColor: '#85abe4' }}
                   >
-                    <IconComponent className="w-6 h-6 text-white" />
+                    <div className="w-6 h-6 text-white">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900">
                     {cert.title}
