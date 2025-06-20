@@ -435,6 +435,11 @@ Changelog:
   * Updated rolling statistics from "50+ specialists" to "100+ specialists" for stronger positioning
   * Replaced team member photos with professional initials in signature blue circles (MK, GG)
   * Changed checkmark icon to team/people icon in "Move your Business Forward" section for "Dedicated specialists"
+- June 20, 2025. Solutions page text overflow fixes (COMPLETE):
+  * Fixed card title text overflow by shortening long service names
+  * "Merchant Cash Advance" → "Cash Advance", "Invoice Factoring" → "Factoring"
+  * "Digital Marketing" → "Marketing", "Credit Card Processing" → "Card Processing"
+  * Reduced title font size and added line-clamp for better text fitting
 ```
 
 ## User Preferences

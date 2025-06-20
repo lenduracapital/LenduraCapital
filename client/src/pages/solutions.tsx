@@ -35,7 +35,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop"
   },
   {
-    title: "Merchant Cash Advance",
+    title: "Cash Advance",
     icon: <Clock className="w-8 h-8" />,
     description: "Quick access to working capital based on your future credit card sales with flexible repayment structure.",
     features: [
@@ -74,7 +74,7 @@ const solutions = [
     image: truckImage
   },
   {
-    title: "Invoice Factoring",
+    title: "Factoring",
     icon: <FileText className="w-8 h-8" />,
     description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
     features: [
@@ -114,7 +114,7 @@ const solutions = [
   },
 
   {
-    title: "Digital Marketing",
+    title: "Marketing",
     icon: <Building className="w-8 h-8" />,
     description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
     features: [
@@ -127,7 +127,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   },
   {
-    title: "Credit Card Processing",
+    title: "Card Processing",
     icon: <CreditCard className="w-8 h-8" />,
     description: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing for all business types.",
     features: [
@@ -212,7 +212,7 @@ export default function Solutions() {
                       </div>
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight break-words">{solution.title}</h3>
+                      <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight break-words line-clamp-2">{solution.title}</h3>
                     </div>
                   </div>
                   
