@@ -138,6 +138,32 @@ const solutions = [
     ],
     route: "/solutions/credit-card-processing",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+  },
+  {
+    title: "CRE Lending",
+    icon: <Building className="w-8 h-8" />,
+    description: "Commercial real estate financing for property acquisition, refinancing, and development projects nationwide.",
+    features: [
+      "Property acquisition",
+      "Refinancing options",
+      "Development loans",
+      "Competitive rates"
+    ],
+    route: "/solutions/commercial-real-estate-lending",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Home Loans",
+    icon: <Building className="w-8 h-8" />,
+    description: "Residential and commercial mortgage solutions with competitive rates and flexible terms for property purchases and refinancing.",
+    features: [
+      "Residential mortgages",
+      "Commercial mortgages",
+      "Refinancing options",
+      "Fast approvals"
+    ],
+    route: "/solutions/mortgage-financing",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
   }
 ];
 

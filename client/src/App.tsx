@@ -24,6 +24,8 @@ const CreditServicesDetail = lazy(() => import("@/pages/solutions/credit-service
 const CreditServicing = lazy(() => import("@/pages/credit-servicing"));
 const SEOWebDevelopment = lazy(() => import("@/pages/seo-web-development"));
 const CreditCardProcessing = lazy(() => import("@/pages/credit-card-processing"));
+const CommercialRealEstateLending = lazy(() => import("@/pages/commercial-real-estate-lending"));
+const MortgageFinancing = lazy(() => import("@/pages/mortgage-financing"));
 const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
 const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
