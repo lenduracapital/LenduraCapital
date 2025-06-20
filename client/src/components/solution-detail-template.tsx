@@ -216,27 +216,27 @@ export default function SolutionDetailTemplate({
               </ul>
             </div>
             
-            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
-              <h3 className="text-2xl font-bold text-green-800 mb-6">FundTek Capital Group</h3>
+            <div className="p-8 rounded-lg border" style={{ backgroundColor: '#f0f4ff', borderColor: '#85abe4' }}>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: '#85abe4' }}>FundTek Capital Group</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
                   <span className="text-gray-700">24-48 hour approval process</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
                   <span className="text-gray-700">Minimal documentation needed</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
                   <span className="text-gray-700">Flexible credit requirements</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
                   <span className="text-gray-700">Revenue-based qualification</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
                   <span className="text-gray-700">10 different financing solutions</span>
                 </li>
               </ul>
@@ -271,7 +271,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {howItWorks.items.map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2 mt-1">■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#85abe4' }}>■</span>
                         <span className="text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -291,7 +291,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {ratesBasedOn.map((factor, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2 mt-1">■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#85abe4' }}>■</span>
                         <span className="text-gray-700">{factor}</span>
                       </li>
                     ))}
@@ -311,7 +311,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {requiredDocuments.map((doc, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2 mt-1">■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#85abe4' }}>■</span>
                         <span className="text-gray-700">{doc}</span>
                       </li>
                     ))}
@@ -331,7 +331,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {askYourself.map((question, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2 mt-1">■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#85abe4' }}>■</span>
                         <span className="text-gray-700">{question}</span>
                       </li>
                     ))}
@@ -351,7 +351,7 @@ export default function SolutionDetailTemplate({
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {goodToKnow.map((tip, index) => (
                       <div key={index} className="flex items-start">
-                        <span className="text-green-600 mr-2 mt-1">■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#85abe4' }}>■</span>
                         <span className="text-gray-700">{tip}</span>
                       </div>
                     ))}
