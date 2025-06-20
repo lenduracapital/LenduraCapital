@@ -9,7 +9,7 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'timeline' | 'product' | 'consolidation' | 'revenue' | 'complete';
+  step: 'initial' | 'timeline' | 'product' | 'consolidation' | 'revenue' | 'connecting' | 'live' | 'complete';
   responses: {
     userType?: string;
     timeline?: string;
@@ -18,6 +18,7 @@ interface ChatState {
     currentBalance?: string;
     revenue?: string;
   };
+  isLiveChat?: boolean;
 }
 
 export default function ChatWidget() {
@@ -25,9 +26,11 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [inputMessage, setInputMessage] = useState('');
   const [chatState, setChatState] = useState<ChatState>({
     step: 'initial',
-    responses: {}
+    responses: {},
+    isLiveChat: false
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -127,12 +130,18 @@ export default function ChatWidget() {
       addMessage("What's your business's annual revenue range?", 'bot', 2500);
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue' || chatState.step === 'consolidation') {
-      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1000);
-      addMessage("A FundTek expert will call you within 24 hours. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 3000);
-      setChatState({ step: 'complete', responses: newResponses });
+      addMessage("Perfect! Let me connect you with one of our specialists right now...", 'bot', 1000);
+      addMessage("🔄 Connecting you with a FundTek specialist...", 'bot', 2500);
+      setChatState({ step: 'connecting', responses: newResponses, isLiveChat: false });
       
-      // Send data to backend
+      // Send data to backend and wait for specialist
       sendChatData({ ...newResponses, [responseKey]: selection });
+      
+      // Simulate specialist connection after 5 seconds
+      setTimeout(() => {
+        addMessage("👋 Hi! This is a FundTek specialist. I've reviewed your information and I'm here to help you get the funding you need. What questions can I answer for you?", 'bot', 1000);
+        setChatState(prev => ({ ...prev, step: 'live', isLiveChat: true }));
+      }, 5000);
     }
   };
 
@@ -154,6 +163,21 @@ export default function ChatWidget() {
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleSendMessage = () => {
+    if (inputMessage.trim() && chatState.isLiveChat) {
+      addMessage(inputMessage, 'user');
+      setInputMessage('');
+      // In live chat mode, messages are handled by the specialist
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
   };
 
   const renderButtons = () => {
@@ -199,9 +223,9 @@ export default function ChatWidget() {
         
       case 'product':
         const products = [
-          'Term Loans', 'Lines of Credit', 'SBA Loans', 'Equipment Financing',
-          'Invoice Factoring', 'P.O. Financing', 'Debt Consolidation',
-          'Credit Services', 'Merchant Cash Advance'
+          'Merchant Cash Advance', 'Term Loans', 'Lines of Credit', 'Equipment Financing',
+          'Invoice Factoring', 'SBA Loans', 'P.O. Financing', 'Debt Consolidation',
+          'Credit Services'
         ];
         
         return (
