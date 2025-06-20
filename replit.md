@@ -446,6 +446,7 @@ Changelog:
   * Added "Mortgage Loans" (Mortgage Financing) with complete PMF-style layout
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
+  * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
 ```
 
 ## User Preferences

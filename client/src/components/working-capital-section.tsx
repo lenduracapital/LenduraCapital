@@ -72,10 +72,10 @@ export default function WorkingCapitalSection() {
           </div>
           <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
             <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
-              <CountUp end={10} duration={2000} />
+              <CountUp end={12} duration={2000} />
             </p>
             <p className="text-[--primary] font-semibold text-sm md:text-lg">Financing options</p>
-            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">10 financing solutions and small business products</p>
+            <p className="text-gray-500 mt-1 md:mt-2 text-xs md:text-sm">12 financing solutions and small business products</p>
           </div>
           <div className="text-center bg-white p-4 md:p-6 rounded-lg shadow-md">
             <p className="text-3xl md:text-5xl font-black text-[--primary] mb-1 md:mb-2">
@@ -145,7 +145,7 @@ export default function WorkingCapitalSection() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
-                  <span className="text-gray-700 text-sm md:text-base">10 different financing solutions</span>
+                  <span className="text-gray-700 text-sm md:text-base">12 different financing solutions</span>
                 </li>
               </ul>
             </div>
@@ -278,7 +278,7 @@ export default function WorkingCapitalSection() {
             style={{ backgroundColor: '#85abe4' }}
             className="hover:opacity-90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg w-full sm:w-auto min-h-[44px]"
           >
-            Browse 10 Funding Solutions
+            Browse 12 Funding Solutions
           </Button>
         </div>
       </div>
