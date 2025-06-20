@@ -475,6 +475,12 @@ Changelog:
   * Updated Expert Team section visual indicator and description from "50+" to "100+" specialists
   * Maintained "24 hrs" average approval time for consistent messaging across website
   * All About page statistics now align with homepage and other site statistics
+- June 20, 2025. Client-side routing scroll-to-top fix (COMPLETE):
+  * Fixed navigation issue where clicking page links was taking users to bottom of pages
+  * Implemented ScrollToTop component that monitors route changes with useLocation hook
+  * Added automatic window.scrollTo(0, 0) effect whenever location changes
+  * Now all page navigation properly positions users at the top of new pages
+  * Enhanced user experience across entire website navigation system
 ```
 
 ## User Preferences
