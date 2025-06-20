@@ -383,35 +383,24 @@ export default function ChatWidget() {
           </div>
         );
         
-      case 'consolidation':
+      case 'solution_q1':
+      case 'solution_q2':
+      case 'solution_q3':
+        const questionNumber = chatState.step === 'solution_q1' ? 1 : chatState.step === 'solution_q2' ? 2 : 3;
+        const responseKey = chatState.step === 'solution_q1' ? 'solutionQ1' : chatState.step === 'solution_q2' ? 'solutionQ2' : 'solutionQ3';
+        const options = getSolutionOptions(chatState.responses.product || '', questionNumber);
+        
         return (
-          <div className="flex flex-col gap-3 mt-3">
-            <input
-              type="text"
-              placeholder="Current lender/funder name"
-              className="border border-gray-300 px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#85abe4]"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  const target = e.target as HTMLInputElement;
-                  if (target.value.trim()) {
-                    handleUserSelection(`Lender: ${target.value}`, 'lenderName');
-                  }
-                }
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Current balance(s)"
-              className="border border-gray-300 px-4 py-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#85abe4]"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  const target = e.target as HTMLInputElement;
-                  if (target.value.trim()) {
-                    handleUserSelection(`Balance: ${target.value}`, 'currentBalance');
-                  }
-                }
-              }}
-            />
+          <div className="flex flex-col gap-2 mt-3">
+            {options.map((option) => (
+              <button
+                key={option}
+                onClick={() => handleUserSelection(option, responseKey)}
+                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              >
+                {option}
+              </button>
+            ))}
           </div>
         );
       
