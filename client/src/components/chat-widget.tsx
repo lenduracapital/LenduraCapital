@@ -130,11 +130,7 @@ export default function ChatWidget() {
           'Equipment Financing': "Perfect! Equipment financing often provides 100% financing with great rates.",
           'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital.",
           'P.O. Financing': "Great for growth! This helps you fulfill large orders you couldn't otherwise handle.",
-          'Credit Services': "Wise choice! Improving your credit opens doors to better financing options.",
-          'Marketing': "Smart investment! Digital marketing drives business growth and customer acquisition.",
-          'Card Processing': "Essential service! Efficient payment processing improves cash flow and customer experience.",
-          'CRE Lending': "Excellent for real estate! Commercial properties can be great investments and business assets.",
-          'Mortgage Loans': "Great choice! Property financing can provide stability and equity building opportunities."
+          'Credit Services': "Wise choice! Improving your credit opens doors to better financing options."
         };
         
         const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
@@ -227,7 +223,7 @@ export default function ChatWidget() {
         const products = [
           'Term Loans', 'Merchant Cash Advance', 'Lines of Credit', 'Debt Consolidation',
           'SBA Loans', 'Equipment Financing', 'Invoice Factoring', 'P.O. Financing',
-          'Credit Services', 'Marketing', 'Card Processing', 'CRE Lending', 'Mortgage Loans'
+          'Credit Services'
         ];
         
         return (
