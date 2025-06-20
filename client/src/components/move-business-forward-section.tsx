@@ -42,7 +42,7 @@ export default function MoveBusinessForwardSection() {
               <div className="mb-6">
                 <DollarSign className="w-16 h-16 mx-auto" style={{ color: '#85abe4' }} />
               </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Industry leading rates</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Competitive financing solutions</h3>
               <p className="text-gray-600">
                 Access the best rates on a wide variety of financing options and premier business 
                 services to innovate, grow, and compete.
