@@ -28,18 +28,50 @@ export default function ChatAdmin() {
   const [selectedChat, setSelectedChat] = useState<string | null>(null);
   const [adminMessage, setAdminMessage] = useState('');
   const [messages, setMessages] = useState<AdminMessage[]>([]);
+  const [hasNewChats, setHasNewChats] = useState(false);
+  const [lastChatCount, setLastChatCount] = useState(0);
 
-  // Check for active chats
+  // Check for active chats and detect new ones
   useEffect(() => {
     const interval = setInterval(() => {
-      // In a real implementation, this would fetch from your backend
-      // For now, we'll simulate checking for chats waiting for specialist
       const waitingChats = JSON.parse(localStorage.getItem('waitingChats') || '[]');
+      
+      // Check if there are new chats
+      if (waitingChats.length > lastChatCount) {
+        setHasNewChats(true);
+        // Play notification sound
+        try {
+          const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmIZBzqIzfTWfy0EKXzK7+ONOSH0j5Qp');
+          audio.volume = 0.3;
+          audio.play().catch(() => {}); // Ignore errors if audio fails
+        } catch (e) {
+          // Fallback: use visual notification only
+        }
+        
+        // Show desktop notification if permission granted
+        if (Notification.permission === 'granted') {
+          new Notification('New Chat Request', {
+            body: 'A customer is waiting to speak with a specialist',
+            icon: '/favicon.svg'
+          });
+        } else if (Notification.permission !== 'denied') {
+          Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+              new Notification('New Chat Request', {
+                body: 'A customer is waiting to speak with a specialist',
+                icon: '/favicon.svg'
+              });
+            }
+          });
+        }
+      }
+      
       setActiveChats(waitingChats);
+      setLastChatCount(waitingChats.length);
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [lastChatCount]);
 
   const handleSendMessage = () => {
     if (adminMessage.trim() && selectedChat) {
