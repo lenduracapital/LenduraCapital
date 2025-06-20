@@ -249,7 +249,7 @@ export default function ChatWidget() {
           <div className="flex flex-col gap-2 mt-3">
             <input
               type="text"
-              placeholder="Enter lender name (e.g., Chase, Capital One)"
+              placeholder="Enter lender name (e.g., OnDeck)"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               onKeyPress={(e) => {
                 if (e.key === 'Enter' && e.currentTarget.value.trim()) {
