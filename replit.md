@@ -344,6 +344,7 @@ Changelog:
   * Fixed text alignment issues in Move Business Forward section with flexbox equal-height containers and increased title minimum height to 5rem
   * Updated Custom Business Financing Solutions text to emphasize timely financing and revenue-based loans
   * Changed overlay text to "Fully Customized Business Financing Designed for Your Success"
+  * Updated overlay description to "Fast, Flexible Business Funding Solutions to Overcome Your Cash-Flow Challenges"
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
   * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
   * Replaced all window.location.href calls with proper wouter useLocation hook navigation

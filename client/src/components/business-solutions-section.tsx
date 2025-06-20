@@ -35,7 +35,7 @@ export default function BusinessSolutionsSection() {
                 Fully Customized Business Financing Designed for Your Success
               </h3>
               <p className="text-gray-300 text-xs md:text-sm">
-                Fast and flexible custom financing solutions help you overcome your business challenges.
+                Fast, Flexible Business Funding Solutions to Overcome Your Cash-Flow Challenges
               </p>
             </div>
           </div>
