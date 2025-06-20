@@ -470,9 +470,11 @@ Changelog:
   * Implemented consistent FAQ formatting with white cards, signature blue headings, professional spacing throughout all pages
   * Enhanced SEO value with structured question-answer content for improved search engine visibility and user experience
 - June 20, 2025. About page statistics update (COMPLETE):
-  * Updated "Expert Specialists" from "50+" to "100+" for accurate team representation
+  * Updated "Expert Specialists" from "50+" to "100+" for accurate team representation in statistics grid
   * Updated "Financing Options" from "5+" to "12" to reflect complete solution portfolio
+  * Updated Expert Team section visual indicator and description from "50+" to "100+" specialists
   * Maintained "24 hrs" average approval time for consistent messaging across website
+  * All About page statistics now align with homepage and other site statistics
 ```
 
 ## User Preferences
