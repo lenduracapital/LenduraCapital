@@ -317,6 +317,12 @@ Changelog:
   * Integrated backend API endpoint routing submissions to Brian@fundtekcapitalgroup.com
   * Applied accessibility features including keyboard navigation, focus states, and ARIA labels
   * Widget starts fully expanded by default with close button for better user visibility
+- June 20, 2025. Chat widget enhancement and live handoff removal (COMPLETE):
+  * Reordered financing options with Merchant Cash Advance positioned at top of choices
+  * Added typing indicator and improved message styling with shadow effects and rounded corners
+  * Enhanced completion flow with direct phone number (305) 307-4658 and apply online options
+  * Removed live specialist handoff functionality per user request for simplified experience
+  * Streamlined bot-only conversation flow ending with clear next steps for customers
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
   * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
   * Replaced all window.location.href calls with proper wouter useLocation hook navigation

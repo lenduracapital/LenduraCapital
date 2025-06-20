@@ -91,22 +91,22 @@ export default function ChatWidget() {
     // Progress through conversation flow with personalized responses
     if (chatState.step === 'initial') {
       if (selection.includes('financing')) {
-        addMessage("Great! Let me ask a few quick questions to match you with the right specialist.", 'bot', 1000);
-        addMessage("How soon do you need the funding?", 'bot', 2500);
+        addMessage("Great! Let me ask a few quick questions to match you with the right specialist.", 'bot', 1500);
+        addMessage("How soon do you need the funding?", 'bot', 4000);
       } else if (selection.includes('information')) {
-        addMessage("Perfect! I'd be happy to help you learn about our financing options.", 'bot', 1000);
-        addMessage("What's your timeline for exploring funding?", 'bot', 2500);
+        addMessage("Perfect! I'd be happy to help you learn about our financing options.", 'bot', 1500);
+        addMessage("What's your timeline for exploring funding?", 'bot', 4000);
       }
       setChatState({ step: 'timeline', responses: newResponses });
     } else if (chatState.step === 'timeline') {
       if (selection === 'ASAP') {
-        addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1000);
+        addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1500);
       } else if (selection === 'Within 30 days') {
-        addMessage("Perfect timing! That gives us room to find the best solution for you.", 'bot', 1000);
+        addMessage("Perfect timing! That gives us room to find the best solution for you.", 'bot', 1500);
       } else {
-        addMessage("Smart to research early! Knowledge is power when it comes to financing.", 'bot', 1000);
+        addMessage("Smart to research early! Knowledge is power when it comes to financing.", 'bot', 1500);
       }
-      addMessage("Which type of funding best describes what you're looking for?", 'bot', 2500);
+      addMessage("Which type of funding best describes what you're looking for?", 'bot', 4000);
       setChatState({ step: 'product', responses: newResponses });
     } else if (chatState.step === 'product' && selection === 'Debt Consolidation') {
       addMessage("Debt consolidation can really improve cash flow! Let me gather some details.", 'bot', 1000);
@@ -123,12 +123,12 @@ export default function ChatWidget() {
       };
       
       const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
-      addMessage(response, 'bot', 1000);
-      addMessage("What's your business's annual revenue range?", 'bot', 2500);
+      addMessage(response, 'bot', 1500);
+      addMessage("What's your business's annual revenue range?", 'bot', 4000);
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue' || chatState.step === 'consolidation') {
-      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1000);
-      addMessage("A FundTek expert will call you within 24 hours. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 3000);
+      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
+      addMessage("A FundTek expert will call you within 24 hours. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 4500);
       setChatState({ step: 'complete', responses: newResponses });
       
       // Send data to backend
