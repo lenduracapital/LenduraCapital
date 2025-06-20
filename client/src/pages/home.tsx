@@ -16,6 +16,7 @@ import EnhancedSchema from "@/components/enhanced-schema";
 import ConversionTracking from "@/components/conversion-tracking";
 import PerformanceMonitor from "@/components/performance-monitor";
 import ChatWidget from "@/components/chat-widget";
+import ChatAdmin from "@/components/chat-admin";
 import { AdvancedSchemaMarkup } from "@/components/advanced-schema";
 
 export default function Home() {
@@ -69,6 +70,7 @@ export default function Home() {
       </main>
       <Footer />
       <ChatWidget />
+      <ChatAdmin />
     </div>
   );
 }

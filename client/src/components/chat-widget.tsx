@@ -33,6 +33,7 @@ export default function ChatWidget() {
     isLiveChat: false
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatId = useRef(Date.now().toString());
 
   // Show widget after 3 seconds
   useEffect(() => {
@@ -41,6 +42,35 @@ export default function ChatWidget() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Listen for admin messages
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data.type === 'ADMIN_MESSAGE' && event.data.chatId === chatId.current) {
+        addMessage(event.data.message, 'bot');
+      } else if (event.data.type === 'ADMIN_TAKEOVER' && event.data.chatId === chatId.current) {
+        setChatState(prev => ({ ...prev, step: 'live', isLiveChat: true }));
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
+  // Store chat in localStorage for admin access
+  useEffect(() => {
+    if (chatState.step === 'connecting') {
+      const waitingChats = JSON.parse(localStorage.getItem('waitingChats') || '[]');
+      const newChat = {
+        id: chatId.current,
+        status: 'connecting',
+        lastMessage: 'Waiting for specialist...',
+        timestamp: new Date(),
+        responses: chatState.responses
+      };
+      localStorage.setItem('waitingChats', JSON.stringify([...waitingChats, newChat]));
+    }
+  }, [chatState.step]);
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -399,6 +429,31 @@ export default function ChatWidget() {
               {renderButtons()}
               <div ref={messagesEndRef} />
             </div>
+            
+            {/* Input Area - only show in live chat */}
+            {chatState.isLiveChat && (
+              <div className="p-4 border-t bg-white">
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={inputMessage}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Type your message..."
+                    className="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:border-[#85abe4]"
+                  />
+                  <button
+                    onClick={handleSendMessage}
+                    className="bg-[#85abe4] hover:bg-blue-600 text-white p-2 rounded-lg transition-colors"
+                  >
+                    <Send className="w-5 h-5" />
+                  </button>
+                </div>
+                <div className="text-xs text-gray-500 mt-2 text-center">
+                  You're now chatting with a FundTek specialist
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
