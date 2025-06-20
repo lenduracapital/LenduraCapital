@@ -249,15 +249,15 @@ export default function WorkingCapitalSection() {
                       <h4 className="font-bold text-gray-800 text-sm md:text-base mb-2 md:mb-3 text-center sm:text-left">Minimum Qualifications</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 sm:divide-x divide-gray-300">
                         <div className="text-center">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">480+</div>
+                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">550+</div>
                           <div className="text-gray-600 text-xs">Min. Credit Score</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">3+</div>
+                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">6+</div>
                           <div className="text-gray-600 text-xs">Months Time In Business</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">$5K+</div>
+                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">$10K+</div>
                           <div className="text-gray-600 text-xs">Min. Monthly Revenue</div>
                         </div>
                       </div>
