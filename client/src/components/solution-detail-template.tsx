@@ -216,27 +216,27 @@ export default function SolutionDetailTemplate({
               </ul>
             </div>
             
-            <div className="p-8 rounded-lg border" style={{ backgroundColor: '#f0f4ff', borderColor: '#85abe4' }}>
-              <h3 className="text-2xl font-bold mb-6" style={{ color: '#85abe4' }}>FundTek Capital Group</h3>
+            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
+              <h3 className="text-2xl font-bold text-green-800 mb-6">FundTek Capital Group</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
                   <span className="text-gray-700">24-48 hour approval process</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
                   <span className="text-gray-700">Minimal documentation needed</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
                   <span className="text-gray-700">Flexible credit requirements</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
                   <span className="text-gray-700">Revenue-based qualification</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 mr-3 mt-1" style={{ color: '#85abe4' }} />
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
                   <span className="text-gray-700">10 different financing solutions</span>
                 </li>
               </ul>
