@@ -1,4 +1,93 @@
 import { Shield, Award, Users, TrendingUp, Clock } from "lucide-react";
+import { useEffect, useRef, useState } from 'react';
+
+// Flip animation component for team member circles
+const FlipCircle = ({ member, index }: { member: any, index: number }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const circleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add delay based on index for staggered animation
+            setTimeout(() => {
+              setIsFlipped(true);
+            }, index * 300);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (circleRef.current) {
+      observer.observe(circleRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [index]);
+
+  return (
+    <div ref={circleRef} className="text-center">
+      <div className="perspective-1000 w-24 h-24 mx-auto mb-4">
+        <div 
+          className={`relative w-full h-full transition-transform duration-700 preserve-3d ${
+            isFlipped ? 'rotate-y-180' : ''
+          }`}
+          style={{
+            transformStyle: 'preserve-3d',
+            perspective: '1000px'
+          }}
+        >
+          {/* Front of circle */}
+          <div 
+            className="absolute inset-0 w-24 h-24 rounded-full bg-[#85abe4] flex items-center justify-center backface-hidden"
+            style={{
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(0deg)'
+            }}
+          >
+            <span className="text-white text-2xl font-bold">
+              {member.name.split(' ').map((n: string) => n[0]).join('')}
+            </span>
+          </div>
+          
+          {/* Back of circle */}
+          <div 
+            className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-to-br from-[#85abe4] to-[#6a9bd1] flex items-center justify-center backface-hidden"
+            style={{
+              backfaceVisibility: 'hidden',
+              transform: 'rotateY(180deg)'
+            }}
+          >
+            <Users className="w-8 h-8 text-white" />
+          </div>
+        </div>
+      </div>
+      
+      <h4 className="text-xl font-semibold text-gray-900 mb-2">
+        {member.name}
+      </h4>
+      <p className="text-gray-600 font-medium mb-2">
+        {member.title}
+      </p>
+      <p className="text-sm text-gray-500 mb-3">
+        {member.experience} • {member.credentials}
+      </p>
+      <div className="flex flex-wrap justify-center gap-2">
+        {member.specialties.map((specialty: string, idx: number) => (
+          <span
+            key={idx}
+            className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700"
+          >
+            {specialty}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const certifications = [
   {
@@ -110,32 +199,7 @@ export default function TrustSignalsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-[#85abe4] flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  {member.name}
-                </h4>
-                <p className="text-gray-600 font-medium mb-2">
-                  {member.title}
-                </p>
-                <p className="text-sm text-gray-500 mb-3">
-                  {member.experience} • {member.credentials}
-                </p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {member.specialties.map((specialty, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700"
-                    >
-                      {specialty}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <FlipCircle key={index} member={member} index={index} />
             ))}
           </div>
 

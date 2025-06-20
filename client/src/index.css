@@ -40,6 +40,23 @@
   --fundtek-blue-light: #85abe4; /* Original blue for backgrounds */
 }
 
+/* 3D Flip Animation Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
 /* Responsive typography utilities */
 .responsive-heading-xl {
   font-size: clamp(2rem, 5vw, 4rem);
