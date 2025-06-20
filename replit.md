@@ -329,6 +329,7 @@ Changelog:
   * Streamlined conversation flow - most solutions go directly to revenue question after acknowledgment
   * Maintained detailed Debt Consolidation qualification with 3 specific questions (debt count, amount, payment status)
   * Changed revenue question from annual to monthly with appropriate ranges (<$10K to $100K+)
+  * Fixed Debt Consolidation questions to collect lender name and balance amount with text input fields
   * Fixed conversation logic to properly handle existing application inquiries without product selection
   * Improved overall chat bot timing and user experience for publication readiness
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):

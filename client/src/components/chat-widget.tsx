@@ -9,14 +9,13 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'timeline' | 'product' | 'debt_q1' | 'debt_q2' | 'debt_q3' | 'revenue' | 'complete';
+  step: 'initial' | 'timeline' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'complete';
   responses: {
     userType?: string;
     timeline?: string;
     product?: string;
     debtQ1?: string;
     debtQ2?: string;
-    debtQ3?: string;
     revenue?: string;
   };
 }
@@ -120,7 +119,7 @@ export default function ChatWidget() {
     } else if (chatState.step === 'product') {
       if (selection === 'Debt Consolidation') {
         addMessage("Smart move! Debt consolidation can really simplify your payments and reduce costs.", 'bot', 2000);
-        addMessage("How many current debts are you looking to consolidate?", 'bot', 4500);
+        addMessage("What's the name of your primary lender?", 'bot', 4500);
         setChatState({ step: 'debt_q1', responses: newResponses });
       } else {
         const productResponses = {
@@ -145,14 +144,10 @@ export default function ChatWidget() {
       }
     } else if (chatState.step === 'debt_q1') {
       addMessage("Got it!", 'bot', 2000);
-      addMessage("What's your approximate total debt amount?", 'bot', 4000);
+      addMessage("What's the current balance with them?", 'bot', 4000);
       setChatState({ step: 'debt_q2', responses: newResponses });
     } else if (chatState.step === 'debt_q2') {
-      addMessage("Perfect!", 'bot', 2000);
-      addMessage("Are you current on all existing payments?", 'bot', 4000);
-      setChatState({ step: 'debt_q3', responses: newResponses });
-    } else if (chatState.step === 'debt_q3') {
-      addMessage("Excellent! Now let me ask about your business revenue.", 'bot', 2000);
+      addMessage("Perfect! Now let me ask about your business revenue.", 'bot', 2000);
       addMessage("What's your business's monthly revenue range?", 'bot', 4500);
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue') {
@@ -252,47 +247,62 @@ export default function ChatWidget() {
       case 'debt_q1':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {['2-3 debts', '4-6 debts', '7-10 debts', '10+ debts'].map((option) => (
-              <button
-                key={option}
-                onClick={() => handleUserSelection(option, 'debtQ1')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
-              >
-                {option}
-              </button>
-            ))}
+            <input
+              type="text"
+              placeholder="Enter lender name (e.g., Chase, Capital One)"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                  handleUserSelection(e.currentTarget.value.trim(), 'debtQ1');
+                  e.currentTarget.value = '';
+                }
+              }}
+            />
+            <button
+              onClick={() => {
+                const input = document.querySelector('input[placeholder*="lender name"]') as HTMLInputElement;
+                if (input && input.value.trim()) {
+                  handleUserSelection(input.value.trim(), 'debtQ1');
+                  input.value = '';
+                }
+              }}
+              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+            >
+              Continue
+            </button>
           </div>
         );
         
       case 'debt_q2':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {['$25K - $100K', '$100K - $250K', '$250K - $500K', '$500K+'].map((option) => (
-              <button
-                key={option}
-                onClick={() => handleUserSelection(option, 'debtQ2')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
-              >
-                {option}
-              </button>
-            ))}
+            <input
+              type="text"
+              placeholder="Enter balance amount (e.g., $25,000)"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                  handleUserSelection(e.currentTarget.value.trim(), 'debtQ2');
+                  e.currentTarget.value = '';
+                }
+              }}
+            />
+            <button
+              onClick={() => {
+                const input = document.querySelector('input[placeholder*="balance amount"]') as HTMLInputElement;
+                if (input && input.value.trim()) {
+                  handleUserSelection(input.value.trim(), 'debtQ2');
+                  input.value = '';
+                }
+              }}
+              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+            >
+              Continue
+            </button>
           </div>
         );
         
-      case 'debt_q3':
-        return (
-          <div className="flex flex-col gap-2 mt-3">
-            {['Yes, all current', 'Most are current', 'Some behind', 'Struggling with payments'].map((option) => (
-              <button
-                key={option}
-                onClick={() => handleUserSelection(option, 'debtQ3')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-        );
+
       
       case 'revenue':
         return (
