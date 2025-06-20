@@ -102,12 +102,10 @@ export default function TrustSignalsSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
-                <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
-                  <img 
-                    src={member.avatar || `https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face`}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-24 h-24 rounded-full mx-auto mb-4 bg-[#85abe4] flex items-center justify-center">
+                  <span className="text-white text-2xl font-bold">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">
                   {member.name}

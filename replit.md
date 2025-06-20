@@ -433,6 +433,7 @@ Changelog:
   * Removed decorative bubbles on mobile devices for cleaner visual design
   * Enhanced responsive spacing, touch targets, and profile section layout
   * Updated rolling statistics from "50+ specialists" to "100+ specialists" for stronger positioning
+  * Replaced team member photos with professional initials in signature blue circles (MK, GG)
 ```
 
 ## User Preferences
