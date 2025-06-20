@@ -46,9 +46,9 @@ export default function ContactFormSection() {
                 lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
-                A funding partner<br />
-                aligned with your<br />
-                business goals.
+                A Funding Partner<br />
+                Focused on Your Business<br />
+                Growth & Cash Flow
               </div>
             </div>
           </div>
