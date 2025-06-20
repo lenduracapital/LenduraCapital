@@ -13,8 +13,8 @@ export default function About() {
 
   const stats = [
     { number: "$1B+", label: "In Working Capital Funded" },
-    { number: "50+", label: "Expert Specialists" },
-    { number: "5+", label: "Financing Options" },
+    { number: "100+", label: "Expert Specialists" },
+    { number: "12", label: "Financing Options" },
     { number: "24 hrs", label: "Average Approval Time" }
   ];
 
