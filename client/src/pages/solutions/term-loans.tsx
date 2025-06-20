@@ -68,6 +68,32 @@ export default function TermLoansDetail() {
         "Early payoff options available with most lenders to save on interest costs",
         "Great option for businesses seeking to build commercial credit history"
       ]}
+      faq={[
+        {
+          question: "What can I use a term loan for?",
+          answer: "Term loans can be used for any business purpose including equipment purchases, inventory, working capital, expansion, debt consolidation, or major business investments."
+        },
+        {
+          question: "What are the qualification requirements?",
+          answer: "Typically requires a minimum credit score of 550+, at least 6 months in business, and monthly revenue of $10,000+. We also consider cash flow, business history, and overall financial health."
+        },
+        {
+          question: "How quickly can I get funded?",
+          answer: "Most applications are approved within 24-48 hours, and funds are typically available within 2-3 business days after approval and document completion."
+        },
+        {
+          question: "Are there prepayment penalties?",
+          answer: "Most of our term loan products do not have prepayment penalties, allowing you to pay off your loan early without additional fees. Specific terms vary by lender."
+        },
+        {
+          question: "What interest rates can I expect?",
+          answer: "Interest rates vary based on your credit profile, business financials, and loan terms. We work with multiple lenders to find you the most competitive rates available for your situation."
+        },
+        {
+          question: "Do I need collateral?",
+          answer: "Collateral requirements depend on the loan amount and your business profile. Some term loans are unsecured, while larger amounts may require business assets or personal guarantees."
+        }
+      ]}
     />
   );
 }

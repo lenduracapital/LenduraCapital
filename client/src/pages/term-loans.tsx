@@ -176,6 +176,45 @@ export default function TermLoans() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Term Loans FAQ</h2>
+          
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What can I use a term loan for?</h3>
+              <p className="text-gray-600">Term loans can be used for any business purpose including equipment purchases, inventory, working capital, expansion, debt consolidation, or major business investments.</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What are the qualification requirements?</h3>
+              <p className="text-gray-600">Typically requires a minimum credit score of 550+, at least 6 months in business, and monthly revenue of $10,000+. We also consider cash flow, business history, and overall financial health.</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">How quickly can I get funded?</h3>
+              <p className="text-gray-600">Most applications are approved within 24-48 hours, and funds are typically available within 2-3 business days after approval and document completion.</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Are there prepayment penalties?</h3>
+              <p className="text-gray-600">Most of our term loan products do not have prepayment penalties, allowing you to pay off your loan early without additional fees. Specific terms vary by lender.</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">What interest rates can I expect?</h3>
+              <p className="text-gray-600">Interest rates vary based on your credit profile, business financials, and loan terms. We work with multiple lenders to find you the most competitive rates available for your situation.</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Do I need collateral?</h3>
+              <p className="text-gray-600">Collateral requirements depend on the loan amount and your business profile. Some term loans are unsecured, while larger amounts may require business assets or personal guarantees.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

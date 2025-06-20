@@ -24,6 +24,10 @@ interface SolutionDetailProps {
   requiredDocuments?: string[];
   askYourself?: string[];
   goodToKnow?: string[];
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export default function SolutionDetailTemplate({
@@ -39,7 +43,8 @@ export default function SolutionDetailTemplate({
   ratesBasedOn,
   requiredDocuments,
   askYourself,
-  goodToKnow
+  goodToKnow,
+  faq
 }: SolutionDetailProps) {
   const [, setLocation] = useLocation();
   
@@ -410,6 +415,24 @@ export default function SolutionDetailTemplate({
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      {faq && faq.length > 0 && (
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">{title} FAQ</h2>
+            
+            <div className="space-y-6">
+              {faq.map((item, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 shadow-md">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.question}</h3>
+                  <p className="text-gray-600">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

@@ -70,6 +70,32 @@ export default function SBALoansDetail() {
         "Requires personal guarantee from owners with 20% or more ownership",
         "Excellent for established businesses with strong financials and growth plans"
       ]}
+      faq={[
+        {
+          question: "What is an SBA loan?",
+          answer: "SBA loans are government-backed loans where the Small Business Administration guarantees 75-90% of the loan, allowing lenders to offer more favorable terms including lower interest rates and longer repayment periods."
+        },
+        {
+          question: "How long does the SBA loan process take?",
+          answer: "The SBA loan process typically takes 30-90 days from application to funding. This includes time for underwriting, SBA approval, and closing procedures."
+        },
+        {
+          question: "What can I use SBA loan funds for?",
+          answer: "SBA loans can be used for business expansion, real estate purchases, equipment financing, working capital, inventory, and debt refinancing. Funds cannot be used for speculation or investment purposes."
+        },
+        {
+          question: "What are SBA size standards?",
+          answer: "SBA size standards determine if your business qualifies as 'small' based on industry. Most service businesses must have fewer than $8M in average annual receipts, while manufacturing businesses typically must have fewer than 500 employees."
+        },
+        {
+          question: "Do I need a down payment for an SBA loan?",
+          answer: "Yes, SBA loans typically require a down payment of 10-15% for business acquisitions and 15-25% for real estate purchases. The exact amount depends on the loan program and use of funds."
+        },
+        {
+          question: "What documents do I need for an SBA loan application?",
+          answer: "Required documents include a comprehensive business plan, 3 years of tax returns, financial statements, cash flow projections, ownership information, and collateral documentation."
+        }
+      ]}
     />
   );
 }
