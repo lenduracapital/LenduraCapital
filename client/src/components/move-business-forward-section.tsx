@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, HandCoins } from "lucide-react";
+import { CheckCircle, Clock, DollarSign } from "lucide-react";
 
 export default function MoveBusinessForwardSection() {
   return (
@@ -41,12 +41,7 @@ export default function MoveBusinessForwardSection() {
 
             <div className="text-center">
               <div className="mb-6">
-                <svg className="w-16 h-16 mx-auto" fill="#85abe4" viewBox="0 0 24 24">
-                  <path d="M9 16c.5-1 2.5-1.8 4.5-2 .4-.1.8-.2 1.2-.3 1.2-.3 2.3-.8 2.3-1.7 0-.8-.8-1.5-2-1.5s-2 .7-2 1.5H11c0-1.9 1.6-3.5 4-3.5s4 1.6 4 3.5c0 1.5-1.5 2.4-3 2.8V16h-2v-1.2c-.4.1-.8.2-1.2.3-2 .4-4 1-4.5 2H9z"/>
-                  <circle cx="15" cy="12" r="2" fill="#85abe4"/>
-                  <path d="M15 10v4m-1-2h2" stroke="white" strokeWidth="1"/>
-                  <path d="M2 17c0-1 1-2 4-2h12c3 0 4 1 4 2v3c0 1-1 2-4 2H6c-3 0-4-1-4-2v-3z" opacity="0.3"/>
-                </svg>
+                <DollarSign className="w-16 h-16 mx-auto" style={{ color: '#85abe4' }} />
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Industry leading rates</h3>
               <p className="text-gray-600">
