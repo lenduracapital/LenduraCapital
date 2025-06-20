@@ -23,11 +23,14 @@ const fundTekPages = [
   { name: "About FundTek", href: "/about" },
   { name: "Who We Fund", href: "/who-we-fund" },
   { name: "Contact Us", href: "/contact" },
-  { name: "Terms & Conditions", href: "/terms" },
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Cookies Policy", href: "/cookies" },
   { name: "Testimonials", href: "/more-testimonials" },
   { name: "FAQ", href: "/faq" }
+];
+
+const legalPages = [
+  { name: "Terms & Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Cookies Policy", href: "/cookies" }
 ];
 
 export default function Footer() {
@@ -119,9 +122,20 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-200 mt-8 pt-8 text-center">
-          <p className="text-black text-sm">
+          <p className="text-black text-sm mb-4">
             Copyright 2025 FundTek Capital Group. All rights reserved.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            {legalPages.map((page, index) => (
+              <button
+                key={index}
+                onClick={() => handleNavigation(page.href)}
+                className="hover:opacity-75 transition-colors text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
+              >
+                {page.name}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

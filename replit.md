@@ -447,6 +447,11 @@ Changelog:
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
   * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
+- June 20, 2025. Team circle flip animations and footer reorganization (COMPLETE):
+  * Added scroll-triggered 3D flip animations to team member circles (MK/GG) with staggered timing
+  * Implemented perspective transforms with front side showing initials, back side showing team icon
+  * Moved legal links (Terms & Conditions, Privacy Policy, Cookies Policy) under copyright text in footer
+  * Enhanced footer structure with separated legal compliance section for better organization
 ```
 
 ## User Preferences
