@@ -364,6 +364,49 @@ export default function CommercialRealEstateLending() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What types of commercial properties do you finance?</h3>
+              <p className="text-gray-700">We finance all commercial property types including office buildings, retail centers, industrial facilities, multi-family properties, mixed-use developments, and special purpose properties like hotels and self-storage facilities.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What are typical loan-to-value ratios for commercial real estate?</h3>
+              <p className="text-gray-700">LTV ratios typically range from 65-80% depending on property type, location, and borrower strength. Stabilized income-producing properties generally qualify for higher LTV ratios than development projects.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">How long does the commercial loan process take?</h3>
+              <p className="text-gray-700">Our streamlined process typically takes 30-45 days from application to closing. Complex transactions or development projects may require additional time for due diligence and approvals.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What credit score is required for commercial real estate loans?</h3>
+              <p className="text-gray-700">While we prefer credit scores of 650+, we evaluate each deal holistically. Strong property cash flow, significant experience, and adequate liquidity can sometimes offset lower credit scores.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Do you offer construction and development financing?</h3>
+              <p className="text-gray-700">Yes, we provide construction loans, development financing, and bridge loans for ground-up construction, major renovations, and value-add projects with experienced developers.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What documentation is required for commercial real estate loans?</h3>
+              <p className="text-gray-700">Required documents include property financials, rent rolls, lease agreements, borrower financial statements, tax returns, property appraisal, environmental reports, and detailed business plan for the property.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#85abe4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -364,6 +364,49 @@ export default function MortgageFinancing() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What's the difference between conventional and government-backed loans?</h3>
+              <p className="text-gray-700">Conventional loans are not insured by the government and typically require higher credit scores and down payments. Government-backed loans (FHA, VA, USDA) offer lower down payments and more flexible qualification requirements but have loan limits and specific eligibility criteria.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">How much down payment do I need?</h3>
+              <p className="text-gray-700">Down payment requirements vary by loan type: conventional loans typically require 5-20%, FHA loans as low as 3.5%, VA loans often 0% for qualified veterans, and investment properties usually require 20-25%.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Can I get a mortgage if I'm self-employed?</h3>
+              <p className="text-gray-700">Yes, we offer specialized programs for self-employed borrowers including bank statement loans and asset-based lending. We'll work with your unique income documentation to find the best financing solution.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">What factors affect my mortgage interest rate?</h3>
+              <p className="text-gray-700">Interest rates are influenced by credit score, down payment amount, loan-to-value ratio, debt-to-income ratio, loan type, property type, and current market conditions. Higher credit scores and larger down payments typically result in better rates.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">How long does the mortgage process take?</h3>
+              <p className="text-gray-700">Our typical closing timeline is 21-30 days from application to closing. Purchase transactions may close faster while refinances with cash-out or complex scenarios may take slightly longer.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Should I choose a fixed or adjustable rate mortgage?</h3>
+              <p className="text-gray-700">Fixed-rate mortgages offer payment stability and protection against rising rates, ideal for long-term homeownership. Adjustable-rate mortgages (ARMs) start with lower rates but can change, better for shorter-term ownership or if rates are expected to decline.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#85abe4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
