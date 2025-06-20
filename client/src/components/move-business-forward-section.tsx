@@ -17,7 +17,10 @@ export default function MoveBusinessForwardSection() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="mb-6">
-                <CheckCircle className="w-16 h-16 mx-auto" style={{ color: '#85abe4' }} />
+                <svg className="w-16 h-16 mx-auto" style={{ color: '#85abe4' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                  <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Dedicated specialists</h3>
               <p className="text-gray-600">
