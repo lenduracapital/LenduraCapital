@@ -9,14 +9,14 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'timeline' | 'product' | 'solution_q1' | 'solution_q2' | 'solution_q3' | 'revenue' | 'complete';
+  step: 'initial' | 'timeline' | 'product' | 'debt_q1' | 'debt_q2' | 'debt_q3' | 'revenue' | 'complete';
   responses: {
     userType?: string;
     timeline?: string;
     product?: string;
-    solutionQ1?: string;
-    solutionQ2?: string;
-    solutionQ3?: string;
+    debtQ1?: string;
+    debtQ2?: string;
+    debtQ3?: string;
     revenue?: string;
   };
 }
@@ -118,42 +118,42 @@ export default function ChatWidget() {
       addMessage("Which type of funding best describes what you're looking for?", 'bot', 4000);
       setChatState({ step: 'product', responses: newResponses });
     } else if (chatState.step === 'product') {
-      const productResponses = {
-        'Term Loans': "Excellent choice! Term loans offer predictable payments and competitive rates.",
-        'Merchant Cash Advance': "Good for quick access to capital! These fund very quickly.",
-        'Lines of Credit': "Smart thinking! Lines of credit provide flexibility for ongoing needs.",
-        'Debt Consolidation': "Smart move! This can simplify payments and potentially reduce your overall costs.",
-        'SBA Loans': "Great option! SBA loans offer some of the best terms available.",
-        'Equipment Financing': "Perfect! Equipment financing often provides 100% financing with great rates.",
-        'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital.",
-        'P.O. Financing': "Great for growth! This helps you fulfill large orders you couldn't otherwise handle.",
-        'Credit Services': "Wise choice! Improving your credit opens doors to better financing options.",
-        'Marketing': "Smart investment! Digital marketing drives business growth and customer acquisition.",
-        'Card Processing': "Essential service! Efficient payment processing improves cash flow and customer experience.",
-        'CRE Lending': "Excellent for real estate! Commercial properties can be great investments and business assets.",
-        'Mortgage Loans': "Great choice! Property financing can provide stability and equity building opportunities."
-      };
-      
-      const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
-      addMessage(response, 'bot', 1500);
-      
-      // Route to solution-specific questions
-      const firstQuestion = getSolutionQuestion(selection, 1);
-      addMessage(firstQuestion, 'bot', 4000);
-      setChatState({ step: 'solution_q1', responses: newResponses });
-    } else if (chatState.step === 'solution_q1') {
-      const secondQuestion = getSolutionQuestion(chatState.responses.product || '', 2);
-      addMessage("Got it!", 'bot', 1500);
-      addMessage(secondQuestion, 'bot', 3500);
-      setChatState({ step: 'solution_q2', responses: newResponses });
-    } else if (chatState.step === 'solution_q2') {
-      const thirdQuestion = getSolutionQuestion(chatState.responses.product || '', 3);
-      addMessage("Perfect!", 'bot', 1500);
-      addMessage(thirdQuestion, 'bot', 3500);
-      setChatState({ step: 'solution_q3', responses: newResponses });
-    } else if (chatState.step === 'solution_q3') {
-      addMessage("Excellent! Now let me ask about your business revenue.", 'bot', 1500);
-      addMessage("What's your business's annual revenue range?", 'bot', 4000);
+      if (selection === 'Debt Consolidation') {
+        addMessage("Smart move! Debt consolidation can really simplify your payments and reduce costs.", 'bot', 2000);
+        addMessage("How many current debts are you looking to consolidate?", 'bot', 4500);
+        setChatState({ step: 'debt_q1', responses: newResponses });
+      } else {
+        const productResponses = {
+          'Term Loans': "Excellent choice! Term loans offer predictable payments and competitive rates.",
+          'Merchant Cash Advance': "Good for quick access to capital! These fund very quickly.",
+          'Lines of Credit': "Smart thinking! Lines of credit provide flexibility for ongoing needs.",
+          'SBA Loans': "Great option! SBA loans offer some of the best terms available.",
+          'Equipment Financing': "Perfect! Equipment financing often provides 100% financing with great rates.",
+          'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital.",
+          'P.O. Financing': "Great for growth! This helps you fulfill large orders you couldn't otherwise handle.",
+          'Credit Services': "Wise choice! Improving your credit opens doors to better financing options.",
+          'Marketing': "Smart investment! Digital marketing drives business growth and customer acquisition.",
+          'Card Processing': "Essential service! Efficient payment processing improves cash flow and customer experience.",
+          'CRE Lending': "Excellent for real estate! Commercial properties can be great investments and business assets.",
+          'Mortgage Loans': "Great choice! Property financing can provide stability and equity building opportunities."
+        };
+        
+        const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
+        addMessage(response, 'bot', 2000);
+        addMessage("What's your business's monthly revenue range?", 'bot', 5000);
+        setChatState({ step: 'revenue', responses: newResponses });
+      }
+    } else if (chatState.step === 'debt_q1') {
+      addMessage("Got it!", 'bot', 2000);
+      addMessage("What's your approximate total debt amount?", 'bot', 4000);
+      setChatState({ step: 'debt_q2', responses: newResponses });
+    } else if (chatState.step === 'debt_q2') {
+      addMessage("Perfect!", 'bot', 2000);
+      addMessage("Are you current on all existing payments?", 'bot', 4000);
+      setChatState({ step: 'debt_q3', responses: newResponses });
+    } else if (chatState.step === 'debt_q3') {
+      addMessage("Excellent! Now let me ask about your business revenue.", 'bot', 2000);
+      addMessage("What's your business's monthly revenue range?", 'bot', 4500);
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue') {
       addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
@@ -185,149 +185,7 @@ export default function ChatWidget() {
     setIsOpen(!isOpen);
   };
 
-  const getSolutionQuestion = (product: string, questionNumber: 1 | 2 | 3): string => {
-    const questions = {
-      'Term Loans': [
-        "What's the primary purpose for this term loan?",
-        "How much funding are you looking to secure?",
-        "What's your preferred repayment timeline?"
-      ],
-      'Merchant Cash Advance': [
-        "What's your average monthly credit card processing volume?",
-        "How quickly do you need access to the funds?",
-        "What will you use the advance for?"
-      ],
-      'Lines of Credit': [
-        "Do you need funds for seasonal fluctuations or ongoing operations?",
-        "What credit limit range are you considering?",
-        "How often do you anticipate drawing from the line?"
-      ],
-      'Debt Consolidation': [
-        "How many current debts are you looking to consolidate?",
-        "What's your approximate total debt amount?",
-        "Are you current on all existing payments?"
-      ],
-      'SBA Loans': [
-        "Is this for startup, expansion, or acquisition?",
-        "Do you have the required down payment available?",
-        "What's your target loan amount?"
-      ],
-      'Equipment Financing': [
-        "Are you purchasing new or used equipment?",
-        "What type of equipment do you need?",
-        "Do you have quotes or specifications ready?"
-      ],
-      'Invoice Factoring': [
-        "What's your average monthly invoice volume?",
-        "How long are your typical payment terms?",
-        "Do you have credit-worthy customers?"
-      ],
-      'P.O. Financing': [
-        "What's the size of the purchase order?",
-        "Who is your customer for this order?",
-        "What's the delivery timeline?"
-      ],
-      'Credit Services': [
-        "Are you focusing on personal or business credit?",
-        "What's your current credit score range?",
-        "What credit goals are you trying to achieve?"
-      ],
-      'Marketing': [
-        "What marketing channels are you most interested in?",
-        "What's your current monthly marketing budget?",
-        "What are your primary business goals?"
-      ],
-      'Card Processing': [
-        "What's your current monthly processing volume?",
-        "Are you looking to switch processors or set up new?",
-        "Do you process online, in-person, or both?"
-      ],
-      'CRE Lending': [
-        "What type of commercial property are you financing?",
-        "Is this for purchase, refinance, or construction?",
-        "What's your target loan amount?"
-      ],
-      'Mortgage Loans': [
-        "Is this for primary residence or investment property?",
-        "Are you purchasing or refinancing?",
-        "What's your target loan amount?"
-      ]
-    };
 
-    return questions[product as keyof typeof questions]?.[questionNumber - 1] || "Tell me more about your specific needs.";
-  };
-
-  const getSolutionOptions = (product: string, questionNumber: 1 | 2 | 3): string[] => {
-    const options = {
-      'Term Loans': [
-        ['Business expansion', 'Equipment purchase', 'Working capital', 'Debt consolidation'],
-        ['$25K - $100K', '$100K - $500K', '$500K - $1M', '$1M+'],
-        ['1-2 years', '3-5 years', '5-7 years', '7+ years']
-      ],
-      'Merchant Cash Advance': [
-        ['$10K - $50K', '$50K - $100K', '$100K - $250K', '$250K+'],
-        ['Within 24 hours', 'Within 1 week', 'Within 2 weeks', 'No rush'],
-        ['Inventory', 'Marketing', 'Equipment', 'Working capital']
-      ],
-      'Lines of Credit': [
-        ['Seasonal needs', 'Ongoing operations', 'Emergency backup', 'Growth opportunities'],
-        ['$25K - $100K', '$100K - $250K', '$250K - $500K', '$500K+'],
-        ['Daily', 'Weekly', 'Monthly', 'Occasionally']
-      ],
-      'Debt Consolidation': [
-        ['2-3 debts', '4-6 debts', '7-10 debts', '10+ debts'],
-        ['$25K - $100K', '$100K - $250K', '$250K - $500K', '$500K+'],
-        ['Yes, all current', 'Most are current', 'Some behind', 'Struggling with payments']
-      ],
-      'SBA Loans': [
-        ['Startup funding', 'Business expansion', 'Equipment purchase', 'Real estate acquisition'],
-        ['Yes, ready', 'Almost ready', 'Need guidance', 'Not sure what\'s required'],
-        ['$150K - $500K', '$500K - $1M', '$1M - $2M', '$2M+']
-      ],
-      'Equipment Financing': [
-        ['New equipment', 'Used equipment', 'Both new and used', 'Not sure yet'],
-        ['Manufacturing', 'Construction', 'Medical', 'Technology', 'Transportation', 'Other'],
-        ['Yes, have quotes', 'Know what I need', 'Still researching', 'Need help choosing']
-      ],
-      'Invoice Factoring': [
-        ['$50K - $200K', '$200K - $500K', '$500K - $1M', '$1M+'],
-        ['Net 30', 'Net 60', 'Net 90', 'Varies'],
-        ['Yes, strong credit', 'Mixed credit', 'Some concerns', 'Not sure']
-      ],
-      'P.O. Financing': [
-        ['$50K - $250K', '$250K - $500K', '$500K - $1M', '$1M+'],
-        ['Government agency', 'Large corporation', 'Established business', 'New customer'],
-        ['30 days', '60 days', '90 days', '90+ days']
-      ],
-      'Credit Services': [
-        ['Personal credit', 'Business credit', 'Both', 'Not sure'],
-        ['Below 600', '600-650', '650-700', '700+'],
-        ['Increase credit score', 'Remove negative items', 'Build business credit', 'General improvement']
-      ],
-      'Marketing': [
-        ['SEO/Website', 'Social media', 'Google Ads', 'All digital marketing'],
-        ['Under $2K', '$2K - $5K', '$5K - $10K', '$10K+'],
-        ['Increase leads', 'Brand awareness', 'Online presence', 'Sales growth']
-      ],
-      'Card Processing': [
-        ['Under $25K', '$25K - $100K', '$100K - $500K', '$500K+'],
-        ['Switch processors', 'Set up new', 'Add services', 'Compare rates'],
-        ['Online only', 'In-person only', 'Both', 'Mobile/events']
-      ],
-      'CRE Lending': [
-        ['Office building', 'Retail space', 'Warehouse', 'Mixed use', 'Land'],
-        ['Purchase', 'Refinance', 'Construction', 'Renovation'],
-        ['$500K - $1M', '$1M - $3M', '$3M - $10M', '$10M+']
-      ],
-      'Mortgage Loans': [
-        ['Primary residence', 'Investment property', 'Second home', 'Not sure'],
-        ['Purchasing', 'Refinancing', 'Cash-out refi', 'HELOC'],
-        ['$200K - $500K', '$500K - $1M', '$1M - $2M', '$2M+']
-      ]
-    };
-
-    return options[product as keyof typeof options]?.[questionNumber - 1] || ['Yes', 'No', 'Maybe', 'Need more info'];
-  };
 
   const renderButtons = () => {
     switch (chatState.step) {
@@ -391,19 +249,43 @@ export default function ChatWidget() {
           </div>
         );
         
-      case 'solution_q1':
-      case 'solution_q2':
-      case 'solution_q3':
-        const questionNumber = chatState.step === 'solution_q1' ? 1 : chatState.step === 'solution_q2' ? 2 : 3;
-        const responseKey = chatState.step === 'solution_q1' ? 'solutionQ1' : chatState.step === 'solution_q2' ? 'solutionQ2' : 'solutionQ3';
-        const options = getSolutionOptions(chatState.responses.product || '', questionNumber);
-        
+      case 'debt_q1':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {options.map((option) => (
+            {['2-3 debts', '4-6 debts', '7-10 debts', '10+ debts'].map((option) => (
               <button
                 key={option}
-                onClick={() => handleUserSelection(option, responseKey)}
+                onClick={() => handleUserSelection(option, 'debtQ1')}
+                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        );
+        
+      case 'debt_q2':
+        return (
+          <div className="flex flex-col gap-2 mt-3">
+            {['$25K - $100K', '$100K - $250K', '$250K - $500K', '$500K+'].map((option) => (
+              <button
+                key={option}
+                onClick={() => handleUserSelection(option, 'debtQ2')}
+                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        );
+        
+      case 'debt_q3':
+        return (
+          <div className="flex flex-col gap-2 mt-3">
+            {['Yes, all current', 'Most are current', 'Some behind', 'Struggling with payments'].map((option) => (
+              <button
+                key={option}
+                onClick={() => handleUserSelection(option, 'debtQ3')}
                 className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
               >
                 {option}
@@ -415,7 +297,7 @@ export default function ChatWidget() {
       case 'revenue':
         return (
           <div className="flex flex-col gap-2 mt-3">
-            {['<$100K', '$100K - $250K', '$250K - $500K', '$500K - $1M', '$1M+'].map((option) => (
+            {['<$10K', '$10K - $25K', '$25K - $50K', '$50K - $100K', '$100K+'].map((option) => (
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'revenue')}
