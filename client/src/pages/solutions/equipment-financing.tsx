@@ -64,6 +64,32 @@ export default function EquipmentFinancingDetail() {
         "Perfect for businesses needing specific equipment to operate or grow",
         "May qualify for tax benefits including Section 179 deductions"
       ]}
+      faq={[
+        {
+          question: "What types of equipment can I finance?",
+          answer: "You can finance virtually any business equipment including machinery, vehicles, computers, medical equipment, restaurant equipment, construction equipment, and manufacturing tools."
+        },
+        {
+          question: "Can I finance used equipment?",
+          answer: "Yes, we can finance both new and used equipment. Used equipment typically requires the equipment to be less than 10 years old and in good working condition."
+        },
+        {
+          question: "Do I need a down payment?",
+          answer: "Many equipment financing programs offer 100% financing with no down payment required. However, some lenders may require 10-20% down depending on the equipment type and your credit profile."
+        },
+        {
+          question: "How long are equipment financing terms?",
+          answer: "Equipment financing terms typically range from 2-7 years (24-84 months) depending on the type of equipment and its expected useful life."
+        },
+        {
+          question: "What happens if I can't make payments?",
+          answer: "Since the equipment serves as collateral, the lender may repossess the equipment if payments are not made. We work with borrowers to find solutions before this happens."
+        },
+        {
+          question: "Are there tax benefits to equipment financing?",
+          answer: "Yes, equipment purchases may qualify for Section 179 tax deductions, allowing you to deduct the full purchase price in the year of purchase rather than depreciating over time."
+        }
+      ]}
     />
   );
 }

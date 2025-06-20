@@ -64,6 +64,32 @@ export default function POFinancingDetail() {
         "Can help you scale your business without giving up equity",
         "Perfect for import/export, distribution, and manufacturing businesses"
       ]}
+      faq={[
+        {
+          question: "How does purchase order financing work?",
+          answer: "The lender pays your supplier directly based on confirmed purchase orders from creditworthy customers. You fulfill the order and get paid by your customer, then repay the lender."
+        },
+        {
+          question: "What types of businesses use PO financing?",
+          answer: "Distributors, importers, exporters, manufacturers, and resellers who have large orders but lack working capital to fulfill them. Common in retail, textiles, electronics, and consumer goods."
+        },
+        {
+          question: "How much does PO financing cost?",
+          answer: "Fees typically range from 2-6% of the purchase order value, depending on the deal size, customer creditworthiness, and transaction complexity."
+        },
+        {
+          question: "What makes a good candidate for PO financing?",
+          answer: "Businesses with confirmed orders from creditworthy customers, reliable suppliers, established industry relationships, and profit margins sufficient to cover financing costs."
+        },
+        {
+          question: "How long does the PO financing process take?",
+          answer: "Once approved, funding can typically be arranged within 1-2 weeks. Initial approval and setup may take 2-4 weeks for new relationships."
+        },
+        {
+          question: "What happens if the customer doesn't pay?",
+          answer: "The lender typically requires credit insurance or may provide non-recourse financing where they bear the customer credit risk. Terms vary by arrangement."
+        }
+      ]}
     />
   );
 }

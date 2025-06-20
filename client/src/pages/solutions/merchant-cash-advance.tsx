@@ -64,6 +64,32 @@ export default function MerchantCashAdvanceDetail() {
         "When the balance is 50% paid, your business will be eligible for additional funding",
         "Great option of any business that is grossing $10,000 in revenue per month and has been in business for at least 6 months"
       ]}
+      faq={[
+        {
+          question: "How does a merchant cash advance work?",
+          answer: "A merchant cash advance provides upfront capital in exchange for a percentage of your future credit card sales. Repayment is automatic through daily credit card processing or ACH withdrawals."
+        },
+        {
+          question: "What's the difference between factor rates and interest rates?",
+          answer: "Factor rates are fixed costs (e.g., 1.15 means you pay back $1.15 for every $1 received). Unlike interest rates, factor rates don't compound over time and represent the total cost of the advance."
+        },
+        {
+          question: "How quickly can I get funded?",
+          answer: "Merchant cash advances offer some of the fastest funding available, often within 24-48 hours of approval. Same-day funding may be available in some cases."
+        },
+        {
+          question: "What if my credit card sales are low some days?",
+          answer: "Repayment adjusts automatically based on your daily sales volume. Lower sales days mean lower repayment amounts, providing built-in flexibility for seasonal businesses."
+        },
+        {
+          question: "Can I get another advance before paying off the current one?",
+          answer: "Many providers offer renewal options once you've paid down 50-70% of your current advance, allowing access to additional working capital."
+        },
+        {
+          question: "What businesses qualify for merchant cash advances?",
+          answer: "Retail businesses, restaurants, service providers, and any business that processes credit card sales regularly. Minimum requirements typically include $5,000+ monthly credit card volume."
+        }
+      ]}
     />
   );
 }

@@ -63,6 +63,32 @@ export default function LinesOfCreditDetail() {
         "You only pay interest on the amount you actually draw, not the full credit line",
         "Establishes a long-term banking relationship and builds business credit"
       ]}
+      faq={[
+        {
+          question: "How does a business line of credit work?",
+          answer: "A business line of credit provides access to funds up to a predetermined limit. You can draw funds as needed, pay interest only on what you use, and repay to restore your available credit."
+        },
+        {
+          question: "What's the difference between a line of credit and a term loan?",
+          answer: "A line of credit is revolving credit you can use repeatedly, while a term loan provides a lump sum with fixed payments. Lines of credit offer more flexibility for ongoing working capital needs."
+        },
+        {
+          question: "How much can I qualify for?",
+          answer: "Business lines of credit typically range from $25,000 to $1,000,000. The amount depends on your business revenue, credit profile, and financial strength."
+        },
+        {
+          question: "When do I need to repay the funds?",
+          answer: "Most lines of credit have a draw period where you pay interest only, followed by a repayment period with principal and interest payments. Terms vary by lender."
+        },
+        {
+          question: "What can I use line of credit funds for?",
+          answer: "Line of credit funds can be used for working capital, inventory purchases, payroll, seasonal cash flow gaps, equipment purchases, or other business expenses."
+        },
+        {
+          question: "Are there fees associated with a line of credit?",
+          answer: "There may be origination fees, annual fees, or draw fees depending on the lender. We'll help you find options with the most favorable fee structure for your situation."
+        }
+      ]}
     />
   );
 }

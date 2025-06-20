@@ -64,6 +64,32 @@ export default function InvoiceFactoringDetail() {
         "Can improve cash flow without taking on additional debt",
         "Factor company may provide credit protection and collection services"
       ]}
+      faq={[
+        {
+          question: "How does invoice factoring work?",
+          answer: "You sell your outstanding invoices to a factoring company at a discount. The factor advances you 80-90% immediately, then pays the remainder (minus their fee) when your customer pays the invoice."
+        },
+        {
+          question: "What types of businesses use invoice factoring?",
+          answer: "B2B companies with 30-90 day payment terms including staffing agencies, trucking companies, manufacturers, distributors, and professional service providers."
+        },
+        {
+          question: "Will my customers know I'm factoring?",
+          answer: "Yes, your customers will be directed to pay the factoring company instead of you. Most professional factors handle this transition smoothly and maintain good customer relationships."
+        },
+        {
+          question: "How much does invoice factoring cost?",
+          answer: "Factoring fees typically range from 1-5% of the invoice value, depending on your industry, invoice volume, customer creditworthiness, and payment terms."
+        },
+        {
+          question: "Can I choose which invoices to factor?",
+          answer: "Many factoring companies offer selective factoring, allowing you to choose which invoices to factor rather than requiring you to factor all receivables."
+        },
+        {
+          question: "What happens if my customer doesn't pay?",
+          answer: "This depends on whether you choose recourse or non-recourse factoring. With recourse factoring, you're responsible if the customer doesn't pay. Non-recourse protects you from customer default."
+        }
+      ]}
     />
   );
 }

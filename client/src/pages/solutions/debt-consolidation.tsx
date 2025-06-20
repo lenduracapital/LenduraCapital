@@ -64,6 +64,32 @@ export default function DebtConsolidationDetail() {
         "Important to avoid taking on new debt after consolidation",
         "Best for businesses with good payment history seeking simplification"
       ]}
+      faq={[
+        {
+          question: "What types of debt can be consolidated?",
+          answer: "Most business debts can be consolidated including merchant cash advances, business credit cards, equipment loans, lines of credit, and other business financing obligations."
+        },
+        {
+          question: "Will debt consolidation hurt my credit score?",
+          answer: "Initially there may be a small impact from credit inquiries, but consolidation often improves credit scores over time by reducing utilization ratios and simplifying payment management."
+        },
+        {
+          question: "How much can I save with debt consolidation?",
+          answer: "Savings vary based on your current debt structure, but many businesses reduce monthly payments by 20-40% and save significantly on interest over the loan term."
+        },
+        {
+          question: "How long does the consolidation process take?",
+          answer: "The debt consolidation process typically takes 2-4 weeks from application to funding, including time for underwriting and paying off existing creditors."
+        },
+        {
+          question: "Can I consolidate if I have bad credit?",
+          answer: "Yes, debt consolidation options are available for businesses with poor credit. While rates may be higher, consolidation can still provide payment relief and help rebuild credit."
+        },
+        {
+          question: "What happens to my existing accounts after consolidation?",
+          answer: "Existing debt accounts are paid off and closed as part of the consolidation process. You'll then have one new loan with a single monthly payment instead of multiple payments."
+        }
+      ]}
     />
   );
 }
