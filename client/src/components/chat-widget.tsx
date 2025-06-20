@@ -250,7 +250,7 @@ export default function ChatWidget() {
             <input
               type="text"
               placeholder="Enter lender name (e.g., OnDeck)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               onKeyPress={(e) => {
                 if (e.key === 'Enter' && e.currentTarget.value.trim()) {
                   handleUserSelection(e.currentTarget.value.trim(), 'debtQ1');
@@ -279,7 +279,7 @@ export default function ChatWidget() {
             <input
               type="text"
               placeholder="Enter balance amount (e.g., $25,000)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               onKeyPress={(e) => {
                 if (e.key === 'Enter' && e.currentTarget.value.trim()) {
                   handleUserSelection(e.currentTarget.value.trim(), 'debtQ2');
