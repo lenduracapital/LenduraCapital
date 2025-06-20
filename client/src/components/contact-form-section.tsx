@@ -31,10 +31,9 @@ export default function ContactFormSection() {
                 lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
-                Fast, flexible,<br />
-                revenue-based capital<br />
-                solutions built for growing<br />
-                businesses.
+                Fast Revenue-Based Financing &<br />
+                Working Capital Loans for<br />
+                Growing Businesses
               </div>
             </div>
             
