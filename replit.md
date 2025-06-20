@@ -427,6 +427,12 @@ Changelog:
   * Enhanced "Information Needed" and "Minimum Qualifications" sections with mobile-friendly grid layouts
   * Updated minimum qualifications: 550+ credit score, 6+ months in business, $10K+ monthly revenue
   * Applied comprehensive mobile-first design principles throughout FundTek tailored section
+  * Changed "On Your Credit Score" to "On Your FICO" for more specific terminology
+- June 20, 2025. Mobile testimonials section optimization and statistics update (COMPLETE):
+  * Fixed mobile testimonials layout - hidden navigation arrow on mobile to prevent text blocking
+  * Removed decorative bubbles on mobile devices for cleaner visual design
+  * Enhanced responsive spacing, touch targets, and profile section layout
+  * Updated rolling statistics from "50+ specialists" to "100+ specialists" for stronger positioning
 ```
 
 ## User Preferences
