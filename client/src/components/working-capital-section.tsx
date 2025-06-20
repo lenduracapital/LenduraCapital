@@ -222,7 +222,7 @@ export default function WorkingCapitalSection() {
                       Get 1-2-1 advice from an in-house team of experts on funding
                     </h3>
                     <p className="text-gray-700 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
-                      Frustrated by funding delays? Connect one-on-one with a dedicated specialist to overcome cash flow challenges, cover equipment purchases, support growth initiatives, manage payroll, fund marketing efforts, or restock inventory. Get tailored financing solutions designed around your business needs — with speed, clarity, and reliability.
+                      Tired of funding delays? Partner with a dedicated specialist for fast working capital loans, equipment financing, payroll support, and tailored revenue-based funding to power your growth. Whether you need cash for marketing campaigns, inventory restocks, or expansion initiatives, we deliver same-day approval, transparent terms, and reliable service—so you can focus on running your business, not chasing capital.
                     </p>
                     
                     {/* Information Needed */}
