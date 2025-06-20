@@ -439,6 +439,7 @@ Changelog:
   * Fixed card title text overflow by shortening long service names
   * "Merchant Cash Advance" → "Cash Advance", "Invoice Factoring" → "Factoring"
   * "Digital Marketing" → "Marketing", "Credit Card Processing" → "Card Processing"
+  * "Equipment Financing" → "Equipment Loans" to prevent text wrapping
   * Reduced title font size and added line-clamp for better text fitting
 ```
 

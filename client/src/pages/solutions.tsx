@@ -48,7 +48,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop"
   },
   {
-    title: "Equipment Financing",
+    title: "Equipment Loans",
     icon: <Truck className="w-8 h-8" />,
     description: "Specialized financing for purchasing or leasing business equipment, machinery, and vehicles.",
     features: [
