@@ -331,8 +331,8 @@ Changelog:
   * Changed revenue question from annual to monthly with appropriate ranges (<$10K to $100K+)
   * Fixed Debt Consolidation questions to collect lender name and balance amount with text input fields
   * Updated monthly revenue ranges to <$100K, $100K-$250K, $250K-$500K, $500K-$1M, $1M+
-  * Removed Card Processing, CRE Lending, Marketing, and Mortgage Financing from product options
-  * Streamlined chat bot to focus on 9 core financing solutions for better user experience
+  * Removed Card Processing, CRE Lending, Marketing, Mortgage Financing, P.O. Financing, and Credit Services from product options
+  * Streamlined chat bot to focus on 7 core financing solutions for better user experience
   * Fixed conversation logic to properly handle existing application inquiries without product selection
   * Improved overall chat bot timing and user experience for publication readiness
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):

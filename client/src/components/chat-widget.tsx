@@ -128,9 +128,7 @@ export default function ChatWidget() {
           'Lines of Credit': "Smart thinking! Lines of credit provide flexibility for ongoing needs.",
           'SBA Loans': "Great option! SBA loans offer some of the best terms available.",
           'Equipment Financing': "Perfect! Equipment financing often provides 100% financing with great rates.",
-          'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital.",
-          'P.O. Financing': "Great for growth! This helps you fulfill large orders you couldn't otherwise handle.",
-          'Credit Services': "Wise choice! Improving your credit opens doors to better financing options."
+          'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital."
         };
         
         const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
@@ -222,8 +220,7 @@ export default function ChatWidget() {
       case 'product':
         const products = [
           'Term Loans', 'Merchant Cash Advance', 'Lines of Credit', 'Debt Consolidation',
-          'SBA Loans', 'Equipment Financing', 'Invoice Factoring', 'P.O. Financing',
-          'Credit Services'
+          'SBA Loans', 'Equipment Financing', 'Invoice Factoring'
         ];
         
         return (
