@@ -340,6 +340,7 @@ Changelog:
   * Updated working capital section expert advice text to emphasize same-day approval, transparent terms, and revenue-based funding
   * Changed "Dedicated specialists" to "Expert financing specialists who tailor solutions to your unique business and operational goals"
   * Updated "Industry leading rates" to "Competitive financing solutions" in Move Business Forward section
+  * Enhanced third card description to emphasize top-tier financing rates and market leadership
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
   * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
   * Replaced all window.location.href calls with proper wouter useLocation hook navigation

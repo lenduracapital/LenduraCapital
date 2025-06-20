@@ -44,8 +44,7 @@ export default function MoveBusinessForwardSection() {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Competitive financing solutions</h3>
               <p className="text-gray-600">
-                Access the best rates on a wide variety of financing options and premier business 
-                services to innovate, grow, and compete.
+                Access Top-Tier Financing Rates and Tailored Business Services Designed to Drive Innovation, Growth, and Market Leadership.
               </p>
             </div>
           </div>
