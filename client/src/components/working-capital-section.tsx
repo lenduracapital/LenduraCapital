@@ -164,7 +164,8 @@ export default function WorkingCapitalSection() {
                 <div className="relative text-center">
                   <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-emerald-500 rounded-full mb-4 md:mb-6">
                     <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-800 mb-2 md:mb-3">No Impact</h3>
