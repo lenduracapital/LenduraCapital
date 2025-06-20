@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { X, MessageCircle, Bot } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { X, MessageCircle, Bot, Send, Phone } from "lucide-react";
 
 interface ChatMessage {
   id: string;
@@ -22,12 +22,14 @@ interface ChatState {
 
 export default function ChatWidget() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
   const [chatState, setChatState] = useState<ChatState>({
     step: 'initial',
     responses: {}
   });
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Show widget after 3 seconds
   useEffect(() => {
@@ -37,27 +39,48 @@ export default function ChatWidget() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   // Initialize chat with welcome message
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const welcomeMessage: ChatMessage = {
-        id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        text: "Hi there! Looking to speak to a FundTek representative? I can help! Let us know what kind of support you are looking for and I will route your chat to the appropriate department!",
-        sender: 'bot',
-        timestamp: new Date()
-      };
-      setMessages([welcomeMessage]);
+      setTimeout(() => {
+        const welcomeMessage: ChatMessage = {
+          id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business. What brings you to FundTek today?",
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages([welcomeMessage]);
+      }, 500);
     }
   }, [isOpen, messages.length]);
 
-  const addMessage = (text: string, sender: 'bot' | 'user') => {
-    const newMessage: ChatMessage = {
-      id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      text,
-      sender,
-      timestamp: new Date()
-    };
-    setMessages(prev => [...prev, newMessage]);
+  const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
+    if (delay > 0) {
+      setIsTyping(true);
+      setTimeout(() => {
+        setIsTyping(false);
+        const newMessage: ChatMessage = {
+          id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          text,
+          sender,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, newMessage]);
+      }, delay);
+    } else {
+      const newMessage: ChatMessage = {
+        id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        text,
+        sender,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, newMessage]);
+    }
   };
 
   const handleUserSelection = (selection: string, responseKey: keyof ChatState['responses']) => {
@@ -65,21 +88,47 @@ export default function ChatWidget() {
     
     const newResponses = { ...chatState.responses, [responseKey]: selection };
     
-    // Progress through conversation flow
+    // Progress through conversation flow with personalized responses
     if (chatState.step === 'initial') {
-      addMessage("When are you looking to secure funding?", 'bot');
+      if (selection.includes('financing')) {
+        addMessage("Great! Let me ask a few quick questions to match you with the right specialist.", 'bot', 1000);
+        addMessage("How soon do you need the funding?", 'bot', 2500);
+      } else if (selection.includes('information')) {
+        addMessage("Perfect! I'd be happy to help you learn about our financing options.", 'bot', 1000);
+        addMessage("What's your timeline for exploring funding?", 'bot', 2500);
+      }
       setChatState({ step: 'timeline', responses: newResponses });
     } else if (chatState.step === 'timeline') {
-      addMessage("What type of funding product are you interested in?", 'bot');
+      if (selection === 'ASAP') {
+        addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1000);
+      } else if (selection === 'Within 30 days') {
+        addMessage("Perfect timing! That gives us room to find the best solution for you.", 'bot', 1000);
+      } else {
+        addMessage("Smart to research early! Knowledge is power when it comes to financing.", 'bot', 1000);
+      }
+      addMessage("Which type of funding best describes what you're looking for?", 'bot', 2500);
       setChatState({ step: 'product', responses: newResponses });
     } else if (chatState.step === 'product' && selection === 'Debt Consolidation') {
-      addMessage("Please provide your current lender name and balance:", 'bot');
+      addMessage("Debt consolidation can really improve cash flow! Let me gather some details.", 'bot', 1000);
+      addMessage("Can you share your current lender name and approximate balance?", 'bot', 2500);
       setChatState({ step: 'consolidation', responses: newResponses });
     } else if (chatState.step === 'product') {
-      addMessage("What is your business's annual revenue?", 'bot');
+      const productResponses = {
+        'Term Loans': "Excellent choice! Term loans offer predictable payments and competitive rates.",
+        'Lines of Credit': "Smart thinking! Lines of credit provide flexibility for ongoing needs.",
+        'SBA Loans': "Great option! SBA loans offer some of the best terms available.",
+        'Equipment Financing': "Perfect! Equipment financing often provides 100% financing with great rates.",
+        'Merchant Cash Advance': "Good for quick access to capital! These fund very quickly.",
+        'Invoice Factoring': "Ideal for improving cash flow! Turn your invoices into immediate capital."
+      };
+      
+      const response = productResponses[selection as keyof typeof productResponses] || "That's a solid financing option!";
+      addMessage(response, 'bot', 1000);
+      addMessage("What's your business's annual revenue range?", 'bot', 2500);
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue' || chatState.step === 'consolidation') {
-      addMessage("Thank you! I'll connect you with a specialist right away. Please expect a call within 24 hours.", 'bot');
+      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1000);
+      addMessage("A FundTek expert will call you within 24 hours. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 3000);
       setChatState({ step: 'complete', responses: newResponses });
       
       // Send data to backend
@@ -113,10 +162,22 @@ export default function ChatWidget() {
         return (
           <div className="flex flex-col gap-2 mt-3">
             <button
-              onClick={() => handleUserSelection("I am a business looking for financing", 'userType')}
+              onClick={() => handleUserSelection("I need financing for my business", 'userType')}
               className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
             >
-              I am a business looking for financing
+              💰 I need financing for my business
+            </button>
+            <button
+              onClick={() => handleUserSelection("I want information about your services", 'userType')}
+              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+            >
+              📋 I want information about your services
+            </button>
+            <button
+              onClick={() => handleUserSelection("I have questions about an existing application", 'userType')}
+              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+            >
+              📞 I have questions about an existing application
             </button>
           </div>
         );
@@ -204,6 +265,31 @@ export default function ChatWidget() {
           </div>
         );
       
+      case 'complete':
+        return (
+          <div className="flex flex-col gap-3 mt-4 p-4 bg-gradient-to-r from-[#85abe4]/10 to-blue-50 rounded-lg border border-[#85abe4]/20">
+            <div className="text-center text-gray-700 text-sm font-medium mb-2">
+              Need immediate assistance?
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button
+                onClick={() => window.open('tel:+13053074658', '_self')}
+                className="flex items-center justify-center gap-2 bg-[#85abe4] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                Call (305) 307-4658
+              </button>
+              <button
+                onClick={() => window.open('https://form.jotform.com/251417715331047', '_blank')}
+                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#85abe4] border-2 border-[#85abe4] px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+              >
+                <Send className="w-4 h-4" />
+                Apply Online
+              </button>
+            </div>
+          </div>
+        );
+      
       default:
         return null;
     }
@@ -263,17 +349,31 @@ export default function ChatWidget() {
                     key={message.id}
                     className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <div className={`max-w-[80%] p-3 rounded-lg ${
+                    <div className={`max-w-[80%] p-3 rounded-lg shadow-sm ${
                       message.sender === 'user'
-                        ? 'bg-[#85abe4] text-white'
-                        : 'bg-white text-gray-800 border'
+                        ? 'bg-[#85abe4] text-white rounded-br-sm'
+                        : 'bg-white text-gray-800 border rounded-bl-sm'
                     }`}>
                       {message.text}
                     </div>
                   </div>
                 ))}
+                
+                {/* Typing Indicator */}
+                {isTyping && (
+                  <div className="flex justify-start">
+                    <div className="bg-white text-gray-800 border p-3 rounded-lg rounded-bl-sm shadow-sm">
+                      <div className="flex space-x-1">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               {renderButtons()}
+              <div ref={messagesEndRef} />
             </div>
           </div>
         </div>
