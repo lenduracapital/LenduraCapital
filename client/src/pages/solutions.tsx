@@ -153,7 +153,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
   },
   {
-    title: "Home Loans",
+    title: "Mortgage Loans",
     icon: <Building className="w-8 h-8" />,
     description: "Residential and commercial mortgage solutions with competitive rates and flexible terms for property purchases and refinancing.",
     features: [

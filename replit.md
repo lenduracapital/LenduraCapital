@@ -441,6 +441,11 @@ Changelog:
   * "Digital Marketing" → "Marketing", "Credit Card Processing" → "Card Processing"
   * "Equipment Financing" → "Equipment Loans" to prevent text wrapping
   * Reduced title font size and added line-clamp for better text fitting
+- June 20, 2025. Added two new financing solutions to complete Solutions page (COMPLETE):
+  * Added "CRE Lending" (Commercial Real Estate Lending) with comprehensive detail page
+  * Added "Mortgage Loans" (Mortgage Financing) with complete PMF-style layout
+  * Created full routing integration for both new solution pages
+  * Solutions page now has 12 total financing options filling the complete grid
 ```
 
 ## User Preferences

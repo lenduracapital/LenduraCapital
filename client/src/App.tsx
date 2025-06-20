@@ -62,6 +62,8 @@ function Router() {
         <Route path="/solutions/credit-servicing" component={CreditServicing} />
         <Route path="/solutions/seo-web-development" component={SEOWebDevelopment} />
         <Route path="/solutions/credit-card-processing" component={CreditCardProcessing} />
+        <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
+        <Route path="/solutions/mortgage-financing" component={MortgageFinancing} />
         <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
         <Route path="/who-we-fund" component={WhoWeFund} />
         <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
