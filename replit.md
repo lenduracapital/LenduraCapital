@@ -434,7 +434,7 @@ Changelog:
   * Enhanced responsive spacing, touch targets, and profile section layout
   * Updated rolling statistics from "50+ specialists" to "100+ specialists" for stronger positioning
   * Replaced team member photos with professional initials in signature blue circles (MK, GG)
-  * Updated checkmark icon to modern circular design for trust signals section
+  * Changed checkmark icon to team/people icon in "Move your Business Forward" section for "Dedicated specialists"
 ```
 
 ## User Preferences
