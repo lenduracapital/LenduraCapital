@@ -125,15 +125,19 @@ export default function Footer() {
           <p className="text-black text-sm mb-4">
             Copyright 2025 FundTek Capital Group. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {legalPages.map((page, index) => (
-              <button
-                key={index}
-                onClick={() => handleNavigation(page.href)}
-                className="hover:opacity-75 transition-colors text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
-              >
-                {page.name}
-              </button>
+              <div key={index} className="flex items-center">
+                <button
+                  onClick={() => handleNavigation(page.href)}
+                  className="hover:opacity-75 transition-colors text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
+                >
+                  {page.name}
+                </button>
+                {index < legalPages.length - 1 && (
+                  <span className="ml-4 md:ml-6 text-black text-xs md:text-sm">|</span>
+                )}
+              </div>
             ))}
           </div>
         </div>

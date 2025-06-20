@@ -450,7 +450,7 @@ Changelog:
 - June 20, 2025. Team circle flip animations and footer reorganization (COMPLETE):
   * Added scroll-triggered 3D flip animations to team member circles (MK/GG) with staggered timing
   * Implemented perspective transforms with front side showing initials, back side showing team icon
-  * Moved legal links (Terms & Conditions, Privacy Policy, Cookies Policy) under copyright text in footer
+  * Moved legal links (Terms & Conditions, Privacy Policy, Cookies Policy) under copyright text in footer with vertical line separators
   * Enhanced footer structure with separated legal compliance section for better organization
 ```
 
