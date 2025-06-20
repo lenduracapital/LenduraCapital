@@ -338,6 +338,7 @@ Changelog:
   * Updated contact form section text to "Fast Revenue-Based Financing & Working Capital Loans for Growing Businesses"
   * Changed bottom text to "A Funding Partner Focused on Your Business Growth & Cash Flow"
   * Updated working capital section expert advice text to emphasize same-day approval, transparent terms, and revenue-based funding
+  * Changed "Dedicated specialists" to "Expert financing specialists who tailor solutions to your unique business and operational goals"
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
   * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
   * Replaced all window.location.href calls with proper wouter useLocation hook navigation
