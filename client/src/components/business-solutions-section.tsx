@@ -46,7 +46,7 @@ export default function BusinessSolutionsSection() {
               Custom Business Financing Solutions
             </h2>
             <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
-              FundTek understands how a loan at the right time can make a huge difference in the success of your business. To that end, we've made it fast and easy to access financing solutions completely designed around your small business needs.
+              At FundTek, we know timely financing can make or break your business. That's why we deliver fast, flexible working capital and revenue-based loans tailored to your small business—so you get funding when you need it most.
             </p>
             
             <p className="text-gray-700 mb-6">We actively help small businesses just like yours with:</p>

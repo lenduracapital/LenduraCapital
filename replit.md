@@ -342,6 +342,7 @@ Changelog:
   * Updated "Industry leading rates" to "Competitive financing solutions" in Move Business Forward section
   * Enhanced third card description to emphasize top-tier financing rates and market leadership
   * Fixed text alignment issues in Move Business Forward section with flexbox equal-height containers and increased title minimum height to 5rem
+  * Updated Custom Business Financing Solutions text to emphasize timely financing and revenue-based loans
 - June 17, 2025. Complete client-side routing audit and fixes (COMPLETE):
   * Fixed critical SPA routing issue where buttons stopped working when opened in new tabs
   * Replaced all window.location.href calls with proper wouter useLocation hook navigation
