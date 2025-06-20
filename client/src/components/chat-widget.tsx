@@ -94,11 +94,19 @@ export default function ChatWidget() {
       if (selection.includes('financing')) {
         addMessage("Great! Let me ask a few quick questions to match you with the right specialist.", 'bot', 1500);
         addMessage("How soon do you need the funding?", 'bot', 4000);
+        setChatState({ step: 'timeline', responses: newResponses });
       } else if (selection.includes('information')) {
         addMessage("Perfect! I'd be happy to help you learn about our financing options.", 'bot', 1500);
         addMessage("What's your timeline for exploring funding?", 'bot', 4000);
+        setChatState({ step: 'timeline', responses: newResponses });
+      } else if (selection.includes('existing application')) {
+        addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
+        addMessage("A FundTek expert will call you within 2 hours to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
+        setChatState({ step: 'complete', responses: newResponses });
+        
+        // Send application inquiry to backend
+        sendChatData({ ...newResponses, userType: selection });
       }
-      setChatState({ step: 'timeline', responses: newResponses });
     } else if (chatState.step === 'timeline') {
       if (selection === 'ASAP') {
         addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1500);
