@@ -452,6 +452,7 @@ Changelog:
   * Implemented perspective transforms with front side showing initials, back side showing team icon
   * Moved legal links (Terms & Conditions, Privacy Policy, Cookies Policy) under copyright text in footer with vertical line separators
   * Enhanced footer structure with separated legal compliance section for better organization
+  * Added CRE Lending and Mortgage Loans links under FAQ section in footer navigation
 ```
 
 ## User Preferences

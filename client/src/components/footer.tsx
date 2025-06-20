@@ -24,7 +24,9 @@ const fundTekPages = [
   { name: "Who We Fund", href: "/who-we-fund" },
   { name: "Contact Us", href: "/contact" },
   { name: "Testimonials", href: "/more-testimonials" },
-  { name: "FAQ", href: "/faq" }
+  { name: "FAQ", href: "/faq" },
+  { name: "CRE Lending", href: "/solutions/commercial-real-estate-lending" },
+  { name: "Mortgage Loans", href: "/solutions/mortgage-financing" }
 ];
 
 const legalPages = [
