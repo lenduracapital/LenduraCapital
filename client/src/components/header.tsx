@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-const logoPath = "/fundtek-logo.svg";
+const logoPath = "/image_1750273835191.webp";
 
 interface HeaderProps {
   transparent?: boolean;
