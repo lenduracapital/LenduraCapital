@@ -530,6 +530,7 @@ Changelog:
   * Maintained Instagram icon and signature blue color scheme
   * Added clickable URLs: Instagram (fundtekcapitalgroup), X (fundtekcapital), TikTok (fundtekcapitalgroup)
   * All social links open in new tabs with security attributes
+  * Added "Leave us a Review" section with clickable Yelp link below social media icons
 ```
 
 ## User Preferences
