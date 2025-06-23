@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { performanceMonitor } from "./utils/performance-monitor";
+import { performanceMonitor } from "./lib/performance-monitor";
 
 // Initialize performance monitoring
 performanceMonitor;
