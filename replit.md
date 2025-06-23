@@ -13,3 +13,12 @@
 5. **Troubleshooting:**  
    - Missing `.env`: copy `.env.example` to `.env` and fill in secrets  
    - Postgres uninitialized: run `npm run db:push`
+   - Webview "refused to connect": Try refreshing browser/webview or hard reload (Ctrl+F5)
+
+## Recent Changes (June 23, 2025)
+- Fixed React hook call errors by removing "use client" directives from UI components
+- Simplified App.tsx to resolve routing/lazy loading crashes
+- Added static file serving for video and logo assets
+- Server confirmed working correctly on port 5000 with proper HTTP responses
+- Logo restored to original file: /image_1750273835191.webp
+- Video serving with correct MP4 headers from public directory
