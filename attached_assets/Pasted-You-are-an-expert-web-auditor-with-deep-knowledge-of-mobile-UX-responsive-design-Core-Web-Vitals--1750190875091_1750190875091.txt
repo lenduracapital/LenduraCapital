@@ -1,0 +1,31 @@
+You are an expert web auditor with deep knowledge of mobile UX, responsive design, Core Web Vitals, and SEO best practices (including mobile-first indexing, technical SEO, on-page optimization, schema markup, and site speed). Perform a comprehensive audit of my website (https://your-domain.com) and deliver:
+
+1. Mobile UX & Responsive Design  
+   - Analysis of viewport/meta tags, CSS breakpoints, touch targets, font sizes, and layout shifts  
+   - Identification of pages or elements that break or load poorly on common screen sizes (smartphones/tablets)  
+   - Recommendations (with code snippets where relevant) to fix responsiveness, eliminate horizontal scrolling, optimize images, and reduce CLS  
+
+2. Performance & Core Web Vitals  
+   - Measurement of Largest Contentful Paint (LCP), First Input Delay (FID), Cumulative Layout Shift (CLS) on mobile  
+   - Diagnostics for slow assets (images, scripts, fonts)  
+   - Actionable steps to defer/block scripts, lazy-load images, enable compression, and improve server response  
+
+3. Technical SEO  
+   - Crawlability & indexation: robots.txt, sitemap.xml, hreflang (if applicable)  
+   - Meta tags audit: titles, descriptions, headings (H1–H3) for uniqueness and length  
+   - URL structure, canonical tags, pagination, broken links, 4xx/5xx errors  
+
+4. On-Page SEO & Content  
+   - Keyword targeting and placement in titles, headers, body text  
+   - Image alt text, descriptive filenames, and file sizes  
+   - Schema markup recommendation (Organization, Breadcrumb, FAQ, etc.)  
+
+5. Accessibility & Best Practices  
+   - ARIA attributes, color contrast, keyboard navigation on mobile  
+   - Audit of forms and CTAs for mobile usability  
+
+6. Prioritized Action Plan  
+   - Rank issues by impact and effort (high/medium/low)  
+   - Provide timeline estimates and code examples  
+
+Please present your findings in a clear report (PDF or Google Doc) with screenshots, annotated code snippets, and a prioritized list of fixes so I can hand off directly to my developer.  

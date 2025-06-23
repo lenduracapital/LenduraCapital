@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-const videoPath = "/hero-video.mp4";
-const newLogoPath = "/image_1750273835191.webp";
+import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
+import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
@@ -69,10 +69,9 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
-          poster="/image_1750273835191.webp"
-          onLoadStart={() => setVideoLoaded(true)}
-          onCanPlayThrough={() => setVideoLoaded(true)}
-          onError={() => setVideoLoaded(false)}
+          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23000'/%3E%3C/svg%3E"
+          onLoadStart={() => {}}
+          onCanPlayThrough={() => {}}
           aria-label="FundTek Capital Group business financing solutions showcase"
           style={{
             transform: 'translateZ(0)',
@@ -81,7 +80,8 @@ export default function HeroSection() {
             contain: 'layout style paint'
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={videoPath} type="video/mp4" />
+
           Your browser does not support the video tag.
         </video>
       ) : (

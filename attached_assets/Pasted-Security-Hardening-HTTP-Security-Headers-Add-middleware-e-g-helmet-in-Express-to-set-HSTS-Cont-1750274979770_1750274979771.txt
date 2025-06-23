@@ -1,0 +1,73 @@
+Security Hardening
+
+HTTP Security Headers: Add middleware (e.g. helmet in Express) to set HSTS, Content Security Policy, X-Frame-Options and others.
+
+SSL Certificate Renewal: Automate your Let’s Encrypt or Cloudflare cert renewals—don’t let HTTPS lapse.
+
+Error Monitoring & Logging
+
+Integrate a real-time error tracker (Sentry or Logflare) so you catch crashes or JS exceptions in production.
+
+Persist logs externally (e.g. push to Papertrail or a hosted ELK stack) rather than rely on Replit’s ephemeral console.
+
+Backup & Data Persistence
+
+Offload any uploads or dynamic data to a managed DB (Postgres on ElephantSQL/Airtable/Replit DB) and snapshot it nightly.
+
+Mirror your repo to GitHub so code changes aren’t locked into Replit’s editor.
+
+Automated Testing & CI/CD
+
+Hook up GitHub Actions (or Replit’s “Run on push”) to run linting (eslint/stylelint), unit tests, link-checker, and deploy only on successful builds.
+
+Maintain separate “staging” and “production” branches—never deploy untested code directly.
+
+Advanced SEO & Markup
+
+Structured Data: Add JSON-LD for Breadcrumb, Organization, FAQ, and Product schemas to get rich snippets.
+
+Open Graph & Twitter Cards: Populate <meta property="og:…"> and <meta name="twitter:…"> so social links look sharp.
+
+Canonical Tags: Avoid duplicate-content penalties by explicitly declaring <link rel="canonical"> on every page.
+
+Progressive Web App (PWA) Capabilities
+
+Ship a manifest.json and service worker so your site can be “installed” and cache assets offline.
+
+This improves repeat-visit speed (and Core Web Vitals) and gives you that App-like edge in SERPs.
+
+Image & Asset Optimization
+
+Use a build step (e.g., imagemin) to losslessly compress images.
+
+Serve images via <picture> with WebP fallbacks and add loading="lazy" to defray mobile bandwidth.
+
+Accessibility Compliance
+
+Run automated checks (axe-core or Pa11y) in your pipeline and enforce zero critical WCAG 2.1 AA violations.
+
+Keyboard navigation, ARIA roles, and color-contrast thresholds—all must pass or the build fails.
+
+Performance Budget & Regression Alerts
+
+Define strict budget thresholds (e.g., CSS < 100 KB, JS < 200 KB) and block merges that exceed them.
+
+Set up Lighthouse CI to run on every deploy and email you if any metric dips below your target.
+
+Real-User Monitoring (RUM)
+
+Sprinkle a lightweight RUM script (e.g. Google’s web-vitals or SpeedCurve’s RUM snippet) to capture actual LCP, FID, and CLS from real visitors.
+
+Use that data to catch performance cliffs you’d never see in lab tests.
+
+Domain & Ownership Automation
+
+Automate GSC domain verification via DNS-provider APIs (Cloudflare DNS records) so you don’t manually reverify.
+
+Auto-submit updated sitemaps and “request indexing” for changed URLs via the Search Console API.
+
+Cache Invalidation & CDNs
+
+If you’re proxying through Cloudflare (or Fastly), script cache purges on every deploy so visitors always see your latest changes.
+
+Leverage “cache-control: immutable” for fingerprinted assets so repeat visitors hit local cache.

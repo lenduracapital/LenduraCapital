@@ -1,7 +1,10 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-// Performance monitoring temporarily disabled
+import { performanceMonitor } from "./utils/performance-monitor";
+
+// Initialize performance monitoring
+performanceMonitor;
 
 // Service Worker registration handled by external script
 

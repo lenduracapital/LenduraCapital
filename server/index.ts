@@ -1,6 +1,4 @@
 import express, { type Request, Response, NextFunction } from "express";
-import compression from "compression";
-import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { 
@@ -13,18 +11,6 @@ import {
 } from "./production-security";
 
 const app = express();
-
-// Enable gzip compression for all responses
-app.use(compression({
-  level: 6,
-  threshold: 1024,
-  filter: (req, res) => {
-    if (req.headers['x-no-compression']) {
-      return false;
-    }
-    return compression.filter(req, res);
-  }
-}));
 
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
@@ -41,18 +27,6 @@ configureHealthMonitoring(app);
 
 // Configure SEO robots.txt
 configureRobotsTxt(app);
-
-// Serve static files from public directory BEFORE other middleware
-app.use(express.static(path.resolve(process.cwd(), 'public'), {
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith('.mp4')) {
-      res.set('Content-Type', 'video/mp4');
-    }
-    if (filePath.endsWith('.webp')) {
-      res.set('Content-Type', 'image/webp');
-    }
-  }
-}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -1,0 +1,99 @@
+You already have index.html, style.css and app.js in the repo.
+Follow the sprint order EXACTLY.  Reply to each sprint with only:
+✅ Done  |  ❌ Blocked (why)  |  🔄 In-Progress (ETA)  + the Git diff.
+
+────────────────────────────
+SPRINT #1 – NAVIGATION CLEAN-UP
+────────────────────────────
+• In index.html replace the entire <nav> list with ONLY these pages:
+  Home  |  Solutions  |  Who We Fund  |  Apply Now  |  Resources  |  Contact
+• No extra items, no duplicated pages.  
+• Keep the invisible-until-scroll behaviour exactly as coded.
+
+Success criteria
+1. HTML validates (htmlhint passes).
+2. lychee link checker returns 0 broken links.
+3. Menu renders the six pages only.
+
+────────────────────────────
+SPRINT #2 – EMBED FORM IN “WORKING CAPITAL” SECTION
+────────────────────────────
+• Locate <section id="working-capital"> in index.html.
+• REMOVE any stub form the scaffold created.
+• INSERT this responsive embed (replace FORM_ID later):
+    <div class="mx-auto max-w-xl">
+      <script
+        type="text/javascript"
+        src="https://form.jotform.com/jsform/FORM_ID">
+      </script>
+    </div>
+• Add Tailwind class “max-w-xl” so the form fits the column and doesn’t spawn
+  a new page.
+
+Success criteria
+1. Only one form embed exists in the DOM.
+2. Section stays within the page flow under “Working Capital” header.
+
+────────────────────────────
+SPRINT #3 – FILL OUT EMPTY HOMEPAGE SECTIONS
+────────────────────────────
+A. Directly under the hero video insert the stat banner below  
+   (use Tailwind utility classes, no inline CSS):
+
+   <section class="bg-gray-50 py-16">
+     <div class="text-center space-y-4">
+       <h1 class="text-4xl md:text-5xl font-extrabold">
+         Accelerate the growth of your business
+       </h1>
+       <p class="text-lg text-gray-600">
+         Small Business Loans · Merchant Cash Advances · Lines of Credit
+       </p>
+     </div>
+
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-5xl mx-auto">
+       <div class="text-center">
+         <p class="text-5xl font-black">50+</p>
+         <p class="text-indigo-600 font-semibold">Specialists</p>
+         <p class="text-gray-500 mt-2">Experienced funding experts</p>
+       </div>
+       <div class="text-center">
+         <p class="text-5xl font-black">5+</p>
+         <p class="text-indigo-600 font-semibold">Financing options</p>
+         <p class="text-gray-500 mt-2">Multiple capital products</p>
+       </div>
+       <div class="text-center">
+         <p class="text-5xl font-black">$20M</p>
+         <p class="text-indigo-600 font-semibold">Funding up to</p>
+         <p class="text-gray-500 mt-2">Unsecured capital available</p>
+       </div>
+       <div class="text-center">
+         <p class="text-5xl font-black">48</p>
+         <p class="text-indigo-600 font-semibold">Hours</p>
+         <p class="text-gray-500 mt-2">Typical turnaround</p>
+       </div>
+     </div>
+   </section>
+
+B. Add three more sections (empty wrappers now, content later):
+   • “Why FundTek”  – id="why"  
+   • “How it Works” – id="process"  
+   • “Testimonials” – id="testimonials"  
+
+   Each should be a <section class="py-20 bg-white"> with an <h2> placeholder.
+
+Success criteria
+1. Home page length comparable to pmfus.com (≈4 folds).
+2. No new CSS files—Tailwind utilities only.
+3. Site still scores ≥90 Performance on lighthouse.
+
+────────────────────────────
+AFTER ALL SPRINTS
+────────────────────────────
+Run:
+  npm run dev    # to verify visually
+  npx lychee ./public
+
+Commit messages
+  feat(nav): clean up menu
+  feat(form): embed working-capital jotform
+  feat(home): add stat banner & section stubs
