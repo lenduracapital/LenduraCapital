@@ -59,9 +59,9 @@ export default function ContactFormSection() {
               width="100%"
               height="100%"
               frameBorder="0"
-              scrolling="yes"
+              scrolling="no"
               title="Get Working Capital Today"
-              className="w-full h-[500px] lg:h-[850px] border-0 rounded-lg"
+              className="w-full h-[500px] lg:h-[750px] border-0 rounded-lg"
               loading="lazy"
             ></iframe>
           </div>
