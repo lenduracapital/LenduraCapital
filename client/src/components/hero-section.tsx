@@ -4,7 +4,7 @@ const videoPath = "/video/optimized/hero-video-720p.mp4";
 const newLogoPath = "/image_1750273835191.webp";
 
 export default function HeroSection() {
-  const [videoLoaded, setVideoLoaded] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoQuality, setVideoQuality] = useState('720p');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -70,8 +70,9 @@ export default function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
           poster="/video/optimized/hero-poster.webp"
-          onLoadStart={() => {}}
-          onCanPlayThrough={() => {}}
+          onLoadStart={() => setVideoLoaded(true)}
+          onCanPlayThrough={() => setVideoLoaded(true)}
+          onError={() => setVideoLoaded(false)}
           aria-label="FundTek Capital Group business financing solutions showcase"
           style={{
             transform: 'translateZ(0)',
@@ -88,7 +89,7 @@ export default function HeroSection() {
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/video/optimized/hero-poster.webp')"
           }}
         />
       )}
