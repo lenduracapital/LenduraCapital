@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
   <rect width="48" height="48" fill="#85abe4" rx="8"/>
-  <text x="10" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Fund</text>
-  <text x="36" y="32" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="end">Tek</text>
+  <text x="24" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">FT</text>
 </svg>

@@ -578,7 +578,7 @@ Changelog:
   * Both header and footer logos now display with authentic brand colors without filter distortion
 - June 23, 2025. Favicon brand color update (COMPLETE):
   * Updated favicon to use signature blue (#85abe4) for background box
-  * Applied white text for both "Fund" and "Tek" for optimal visibility
+  * Simplified to large, clear "FT" text in white (font-size 20) for optimal browser tab visibility
   * Favicon only modified - no other website logos touched per user requirements
 ```
 
