@@ -128,19 +128,7 @@ textarea:focus {
   outline: none !important;
 }
 
-/* Mobile form optimizations */
-@media (max-width: 768px) {
-  .mobile-form {
-    transform: scale(0.6) !important;
-    transform-origin: top left !important;
-  }
-  
-  .jotform-container {
-    padding: 16px !important;
-    margin: 0 !important;
-    overflow-x: hidden;
-  }
-}
+
 
 /* Enhanced touch targets for mobile */
 button, .btn, .touch-target {
