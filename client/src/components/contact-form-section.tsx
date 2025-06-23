@@ -4,15 +4,17 @@ export default function ContactFormSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <div className="flex flex-col justify-between h-[600px] md:h-[700px] lg:h-[800px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
-            {/* Blue box at the TOP */}
+            {/* White box with blue text at the TOP */}
             <div style={{ 
-              backgroundColor: '#85abe4', 
-              borderRadius: '8px'
+              backgroundColor: 'white', 
+              borderRadius: '8px',
+              border: '2px solid #85abe4',
+              boxShadow: '0 4px 6px rgba(133, 171, 228, 0.1)'
             }} className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 p-4 md:p-6 lg:p-8">
               <div style={{
-                color: 'white',
+                color: '#85abe4',
                 fontSize: 'clamp(16px, 3.5vw, 32px)',
-                fontWeight: 'normal',
+                fontWeight: '600',
                 lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>

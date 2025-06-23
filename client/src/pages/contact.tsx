@@ -71,11 +71,11 @@ export default function Contact() {
               </div>
 
               {/* Quick Response Promise */}
-              <div className="bg-white p-6 rounded-lg border-2" style={{ borderColor: '#85abe4' }}>
-                <h3 style={{ color: '#85abe4' }} className="font-semibold text-lg mb-2">
+              <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
+                <h3 className="text-white font-semibold text-lg mb-2">
                   Same-Day Response Guarantee
                 </h3>
-                <p style={{ color: '#85abe4' }}>
+                <p className="text-white">
                   Get funding decisions within 24 hours. Our specialists are standing by to provide immediate assistance with your business financing needs.
                 </p>
               </div>
