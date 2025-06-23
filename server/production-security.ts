@@ -4,6 +4,11 @@ import type { Express } from 'express';
 
 // Production-grade security middleware
 export function configureProductionSecurity(app: Express) {
+  // Skip security headers in development to allow browser preview
+  if (process.env.NODE_ENV === 'development') {
+    return;
+  }
+  
   // Advanced security headers with Helmet
   app.use(helmet({
     contentSecurityPolicy: {
@@ -87,6 +92,11 @@ export function configureProductionSecurity(app: Express) {
 
 // API rate limiting for DDoS protection
 export function configureApiRateLimit(app: Express) {
+  // Skip rate limiting in development
+  if (process.env.NODE_ENV === 'development') {
+    return;
+  }
+  
   // General API rate limiting
   const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
