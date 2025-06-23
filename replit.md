@@ -582,7 +582,7 @@ Changelog:
   * Added stroke outline for enhanced definition and readability in browser tabs
   * Removed white background box per user request for cleaner minimal design
   * Created new favicon file with cache-busting versioning for immediate browser updates
-  * Final result: large, bold signature blue "FCG" text with stroke outline for optimal visibility
+  * Final result: large, bold signature blue "FT" text with stroke outline for optimal visibility
   * Favicon only modified - no other website logos touched per user requirements
 ```
 
