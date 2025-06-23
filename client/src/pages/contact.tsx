@@ -148,17 +148,18 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ backgroundColor: '#85abe4' }}>
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl font-bold mb-6" style={{ color: '#85abe4' }}>
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-white mb-8">
+          <p className="text-xl mb-8" style={{ color: '#85abe4' }}>
             Don't wait - secure the funding your business needs today.
           </p>
           <button 
             onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-            className="bg-black text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors"
+            className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:opacity-90 transition-colors"
+            style={{ backgroundColor: '#85abe4' }}
           >
             Apply for Funding Now
           </button>
