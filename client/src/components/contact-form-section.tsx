@@ -61,11 +61,11 @@ export default function ContactFormSection() {
               frameBorder="0"
               scrolling="no"
               title="Business Funding Application Form - Step 1 of 2"
-              className="w-full h-[800px] border-0"
+              className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0"
               style={{ 
                 border: 'none',
                 background: 'transparent',
-                transform: 'scale(0.9)',
+                transform: 'scale(0.75)',
                 transformOrigin: 'top left'
               }}
               loading="lazy"
