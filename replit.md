@@ -516,6 +516,11 @@ Changelog:
   * Optimized responsive form heights across all devices (800px consistent)
   * Eliminated white space issues on Surface Duo and tablet views
   * Restored clean, simple iframe setup without CSS conflicts for optimal user experience
+- June 23, 2025. Contact form height adjustment (IN PROGRESS):
+  * User requires desktop form to display complete form in single view without scrolling
+  * Mobile form should have scrolling capability within container
+  * Multiple attempts to balance mobile/desktop display requirements
+  * Current challenge: finding optimal height that works for both device types
 ```
 
 ## User Preferences
