@@ -143,56 +143,7 @@ button, .btn, .touch-target {
   line-height: 1.4 !important;
 }
 
-/* Mobile-first form optimizations for CFG-style clean layout */
-.mobile-optimized-form {
-  width: 100% !important;
-}
 
-/* Mobile form styling for clean responsive layout */
-@media (max-width: 768px) {
-  .form-container {
-    border-radius: 12px !important;
-    overflow: hidden !important;
-  }
-  
-  .form-container iframe {
-    transform: scale(0.95) !important;
-    transform-origin: top center !important;
-    border-radius: 8px !important;
-  }
-  
-  /* Enhanced mobile form container */
-  .mobile-optimized-form {
-    padding: 0 !important;
-    margin: 0 !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
-  }
-}
-
-/* iPhone and Android responsive optimizations */
-@media (max-width: 414px) {
-  .form-container {
-    padding: 0 8px !important;
-    margin: 0 auto !important;
-  }
-  
-  .mobile-optimized-form {
-    transform: scale(0.92) !important;
-    transform-origin: top center !important;
-  }
-}
-
-/* iPhone 375px width optimization */
-@media (max-width: 375px) {
-  .mobile-optimized-form {
-    transform: scale(0.88) !important;
-    transform-origin: top center !important;
-  }
-  
-  .form-container {
-    padding: 0 4px !important;
-  }
-}
 
 /* Iframe responsive container */
 .iframe-responsive {

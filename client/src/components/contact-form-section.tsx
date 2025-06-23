@@ -53,27 +53,22 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-4 md:p-6">
-            <h3 className="text-xl md:text-2xl font-bold text-center mb-8 text-gray-800">
-              Get Working Capital Today
-            </h3>
-            <div className="form-container overflow-y-auto md:overflow-y-visible h-[70vh] md:h-auto">
-              <iframe
-                src="https://form.jotform.com/251581480799066"
-                width="100%"
-                height="800"
-                frameBorder="0"
-                scrolling="no"
-                title="Business Funding Application Form - Step 1 of 2"
-                className="w-full h-[800px] border-0 mobile-optimized-form"
-                style={{ 
-                  border: 'none',
-                  background: 'transparent'
-                }}
-                loading="lazy"
-                sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
-              ></iframe>
-            </div>
+          <div className="w-full max-w-2xl">
+            <iframe
+              src="https://form.jotform.com/251581480799066"
+              width="100%"
+              height="800"
+              frameBorder="0"
+              scrolling="no"
+              title="Business Funding Application Form - Step 1 of 2"
+              className="w-full h-[800px] border-0"
+              style={{ 
+                border: 'none',
+                background: 'transparent'
+              }}
+              loading="lazy"
+              sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
+            ></iframe>
           </div>
         </div>
       </div>
