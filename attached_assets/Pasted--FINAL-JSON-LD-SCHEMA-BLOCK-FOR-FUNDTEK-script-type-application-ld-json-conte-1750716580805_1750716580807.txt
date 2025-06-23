@@ -1,0 +1,78 @@
+<!-- ✅ FINAL JSON-LD SCHEMA BLOCK FOR FUNDTEK -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "FundTek Capital Group",
+  "url": "https://fundtekcapitalgroup.com",
+  "logo": "https://fundtekcapitalgroup.com/logo.png",
+  "image": "https://fundtekcapitalgroup.com/office.jpg",
+  "description": "FundTek Capital Group offers custom financial solutions, including Term loans, Merchant Cash Advances, and services like Credit card processing, Credit Services, and SEO.",
+  "telephone": "+13053074685",
+  "email": "Admin@fundtekcapitalgroup.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2727 Coney Island Ave",
+    "addressLocality": "Brooklyn",
+    "addressRegion": "NY",
+    "postalCode": "11235",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.instagram.com/fundtekcapitalgroup/",
+    "https://x.com/fundtekcapital",
+    "https://www.tiktok.com/@fundtekcapitalgroup",
+    "https://biz.yelp.com/home/afSWaUVJaOUl0Nbj9-dzOA/?fwp=true"
+  ]
+}
+</script>
+
+<!-- ✅ FAQ Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is FundTek Capital Group legit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FundTek Capital Group is a trusted business financing partner offering real, structured solutions to U.S. business owners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does FundTek Capital Group do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide fast business funding solutions including term loans, MCAs, and credit processing services tailored to your growth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does funding take with FundTek?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many cases, we provide same-day funding once all documents are submitted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need good credit to qualify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not always. We work with a wide range of credit profiles. Bank statements and cash flow often matter more than credit scores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents are required to apply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically, 4–6 months of business bank statements, a signed application, and a voided check."
+      }
+    }
+  ]
+}
+</script>
