@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <rect width="48" height="48" fill="white" rx="8" stroke="#85abe4" stroke-width="2"/>
   <text x="24" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#85abe4">FT</text>
 </svg>
