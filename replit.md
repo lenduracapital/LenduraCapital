@@ -574,7 +574,8 @@ Changelog:
 - June 23, 2025. Footer logo correction (COMPLETE):
   * Fixed footer to use correct FundTek Capital Group logo with gradient background
   * Updated to use ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png
-  * Restored proper branding with white "Fund" and blue "Tek" text display
+  * Removed all CSS filters to preserve original blue "Tek" color and white "Fund" text
+  * Logo now displays with authentic brand colors without filter distortion
 ```
 
 ## User Preferences
