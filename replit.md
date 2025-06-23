@@ -516,13 +516,18 @@ Changelog:
   * Optimized responsive form heights across all devices (800px consistent)
   * Eliminated white space issues on Surface Duo and tablet views
   * Restored clean, simple iframe setup without CSS conflicts for optimal user experience
-- June 23, 2025. Contact form height adjustment (IN PROGRESS):
+- June 23, 2025. Contact form height adjustment (COMPLETE):
   * User requires desktop form to display complete form in single view without scrolling
   * Mobile form should have scrolling capability within container
   * Multiple attempts to balance mobile/desktop display requirements
   * Current challenge: finding optimal height that works for both device types
   * User extremely frustrated with repeated changes breaking working desktop version
-  * Need to restore simple, clean form configuration that works universally
+  * Successfully restored simple 800px iframe with "Get Working Capital Today" header
+- June 23, 2025. Footer social media updates (COMPLETE):
+  * Replaced Twitter icon with X emoji (𝕏) to reflect platform rebrand
+  * Removed Facebook icon per user request
+  * Added TikTok icon using FaTiktok from react-icons
+  * Maintained Instagram icon and signature blue color scheme
 ```
 
 ## User Preferences

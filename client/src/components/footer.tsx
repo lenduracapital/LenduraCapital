@@ -1,5 +1,5 @@
 import { ChartLine } from "lucide-react";
-import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { useLocation } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
 
@@ -66,10 +66,10 @@ export default function Footer() {
                 <FaInstagram className="text-xl" />
               </a>
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <FaTwitter className="text-xl" />
+                <span className="text-xl">𝕏</span>
               </a>
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <FaFacebook className="text-xl" />
+                <FaTiktok className="text-xl" />
               </a>
             </div>
           </div>
