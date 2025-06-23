@@ -65,7 +65,7 @@ export default function ContactFormSection() {
               style={{ 
                 border: 'none',
                 background: 'transparent',
-                transform: 'scale(0.55)',
+                transform: 'scale(0.9)',
                 transformOrigin: 'top left'
               }}
               loading="lazy"
