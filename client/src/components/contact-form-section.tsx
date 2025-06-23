@@ -53,15 +53,15 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="form-wrapper w-full max-w-2xl">
+          <div className="w-full max-w-2xl">
             <iframe
-              src="https://form.jotform.com/251581480799066?responsive=true&isEmbedded=true"
+              src="https://form.jotform.com/251581480799066"
               width="100%"
               height="800"
               frameBorder="0"
-              scrolling="auto"
+              scrolling="yes"
               title="Get Working Capital Today"
-              className="responsive-iframe"
+              className="w-full h-[800px] border-0"
             ></iframe>
           </div>
         </div>
