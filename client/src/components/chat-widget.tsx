@@ -342,6 +342,7 @@ export default function ChatWidget() {
     }
   };
 
+  // Debug: Force visible for testing
   if (!isVisible) return null;
 
   return (
