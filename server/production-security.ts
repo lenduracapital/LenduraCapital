@@ -221,20 +221,44 @@ Sitemap: ${baseUrl}/sitemap.xml`;
 
 // Security headers middleware for enhanced protection
 export function addSecurityHeaders(app: Express) {
-  app.use((req, res, next) => {
-    // Additional security headers not covered by Helmet
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
-    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-    res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
-    
-    // Cache control for security
-    if (req.path.startsWith('/api/')) {
-      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-      res.setHeader('Pragma', 'no-cache');
-      res.setHeader('Expires', '0');
-    }
-    
-    next();
-  });
+  // Only apply security headers in production environment
+  if (process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+      // Additional security headers not covered by Helmet
+      res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
+      res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+      res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+      res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
+      
+      // Cache control for security
+      if (req.path.startsWith('/api/')) {
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+      }
+      
+      next();
+    });
+  } else {
+    // Development mode - completely open for Replit preview
+    app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', '*');
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+      
+      // Remove all restrictive headers that could block Replit preview
+      res.removeHeader('X-Frame-Options');
+      res.removeHeader('X-Content-Type-Options');
+      res.removeHeader('X-XSS-Protection');
+      res.removeHeader('Strict-Transport-Security');
+      res.removeHeader('Cross-Origin-Embedder-Policy');
+      res.removeHeader('Cross-Origin-Opener-Policy');
+      res.removeHeader('Cross-Origin-Resource-Policy');
+      res.removeHeader('Content-Security-Policy');
+      res.removeHeader('Permissions-Policy');
+      
+      next();
+    });
+  }
 }

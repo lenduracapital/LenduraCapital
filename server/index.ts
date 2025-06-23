@@ -18,8 +18,10 @@ app.set('trust proxy', 1);
 // Only apply production security in production environment
 if (app.get("env") === "production") {
   configureProductionSecurity(app);
-  addSecurityHeaders(app);
 }
+
+// Always apply security headers function (handles dev/prod internally)
+addSecurityHeaders(app);
 
 // Skip rate limiting in development to avoid connection issues
 if (app.get("env") === "production") {
