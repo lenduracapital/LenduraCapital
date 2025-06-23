@@ -53,37 +53,22 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
-            <div className="p-4 md:p-6 lg:p-8">
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Get working capital today</h3>
-              <p className="text-base text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
-            </div>
-            
-            {/* Mobile-optimized iframe container with focus enhancements */}
-            <div className="relative w-full jotform-container form-focus">
-              <iframe
-                src="https://form.jotform.com/251581480799066"
-                width="100%"
-                height="800"
-                frameBorder="0"
-                scrolling="yes"
-                title="Business Funding Application Form - Step 1 of 2"
-                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
-                style={{ 
-                  border: 'none',
-                  background: 'white',
-                  maxWidth: '100%',
-                  overflow: 'hidden'
-                }}
-                loading="lazy"
-                sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
-              ></iframe>
-              
-              {/* Mobile form progress indicator */}
-              <div className="block md:hidden absolute top-2 right-2 bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">
-                Tap fields for focus
-              </div>
-            </div>
+          <div className="w-full">
+            <iframe
+              src="https://form.jotform.com/251581480799066"
+              width="100%"
+              height="1000"
+              frameBorder="0"
+              scrolling="no"
+              title="Business Funding Application Form - Step 1 of 2"
+              className="w-full h-[1000px] border-0"
+              style={{ 
+                border: 'none',
+                background: 'transparent'
+              }}
+              loading="lazy"
+              sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
+            ></iframe>
           </div>
         </div>
       </div>
