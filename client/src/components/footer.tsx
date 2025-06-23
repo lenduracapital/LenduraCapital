@@ -52,10 +52,9 @@ export default function Footer() {
               <img 
                 src={fundTekLogo} 
                 alt="FundTek Capital Group" 
-                className="h-24 md:h-40 w-auto filter brightness-125 contrast-130 drop-shadow-lg"
+                className="h-16 md:h-20 w-auto"
                 style={{
-                  filter: 'brightness(1.3) contrast(1.4) drop-shadow(2px 2px 4px rgba(0,0,0,0.2))',
-                  imageRendering: 'crisp-edges'
+                  imageRendering: 'auto'
                 }}
               />
             </div>
