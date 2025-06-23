@@ -31,13 +31,17 @@ configureHealthMonitoring(app);
 // Configure SEO robots.txt
 configureRobotsTxt(app);
 
-// Add CORS headers for development mode
+// Add CORS headers and fix Replit preview connectivity
 if (app.get("env") === "development") {
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
     res.removeHeader("X-Frame-Options");
+    res.removeHeader("Cross-Origin-Embedder-Policy");
+    res.removeHeader("Cross-Origin-Resource-Policy");
+    res.removeHeader("Cross-Origin-Opener-Policy");
     if (req.method === "OPTIONS") {
       res.sendStatus(200);
     } else {
