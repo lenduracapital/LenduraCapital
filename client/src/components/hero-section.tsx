@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-const videoPath = "/video/hero-video.mp4";
+const videoPath = "/video/optimized/hero-video-720p.mp4";
 const newLogoPath = "/image_1750273835191.webp";
 
 export default function HeroSection() {
@@ -69,7 +69,7 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
-          poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23000'/%3E%3C/svg%3E"
+          poster="/video/optimized/hero-poster.webp"
           onLoadStart={() => {}}
           onCanPlayThrough={() => {}}
           aria-label="FundTek Capital Group business financing solutions showcase"
@@ -80,8 +80,8 @@ export default function HeroSection() {
             contain: 'layout style paint'
           }}
         >
-          <source src={videoPath} type="video/mp4" />
-
+          <source src="/video/optimized/hero-video-720p.mp4" type="video/mp4" />
+          <source src="/video/optimized/hero-video-480p.mp4" type="video/mp4" media="(max-width: 768px)" />
           Your browser does not support the video tag.
         </video>
       ) : (
