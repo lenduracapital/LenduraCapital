@@ -85,19 +85,31 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = 5000;
-  const host = "0.0.0.0";
+  const port = parseInt(process.env.PORT || '5000');
+  const host = process.env.HOST || "0.0.0.0";
   
+  // Force IPv4 binding for Replit compatibility
   server.listen(port, host, () => {
     log(`serving on ${host}:${port}`);
-    console.log(`Server running and accessible at:`);
-    console.log(`  Local: http://localhost:${port}`);
-    console.log(`  External: http://${host}:${port}`);
-    console.log(`  Replit Preview: https://${process.env.REPLIT_DEV_DOMAIN}`);
+    console.log(`✅ Server successfully bound to ${host}:${port}`);
+    console.log(`✅ Process ID: ${process.pid}`);
+    console.log(`✅ Environment: ${process.env.NODE_ENV}`);
+    console.log(`✅ Replit Preview: https://${process.env.REPLIT_DEV_DOMAIN}`);
+    console.log(`✅ Server ready for external connections`);
   });
   
-  server.on('error', (err) => {
-    console.error('Server startup error:', err);
+  server.on('error', (err: any) => {
+    console.error('❌ Server binding failed:', err);
+    if (err.code === 'EADDRINUSE') {
+      console.error(`❌ Port ${port} already in use`);
+    } else if (err.code === 'EACCES') {
+      console.error(`❌ Permission denied for port ${port}`);
+    }
     process.exit(1);
+  });
+  
+  server.on('listening', () => {
+    const addr = server.address();
+    console.log(`✅ Server listening on:`, addr);
   });
 })();
