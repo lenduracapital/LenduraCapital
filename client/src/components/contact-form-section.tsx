@@ -59,7 +59,7 @@ export default function ContactFormSection() {
                 Get working capital today
               </h3>
             </div>
-            <div className="h-[500px] md:h-[800px] overflow-y-auto md:overflow-hidden">
+            <div className="h-[600px] md:h-[850px] overflow-y-auto">
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
