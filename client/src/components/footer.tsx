@@ -1,7 +1,7 @@
 import { ChartLine } from "lucide-react";
 import { FaInstagram, FaTiktok, FaYelp } from "react-icons/fa";
 import { useLocation } from "wouter";
-import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750170532483.png";
+import fundTekLogo from "@assets/Untitled design_1750716622243.jpg";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
