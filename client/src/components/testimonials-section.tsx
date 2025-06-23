@@ -73,7 +73,7 @@ export default function TestimonialsSection() {
               </button>
 
               <div className="flex items-start mb-4 pr-2 md:pr-12">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-black rounded-full flex items-center justify-center text-white font-bold mr-3 md:mr-4 flex-shrink-0">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-black rounded-full flex items-center justify-center text-white font-bold mr-3 md:mr-4 flex-shrink-0">
                   {currentTestimonial.initial}
                 </div>
                 <div className="flex-1 min-w-0">
