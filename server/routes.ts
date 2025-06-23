@@ -11,15 +11,18 @@ if (process.env.SENDGRID_API_KEY) {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Enhanced security headers middleware for Google trust signals
-  app.use((req, res, next) => {
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-    next();
-  });
+  // Skip in development to allow browser preview
+  if (process.env.NODE_ENV !== 'development') {
+    app.use((req, res, next) => {
+      res.setHeader('X-Content-Type-Options', 'nosniff');
+      res.setHeader('X-Frame-Options', 'DENY');
+      res.setHeader('X-XSS-Protection', '1; mode=block');
+      res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+      res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+      res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+      next();
+    });
+  }
 
   // Loan Applications
   app.post("/api/loan-applications", async (req, res) => {

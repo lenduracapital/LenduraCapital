@@ -241,11 +241,14 @@ Sitemap: ${baseUrl}/sitemap.xml`;
 // Security headers middleware for enhanced protection
 export function addSecurityHeaders(app: Express) {
   app.use((req, res, next) => {
-    // Additional security headers not covered by Helmet
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
-    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-    res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
+    // Skip restrictive headers in development
+    if (process.env.NODE_ENV !== 'development') {
+      // Additional security headers not covered by Helmet
+      res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
+      res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+      res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+      res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
+    }
     
     // Cache control for security
     if (req.path.startsWith('/api/')) {

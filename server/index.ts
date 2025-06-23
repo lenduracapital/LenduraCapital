@@ -15,12 +15,15 @@ const app = express();
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
 
-// Configure production-grade security
-configureProductionSecurity(app);
-addSecurityHeaders(app);
+// Skip all security middleware in development
+if (app.get("env") !== "development") {
+  // Configure production-grade security
+  configureProductionSecurity(app);
+  addSecurityHeaders(app);
 
-// Configure API rate limiting
-configureApiRateLimit(app);
+  // Configure API rate limiting
+  configureApiRateLimit(app);
+}
 
 // Configure health monitoring
 configureHealthMonitoring(app);
@@ -34,7 +37,7 @@ if (app.get("env") === "development") {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("X-Frame-Options", "ALLOWALL");
+    res.removeHeader("X-Frame-Options");
     if (req.method === "OPTIONS") {
       res.sendStatus(200);
     } else {
