@@ -3,7 +3,7 @@ export default function ContactFormSection() {
     <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          <div className="flex flex-col justify-between h-[1600px] md:h-[1650px] lg:h-[1700px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
+          <div className="flex flex-col space-y-8 md:space-y-12 lg:space-y-16">
             {/* Blue box at the TOP */}
             <div style={{ 
               backgroundColor: '#85abe4', 
