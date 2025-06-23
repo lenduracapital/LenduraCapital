@@ -4,11 +4,6 @@ import type { Express } from 'express';
 
 // Production-grade security middleware
 export function configureProductionSecurity(app: Express) {
-  // Skip security headers in development to allow browser preview
-  if (process.env.NODE_ENV === 'development') {
-    return;
-  }
-  
   // Advanced security headers with Helmet
   app.use(helmet({
     contentSecurityPolicy: {
@@ -52,16 +47,7 @@ export function configureProductionSecurity(app: Express) {
           "https:",
           "blob:"
         ],
-        connectSrc: process.env.NODE_ENV === 'development' ? [
-          "'self'",
-          "*",
-          "ws:",
-          "wss:",
-          "https://api.fundtekcapitalgroup.com",
-          "https://www.google-analytics.com",
-          "https://vitals.vercel-analytics.com",
-          "https://form.jotform.com"
-        ] : [
+        connectSrc: [
           "'self'",
           "https://api.fundtekcapitalgroup.com",
           "https://www.google-analytics.com",
@@ -84,7 +70,7 @@ export function configureProductionSecurity(app: Express) {
       preload: true
     },
     noSniff: true,
-    frameguard: process.env.NODE_ENV === 'development' ? false : { action: 'deny' },
+    frameguard: { action: 'deny' },
     xssFilter: true,
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
   }));
@@ -92,11 +78,6 @@ export function configureProductionSecurity(app: Express) {
 
 // API rate limiting for DDoS protection
 export function configureApiRateLimit(app: Express) {
-  // Skip rate limiting in development
-  if (process.env.NODE_ENV === 'development') {
-    return;
-  }
-  
   // General API rate limiting
   const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -241,14 +222,11 @@ Sitemap: ${baseUrl}/sitemap.xml`;
 // Security headers middleware for enhanced protection
 export function addSecurityHeaders(app: Express) {
   app.use((req, res, next) => {
-    // Skip restrictive headers in development
-    if (process.env.NODE_ENV !== 'development') {
-      // Additional security headers not covered by Helmet
-      res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
-      res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-      res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
-      res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
-    }
+    // Additional security headers not covered by Helmet
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self)');
+    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+    res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
     
     // Cache control for security
     if (req.path.startsWith('/api/')) {

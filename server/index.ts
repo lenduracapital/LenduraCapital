@@ -15,13 +15,14 @@ const app = express();
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
 
-// Skip all security middleware in development
-if (app.get("env") !== "development") {
-  // Configure production-grade security
+// Only apply production security in production environment
+if (app.get("env") === "production") {
   configureProductionSecurity(app);
   addSecurityHeaders(app);
+}
 
-  // Configure API rate limiting
+// Skip rate limiting in development to avoid connection issues
+if (app.get("env") === "production") {
   configureApiRateLimit(app);
 }
 
@@ -30,25 +31,6 @@ configureHealthMonitoring(app);
 
 // Configure SEO robots.txt
 configureRobotsTxt(app);
-
-// Add CORS headers and fix Replit preview connectivity
-if (app.get("env") === "development") {
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.removeHeader("X-Frame-Options");
-    res.removeHeader("Cross-Origin-Embedder-Policy");
-    res.removeHeader("Cross-Origin-Resource-Policy");
-    res.removeHeader("Cross-Origin-Opener-Policy");
-    if (req.method === "OPTIONS") {
-      res.sendStatus(200);
-    } else {
-      next();
-    }
-  });
-}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -106,13 +88,14 @@ app.use((req, res, next) => {
   
   server.listen(port, host, () => {
     log(`serving on ${host}:${port}`);
-    console.log(`Server accessible at:`);
+    console.log(`Server running and accessible at:`);
     console.log(`  Local: http://localhost:${port}`);
-    console.log(`  Network: http://${host}:${port}`);
-    console.log(`  Replit: https://${process.env.REPLIT_DEV_DOMAIN || 'preview-url'}`);
+    console.log(`  External: http://${host}:${port}`);
+    console.log(`  Replit Preview: https://${process.env.REPLIT_DEV_DOMAIN}`);
   });
   
-  server.on('error', (err: any) => {
-    console.error('Server error:', err);
+  server.on('error', (err) => {
+    console.error('Server startup error:', err);
+    process.exit(1);
   });
 })();

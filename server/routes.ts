@@ -11,18 +11,15 @@ if (process.env.SENDGRID_API_KEY) {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Enhanced security headers middleware for Google trust signals
-  // Skip in development to allow browser preview
-  if (process.env.NODE_ENV !== 'development') {
-    app.use((req, res, next) => {
-      res.setHeader('X-Content-Type-Options', 'nosniff');
-      res.setHeader('X-Frame-Options', 'DENY');
-      res.setHeader('X-XSS-Protection', '1; mode=block');
-      res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-      res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-      res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
-      next();
-    });
-  }
+  app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    next();
+  });
 
   // Loan Applications
   app.post("/api/loan-applications", async (req, res) => {
@@ -69,26 +66,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       res.status(500).json({ error: "Failed to update loan application status" });
     }
-  });
-
-  // Debug endpoint for Replit connection testing
-  app.get("/debug", (req, res) => {
-    res.json({
-      message: "Server is accessible and responding",
-      timestamp: new Date().toISOString(),
-      replit_domain: process.env.REPLIT_DEV_DOMAIN,
-      server_info: {
-        host: req.headers.host,
-        protocol: req.protocol,
-        method: req.method,
-        url: req.url,
-        user_agent: req.headers['user-agent'],
-        origin: req.headers.origin,
-        referer: req.headers.referer
-      },
-      environment: process.env.NODE_ENV || "unknown",
-      port: 5000
-    });
   });
 
   // Contact Submissions

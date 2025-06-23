@@ -48,7 +48,7 @@ class PerformanceMonitor {
   }
 
   private handleMetric(metricName: keyof WebVitalsReport, metric: PerformanceMetric) {
-    (this.vitals as any)[metricName] = metric.value;
+    this.vitals[metricName] = metric.value;
     
     // Send to analytics if available
     if (typeof window.gtag === 'function') {
