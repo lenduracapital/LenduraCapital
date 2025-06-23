@@ -571,11 +571,11 @@ Changelog:
   * Reduced testimonials section team member circles from w-10 h-10 md:w-12 md:h-12 to w-6 h-6 md:w-8 md:h-8
   * Improved visual proportions and reduced overwhelming appearance of profile circles
   * Enhanced overall testimonials section balance and readability
-- June 23, 2025. Footer logo correction (COMPLETE):
+- June 23, 2025. Logo color correction across website (COMPLETE):
   * Fixed footer to use correct FundTek Capital Group logo with gradient background
   * Updated to use ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png
-  * Removed all CSS filters to preserve original blue "Tek" color and white "Fund" text
-  * Logo now displays with authentic brand colors without filter distortion
+  * Removed all CSS filters from both header and footer logos to preserve original blue "Tek" color
+  * Both header and footer logos now display with authentic brand colors without filter distortion
 ```
 
 ## User Preferences
