@@ -568,9 +568,13 @@ Changelog:
   * Used transparent background to ensure clean display across light/dark browser themes
   * Maintained website logos unchanged per user preference
 - June 23, 2025. Team member circles size reduction (COMPLETE):
-  * Reduced testimonials section team member circles from w-10 h-10 md:w-12 md:h-12 to w-8 h-8 md:w-10 md:h-10
+  * Reduced testimonials section team member circles from w-10 h-10 md:w-12 md:h-12 to w-6 h-6 md:w-8 md:h-8
   * Improved visual proportions and reduced overwhelming appearance of profile circles
   * Enhanced overall testimonials section balance and readability
+- June 23, 2025. Footer logo correction (COMPLETE):
+  * Fixed footer to use correct transparent FundTek Capital Group logo
+  * Replaced incorrect logo file with proper IMG_4080 (2)_1750717440674.png
+  * Restored clean, professional logo display without pixelation or quality issues
 ```
 
 ## User Preferences
