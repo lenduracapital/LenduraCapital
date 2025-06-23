@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 const videoPath = "/video/hero-video.mp4";
-const newLogoPath = "/image_1750273835191.png";
+const newLogoPath = "/image_1750273835191.webp";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
