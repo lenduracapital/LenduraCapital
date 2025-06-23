@@ -578,7 +578,7 @@ Changelog:
   * Both header and footer logos now display with authentic brand colors without filter distortion
 - June 23, 2025. Favicon brand color update (COMPLETE):
   * Updated favicon to pure "FT" text in signature blue (#85abe4) with transparent background
-  * Applied Arial Black font family, extra bold weight (900), and large size (28px) for maximum visibility
+  * Applied Arial Black font family, extra bold weight (900), and large size (24px) for maximum visibility
   * Added stroke outline for enhanced definition and readability in browser tabs
   * Removed white background box per user request for cleaner minimal design
   * Created new favicon file with cache-busting versioning for immediate browser updates
