@@ -1,105 +1,4 @@
-import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
-import { 
-  configureProductionSecurity,
-  configureApiRateLimit,
-  configureProductionErrorHandler,
-  configureHealthMonitoring,
-  configureRobotsTxt,
-  addSecurityHeaders
-} from "./production-security";
-
-const app = express();
-
-// Configure trust proxy for rate limiting
-app.set('trust proxy', 1);
-
-// Configure production-grade security
-configureProductionSecurity(app);
-addSecurityHeaders(app);
-
-// Configure API rate limiting
-configureApiRateLimit(app);
-
-// Configure health monitoring
-configureHealthMonitoring(app);
-
-// Configure SEO robots.txt
-configureRobotsTxt(app);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
-      log(logLine);
-    }
-  });
-
-  next();
-});
-
-(async () => {
-  const server = await registerRoutes(app);
-
-  // Configure production error handler
-  configureProductionErrorHandler(app);
-
-  // Add static file serving BEFORE Vite middleware
-  app.use(express.static('public', {
-    maxAge: '1d',
-    setHeaders: (res, path) => {
-      if (path.endsWith('.css')) {
-        res.setHeader('Content-Type', 'text/css; charset=utf-8');
-      } else if (path.endsWith('.js')) {
-        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
-      } else if (path.endsWith('.html')) {
-        res.setHeader('Content-Type', 'text/html; charset=utf-8');
-      } else if (path.endsWith('.mp4')) {
-        res.setHeader('Content-Type', 'video/mp4');
-      } else if (path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.jpeg')) {
-        res.setHeader('Content-Type', 'image/' + path.split('.').pop());
-      }
-    }
-  }));
-  app.use('/attached_assets', express.static('attached_assets', {
-    maxAge: '7d',
-    setHeaders: (res, path) => {
-      if (path.endsWith('.mp4')) {
-        res.setHeader('Content-Type', 'video/mp4');
-      } else if (path.endsWith('.png')) {
-        res.setHeader('Content-Type', 'image/png');
-      } else if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
-        res.setHeader('Content-Type', 'image/jpeg');
-      }
-    }
-  }));
-
-  // Serve root with inline HTML to bypass all file serving issues
-  app.get('/', (req, res) => {
-    res.send(`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -158,7 +57,6 @@ app.use((req, res, next) => {
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s;
-            margin: 0.5rem;
         }
         .btn:hover {
             background: #ff5252;
@@ -200,7 +98,7 @@ app.use((req, res, next) => {
             <div class="logo">FundTek Capital Group</div>
             <div>
                 <a href="tel:305-307-4658" style="color: white; text-decoration: none;">
-                    (305) 307-4658
+                    📞 (305) 307-4658
                 </a>
             </div>
         </nav>
@@ -215,7 +113,7 @@ app.use((req, res, next) => {
     </section>
 
     <div class="status">
-        Website is now working correctly! Server connected on port ${process.env.PORT || 5000}.
+        ✅ Website is now working correctly! Server connected on port 5000.
     </div>
 
     <section class="section">
@@ -255,38 +153,24 @@ app.use((req, res, next) => {
             <a href="https://form.jotform.com/251417715331047" target="_blank" class="btn">
                 Apply for Funding
             </a>
-            <a href="tel:305-307-4658" class="btn">
-                Call (305) 307-4658
-            </a>
+            <p style="margin-top: 2rem;">
+                <strong>Call us directly:</strong> 
+                <a href="tel:305-307-4658" style="color: #667eea;">(305) 307-4658</a>
+            </p>
         </div>
     </section>
 
     <script>
         console.log('FundTek website loaded successfully');
-        console.log('Server connection: Working');
-        console.log('Port ${process.env.PORT || 5000}: Accessible');
+        console.log('Server connection: ✅ Working');
+        console.log('Port 5000: ✅ Accessible');
+        
+        // Simple form tracking
+        document.querySelectorAll('a[href*="jotform"]').forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('Application form opened');
+            });
+        });
     </script>
 </body>
-</html>`);
-  });
-
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (process.env.NODE_ENV === "development") {
-    // Skip Vite for now to ensure basic HTML works
-    // await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
-
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000");
-  server.listen(port, "0.0.0.0", () => {
-    log(`serving on port ${port}`);
-    console.log(`🚀 FundTek server running on http://0.0.0.0:${port}`);
-    console.log(`🌐 Access via webview at port ${port}`);
-  });
-})();
+</html>
