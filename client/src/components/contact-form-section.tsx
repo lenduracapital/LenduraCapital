@@ -64,11 +64,11 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="1100"
+                height="800"
                 frameBorder="0"
-                scrolling="no"
+                scrolling="yes"
                 title="Business Funding Application Form - Step 1 of 2"
-                className="w-full h-[900px] sm:h-[1000px] md:h-[1050px] lg:h-[1100px] border-0 transition-all duration-200"
+                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
                 style={{ 
                   border: 'none',
                   background: 'white',
