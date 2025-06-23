@@ -521,6 +521,8 @@ Changelog:
   * Mobile form should have scrolling capability within container
   * Multiple attempts to balance mobile/desktop display requirements
   * Current challenge: finding optimal height that works for both device types
+  * User extremely frustrated with repeated changes breaking working desktop version
+  * Need to restore simple, clean form configuration that works universally
 ```
 
 ## User Preferences
