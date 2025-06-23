@@ -582,7 +582,7 @@ Changelog:
   * Added stroke outline for enhanced definition and readability in browser tabs
   * Removed white background box per user request for cleaner minimal design
   * Created new favicon file with cache-busting versioning for immediate browser updates
-  * Final result: circular "FUNDTEK CAPITAL" logo with lion design in signature blue
+  * Final result: enlarged circular logo with prominent lion design and "FT" text for maximum visibility
   * Favicon only modified - no other website logos touched per user requirements
 - June 23, 2025. Contact page CTA section styling update (COMPLETE):
   * Changed "Ready to Get Started?" section from blue background to white background
