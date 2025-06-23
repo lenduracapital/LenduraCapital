@@ -542,6 +542,12 @@ Changelog:
   * Deleted /reviews page and all associated components
   * Restored footer to original Yelp-only review link configuration
   * Removed Reviews routing from App.tsx and cleaned up imports
+- June 23, 2025. Specialist count update throughout website (COMPLETE):
+  * Changed all "100+" specialist references to "50+" throughout entire website
+  * Updated working capital section rolling counter from 100+ to 50+
+  * Fixed About page statistics grid and visual indicators from "100+" to "50+"
+  * Updated all description text mentioning "100+ specialists" to "50+ specialists"
+  * Maintained consistent branding across all pages and components
 ```
 
 ## User Preferences

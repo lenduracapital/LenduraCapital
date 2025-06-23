@@ -13,7 +13,7 @@ export default function About() {
 
   const stats = [
     { number: "$1B+", label: "In Working Capital Funded" },
-    { number: "100+", label: "Expert Specialists" },
+    { number: "50+", label: "Expert Specialists" },
     { number: "12", label: "Financing Options" },
     { number: "24 hrs", label: "Average Approval Time" }
   ];
@@ -180,11 +180,11 @@ export default function About() {
             
             <div className="text-center">
               <div className="bg-[#85abe4]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                <div className="text-3xl font-bold text-[#85abe4]">100+</div>
+                <div className="text-3xl font-bold text-[#85abe4]">50+</div>
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">Expert Team</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our team of 100+ financing specialists brings decades of combined experience. We understand every industry and know exactly which funding solutions work best for different business models.
+                Our team of 50+ financing specialists brings decades of combined experience. We understand every industry and know exactly which funding solutions work best for different business models.
               </p>
             </div>
             
