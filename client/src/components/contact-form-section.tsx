@@ -53,7 +53,7 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="w-full max-w-lg">
+          <div className="w-full max-w-2xl">
             <iframe
               src="https://form.jotform.com/251581480799066"
               width="100%"
