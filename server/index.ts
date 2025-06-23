@@ -102,11 +102,17 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
+  const host = "0.0.0.0";
+  
+  server.listen(port, host, () => {
+    log(`serving on ${host}:${port}`);
+    console.log(`Server accessible at:`);
+    console.log(`  Local: http://localhost:${port}`);
+    console.log(`  Network: http://${host}:${port}`);
+    console.log(`  Replit: https://${process.env.REPLIT_DEV_DOMAIN || 'preview-url'}`);
+  });
+  
+  server.on('error', (err: any) => {
+    console.error('Server error:', err);
   });
 })();
