@@ -65,8 +65,8 @@ export default function Footer() {
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaInstagram className="text-xl" />
               </a>
-              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <span className="text-xl">𝕏</span>
+              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors flex items-center justify-center" style={{ color: '#85abe4' }}>
+                <span className="text-xl leading-none">𝕏</span>
               </a>
               <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaTiktok className="text-xl" />
