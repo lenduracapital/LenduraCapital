@@ -528,6 +528,8 @@ Changelog:
   * Removed Facebook icon per user request
   * Added TikTok icon using FaTiktok from react-icons
   * Maintained Instagram icon and signature blue color scheme
+  * Added clickable URLs: Instagram (fundtekcapitalgroup), X (fundtekcapital), TikTok (fundtekcapitalgroup)
+  * All social links open in new tabs with security attributes
 ```
 
 ## User Preferences

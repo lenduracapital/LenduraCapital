@@ -62,13 +62,13 @@ export default function Footer() {
               Call us today at (305) 307-4658
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
+              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaInstagram className="text-xl" />
               </a>
-              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors flex items-center justify-center" style={{ color: '#85abe4' }}>
+              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors flex items-center justify-center" style={{ color: '#85abe4' }}>
                 <span className="text-xl leading-none">𝕏</span>
               </a>
-              <a href="#" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
+              <a href="https://www.tiktok.com/@fundtekcapitalgroup?lang=en" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaTiktok className="text-xl" />
               </a>
             </div>
