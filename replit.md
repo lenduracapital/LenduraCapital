@@ -534,6 +534,7 @@ Changelog:
 - June 23, 2025. Chat widget timing fix (COMPLETE):
   * Fixed chat widget delay from 3 seconds to 2 seconds for proper appearance timing
   * Chat bot now appears after 2 seconds as originally designed
+  * Fixed missing chat widget import and rendering in App.tsx - widget now properly displays on all pages
 ```
 
 ## User Preferences
