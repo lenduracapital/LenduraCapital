@@ -1,0 +1,50 @@
+🔧 PROJECT SCOPE
+Your mission is to turn it into a fast, secure, conversion-focused lead-generation site for FundTek Capital Group while satisfying up-to-date SEO best practices (March 2025 Core Update compliant).
+🏁 DELIVERABLES
+1. **Audit & Report**  
+Lighthouse + Core Web Vitals results (Performance, Accessibility, Best Practices, SEO).  
+File-by-file code review explaining bottlenecks, unused CSS/JS, and security risks.  
+On-page SEO gaps (titles, meta descriptions, H-structure, schema, internal links, image alts).
+
+2. **Implementation Road-map** – a numbered checklist with rough effort hours and risk level.
+
+3. **Code Upgrades & Commits**  
+   Implement everything below. Group changes into logical commits with clear messages.  
+   - **Speed**: compress & lazy-load images, minify & defer JS/CSS, enable HTTP/2 or 3, add Brotli, preload critical assets.  
+   - **Accessibility**: semantic HTML5, ARIA where needed, color-contrast fixes.  
+   - **UX/Design**: polished responsive layout; hero CTA above the fold; consistent typography; mobile nav overhaul.  
+   - **SEO (white-hat only)**  
+     ▸ unique title + meta description for every indexable page (≤ 60 / ≤ 155 chars) using primary & secondary keywords naturally.  
+     ▸ JSON-LD schema: Organization, FAQ, Product (Funding Options), Review, Breadcrumb.  
+     ▸ canonical tags, robots.txt, XML sitemap auto-generated on build.  
+     ▸ internal-link map (max 3 clicks to any page); contextual anchor text.  
+     ▸ E-E-A-T signals: author bios, “Why trust us?” block, references/certifications.  
+   - **Hidden / campaign-only pages**  
+     ▸ create **[n]** landing pages for paid-ad or email campaigns (no navigation links).  
+     ▸ tag them `robots:noindex` and exclude from sitemap, but allow live visitors.  
+     ▸ 302-redirect any public slug that leaks to a tasteful “Sorry, this page moved” URL.  
+   - **Redirect strategy**  
+     ▸ migrate any outdated URLs → 301 to new equivalents; keep link equity.  
+   - **Forms**: spam-protected (hCaptcha or Cloudflare Turnstile), sends to **[admin email list]**, fires GA4 event + optional Zapier webhook.  
+   - **Security**: Content-Security-Policy, HTTP security headers, 2 × weekly dependency scan (GitHub Dependabot or Snyk).  
+
+4. **Documentation**  
+   • `README.md` with local setup, build, deploy, env vars, and rollback steps.  
+   • `seo-checklist.md` summarizing what to keep updated post-launch.
+
+5. **Testing**  
+   • Playwright or Cypress E2E tests for critical pages & form flows.  
+   • Unit tests > 80 % coverage on helper functions.
+
+🔄 INTERACTION RULES
+• Ask clarifying questions **before coding** if any input is unclear.  
+• After each major stage, output a concise status report: ✅ Done, ❌ Blocked (with reason), 🔄 In-Progress.  
+• Use comments in code for complex logic.  
+
+📅 TIMELINE
+Produce audit + roadmap in the first message. Begin fixes immediately after my approval. Aim for a production-ready pull request within **[desired days]**.  
+
+🚫 BLACK-HAT ALERT
+No cloaking, doorway pages, or auto-generated thin content. All tactics must comply with Google’s March 2025 Core Update guidelines and E-E-A-T principles.
+
+Now acknowledge with: “Ready to audit.” Then start Stage 1.

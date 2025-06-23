@@ -1,0 +1,57 @@
+PROJECT OVERVIEW
+You are rebuilding FundTek Capital Group’s public site.
+Tech stack: plain HTML + Tailwind CSS + vanilla JS (no frameworks, no inline styles).
+Reference ONLY the *layout structure* of pmfus.com’s Home and Solutions pages.
+**Do not copy** their wording, images, icons, or code—create fresh FundTek copy and media.
+
+PAGES TO DELIVER
+1. Home  (index.html)
+2. Solutions  (solutions.html)
+3. Who We Fund  (who-we-fund.html)
+4. Apply Now  (apply.html)
+5. Resources  (resources.html)
+6. Contact  (contact.html)
+7. Twelve hidden landers under /solutions/[slug].html
+
+DESIGN RULES
+● Invisible-until-scroll black nav containing the six pages above—no extras.  
+● Hero on Home: full-width autoplay video, right-aligned headline + subhead.  
+● Immediately below: four-stat banner (mirror pmfus spacing, fresh FundTek stats).  
+● Working-Capital section includes an embedded JotForm (ID will be supplied later).  
+● Solutions page shows a 3 × 4 grid of product cards, each “Learn More” → hidden lander.  
+● Hidden landers: skyline hero with parallax, sections for How It Works → Qualify → Apply.  
+● Footer: © 2025 FundTek Capital Group, LLC · 646-XXX-XXXX · social icons (placeholders).  
+● Live-chat widget (Tidio-style) loads 4 s after idle.
+
+CONTENT RULES
+● All headlines, blurbs, and CTAs must be original FundTek copy—run through Copyscape.  
+● No lorem-ipsum; write short, benefit-driven text in FundTek’s voice (direct, confident).  
+● Each Solutions card and hidden lander must include unique JSON-LD Product schema.
+
+TECHNICAL CONSTRAINTS
+● Tailwind utility classes only—no custom CSS files.  
+● JavaScript bundle < 5 KB gzipped.  
+● Pages must score ≥ 90 on Lighthouse performance.  
+● htmlhint and lychee link checker must return zero errors.  
+● Every commit message follows Conventional Commits (“feat: nav scaffold”, etc.).  
+● Add robots:noindex to all hidden landers and omit them from sitemap.xml.
+
+WORKFLOW
+1. **Stage 1:** deliver bare-bones Home page (sections empty except hero + nav) for approval.  
+2. **Stage 2:** flesh out Home (stat banner, Working Capital section) and build Solutions grid.  
+3. **Stage 3:** generate 12 hidden lander stubs, unique copy + schema each.  
+4. **Stage 4:** build remaining site pages (Who We Fund, Apply Now, Resources, Contact).  
+5. **Stage 5:** polish, run tests, attach Lighthouse report.
+
+COMMUNICATION
+After each stage reply with one of:
+  ✅ Done – attach concise changelog & commit hash  
+  ❌ Blocked – explain exactly what you need  
+  🔄 In-Progress – give ETA in hours  
+No code in chat unless I ask for it explicitly.
+
+TIMELINE
+Stage 1 ETA 2 h • Stage 2 +4 h • Stage 3 +6 h • Stage 4 +4 h • Stage 5 +2 h
+
+BEGIN
+Acknowledge with **“Ready: FundTek layout build.”** and start Stage 1.

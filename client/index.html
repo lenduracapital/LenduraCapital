@@ -10,6 +10,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://form.jotform.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  
+  <!-- Preload critical hero images -->
+  <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png" as="image" />
+  <link rel="preload" href="/attached_assets/Truck_1750271749729.jpg" as="image" />
+  
+  <!-- Preload video metadata -->
+  <link rel="preload" href="/Video (FundTek) (3).mp4" as="video" type="video/mp4" />
+  
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin />
+  
+  <!-- Critical CSS for above-the-fold styles -->
+  <link rel="stylesheet" href="/css/critical.css">
   
   <!-- Google Fonts with display swap -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -17,6 +32,9 @@
   <!-- Favicon and app icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   
   <title>FundTek Capital Group - Business Funding Solutions | Fast Approval in 24 Hours</title>
@@ -28,20 +46,41 @@
   <meta property="og:title" content="FundTek Capital Group - Business Funding Solutions" />
   <meta property="og:description" content="Get flexible business financing with FundTek Capital Group. Term loans, merchant cash advances, equipment financing & more. Call (305) 307-4658 for fast approval." />
   <meta property="og:image" content="https://www.fundtekcapitalgroup.com/favicon.svg" />
+  <meta property="og:site_name" content="FundTek Capital Group" />
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://www.fundtekcapitalgroup.com/" />
   <meta property="twitter:title" content="FundTek Capital Group - Business Funding Solutions" />
   <meta property="twitter:description" content="Get flexible business financing with FundTek Capital Group. Term loans, merchant cash advances, equipment financing & more. Call (305) 307-4658 for fast approval." />
+  <meta property="twitter:image" content="https://www.fundtekcapitalgroup.com/favicon.svg" />
   
   <!-- Additional SEO -->
   <meta name="keywords" content="business funding, term loans, merchant cash advance, equipment financing, SBA loans, business loans, working capital" />
   <meta name="author" content="FundTek Capital Group" />
   <link rel="canonical" href="https://www.fundtekcapitalgroup.com/" />
+  
+  <!-- Organization Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FundTek Capital Group",
+    "url": "https://www.fundtekcapitalgroup.com",
+    "logo": "https://www.fundtekcapitalgroup.com/favicon.ico",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-305-307-4658",
+      "contactType": "Customer Service"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Service Worker Registration -->
+  <script src="/js/service-worker-registration.js"></script>
 </body>
 </html>
