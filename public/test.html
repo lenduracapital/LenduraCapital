@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Test - FundTek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .status {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🟢 FundTek Capital Group</h1>
+        <div class="status">
+            <h2>✅ Server Connection: WORKING</h2>
+            <p>Port 5000 is responding correctly</p>
+            <p>Webview connectivity confirmed</p>
+        </div>
+        
+        <img src="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png" 
+             alt="FundTek Logo" class="logo" 
+             onerror="this.style.display='none'">
+        
+        <div class="status">
+            <h3>Next Steps:</h3>
+            <p>1. Confirm this page loads in webview</p>
+            <p>2. Fix React application mounting</p>
+            <p>3. Restore full website functionality</p>
+        </div>
+        
+        <p><strong>Server Time:</strong> <span id="time"></span></p>
+    </div>
+    
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleString();
+        
+        // Test asset loading
+        const img = document.querySelector('.logo');
+        img.onload = function() {
+            console.log('✅ Logo loaded successfully');
+        };
+        img.onerror = function() {
+            console.log('❌ Logo failed to load');
+        };
+    </script>
+</body>
+</html>
