@@ -576,6 +576,10 @@ Changelog:
   * Updated to use ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png
   * Removed all CSS filters from both header and footer logos to preserve original blue "Tek" color
   * Both header and footer logos now display with authentic brand colors without filter distortion
+- June 23, 2025. Favicon brand color update (COMPLETE):
+  * Updated favicon to use signature blue (#85abe4) for background box
+  * Applied signature blue (#85abe4) to "Tek" text with white "Fund" text
+  * Favicon only modified - no other website logos touched per user requirements
 ```
 
 ## User Preferences
