@@ -3,6 +3,13 @@ import type { Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+    options: {
+      safelist: ['dark', 'light'],
+    }
+  },
   theme: {
     extend: {
       borderRadius: {

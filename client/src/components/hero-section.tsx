@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
-import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
+const videoPath = "/video/hero-video.mp4";
+const newLogoPath = "/image_1750273835191.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
