@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
+import logoPath from "@assets/Untitled design_1750716622243.jpg";
 
 interface HeaderProps {
   transparent?: boolean;
