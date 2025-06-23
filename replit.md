@@ -564,6 +564,8 @@ Changelog:
 - June 23, 2025. Favicon update with transparent logo (COMPLETE):
   * Updated favicon.ico and favicon.svg with transparent FundTek Capital Group logo
   * Applied clear, professional transparent logo for better browser tab visibility
+  * Configured multiple favicon sizes (16x16, 32x32, 48x48) for optimal browser compatibility
+  * Used transparent background to ensure clean display across light/dark browser themes
   * Maintained website logos unchanged per user preference
 ```
 
