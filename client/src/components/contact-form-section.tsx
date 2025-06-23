@@ -3,7 +3,7 @@ export default function ContactFormSection() {
     <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-          <div className="flex flex-col justify-between h-[600px] md:h-[700px] lg:h-[800px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
+          <div className="flex flex-col justify-between h-[500px] md:h-[550px] lg:h-[580px] lg:space-y-8 space-y-6 md:space-y-12 lg:space-y-0">
             {/* Blue box at the TOP */}
             <div style={{ 
               backgroundColor: '#85abe4', 
@@ -56,7 +56,7 @@ export default function ContactFormSection() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
             <div className="p-4 md:p-6 lg:p-8">
               <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Get working capital today</h3>
-              <p className="text-base text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
+              <p className="text-base text-gray-600 mb-4">Fill out the form below, and a team member will be in touch.</p>
             </div>
             
             {/* Mobile-optimized iframe container with focus enhancements */}
@@ -64,11 +64,11 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="800"
+                height="500"
                 frameBorder="0"
-                scrolling="yes"
+                scrolling="no"
                 title="Business Funding Application Form - Step 1 of 2"
-                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
+                className="w-full h-[500px] border-0 transition-all duration-200"
                 style={{ 
                   border: 'none',
                   background: 'white',
