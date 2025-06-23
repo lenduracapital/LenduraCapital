@@ -73,8 +73,8 @@ export default function Footer() {
               </a>
             </div>
             
-            <div className="mt-4 text-center">
-              <p className="text-black text-sm font-semibold mb-2">
+            <div className="mt-4">
+              <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
               <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors inline-block" style={{ color: '#85abe4' }}>
