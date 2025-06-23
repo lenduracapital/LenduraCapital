@@ -1,8 +1,32 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { 
+  configureProductionSecurity,
+  configureApiRateLimit,
+  configureProductionErrorHandler,
+  configureHealthMonitoring,
+  configureRobotsTxt,
+  addSecurityHeaders
+} from "./production-security";
 
 const app = express();
+
+// Configure trust proxy for rate limiting
+app.set('trust proxy', 1);
+
+// Configure production-grade security
+configureProductionSecurity(app);
+addSecurityHeaders(app);
+
+// Configure API rate limiting
+configureApiRateLimit(app);
+
+// Configure health monitoring
+configureHealthMonitoring(app);
+
+// Configure SEO robots.txt
+configureRobotsTxt(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -40,13 +64,13 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
-  // Simple static file serving
-  app.use(express.static('public'));
-  app.use('/attached_assets', express.static('attached_assets'));
+  // Configure production error handler
+  configureProductionErrorHandler(app);
 
-
-
-  if (process.env.NODE_ENV === "development") {
+  // importantly only setup vite in development and after
+  // setting up all the other routes so the catch-all route
+  // doesn't interfere with the other routes
+  if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
@@ -55,10 +79,12 @@ app.use((req, res, next) => {
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000");
-  server.listen(port, "0.0.0.0", () => {
+  const port = 5000;
+  server.listen({
+    port,
+    host: "0.0.0.0",
+    reusePort: true,
+  }, () => {
     log(`serving on port ${port}`);
-    console.log(`🚀 FundTek server running on http://0.0.0.0:${port}`);
-    console.log(`🌐 Access via webview at port ${port}`);
   });
 })();
