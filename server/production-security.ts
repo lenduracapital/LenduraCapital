@@ -47,7 +47,16 @@ export function configureProductionSecurity(app: Express) {
           "https:",
           "blob:"
         ],
-        connectSrc: [
+        connectSrc: process.env.NODE_ENV === 'development' ? [
+          "'self'",
+          "*",
+          "ws:",
+          "wss:",
+          "https://api.fundtekcapitalgroup.com",
+          "https://www.google-analytics.com",
+          "https://vitals.vercel-analytics.com",
+          "https://form.jotform.com"
+        ] : [
           "'self'",
           "https://api.fundtekcapitalgroup.com",
           "https://www.google-analytics.com",
@@ -70,7 +79,7 @@ export function configureProductionSecurity(app: Express) {
       preload: true
     },
     noSniff: true,
-    frameguard: { action: 'deny' },
+    frameguard: process.env.NODE_ENV === 'development' ? false : { action: 'deny' },
     xssFilter: true,
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
   }));
