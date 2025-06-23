@@ -510,6 +510,11 @@ Changelog:
   * Added automatic window.scrollTo(0, 0) effect whenever location changes
   * Now all page navigation properly positions users at the top of new pages
   * Enhanced user experience across entire website navigation system
+- June 23, 2025. Contact form display optimization (COMPLETE):
+  * Fixed form visibility issues to ensure complete form displays without scrolling
+  * Increased iframe height to 1200px for full form visibility in single view
+  * Removed all scaling transformations that were causing display complications
+  * Restored clean, simple iframe setup without CSS conflicts for optimal user experience
 ```
 
 ## User Preferences
