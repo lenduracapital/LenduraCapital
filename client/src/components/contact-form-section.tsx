@@ -53,18 +53,20 @@ export default function ContactFormSection() {
             </div>
           </div>
           
-          <div className="w-full">
+          <div className="w-full max-w-lg">
             <iframe
               src="https://form.jotform.com/251581480799066"
               width="100%"
-              height="1000"
+              height="900"
               frameBorder="0"
               scrolling="no"
               title="Business Funding Application Form - Step 1 of 2"
-              className="w-full h-[1000px] border-0"
+              className="w-full h-[900px] border-0"
               style={{ 
                 border: 'none',
-                background: 'transparent'
+                background: 'transparent',
+                transform: 'scale(0.9)',
+                transformOrigin: 'top left'
               }}
               loading="lazy"
               sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
