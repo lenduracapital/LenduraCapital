@@ -1,352 +1,60 @@
-/* Optimized font loading moved to HTML head for better performance */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(20, 14.3%, 4.1%);
-  --muted: hsl(60, 4.8%, 95.9%);
-  --muted-foreground: hsl(25, 5.3%, 44.7%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(20, 14.3%, 4.1%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(20, 14.3%, 4.1%);
-  --border: hsl(20, 5.9%, 90%);
-  --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(217, 58%, 71%);
-  --primary-foreground: hsl(212, 100%, 99%);
-  --secondary: hsl(60, 4.8%, 95.9%);
-  --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: hsl(142, 76%, 36%);
-  --accent-foreground: hsl(24, 9.8%, 10%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(60, 9.1%, 97.8%);
-  --ring: hsl(20, 14.3%, 4.1%);
-  --radius: 0.5rem;
-  
-  /* Custom FundTek colors */
-  --bg-primary: hsl(222, 84%, 5%);
-  --bg-secondary: hsl(215, 28%, 17%);
-  --bg-tertiary: hsl(215, 16%, 32%);
-  --text-primary: hsl(210, 40%, 98%);
-  --text-secondary: hsl(215, 14%, 70%);
-  --primary-dark: hsl(217, 58%, 65%);
-  --accent-dark: hsl(142, 76%, 26%);
-  
-  /* Improved contrast colors */
-  --fundtek-blue: #6b8bc3; /* Darker blue for better contrast */
-  --fundtek-blue-light: #85abe4; /* Original blue for backgrounds */
-}
-
-/* 3D Flip Animation Utilities */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-/* Responsive typography utilities */
-.responsive-heading-xl {
-  font-size: clamp(2rem, 5vw, 4rem);
-}
-
-.responsive-heading-lg {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-}
-
-.responsive-heading-md {
-  font-size: clamp(1.25rem, 3vw, 2rem);
-}
-
-.responsive-text {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-}
-
-/* Hero text improvements */
-.hero-text {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-}
-
-/* Better contrast for text on blue backgrounds */
-.text-on-blue {
-  color: #ffffff;
-  background-color: var(--fundtek-blue);
-}
-
-/* Touch target compliance */
-.touch-target {
-  min-height: 44px;
-  min-width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Focus states for accessibility */
-.focus-ring:focus {
-  outline: 2px solid var(--fundtek-blue);
-  outline-offset: 2px;
-}
-
-/* Enhanced form focus states for mobile */
-.form-focus:focus {
-  background-color: rgba(133, 171, 228, 0.05);
-  border-color: var(--fundtek-blue);
-  box-shadow: 0 0 0 3px rgba(133, 171, 228, 0.1);
-  outline: none;
-  transform: scale(1.02);
-  transition: all 0.2s ease-in-out;
-}
-
-.form-focus:focus-within {
-  background-color: rgba(133, 171, 228, 0.05);
-  border-color: var(--fundtek-blue);
-  box-shadow: 0 0 0 3px rgba(133, 171, 228, 0.1);
-}
-
-/* Input field enhancements */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-select:focus,
-textarea:focus {
-  background-color: rgba(133, 171, 228, 0.05) !important;
-  border-color: var(--fundtek-blue) !important;
-  box-shadow: 0 0 0 3px rgba(133, 171, 228, 0.1) !important;
-  outline: none !important;
-}
-
-/* Mobile form optimizations */
-@media (max-width: 768px) {
-  iframe[title*="Form"], iframe[src*="jotform"] {
-    min-height: 600px !important;
-    width: 100% !important;
-    transform: none !important;
-    border-radius: 8px !important;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
-  
-  .jotform-container {
-    padding: 16px !important;
-    margin: 0 !important;
-    overflow-x: hidden;
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
   }
-  
-  /* Enhanced touch targets for mobile */
-  button, .btn, .touch-target {
-    min-height: 44px !important;
-    min-width: 44px !important;
-    padding: 12px 16px !important;
-  }
-  
-  /* Improved mobile navigation */
-  .mobile-nav-item {
-    font-size: 18px !important;
-    line-height: 1.4 !important;
-  }
-}
-
-/* Iframe responsive container */
-.iframe-responsive {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 125%; /* 4:5 aspect ratio for forms */
-}
-
-.iframe-responsive iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.dark {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(217, 58%, 71%);
-  --primary-foreground: hsl(212, 100%, 99%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(142, 76%, 36%);
-  --accent-foreground: hsl(0, 0%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 4.9%, 83.9%);
-  --radius: 0.5rem;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-[--bg-primary] text-[--text-primary] font-['Inter',sans-serif] antialiased;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
-}
-
-/* Custom utility classes */
-.bg-primary-fundtek {
-  background-color: var(--bg-primary);
-}
-
-.bg-secondary-fundtek {
-  background-color: var(--bg-secondary);
-}
-
-.bg-tertiary-fundtek {
-  background-color: var(--bg-tertiary);
-}
-
-.text-primary-fundtek {
-  color: var(--text-primary);
-}
-
-.text-secondary-fundtek {
-  color: var(--text-secondary);
-}
-
-.btn-primary-fundtek {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.btn-primary-fundtek:hover {
-  background-color: var(--primary-dark);
-}
-
-.btn-accent-fundtek {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.btn-accent-fundtek:hover {
-  background-color: var(--accent-dark);
-}
-
-/* Enhanced Responsive Typography */
-.responsive-heading-lg {
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-.responsive-heading-md {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  font-weight: 600;
-}
-
-.responsive-text {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.6;
-}
-
-/* Enhanced CTA button styling */
-.cta-button {
-  font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0.01em;
-  box-shadow: 0 4px 12px rgba(133, 171, 228, 0.3);
-  transition: all 0.2s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(133, 171, 228, 0.4);
-}
-
-/* Navigation text shadow for better readability */
-.nav-text-shadow {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-
-/* Critical performance optimizations */
-* {
-  box-sizing: border-box;
-}
-
-/* Video performance enhancement */
-video {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  contain: layout style paint;
-}
-
-/* Layout optimization */
-.hero-section {
-  contain: layout style paint;
-  will-change: transform;
-}
-
-/* Font rendering optimization */
-body {
-  text-rendering: optimizeSpeed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Reduce animations for accessibility and performance */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  video {
-    animation: none !important;
-  }
-}
-
-/* Intersection observer performance */
-.lazy-load {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.lazy-load.loaded {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Image optimization */
-img {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 1000px;
-}
-
-/* Carousel performance */
-.testimonial-carousel {
-  contain: layout style paint;
-  will-change: transform;
 }
