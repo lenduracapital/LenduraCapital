@@ -572,9 +572,9 @@ Changelog:
   * Improved visual proportions and reduced overwhelming appearance of profile circles
   * Enhanced overall testimonials section balance and readability
 - June 23, 2025. Footer logo correction (COMPLETE):
-  * Fixed footer to use correct transparent FundTek Capital Group logo
-  * Replaced incorrect logo file with proper IMG_4080 (2)_1750717440674.png
-  * Restored clean, professional logo display without pixelation or quality issues
+  * Fixed footer to use correct FundTek Capital Group logo with gradient background
+  * Updated to use ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png
+  * Restored proper branding with white "Fund" and blue "Tek" text display
 ```
 
 ## User Preferences
