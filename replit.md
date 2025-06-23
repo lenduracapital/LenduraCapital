@@ -531,6 +531,9 @@ Changelog:
   * Added clickable URLs: Instagram (fundtekcapitalgroup), X (fundtekcapital), TikTok (fundtekcapitalgroup)
   * All social links open in new tabs with security attributes
   * Added "Leave us a Review" section with clickable Yelp link below social media icons
+- June 23, 2025. Chat widget timing fix (COMPLETE):
+  * Fixed chat widget delay from 3 seconds to 2 seconds for proper appearance timing
+  * Chat bot now appears after 2 seconds as originally designed
 ```
 
 ## User Preferences
