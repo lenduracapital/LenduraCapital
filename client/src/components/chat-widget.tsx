@@ -22,7 +22,7 @@ interface ChatState {
 
 export default function ChatWidget() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Start fully expanded
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [chatState, setChatState] = useState<ChatState>({
@@ -342,7 +342,6 @@ export default function ChatWidget() {
     }
   };
 
-  // Debug: Force visible for testing
   if (!isVisible) return null;
 
   return (

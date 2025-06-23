@@ -535,6 +535,8 @@ Changelog:
   * Fixed chat widget delay from 3 seconds to 2 seconds for proper appearance timing
   * Chat bot now appears after 2 seconds as originally designed
   * Fixed missing chat widget import and rendering in App.tsx - widget now properly displays on all pages
+  * Resolved duplicate rendering issue - removed ChatWidget from home.tsx to prevent conflicts
+  * Changed chat widget to start fully expanded instead of showing just blue button - opens complete chat interface after 2 seconds
 ```
 
 ## User Preferences
