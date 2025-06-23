@@ -71,6 +71,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Debug endpoint for Replit connection testing
+  app.get("/debug", (req, res) => {
+    res.json({
+      message: "Server is accessible and responding",
+      timestamp: new Date().toISOString(),
+      replit_domain: process.env.REPLIT_DEV_DOMAIN,
+      server_info: {
+        host: req.headers.host,
+        protocol: req.protocol,
+        method: req.method,
+        url: req.url,
+        user_agent: req.headers['user-agent'],
+        origin: req.headers.origin,
+        referer: req.headers.referer
+      },
+      environment: process.env.NODE_ENV || "unknown",
+      port: 5000
+    });
+  });
+
   // Contact Submissions
   app.post("/api/contact-submissions", async (req, res) => {
     try {
