@@ -56,7 +56,7 @@ export default function ContactFormSection() {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full">
             <div className="p-4 md:p-6 lg:p-8">
               <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Get working capital today</h3>
-              <p className="text-base text-gray-600 mb-4">Fill out the form below, and a team member will be in touch.</p>
+              <p className="text-base text-gray-600 mb-6">Fill out the form below, and a team member will be in touch.</p>
             </div>
             
             {/* Mobile-optimized iframe container with focus enhancements */}
@@ -64,11 +64,11 @@ export default function ContactFormSection() {
               <iframe
                 src="https://form.jotform.com/251581480799066"
                 width="100%"
-                height="1600"
+                height="800"
                 frameBorder="0"
-                scrolling="no"
+                scrolling="yes"
                 title="Business Funding Application Form - Step 1 of 2"
-                className="w-full h-[1600px] border-0 transition-all duration-200"
+                className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
                 style={{ 
                   border: 'none',
                   background: 'white',
