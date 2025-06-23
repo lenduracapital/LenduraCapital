@@ -66,16 +66,14 @@ export default function ContactFormSection() {
                 width="100%"
                 height="800"
                 frameBorder="0"
-                scrolling="no"
+                scrolling="yes"
                 title="Business Funding Application Form - Step 1 of 2"
                 className="w-full h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] border-0 transition-all duration-200"
                 style={{ 
                   border: 'none',
                   background: 'white',
                   maxWidth: '100%',
-                  overflow: 'hidden',
-                  transform: 'scale(0.85)',
-                  transformOrigin: 'top left'
+                  overflow: 'hidden'
                 }}
                 loading="lazy"
                 sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation"
