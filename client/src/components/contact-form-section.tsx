@@ -57,11 +57,11 @@ export default function ContactFormSection() {
             <iframe
               src="https://form.jotform.com/251581480799066"
               width="100%"
-              height="800"
+              height="1000"
               frameBorder="0"
               scrolling="no"
               title="Get Working Capital Today"
-              className="w-full h-[500px] md:h-[800px] border-0 rounded-lg"
+              className="w-full h-[500px] md:h-[1000px] border-0 rounded-lg"
               loading="lazy"
             ></iframe>
           </div>
