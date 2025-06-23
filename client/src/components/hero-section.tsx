@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-const videoPath = "/video/optimized/hero-video-720p.mp4";
+const videoPath = "/hero-video.mp4";
 const newLogoPath = "/image_1750273835191.webp";
 
 export default function HeroSection() {
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(true);
   const [videoQuality, setVideoQuality] = useState('720p');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -69,7 +69,7 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
-          poster="/video/optimized/hero-poster.webp"
+          poster="/image_1750273835191.webp"
           onLoadStart={() => setVideoLoaded(true)}
           onCanPlayThrough={() => setVideoLoaded(true)}
           onError={() => setVideoLoaded(false)}
@@ -81,8 +81,7 @@ export default function HeroSection() {
             contain: 'layout style paint'
           }}
         >
-          <source src="/video/optimized/hero-video-720p.mp4" type="video/mp4" />
-          <source src="/video/optimized/hero-video-480p.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       ) : (
