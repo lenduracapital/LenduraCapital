@@ -561,6 +561,10 @@ Changelog:
   * Applied imageRendering: 'crisp-edges' for sharper text definition
   * Added subtle drop shadows for better logo visibility against backgrounds
   * Maintained original logo files while improving visual clarity through CSS filters
+- June 23, 2025. Favicon update with transparent logo (COMPLETE):
+  * Updated favicon.ico and favicon.svg with transparent FundTek Capital Group logo
+  * Applied clear, professional transparent logo for better browser tab visibility
+  * Maintained website logos unchanged per user preference
 ```
 
 ## User Preferences
