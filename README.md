@@ -3,6 +3,14 @@
 ## Overview
 A high-performance, conversion-optimized business funding platform built with React, TypeScript, and Express.js. Designed for maximum lead generation with comprehensive SEO optimization, security, and accessibility compliance.
 
+## 📁 Project Structure
+
+/client            # Front-end React app (Next.js)  
+/server            # Back-end API (Express)  
+/public            # Static assets (images, fonts, sitemaps)  
+/attached_assets   # Source media for optimization (PNG, MP4)  
+README.md          # This file
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -28,11 +36,19 @@ npm run dev
 
 The application will be available at `http://localhost:5000`
 
-### Environment Variables
-```bash
-DATABASE_URL=your_postgresql_connection_string
-NODE_ENV=development
+## 🔑 Environment Variables
+
+Copy `.env.example` to `.env` and fill in:
+
+```env
+DATABASE_URL=postgres://<DB_USER>:<DB_PASS>@localhost:5432/<DB_NAME>
+JWT_SECRET=<GENERATED_HEX_STRING>
+PORT=5000
 ```
+- `<DB_USER>`: your Postgres username  
+- `<DB_PASS>`: your Postgres password  
+- `<DB_NAME>`: your database name  
+- `<GENERATED_HEX_STRING>`: output of `openssl rand -hex 32`
 
 ## 🏗️ Architecture
 
@@ -90,17 +106,21 @@ NODE_ENV=development
 
 ## 🔧 Available Scripts
 
+- `npm run dev` — Start server & client in watch mode  
+- `npm run build` — Build for production  
+- `npm run start` — Launch production server  
+- `npm run lint` — Run ESLint & Prettier  
+- `npm run test` — Run tests  
+- `npm run db:push` — Apply database migrations  
+- `npm run audit:lighthouse` — Run Lighthouse audits
+
+## 🚀 Quick Start
+
 ```bash
-# Development
-npm run dev              # Start development server
-npm run build           # Build for production
-npm run start           # Start production server
-
-# Database
-npm run db:push         # Push schema changes to database
-
-# Code Quality
-npm run check           # TypeScript type checking
+npm install
+cp .env.example .env
+npm run db:push
+npm run dev
 ```
 
 ## 🔐 Security Features
