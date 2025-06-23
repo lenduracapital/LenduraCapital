@@ -144,10 +144,11 @@ export default function ReviewsPage() {
     setReviews(initialReviews);
     setFilteredReviews(initialReviews);
     
-    // Calculate average rating
+    // Calculate average rating and verified count
     const avg = initialReviews.reduce((sum, review) => sum + review.rating, 0) / initialReviews.length;
     setAverageRating(Math.round(avg * 10) / 10);
     setTotalReviews(initialReviews.length);
+    setVerifiedCount(initialReviews.filter(review => review.verified).length);
   }, []);
 
   // Filter and sort reviews
@@ -158,6 +159,11 @@ export default function ReviewsPage() {
     if (filterRating !== "all") {
       const rating = parseInt(filterRating);
       filtered = filtered.filter(review => review.rating === rating);
+    }
+
+    // Filter by industry
+    if (filterIndustry !== "all") {
+      filtered = filtered.filter(review => review.industry === filterIndustry);
     }
 
     // Sort reviews
@@ -172,7 +178,7 @@ export default function ReviewsPage() {
     }
 
     setFilteredReviews(filtered);
-  }, [reviews, filterRating, sortBy]);
+  }, [reviews, filterRating, filterIndustry, sortBy]);
 
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -319,20 +325,42 @@ export default function ReviewsPage() {
 
         {/* Filters and Sort */}
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <div className="flex gap-4 items-center">
-              <Filter className="w-5 h-5 text-gray-600" />
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div className="flex gap-2 items-center">
+                <Filter className="w-5 h-5 text-gray-600" />
+                <span className="text-sm font-medium text-gray-700">Filter by:</span>
+              </div>
+              
               <Select value={filterRating} onValueChange={setFilterRating}>
                 <SelectTrigger className="w-40">
                   <SelectValue placeholder="All Ratings" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Ratings</SelectItem>
-                  <SelectItem value="5">5 Stars</SelectItem>
-                  <SelectItem value="4">4 Stars</SelectItem>
-                  <SelectItem value="3">3 Stars</SelectItem>
-                  <SelectItem value="2">2 Stars</SelectItem>
-                  <SelectItem value="1">1 Star</SelectItem>
+                  <SelectItem value="5">⭐⭐⭐⭐⭐ 5 Stars</SelectItem>
+                  <SelectItem value="4">⭐⭐⭐⭐ 4 Stars</SelectItem>
+                  <SelectItem value="3">⭐⭐⭐ 3 Stars</SelectItem>
+                  <SelectItem value="2">⭐⭐ 2 Stars</SelectItem>
+                  <SelectItem value="1">⭐ 1 Star</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Select value={filterIndustry} onValueChange={setFilterIndustry}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="All Industries" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Industries</SelectItem>
+                  <SelectItem value="Automotive">🚗 Automotive</SelectItem>
+                  <SelectItem value="Construction">🏗️ Construction</SelectItem>
+                  <SelectItem value="Healthcare">🏥 Healthcare</SelectItem>
+                  <SelectItem value="Manufacturing">🏭 Manufacturing</SelectItem>
+                  <SelectItem value="Restaurant">🍽️ Restaurant</SelectItem>
+                  <SelectItem value="Retail">🏪 Retail</SelectItem>
+                  <SelectItem value="Technology">💻 Technology</SelectItem>
+                  <SelectItem value="Transportation">🚛 Transportation</SelectItem>
+                  <SelectItem value="Landscaping">🌿 Landscaping</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -342,12 +370,19 @@ export default function ReviewsPage() {
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="newest">Newest First</SelectItem>
-                <SelectItem value="oldest">Oldest First</SelectItem>
-                <SelectItem value="highest">Highest Rated</SelectItem>
-                <SelectItem value="lowest">Lowest Rated</SelectItem>
+                <SelectItem value="newest">📅 Newest First</SelectItem>
+                <SelectItem value="oldest">🗓️ Oldest First</SelectItem>
+                <SelectItem value="highest">⭐ Highest Rated</SelectItem>
+                <SelectItem value="lowest">📊 Lowest Rated</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+
+          {/* Filter Results Summary */}
+          <div className="mt-4 text-sm text-gray-600">
+            Showing {filteredReviews.length} of {totalReviews} reviews
+            {filterRating !== "all" && ` • ${filterRating} stars`}
+            {filterIndustry !== "all" && ` • ${filterIndustry} industry`}
           </div>
         </section>
 
@@ -367,15 +402,29 @@ export default function ReviewsPage() {
                             Verified Client
                           </Badge>
                         )}
+                        {review.source && review.source !== 'direct' && (
+                          <Badge variant="outline" className="text-xs">
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            {review.source}
+                          </Badge>
+                        )}
                       </div>
                       {review.company && (
                         <p className="text-gray-600 text-sm mb-2">{review.company}</p>
                       )}
-                      {review.industry && (
-                        <Badge variant="outline" className="text-xs">
-                          {review.industry}
-                        </Badge>
-                      )}
+                      <div className="flex gap-2 mb-2">
+                        {review.industry && (
+                          <Badge variant="outline" className="text-xs">
+                            {review.industry}
+                          </Badge>
+                        )}
+                        {review.fundingType && review.fundingAmount && (
+                          <Badge className="bg-[#85abe4] text-white text-xs">
+                            <TrendingUp className="w-3 h-3 mr-1" />
+                            {review.fundingType} - {review.fundingAmount}
+                          </Badge>
+                        )}
+                      </div>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-gray-500">
                       <Clock className="w-4 h-4" />
@@ -387,7 +436,48 @@ export default function ReviewsPage() {
                     {renderStars(review.rating)}
                   </div>
                   
-                  <p className="text-gray-700 leading-relaxed">{review.text}</p>
+                  <p className="text-gray-700 leading-relaxed mb-4">{review.text}</p>
+
+                  {/* Video Testimonial */}
+                  {review.videoUrl && (
+                    <div className="mb-4">
+                      <div className="bg-gray-100 rounded-lg p-4 flex items-center gap-3">
+                        <Play className="w-5 h-5 text-[#85abe4]" />
+                        <span className="text-sm font-medium text-gray-700">Video Testimonial Available</span>
+                        <Button variant="outline" size="sm" className="ml-auto">
+                          Watch Video
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Photos */}
+                  {review.photos && review.photos.length > 0 && (
+                    <div className="mb-4">
+                      <div className="flex gap-2 items-center mb-2">
+                        <Camera className="w-4 h-4 text-gray-600" />
+                        <span className="text-sm font-medium text-gray-700">Client Photos</span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                        {review.photos.map((photo, index) => (
+                          <div key={index} className="aspect-square bg-gray-200 rounded-lg flex items-center justify-center">
+                            <Camera className="w-8 h-8 text-gray-400" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Business Response */}
+                  {review.businessResponse && (
+                    <div className="bg-blue-50 border-l-4 border-[#85abe4] p-4 rounded-r-lg">
+                      <div className="flex items-center gap-2 mb-2">
+                        <MessageCircle className="w-4 h-4 text-[#85abe4]" />
+                        <span className="text-sm font-semibold text-[#85abe4]">Business Owner Response</span>
+                      </div>
+                      <p className="text-gray-700 text-sm leading-relaxed">{review.businessResponse}</p>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -502,7 +592,79 @@ export default function ReviewsPage() {
             </Card>
           </div>
         </section>
+
+        {/* Lead Generation CTA */}
+        <section className="bg-gradient-to-r from-[#85abe4] to-blue-600 py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ready to Get Funded Like These Business Owners?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Join hundreds of satisfied clients who've secured fast, flexible financing through FundTek Capital Group
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button 
+                size="lg" 
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+                onClick={() => window.open('https://form.jotform.com/251417715331047', '_blank')}
+              >
+                Get Your Approval in 24 Hours
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg"
+                onClick={() => window.open('tel:+13053074658', '_self')}
+              >
+                Call (305) 307-4658
+              </Button>
+            </div>
+            <p className="text-blue-100 text-sm mt-6">
+              No impact on your credit score • 5-minute application • Same-day decisions
+            </p>
+          </div>
+        </section>
       </main>
+
+      {/* Rich Snippet Schema for Google SEO */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "FundTek Capital Group",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": averageRating,
+              "reviewCount": totalReviews,
+              "bestRating": 5,
+              "worstRating": 1
+            },
+            "review": filteredReviews.slice(0, 5).map(review => ({
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": review.name
+              },
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": review.rating,
+                "bestRating": 5,
+                "worstRating": 1
+              },
+              "reviewBody": review.text,
+              "datePublished": review.date
+            })),
+            "url": "https://fundtekcapitalgroup.com/reviews",
+            "telephone": "+1-305-307-4658",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "US"
+            }
+          })
+        }}
+      />
 
       <Footer />
     </div>

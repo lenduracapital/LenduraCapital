@@ -77,9 +77,18 @@ export default function Footer() {
               <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
-              <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors inline-block" style={{ color: '#85abe4' }}>
-                <FaYelp className="text-xl" />
-              </a>
+              <div className="flex gap-3 items-center">
+                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
+                  <FaYelp className="text-xl" />
+                </a>
+                <button 
+                  onClick={() => setLocation('/reviews')}
+                  className="text-gray-600 hover:opacity-75 transition-colors text-xs font-medium" 
+                  style={{ color: '#85abe4' }}
+                >
+                  Our Reviews
+                </button>
+              </div>
             </div>
           </div>
           
