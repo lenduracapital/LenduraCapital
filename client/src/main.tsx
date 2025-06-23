@@ -1,10 +1,7 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { performanceMonitor } from "./utils/performance-monitor";
-
-// Initialize performance monitoring
-performanceMonitor;
+import "./utils/performance-monitor";
 
 // Service Worker registration handled by external script
 
