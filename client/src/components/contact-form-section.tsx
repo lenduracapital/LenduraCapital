@@ -54,6 +54,9 @@ export default function ContactFormSection() {
           </div>
           
           <div className="w-full max-w-2xl">
+            <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
+              Get Working Capital Today
+            </h3>
             <iframe
               src="https://form.jotform.com/251581480799066"
               width="100%"
