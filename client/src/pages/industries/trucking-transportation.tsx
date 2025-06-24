@@ -51,8 +51,8 @@ export default function TruckingTransportation() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                style={{ backgroundColor: 'white', color: '#85abe4' }}
-                className="hover:bg-gray-100 text-lg px-8 py-3 font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 text-lg px-8 py-3 font-semibold"
               >
                 Get Approved in 24 Hours
               </Button>
