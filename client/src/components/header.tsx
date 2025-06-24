@@ -82,10 +82,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
               <button 
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsDropdownOpen(!isDropdownOpen);
-                }}
+                onClick={() => setLocation("/solutions")}
                 className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 aria-label="View business funding solutions"
