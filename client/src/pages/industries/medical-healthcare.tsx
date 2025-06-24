@@ -255,46 +255,6 @@ export default function MedicalHealthcare() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
