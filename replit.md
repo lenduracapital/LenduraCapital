@@ -589,6 +589,13 @@ Changelog:
   * Updated text color to signature blue (#85abe4) for heading and subtitle
   * Modified button to use signature blue background with white text
   * Maintained professional appearance while improving visual contrast
+- June 23, 2025. Favicon redesign to match new FUNDTEK CAPITAL logo (COMPLETE):
+  * Recreated favicon to match circular "FUNDTEK CAPITAL" logo with lion design
+  * Dark green/black background with signature blue lion head and text
+  * "FUNDTEK" curved along top arc, "CAPITAL" along bottom arc
+  * Created 16x16 simplified version for small browser tabs
+  * Multiple size optimization for maximum visibility across different browsers
+  * Enhanced version with larger canvas (64x64), darker background, and thicker elements for improved visibility
 ```
 
 ## User Preferences
