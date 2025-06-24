@@ -81,10 +81,10 @@ export default function Header({ transparent = true }: HeaderProps) {
                 Solutions
               </button>
 
-              {/* Dropdown Menu - Compact Style */}
+              {/* Dropdown Menu - Square Style */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded shadow-lg border border-gray-200 z-50 py-4 px-5">
-                  <div className="grid grid-cols-2 gap-4">
+                <div className="absolute top-full left-0 mt-1 w-96 bg-white rounded shadow-lg border border-gray-200 z-50 py-5 px-6">
+                  <div className="grid grid-cols-2 gap-6">
                     {/* Custom Business Financing Solutions */}
                     <div>
                       <h3 className="font-semibold text-gray-800 mb-2 text-sm border-b border-gray-200 pb-1">Custom Business Financing Solutions</h3>
