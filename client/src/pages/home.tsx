@@ -55,7 +55,7 @@ export default function Home() {
         eventData={{ page_title: "FundTek Capital Group - Business Funding Solutions" }} 
       />
       <PerformanceMonitor />
-
+      <Header transparent />
       <main id="main-content">
         <HeroSection />
         <ProcessSection />

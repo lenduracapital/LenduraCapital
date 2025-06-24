@@ -34,12 +34,13 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  if (transparent && !isScrolled) {
-    return <div></div>; // Return empty div when header should be invisible
-  }
+  // Determine header background and text colors
+  const isTransparent = transparent && !isScrolled;
+  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md';
+  const textColor = isTransparent ? 'text-white' : 'text-black';
 
   return (
-    <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md">
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
       <nav className="w-full px-0">
         <div className="flex items-center justify-between py-1 w-full">
           {/* Logo on the left - aligned with hero text */}
