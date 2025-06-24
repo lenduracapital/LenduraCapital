@@ -600,6 +600,11 @@ Changelog:
   * Removed TikTok icon and link from footer social media section
   * Updated imports to remove FaTiktok reference
   * Footer now displays Instagram and X (Twitter) icons only
+- June 24, 2025. Facebook icon addition to footer (COMPLETE):
+  * Added Facebook icon next to X logo in footer social media section
+  * Imported FaFacebook from react-icons/fa
+  * Added clickable link to https://www.facebook.com/profile.php?id=61577926551810
+  * Footer now displays Instagram, X (Twitter), and Facebook icons in signature blue
 ```
 
 ## User Preferences

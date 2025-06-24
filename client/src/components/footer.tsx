@@ -1,5 +1,5 @@
 import { ChartLine } from "lucide-react";
-import { FaInstagram, FaYelp } from "react-icons/fa";
+import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { useLocation } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png";
 
@@ -67,6 +67,9 @@ export default function Footer() {
               </a>
               <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors flex items-center justify-center" style={{ color: '#85abe4' }}>
                 <span className="text-xl leading-none">𝕏</span>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
+                <FaFacebook className="text-xl" />
               </a>
             </div>
             
