@@ -93,15 +93,16 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 w-[600px] bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
+                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
+                  style={{ width: '682px', height: '328px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-2 gap-6 h-full">
                     {/* Custom Business Financing Solutions */}
                     <div>
-                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1">Custom Business Financing Solutions</h3>
+                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
                       <div className="space-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
@@ -168,7 +169,7 @@ export default function Header({ transparent = true }: HeaderProps) {
 
                     {/* Personalized Small Business Solutions */}
                     <div>
-                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1">Personalized Small Business Solutions</h3>
+                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Personalized Small Business Solutions</h3>
                       <div className="space-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
