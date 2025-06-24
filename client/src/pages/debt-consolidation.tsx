@@ -2,8 +2,9 @@ import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
 
 export default function DebtConsolidationPage() {
-  // Using working unsplash image for guaranteed display
-  const contentImage = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop";
+  // DEBUG: Testing direct image URL
+  console.log("Debt consolidation page loading with image");
+  const contentImage = "https://picsum.photos/800/500";
   
   return (
     <SolutionDetailTemplate
