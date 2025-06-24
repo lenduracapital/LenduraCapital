@@ -96,21 +96,7 @@ export default function HeroSection() {
         />
       )}
       
-      {/* Simple Navigation floating over video */}
-      <nav className="absolute top-0 w-full z-50 flex items-center justify-between px-4 md:px-8 py-2">
-        <img 
-          src={logoPath}
-          alt="FundTek Capital Group Logo" 
-          className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain"
-        />
-        <div className="hidden lg:flex items-center space-x-6">
-          <button onClick={() => setLocation("/")} className="text-white hover:text-[#85abe4] font-medium">Home</button>
-          <button onClick={() => setLocation("/solutions")} className="text-white hover:text-[#85abe4] font-medium">Solutions</button>
-          <button onClick={() => setLocation("/who-we-fund")} className="text-white hover:text-[#85abe4] font-medium">Qualified Industries</button>
-          <button onClick={handleApplyNow} className="text-white hover:text-[#85abe4] font-medium">Apply Now</button>
-          <button onClick={() => setLocation("/contact")} className="text-white hover:text-[#85abe4] font-medium">Contact Us</button>
-        </div>
-      </nav>
+
 
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-32 md:pt-40">

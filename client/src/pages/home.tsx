@@ -32,6 +32,7 @@ export default function Home() {
       />
       <PerformanceMonitor />
 
+      <Header transparent={true} />
       <main id="main-content">
         <HeroSection />
         <ProcessSection />
