@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Star, ChefHat, Utensils, Coffee } from "lucide-react";
+import { CheckCircle, ArrowLeft, Star, Utensils, ChefHat, Clock } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -46,7 +46,7 @@ export default function RestaurantFoodService() {
               Restaurant & Food Service Financing
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Serve up success with flexible financing for equipment, renovations, and working capital.
+              Serve success with financing for equipment, renovations, and operational needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -59,7 +59,6 @@ export default function RestaurantFoodService() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
@@ -105,7 +104,7 @@ export default function RestaurantFoodService() {
             <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
-                alt="Restaurant and food service business"
+                alt="Restaurant and food service"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
@@ -125,29 +124,29 @@ export default function RestaurantFoodService() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real restaurant owners who grew their businesses with FundTek Capital Group financing
+              Real restaurant owners who enhanced their operations with FundTek Capital Group financing
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Maria Gonzalez",
-                company: "Gonzalez Bistro",
-                story: "Used equipment financing to purchase new commercial kitchen equipment after equipment failure. Reopened within days instead of weeks.",
-                funding: "$65,000 Equipment Financing"
+                name: "Marco DiVito",
+                company: "DiVito's Italian Kitchen",
+                story: "Used equipment financing to upgrade kitchen with commercial-grade appliances. Increased capacity by 50% and reduced food prep time significantly.",
+                funding: "$135,000 Equipment Financing"
               },
               {
-                name: "Chef David Kim",
-                company: "Seoul Kitchen",
-                story: "Secured working capital to expand catering operations and hire additional staff. Catering revenue increased 150% in one year.",
-                funding: "$85,000 Line of Credit"
+                name: "Chen Liu",
+                company: "Golden Dragon Restaurant",
+                story: "Secured working capital for renovation and new POS system. Customer satisfaction improved and takeout orders doubled during pandemic.",
+                funding: "$95,000 Term Loan"
               },
               {
-                name: "Anthony Romano",
-                company: "Romano's Italian",
-                story: "Got renovation financing to modernize dining room and expand seating capacity. Customer satisfaction and revenue both increased significantly.",
-                funding: "$120,000 Term Loan"
+                name: "Isabella Rodriguez",
+                company: "Café Estrella",
+                story: "Got line of credit for seasonal inventory and marketing. Expanded catering services and opened second location within 18 months.",
+                funding: "$75,000 Line of Credit"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
@@ -168,6 +167,38 @@ export default function RestaurantFoodService() {
         </div>
       </section>
 
+      {/* Rolling Statistics */}
+      <section className="py-16 md:py-24 bg-[#85abe4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={100} suffix="+" />
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Specialists</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={12} />
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Financing Solutions</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                $<CountUp end={20} />M
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Funding Available</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={24} /> hrs
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Fast Approval</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -180,8 +211,19 @@ export default function RestaurantFoodService() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for kitchen equipment, appliances, and technology systems</p>
+              <Button 
+                onClick={() => setLocation("/solutions/equipment-financing")}
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Ideal for renovations, expansions, and major improvements</p>
+              <p className="text-blue-100 mb-6">Ideal for renovations, buildouts, and location expansion</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -192,7 +234,7 @@ export default function RestaurantFoodService() {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Flexible working capital for inventory, payroll, and operational expenses</p>
+              <p className="text-blue-100 mb-6">Flexible working capital for inventory and seasonal operations</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -201,60 +243,8 @@ export default function RestaurantFoodService() {
                 Learn More
               </Button>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for kitchen equipment, appliances, and point-of-sale systems</p>
-              <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
         </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
       </section>
 
       {/* CTA Section */}
@@ -264,7 +254,7 @@ export default function RestaurantFoodService() {
             Ready to Grow Your Restaurant?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Get the funding you need to purchase equipment, renovate your space, and expand your operations
+            Get the funding you need to purchase equipment, renovate your space, and expand your food service business
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

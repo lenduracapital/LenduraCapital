@@ -167,6 +167,38 @@ export default function EntertainmentEvents() {
         </div>
       </section>
 
+      {/* Rolling Statistics */}
+      <section className="py-16 md:py-24 bg-[#85abe4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={100} suffix="+" />
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Specialists</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={12} />
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Financing Solutions</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                $<CountUp end={20} />M
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Funding Available</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl md:text-4xl font-bold mb-2">
+                <CountUp end={24} /> hrs
+              </div>
+              <div className="text-lg md:text-xl text-blue-100">Fast Approval</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
