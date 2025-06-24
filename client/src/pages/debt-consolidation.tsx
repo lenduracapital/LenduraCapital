@@ -1,9 +1,10 @@
 import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
+import debtConsolidationImage from '@assets/images_1750787797244.jpg';
 
 export default function DebtConsolidationPage() {
-  // Using reliable stock image for debt consolidation
-  const contentImage = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop&crop=center";
+  // Using same image import as Solutions page
+  const contentImage = debtConsolidationImage;
   
   return (
     <SolutionDetailTemplate
