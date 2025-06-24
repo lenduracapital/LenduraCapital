@@ -200,7 +200,6 @@ export default function TechnologySoftware() {
           </div>
         </div>
       </section>
-      </section>
 
       {/* Rolling Statistics */}
       <section className="py-16 md:py-24 bg-gray-50">
