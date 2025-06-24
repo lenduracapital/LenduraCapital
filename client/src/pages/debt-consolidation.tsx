@@ -5,8 +5,8 @@ export default function DebtConsolidationPage() {
     <SolutionDetailTemplate
       title="Debt Consolidation"
       description="Consolidate multiple business debts into one manageable payment with better terms and lower interest rates to improve your cash flow."
-      heroImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop"
+      contentImage="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop"
       features={[
         "Combine multiple debts into one payment",
         "Potentially lower interest rates",
