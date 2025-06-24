@@ -5,10 +5,6 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
-
 export default function TechnologySoftware() {
   const [, setLocation] = useLocation();
 

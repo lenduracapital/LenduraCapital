@@ -120,8 +120,10 @@ export default function ProfessionalServices() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Accelerate Your Professional Services Growth
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
+              Take advantage of our specialized financing solutions for professional service firms
             </p>
           </div>
           
