@@ -36,11 +36,11 @@ export default function Header({ transparent = true }: HeaderProps) {
 
   // Determine header background and text colors
   const isTransparent = transparent && !isScrolled;
-  const headerBg = 'bg-transparent';
-  const textColor = 'text-white';
+  const headerBg = isTransparent ? 'bg-transparent' : 'bg-white shadow-lg';
+  const textColor = isTransparent ? 'text-white' : 'text-black';
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg} ${isTransparent ? 'opacity-0' : 'opacity-100'}`}>
       <nav className="w-full px-0">
         <div className="flex items-center justify-between py-1 w-full">
           {/* Logo on the left - aligned with hero text */}
