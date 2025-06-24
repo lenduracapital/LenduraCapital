@@ -86,7 +86,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-black font-semibold mb-4">Custom Business Financing Solutions</h4>
+            <h4 className="text-[#85abe4] font-semibold mb-4">Custom Business Financing Solutions</h4>
             <ul className="space-y-3 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-black font-semibold mb-4">Personalized Small Business Solutions</h4>
+            <h4 className="text-[#85abe4] font-semibold mb-4">Personalized Small Business Solutions</h4>
             <ul className="space-y-3 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
@@ -118,7 +118,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-black font-semibold mb-4">FundTek Capital Group</h4>
+            <h4 className="text-[#85abe4] font-semibold mb-4">FundTek Capital Group</h4>
             <ul className="space-y-3 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
