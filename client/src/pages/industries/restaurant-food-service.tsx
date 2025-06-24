@@ -180,17 +180,6 @@ export default function RestaurantFoodService() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for kitchen equipment, appliances, and point-of-sale systems</p>
-              <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
-              >
-                Learn More
-              </Button>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
               <p className="text-blue-100 mb-6">Ideal for renovations, expansions, and major improvements</p>
               <Button 
@@ -202,10 +191,21 @@ export default function RestaurantFoodService() {
               </Button>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Cash Advance</h3>
-              <p className="text-blue-100 mb-6">Quick access to capital based on your credit card processing volume</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
+              <p className="text-blue-100 mb-6">Flexible working capital for inventory, payroll, and operational expenses</p>
               <Button 
-                onClick={() => setLocation("/solutions/merchant-cash-advance")}
+                onClick={() => setLocation("/solutions/lines-of-credit")}
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for kitchen equipment, appliances, and point-of-sale systems</p>
+              <Button 
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >

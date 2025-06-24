@@ -180,10 +180,10 @@ export default function Manufacturing() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for production machinery, tools, and manufacturing equipment</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Long-term financing for facility expansion and major improvements</p>
               <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
+                onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
@@ -202,10 +202,10 @@ export default function Manufacturing() {
               </Button>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Long-term financing for facility expansion and major improvements</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for production machinery, tools, and manufacturing equipment</p>
               <Button 
-                onClick={() => setLocation("/solutions/term-loans")}
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >

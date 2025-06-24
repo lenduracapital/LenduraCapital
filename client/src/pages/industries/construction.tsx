@@ -180,10 +180,10 @@ export default function Construction() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for heavy machinery, tools, and construction equipment purchases</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Long-term financing for major projects, equipment purchases, and business expansion</p>
               <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
+                onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
@@ -202,10 +202,10 @@ export default function Construction() {
               </Button>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Invoice Factoring</h3>
-              <p className="text-blue-100 mb-6">Convert outstanding invoices to immediate cash for steady cash flow</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for heavy machinery, tools, and construction equipment purchases</p>
               <Button 
-                onClick={() => setLocation("/solutions/invoice-factoring")}
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
