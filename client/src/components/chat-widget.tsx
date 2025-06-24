@@ -9,14 +9,16 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'timeline' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'complete';
+  step: 'initial' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
   responses: {
     userType?: string;
     timeline?: string;
+    infoCategory?: string;
     product?: string;
     debtQ1?: string;
     debtQ2?: string;
     revenue?: string;
+    businessType?: string;
   };
 }
 
@@ -91,13 +93,13 @@ export default function ChatWidget() {
     // Progress through conversation flow with personalized responses
     if (chatState.step === 'initial') {
       if (selection.includes('financing')) {
-        addMessage("Great! Let me ask a few quick questions to match you with the right specialist.", 'bot', 1500);
+        addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 1500);
         addMessage("How soon do you need the funding?", 'bot', 4000);
-        setChatState({ step: 'timeline', responses: newResponses });
+        setChatState({ step: 'financing_timeline', responses: newResponses });
       } else if (selection.includes('information')) {
-        addMessage("Perfect! I'd be happy to help you learn about our financing options.", 'bot', 1500);
-        addMessage("What's your timeline for exploring funding?", 'bot', 4000);
-        setChatState({ step: 'timeline', responses: newResponses });
+        addMessage("Perfect! I'd be happy to help you learn about our services.", 'bot', 1500);
+        addMessage("What specific information would you like to know about?", 'bot', 3500);
+        setChatState({ step: 'info_category', responses: newResponses });
       } else if (selection.includes('existing application')) {
         addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
         addMessage("A FundTek expert will call you within 2 hours to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
@@ -106,7 +108,7 @@ export default function ChatWidget() {
         // Send application inquiry to backend
         sendChatData({ ...newResponses, userType: selection });
       }
-    } else if (chatState.step === 'timeline') {
+    } else if (chatState.step === 'financing_timeline') {
       if (selection === 'ASAP') {
         addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1500);
       } else if (selection === 'Within 30 days') {
@@ -116,6 +118,24 @@ export default function ChatWidget() {
       }
       addMessage("Which type of funding best describes what you're looking for?", 'bot', 4000);
       setChatState({ step: 'product', responses: newResponses });
+    } else if (chatState.step === 'info_category') {
+      const categoryResponses = {
+        'Financing options and rates': "Our financing options include Term Loans (6-36 months), SBA Loans (up to 25 years), Lines of Credit (flexible access), and Merchant Cash Advances (3-18 months). Rates vary from 8-35% based on qualifications.",
+        'Application requirements': "We typically need: 3+ months in business, $10K+ monthly revenue, 550+ credit score, bank statements, and basic business documents. Most applications are processed within 24 hours.",
+        'How FundTek works': "We're a financing broker connecting you to 75+ vetted lenders. We analyze your business profile and match you with the best funding options, handling the entire process from application to funding.",
+        'Industry expertise': "We specialize in restaurants, retail, healthcare, construction, trucking, e-commerce, professional services, and many other industries with tailored solutions for each sector's unique needs."
+      };
+      
+      const response = categoryResponses[selection as keyof typeof categoryResponses];
+      if (response) {
+        addMessage(response, 'bot', 2000);
+        addMessage("Would you like to explore specific financing options, or do you have other questions?", 'bot', 5000);
+        setChatState({ step: 'business_info', responses: newResponses });
+      } else {
+        addMessage("Let me connect you with a specialist who can provide detailed information about that topic.", 'bot', 2000);
+        setChatState({ step: 'complete', responses: newResponses });
+        sendChatData({ ...newResponses, infoCategory: selection });
+      }
     } else if (chatState.step === 'product') {
       if (selection === 'Debt Consolidation') {
         addMessage("Smart move! Debt consolidation can really simplify your payments and reduce costs.", 'bot', 2000);
@@ -151,6 +171,22 @@ export default function ChatWidget() {
       
       // Send data to backend
       sendChatData({ ...newResponses, [responseKey]: selection });
+    } else if (chatState.step === 'business_info') {
+      if (selection.includes('financing options')) {
+        addMessage("Excellent! Let me ask a quick question to recommend the best options.", 'bot', 1500);
+        addMessage("What's your business's monthly revenue range?", 'bot', 4000);
+        setChatState({ step: 'revenue', responses: newResponses });
+      } else if (selection.includes('more questions')) {
+        addMessage("I'd be happy to connect you with a specialist who can answer your specific questions in detail.", 'bot', 1500);
+        addMessage("A FundTek expert will call you within 2 hours. For immediate help, call (305) 307-4658.", 'bot', 4000);
+        setChatState({ step: 'complete', responses: newResponses });
+        sendChatData({ ...newResponses, businessType: selection });
+      } else {
+        addMessage("Great! I'm glad I could help. Feel free to reach out anytime if you need financing assistance.", 'bot', 1500);
+        addMessage("Remember, you can always call us at (305) 307-4658 or apply online when you're ready!", 'bot', 4000);
+        setChatState({ step: 'complete', responses: newResponses });
+        sendChatData({ ...newResponses, businessType: selection });
+      }
     }
   };
 
@@ -202,7 +238,7 @@ export default function ChatWidget() {
           </div>
         );
         
-      case 'timeline':
+      case 'financing_timeline':
         return (
           <div className="flex flex-col gap-2 mt-3">
             {['ASAP', 'Within 30 days', 'Just researching'].map((option) => (
@@ -214,6 +250,50 @@ export default function ChatWidget() {
                 {option}
               </button>
             ))}
+          </div>
+        );
+        
+      case 'info_category':
+        return (
+          <div className="flex flex-col gap-2 mt-3">
+            {[
+              'Financing options and rates',
+              'Application requirements', 
+              'How FundTek works',
+              'Industry expertise'
+            ].map((option) => (
+              <button
+                key={option}
+                onClick={() => handleUserSelection(option, 'infoCategory')}
+                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        );
+        
+      case 'business_info':
+        return (
+          <div className="flex flex-col gap-2 mt-3">
+            <button
+              onClick={() => handleUserSelection("I'd like to explore financing options", 'businessType')}
+              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+            >
+              💰 Explore financing options for my business
+            </button>
+            <button
+              onClick={() => handleUserSelection("I have more questions", 'businessType')}
+              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+            >
+              ❓ I have more specific questions
+            </button>
+            <button
+              onClick={() => handleUserSelection("That answered my questions", 'businessType')}
+              className="bg-green-50 hover:bg-green-100 text-green-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+            >
+              ✅ That answered my questions
+            </button>
           </div>
         );
         
