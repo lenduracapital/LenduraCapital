@@ -12,7 +12,7 @@ export default function Construction() {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
+    setLocation("/qualified-industries");
     window.scrollTo(0, 0);
   };
 
@@ -183,8 +183,8 @@ export default function Construction() {
               <p className="text-blue-100 mb-6">Perfect for heavy machinery, tools, and construction equipment purchases</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -194,8 +194,8 @@ export default function Construction() {
               <p className="text-blue-100 mb-6">Flexible working capital for materials, payroll, and project expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>

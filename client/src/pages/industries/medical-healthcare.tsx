@@ -12,7 +12,7 @@ export default function MedicalHealthcare() {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
+    setLocation("/qualified-industries");
     window.scrollTo(0, 0);
   };
 
@@ -183,8 +183,8 @@ export default function MedicalHealthcare() {
               <p className="text-blue-100 mb-6">Perfect for medical equipment, diagnostic tools, and technology upgrades</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -194,8 +194,8 @@ export default function MedicalHealthcare() {
               <p className="text-blue-100 mb-6">Flexible working capital for operations and cash flow management</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -205,8 +205,8 @@ export default function MedicalHealthcare() {
               <p className="text-blue-100 mb-6">Long-term financing for practice expansion and major renovations</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>

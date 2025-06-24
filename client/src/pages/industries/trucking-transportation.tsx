@@ -12,7 +12,7 @@ export default function TruckingTransportation() {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
+    setLocation("/qualified-industries");
     window.scrollTo(0, 0);
   };
 

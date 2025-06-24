@@ -96,7 +96,7 @@ function Router() {
         <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
         <Route path="/solutions/debt-consolidation" component={DebtConsolidationPage} />
         <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
-        <Route path="/who-we-fund" component={QualifiedIndustries} />
+        <Route path="/qualified-industries" component={QualifiedIndustries} />
         <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
         <Route path="/term-loans" component={TermLoans} />
         <Route path="/testimonials" component={TestimonialsPage} />
