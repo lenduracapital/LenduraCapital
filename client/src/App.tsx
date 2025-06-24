@@ -41,6 +41,9 @@ const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleanin
 const TruckingTransportation = lazy(() => import("@/pages/industries/trucking-transportation"));
 const MedicalHealthcare = lazy(() => import("@/pages/industries/medical-healthcare"));
 const Construction = lazy(() => import("@/pages/industries/construction"));
+const RestaurantFoodService = lazy(() => import("@/pages/industries/restaurant-food-service"));
+const RetailECommerce = lazy(() => import("@/pages/industries/retail-e-commerce"));
+const Manufacturing = lazy(() => import("@/pages/industries/manufacturing"));
 
 // Loading fallback component
 function PageLoader() {
@@ -100,6 +103,9 @@ function Router() {
         <Route path="/industries/trucking-transportation" component={TruckingTransportation} />
         <Route path="/industries/medical-healthcare" component={MedicalHealthcare} />
         <Route path="/industries/construction" component={Construction} />
+        <Route path="/industries/restaurant-food-service" component={RestaurantFoodService} />
+        <Route path="/industries/retail-e-commerce" component={RetailECommerce} />
+        <Route path="/industries/manufacturing" component={Manufacturing} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
