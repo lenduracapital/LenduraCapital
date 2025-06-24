@@ -77,7 +77,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             
             {/* Solutions Dropdown */}
             <div 
-              className="relative dropdown-container"
+              className="relative dropdown-container group"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
@@ -90,14 +90,15 @@ export default function Header({ transparent = true }: HeaderProps) {
                 Solutions
               </button>
 
+              {/* Invisible bridge to prevent dropdown closing */}
+              <div className="absolute top-full left-0 w-full h-2 bg-transparent z-40" />
+
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-5"
-                  style={{ width: '600px', height: '320px' }}
+                  className="absolute top-full left-0 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-5 transition-all duration-150"
+                  style={{ width: '600px', height: '320px', marginTop: '8px' }}
                   onClick={(e) => e.stopPropagation()}
-                  onMouseEnter={() => setIsDropdownOpen(true)}
-                  onMouseLeave={() => setIsDropdownOpen(false)}
                 >
                   <div className="grid grid-cols-2 gap-8">
                     {/* Left Column - Custom Business Financing Solutions */}
@@ -106,13 +107,13 @@ export default function Header({ transparent = true }: HeaderProps) {
                       <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
-                          className="text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
+                          className="text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
                           Term Loans
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/sba-loans"); setIsDropdownOpen(false); }}
-                          className="text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
+                          className="text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
                           SBA Loans
                         </button>
@@ -168,19 +169,19 @@ export default function Header({ transparent = true }: HeaderProps) {
                       <div className="space-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
-                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
+                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
                           Credit Services
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/credit-card-processing"); setIsDropdownOpen(false); }}
-                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
+                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
                           Credit Card Processing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/seo-web-development"); setIsDropdownOpen(false); }}
-                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
+                          className="block text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
                           Marketing
                         </button>
