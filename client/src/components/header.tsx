@@ -11,6 +11,7 @@ interface HeaderProps {
 export default function Header({ transparent = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   const [, setLocation] = useLocation();
 
@@ -64,14 +65,126 @@ export default function Header({ transparent = true }: HeaderProps) {
               Home
             </button>
             
-            <button 
-              onClick={() => setLocation("/solutions")}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
-              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
-              aria-label="View business funding solutions"
+            {/* Solutions Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              Solutions
-            </button>
+              <button 
+                onClick={() => setLocation("/solutions")}
+                className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+                aria-label="View business funding solutions"
+              >
+                Solutions
+              </button>
+
+              {/* Dropdown Menu - Clean Rectangle */}
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-[500px] bg-white border-t-4 border-[#85abe4] shadow-lg z-50 p-8">
+                  <div className="grid grid-cols-2 gap-12">
+                    {/* Premium Business Financing Services */}
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-4 text-base border-b border-gray-300 pb-2">Premium Business Financing Services</h3>
+                      <div className="space-y-3">
+                        <button
+                          onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Merchant Cash Advance
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/lines-of-credit"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Line of Credit
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/equipment-financing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Equipment Financing
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/mortgage-financing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Mortgage Financing
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Term Loan
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/invoice-factoring"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Factoring
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/po-financing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          P.O. Financing
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/sba-loans"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          SBA Loan
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Custom Small Business Solutions */}
+                    <div>
+                      <h3 className="font-semibold text-gray-800 mb-4 text-base border-b border-gray-300 pb-2">Custom Small Business Solutions</h3>
+                      <div className="space-y-3">
+                        <button
+                          onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Credit Servicing
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/credit-card-processing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Credit Card Processing
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/debt-consolidation"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          Bookkeeping
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/cre-lending"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          HR/Payroll
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/digital-marketing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          SEO
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/digital-marketing"); setIsDropdownOpen(false); }}
+                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                        >
+                          PMF Advisory
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             <button 
               onClick={() => setLocation("/who-we-fund")}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
