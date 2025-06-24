@@ -85,9 +85,9 @@ export default function RealEstate() {
                 <h3 className="text-xl font-bold mb-4">Fix & Flip Loans</h3>
                 <p className="text-blue-100">Fast funding for property acquisition and renovation costs</p>
               </div>
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Commercial RE</h3>
-                <p className="text-gray-700">Investment property and commercial real estate financing</p>
+              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4 text-white">Commercial RE</h3>
+                <p className="text-blue-100">Investment property and commercial real estate financing</p>
               </div>
               <div className="bg-gray-100 p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Bridge Loans</h3>

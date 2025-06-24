@@ -1,0 +1,125 @@
+You’re still not fully aligned with the structure. Read this line by line and implement exactly as stated.
+
+✅ Pages That Are GOOD — No Changes Needed:
+Trucking
+
+Medical
+
+Professional Services
+
+Technology
+
+Auto
+
+Beauty
+
+Hospitality
+
+Agriculture
+
+Events
+
+Education
+
+Franchises
+
+🔧 Pages That NEED FIXES:
+1. Construction
+Problem: Rolling Statistic is at the bottom
+
+Fix: Move it directly above the #success-stories or .success-stories section in the DOM hierarchy.
+
+DO NOT wrap it inside success-stories or place it anywhere else.
+
+2. Restaurants
+Problem: Duplicate rolling stats — one blue, one white.
+
+Fix: Remove the blue variant. Keep only the white version of the rolling number.
+
+Ensure it appears only once, above Success Stories.
+
+3. Retail
+Problem: Clicking causes entire site to crash
+
+Fix:
+
+Run dev tools console → find JS errors or null data access
+
+Check for broken imports, routing issues, or malformed component props.
+
+Confirm route is stable on page load and on direct access via URL.
+
+4. Manufacturing
+Problem: Page causes crash.
+
+Fix:
+
+Same debug process as above (console > error trace > fix)
+
+Confirm if the component is mounting before data is injected
+
+Validate all props and remove unhandled exceptions
+
+5. Real Estate
+Problem: Hero section has invisible white box
+
+Fix:
+
+Identify the box (div, container, etc.) with white background and no border
+
+Set background color to #85abe4 and change text color to #ffffff (white)
+
+This box should look like a clean CTA or header module
+
+6. Home Services
+Problem: Page crashes on click
+
+Fix:
+
+Console debug and fix broken import, data-fetch, or routing logic
+
+Validate DOM rendering before component mount
+
+7. Cleaning Services
+Problems:
+
+Rolling Statistic is at the bottom — move it above Success Stories
+
+Console error: Monitor is not defined
+
+Fix:
+
+Move stat to correct DOM location (same as Construction)
+
+For Monitor error:
+
+Check if an undefined variable or script is being called
+
+Likely a reference to a missing import or improperly scoped variable
+
+Fix or remove the monitor logic if not in use, or import it correctly
+
+📌 Rolling Statistic Rules (ALL Pages):
+Text must read: 50+ Funded
+
+Font, animation, and structure must match Trucking/Medical
+
+Appears only once and is always above Success Stories
+
+Uses white version, not blue
+
+🔍 Testing Requirements:
+Load each page manually
+
+Inspect DOM tree to verify correct element order
+
+Validate console: 0 errors or warnings
+
+Check responsive behavior on mobile
+
+🧾 Deliverables:
+Screenshot of every fixed page (desktop & mobile)
+
+Video or Loom walk-through of all changes
+
+Written confirmation that each issue above is fully resolved
