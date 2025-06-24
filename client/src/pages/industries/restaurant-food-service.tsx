@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Utensils, ChefHat, Clock } from "lucide-r
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function RestaurantFoodService() {
   const [, setLocation] = useLocation();

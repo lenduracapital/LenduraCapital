@@ -1,5 +1,5 @@
 
-import CountUp from "@/components/count-up";
+
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Wrench, Home, Zap } from "lucide-react";
 import { useLocation } from "wouter";

@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, ShoppingBag, Store, Package } from "lucid
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function RetailECommerce() {
   const [, setLocation] = useLocation();

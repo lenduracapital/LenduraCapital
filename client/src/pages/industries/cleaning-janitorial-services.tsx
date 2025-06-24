@@ -1,4 +1,4 @@
-import CountUp from "@/components/count-up";
+
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Sparkles, Shield, Clock, Monitor } from "lucide-react";
 import { useLocation } from "wouter";

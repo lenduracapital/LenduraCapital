@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Sparkles, Scissors, Heart } from "lucide-
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function BeautyWellness() {
   const [, setLocation] = useLocation();
