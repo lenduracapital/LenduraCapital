@@ -34,15 +34,12 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Header should be completely hidden when transparent=true and not scrolled
-  const isVisible = !transparent || isScrolled;
-  const headerClasses = isVisible 
-    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md' 
-    : 'fixed w-full top-0 z-50 transition-all duration-300 bg-transparent hidden';
-  const textColor = 'text-white';
+  if (transparent && !isScrolled) {
+    return null; // Completely remove header when it should be invisible
+  }
 
   return (
-    <header className={headerClasses}>
+    <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md">
       <nav className="w-full px-0">
         <div className="flex items-center justify-between py-1 w-full">
           {/* Logo on the left - aligned with hero text */}
@@ -58,7 +55,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={() => setLocation("/")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Go to homepage"
             >
@@ -66,7 +63,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={() => setLocation("/solutions")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="View business funding solutions"
             >
@@ -74,7 +71,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={() => setLocation("/who-we-fund")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="See qualified industries"
             >
@@ -82,7 +79,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={handleApplyNow}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Apply for business funding - Opens in new window"
             >
@@ -90,7 +87,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={() => setLocation("/contact")}
-              className={`${textColor} hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring`}
+              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Contact FundTek Capital Group"
             >

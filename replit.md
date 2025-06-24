@@ -646,8 +646,8 @@ Changelog:
   * NO visual or design changes made - strictly technical enhancement only
 - June 24, 2025. Header visibility fix (COMPLETE):
   * Fixed header visibility issue caused during SEO implementation
-  * Restored original behavior: completely invisible at top (opacity-0), black background when scrolled
-  * Navigation now functions exactly as originally designed with proper show/hide logic
+  * Restored original behavior: completely removed from DOM when transparent=true and not scrolled
+  * Header only renders when scrolled down, showing black background overlay
 ```
 
 ## User Preferences
