@@ -51,7 +51,8 @@ export default function RealEstate() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                className="bg-white text-[#85abe4] hover:bg-gray-100 text-lg px-8 py-3 font-semibold"
+                style={{ backgroundColor: 'white', color: '#85abe4' }}
+                className="hover:bg-gray-100 text-lg px-8 py-3 font-semibold"
               >
                 Get Approved in 24 Hours
               </Button>
@@ -59,7 +60,8 @@ export default function RealEstate() {
                 onClick={() => setLocation("/solutions")}
                 variant="outline"
                 size="lg"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                style={{ color: 'white', borderColor: 'white' }}
+                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
               >
                 View All Solutions
               </Button>
