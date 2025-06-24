@@ -12,20 +12,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // Force debug state
-  console.log('Current state:', { isScrolled, transparent });
-  
-
   const [, setLocation] = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -39,12 +26,8 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Force no background when not scrolled
-  const headerClass = isScrolled 
-    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md'
-    : 'fixed w-full top-0 z-50 transition-all duration-300';
-  
-  console.log('Header class:', headerClass);
+  // Always transparent - no background
+  const headerClass = 'fixed w-full top-0 z-50 transition-all duration-300';
 
   return (
     <header className={headerClass}>
