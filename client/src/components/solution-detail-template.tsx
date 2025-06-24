@@ -28,6 +28,10 @@ interface SolutionDetailProps {
     question: string;
     answer: string;
   }[];
+  comparison?: {
+    traditional: string[];
+    fundtek: string[];
+  };
 }
 
 export default function SolutionDetailTemplate({
@@ -44,7 +48,8 @@ export default function SolutionDetailTemplate({
   requiredDocuments,
   askYourself,
   goodToKnow,
-  faq
+  faq,
+  comparison
 }: SolutionDetailProps) {
   const [, setLocation] = useLocation();
   
@@ -193,52 +198,36 @@ export default function SolutionDetailTemplate({
             <div className="bg-red-50 p-8 rounded-lg border border-red-200">
               <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Banks</h3>
               <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 mt-1">✗</span>
-                  <span className="text-gray-700">30-90 day approval process</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 mt-1">✗</span>
-                  <span className="text-gray-700">Extensive documentation required</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 mt-1">✗</span>
-                  <span className="text-gray-700">High credit score requirements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 mt-1">✗</span>
-                  <span className="text-gray-700">Rigid qualification criteria</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-3 mt-1">✗</span>
-                  <span className="text-gray-700">Limited product options</span>
-                </li>
+                {(comparison?.traditional || [
+                  "30-90 day approval process",
+                  "Extensive documentation required", 
+                  "High credit score requirements",
+                  "Rigid qualification criteria",
+                  "Limited product options"
+                ]).map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-red-500 mr-3 mt-1">✗</span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
             
             <div className="bg-green-50 p-8 rounded-lg border border-green-200">
               <h3 className="text-2xl font-bold text-green-800 mb-6">FundTek Capital Group</h3>
               <ul className="space-y-4">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">24-48 hour approval process</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">Minimal documentation needed</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">Flexible credit requirements</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">Revenue-based qualification</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                  <span className="text-gray-700">10 different financing solutions</span>
-                </li>
+                {(comparison?.fundtek || [
+                  "24-48 hour approval process",
+                  "Minimal documentation needed",
+                  "Flexible credit requirements", 
+                  "Revenue-based qualification",
+                  "12 different financing solutions"
+                ]).map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
