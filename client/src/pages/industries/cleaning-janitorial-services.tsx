@@ -124,7 +124,7 @@ export default function CleaningJanitorialServices() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <CountUp end={50} suffix="+ Funded" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
               <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
