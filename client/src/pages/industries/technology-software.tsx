@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+
+import CountUp from "@/components/count-up";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Monitor, Code, Cpu } from "lucide-react";
 import { useLocation } from "wouter";
