@@ -1,6 +1,6 @@
 import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
-import contentImage from '@assets/images_1750787797244.jpg';
+import contentImage from '@assets/image_1750788015790.png';
 
 export default function DebtConsolidationPage() {
   return (
