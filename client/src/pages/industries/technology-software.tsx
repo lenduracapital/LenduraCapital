@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Monitor, Code, Cpu } from "lucide-react";
 import { useLocation } from "wouter";
@@ -27,7 +26,7 @@ export default function TechnologySoftware() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=600&fit=crop')"
           }}
         />
         
@@ -46,7 +45,7 @@ export default function TechnologySoftware() {
               Technology & Software Financing
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Accelerate innovation with funding for development, equipment, and rapid scaling.
+              Fuel innovation with specialized funding for tech startups, software development, and digital transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -70,19 +69,6 @@ export default function TechnologySoftware() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-            </p>
-          </div>
-          
-      </section>
-      </section>
-
       {/* Industry Overview */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,18 +79,18 @@ export default function TechnologySoftware() {
               </h2>
               <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
                 <p>Technology companies face unique challenges: rapid scaling needs, equipment costs, talent acquisition, product development cycles, and intense competition for market share.</p>
-                <p>FundTek Capital Group understands the tech industry and provides flexible financing solutions that help technology companies accelerate development, scale operations, and stay competitive.</p>
+                <p>FundTek Capital Group understands the fast-paced tech environment and provides flexible financing solutions that help technology companies scale operations, develop products, and capture market opportunities.</p>
               </div>
               
               <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Common Financing Needs</h3>
               <ul className="space-y-4 mb-8 md:mb-12">
                 {[
-                  "Computer equipment and servers",
-                  "Software development and licensing", 
-                  "Talent acquisition and hiring",
+                  "Product development and R&D",
+                  "Server infrastructure and cloud services", 
+                  "Software licenses and development tools",
+                  "Talent acquisition and team scaling",
                   "Marketing and customer acquisition",
-                  "Working capital for rapid scaling",
-                  "Research and development funding"
+                  "Equipment and office expansion"
                 ].map((need, index) => (
                   <li key={index} className="flex items-center">
                     <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#85abe4' }} />
@@ -116,7 +102,7 @@ export default function TechnologySoftware() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop"
                 alt="Technology and software development"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
@@ -129,18 +115,62 @@ export default function TechnologySoftware() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Technology Types */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              Technology Sectors We Fund
             </h2>
-            <p className="text-lg md:text-xl text-gray-600">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From startups to established tech companies, we provide financing across all technology sectors
             </p>
           </div>
           
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Code className="w-8 h-8" />,
+                title: "Software Development",
+                description: "SaaS platforms, mobile apps, enterprise software, and custom development projects"
+              },
+              {
+                icon: <Monitor className="w-8 h-8" />,
+                title: "IT Services & Consulting", 
+                description: "Systems integration, cloud migration, cybersecurity, and technical consulting services"
+              },
+              {
+                icon: <Cpu className="w-8 h-8" />,
+                title: "Hardware & IoT",
+                description: "Computer hardware, IoT devices, electronics manufacturing, and tech product development"
+              },
+              {
+                icon: <Code className="w-8 h-8" />,
+                title: "E-commerce & Digital",
+                description: "Online marketplaces, digital platforms, fintech solutions, and digital transformation"
+              },
+              {
+                icon: <Monitor className="w-8 h-8" />,
+                title: "Data & Analytics",
+                description: "Big data solutions, business intelligence, AI/ML platforms, and data processing services"
+              },
+              {
+                icon: <Cpu className="w-8 h-8" />,
+                title: "Tech Startups",
+                description: "Early-stage technology companies, MVP development, and scaling operations"
+              }
+            ].map((service, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-[#85abe4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div style={{ color: '#85abe4' }}>{service.icon}</div>
+                </div>
+                <h3 className="text-lg font-bold text-black mb-3">{service.title}</h3>
+                <p className="text-gray-600 text-sm">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
-
 
       {/* Success Stories */}
       <section className="py-16 md:py-24 bg-white">
@@ -150,29 +180,29 @@ export default function TechnologySoftware() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real tech companies that scaled their operations with FundTek Capital Group financing
+              Real technology companies that scaled their operations with FundTek Capital Group financing
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Alex Kumar",
-                company: "DataFlow Solutions",
-                story: "Used working capital to hire 5 developers and accelerate product launch. Secured major enterprise client worth $500K annually.",
+                name: "Kevin Park",
+                company: "CloudSync Solutions",
+                story: "Used working capital to hire 5 developers and launch new SaaS platform. Secured major enterprise clients and tripled monthly revenue.",
                 funding: "$200,000 Line of Credit"
               },
               {
-                name: "Jessica Wong",
-                company: "CloudSync Technologies",
-                story: "Secured equipment financing for server infrastructure and development tools. Increased processing capacity by 300% and improved performance.",
-                funding: "$150,000 Equipment Financing"
+                name: "Amanda Foster",
+                company: "DataFlow Analytics",
+                story: "Got equipment financing for new servers and development infrastructure. Improved platform performance and customer satisfaction.",
+                funding: "$125,000 Equipment Financing"
               },
               {
-                name: "David Martinez",
-                company: "AI Innovations Inc.",
-                story: "Got term loan for R&D and marketing launch. Product gained 10,000 users in first quarter and attracted Series A investors.",
-                funding: "$300,000 Term Loan"
+                name: "Marcus Thompson",
+                company: "TechStart Mobile",
+                story: "Secured bridge funding during client payment delays. Maintained development team and delivered mobile app on schedule.",
+                funding: "$90,000 Term Loan"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
@@ -193,19 +223,6 @@ export default function TechnologySoftware() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-            </p>
-          </div>
-          
-      </section>
-      </section>
-
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -219,7 +236,7 @@ export default function TechnologySoftware() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Perfect for rapid scaling, hiring, and operational flexibility</p>
+              <p className="text-blue-100 mb-6">Flexible working capital for development, talent acquisition, and scaling operations</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -230,7 +247,7 @@ export default function TechnologySoftware() {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Ideal for computers, servers, and technology infrastructure</p>
+              <p className="text-blue-100 mb-6">Perfect for servers, hardware, software licenses, and tech infrastructure</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -241,7 +258,7 @@ export default function TechnologySoftware() {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Long-term funding for product development and market expansion</p>
+              <p className="text-blue-100 mb-6">Long-term financing for product development, expansion, and major projects</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -254,27 +271,14 @@ export default function TechnologySoftware() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-            </p>
-          </div>
-          
-      </section>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Scale Your Tech Company?
+            Ready to Scale Your Technology Business?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Get the funding you need to accelerate development, hire talent, and compete in the technology market
+            Get the funding you need to develop products, hire talent, and capture market opportunities
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -291,22 +295,10 @@ export default function TechnologySoftware() {
               size="lg"
               className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 font-semibold"
             >
+              Contact Us
             </Button>
           </div>
         </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-            </p>
-          </div>
-          
-      </section>
       </section>
 
       <Footer />

@@ -126,7 +126,7 @@ export default function ProfessionalServices() {
               Take advantage of our specialized financing solutions for professional service firms
             </p>
           </div>
-          
+        </div>
       </section>
 
       {/* Success Stories */}
