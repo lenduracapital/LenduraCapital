@@ -2,8 +2,8 @@ import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
 
 export default function DebtConsolidationPage() {
-  // Using your new debt consolidation image
-  const contentImage = "/debt-consolidation-new.webp";
+  // Using reliable stock image for debt consolidation
+  const contentImage = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop&crop=center";
   
   return (
     <SolutionDetailTemplate
