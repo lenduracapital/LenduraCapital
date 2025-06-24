@@ -164,7 +164,7 @@ const solutions = [
       "Simplified management"
     ],
     route: "/solutions/debt-consolidation",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
   }
 ];
 

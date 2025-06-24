@@ -7,13 +7,14 @@ const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
   { name: "Lines of Credit", href: "/solutions/lines-of-credit" },
   { name: "SBA Loans", href: "/solutions/sba-loans" },
-  { name: "Debt Consolidation", href: "/solutions/debt-consolidation" },
   { name: "Equipment Financing", href: "/solutions/equipment-financing" },
   { name: "Invoice Factoring", href: "/solutions/invoice-factoring" },
-  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" }
+  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" },
+  { name: "P.O. Financing", href: "/solutions/po-financing" }
 ];
 
 const customSolutions = [
+  { name: "Debt Consolidation", href: "/solutions/debt-consolidation" },
   { name: "Credit Services", href: "/solutions/credit-services" },
   { name: "Digital Marketing", href: "/solutions/seo-web-development" },
   { name: "Credit Card Processing", href: "/solutions/credit-card-processing" }
@@ -25,8 +26,7 @@ const fundTekPages = [
   { name: "Contact Us", href: "/contact" },
   { name: "Testimonials", href: "/more-testimonials" },
   { name: "FAQ", href: "/faq" },
-  { name: "CRE Lending", href: "/solutions/commercial-real-estate-lending" },
-  { name: "Mortgage Loans", href: "/solutions/mortgage-financing" }
+  { name: "CRE Lending", href: "/solutions/commercial-real-estate-lending" }
 ];
 
 const legalPages = [
