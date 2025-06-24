@@ -117,7 +117,7 @@ export default function SEOHead({
       "priceRange": "$10,000 - $5,000,000"
     };
 
-    updateStructuredData(structuredData);
+    // updateStructuredData(structuredData); // Disabled to prevent JSON display on page
   }, [title, description, keywords, canonical, type, image]);
 
   return null;
@@ -154,11 +154,6 @@ function updateLinkTag(rel: string, href: string) {
 }
 
 function updateStructuredData(data: object) {
-  let script = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
-  if (!script) {
-    script = document.createElement("script");
-    script.type = "application/ld+json";
-    document.head.appendChild(script);
-  }
-  script.textContent = JSON.stringify(data);
+  // Disabled to prevent JSON display on page
+  return;
 }
