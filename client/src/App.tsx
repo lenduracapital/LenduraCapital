@@ -9,7 +9,7 @@ import ChatWidget from "@/components/chat-widget";
 
 // Lazy load non-critical pages for code splitting
 const Solutions = lazy(() => import("@/pages/solutions"));
-const WhoWeFund = lazy(() => import("@/pages/who-we-fund"));
+const QualifiedIndustries = lazy(() => import("@/pages/who-we-fund"));
 const MerchantCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
 const TermLoans = lazy(() => import("@/pages/term-loans"));
 const LoanApplication = lazy(() => import("@/pages/loan-application"));
@@ -38,6 +38,9 @@ const FAQ = lazy(() => import("@/pages/faq"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
 const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleaning-janitorial-services"));
+const TruckingTransportation = lazy(() => import("@/pages/industries/trucking-transportation"));
+const MedicalHealthcare = lazy(() => import("@/pages/industries/medical-healthcare"));
+const Construction = lazy(() => import("@/pages/industries/construction"));
 
 // Loading fallback component
 function PageLoader() {
@@ -80,7 +83,7 @@ function Router() {
         <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
         <Route path="/solutions/debt-consolidation" component={DebtConsolidationPage} />
         <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
-        <Route path="/who-we-fund" component={WhoWeFund} />
+        <Route path="/who-we-fund" component={QualifiedIndustries} />
         <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
         <Route path="/term-loans" component={TermLoans} />
         <Route path="/testimonials" component={TestimonialsPage} />
@@ -94,6 +97,9 @@ function Router() {
         <Route path="/apply" component={LoanApplication} />
         <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
         <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />
+        <Route path="/industries/trucking-transportation" component={TruckingTransportation} />
+        <Route path="/industries/medical-healthcare" component={MedicalHealthcare} />
+        <Route path="/industries/construction" component={Construction} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

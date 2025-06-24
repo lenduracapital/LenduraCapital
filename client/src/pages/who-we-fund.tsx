@@ -98,7 +98,7 @@ const industries = [
   }
 ];
 
-export default function WhoWeFund() {
+export default function QualifiedIndustries() {
   const [, setLocation] = useLocation();
 
   const handleBackToHome = () => {
