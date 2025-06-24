@@ -20,9 +20,19 @@ export default function Header({ transparent = true }: HeaderProps) {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isDropdownOpen && !(event.target as Element).closest('.dropdown-container')) {
+        setIsDropdownOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -67,12 +77,15 @@ export default function Header({ transparent = true }: HeaderProps) {
             
             {/* Solutions Dropdown */}
             <div 
-              className="relative"
+              className="relative dropdown-container"
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
               <button 
-                onClick={() => setLocation("/solutions")}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
                 className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 aria-label="View business funding solutions"
@@ -82,12 +95,15 @@ export default function Header({ transparent = true }: HeaderProps) {
 
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[500px] bg-white border-t-4 border-[#85abe4] shadow-lg z-50 p-8">
-                  <div className="grid grid-cols-2 gap-12">
+                <div 
+                  className="absolute top-full left-0 mt-2 w-[600px] bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="grid grid-cols-2 gap-8">
                     {/* Premium Business Financing Services */}
                     <div>
-                      <h3 className="font-semibold text-gray-800 mb-4 text-base border-b border-gray-300 pb-2">Premium Business Financing Services</h3>
-                      <div className="space-y-3">
+                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1">Premium Business Financing Services</h3>
+                      <div className="space-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsDropdownOpen(false); }}
                           className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
@@ -141,8 +157,8 @@ export default function Header({ transparent = true }: HeaderProps) {
 
                     {/* Custom Small Business Solutions */}
                     <div>
-                      <h3 className="font-semibold text-gray-800 mb-4 text-base border-b border-gray-300 pb-2">Custom Small Business Solutions</h3>
-                      <div className="space-y-3">
+                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-300 pb-1">Custom Small Business Solutions</h3>
+                      <div className="space-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
                           className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
