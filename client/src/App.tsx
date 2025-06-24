@@ -36,6 +36,8 @@ const Privacy = lazy(() => import("@/pages/privacy"));
 const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
 const NotFound = lazy(() => import("@/pages/not-found"));
+const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
+const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleaning-janitorial-services"));
 
 // Loading fallback component
 function PageLoader() {
@@ -90,6 +92,8 @@ function Router() {
         <Route path="/cookies" component={Cookies} />
         <Route path="/faq" component={FAQ} />
         <Route path="/apply" component={LoanApplication} />
+        <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
+        <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

@@ -85,6 +85,16 @@ const industries = [
     title: "Franchises",
     description: "Franchise owners across all industries. Specialized funding solutions for franchise fees, equipment, inventory, and multi-location expansion projects.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Home Services & Contracting",
+    description: "Equipment financing, working capital, and project funding for HVAC, plumbing, electrical, roofing, and general contracting businesses.",
+    image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&h=400&fit=crop"
+  },
+  {
+    title: "Cleaning & Janitorial Services",
+    description: "Equipment financing, vehicle loans, and working capital for commercial cleaning, janitorial, and maintenance service companies.",
+    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop"
   }
 ];
 
