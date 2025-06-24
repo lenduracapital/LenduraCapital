@@ -34,8 +34,8 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Only show header when scrolled
-  if (transparent && !isScrolled) {
+  // ALWAYS hide header when transparent is true
+  if (transparent) {
     return null;
   }
 
