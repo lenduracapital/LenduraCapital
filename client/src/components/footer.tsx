@@ -46,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#d9d9d9] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 items-start" style={{ pointerEvents: 'auto' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-start" style={{ pointerEvents: 'auto' }}>
           <div className="space-y-3 md:space-y-4 text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-start space-x-3">
               <img 
@@ -87,7 +87,7 @@ export default function Footer() {
           
           <div>
             <h4 className="text-black font-semibold mb-4">Custom Business Financing Solutions</h4>
-            <ul className="space-y-2 text-sm text-black">
+            <ul className="space-y-3 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
                   <span
@@ -103,7 +103,7 @@ export default function Footer() {
           
           <div>
             <h4 className="text-black font-semibold mb-4">Personalized Small Business Solutions</h4>
-            <ul className="space-y-2 text-sm text-black">
+            <ul className="space-y-3 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
                   <span
@@ -119,7 +119,7 @@ export default function Footer() {
           
           <div>
             <h4 className="text-black font-semibold mb-4">FundTek Capital Group</h4>
-            <ul className="space-y-2 text-sm text-black">
+            <ul className="space-y-3 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
                   <span
