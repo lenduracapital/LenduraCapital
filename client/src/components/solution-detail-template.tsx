@@ -107,14 +107,10 @@ export default function SolutionDetailTemplate({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-start">
             <div className="relative order-2 lg:order-1">
-              {console.log("Rendering image with src:", contentImage)}
               <img 
                 src={contentImage}
                 alt={`${title} financing solution`}
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
-                onLoad={() => console.log("Image loaded successfully:", contentImage)}
-                onError={(e) => console.error("Image failed to load:", contentImage, e)}
-                style={{ backgroundColor: '#f3f4f6' }}
               />
               <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-sm font-medium">{approvalTime?.label || "Fast Approval"}</div>

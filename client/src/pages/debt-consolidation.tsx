@@ -2,9 +2,8 @@ import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
 
 export default function DebtConsolidationPage() {
-  // DEBUG: Testing direct image URL
-  console.log("Debt consolidation page loading with image");
-  const contentImage = "https://picsum.photos/800/500";
+  // Using your custom debt consolidation image from public directory
+  const contentImage = "/debt-consolidation-final.jpg";
   
   return (
     <SolutionDetailTemplate
