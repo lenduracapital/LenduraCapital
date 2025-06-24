@@ -12,7 +12,7 @@ export default function RetailECommerce() {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
+    setLocation("/qualified-industries");
     window.scrollTo(0, 0);
   };
 
@@ -33,7 +33,7 @@ export default function RetailECommerce() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             onClick={handleBackToIndustries}
-            variant="outline"
+            style={{ backgroundColor: '#85abe4', color: 'white' }}
             className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -58,7 +58,7 @@ export default function RetailECommerce() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                variant="outline"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
@@ -183,8 +183,8 @@ export default function RetailECommerce() {
               <p className="text-blue-100 mb-6">Perfect for inventory purchases and seasonal cash flow management</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -194,8 +194,8 @@ export default function RetailECommerce() {
               <p className="text-blue-100 mb-6">Ideal for store expansions, renovations, and major business investments</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -205,8 +205,8 @@ export default function RetailECommerce() {
               <p className="text-blue-100 mb-6">Quick funding based on your daily credit card sales volume</p>
               <Button 
                 onClick={() => setLocation("/solutions/merchant-cash-advance")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -235,7 +235,7 @@ export default function RetailECommerce() {
             </Button>
             <Button 
               onClick={() => setLocation("/contact")}
-              variant="outline"
+              style={{ backgroundColor: '#85abe4', color: 'white' }}
               size="lg"
               className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 font-semibold"
             >

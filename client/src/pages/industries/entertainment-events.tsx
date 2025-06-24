@@ -12,7 +12,7 @@ export default function EntertainmentEvents() {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
+    setLocation("/qualified-industries");
     window.scrollTo(0, 0);
   };
 
@@ -33,7 +33,7 @@ export default function EntertainmentEvents() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             onClick={handleBackToIndustries}
-            variant="outline"
+            style={{ backgroundColor: '#85abe4', color: 'white' }}
             className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -58,7 +58,7 @@ export default function EntertainmentEvents() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                variant="outline"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
@@ -183,8 +183,8 @@ export default function EntertainmentEvents() {
               <p className="text-blue-100 mb-6">Perfect for audio-visual equipment, lighting, and production technology</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -194,8 +194,8 @@ export default function EntertainmentEvents() {
               <p className="text-blue-100 mb-6">Ideal for production costs, venue deposits, and variable project expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -205,8 +205,8 @@ export default function EntertainmentEvents() {
               <p className="text-blue-100 mb-6">Long-term financing for business expansion and major equipment purchases</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
-                variant="outline"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
               >
                 Learn More
               </Button>
@@ -235,7 +235,7 @@ export default function EntertainmentEvents() {
             </Button>
             <Button 
               onClick={() => setLocation("/contact")}
-              variant="outline"
+              style={{ backgroundColor: '#85abe4', color: 'white' }}
               size="lg"
               className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 font-semibold"
             >

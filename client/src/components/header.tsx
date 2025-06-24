@@ -192,7 +192,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               )}
             </div>
             <button 
-              onClick={() => setLocation("/who-we-fund")}
+              onClick={() => setLocation("/qualified-industries")}
               className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="See qualified industries"
@@ -247,7 +247,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               Solutions
             </button>
             <button 
-              onClick={() => { setLocation("/who-we-fund"); setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/qualified-industries"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
