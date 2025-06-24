@@ -15,18 +15,47 @@ const app = express();
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
 
-// Only apply production security in production environment
-if (app.get("env") === "production") {
-  configureProductionSecurity(app);
-}
+// Add compression middleware
+import compression from "compression";
+app.use(compression({
+  level: 6,
+  threshold: 1024
+}));
 
-// Always apply security headers function (handles dev/prod internally)
-addSecurityHeaders(app);
+// Enhanced security headers
+import helmet from "helmet";
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:", "blob:"],
+      scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
+      frameSrc: ["'self'", "https://form.jotform.com"],
+      connectSrc: ["'self'", "wss:", "ws:", "https:", "https://www.google-analytics.com"]
+    }
+  },
+  strictTransportSecurity: {
+    maxAge: 63072000,
+    includeSubDomains: true,
+    preload: true
+  },
+  contentTypeOptions: true,
+  frameOptions: { action: 'sameorigin' },
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
+}));
 
-// Skip rate limiting in development to avoid connection issues
-if (app.get("env") === "production") {
-  configureApiRateLimit(app);
-}
+// Enhanced rate limiting
+import rateLimit from "express-rate-limit";
+const formLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Too many form submissions, please try again later."
+});
+
+app.use('/api/contact', formLimiter);
+app.use('/api/loan-applications', formLimiter);
 
 // Configure health monitoring
 configureHealthMonitoring(app);

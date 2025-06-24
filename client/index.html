@@ -34,11 +34,45 @@
   <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin />
   
-  <!-- Critical CSS for above-the-fold styles -->
-  <link rel="stylesheet" href="/css/critical.css">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.webmanifest">
   
-  <!-- Google Fonts with display swap -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Self-hosted fonts with preload -->
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/inter-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/inter-500.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/inter-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+      src: url('/fonts/inter-700.woff2') format('woff2');
+    }
+  </style>
   
   <!-- Favicon and app icons -->
   <link rel="icon" type="image/svg+xml" href="/favicon-simple.svg?v=6" sizes="16x16" />
