@@ -43,9 +43,9 @@ export default function TestimonialsSection() {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Auto-advance carousel every 5 seconds
+  // Auto-advance carousel every 3.5 seconds
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
+    const interval = setInterval(nextTestimonial, 3500);
     return () => clearInterval(interval);
   }, []);
 
@@ -63,14 +63,6 @@ export default function TestimonialsSection() {
             </p>
             
             <div style={{ backgroundColor: '#85abe4' }} className="p-4 md:p-6 rounded-lg relative">
-              {/* Navigation Arrow - Smaller and more subtle */}
-              <button
-                onClick={nextTestimonial}
-                className="hidden md:block absolute right-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-60 text-white p-1 rounded-full transition-all"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="h-3 w-3" />
-              </button>
 
               <div className="flex items-start mb-4 pr-2 md:pr-12">
                 <div className="w-6 h-6 md:w-8 md:h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-xs mr-3 md:mr-4 flex-shrink-0">
@@ -86,24 +78,9 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-              <p className="text-black italic text-sm md:text-base leading-relaxed pr-2 md:pr-12">
+              <p className="text-black italic text-sm md:text-base leading-relaxed">
                 "{currentTestimonial.text}"
               </p>
-              
-              {/* Carousel Indicators - Tiny minimal dots */}
-              <div className="flex justify-center mt-4 space-x-1">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-0.5 h-0.5 rounded-full transition-all ${
-                      index === currentIndex ? 'bg-black' : 'bg-black bg-opacity-30'
-                    }`}
-                    style={{ minWidth: '2px', minHeight: '2px' }}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
               
               <div className="mt-6">
                 <Button 

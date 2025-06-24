@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ArrowLeft, Star, Quote } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -84,9 +84,11 @@ export default function TestimonialsPage() {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
 
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  // Auto-advance carousel every 3.5 seconds
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 3500);
+    return () => clearInterval(interval);
+  }, []);
 
   const currentData = testimonials[currentTestimonial];
 
@@ -153,20 +155,6 @@ export default function TestimonialsPage() {
               <div className="p-12 lg:p-16">
                 <div className="flex items-center justify-between mb-8">
                   <Quote className="h-12 w-12" style={{ color: '#85abe4' }} />
-                  <div className="flex space-x-3">
-                    <button 
-                      onClick={prevTestimonial}
-                      className="p-3 rounded-full border-2 border-gray-200 hover:border-[#85abe4] hover:bg-[#85abe4] hover:text-white transition-all duration-300"
-                    >
-                      <ChevronLeft className="h-5 w-5" />
-                    </button>
-                    <button 
-                      onClick={nextTestimonial}
-                      className="p-3 rounded-full border-2 border-gray-200 hover:border-[#85abe4] hover:bg-[#85abe4] hover:text-white transition-all duration-300"
-                    >
-                      <ChevronRight className="h-5 w-5" />
-                    </button>
-                  </div>
                 </div>
                 
                 <blockquote className="text-2xl font-light text-gray-800 leading-relaxed mb-8 italic">
