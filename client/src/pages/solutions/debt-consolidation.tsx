@@ -6,7 +6,7 @@ export default function DebtConsolidationDetail() {
       title="Debt Consolidation"
       description="Combine multiple debts into a single payment with potentially lower rates and simplified management."
       heroImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=800&h=600&fit=crop"
+      contentImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop&crop=center"
       features={[
         "Single monthly payment",
         "Potentially lower rates",
