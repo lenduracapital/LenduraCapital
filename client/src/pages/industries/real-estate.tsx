@@ -4,6 +4,52 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
+const CountUp = ({ end, duration = 3000, suffix = "", prefix = "", className = "" }: { 
+  end: number; 
+  duration?: number; 
+  suffix?: string; 
+  prefix?: string;
+  className?: string;
+}) => {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          
+          let startTime: number;
+          const animate = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.floor(easeOutCubic * end));
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [end, duration, hasStarted]);
+
+  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
+};
+
 export default function RealEstate() {
   const [, setLocation] = useLocation();
 
@@ -84,30 +130,31 @@ export default function RealEstate() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">100+</div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 100+ specialists to keep you going</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
+      </section>
       </section>
 
       {/* Industry Overview */}
@@ -170,30 +217,31 @@ export default function RealEstate() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">100+</div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 100+ specialists to keep you going</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
+      </section>
       </section>
 
       {/* Success Stories */}
@@ -261,30 +309,31 @@ export default function RealEstate() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">100+</div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 100+ specialists to keep you going</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
+      </section>
       </section>
 
       {/* Recommended Solutions */}
@@ -349,30 +398,31 @@ export default function RealEstate() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">100+</div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 100+ specialists to keep you going</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
+      </section>
       </section>
 
       {/* CTA Section */}
@@ -419,30 +469,31 @@ export default function RealEstate() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">100+</div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 100+ specialists to keep you going</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
+      </section>
       </section>
 
       <Footer />

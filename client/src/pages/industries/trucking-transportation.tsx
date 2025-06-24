@@ -130,95 +130,31 @@ export default function TruckingTransportation() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div 
-                className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 rolling-stat" 
-                data-target="50"
-              >
-                50+
-              </div>
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
               <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div 
-                className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 rolling-stat" 
-                data-target="12"
-              >
-                12
-              </div>
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div 
-                className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 rolling-stat" 
-                data-target="20"
-              >
-                $20M
-              </div>
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div 
-                className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 rolling-stat" 
-                data-target="24"
-              >
-                24
-              </div>
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
       </section>
-
-      <script>
-        {`
-          // Rolling statistics animation
-          function animateRollingStats() {
-            const stats = document.querySelectorAll('.rolling-stat');
-            stats.forEach(stat => {
-              const target = parseInt(stat.dataset.target);
-              const original = stat.textContent;
-              let current = 0;
-              const increment = target / 50;
-              
-              const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                  stat.textContent = original;
-                  clearInterval(timer);
-                } else {
-                  if (original.includes('$')) {
-                    stat.textContent = '$' + Math.floor(current) + 'M';
-                  } else if (original.includes('+')) {
-                    stat.textContent = Math.floor(current) + '+';
-                  } else {
-                    stat.textContent = Math.floor(current);
-                  }
-                }
-              }, 40);
-            });
-          }
-          
-          // Trigger animation when section comes into view
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                animateRollingStats();
-                observer.disconnect();
-              }
-            });
-          });
-          
-          const section = document.querySelector('.rolling-stat').closest('section');
-          if (section) observer.observe(section);
-        `}
-      </script>
 
       {/* Success Stories */}
       <section className="py-16 md:py-24 bg-white">
