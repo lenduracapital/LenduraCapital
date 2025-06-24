@@ -34,13 +34,15 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Determine header background and text colors
-  const isTransparent = transparent && !isScrolled;
-  const headerBg = isTransparent ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md';
+  // Determine header visibility and styling
+  const showHeader = !transparent || isScrolled;
+  const headerClasses = showHeader 
+    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md opacity-100' 
+    : 'fixed w-full top-0 z-50 transition-all duration-300 bg-transparent opacity-0 pointer-events-none';
   const textColor = 'text-white';
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${headerBg}`}>
+    <header className={headerClasses}>
       <nav className="w-full px-0">
         <div className="flex items-center justify-between py-1 w-full">
           {/* Logo on the left - aligned with hero text */}
