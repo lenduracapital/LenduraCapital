@@ -85,14 +85,14 @@ export default function Footer() {
             </div>
           </div>
           
-          <div className="text-left">
-            <h4 className="text-black font-semibold mb-4 text-left">Custom Business Financing Solutions</h4>
+          <div>
+            <h4 className="text-black font-semibold mb-4">Custom Business Financing Solutions</h4>
             <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
-                <li key={index} className="text-left">
+                <li key={index}>
                   <button
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
                   >
                     {service.name}
                   </button>
@@ -101,14 +101,14 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div className="text-left">
-            <h4 className="text-black font-semibold mb-4 text-left">Personalized Small Business Solutions</h4>
+          <div>
+            <h4 className="text-black font-semibold mb-4">Personalized Small Business Solutions</h4>
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
-                <li key={index} className="text-left">
+                <li key={index}>
                   <button
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
                   >
                     {solution.name}
                   </button>
@@ -117,14 +117,14 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div className="text-left">
-            <h4 className="text-black font-semibold mb-4 text-left">FundTek Capital Group</h4>
+          <div>
+            <h4 className="text-black font-semibold mb-4">FundTek Capital Group</h4>
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
-                <li key={index} className="text-left">
+                <li key={index}>
                   <button
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
                   >
                     {page.name}
                   </button>
