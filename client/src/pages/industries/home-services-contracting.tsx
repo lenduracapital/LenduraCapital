@@ -6,10 +6,6 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
-
 export default function HomeServicesContracting() {
   const [, setLocation] = useLocation();
 
@@ -283,12 +279,13 @@ export default function HomeServicesContracting() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Accelerate Your Business Growth
             </h2>
             <p className="text-lg md:text-xl text-gray-600">
+              Take advantage of our specialized financing solutions for home service professionals
             </p>
           </div>
-          
-      </section>
+        </div>
       </section>
 
       {/* CTA Section */}
@@ -311,10 +308,11 @@ export default function HomeServicesContracting() {
             </Button>
             <Button 
               onClick={() => setLocation("/contact")}
-              style={{ backgroundColor: '#85abe4', color: 'white' }}
+              variant="outline"
               size="lg"
-              className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3"
             >
+              Contact Us
             </Button>
           </div>
         </div>
