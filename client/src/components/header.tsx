@@ -94,7 +94,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               {isDropdownOpen && (
                 <div 
                   className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
-                  style={{ width: '900px', height: '320px' }}
+                  style={{ width: '700px', height: '320px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
