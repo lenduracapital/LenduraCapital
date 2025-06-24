@@ -152,6 +152,19 @@ const solutions = [
     ],
     route: "/solutions/credit-services",
     image: fixCreditImage
+  },
+  {
+    title: "Marketing",
+    icon: <Building className="w-8 h-8" />,
+    description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
+    features: [
+      "SEO optimization",
+      "Website development",
+      "Digital marketing",
+      "Online presence management"
+    ],
+    route: "/solutions/seo-web-development",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   }
 ];
 
