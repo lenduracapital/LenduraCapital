@@ -63,10 +63,10 @@ export default function TestimonialsSection() {
             </p>
             
             <div style={{ backgroundColor: '#85abe4' }} className="p-4 md:p-6 rounded-lg relative">
-              {/* Navigation Arrow - Hidden on mobile, positioned better on desktop */}
+              {/* Navigation Arrow - Better centered with content */}
               <button
                 onClick={nextTestimonial}
-                className="hidden md:block absolute right-2 top-2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
+                className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="h-4 w-4" />
@@ -90,13 +90,13 @@ export default function TestimonialsSection() {
                 "{currentTestimonial.text}"
               </p>
               
-              {/* Carousel Indicators */}
-              <div className="flex justify-center mt-4 space-x-2">
+              {/* Carousel Indicators - Smaller dots */}
+              <div className="flex justify-center mt-4 space-x-1.5">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+                    className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all ${
                       index === currentIndex ? 'bg-black' : 'bg-black bg-opacity-30'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
