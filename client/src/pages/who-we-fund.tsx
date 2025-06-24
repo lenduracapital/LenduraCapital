@@ -187,12 +187,34 @@ export default function QualifiedIndustries() {
                   <div className="pt-4">
                     <Button 
                       onClick={() => {
-                        const slug = industry.title.toLowerCase()
-                          .replace(/&/g, 'and')
-                          .replace(/[^a-z0-9\s]/g, '')
-                          .replace(/\s+/g, '-')
-                          .trim();
-                        setLocation(`/industries/${slug}`);
+                        // Create mapping for specific industry titles to match file names
+                        const slugMap = {
+                          "Trucking & Transportation": "trucking-transportation",
+                          "Medical & Healthcare": "medical-healthcare", 
+                          "Construction": "construction",
+                          "Restaurant & Food Service": "restaurant-food-service",
+                          "Retail & E-commerce": "retail-e-commerce",
+                          "Manufacturing": "manufacturing",
+                          "Professional Services": "professional-services",
+                          "Technology & Software": "technology-software",
+                          "Auto & Transportation": "auto-transportation",
+                          "Beauty & Wellness": "beauty-wellness",
+                          "Hospitality & Tourism": "hospitality-tourism",
+                          "Agriculture & Farming": "agriculture-farming",
+                          "Real Estate": "real-estate",
+                          "Entertainment & Events": "entertainment-events",
+                          "Education & Training": "education-training",
+                          "Franchises": "franchises",
+                          "Home Services & Contracting": "home-services-contracting",
+                          "Cleaning & Janitorial Services": "cleaning-janitorial-services"
+                        };
+                        
+                        const slug = slugMap[industry.title];
+                        if (slug) {
+                          setLocation(`/industries/${slug}`);
+                        } else {
+                          setLocation('/solutions');
+                        }
                       }}
                       style={{ backgroundColor: '#85abe4' }}
                       className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
