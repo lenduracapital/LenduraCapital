@@ -94,7 +94,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               {isDropdownOpen && (
                 <div 
                   className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-8"
-                  style={{ width: '900px', height: '350px' }}
+                  style={{ width: '900px', height: '450px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
@@ -103,7 +103,7 @@ export default function Header({ transparent = true }: HeaderProps) {
                     {/* Left Column - Custom Business Financing Solutions */}
                     <div>
                       <h3 className="font-semibold mb-4 text-base border-b border-gray-300 pb-2" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
                           className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
