@@ -611,6 +611,13 @@ Changelog:
   * Improved text alignment with proper responsive breakpoints (center on mobile, left on tablet+)
   * Optimized logo sizing across devices (h-20 mobile, h-24 tablet, h-40 desktop)
   * Enhanced social media icon alignment with responsive justification
+- June 24, 2025. Project cleanup and optimization (COMPLETE):
+  * Removed 291+ unused assets from attached_assets folder
+  * Deleted unnecessary audit reports, documentation files, and build tools
+  * Retained only 5 essential assets: hero video, FundTek logo, city background, hero background, truck image
+  * Eliminated lighthouse-audit.cjs, lighthouserc.js, run-audit.sh, .pa11yci.json files
+  * Cleaned up audit-reports directory and redundant markdown documentation
+  * Significantly reduced project size while maintaining full website functionality
 ```
 
 ## User Preferences
