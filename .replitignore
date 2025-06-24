@@ -1,0 +1,15 @@
+.git
+.config
+node_global
+Pulse*
+npm-cache
+*.zip
+.DS_Store
+Thumbs.db
+.env.local
+.env.production
+dist/
+coverage/
+.nyc_output/
+logs/
+*.log
