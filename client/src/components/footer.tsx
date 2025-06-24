@@ -92,7 +92,7 @@ export default function Footer() {
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {service.name}
                   </span>
@@ -108,7 +108,7 @@ export default function Footer() {
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {solution.name}
                   </span>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {page.name}
                   </span>
@@ -143,7 +143,7 @@ export default function Footer() {
               <div key={index} className="flex items-center">
                 <span
                   onClick={() => handleNavigation(page.href)}
-                  className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline text-xs md:text-sm cursor-pointer"
+                  className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black text-xs md:text-sm cursor-pointer"
                 >
                   {page.name}
                 </span>
