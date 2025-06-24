@@ -140,12 +140,7 @@ export default function Header({ transparent = true }: HeaderProps) {
                         >
                           Invoice Factoring
                         </button>
-                        <button
-                          onClick={() => { setLocation("/solutions/debt-consolidation"); setIsDropdownOpen(false); }}
-                          className="text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
-                        >
-                          Debt Consolidation
-                        </button>
+
                         <button
                           onClick={() => { setLocation("/solutions/po-financing"); setIsDropdownOpen(false); }}
                           className="text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
@@ -184,10 +179,10 @@ export default function Header({ transparent = true }: HeaderProps) {
                           Credit Card Processing
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/digital-marketing"); setIsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/solutions/seo-web-development"); setIsDropdownOpen(false); }}
                           className="block text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
                         >
-                          Digital Marketing
+                          Marketing
                         </button>
                       </div>
                     </div>
