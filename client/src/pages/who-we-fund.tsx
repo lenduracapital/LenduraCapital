@@ -187,18 +187,17 @@ export default function WhoWeFund() {
                   <div className="pt-4">
                     <Button 
                       onClick={() => {
-                        if (industry.title === "Home Services & Contracting") {
-                          setLocation("/industries/home-services-contracting");
-                        } else if (industry.title === "Cleaning & Janitorial Services") {
-                          setLocation("/industries/cleaning-janitorial-services");
-                        } else {
-                          setLocation('/solutions');
-                        }
+                        const slug = industry.title.toLowerCase()
+                          .replace(/&/g, 'and')
+                          .replace(/[^a-z0-9\s]/g, '')
+                          .replace(/\s+/g, '-')
+                          .trim();
+                        setLocation(`/industries/${slug}`);
                       }}
                       style={{ backgroundColor: '#85abe4' }}
                       className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
                     >
-                      {(industry.title === "Home Services & Contracting" || industry.title === "Cleaning & Janitorial Services") ? "Learn More" : "View Solutions"} →
+                      Learn More →
                     </Button>
                   </div>
                 </div>
