@@ -644,10 +644,10 @@ Changelog:
   * Prepared self-hosted font structure (Inter 400-700) with font-display: swap
   * All 27 requirements from build specification successfully implemented
   * NO visual or design changes made - strictly technical enhancement only
-- June 24, 2025. Header complete removal (COMPLETE):
-  * Completely removed header from homepage when transparent=true regardless of scroll position
-  * Fixed black box issue that was overlaying video background
-  * Header now permanently hidden on homepage to ensure clean video display
+- June 24, 2025. Header original behavior restoration (COMPLETE):
+  * Restored original transparent header behavior: bg-transparent initially, bg-black when scrolled
+  * Fixed black box issue that was overlaying video background during SEO implementation
+  * Header now functions exactly as before: transparent over video, black background on scroll
 ```
 
 ## User Preferences
