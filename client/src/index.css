@@ -278,7 +278,7 @@ button, .btn, .touch-target {
   }
 
   body {
-    @apply bg-[--bg-primary] text-[--text-primary] font-['Inter',sans-serif] antialiased;
+    @apply bg-white text-[--text-primary] font-['Inter',sans-serif] antialiased;
   }
 }
 
@@ -384,6 +384,18 @@ body {
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
 }
 
 /* Reduce animations for accessibility and performance */

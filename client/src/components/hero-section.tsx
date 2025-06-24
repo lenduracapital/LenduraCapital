@@ -61,7 +61,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="hero-section relative h-screen overflow-hidden">
+    <section className="hero-section relative h-screen overflow-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
       {/* Background Video with Enhanced Optimization */}
       {videoLoaded ? (
         <video 
@@ -97,7 +97,7 @@ export default function HeroSection() {
       )}
       
       {/* Simple Navigation floating over video */}
-      <nav className="absolute top-0 w-full z-50 flex items-center justify-between px-4 md:px-8 py-4">
+      <nav className="absolute top-0 w-full z-50 flex items-center justify-between px-4 md:px-8 py-2">
         <img 
           src={logoPath}
           alt="FundTek Capital Group Logo" 
@@ -113,7 +113,7 @@ export default function HeroSection() {
       </nav>
 
       {/* Content on Left */}
-      <div className="relative z-10 h-full flex items-start justify-start px-4 sm:px-6 lg:px-8 pt-32 md:pt-40">
+      <div className="relative z-10 h-full flex items-start justify-start px-4 sm:px-6 lg:px-8 pt-20 md:pt-24">
         <div className="max-w-md text-left ml-0 md:ml-0 lg:ml-0 w-full md:w-auto">
           <h1 className="responsive-heading-lg font-bold text-white mb-4 leading-tight hero-text">
             Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
