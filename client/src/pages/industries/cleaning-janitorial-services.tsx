@@ -51,7 +51,7 @@ export default function CleaningJanitorialServices() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                className="bg-white text-[#85abe4] hover:bg-gray-100 text-lg px-8 py-3"
+                className="bg-white text-[#85abe4] hover:bg-gray-100 text-lg px-8 py-3 font-semibold"
               >
                 Get Approved in 24 Hours
               </Button>
@@ -59,7 +59,7 @@ export default function CleaningJanitorialServices() {
                 onClick={() => setLocation("/solutions")}
                 variant="outline"
                 size="lg"
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3"
+                className="text-white border-white hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
               >
                 View All Solutions
               </Button>
