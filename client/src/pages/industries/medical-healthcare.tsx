@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Heart, Stethoscope, Building2 } from "lucide-react";
 import { useLocation } from "wouter";
