@@ -1,282 +1,174 @@
-
-import CountUp from "@/components/count-up";
-import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Star, Building, Home, Key } from "lucide-react";
-import { useLocation } from "wouter";
+import { lazy, Suspense } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { Star } from "lucide-react";
+import { useLocation } from "wouter";
 
-const CountUp = ({ end, duration = 3000, suffix = "", prefix = "", className = "" }: { 
-  end: number; 
-  duration?: number; 
-  suffix?: string; 
-  prefix?: string;
-  className?: string;
-}) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          
-          let startTime: number;
-          const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(easeOutCubic * end));
-            
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [end, duration, hasStarted]);
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
+const CountUp = lazy(() => import("@/components/count-up"));
 
 export default function RealEstate() {
   const [, setLocation] = useLocation();
 
-  const handleApplyNow = () => {
+  const handleApplyClick = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
-  const handleBackToIndustries = () => {
-    setLocation("/qualified-industries");
-    window.scrollTo(0, 0);
+  const handleSolutionsClick = () => {
+    setLocation("/solutions");
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
+      {/* Header */}
+      <Header transparent={false} />
+
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#85abe4] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop')"
-          }}
-        />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button
-            onClick={handleBackToIndustries}
-            style={{ backgroundColor: '#85abe4', color: 'white' }}
-            className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Industries
-          </Button>
-          
-          <div className="text-left max-w-4xl mt-8 md:mt-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Real Estate Industry Financing
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Build your portfolio with financing for property acquisition, renovations, and real estate operations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                onClick={handleApplyNow}
-                size="lg"
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 text-lg px-8 py-3 font-semibold"
-              >
-                Get Approved in 24 Hours
-              </Button>
-              <Button 
-                onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                size="lg"
-                style={{ color: 'white', borderColor: 'white' }}
-                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
-              >
-                View All Solutions
-              </Button>
-            </div>
+      <section 
+        className="relative pt-40 md:pt-48 pb-32 md:pb-40 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80')"
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-wider">
+            Real Estate Financing Solutions
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Specialized funding for real estate investors, developers, and property management companies seeking fast capital for acquisitions, renovations, and expansions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button 
+              onClick={handleApplyClick}
+              className="bg-[#85abe4] hover:bg-[#7098d9] text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Get Approved in 24 Hours
+            </Button>
+            <Button 
+              onClick={handleSolutionsClick}
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+            >
+              Explore Your Financing Options
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
-      {/* Industry Overview */}
+      {/* Introduction */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8">
-                Building Real Estate Success
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">
+                Real Estate Capital When You Need It Most
               </h2>
-              <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
-                <p>Real estate professionals face unique challenges: property acquisition costs, renovation expenses, market fluctuations, commission delays, and maintaining competitive advantage in fast-moving markets.</p>
-                <p>FundTek Capital Group understands real estate operations and provides flexible financing solutions that help agents, brokers, and investors capitalize on opportunities and grow their businesses.</p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Real estate moves fast, and so should your financing. Whether you're flipping houses, developing commercial properties, or managing rental portfolios, FundTek Capital Group provides the flexible funding solutions real estate professionals need to capitalize on opportunities quickly.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                From fix-and-flip loans to commercial acquisitions, our streamlined approval process ensures you can move on profitable deals while competitors are still waiting for traditional bank approvals.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>24 Hours</div>
+                  <div className="text-sm text-gray-600">Fast Approval</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>$20M</div>
+                  <div className="text-sm text-gray-600">Max Funding</div>
+                </div>
               </div>
-              
-              <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Common Financing Needs</h3>
-              <ul className="space-y-4 mb-8 md:mb-12">
-                {[
-                  "Property acquisition and down payments",
-                  "Renovation and improvement projects", 
-                  "Marketing and advertising campaigns",
-                  "Bridge financing between closings",
-                  "Working capital for operations",
-                  "Office expansion and technology"
-                ].map((need, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#85abe4' }} />
-                    <span className="text-gray-700">{need}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
-                alt="Real estate properties and business"
-                className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
-                <div className="text-sm font-medium text-white">Fast Approval</div>
-                <div className="text-2xl font-bold text-white">24-48hrs</div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4">Fix & Flip Loans</h3>
+                <p className="text-blue-100">Fast funding for property acquisition and renovation costs</p>
+              </div>
+              <div className="bg-gray-100 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Commercial RE</h3>
+                <p className="text-gray-700">Investment property and commercial real estate financing</p>
+              </div>
+              <div className="bg-gray-100 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Bridge Loans</h3>
+                <p className="text-gray-700">Short-term financing for time-sensitive opportunities</p>
+              </div>
+              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4">BRRRR Strategy</h3>
+                <p className="text-blue-100">Buy, Rehab, Rent, Refinance, Repeat financing</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Rolling Statistics */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <Suspense fallback={<div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">50+</div>}>
+                <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              </Suspense>
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
               <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
-            
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <Suspense fallback={<div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">12</div>}>
+                <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              </Suspense>
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
-            
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <Suspense fallback={<div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">$20M</div>}>
+                <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              </Suspense>
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
-            
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <Suspense fallback={<div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">24</div>}>
+                <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              </Suspense>
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
           </div>
         </div>
-      </section>
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real estate professionals who built their success with FundTek Capital Group financing
+              Real estate professionals who accelerated their portfolios with FundTek Capital Group financing
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Rachel Davis",
-                company: "Premier Property Group",
-                story: "Used bridge financing to acquire investment property before selling current holdings. Completed flip project and earned 25% ROI within 8 months.",
-                funding: "$250,000 Bridge Loan"
+                name: "Michael Chen",
+                company: "Pacific Properties LLC",
+                story: "Secured bridge financing to close on a 12-unit apartment building. Renovated and refinanced within 8 months for 35% profit.",
+                funding: "$850,000 Bridge Loan"
               },
               {
-                name: "Kevin Martinez",
-                company: "Martinez Real Estate",
-                story: "Secured working capital to expand brokerage and hire additional agents. Office revenue increased 120% and closed 40% more transactions.",
-                funding: "$85,000 Line of Credit"
+                name: "Sarah Rodriguez",
+                company: "Flip Smart Investments",
+                story: "Used fix-and-flip funding to purchase and renovate 3 distressed properties simultaneously. Increased property values by $200K total.",
+                funding: "$320,000 Fix & Flip Loan"
               },
               {
-                name: "Susan Chen",
-                company: "Urban Properties LLC",
-                story: "Got renovation financing for multi-unit property improvements. Increased rental income by $2,000/month and property value by $150K.",
-                funding: "$180,000 Term Loan"
+                name: "David Thompson",
+                company: "Commercial RE Partners",
+                story: "Obtained working capital to purchase warehouse space for conversion to luxury lofts. Project sold out in pre-construction phase.",
+                funding: "$1.2M Commercial Loan"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
@@ -297,47 +189,6 @@ export default function RealEstate() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -345,39 +196,36 @@ export default function RealEstate() {
             Recommended Financing Solutions
           </h2>
           <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            Based on typical real estate needs, these solutions work best for property professionals
+            Based on typical real estate business needs, these solutions work best for property investors and developers
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Perfect for bridge financing, renovations, and operational flexibility</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Commercial Real Estate</h3>
+              <p className="text-blue-100 mb-6">Investment property acquisition and commercial development financing</p>
               <Button 
-                onClick={() => setLocation("/solutions/lines-of-credit")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
+                onClick={handleSolutionsClick}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Ideal for property acquisition, major renovations, and business expansion</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Construction equipment, tools, and vehicle financing for real estate operations</p>
               <Button 
-                onClick={() => setLocation("/solutions/term-loans")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
+                onClick={handleSolutionsClick}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">CRE Lending</h3>
-              <p className="text-blue-100 mb-6">Specialized commercial real estate financing for investment properties</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Working capital for property management, renovations, and business expansion</p>
               <Button 
-                onClick={() => setLocation("/solutions/commercial-real-estate-lending")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
+                onClick={handleSolutionsClick}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -386,118 +234,7 @@ export default function RealEstate() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Build Your Real Estate Portfolio?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Get the funding you need to acquire properties, complete renovations, and grow your real estate business
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={handleApplyNow}
-              size="lg"
-              style={{ backgroundColor: '#85abe4' }}
-              className="hover:opacity-90 text-lg px-8 py-3 font-semibold text-white"
-            >
-              Apply Now - Get Approved in 24 Hours
-            </Button>
-            <Button 
-              onClick={() => setLocation("/contact")}
-              style={{ backgroundColor: '#85abe4', color: 'white' }}
-              size="lg"
-              className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 font-semibold"
-            >
-              Contact Our Specialists
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
+      {/* Footer */}
       <Footer />
     </div>
   );

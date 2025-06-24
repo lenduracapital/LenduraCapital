@@ -1,56 +1,9 @@
-
 import CountUp from "@/components/count-up";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Star, Truck, Building, Sparkles } from "lucide-react";
+import { CheckCircle, ArrowLeft, Star, Sparkles, Shield, Clock } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-
-const CountUp = ({ end, duration = 3000, suffix = "", prefix = "", className = "" }: { 
-  end: number; 
-  duration?: number; 
-  suffix?: string; 
-  prefix?: string;
-  className?: string;
-}) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          
-          let startTime: number;
-          const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(easeOutCubic * end));
-            
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [end, duration, hasStarted]);
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
 
 export default function CleaningJanitorialServices() {
   const [, setLocation] = useLocation();
@@ -74,7 +27,7 @@ export default function CleaningJanitorialServices() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop')"
           }}
         />
         
@@ -93,130 +46,103 @@ export default function CleaningJanitorialServices() {
               Cleaning & Janitorial Services Financing
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Specialized funding solutions for commercial cleaning, janitorial, and facility maintenance businesses.
+              Keep your business spotless with equipment financing, expansion capital, and working capital solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button 
                 onClick={handleApplyNow}
-                size="lg"
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 text-lg px-8 py-3 font-semibold"
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Get Approved in 24 Hours
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                size="lg"
-                style={{ color: 'white', borderColor: 'white' }}
-                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
               >
-                View All Solutions
+                Explore Your Financing Options
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industry Overview */}
+      {/* Introduction */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8">
-                Supporting Professional Cleaning Businesses
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">
+                Professional Cleaning Industry Funding
               </h2>
-              <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
-                <p>Cleaning and janitorial service businesses require reliable equipment, transportation, and consistent cash flow to maintain high service standards and grow their client base.</p>
-                <p>FundTek Capital Group provides tailored financing solutions that help cleaning companies purchase equipment, expand their fleet, hire staff, and secure larger commercial contracts.</p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                The cleaning and janitorial services industry requires reliable equipment, supplies, and working capital to maintain operations and grow. From commercial cleaning contracts to residential services, our financing solutions help you maintain cash flow and invest in growth opportunities.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Whether you need equipment financing for industrial cleaning machines, working capital for supplies and payroll, or expansion funding for new contracts, FundTek Capital Group provides fast, flexible financing tailored to cleaning service businesses.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>24 Hours</div>
+                  <div className="text-sm text-gray-600">Fast Approval</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>$20M</div>
+                  <div className="text-sm text-gray-600">Max Funding</div>
+                </div>
               </div>
-              
-              <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Common Financing Needs</h3>
-              <ul className="space-y-4 mb-8 md:mb-12">
-                {[
-                  "Commercial cleaning equipment and supplies",
-                  "Service vehicles and cargo vans", 
-                  "Floor care machinery and carpet cleaners",
-                  "Contract fulfillment and payroll funding",
-                  "Business expansion and new locations",
-                  "Equipment replacement and upgrades"
-                ].map((need, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#85abe4' }} />
-                    <span className="text-gray-700">{need}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&h=600&fit=crop"
-                alt="Professional cleaning and janitorial services"
-                className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
-                <div className="text-sm font-medium">Fast Approval</div>
-                <div className="text-2xl font-bold">24-48hrs</div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+                <Sparkles className="w-8 h-8 mb-4" />
+                <h3 className="text-xl font-bold mb-4">Equipment Financing</h3>
+                <p className="text-blue-100">Industrial cleaners, floor machines, and commercial vehicles</p>
+              </div>
+              <div className="bg-gray-100 p-6 rounded-lg">
+                <Shield className="w-8 h-8 mb-4" style={{ color: '#85abe4' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Working Capital</h3>
+                <p className="text-gray-700">Supplies, payroll, and operational expenses</p>
+              </div>
+              <div className="bg-gray-100 p-6 rounded-lg">
+                <Clock className="w-8 h-8 mb-4" style={{ color: '#85abe4' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Contract Funding</h3>
+                <p className="text-gray-700">Capital to fulfill large commercial cleaning contracts</p>
+              </div>
+              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+                <Monitor className="w-8 h-8 mb-4" />
+                <h3 className="text-xl font-bold mb-4">Expansion Capital</h3>
+                <p className="text-blue-100">Grow into new markets and service areas</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Types */}
+      {/* Rolling Statistics */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Cleaning Services We Fund
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From office cleaning to specialized sanitization, we provide financing across all cleaning service sectors
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Building className="w-8 h-8" />,
-                title: "Commercial Office Cleaning",
-                description: "Daily office cleaning, restroom maintenance, and corporate facility management services"
-              },
-              {
-                icon: <Sparkles className="w-8 h-8" />,
-                title: "Specialized Sanitization", 
-                description: "Healthcare facility cleaning, medical office sanitization, and infection control services"
-              },
-              {
-                icon: <Building className="w-8 h-8" />,
-                title: "Industrial Cleaning",
-                description: "Manufacturing facility cleaning, warehouse maintenance, and industrial equipment cleaning"
-              },
-              {
-                icon: <Truck className="w-8 h-8" />,
-                title: "Carpet & Floor Care",
-                description: "Professional carpet cleaning, floor refinishing, and specialized surface maintenance"
-              },
-              {
-                icon: <Building className="w-8 h-8" />,
-                title: "Post-Construction Cleanup",
-                description: "Construction site cleaning, debris removal, and final project cleanup services"
-              },
-              {
-                icon: <Sparkles className="w-8 h-8" />,
-                title: "Residential Cleaning",
-                description: "House cleaning services, move-in/move-out cleaning, and residential maintenance"
-              }
-            ].map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-[#85abe4]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div style={{ color: '#85abe4' }}>{service.icon}</div>
-                </div>
-                <h3 className="text-lg font-bold text-black mb-3">{service.title}</h3>
-                <p className="text-gray-600 text-sm">{service.description}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
+              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
+              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
+              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
+              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
+              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
+            </div>
           </div>
         </div>
       </section>
@@ -229,7 +155,7 @@ export default function CleaningJanitorialServices() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real cleaning business owners who scaled their operations with FundTek Capital Group financing
+              Cleaning service businesses that expanded their operations with FundTek Capital Group financing
             </p>
           </div>
           
@@ -237,24 +163,24 @@ export default function CleaningJanitorialServices() {
             {[
               {
                 name: "Maria Santos",
-                company: "Premier Office Solutions",
-                story: "Secured equipment financing to purchase commercial floor machines and expand into medical facility cleaning. Tripled monthly contracts.",
-                funding: "$45,000 Equipment Financing"
+                company: "Professional Clean Services",
+                story: "Used equipment financing to purchase 5 industrial floor scrubbers. Landed major hospital contract and increased monthly revenue by 40%.",
+                funding: "$85,000 Equipment Loan"
               },
               {
-                name: "David Kim",
-                company: "Elite Janitorial Services",
-                story: "Used working capital to hire additional staff and secure a major corporate contract. Went from 5 to 25 employees in 8 months.",
-                funding: "$120,000 Line of Credit"
+                name: "James Wilson",
+                company: "Elite Janitorial Solutions",
+                story: "Got working capital to hire additional staff for new office building contracts. Expanded from 10 to 25 buildings in 6 months.",
+                funding: "$150,000 Working Capital"
               },
               {
-                name: "Jennifer Lopez",
-                company: "Clean Pro Industries",
-                story: "Got vehicle financing for 3 cargo vans and specialized equipment. Expanded service area and increased revenue by 60%.",
-                funding: "$75,000 Term Loan"
+                name: "Angela Rodriguez",
+                company: "Green Clean Co.",
+                story: "Secured funding to purchase eco-friendly cleaning supplies in bulk. Reduced costs by 30% and attracted premium clients.",
+                funding: "$45,000 Term Loan"
               }
             ].map((story, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-lg border-l-4 border-[#85abe4]">
+              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
                 <div className="flex items-start space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
@@ -275,118 +201,44 @@ export default function CleaningJanitorialServices() {
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
             Recommended Financing Solutions
           </h2>
           <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
-            Based on typical cleaning business needs, these solutions work best for service providers
+            Based on typical cleaning service business needs, these solutions work best for janitorial companies
           </p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for commercial cleaning equipment, floor machines, and vehicles</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Industrial cleaning equipment, vehicles, and commercial-grade supplies</p>
               <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="text-white border-white hover:bg-white hover:text-[#85abe4]"
+                onClick={() => setLocation("/solutions")}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Flexible working capital for supplies, payroll, and contract fulfillment</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Working Capital</h3>
+              <p className="text-blue-100 mb-6">Cash flow for supplies, payroll, and day-to-day operational expenses</p>
               <Button 
-                onClick={() => setLocation("/solutions/lines-of-credit")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="text-white border-white hover:bg-white hover:text-[#85abe4]"
+                onClick={() => setLocation("/solutions")}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">Invoice Factoring</h3>
-              <p className="text-blue-100 mb-6">Convert outstanding invoices to immediate cash for steady cash flow</p>
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg">
+              <h3 className="text-2xl font-bold mb-4">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Business expansion, new location setup, and major contract fulfillment</p>
               <Button 
-                onClick={() => setLocation("/solutions/invoice-factoring")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="text-white border-white hover:bg-white hover:text-[#85abe4]"
+                onClick={() => setLocation("/solutions")}
+                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Scale Your Cleaning Business?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Get the funding you need to purchase equipment, expand your fleet, and secure larger contracts
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={handleApplyNow}
-              size="lg"
-              style={{ backgroundColor: '#85abe4' }}
-              className="hover:opacity-90 text-lg px-8 py-3"
-            >
-              Apply Now - Get Approved in 24 Hours
-            </Button>
-            <Button 
-              onClick={() => setLocation("/contact")}
-              style={{ backgroundColor: '#85abe4', color: 'white' }}
-              size="lg"
-              className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3"
-            >
-              Contact Our Specialists
-            </Button>
           </div>
         </div>
       </section>
