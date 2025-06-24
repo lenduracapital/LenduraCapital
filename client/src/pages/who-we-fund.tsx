@@ -176,11 +176,11 @@ export default function WhoWeFund() {
                   
                   <div className="pt-4">
                     <Button 
-                      onClick={() => setLocation('/solutions')}
+                      onClick={() => setLocation(`/industries/${industry.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`)}
                       style={{ backgroundColor: '#85abe4' }}
                       className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
                     >
-                      View Solutions →
+                      Learn More →
                     </Button>
                   </div>
                 </div>
