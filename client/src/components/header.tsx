@@ -154,10 +154,10 @@ export default function Header({ transparent = true }: HeaderProps) {
                           CRE Lending
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/mortgage-financing"); setIsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/solutions/debt-consolidation"); setIsDropdownOpen(false); }}
                           className="text-left text-xs text-gray-600 hover:text-[#85abe4] transition-colors py-0.5"
                         >
-                          Mortgage Financing
+                          Debt Consolidation
                         </button>
                       </div>
                     </div>

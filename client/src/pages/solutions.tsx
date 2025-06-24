@@ -154,17 +154,17 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
   },
   {
-    title: "Mortgage Loans",
+    title: "Debt Consolidation",
     icon: <Building className="w-8 h-8" />,
-    description: "Residential and commercial mortgage solutions with competitive rates and flexible terms for property purchases and refinancing.",
+    description: "Consolidate multiple business debts into one manageable payment with better terms and lower interest rates.",
     features: [
-      "Residential mortgages",
-      "Commercial mortgages",
-      "Refinancing options",
-      "Fast approvals"
+      "Multiple debt consolidation",
+      "Lower monthly payments",
+      "Improved cash flow",
+      "Simplified management"
     ],
-    route: "/solutions/mortgage-financing",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
+    route: "/solutions/debt-consolidation",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop"
   }
 ];
 
