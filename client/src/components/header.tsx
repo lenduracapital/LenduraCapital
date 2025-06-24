@@ -35,7 +35,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   };
 
   if (transparent && !isScrolled) {
-    return null; // Completely remove header when it should be invisible
+    return <div></div>; // Return empty div when header should be invisible
   }
 
   return (
