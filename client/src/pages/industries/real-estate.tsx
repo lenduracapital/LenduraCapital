@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useLocation } from "wouter";
-import CountUp from "@/components/count-up";
+
 
 export default function RealEstate() {
   const [, setLocation] = useLocation();

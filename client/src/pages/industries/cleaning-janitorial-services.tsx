@@ -4,7 +4,7 @@ import { CheckCircle, ArrowLeft, Star, Sparkles, Shield, Clock, Monitor } from "
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function CleaningJanitorialServices() {
   const [, setLocation] = useLocation();

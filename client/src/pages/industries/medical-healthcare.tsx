@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Heart, Stethoscope, Building2 } from "luc
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function MedicalHealthcare() {
   const [, setLocation] = useLocation();

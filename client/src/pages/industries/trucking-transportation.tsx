@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Truck, MapPin, Clock } from "lucide-react
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
 export default function TruckingTransportation() {
   const [, setLocation] = useLocation();

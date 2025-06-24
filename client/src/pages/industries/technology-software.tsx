@@ -4,7 +4,7 @@ import { CheckCircle, ArrowLeft, Star, Monitor, Code, Cpu } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
+
 
   return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
 };
