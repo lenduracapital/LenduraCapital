@@ -93,13 +93,13 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
-                  style={{ width: '700px', height: '320px' }}
+                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-5"
+                  style={{ width: '600px', height: '320px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                  <div className="grid grid-cols-2 gap-12">
+                  <div className="grid grid-cols-2 gap-8">
                     {/* Left Column - Custom Business Financing Solutions */}
                     <div>
                       <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
