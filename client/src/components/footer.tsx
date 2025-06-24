@@ -46,13 +46,13 @@ export default function Footer() {
   return (
     <footer className="bg-[#d9d9d9] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8" style={{ pointerEvents: 'auto' }}>
-          <div className="space-y-3 md:space-y-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8" style={{ pointerEvents: 'auto' }}>
+          <div className="space-y-3 md:space-y-4 text-center sm:text-left md:text-left sm:col-span-2 md:col-span-1">
+            <div className="flex items-center justify-center sm:justify-start md:justify-start space-x-3">
               <img 
                 src={fundTekLogo} 
                 alt="FundTek Capital Group" 
-                className="h-24 md:h-40 w-auto"
+                className="h-20 sm:h-24 md:h-40 w-auto"
               />
             </div>
             <p className="text-black text-xs md:text-sm">
@@ -61,7 +61,7 @@ export default function Footer() {
             <p className="text-black text-xs md:text-sm">
               Call us today at (305) 307-4658
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center sm:justify-start md:justify-start">
               <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
                 <FaInstagram className="text-xl" />
               </a>
@@ -73,13 +73,15 @@ export default function Footer() {
               </a>
             </div>
             
-            <div className="mt-4">
+            <div className="mt-4 text-center sm:text-left md:text-left">
               <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
-              <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors inline-block" style={{ color: '#85abe4' }}>
-                <FaYelp className="text-xl" />
-              </a>
+              <div className="flex justify-center sm:justify-start md:justify-start">
+                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors inline-block" style={{ color: '#85abe4' }}>
+                  <FaYelp className="text-xl" />
+                </a>
+              </div>
             </div>
           </div>
           
