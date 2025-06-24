@@ -1,12 +1,14 @@
 import SolutionDetailTemplate from '../components/solution-detail-template';
+import heroImage from '@assets/download (2)_1750787760177.jpg';
+import contentImage from '@assets/image_1750787783878.png';
 
 export default function DebtConsolidationPage() {
   return (
     <SolutionDetailTemplate
       title="Debt Consolidation"
       description="Consolidate multiple business debts into one manageable payment with better terms and lower interest rates to improve your cash flow."
-      heroImage="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop"
+      heroImage={heroImage}
+      contentImage={contentImage}
       features={[
         "Combine multiple debts into one payment",
         "Potentially lower interest rates",
