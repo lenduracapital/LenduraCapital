@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Star, Wheat, Tractor, Sun } from "lucide-react";
+import { CheckCircle, ArrowLeft, Star, Wheat, Tractor, Sprout } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -46,7 +46,7 @@ export default function AgricultureFarming() {
               Agriculture & Farming Financing
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Cultivate success with financing for equipment, livestock, land, and seasonal cash flow needs.
+              Cultivate growth with financing for equipment, land, livestock, and seasonal operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
@@ -59,7 +59,6 @@ export default function AgricultureFarming() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
@@ -69,47 +68,6 @@ export default function AgricultureFarming() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
       </section>
 
       {/* Industry Overview */}
@@ -158,47 +116,6 @@ export default function AgricultureFarming() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
       {/* Success Stories */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -207,7 +124,7 @@ export default function AgricultureFarming() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real farmers and agricultural businesses that grew with FundTek Capital Group financing
+              Real agricultural businesses that grew with FundTek Capital Group financing
             </p>
           </div>
           
@@ -216,20 +133,20 @@ export default function AgricultureFarming() {
               {
                 name: "John Peterson",
                 company: "Peterson Family Farms",
-                story: "Used equipment financing to purchase new combine harvester and tractor. Increased harvest efficiency by 50% and reduced labor costs significantly.",
-                funding: "$320,000 Equipment Financing"
+                story: "Used equipment financing to purchase new tractors and irrigation system. Increased crop yield by 40% and reduced water usage significantly.",
+                funding: "$280,000 Equipment Financing"
               },
               {
-                name: "Maria Rodriguez",
-                company: "Sunshine Orchards",
-                story: "Secured working capital for seasonal expenses and fruit processing equipment. Expanded into organic markets and increased profit margins by 40%.",
-                funding: "$150,000 Line of Credit"
+                name: "Sarah Williams",
+                company: "Sunrise Dairy Operations",
+                story: "Secured working capital for cattle purchase and facility expansion. Doubled milk production and secured premium supplier contracts.",
+                funding: "$350,000 Term Loan"
               },
               {
-                name: "Bill Thompson",
-                company: "Thompson Livestock Ranch",
-                story: "Got term loan to expand cattle operation and improve pasture management. Doubled herd size and secured premium beef contracts.",
-                funding: "$200,000 Term Loan"
+                name: "Miguel Garcia",
+                company: "Garcia Organic Produce",
+                story: "Got line of credit for seasonal expenses and organic certification. Expanded to three farmers markets and increased profits 65%.",
+                funding: "$125,000 Line of Credit"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
@@ -250,47 +167,6 @@ export default function AgricultureFarming() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
       {/* Recommended Solutions */}
       <section className="py-16 md:py-24 bg-[#85abe4] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -304,7 +180,7 @@ export default function AgricultureFarming() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for tractors, combines, and specialized farming equipment</p>
+              <p className="text-blue-100 mb-6">Perfect for tractors, harvesting equipment, and agricultural machinery</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -315,7 +191,7 @@ export default function AgricultureFarming() {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Ideal for seasonal expenses, supplies, and operational cash flow</p>
+              <p className="text-blue-100 mb-6">Flexible working capital for seasonal expenses and operations</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -326,7 +202,7 @@ export default function AgricultureFarming() {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Long-term financing for land acquisition and facility improvements</p>
+              <p className="text-blue-100 mb-6">Long-term financing for land purchase and facility development</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
@@ -339,55 +215,14 @@ export default function AgricultureFarming() {
         </div>
       </section>
 
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
-      </section>
-
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Grow Your Agricultural Operation?
+            Ready to Grow Your Agricultural Business?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Get the funding you need to purchase equipment, expand operations, and manage seasonal cash flow
+            Get the funding you need to purchase equipment, expand operations, and invest in your farm's future
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -408,47 +243,6 @@ export default function AgricultureFarming() {
             </Button>
           </div>
         </div>
-      </section>
-
-      {/* Accelerate Growth Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Accelerate the growth of your business
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Small Business Loans • Merchant Cash Advances • Lines of Credit
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
-              <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
-              <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
-              <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
-              <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
-              <div className="text-sm text-gray-600">Get funding in 24 hours</div>
-            </div>
-          </div>
-        </div>
-      </section>
       </section>
 
       <Footer />

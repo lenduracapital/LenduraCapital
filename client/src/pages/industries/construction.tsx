@@ -59,7 +59,6 @@ export default function Construction() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
@@ -254,7 +253,6 @@ export default function Construction() {
             </div>
           </div>
         </div>
-      </section>
       </section>
 
       {/* CTA Section */}
