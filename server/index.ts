@@ -67,6 +67,9 @@ configureRobotsTxt(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Serve attached assets directory
+app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
