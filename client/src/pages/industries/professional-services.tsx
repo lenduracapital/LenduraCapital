@@ -3,7 +3,6 @@ import { CheckCircle, ArrowLeft, Star, Briefcase, Users, FileText } from "lucide
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import CountUp from "@/components/count-up";
 
 export default function ProfessionalServices() {
   const [, setLocation] = useLocation();
@@ -130,25 +129,21 @@ export default function ProfessionalServices() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={50} suffix="+" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
               <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={12} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Financing options</div>
               <div className="text-sm text-gray-600">12 financing solutions and small business products</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={20} prefix="$" suffix="M" className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Funding up to</div>
               <div className="text-sm text-gray-600">Unsecured funding up to $20,000,000</div>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <CountUp end={24} className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2 block" />
               <div className="text-lg font-semibold text-gray-900 mb-1">Hours</div>
               <div className="text-sm text-gray-600">Get funding in 24 hours</div>
             </div>
