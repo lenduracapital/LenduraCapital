@@ -92,7 +92,7 @@ export default function Footer() {
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {service.name}
                   </button>
@@ -108,7 +108,7 @@ export default function Footer() {
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {solution.name}
                   </button>
@@ -124,7 +124,7 @@ export default function Footer() {
                 <li key={index}>
                   <button
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:opacity-75 transition-colors text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline block w-full py-1 text-left bg-transparent border-none cursor-pointer"
                   >
                     {page.name}
                   </button>
@@ -143,7 +143,7 @@ export default function Footer() {
               <div key={index} className="flex items-center">
                 <button
                   onClick={() => handleNavigation(page.href)}
-                  className="hover:opacity-75 transition-colors text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
+                  className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
                 >
                   {page.name}
                 </button>
