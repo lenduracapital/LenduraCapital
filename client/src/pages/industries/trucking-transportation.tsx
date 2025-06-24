@@ -253,6 +253,7 @@ export default function TruckingTransportation() {
               size="lg"
               className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3"
             >
+              Contact Us
             </Button>
           </div>
         </div>
