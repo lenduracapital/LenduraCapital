@@ -90,13 +90,13 @@ export default function TestimonialsSection() {
                 "{currentTestimonial.text}"
               </p>
               
-              {/* Carousel Indicators - Small subtle dots */}
-              <div className="flex justify-center mt-4 space-x-2">
+              {/* Carousel Indicators - Very small subtle dots */}
+              <div className="flex justify-center mt-4 space-x-1.5">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`w-1 h-1 rounded-full transition-all ${
                       index === currentIndex ? 'bg-black' : 'bg-black bg-opacity-30'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
