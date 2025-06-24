@@ -48,6 +48,12 @@ const ProfessionalServices = lazy(() => import("@/pages/industries/professional-
 const TechnologySoftware = lazy(() => import("@/pages/industries/technology-software"));
 const AutoTransportation = lazy(() => import("@/pages/industries/auto-transportation"));
 const BeautyWellness = lazy(() => import("@/pages/industries/beauty-wellness"));
+const HospitalityTourism = lazy(() => import("@/pages/industries/hospitality-tourism"));
+const AgricultureFarming = lazy(() => import("@/pages/industries/agriculture-farming"));
+const RealEstate = lazy(() => import("@/pages/industries/real-estate"));
+const EntertainmentEvents = lazy(() => import("@/pages/industries/entertainment-events"));
+const EducationTraining = lazy(() => import("@/pages/industries/education-training"));
+const Franchises = lazy(() => import("@/pages/industries/franchises"));
 
 // Loading fallback component
 function PageLoader() {
@@ -114,6 +120,12 @@ function Router() {
         <Route path="/industries/technology-software" component={TechnologySoftware} />
         <Route path="/industries/auto-transportation" component={AutoTransportation} />
         <Route path="/industries/beauty-wellness" component={BeautyWellness} />
+        <Route path="/industries/hospitality-tourism" component={HospitalityTourism} />
+        <Route path="/industries/agriculture-farming" component={AgricultureFarming} />
+        <Route path="/industries/real-estate" component={RealEstate} />
+        <Route path="/industries/entertainment-events" component={EntertainmentEvents} />
+        <Route path="/industries/education-training" component={EducationTraining} />
+        <Route path="/industries/franchises" component={Franchises} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
