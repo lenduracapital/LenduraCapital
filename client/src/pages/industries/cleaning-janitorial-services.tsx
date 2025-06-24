@@ -26,7 +26,7 @@ export default function CleaningJanitorialServices() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1200&h=600&fit=crop')"
           }}
         />
         
@@ -101,7 +101,7 @@ export default function CleaningJanitorialServices() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&h=600&fit=crop"
                 alt="Professional cleaning and janitorial services"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

@@ -26,7 +26,7 @@ export default function HomeServicesContracting() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=600&fit=crop')"
           }}
         />
         
@@ -101,7 +101,7 @@ export default function HomeServicesContracting() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
                 alt="Home services and contracting work"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

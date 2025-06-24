@@ -89,12 +89,12 @@ const industries = [
   {
     title: "Home Services & Contracting",
     description: "Equipment financing, working capital, and project funding for HVAC, plumbing, electrical, roofing, and general contracting businesses.",
-    image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
-    title: "Cleaning & Janitorial Services",
+    title: "Cleaning & Janitorial Services", 
     description: "Equipment financing, vehicle loans, and working capital for commercial cleaning, janitorial, and maintenance service companies.",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop"
   }
 ];
 
@@ -186,11 +186,19 @@ export default function WhoWeFund() {
                   
                   <div className="pt-4">
                     <Button 
-                      onClick={() => setLocation(`/industries/${industry.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`)}
+                      onClick={() => {
+                        if (industry.title === "Home Services & Contracting") {
+                          setLocation("/industries/home-services-contracting");
+                        } else if (industry.title === "Cleaning & Janitorial Services") {
+                          setLocation("/industries/cleaning-janitorial-services");
+                        } else {
+                          setLocation('/solutions');
+                        }
+                      }}
                       style={{ backgroundColor: '#85abe4' }}
                       className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
                     >
-                      Learn More →
+                      {(industry.title === "Home Services & Contracting" || industry.title === "Cleaning & Janitorial Services") ? "Learn More" : "View Solutions"} →
                     </Button>
                   </div>
                 </div>
