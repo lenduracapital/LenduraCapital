@@ -36,13 +36,10 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Force header to be completely invisible when transparent and not scrolled
-  if (transparent && !isScrolled) {
-    return null;
-  }
-
   return (
-    <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md">
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      transparent && !isScrolled ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md'
+    }`}>
       <nav className="w-full px-0">
         <div className={`flex items-center justify-between w-full ${
           transparent && !isScrolled ? 'py-0' : 'py-1'
