@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-  <!-- Maximum contrast background -->
-  <circle cx="8" cy="8" r="7.5" fill="#000000" stroke="#85abe4" stroke-width="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+  <!-- Circular logo for small size - enhanced -->
+  <circle cx="10" cy="10" r="9" fill="#1a3d2e" stroke="#85abe4" stroke-width="1"/>
   
-  <!-- Ultra-simple lion face -->
-  <circle cx="8" cy="8" r="4.5" fill="#85abe4"/>
-  <circle cx="6.5" cy="7" r="1" fill="#000000"/>
-  <circle cx="9.5" cy="7" r="1" fill="#000000"/>
-  <path d="M7,9 Q8,10 9,9" stroke="#000000" stroke-width="1" fill="none"/>
+  <!-- Simple lion head - larger and more visible -->
+  <circle cx="10" cy="10" r="5.5" fill="#85abe4"/>
+  <circle cx="8" cy="8.5" r="0.8" fill="#1a3d2e"/>
+  <circle cx="12" cy="8.5" r="0.8" fill="#1a3d2e"/>
+  <path d="M9,11.5 Q10,12.5 11,11.5" stroke="#1a3d2e" stroke-width="0.8" fill="none"/>
 </svg>
