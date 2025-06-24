@@ -63,10 +63,9 @@ export default function HomeServicesContracting() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                variant="outline"
                 size="lg"
-                style={{ color: 'white', borderColor: 'white' }}
-                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
               >
                 View All Solutions
               </Button>
