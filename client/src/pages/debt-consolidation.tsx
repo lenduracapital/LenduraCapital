@@ -2,8 +2,8 @@ import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
 
 export default function DebtConsolidationPage() {
-  // Direct URL to avoid import issues - testing different approaches
-  const contentImage = "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop";
+  // Using public directory for reliable serving
+  const contentImage = "/debt-consolidation-image.png";
   
   return (
     <SolutionDetailTemplate
