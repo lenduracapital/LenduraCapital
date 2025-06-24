@@ -34,11 +34,11 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Determine header visibility and styling
-  const showHeader = !transparent || isScrolled;
-  const headerClasses = showHeader 
-    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md opacity-100' 
-    : 'fixed w-full top-0 z-50 transition-all duration-300 bg-transparent opacity-0 pointer-events-none';
+  // Header should be completely hidden when transparent=true and not scrolled
+  const isVisible = !transparent || isScrolled;
+  const headerClasses = isVisible 
+    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md' 
+    : 'fixed w-full top-0 z-50 transition-all duration-300 bg-transparent hidden';
   const textColor = 'text-white';
 
   return (
