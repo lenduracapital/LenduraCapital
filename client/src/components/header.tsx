@@ -11,6 +11,8 @@ interface HeaderProps {
 export default function Header({ transparent = true }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
+
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -34,12 +36,17 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
+  // Force header to be completely invisible when transparent and not scrolled
+  if (transparent && !isScrolled) {
+    return null;
+  }
+
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      transparent && !isScrolled ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md'
-    }`}>
+    <header className="fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md">
       <nav className="w-full px-0">
-        <div className="flex items-center justify-between py-1 w-full">
+        <div className={`flex items-center justify-between w-full ${
+          transparent && !isScrolled ? 'py-0' : 'py-1'
+        }`}>
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
             <img 
