@@ -219,21 +219,10 @@ export default function TruckingTransportation() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for purchasing trucks, trailers, and specialized transportation equipment</p>
+              <h3 className="text-xl font-bold mb-4">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Long-term financing for business expansion, equipment purchases, and operational growth</p>
               <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="text-white border-white hover:bg-white hover:text-[#85abe4]"
-              >
-                Learn More
-              </Button>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4">Invoice Factoring</h3>
-              <p className="text-blue-100 mb-6">Convert outstanding freight bills to immediate cash for steady cash flow</p>
-              <Button 
-                onClick={() => setLocation("/solutions/invoice-factoring")}
+                onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="text-white border-white hover:bg-white hover:text-[#85abe4]"
               >
@@ -245,6 +234,17 @@ export default function TruckingTransportation() {
               <p className="text-blue-100 mb-6">Flexible access to working capital for fuel, maintenance, and operational expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="text-white border-white hover:bg-white hover:text-[#85abe4]"
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+              <h3 className="text-xl font-bold mb-4">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for purchasing trucks, trailers, and specialized transportation equipment</p>
+              <Button 
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="text-white border-white hover:bg-white hover:text-[#85abe4]"
               >

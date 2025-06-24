@@ -179,10 +179,10 @@ export default function MedicalHealthcare() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
-              <p className="text-blue-100 mb-6">Perfect for medical equipment, diagnostic tools, and technology upgrades</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
+              <p className="text-blue-100 mb-6">Long-term financing for practice expansion and major renovations</p>
               <Button 
-                onClick={() => setLocation("/solutions/equipment-financing")}
+                onClick={() => setLocation("/solutions/term-loans")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
@@ -201,10 +201,10 @@ export default function MedicalHealthcare() {
               </Button>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
-              <p className="text-blue-100 mb-6">Long-term financing for practice expansion and major renovations</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Perfect for medical equipment, diagnostic tools, and technology upgrades</p>
               <Button 
-                onClick={() => setLocation("/solutions/term-loans")}
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >

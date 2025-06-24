@@ -179,17 +179,6 @@ export default function ProfessionalServices() {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
-              <p className="text-blue-100 mb-6">Perfect for managing cash flow and covering operational expenses</p>
-              <Button 
-                onClick={() => setLocation("/solutions/lines-of-credit")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
-              >
-                Learn More
-              </Button>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
               <h3 className="text-xl font-bold mb-4 text-white">Term Loans</h3>
               <p className="text-blue-100 mb-6">Ideal for office expansion, technology upgrades, and staff hiring</p>
               <Button 
@@ -201,10 +190,21 @@ export default function ProfessionalServices() {
               </Button>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
-              <h3 className="text-xl font-bold mb-4 text-white">Invoice Factoring</h3>
-              <p className="text-blue-100 mb-6">Convert outstanding client invoices to immediate cash for steady income</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Lines of Credit</h3>
+              <p className="text-blue-100 mb-6">Perfect for managing cash flow and covering operational expenses</p>
               <Button 
-                onClick={() => setLocation("/solutions/invoice-factoring")}
+                onClick={() => setLocation("/solutions/lines-of-credit")}
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 font-semibold"
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8">
+              <h3 className="text-xl font-bold mb-4 text-white">Equipment Financing</h3>
+              <p className="text-blue-100 mb-6">Financing for office equipment, technology systems, and business tools</p>
+              <Button 
+                onClick={() => setLocation("/solutions/equipment-financing")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
