@@ -1,10 +1,9 @@
 import SolutionDetailTemplate from '../components/solution-detail-template';
 import heroImage from '@assets/download (2)_1750787760177.jpg';
-import debtConsolidationImage from '@assets/images_1750787797244.jpg';
 
 export default function DebtConsolidationPage() {
-  // Using same image import as Solutions page
-  const contentImage = debtConsolidationImage;
+  // Using working unsplash image for guaranteed display
+  const contentImage = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop";
   
   return (
     <SolutionDetailTemplate
