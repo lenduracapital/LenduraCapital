@@ -647,8 +647,8 @@ Changelog:
 - June 24, 2025. Complete page cleanup and navigation fixes (COMPLETE):
   * Removed malformed JSON data from HTML index file that was displaying on page
   * Fixed hero text positioning - moved "Flexible Financing..." down with pt-32 md:pt-40
-  * Eliminated black box that appeared on scroll making navigation sticky
-  * Navigation now stays completely transparent at all times
+  * Restored sticky black navigation on scroll (transparent initially, black bg after 50px scroll)
+  * Navigation transitions smoothly between transparent and black states
   * Fixed body background from dark to white to eliminate black area above video
   * ALL JSON data output completely eliminated from page display
 ```

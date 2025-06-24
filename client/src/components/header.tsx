@@ -14,6 +14,15 @@ export default function Header({ transparent = true }: HeaderProps) {
   
   const [, setLocation] = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
@@ -26,8 +35,10 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
-  // Always transparent - no background
-  const headerClass = 'fixed w-full top-0 z-50 transition-all duration-300';
+  // Transparent initially, black background when scrolled
+  const headerClass = isScrolled 
+    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md'
+    : 'fixed w-full top-0 z-50 transition-all duration-300';
 
   return (
     <header className={headerClass}>
