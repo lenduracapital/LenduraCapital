@@ -1,11 +1,8 @@
-import { lazy, Suspense } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useLocation } from "wouter";
-
-const CountUp = lazy(() => import("@/components/count-up"));
 
 export default function RealEstate() {
   const [, setLocation] = useLocation();
@@ -108,7 +105,7 @@ export default function RealEstate() {
           {console.log("Rolling numbers inserted above success stories - Real Estate page")}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">50+ Funded</div>
+              <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-2">50+</div>
               <div className="text-lg font-semibold text-gray-900 mb-1">Specialists</div>
               <div className="text-sm text-gray-600">Over 50+ specialists to keep you going</div>
             </div>
