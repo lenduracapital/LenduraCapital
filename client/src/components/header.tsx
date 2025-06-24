@@ -83,12 +83,12 @@ export default function Header({ transparent = true }: HeaderProps) {
 
               {/* Dropdown Menu - Square Style */}
               {isDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-96 bg-white rounded shadow-lg border border-gray-200 z-50 py-5 px-6">
-                  <div className="grid grid-cols-2 gap-6">
+                <div className="absolute top-full left-0 mt-1 w-80 h-80 bg-white rounded shadow-lg border border-gray-200 z-50 py-6 px-6">
+                  <div className="grid grid-cols-2 gap-6 h-full">
                     {/* Custom Business Financing Solutions */}
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-2 text-sm border-b border-gray-200 pb-1">Custom Business Financing Solutions</h3>
-                      <div className="space-y-0.5">
+                    <div className="flex flex-col">
+                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-200 pb-2">Custom Business Financing Solutions</h3>
+                      <div className="space-y-1 flex-1">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
                           className="block text-gray-600 hover:text-[#85abe4] text-sm py-0.5 text-left w-full"
@@ -153,9 +153,9 @@ export default function Header({ transparent = true }: HeaderProps) {
                     </div>
 
                     {/* Personalized Small Business Solutions */}
-                    <div>
-                      <h3 className="font-semibold text-gray-800 mb-2 text-sm border-b border-gray-200 pb-1">Personalized Small Business Solutions</h3>
-                      <div className="space-y-0.5">
+                    <div className="flex flex-col">
+                      <h3 className="font-semibold text-gray-800 mb-3 text-sm border-b border-gray-200 pb-2">Personalized Small Business Solutions</h3>
+                      <div className="space-y-1 flex-1">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
                           className="block text-gray-600 hover:text-[#85abe4] text-sm py-0.5 text-left w-full"
