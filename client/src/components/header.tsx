@@ -93,99 +93,99 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-10"
-                  style={{ width: '1000px', height: '500px' }}
+                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-8"
+                  style={{ width: '900px', height: '350px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                  <div className="grid grid-cols-2 gap-6 h-full">
-                    {/* Custom Business Financing Solutions */}
+                  <div className="grid grid-cols-2 gap-16">
+                    {/* Left Column - Custom Business Financing Solutions */}
                     <div>
-                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
-                      <div className="space-y-2">
+                      <h3 className="font-semibold mb-4 text-base border-b border-gray-300 pb-2" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Term Loans
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/sba-loans"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           SBA Loans
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/equipment-financing"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Equipment Financing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/lines-of-credit"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Lines of Credit
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
-                          Merchant Cash Advance
+                          Cash Advance
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/invoice-factoring"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Invoice Factoring
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/debt-consolidation"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Debt Consolidation
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/po-financing"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           P.O. Financing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/cre-lending"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           CRE Lending
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/mortgage-financing"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Mortgage Financing
                         </button>
                       </div>
                     </div>
 
-                    {/* Personalized Small Business Solutions */}
+                    {/* Right Column - Personalized Small Business Solutions */}
                     <div>
-                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Personalized Small Business Solutions</h3>
-                      <div className="space-y-2">
+                      <h3 className="font-semibold mb-4 text-base border-b border-gray-300 pb-2" style={{ color: '#85abe4' }}>Personalized Small Business Solutions</h3>
+                      <div className="space-y-3">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="block text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Credit Services
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/credit-card-processing"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="block text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Credit Card Processing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/digital-marketing"); setIsDropdownOpen(false); }}
-                          className="block text-gray-600 hover:text-[#85abe4] text-sm text-left w-full"
+                          className="block text-left text-sm text-gray-600 hover:text-[#85abe4] transition-colors py-1"
                         >
                           Digital Marketing
                         </button>
