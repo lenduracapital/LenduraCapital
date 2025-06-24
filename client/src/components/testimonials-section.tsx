@@ -63,13 +63,13 @@ export default function TestimonialsSection() {
             </p>
             
             <div style={{ backgroundColor: '#85abe4' }} className="p-4 md:p-6 rounded-lg relative">
-              {/* Navigation Arrow - Better centered with content */}
+              {/* Navigation Arrow - Smaller and more subtle */}
               <button
                 onClick={nextTestimonial}
-                className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all"
+                className="hidden md:block absolute right-3 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-40 hover:bg-opacity-60 text-white p-1 rounded-full transition-all"
                 aria-label="Next testimonial"
               >
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-3 w-3" />
               </button>
 
               <div className="flex items-start mb-4 pr-2 md:pr-12">
@@ -90,16 +90,15 @@ export default function TestimonialsSection() {
                 "{currentTestimonial.text}"
               </p>
               
-              {/* Carousel Indicators - Tiny dots */}
-              <div className="flex justify-center mt-4 space-x-1">
+              {/* Carousel Indicators - Small subtle dots */}
+              <div className="flex justify-center mt-4 space-x-2">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-px h-px rounded-full transition-all ${
+                    className={`w-2 h-2 rounded-full transition-all ${
                       index === currentIndex ? 'bg-black' : 'bg-black bg-opacity-30'
                     }`}
-                    style={{ minWidth: '2px', minHeight: '2px' }}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
