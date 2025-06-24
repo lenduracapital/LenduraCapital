@@ -93,8 +93,8 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-8"
-                  style={{ width: '800px', height: '400px' }}
+                  className="absolute top-full left-0 mt-1 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-10"
+                  style={{ width: '1000px', height: '500px' }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
