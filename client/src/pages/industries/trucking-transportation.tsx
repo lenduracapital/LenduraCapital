@@ -1,101 +1,9 @@
-import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Star, Truck, MapPin, Clock } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-
-const CountUp = ({ end, duration = 3000, suffix = "", prefix = "", className = "" }: { 
-  end: number; 
-  duration?: number; 
-  suffix?: string; 
-  prefix?: string;
-  className?: string;
-}) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          
-          let startTime: number;
-          const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(easeOutCubic * end));
-            
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [end, duration, hasStarted]);
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
-
-const CountUp = ({ end, duration = 3000, suffix = "", prefix = "", className = "" }: { 
-  end: number; 
-  duration?: number; 
-  suffix?: string; 
-  prefix?: string;
-  className?: string;
-}) => {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          
-          let startTime: number;
-          const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            
-            const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(easeOutCubic * end));
-            
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-          
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [end, duration, hasStarted]);
-
-  return <span ref={elementRef} className={className}>{prefix}{count}{suffix}</span>;
-};
+import CountUp from "@/components/count-up";
 
 export default function TruckingTransportation() {
   const [, setLocation] = useLocation();
@@ -151,7 +59,6 @@ export default function TruckingTransportation() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
                 style={{ color: 'white', borderColor: 'white' }}
                 className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
