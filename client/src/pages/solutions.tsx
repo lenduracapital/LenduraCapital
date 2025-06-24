@@ -50,19 +50,6 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop"
   },
   {
-    title: "Equipment Loans",
-    icon: <Truck className="w-8 h-8" />,
-    description: "Specialized financing for purchasing or leasing business equipment, machinery, and vehicles.",
-    features: [
-      "100% financing available",
-      "Equipment as collateral",
-      "2-7 year terms",
-      "Tax advantages"
-    ],
-    route: "/solutions/equipment-financing", 
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
-  },
-  {
     title: "SBA Loans",
     icon: <Building className="w-8 h-8" />,
     description: "Government-backed loans offering favorable terms and lower down payments for qualified businesses.",
@@ -74,6 +61,32 @@ const solutions = [
     ],
     route: "/solutions/sba-loans",
     image: truckImage
+  },
+  {
+    title: "Debt Consolidation",
+    icon: <Building className="w-8 h-8" />,
+    description: "Consolidate multiple business debts into one manageable payment with better terms and lower interest rates.",
+    features: [
+      "Multiple debt consolidation",
+      "Lower monthly payments",
+      "Improved cash flow",
+      "Simplified management"
+    ],
+    route: "/solutions/debt-consolidation",
+    image: debtConsolidationImage
+  },
+  {
+    title: "Equipment Loans",
+    icon: <Truck className="w-8 h-8" />,
+    description: "Specialized financing for purchasing or leasing business equipment, machinery, and vehicles.",
+    features: [
+      "100% financing available",
+      "Equipment as collateral",
+      "2-7 year terms",
+      "Tax advantages"
+    ],
+    route: "/solutions/equipment-financing", 
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
   },
   {
     title: "Factoring",
@@ -102,31 +115,17 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
   },
   {
-    title: "Credit Services",
-    icon: <Star className="w-8 h-8" />,
-    description: "Professional business credit building and repair services to improve your company's financial standing.",
-    features: [
-      "Credit analysis",
-      "Score improvement",
-      "Credit monitoring",
-      "Expert guidance"
-    ],
-    route: "/solutions/credit-services",
-    image: fixCreditImage
-  },
-
-  {
-    title: "Marketing",
+    title: "CRE Lending",
     icon: <Building className="w-8 h-8" />,
-    description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
+    description: "Commercial real estate financing for property acquisition, refinancing, and development projects nationwide.",
     features: [
-      "SEO optimization",
-      "Website development",
-      "Digital marketing",
-      "Online presence management"
+      "Property acquisition",
+      "Refinancing options",
+      "Development loans",
+      "Competitive rates"
     ],
-    route: "/solutions/seo-web-development",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    route: "/solutions/commercial-real-estate-lending",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
   },
   {
     title: "Card Processing",
@@ -142,30 +141,17 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
   },
   {
-    title: "CRE Lending",
-    icon: <Building className="w-8 h-8" />,
-    description: "Commercial real estate financing for property acquisition, refinancing, and development projects nationwide.",
+    title: "Credit Repair",
+    icon: <Star className="w-8 h-8" />,
+    description: "Professional business credit building and repair services to improve your company's financial standing.",
     features: [
-      "Property acquisition",
-      "Refinancing options",
-      "Development loans",
-      "Competitive rates"
+      "Credit analysis",
+      "Score improvement",
+      "Credit monitoring",
+      "Expert guidance"
     ],
-    route: "/solutions/commercial-real-estate-lending",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
-  },
-  {
-    title: "Debt Consolidation",
-    icon: <Building className="w-8 h-8" />,
-    description: "Consolidate multiple business debts into one manageable payment with better terms and lower interest rates.",
-    features: [
-      "Multiple debt consolidation",
-      "Lower monthly payments",
-      "Improved cash flow",
-      "Simplified management"
-    ],
-    route: "/solutions/debt-consolidation",
-    image: debtConsolidationImage
+    route: "/solutions/credit-services",
+    image: fixCreditImage
   }
 ];
 

@@ -171,7 +171,7 @@ export default function Header({ transparent = true }: HeaderProps) {
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
                           className="block text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
                         >
-                          Credit Services
+                          Credit Repair
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/credit-card-processing"); setIsDropdownOpen(false); }}

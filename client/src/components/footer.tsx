@@ -15,7 +15,7 @@ const businessFinancing = [
 ];
 
 const customSolutions = [
-  { name: "Credit Services", href: "/solutions/credit-services" },
+  { name: "Credit Repair", href: "/solutions/credit-services" },
   { name: "Digital Marketing", href: "/solutions/seo-web-development" },
   { name: "Credit Card Processing", href: "/solutions/credit-card-processing" }
 ];
