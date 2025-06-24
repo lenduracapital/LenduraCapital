@@ -93,8 +93,10 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-[600px] bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
+                  className="absolute top-full left-0 mt-1 w-[600px] bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-6"
                   onClick={(e) => e.stopPropagation()}
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
                 >
                   <div className="grid grid-cols-2 gap-8">
                     {/* Premium Business Financing Services */}
