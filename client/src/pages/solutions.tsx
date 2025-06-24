@@ -7,7 +7,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import truckImage from "@assets/Truck_1750271749729.jpg";
 import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
-import debtConsolidationImage from "@assets/image_1750787748149.png";
+import debtConsolidationImage from "@assets/images_1750787797244.jpg";
 
 const solutions = [
   {
