@@ -90,12 +90,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <button
+                  <span
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
                   >
                     {service.name}
-                  </button>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -106,12 +106,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <button
+                  <span
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
                   >
                     {solution.name}
-                  </button>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -122,12 +122,12 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
-                  <button
+                  <span
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline w-full py-1 text-left bg-transparent border-none cursor-pointer p-0 m-0"
+                    className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline cursor-pointer inline-block"
                   >
                     {page.name}
-                  </button>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -141,12 +141,12 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {legalPages.map((page, index) => (
               <div key={index} className="flex items-center">
-                <button
+                <span
                   onClick={() => handleNavigation(page.href)}
-                  className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline text-xs md:text-sm bg-transparent border-none cursor-pointer"
+                  className="hover:text-[#85abe4] transition-all duration-300 ease-in-out transform hover:scale-105 text-black underline text-xs md:text-sm cursor-pointer"
                 >
                   {page.name}
-                </button>
+                </span>
                 {index < legalPages.length - 1 && (
                   <span className="ml-4 md:ml-6 text-black text-xs md:text-sm">|</span>
                 )}
