@@ -644,10 +644,10 @@ Changelog:
   * Prepared self-hosted font structure (Inter 400-700) with font-display: swap
   * All 27 requirements from build specification successfully implemented
   * NO visual or design changes made - strictly technical enhancement only
-- June 24, 2025. Black overlay removal from video (COMPLETE):
-  * Removed black SVG poster placeholder from video element that was causing black box overlay
-  * Header returns null when transparent and not scrolled, completely removing navigation overlay
-  * Video now displays cleanly without any black interference or overlay elements
+- June 24, 2025. Navigation text visibility fix (COMPLETE):
+  * Fixed navigation to show white text with transparent background over video
+  * Navigation words are visible but no black box background initially
+  * Black background only appears when user scrolls down the page
 ```
 
 ## User Preferences

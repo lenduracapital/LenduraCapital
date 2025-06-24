@@ -41,9 +41,7 @@ export default function Header({ transparent = true }: HeaderProps) {
       transparent && !isScrolled ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md'
     }`}>
       <nav className="w-full px-0">
-        <div className={`flex items-center justify-between w-full ${
-          transparent && !isScrolled ? 'py-0' : 'py-1'
-        }`}>
+        <div className="flex items-center justify-between w-full py-1">
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
             <img 
