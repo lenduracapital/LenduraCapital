@@ -61,15 +61,15 @@ export default function Footer() {
             <p className="text-black text-xs md:text-sm">
               Call us today at (305) 307-4658
             </p>
-            <div className="flex space-x-4 justify-center sm:justify-start md:justify-start">
-              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <FaInstagram className="text-xl" />
+            <div className="flex items-center space-x-4 justify-center sm:justify-start md:justify-start">
+              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <FaInstagram size={24} />
               </a>
-              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors flex items-center justify-center" style={{ color: '#85abe4' }}>
-                <span className="text-xl leading-none">𝕏</span>
+              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <span className="text-2xl leading-none font-bold">𝕏</span>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors" style={{ color: '#85abe4' }}>
-                <FaFacebook className="text-xl" />
+              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <FaFacebook size={24} />
               </a>
             </div>
             
@@ -77,9 +77,9 @@ export default function Footer() {
               <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
-              <div className="flex justify-center sm:justify-start md:justify-start">
-                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:opacity-75 transition-colors inline-block" style={{ color: '#85abe4' }}>
-                  <FaYelp className="text-xl" />
+              <div className="flex items-center justify-center sm:justify-start md:justify-start">
+                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                  <FaYelp size={24} />
                 </a>
               </div>
             </div>
