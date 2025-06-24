@@ -1,4 +1,4 @@
-import { Shield, Award, Users, TrendingUp, Clock } from "lucide-react";
+import { Shield, Award, Users, TrendingUp, Clock, MapPin } from "lucide-react";
 import { useEffect, useRef, useState } from 'react';
 
 // Flip animation component for team member circles
@@ -121,6 +121,11 @@ const certifications = [
     ),
     title: "No Prepayment Penalties",
     description: "Flexible terms with no hidden fees or early payment penalties"
+  },
+  {
+    icon: MapPin,
+    title: "Nationwide Coverage",
+    description: "Serving businesses across all 50 states with local expertise and national reach"
   }
 ];
 
