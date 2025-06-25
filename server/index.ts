@@ -23,29 +23,15 @@ app.use(compression({
   threshold: 1024
 }));
 
-// Enhanced security headers
-import helmet from "helmet";
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:", "blob:"],
-      scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://form.jotform.com", "https://*.jotform.com", "https://js.jotform.com"],
-      frameSrc: ["'self'", "https://form.jotform.com", "https://*.jotform.com"],
-      connectSrc: ["'self'", "wss:", "ws:", "https:", "https://www.google-analytics.com", "https://form.jotform.com", "https://*.jotform.com", "https://submit.jotform.com"]
-    }
-  },
-  strictTransportSecurity: {
-    maxAge: 63072000,
-    includeSubDomains: true,
-    preload: true
-  },
-  contentTypeOptions: true,
-  frameOptions: { action: 'sameorigin' },
-  referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
-}));
+// Disable all security headers for Jotform compatibility in development
+if (process.env.NODE_ENV !== 'production') {
+  app.use((req, res, next) => {
+    res.removeHeader('X-Frame-Options');
+    res.removeHeader('Content-Security-Policy');
+    res.removeHeader('X-Content-Type-Options');
+    next();
+  });
+}
 
 // Enhanced rate limiting
 import rateLimit from "express-rate-limit";

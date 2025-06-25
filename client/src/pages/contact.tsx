@@ -91,14 +91,12 @@ export default function Contact() {
                 <iframe
                   src="https://form.jotform.com/251674789886078"
                   width="100%"
-                  height="510"
+                  height="600"
                   frameBorder="0"
-                  scrolling="no"
+                  scrolling="yes"
                   title="Contact Form"
                   className="rounded-lg"
-                  allow="forms; scripts; same-origin; top-navigation; navigation"
-                  sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation allow-popups allow-popups-to-escape-sandbox"
-                  style={{ display: 'block', border: 'none', overflow: 'hidden' }}
+                  style={{ display: 'block', border: 'none' }}
                 ></iframe>
               </div>
             </div>
