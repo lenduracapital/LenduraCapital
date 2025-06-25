@@ -8,7 +8,7 @@ export default function Contact() {
       <Header transparent={true} />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 lg:pt-40 pb-20" style={{ backgroundColor: '#85abe4' }}>
+      <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-6">
@@ -22,9 +22,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Information & Form Section */}
-      <section className="py-20" style={{ backgroundColor: '#f5f6f6' }}>
+      <section className="py-12" style={{ backgroundColor: '#f5f6f6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8">
             
             {/* Contact Information */}
             <div className="space-y-8">
@@ -82,8 +82,8 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-lg p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-black mb-6">
+            <div className="bg-white rounded-lg p-6 shadow-lg">
+              <h3 className="text-2xl font-bold text-black mb-4">
                 Request Information
               </h3>
               
