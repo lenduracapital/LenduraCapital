@@ -78,7 +78,7 @@ export default function Footer() {
               <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
-              <div className="flex items-center justify-start space-x-2">
+              <div className="flex items-center justify-start space-x-1">
                 <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                   <FaYelp size={24} />
                 </a>
