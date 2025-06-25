@@ -23,15 +23,23 @@ app.use(compression({
   threshold: 1024
 }));
 
-// Disable all security headers for Jotform compatibility in development
-if (process.env.NODE_ENV !== 'production') {
-  app.use((req, res, next) => {
-    res.removeHeader('X-Frame-Options');
-    res.removeHeader('Content-Security-Policy');
-    res.removeHeader('X-Content-Type-Options');
-    next();
-  });
-}
+// Completely permissive headers for Jotform debugging
+app.use((req, res, next) => {
+  // Remove any restrictive headers
+  res.removeHeader('X-Frame-Options');
+  res.removeHeader('Content-Security-Policy');
+  res.removeHeader('X-Content-Type-Options');
+  res.removeHeader('Cross-Origin-Embedder-Policy');
+  res.removeHeader('Cross-Origin-Opener-Policy');
+  
+  // Add permissive headers
+  res.setHeader('X-Frame-Options', 'ALLOWALL');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  
+  next();
+});
 
 // Enhanced rate limiting
 import rateLimit from "express-rate-limit";

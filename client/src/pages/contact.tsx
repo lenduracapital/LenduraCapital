@@ -88,23 +88,47 @@ export default function Contact() {
               </h3>
               
               <div className="w-full">
-                {/* Temporary direct embed test */}
-                <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
-                  <p style={{ marginBottom: '10px', color: '#666' }}>Debug: Testing form without iframe restrictions</p>
-                  <iframe
-                    src="https://form.jotform.com/251674789886078"
-                    width="100%"
-                    height="700"
-                    frameBorder="0"
-                    scrolling="yes"
-                    title="Contact Form"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    style={{ display: 'block', border: '1px solid #ddd', borderRadius: '4px' }}
-                  ></iframe>
-                  <p style={{ marginTop: '10px', fontSize: '12px', color: '#999' }}>
-                    If conditional redirect still fails, the issue is in Jotform's configuration, not our website.
-                  </p>
-                </div>
+                <iframe
+                  src="https://form.jotform.com/251674789886078"
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  scrolling="yes"
+                  title="Contact Form"
+                  className="rounded-lg"
+                  style={{ display: 'block', border: 'none' }}
+                ></iframe>
+                
+                <script dangerouslySetInnerHTML={{
+                  __html: `
+                    // Listen for any errors from the iframe
+                    window.addEventListener('message', function(event) {
+                      if (event.origin === 'https://form.jotform.com') {
+                        console.log('Jotform message received:', event.data);
+                        
+                        // Check if it's a redirect attempt
+                        if (event.data && typeof event.data === 'object' && event.data.type === 'redirect') {
+                          console.log('Jotform trying to redirect to:', event.data.url);
+                          // Allow the redirect by navigating parent window
+                          if (event.data.url) {
+                            window.location.href = event.data.url;
+                          }
+                        }
+                      }
+                    });
+                    
+                    // Log any iframe loading issues
+                    const iframe = document.querySelector('iframe[src*="jotform"]');
+                    if (iframe) {
+                      iframe.onload = function() {
+                        console.log('Jotform iframe loaded successfully');
+                      };
+                      iframe.onerror = function(e) {
+                        console.error('Jotform iframe error:', e);
+                      };
+                    }
+                  `
+                }}</script>
               </div>
             </div>
           </div>
