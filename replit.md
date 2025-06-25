@@ -476,6 +476,12 @@ Changelog:
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
   * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
+- June 25, 2025. Trustpilot logo addition to footer (COMPLETE):
+  * Added Trustpilot logo next to Yelp logo in footer "Leave us a Review" section
+  * Imported SiTrustpilot from react-icons/si for consistent icon styling
+  * Made Trustpilot logo clickable linking to https://www.trustpilot.com/review/fundtekcapitalgroup.com
+  * Applied signature blue (#85abe4) color scheme with hover effects matching existing design
+  * Added proper spacing between Yelp and Trustpilot logos for professional appearance
 - June 20, 2025. Team circle flip animations and footer reorganization (COMPLETE):
   * Added scroll-triggered 3D flip animations to team member circles (MK/GG) with staggered timing
   * Implemented perspective transforms with front side showing initials, back side showing team icon

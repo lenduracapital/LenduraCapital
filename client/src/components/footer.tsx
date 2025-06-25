@@ -1,5 +1,6 @@
 import { ChartLine } from "lucide-react";
 import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
+import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png";
 
@@ -77,9 +78,12 @@ export default function Footer() {
               <p className="text-black text-xs md:text-sm mb-2">
                 Leave us a Review
               </p>
-              <div className="flex items-center justify-start">
+              <div className="flex items-center justify-start space-x-3">
                 <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                   <FaYelp size={24} />
+                </a>
+                <a href="https://www.trustpilot.com/review/fundtekcapitalgroup.com" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                  <SiTrustpilot size={24} />
                 </a>
               </div>
             </div>
