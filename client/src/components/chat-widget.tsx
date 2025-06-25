@@ -33,11 +33,11 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 2 seconds
+  // Show widget after 3.5 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 2000);
+    }, 3500);
     return () => clearTimeout(timer);
   }, []);
 
