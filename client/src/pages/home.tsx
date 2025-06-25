@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEOHead 
-        title="FundTek Capital Group - Business Funding Solutions"
-        description="Get flexible business financing with FundTek Capital Group. Term loans, merchant cash advances, equipment financing & more. Call (305) 307-4658 for fast approval."
+        title="Business Funding Solutions - Fast Approval in 24 Hours | FundTek"
+        description="Get approved for business funding in 24 hours. Term loans, equipment financing, merchant cash advances & more. Over $1B funded. Call (305) 307-4658 today."
         keywords="business funding, term loans, merchant cash advance, equipment financing, SBA loans, business capital, commercial lending"
         canonical="/"
       />

@@ -117,7 +117,7 @@ export default function SEOHead({
       "priceRange": "$10,000 - $5,000,000"
     };
 
-    // updateStructuredData(structuredData); // Disabled to prevent JSON display on page
+    updateStructuredData(structuredData);
   }, [title, description, keywords, canonical, type, image]);
 
   return null;
@@ -154,6 +154,12 @@ function updateLinkTag(rel: string, href: string) {
 }
 
 function updateStructuredData(data: object) {
-  // Disabled to prevent JSON display on page
-  return;
+  let script = document.querySelector('script[type="application/ld+json"][data-component="seo-head"]');
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute('data-component', 'seo-head');
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
 }

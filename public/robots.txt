@@ -15,8 +15,8 @@ Allow: /cookies
 Disallow: /admin/
 Disallow: /api/
 
-# Sitemap location (to be updated when hosted)
-# Sitemap: https://yourdomain.com/sitemap.xml
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
 
 # Crawl delay for politeness
 Crawl-delay: 1
