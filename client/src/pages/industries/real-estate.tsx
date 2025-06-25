@@ -44,8 +44,8 @@ export default function RealEstate() {
             </Button>
             <Button 
               onClick={handleSolutionsClick}
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+              style={{ backgroundColor: '#85abe4', color: 'white' }}
+              className="hover:opacity-90 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
             >
               Explore Your Financing Options
             </Button>

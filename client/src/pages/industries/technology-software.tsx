@@ -58,9 +58,9 @@ export default function TechnologySoftware() {
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 text-lg px-8 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 View All Solutions
               </Button>
