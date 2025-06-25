@@ -61,11 +61,11 @@ export default function CookieBanner() {
           <div className="relative">
             <button
               onClick={toggleExpanded}
-              className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] hover:from-[#7498d1] hover:to-[#6385be] text-white w-14 h-14 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-110 flex items-center justify-center group relative overflow-hidden"
+              className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] hover:from-[#7498d1] hover:to-[#6385be] text-white w-12 h-12 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-110 flex items-center justify-center group relative overflow-hidden"
               aria-label="Cookie settings"
             >
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
-              <Cookie className="h-6 w-6 z-10 drop-shadow-sm" />
+              <Cookie className="h-5 w-5 z-10 drop-shadow-sm" />
             </button>
           </div>
         </div>
@@ -187,11 +187,11 @@ export default function CookieBanner() {
         <div className="fixed bottom-6 left-6 z-40">
           <button
             onClick={toggleExpanded}
-            className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] hover:from-[#7498d1] hover:to-[#6385be] text-white w-14 h-14 rounded-full shadow-xl transition-all duration-500 transform hover:scale-110 flex items-center justify-center group relative overflow-hidden"
+            className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] hover:from-[#7498d1] hover:to-[#6385be] text-white w-12 h-12 rounded-full shadow-xl transition-all duration-500 transform hover:scale-110 flex items-center justify-center group relative overflow-hidden"
             aria-label="Minimize cookie panel"
           >
             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
-            <Cookie className="h-6 w-6 z-10 drop-shadow-sm" />
+            <Cookie className="h-5 w-5 z-10 drop-shadow-sm" />
           </button>
         </div>
       )}
