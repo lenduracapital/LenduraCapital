@@ -14,6 +14,7 @@ import SkipNavigation from "@/components/skip-navigation";
 import Analytics from "@/components/analytics";
 import ConversionTracking from "@/components/conversion-tracking";
 import PerformanceMonitor from "@/components/performance-monitor";
+import EnhancedSchema from "@/components/enhanced-schema";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         keywords="business funding, term loans, merchant cash advance, equipment financing, SBA loans, business capital, commercial lending"
         canonical="/"
       />
+      <EnhancedSchema type="homepage" />
       <Analytics />
       <SkipNavigation />
       <ConversionTracking 

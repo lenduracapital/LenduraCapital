@@ -5,6 +5,8 @@ import { useLocation } from "wouter";
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import SEOHead from "@/components/seo-head";
+import EnhancedSchema from "@/components/enhanced-schema";
 import truckImage from "@assets/Truck_1750271749729.jpg";
 import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 import debtConsolidationImage from "@assets/images_1750787797244.jpg";
@@ -186,6 +188,13 @@ export default function Solutions() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Business Funding Solutions - 12 Financing Options | FundTek"
+        description="Explore 12 business funding solutions: term loans, equipment financing, merchant cash advances, SBA loans & more. Get approved in 24 hours. Call (305) 307-4658."
+        keywords="business funding solutions, term loans, equipment financing, merchant cash advance, SBA loans, lines of credit"
+        canonical="/solutions"
+      />
+      <EnhancedSchema type="solutions" />
       <Header />
       
       {/* Hero Section with Professional Design */}

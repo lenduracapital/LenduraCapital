@@ -6,6 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
 import ChatWidget from "@/components/chat-widget";
+import WebVitalsOptimizer from "@/components/web-vitals-optimizer";
+import CriticalCSS from "@/components/critical-css";
+import HeadingOptimizer from "@/components/heading-optimizer";
+import ImageOptimizer from "@/components/image-optimizer";
 
 // Lazy load non-critical pages for code splitting
 const Solutions = lazy(() => import("@/pages/solutions"));
@@ -136,6 +140,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <WebVitalsOptimizer />
+        <CriticalCSS />
+        <HeadingOptimizer />
+        <ImageOptimizer />
         <Toaster />
         <Router />
         <ChatWidget />
