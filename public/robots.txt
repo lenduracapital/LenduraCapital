@@ -15,8 +15,8 @@ Allow: /cookies
 Disallow: /admin/
 Disallow: /api/
 
-# Sitemap location
-Sitemap: https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/sitemap.xml
+# Sitemap location (to be updated when hosted)
+# Sitemap: https://yourdomain.com/sitemap.xml
 
 # Crawl delay for politeness
 Crawl-delay: 1
