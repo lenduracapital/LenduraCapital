@@ -88,16 +88,26 @@ export default function Contact() {
               </h3>
               
               <div className="w-full">
-                <iframe
-                  src="https://form.jotform.com/251674789886078"
-                  width="100%"
-                  height="510"
-                  frameBorder="0"
-                  scrolling="no"
-                  title="Contact Form"
-                  className="rounded-lg"
-                  style={{ display: 'block', border: 'none', overflow: 'hidden' }}
-                ></iframe>
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-lg border border-blue-200">
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Get Working Capital Today</h3>
+                    <p className="text-gray-600 mb-6">
+                      Ready to secure funding for your business? Click below to access our secure application form.
+                    </p>
+                    <button
+                      onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
+                      className="bg-[#85abe4] hover:bg-[#7498d1] text-white font-semibold py-4 px-8 rounded-lg transition-colors inline-flex items-center gap-2"
+                    >
+                      Open Contact Form
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </button>
+                    <p className="text-sm text-gray-500 mt-4">
+                      Opens in a new tab with full functionality including conditional redirects
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

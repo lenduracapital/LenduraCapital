@@ -508,7 +508,7 @@ Changelog:
   * Fixed structured data injection for proper Google search display
   * Updated team member from "Lilly Harris" to "Gabby Goodman" with "GG" initials
   * Optimized contact form iframe height to 510px to balance form visibility with minimal white space above Jotform logo
-  * Investigated Jotform conditional redirect blocking - the issue is browser-level content blocking in Replit's environment, not our security headers. Restored original iframe configuration at 510px height.
+  * Fixed Jotform conditional redirect issue by replacing blocked iframe with button that opens form in new tab where all conditional logic works properly
 - June 25, 2025. Technology & Software page image fix and comprehensive XML sitemap creation (COMPLETE):
   * Fixed Technology & Software page content image with proper technology/business photo provided by user
   * Replaced inappropriate screenshot with professional digital transformation image
