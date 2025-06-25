@@ -66,9 +66,6 @@ export default function CookieBanner() {
             >
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-full"></div>
               <Cookie className="h-6 w-6 z-10 drop-shadow-sm" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center animate-pulse">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-              </div>
             </button>
           </div>
         </div>
