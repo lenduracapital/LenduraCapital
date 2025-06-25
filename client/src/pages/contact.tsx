@@ -82,12 +82,8 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-lg p-4 shadow-lg">
-              <h3 className="text-2xl font-bold text-black mb-2">
-                Request Information
-              </h3>
-              
-              <div className="w-full mt-2">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="w-full">
                 <iframe
                   src="https://form.jotform.com/251674789886078"
                   width="100%"
@@ -95,13 +91,13 @@ export default function Contact() {
                   frameBorder="0"
                   scrolling="no"
                   title="Contact Form"
-                  className="rounded-lg"
+                  className="block"
                   style={{ 
                     display: 'block', 
                     border: 'none', 
                     overflow: 'hidden',
-                    marginTop: '0',
-                    paddingTop: '0'
+                    margin: '0',
+                    padding: '0'
                   }}
                 ></iframe>
               </div>
