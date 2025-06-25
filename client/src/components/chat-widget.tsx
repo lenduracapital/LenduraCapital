@@ -102,7 +102,7 @@ export default function ChatWidget() {
         setChatState({ step: 'info_category', responses: newResponses });
       } else if (selection.includes('existing application')) {
         addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
-        addMessage("A FundTek expert will call you within 2 hours to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
+        addMessage("A FundTek expert will call you within 1 hour to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
         setChatState({ step: 'complete', responses: newResponses });
         
         // Send application inquiry to backend
@@ -122,7 +122,7 @@ export default function ChatWidget() {
       const categoryResponses = {
         'Financing options and rates': "Our financing options include Term Loans (6-36 months), SBA Loans (up to 25 years), Lines of Credit (flexible access), and Merchant Cash Advances (3-18 months). Rates vary from 8-35% based on qualifications.",
         'Application requirements': "We typically need: 3+ months in business, $10K+ monthly revenue, 550+ credit score, bank statements, and basic business documents. Most applications are processed within 24 hours.",
-        'How FundTek works': "We're a financing broker connecting you to 75+ vetted lenders. We analyze your business profile and match you with the best funding options, handling the entire process from application to funding.",
+        'How FundTek works': "FundTek Capital Group is a professional financing firm that connects businesses with our network of trusted lenders. We analyze your business profile and match you with the most suitable funding solutions, managing the entire process from application to funding.",
         'Industry expertise': "We specialize in restaurants, retail, healthcare, construction, trucking, e-commerce, professional services, and many other industries with tailored solutions for each sector's unique needs."
       };
       
@@ -166,7 +166,7 @@ export default function ChatWidget() {
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue') {
       addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
-      addMessage("A FundTek expert will call you within 24 hours. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 4500);
+      addMessage("A FundTek expert will call you within 1 hour. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 4500);
       setChatState({ step: 'complete', responses: newResponses });
       
       // Send data to backend
@@ -178,7 +178,7 @@ export default function ChatWidget() {
         setChatState({ step: 'revenue', responses: newResponses });
       } else if (selection.includes('more questions')) {
         addMessage("I'd be happy to connect you with a specialist who can answer your specific questions in detail.", 'bot', 1500);
-        addMessage("A FundTek expert will call you within 2 hours. For immediate help, call (305) 307-4658.", 'bot', 4000);
+        addMessage("A FundTek expert will call you within 1 hour. For immediate help, call (305) 307-4658.", 'bot', 4000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, businessType: selection });
       } else {
