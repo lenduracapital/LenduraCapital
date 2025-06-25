@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
 import ChatWidget from "@/components/chat-widget";
+import CookieBanner from "@/components/CookieBanner";
 import WebVitalsOptimizer from "@/components/web-vitals-optimizer";
 import CriticalCSS from "@/components/critical-css";
 import HeadingOptimizer from "@/components/heading-optimizer";
@@ -147,6 +148,7 @@ function App() {
         <Toaster />
         <Router />
         <ChatWidget />
+        <CookieBanner />
       </TooltipProvider>
     </QueryClientProvider>
   );
