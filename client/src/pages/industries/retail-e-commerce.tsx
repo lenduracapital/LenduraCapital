@@ -62,8 +62,7 @@ export default function RetailECommerce() {
                 onClick={() => setLocation("/solutions")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
-                style={{ color: 'white', borderColor: 'white' }}
-                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                className="hover:opacity-90 text-lg px-8 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 View All Solutions
               </Button>

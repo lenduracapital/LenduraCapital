@@ -26,7 +26,7 @@ export default function TechnologySoftware() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/image_1750794252940.png')"
           }}
         />
         
