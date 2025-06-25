@@ -1,68 +1,14 @@
 import { Shield, Award, Users, TrendingUp, Clock, MapPin } from "lucide-react";
-import { useEffect, useRef, useState } from 'react';
 
-// Flip animation component for team member circles
-const FlipCircle = ({ member, index }: { member: any, index: number }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const circleRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Add delay based on index for staggered animation
-            setTimeout(() => {
-              setIsFlipped(true);
-            }, index * 300);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (circleRef.current) {
-      observer.observe(circleRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [index]);
-
+// Simple team member circle component
+const TeamMemberCircle = ({ member }: { member: any }) => {
   return (
-    <div ref={circleRef} className="text-center">
-      <div className="perspective-1000 w-24 h-24 mx-auto mb-4">
-        <div 
-          className={`relative w-full h-full transition-transform duration-700 preserve-3d ${
-            isFlipped ? 'rotate-y-180' : ''
-          }`}
-          style={{
-            transformStyle: 'preserve-3d',
-            perspective: '1000px'
-          }}
-        >
-          {/* Front of circle */}
-          <div 
-            className="absolute inset-0 w-24 h-24 rounded-full bg-[#85abe4] flex items-center justify-center backface-hidden"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(0deg)'
-            }}
-          >
-            <span className="text-white text-2xl font-bold">
-              {member.name.split(' ').map((n: string) => n[0]).join('')}
-            </span>
-          </div>
-          
-          {/* Back of circle */}
-          <div 
-            className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-to-br from-[#85abe4] to-[#6a9bd1] flex items-center justify-center backface-hidden"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)'
-            }}
-          >
-            <Users className="w-8 h-8 text-white" />
-          </div>
+    <div className="text-center">
+      <div className="w-24 h-24 mx-auto mb-4">
+        <div className="w-24 h-24 rounded-full bg-[#85abe4] flex items-center justify-center">
+          <span className="text-white text-2xl font-bold">
+            {member.initials}
+          </span>
         </div>
       </div>
       
@@ -131,20 +77,20 @@ const certifications = [
 
 const teamMembers = [
   {
-    name: "Marc Khouli",
+    name: "Marc Hoffman",
     title: "Founder & CEO",
     experience: "15+ years",
     specialties: ["Strategic Leadership", "Business Development", "Financial Solutions"],
     credentials: "Certified Executive Leader",
-    avatar: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=200&h=200&fit=crop&crop=face&auto=format&q=80"
+    initials: "MH"
   },
   {
-    name: "Gabby Glickman", 
+    name: "Lilly Harris", 
     title: "Co Founder & COO",
     experience: "12+ years",
     specialties: ["Operations Management", "Client Relations", "Process Optimization"],
     credentials: "Business Operations Specialist",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces&zoom=1.2&auto=format&q=80"
+    initials: "LH"
   }
 ];
 
@@ -204,7 +150,7 @@ export default function TrustSignalsSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
-              <FlipCircle key={index} member={member} index={index} />
+              <TeamMemberCircle key={index} member={member} />
             ))}
           </div>
 

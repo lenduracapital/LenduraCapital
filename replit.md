@@ -476,6 +476,12 @@ Changelog:
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
   * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
+- June 25, 2025. Team section updates and animation removal (COMPLETE):
+  * Changed team member names from "Marc Khouli" to "Marc Hoffman" and "Gabby Glickman" to "Lilly Harris"
+  * Updated initials to "MH" and "LH" respectively in blue circles
+  * Removed flip animation functionality completely - now displays static blue circles with initials
+  * Simplified TeamMemberCircle component without scroll-triggered animations or 3D transforms
+  * Maintained professional team section layout with titles, experience, and specialties
 - June 25, 2025. Trustpilot logo addition to footer (COMPLETE):
   * Added Trustpilot logo next to Yelp logo in footer "Leave us a Review" section
   * Imported SiTrustpilot from react-icons/si for consistent icon styling
