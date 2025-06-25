@@ -476,6 +476,11 @@ Changelog:
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
   * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
+- June 25, 2025. Fixed Technology & Software page missing content image (COMPLETE):
+  * Fixed missing content image in Technology & Software industry page by replacing broken external URL
+  * Used appropriate business/cityscape image from available assets for professional appearance
+  * Reverted hero background to original external URL as per user specification
+  * Content section now displays properly with image next to "Common Financing Needs" text
 - June 25, 2025. Fixed white button visibility issues across industry pages (COMPLETE):
   * Fixed invisible white button text on Cleaning & Janitorial Services page hero section
   * Fixed invisible white button text on Real Estate page "Recommended Solutions" section
