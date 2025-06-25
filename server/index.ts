@@ -32,9 +32,9 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:", "blob:"],
-      scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
-      frameSrc: ["'self'", "https://form.jotform.com"],
-      connectSrc: ["'self'", "wss:", "ws:", "https:", "https://www.google-analytics.com"]
+      scriptSrc: ["'self'", "'unsafe-eval'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://form.jotform.com", "https://*.jotform.com", "https://js.jotform.com"],
+      frameSrc: ["'self'", "https://form.jotform.com", "https://*.jotform.com"],
+      connectSrc: ["'self'", "wss:", "ws:", "https:", "https://www.google-analytics.com", "https://form.jotform.com", "https://*.jotform.com", "https://submit.jotform.com"]
     }
   },
   strictTransportSecurity: {

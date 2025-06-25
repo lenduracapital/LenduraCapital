@@ -96,7 +96,8 @@ export default function Contact() {
                   scrolling="no"
                   title="Contact Form"
                   className="rounded-lg"
-                  allow="forms; scripts; same-origin; top-navigation"
+                  allow="forms; scripts; same-origin; top-navigation; navigation"
+                  sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation allow-popups allow-popups-to-escape-sandbox"
                   style={{ display: 'block', border: 'none', overflow: 'hidden' }}
                 ></iframe>
               </div>
