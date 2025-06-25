@@ -85,12 +85,12 @@ const teamMembers = [
     initials: "MH"
   },
   {
-    name: "Lilly Harris", 
+    name: "Gabby Goodman", 
     title: "Co Founder & COO",
     experience: "12+ years",
     specialties: ["Operations Management", "Client Relations", "Process Optimization"],
     credentials: "Business Operations Specialist",
-    initials: "LH"
+    initials: "GG"
   }
 ];
 

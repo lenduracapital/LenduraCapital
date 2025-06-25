@@ -488,8 +488,8 @@ Changelog:
   * Applied consistent button styling across all affected industry pages for better visibility
   * Maintained hover effects with opacity changes for professional user experience
 - June 25, 2025. Team section updates and animation removal (COMPLETE):
-  * Changed team member names from "Marc Khouli" to "Marc Hoffman" and "Gabby Glickman" to "Lilly Harris"
-  * Updated initials to "MH" and "LH" respectively in blue circles
+  * Changed team member names from "Marc Khouli" to "Marc Hoffman" and "Gabby Glickman" to "Gabby Goodman"
+  * Updated initials to "MH" and "GG" respectively in blue circles
   * Removed flip animation functionality completely - now displays static blue circles with initials
   * Simplified TeamMemberCircle component without scroll-triggered animations or 3D transforms
   * Maintained professional team section layout with titles, experience, and specialties
