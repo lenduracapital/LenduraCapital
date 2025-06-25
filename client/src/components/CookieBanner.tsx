@@ -7,12 +7,13 @@ export default function CookieBanner() {
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
-    // Check if user has already accepted cookies
+    // Always show the button, but auto-expand for new users
+    setShowBanner(true);
+    
     const cookiesAccepted = localStorage.getItem('cookiesAccepted');
     if (cookiesAccepted !== 'true') {
       // Auto-expand on first visit after 2 seconds
       setTimeout(() => {
-        setShowBanner(true);
         setIsExpanded(true);
       }, 2000);
     }
@@ -26,7 +27,7 @@ export default function CookieBanner() {
       marketing: true,
       functional: true
     }));
-    setShowBanner(false);
+    setIsExpanded(false); // Minimize to button but keep visible
   };
 
   const acceptNecessaryOnly = () => {
@@ -37,11 +38,11 @@ export default function CookieBanner() {
       marketing: false,
       functional: false
     }));
-    setShowBanner(false);
+    setIsExpanded(false); // Minimize to button but keep visible
   };
 
   const closeBanner = () => {
-    setShowBanner(false);
+    setIsExpanded(false); // Just minimize, don't hide completely
   };
 
   const toggleExpanded = () => {
@@ -56,7 +57,7 @@ export default function CookieBanner() {
     <>
       {/* Floating Cookie Button */}
       {!isExpanded && (
-        <div className="fixed bottom-6 left-6 z-50">
+        <div className="fixed bottom-6 left-6 z-40">
           <button
             onClick={toggleExpanded}
             className="bg-[#85abe4] hover:bg-[#7498d1] text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
@@ -157,7 +158,7 @@ export default function CookieBanner() {
 
       {/* Minimize Button */}
       {isExpanded && (
-        <div className="fixed bottom-6 left-6 z-50">
+        <div className="fixed bottom-6 left-6 z-40">
           <button
             onClick={toggleExpanded}
             className="bg-[#85abe4] hover:bg-[#7498d1] text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
