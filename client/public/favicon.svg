@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <rect width="48" height="48" fill="white" rx="8"/>
-  <text x="24" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#85abe4">FT</text>
+  <!-- Circular logo for favicon - scaled up from favicon-simple.svg -->
+  <circle cx="24" cy="24" r="22" fill="#1a3d2e" stroke="#85abe4" stroke-width="2"/>
+  
+  <!-- Simple lion head - scaled up and centered -->
+  <circle cx="24" cy="24" r="13" fill="#85abe4"/>
+  <circle cx="19" cy="20" r="2" fill="#1a3d2e"/>
+  <circle cx="29" cy="20" r="2" fill="#1a3d2e"/>
+  <path d="M21,27 Q24,30 27,27" stroke="#1a3d2e" stroke-width="2" fill="none"/>
 </svg>
