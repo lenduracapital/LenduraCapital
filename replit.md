@@ -507,7 +507,7 @@ Changelog:
   * Built professional 404 error page with navigation and contact info
   * Fixed structured data injection for proper Google search display
   * Updated team member from "Lilly Harris" to "Gabby Goodman" with "GG" initials
-  * Optimized contact form iframe height from 680px to 480px to eliminate white space gap above Jotform logo
+  * Optimized contact form iframe height to 510px to balance form visibility with minimal white space above Jotform logo
 - June 25, 2025. Technology & Software page image fix and comprehensive XML sitemap creation (COMPLETE):
   * Fixed Technology & Software page content image with proper technology/business photo provided by user
   * Replaced inappropriate screenshot with professional digital transformation image
