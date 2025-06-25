@@ -36,7 +36,10 @@ export function configureSecurityHeaders(app: Express) {
           "'unsafe-inline'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
-          "https://connect.facebook.net"
+          "https://connect.facebook.net",
+          "https://form.jotform.com",
+          "https://*.jotform.com",
+          "https://js.jotform.com"
         ],
         imgSrc: [
           "'self'",
@@ -48,11 +51,15 @@ export function configureSecurityHeaders(app: Express) {
           "'self'",
           "https://api.fundtekcapitalgroup.com",
           "https://www.google-analytics.com",
-          "https://vitals.vercel-analytics.com"
+          "https://vitals.vercel-analytics.com",
+          "https://form.jotform.com",
+          "https://*.jotform.com",
+          "https://submit.jotform.com"
         ],
         frameSrc: [
           "'self'",
           "https://form.jotform.com",
+          "https://*.jotform.com",
           "https://www.facebook.com"
         ],
         mediaSrc: ["'self'", "blob:", "data:"],
@@ -66,7 +73,7 @@ export function configureSecurityHeaders(app: Express) {
       preload: true
     },
     noSniff: true,
-    frameguard: { action: 'deny' },
+    frameguard: { action: 'sameorigin' },
     xssFilter: true,
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
   }));

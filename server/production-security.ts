@@ -32,6 +32,7 @@ export function configureProductionSecurity(app: Express) {
           "https://www.google-analytics.com",
           "https://connect.facebook.net",
           "https://form.jotform.com",
+          "https://*.jotform.com",
           "https://js.jotform.com"
         ] : [
           "'self'",
@@ -39,6 +40,7 @@ export function configureProductionSecurity(app: Express) {
           "https://www.google-analytics.com",
           "https://connect.facebook.net",
           "https://form.jotform.com",
+          "https://*.jotform.com",
           "https://js.jotform.com"
         ],
         imgSrc: [
@@ -52,11 +54,14 @@ export function configureProductionSecurity(app: Express) {
           "https://api.fundtekcapitalgroup.com",
           "https://www.google-analytics.com",
           "https://vitals.vercel-analytics.com",
-          "https://form.jotform.com"
+          "https://form.jotform.com",
+          "https://*.jotform.com",
+          "https://submit.jotform.com"
         ],
         frameSrc: [
           "'self'",
           "https://form.jotform.com",
+          "https://*.jotform.com",
           "https://www.facebook.com"
         ],
         mediaSrc: ["'self'", "blob:", "data:"],
@@ -70,7 +75,7 @@ export function configureProductionSecurity(app: Express) {
       preload: true
     },
     noSniff: true,
-    frameguard: { action: 'deny' },
+    frameguard: { action: 'sameorigin' },
     xssFilter: true,
     referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
   }));
