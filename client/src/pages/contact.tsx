@@ -88,16 +88,23 @@ export default function Contact() {
               </h3>
               
               <div className="w-full">
-                <iframe
-                  src="https://form.jotform.com/251674789886078"
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  scrolling="yes"
-                  title="Contact Form"
-                  className="rounded-lg"
-                  style={{ display: 'block', border: 'none' }}
-                ></iframe>
+                {/* Temporary direct embed test */}
+                <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '8px' }}>
+                  <p style={{ marginBottom: '10px', color: '#666' }}>Debug: Testing form without iframe restrictions</p>
+                  <iframe
+                    src="https://form.jotform.com/251674789886078"
+                    width="100%"
+                    height="700"
+                    frameBorder="0"
+                    scrolling="yes"
+                    title="Contact Form"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ display: 'block', border: '1px solid #ddd', borderRadius: '4px' }}
+                  ></iframe>
+                  <p style={{ marginTop: '10px', fontSize: '12px', color: '#999' }}>
+                    If conditional redirect still fails, the issue is in Jotform's configuration, not our website.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
