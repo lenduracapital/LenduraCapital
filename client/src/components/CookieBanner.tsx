@@ -57,7 +57,7 @@ export default function CookieBanner() {
     <>
       {/* Floating Cookie Button */}
       {!isExpanded && (
-        <div className="fixed bottom-6 left-6 z-40">
+        <div className="fixed bottom-24 left-6 md:bottom-6 md:left-6 z-40">
           <div className="relative">
             <button
               onClick={toggleExpanded}
@@ -73,7 +73,7 @@ export default function CookieBanner() {
 
       {/* Expanded Cookie Panel */}
       {isExpanded && (
-        <div className="fixed bottom-20 left-6 z-50 bg-white border border-gray-200 rounded-2xl shadow-2xl max-w-md w-80 max-h-96 overflow-hidden animate-in slide-in-from-bottom-4 duration-500">
+        <div className="fixed bottom-36 left-6 md:bottom-20 md:left-6 z-50 bg-white border border-gray-200 rounded-2xl shadow-2xl max-w-md w-80 max-h-96 overflow-hidden animate-in slide-in-from-bottom-4 duration-500">
           <div className="relative">
             {/* Header with gradient */}
             <div className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] p-4 text-white">
@@ -184,7 +184,7 @@ export default function CookieBanner() {
 
       {/* Minimize Button */}
       {isExpanded && (
-        <div className="fixed bottom-6 left-6 z-40">
+        <div className="fixed bottom-24 left-6 md:bottom-6 md:left-6 z-40">
           <button
             onClick={toggleExpanded}
             className="bg-gradient-to-r from-[#85abe4] to-[#7498d1] hover:from-[#7498d1] hover:to-[#6385be] text-white w-12 h-12 rounded-full shadow-xl transition-all duration-500 transform hover:scale-110 flex items-center justify-center group relative overflow-hidden"
