@@ -510,7 +510,7 @@ Changelog:
   * Optimized contact form iframe height to 510px to balance form visibility with minimal white space above Jotform logo
   * Fixed Jotform conditional redirect issue by replacing blocked iframe with button that opens form in new tab where all conditional logic works properly
   * Replaced complex cookie widget with simple bottom banner that appears once and disappears after user action - cleaner design without persistent widgets
-  * Staggered widget timing: cookie banner at 2 seconds, chat widget at 3.5 seconds for better user experience
+  * Staggered widget timing: cookie banner at 2 seconds, chat widget at 4 seconds for better user experience
 - June 25, 2025. Technology & Software page image fix and comprehensive XML sitemap creation (COMPLETE):
   * Fixed Technology & Software page content image with proper technology/business photo provided by user
   * Replaced inappropriate screenshot with professional digital transformation image
