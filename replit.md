@@ -509,7 +509,7 @@ Changelog:
   * Updated team member from "Lilly Harris" to "Gabby Goodman" with "GG" initials
   * Optimized contact form iframe height to 510px to balance form visibility with minimal white space above Jotform logo
   * Fixed Jotform conditional redirect issue by replacing blocked iframe with button that opens form in new tab where all conditional logic works properly
-  * Created persistent circular cookie consent widget - always visible 48px button like chat widget, auto-expands for new users, minimizes after consent but stays accessible
+  * Enhanced cookie consent widget with premium design - gradient buttons, notification badge, improved animations, colored category icons, and modern card-style panel with better visual hierarchy
 - June 25, 2025. Technology & Software page image fix and comprehensive XML sitemap creation (COMPLETE):
   * Fixed Technology & Software page content image with proper technology/business photo provided by user
   * Replaced inappropriate screenshot with professional digital transformation image
