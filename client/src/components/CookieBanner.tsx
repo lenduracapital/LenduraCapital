@@ -10,7 +10,11 @@ export default function CookieBanner() {
     // Check if user has already accepted cookies
     const cookiesAccepted = localStorage.getItem('cookiesAccepted');
     if (cookiesAccepted !== 'true') {
-      setShowBanner(true);
+      // Auto-expand on first visit after 2 seconds
+      setTimeout(() => {
+        setShowBanner(true);
+        setIsExpanded(true);
+      }, 2000);
     }
   }, []);
 
@@ -55,20 +59,17 @@ export default function CookieBanner() {
         <div className="fixed bottom-6 left-6 z-50">
           <button
             onClick={toggleExpanded}
-            className="bg-[#85abe4] hover:bg-[#7498d1] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 group"
+            className="bg-[#85abe4] hover:bg-[#7498d1] text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
             aria-label="Cookie settings"
           >
-            <Cookie className="h-6 w-6" />
-            <span className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-              Cookie Settings
-            </span>
+            <Cookie className="h-5 w-5" />
           </button>
         </div>
       )}
 
       {/* Expanded Cookie Panel */}
       {isExpanded && (
-        <div className="fixed bottom-6 left-6 z-50 bg-white border border-gray-200 rounded-xl shadow-2xl max-w-md w-80 max-h-96 overflow-hidden">
+        <div className="fixed bottom-20 left-6 z-50 bg-white border border-gray-200 rounded-xl shadow-2xl max-w-md w-80 max-h-96 overflow-hidden animate-in slide-in-from-bottom-2 duration-300">
           <div className="p-4">
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -156,13 +157,13 @@ export default function CookieBanner() {
 
       {/* Minimize Button */}
       {isExpanded && (
-        <div className="fixed bottom-2 left-6 z-50">
+        <div className="fixed bottom-6 left-6 z-50">
           <button
             onClick={toggleExpanded}
-            className="bg-gray-600 hover:bg-gray-700 text-white p-2 rounded-full shadow-lg transition-all duration-300"
+            className="bg-[#85abe4] hover:bg-[#7498d1] text-white w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
             aria-label="Minimize cookie panel"
           >
-            <X className="h-4 w-4" />
+            <Cookie className="h-5 w-5" />
           </button>
         </div>
       )}
