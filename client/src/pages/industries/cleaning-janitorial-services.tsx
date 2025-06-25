@@ -189,7 +189,8 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Industrial cleaning equipment, vehicles, and commercial-grade supplies</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -199,7 +200,8 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Cash flow for supplies, payroll, and day-to-day operational expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -209,7 +211,8 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Business expansion, new location setup, and major contract fulfillment</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>

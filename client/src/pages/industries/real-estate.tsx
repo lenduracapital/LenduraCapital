@@ -168,7 +168,8 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Investment property acquisition and commercial development financing</p>
               <Button 
                 onClick={handleSolutionsClick}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -178,7 +179,8 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Construction equipment, tools, and vehicle financing for real estate operations</p>
               <Button 
                 onClick={handleSolutionsClick}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>
@@ -188,7 +190,8 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Working capital for property management, renovations, and business expansion</p>
               <Button 
                 onClick={handleSolutionsClick}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
               </Button>

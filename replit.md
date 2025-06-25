@@ -476,6 +476,12 @@ Changelog:
   * Created full routing integration for both new solution pages
   * Solutions page now has 12 total financing options filling the complete grid
   * Updated all rolling statistics and button text from "10" to "12 financing solutions" throughout website
+- June 25, 2025. Fixed white button visibility issues across industry pages (COMPLETE):
+  * Fixed invisible white button text on Cleaning & Janitorial Services page hero section
+  * Fixed invisible white button text on Real Estate page "Recommended Solutions" section
+  * Changed all white buttons with blue text to blue buttons with white text using signature color #85abe4
+  * Applied consistent button styling across all affected industry pages for better visibility
+  * Maintained hover effects with opacity changes for professional user experience
 - June 25, 2025. Team section updates and animation removal (COMPLETE):
   * Changed team member names from "Marc Khouli" to "Marc Hoffman" and "Gabby Glickman" to "Lilly Harris"
   * Updated initials to "MH" and "LH" respectively in blue circles
