@@ -91,44 +91,13 @@ export default function Contact() {
                 <iframe
                   src="https://form.jotform.com/251674789886078"
                   width="100%"
-                  height="600"
+                  height="510"
                   frameBorder="0"
-                  scrolling="yes"
+                  scrolling="no"
                   title="Contact Form"
                   className="rounded-lg"
-                  style={{ display: 'block', border: 'none' }}
+                  style={{ display: 'block', border: 'none', overflow: 'hidden' }}
                 ></iframe>
-                
-                <script dangerouslySetInnerHTML={{
-                  __html: `
-                    // Listen for any errors from the iframe
-                    window.addEventListener('message', function(event) {
-                      if (event.origin === 'https://form.jotform.com') {
-                        console.log('Jotform message received:', event.data);
-                        
-                        // Check if it's a redirect attempt
-                        if (event.data && typeof event.data === 'object' && event.data.type === 'redirect') {
-                          console.log('Jotform trying to redirect to:', event.data.url);
-                          // Allow the redirect by navigating parent window
-                          if (event.data.url) {
-                            window.location.href = event.data.url;
-                          }
-                        }
-                      }
-                    });
-                    
-                    // Log any iframe loading issues
-                    const iframe = document.querySelector('iframe[src*="jotform"]');
-                    if (iframe) {
-                      iframe.onload = function() {
-                        console.log('Jotform iframe loaded successfully');
-                      };
-                      iframe.onerror = function(e) {
-                        console.error('Jotform iframe error:', e);
-                      };
-                    }
-                  `
-                }}</script>
               </div>
             </div>
           </div>

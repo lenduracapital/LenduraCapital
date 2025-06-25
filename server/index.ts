@@ -32,11 +32,13 @@ app.use((req, res, next) => {
   res.removeHeader('Cross-Origin-Embedder-Policy');
   res.removeHeader('Cross-Origin-Opener-Policy');
   
-  // Add permissive headers
+  // Add permissive headers for Jotform
   res.setHeader('X-Frame-Options', 'ALLOWALL');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', '*');
   res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+  res.setHeader('Feature-Policy', 'fullscreen *; payment *');
   
   next();
 });
