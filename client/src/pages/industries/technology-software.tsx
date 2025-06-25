@@ -102,7 +102,7 @@ export default function TechnologySoftware() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+                src="/attached_assets/The-Role-of-Technology-in-Modern-Society-1024x570_1750858499962.jpg"
                 alt="Technology and software development"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
