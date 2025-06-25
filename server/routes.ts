@@ -140,7 +140,7 @@ This message was automatically generated from the FundTek Capital Group website 
       if (process.env.SENDGRID_API_KEY) {
         try {
           const msg = {
-            to: 'brian@fundtekcapitalgroup.com',
+            to: 'admin@fundtekcapitalgroup.com',
             from: 'brian@fundtekcapitalgroup.com', // Verified sender address
             subject: 'New Chat Widget Lead - FundTek Capital Group',
             text: emailContent,

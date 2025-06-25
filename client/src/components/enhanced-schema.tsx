@@ -24,7 +24,7 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "logo": "https://fundtekcapital.com/favicon.svg",
           "description": "Professional business funding broker connecting businesses with lending partners for comprehensive financial solutions including term loans, equipment financing, and merchant cash advances.",
           "telephone": "(305) 307-4658",
-          "email": "info@fundtekcapital.com",
+          "email": "admin@fundtekcapitalgroup.com",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Miami",

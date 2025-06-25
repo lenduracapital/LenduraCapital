@@ -54,7 +54,7 @@ export default function SEOHead({
       "logo": "https://fundtekcapital.com/assets/logo.png",
       "description": "Professional business funding broker connecting businesses with lending partners for term loans, merchant cash advances, equipment financing, and comprehensive financial solutions.",
       "telephone": "(305) 307-4658",
-      "email": "info@fundtekcapital.com",
+      "email": "admin@fundtekcapitalgroup.com",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Miami",
