@@ -62,7 +62,7 @@ export default function Footer() {
             <p className="text-black text-xs md:text-sm">
               Call us today at (305) 307-4658
             </p>
-            <div className="flex items-center gap-1 justify-start">
+            <div className="flex items-center gap-0.5 justify-start">
               <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <FaInstagram size={24} />
               </a>
