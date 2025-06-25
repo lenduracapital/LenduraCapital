@@ -7,17 +7,16 @@ export default function CookieBanner() {
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
-    // Demo: Force show enhanced design
-    localStorage.removeItem('cookiesAccepted');
+    // Always show the button, but auto-expand for new users
     setShowBanner(true);
-    setTimeout(() => {
-      setIsExpanded(true);
-    }, 1000);
     
-    // Auto-hide after 10 seconds for demo
-    setTimeout(() => {
-      setIsExpanded(false);
-    }, 11000);
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    if (cookiesAccepted !== 'true') {
+      // Auto-expand on first visit after 2 seconds
+      setTimeout(() => {
+        setIsExpanded(true);
+      }, 2000);
+    }
   }, []);
 
   const acceptAllCookies = () => {
