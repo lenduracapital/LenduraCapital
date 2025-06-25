@@ -133,9 +133,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Industry Pages -->
+  <!-- Industry Pages - All 18 Industry Pages -->
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/restaurants-food-service</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/restaurant-food-service</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -147,13 +147,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/healthcare-medical</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/medical-healthcare</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/construction-contracting</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/construction</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -171,7 +171,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/transportation-logistics</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/trucking-transportation</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -183,7 +183,25 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/automotive</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/auto-transportation</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/beauty-wellness</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/hospitality-tourism</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/agriculture-farming</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -195,13 +213,31 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/cleaning-janitorial-services</loc>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/entertainment-events</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/education-training</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/franchises</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/home-services-contracting</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev/industries/cleaning-janitorial-services</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

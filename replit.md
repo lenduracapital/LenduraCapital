@@ -497,6 +497,12 @@ Changelog:
   * Added Trustpilot logo next to Yelp logo in footer "Leave us a Review" section
   * Imported SiTrustpilot from react-icons/si for consistent icon styling
   * Made Trustpilot logo clickable linking to https://www.trustpilot.com/review/fundtekcapitalgroup.com
+- June 25, 2025. Technology & Software page image fix and comprehensive XML sitemap creation (COMPLETE):
+  * Fixed Technology & Software page content image with proper technology/business photo provided by user
+  * Replaced inappropriate screenshot with professional digital transformation image
+  * Created comprehensive XML sitemap including all 30+ pages (main, solutions, all 18 industry pages, legal)
+  * Updated robots.txt to reference correct sitemap URL for SEO optimization
+  * Chat widget professional messaging improvements: removed "broker" language, changed response time to 1 hour
   * Applied signature blue (#85abe4) color scheme with hover effects matching existing design
   * Added proper spacing between Yelp and Trustpilot logos for professional appearance
 - June 20, 2025. Team circle flip animations and footer reorganization (COMPLETE):
