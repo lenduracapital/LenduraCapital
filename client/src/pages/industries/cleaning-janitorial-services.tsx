@@ -53,14 +53,15 @@ export default function CleaningJanitorialServices() {
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button 
                 onClick={handleApplyNow}
-                className="bg-white text-[#85abe4] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Get Approved in 24 Hours
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                className="hover:opacity-90 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
               >
                 Explore Your Financing Options
               </Button>
