@@ -1,49 +1,35 @@
 export default function ProcessSection() {
   return (
-    <section className="py-16" style={{ backgroundColor: '#85abe4' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Business Financing To Fit Your Business Needs.
-          </h2>
-          <p className="text-lg text-white">Just 3 Easy Steps</p>
+    <section id="process-section" className="py-16 md:py-24" style={{ backgroundColor: '#85abe4' }}>
+      <div className="container mx-auto px-4">
+        <div className="text-center text-white mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">How It Works</h2>
+          <p className="text-xl max-w-3xl mx-auto">Simple 3-step process to get your business funding</p>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-          <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">1</span>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center text-white">
+            <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <span className="text-2xl font-bold">1</span>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Apply Online</h3>
-            <p className="text-white">Quick and secure application process</p>
+            <h3 className="text-xl font-semibold mb-4">Apply Online</h3>
+            <p className="text-lg">Complete our quick 5-minute application with basic business information</p>
           </div>
           
-          <div className="hidden md:block text-white">
-            <svg width="60" height="20" viewBox="0 0 60 20" fill="currentColor">
-              <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </div>
-          
-          <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">2</span>
+          <div className="text-center text-white">
+            <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <span className="text-2xl font-bold">2</span>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Approval in 1 hour</h3>
-            <p className="text-white">Fast decision process</p>
+            <h3 className="text-xl font-semibold mb-4">Get Approved</h3>
+            <p className="text-lg">Receive approval decision in as little as 24 hours</p>
           </div>
           
-          <div className="hidden md:block text-white">
-            <svg width="60" height="20" viewBox="0 0 60 20" fill="currentColor">
-              <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </div>
-          
-          <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">3</span>
+          <div className="text-center text-white">
+            <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+              <span className="text-2xl font-bold">3</span>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Get Funded</h3>
-            <p className="text-white">Receive your funds quickly</p>
+            <h3 className="text-xl font-semibold mb-4">Receive Funds</h3>
+            <p className="text-lg">Get your working capital deposited directly to your business account</p>
           </div>
         </div>
       </div>
