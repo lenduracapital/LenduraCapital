@@ -141,10 +141,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WebVitalsOptimizer />
-        <CriticalCSS />
-        <HeadingOptimizer />
-        <ImageOptimizer />
         <Toaster />
         <Router />
         <ChatWidget />
@@ -153,7 +149,5 @@ function App() {
     </QueryClientProvider>
   );
 }
-
-export default App;
 
 export default App;
