@@ -725,6 +725,12 @@ Changelog:
   * Restored original simple welcome message and 2-second delay timing
   * Removed personalized messaging and user behavior tracking
   * Chat widget back to stable, working state with standard functionality
+- June 26, 2025. Chat widget email submission fix (COMPLETE):
+  * Fixed "undefined" values appearing in Gmail submissions
+  * Corrected data structure mismatch between frontend and backend
+  * Updated sendChatData function to properly send individual fields (userType, timeline, product, revenue)
+  * Enhanced backend email formatting with fallback handling for missing data
+  * Emails now display actual user responses instead of "undefined" values
 ```
 
 ## User Preferences

@@ -116,18 +116,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { timestamp, userType, timeline, product, revenue, source } = req.body;
       
+      // Handle undefined values with fallbacks
+      const formatValue = (value: any) => value && value !== 'undefined' ? value : 'Not provided';
+      const formattedTimestamp = timestamp ? new Date(timestamp).toLocaleString() : new Date().toLocaleString();
+      
       // Create email content
       const emailContent = `
 New Chat Widget Submission - FundTek Capital Group
 
-Timestamp: ${timestamp}
-Source: ${source}
+Timestamp: ${formattedTimestamp}
+Source: ${formatValue(source)}
 
 Customer Information:
-- User Type: ${userType}
-- Funding Timeline: ${timeline}
-- Product Interest: ${product}
-- Monthly Revenue Range: ${revenue}
+- User Type: ${formatValue(userType)}
+- Funding Timeline: ${formatValue(timeline)}
+- Product Interest: ${formatValue(product)}
+- Monthly Revenue Range: ${formatValue(revenue)}
 
 Please follow up with this potential client promptly.
 
@@ -151,16 +155,16 @@ This message was automatically generated from the FundTek Capital Group website 
                 </h2>
                 
                 <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                  <p><strong>Timestamp:</strong> ${new Date(timestamp).toLocaleString()}</p>
-                  <p><strong>Source:</strong> ${source}</p>
+                  <p><strong>Timestamp:</strong> ${formattedTimestamp}</p>
+                  <p><strong>Source:</strong> ${formatValue(source)}</p>
                 </div>
 
                 <h3 style="color: #333;">Customer Information:</h3>
                 <ul style="line-height: 1.6;">
-                  <li><strong>User Type:</strong> ${userType}</li>
-                  <li><strong>Funding Timeline:</strong> ${timeline}</li>
-                  <li><strong>Product Interest:</strong> ${product}</li>
-                  <li><strong>Monthly Revenue Range:</strong> ${revenue}</li>
+                  <li><strong>User Type:</strong> ${formatValue(userType)}</li>
+                  <li><strong>Funding Timeline:</strong> ${formatValue(timeline)}</li>
+                  <li><strong>Product Interest:</strong> ${formatValue(product)}</li>
+                  <li><strong>Monthly Revenue Range:</strong> ${formatValue(revenue)}</li>
                 </ul>
 
                 <div style="background: #e3f2fd; border-left: 4px solid #1E88E5; padding: 15px; margin: 20px 0;">

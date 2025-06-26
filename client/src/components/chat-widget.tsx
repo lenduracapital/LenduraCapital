@@ -195,9 +195,12 @@ export default function ChatWidget() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          responses,
           timestamp: new Date().toISOString(),
-          email: 'brian@fundtekcapitalgroup.com'
+          userType: responses.userType,
+          timeline: responses.timeline,
+          product: responses.product,
+          revenue: responses.revenue,
+          source: 'FundTek Chat Widget'
         })
       });
     } catch (error) {
