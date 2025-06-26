@@ -114,7 +114,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Chat widget submissions endpoint
   app.post("/api/chat-submissions", async (req, res) => {
     try {
-      const { timestamp, userType, timeline, product, revenue, source } = req.body;
+      const { timestamp, firstName, phoneNumber, userType, timeline, product, revenue, source } = req.body;
       
       // Handle undefined values with fallbacks
       const formatValue = (value: any) => value && value !== 'undefined' ? value : 'Not provided';
@@ -128,6 +128,8 @@ Timestamp: ${formattedTimestamp}
 Source: ${formatValue(source)}
 
 Customer Information:
+- First Name: ${formatValue(firstName)}
+- Phone Number: ${formatValue(phoneNumber)}
 - User Type: ${formatValue(userType)}
 - Funding Timeline: ${formatValue(timeline)}
 - Product Interest: ${formatValue(product)}
@@ -143,10 +145,12 @@ This message was automatically generated from the FundTek Capital Group website 
       // Send email using SendGrid
       if (process.env.SENDGRID_API_KEY) {
         try {
+          const leadId = Date.now().toString().slice(-6);
+          const customerName = formatValue(firstName) !== 'Not provided' ? ` - ${formatValue(firstName)}` : '';
           const msg = {
             to: 'admin@fundtekcapitalgroup.com',
             from: 'brian@fundtekcapitalgroup.com', // Verified sender address
-            subject: 'New Chat Widget Lead - FundTek Capital Group',
+            subject: `New Chat Lead #${leadId}${customerName} - FundTek Capital Group`,
             text: emailContent,
             html: `
               <!DOCTYPE html>
@@ -197,6 +201,20 @@ This message was automatically generated from the FundTek Capital Group website 
                       </div>
                       
                       <div style="padding: 0;">
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">First Name</span>
+                          <span style="color: #0f172a; font-weight: 600; background: #fef3c7; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                            ${formatValue(firstName)}
+                          </span>
+                        </div>
+                        
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Phone Number</span>
+                          <span style="color: #0f172a; font-weight: 600; background: #ecfccb; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                            ${formatValue(phoneNumber)}
+                          </span>
+                        </div>
+                        
                         <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
                           <span style="color: #64748b; font-weight: 500;">Inquiry Type</span>
                           <span style="color: #0f172a; font-weight: 600; background: #dbeafe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">

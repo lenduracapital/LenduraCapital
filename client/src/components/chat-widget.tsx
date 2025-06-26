@@ -578,6 +578,7 @@ export default function ChatWidget() {
                 )}
               </div>
               {renderButtons()}
+              {renderInput()}
               <div ref={messagesEndRef} />
             </div>
             

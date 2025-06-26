@@ -737,6 +737,13 @@ Changelog:
   * Implemented structured information cards with color-coded badges and visual hierarchy
   * Enhanced with call-to-action sections, lead ID generation, and mobile-responsive design
   * Transformed basic form submissions into high-end CRM-style notifications for better user experience
+- June 26, 2025. Chat widget UX improvements and contact data collection (COMPLETE):
+  * Redesigned conversation flow to start with First Name and Phone Number collection
+  * Added text input functionality with proper submission handling and validation
+  * Implemented user-friendly timing with 2.5-5.5 second delays between bot messages
+  * Enhanced email system to create separate submissions instead of threaded conversations
+  * Updated backend to capture and display complete contact information in professional email format
+  * Added unique Lead IDs to email subjects preventing Gmail threading for better lead management
 ```
 
 ## User Preferences
