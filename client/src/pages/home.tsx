@@ -11,8 +11,6 @@ import PremiumFinancingSection from "@/components/premium-financing-section";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 import SkipNavigation from "@/components/skip-navigation";
-import Analytics from "@/components/analytics";
-import ConversionTracking from "@/components/conversion-tracking";
 import EnhancedSchema from "@/components/enhanced-schema";
 
 export default function Home() {
@@ -25,12 +23,7 @@ export default function Home() {
         canonical="/"
       />
       <EnhancedSchema type="homepage" />
-      <Analytics />
       <SkipNavigation />
-      <ConversionTracking 
-        eventType="page_view" 
-        eventData={{ page_title: "FundTek Capital Group - Business Funding Solutions" }} 
-      />
 
 
       <Header transparent={true} />
