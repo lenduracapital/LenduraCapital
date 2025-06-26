@@ -10,8 +10,10 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
+  step: 'initial' | 'first_name' | 'phone_number' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
   responses: {
+    firstName?: string;
+    phoneNumber?: string;
     userType?: string;
     timeline?: string;
     infoCategory?: string;
@@ -29,6 +31,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(true); // Start fully expanded
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const [textInput, setTextInput] = useState('');
   const [chatState, setChatState] = useState<ChatState>({
     step: 'initial',
     responses: {}
@@ -54,11 +57,27 @@ export default function ChatWidget() {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business. What brings you to FundTek today?",
+          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business. Let's start with your contact information.",
           sender: 'bot',
           timestamp: new Date()
         };
         setMessages([welcomeMessage]);
+        
+        // Ask for first name after a delay
+        setTimeout(() => {
+          setIsTyping(true);
+          setTimeout(() => {
+            setIsTyping(false);
+            const firstNameMessage: ChatMessage = {
+              id: `firstname-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+              text: "What's your first name?",
+              sender: 'bot',
+              timestamp: new Date()
+            };
+            setMessages(prev => [...prev, firstNameMessage]);
+            setChatState({ step: 'first_name', responses: {} });
+          }, 2000);
+        }, 1500);
       }, 500);
     }
   }, [isOpen, messages.length]);
@@ -87,6 +106,24 @@ export default function ChatWidget() {
     }
   };
 
+  const handleTextInput = (text: string) => {
+    addMessage(text, 'user');
+    
+    const newResponses = { ...chatState.responses };
+    
+    if (chatState.step === 'first_name') {
+      newResponses.firstName = text;
+      addMessage(`Nice to meet you, ${text}! 👋`, 'bot', 2000);
+      addMessage("What's your phone number?", 'bot', 4000);
+      setChatState({ step: 'phone_number', responses: newResponses });
+    } else if (chatState.step === 'phone_number') {
+      newResponses.phoneNumber = text;
+      addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
+      addMessage("What brings you to FundTek today?", 'bot', 4500);
+      setChatState({ step: 'initial', responses: newResponses });
+    }
+  };
+
   const handleUserSelection = (selection: string, responseKey: keyof ChatState['responses']) => {
     addMessage(selection, 'user');
     
@@ -94,28 +131,28 @@ export default function ChatWidget() {
     
     if (chatState.step === 'initial') {
       if (selection.includes('financing')) {
-        addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 1500);
-        addMessage("How soon do you need the funding?", 'bot', 4000);
+        addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 2500);
+        addMessage("How soon do you need the funding?", 'bot', 5500);
         setChatState({ step: 'financing_timeline', responses: newResponses });
       } else if (selection.includes('information')) {
-        addMessage("Perfect! I'd be happy to help you learn about our services.", 'bot', 1500);
-        addMessage("What specific information would you like to know about?", 'bot', 3500);
+        addMessage("Perfect! I'd be happy to help you learn about our services.", 'bot', 2500);
+        addMessage("What specific information would you like to know about?", 'bot', 5000);
         setChatState({ step: 'info_category', responses: newResponses });
       } else if (selection.includes('existing application')) {
-        addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
-        addMessage("A FundTek expert will call you within 1 hour to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
+        addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 2500);
+        addMessage("A FundTek expert will call you within 1 hour to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 5500);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, userType: selection });
       }
     } else if (chatState.step === 'financing_timeline') {
       if (selection === 'ASAP') {
-        addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 1500);
+        addMessage("Understood - time is critical! We specialize in fast approvals.", 'bot', 2500);
       } else if (selection === 'Within 30 days') {
-        addMessage("Perfect timing! That gives us room to find the best solution for you.", 'bot', 1500);
+        addMessage("Perfect timing! That gives us room to find the best solution for you.", 'bot', 2500);
       } else {
-        addMessage("Smart to research early! Knowledge is power when it comes to financing.", 'bot', 1500);
+        addMessage("Smart to research early! Knowledge is power when it comes to financing.", 'bot', 2500);
       }
-      addMessage("Which type of funding best describes what you're looking for?", 'bot', 4000);
+      addMessage("Which type of funding best describes what you're looking for?", 'bot', 5500);
       setChatState({ step: 'product', responses: newResponses });
     } else if (chatState.step === 'info_category') {
       const categoryResponses = {
@@ -137,8 +174,8 @@ export default function ChatWidget() {
       }
     } else if (chatState.step === 'product') {
       if (selection === 'Debt Consolidation') {
-        addMessage("Smart move! Debt consolidation can really simplify your payments and reduce costs.", 'bot', 2000);
-        addMessage("What's the name of your primary lender?", 'bot', 4500);
+        addMessage("Smart move! Debt consolidation can really simplify your payments and reduce costs.", 'bot', 2500);
+        addMessage("What's the name of your primary lender?", 'bot', 5500);
         setChatState({ step: 'debt_q1', responses: newResponses });
       } else {
         const productResponses = {
@@ -196,6 +233,8 @@ export default function ChatWidget() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
+          firstName: responses.firstName,
+          phoneNumber: responses.phoneNumber,
           userType: responses.userType,
           timeline: responses.timeline,
           product: responses.product,
@@ -214,8 +253,45 @@ export default function ChatWidget() {
 
 
 
+  const handleSubmitText = () => {
+    if (textInput.trim()) {
+      handleTextInput(textInput.trim());
+      setTextInput('');
+    }
+  };
+
+  const renderInput = () => {
+    if (chatState.step === 'first_name' || chatState.step === 'phone_number') {
+      return (
+        <div className="flex gap-2 mt-3">
+          <input
+            type="text"
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSubmitText()}
+            placeholder={chatState.step === 'first_name' ? 'Enter your first name...' : 'Enter your phone number...'}
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            autoFocus
+          />
+          <button
+            onClick={handleSubmitText}
+            disabled={!textInput.trim()}
+            className="bg-[#85abe4] hover:bg-[#7ba0d9] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            <Send className="w-4 h-4" />
+          </button>
+        </div>
+      );
+    }
+    return null;
+  };
+
   const renderButtons = () => {
     switch (chatState.step) {
+      case 'first_name':
+      case 'phone_number':
+        return null;
+        
       case 'initial':
         return (
           <div className="flex flex-col gap-2 mt-3">
