@@ -1,13 +1,11 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { performanceMonitor } from "./utils/performance-monitor";
 
-const rootElement = document.getElementById("root")!;
-const root = createRoot(rootElement);
+// Initialize performance monitoring
+performanceMonitor;
 
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+// Service Worker registration handled by external script
+
+createRoot(document.getElementById("root")!).render(<App />);

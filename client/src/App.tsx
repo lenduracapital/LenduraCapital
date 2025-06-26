@@ -1,141 +1,157 @@
-export default function App() {
+import { Switch, Route, useLocation } from "wouter";
+import { queryClient } from "./lib/queryClient";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { lazy, Suspense, useEffect } from "react";
+import Home from "@/pages/home";
+import ChatWidget from "@/components/chat-widget";
+import CookieBanner from "@/components/CookieBanner";
+import WebVitalsOptimizer from "@/components/web-vitals-optimizer";
+import CriticalCSS from "@/components/critical-css";
+import HeadingOptimizer from "@/components/heading-optimizer";
+import ImageOptimizer from "@/components/image-optimizer";
+
+// Lazy load non-critical pages for code splitting
+const Solutions = lazy(() => import("@/pages/solutions"));
+const QualifiedIndustries = lazy(() => import("@/pages/who-we-fund"));
+const MerchantCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
+const TermLoans = lazy(() => import("@/pages/term-loans"));
+const LoanApplication = lazy(() => import("@/pages/loan-application"));
+const MerchantCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
+const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
+const LinesOfCreditDetail = lazy(() => import("@/pages/solutions/lines-of-credit"));
+const SBALoansDetail = lazy(() => import("@/pages/solutions/sba-loans"));
+const EquipmentFinancingDetail = lazy(() => import("@/pages/solutions/equipment-financing"));
+const InvoiceFactoringDetail = lazy(() => import("@/pages/solutions/invoice-factoring"));
+const POFinancingDetail = lazy(() => import("@/pages/solutions/po-financing"));
+const DebtConsolidationDetail = lazy(() => import("@/pages/solutions/debt-consolidation"));
+const CreditServicesDetail = lazy(() => import("@/pages/solutions/credit-services"));
+const CreditServicing = lazy(() => import("@/pages/credit-servicing"));
+const SEOWebDevelopment = lazy(() => import("@/pages/seo-web-development"));
+const CreditCardProcessing = lazy(() => import("@/pages/credit-card-processing"));
+const CommercialRealEstateLending = lazy(() => import("@/pages/commercial-real-estate-lending"));
+const DebtConsolidationPage = lazy(() => import("@/pages/debt-consolidation"));
+const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
+const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
+const Contact = lazy(() => import("@/pages/contact"));
+const About = lazy(() => import("@/pages/about"));
+const Terms = lazy(() => import("@/pages/terms"));
+const Privacy = lazy(() => import("@/pages/privacy"));
+const Cookies = lazy(() => import("@/pages/cookies"));
+const FAQ = lazy(() => import("@/pages/faq"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
+const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleaning-janitorial-services"));
+const TruckingTransportation = lazy(() => import("@/pages/industries/trucking-transportation"));
+const MedicalHealthcare = lazy(() => import("@/pages/industries/medical-healthcare"));
+const Construction = lazy(() => import("@/pages/industries/construction"));
+const RestaurantFoodService = lazy(() => import("@/pages/industries/restaurant-food-service"));
+const RetailECommerce = lazy(() => import("@/pages/industries/retail-e-commerce"));
+const Manufacturing = lazy(() => import("@/pages/industries/manufacturing"));
+const ProfessionalServices = lazy(() => import("@/pages/industries/professional-services"));
+const TechnologySoftware = lazy(() => import("@/pages/industries/technology-software"));
+const AutoTransportation = lazy(() => import("@/pages/industries/auto-transportation"));
+const BeautyWellness = lazy(() => import("@/pages/industries/beauty-wellness"));
+const HospitalityTourism = lazy(() => import("@/pages/industries/hospitality-tourism"));
+const AgricultureFarming = lazy(() => import("@/pages/industries/agriculture-farming"));
+const RealEstate = lazy(() => import("@/pages/industries/real-estate"));
+const EntertainmentEvents = lazy(() => import("@/pages/industries/entertainment-events"));
+const EducationTraining = lazy(() => import("@/pages/industries/education-training"));
+const Franchises = lazy(() => import("@/pages/industries/franchises"));
+
+// Loading fallback component
+function PageLoader() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-black/90 text-white p-4 fixed w-full top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">FundTek Capital Group</h1>
-          <button 
-            onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-            className="bg-[#85abe4] px-6 py-2 rounded hover:bg-[#7299d6] transition-colors"
-          >
-            Apply Now
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero Section with Video Background */}
-      <section className="pt-20 min-h-screen relative overflow-hidden bg-black">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/attached_assets/Video (FundTek) (3)_1749674184351.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/30" />
-        
-        <div className="relative z-10 container mx-auto px-4 text-white flex items-center min-h-screen">
-          <div className="w-full max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-wider">
-              Flexible Financing for Every Industry
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              Get the working capital your business needs with our comprehensive funding solutions. 
-              Fast approval, competitive rates, and expert guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-                className="bg-white text-black px-8 py-4 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-              >
-                Apply Now
-              </button>
-              <button
-                className="border-white text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-white/10 transition-colors border-2"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-24" style={{ backgroundColor: '#85abe4' }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white mb-16">
-            <h2 className="text-4xl font-bold mb-6">How It Works</h2>
-            <p className="text-xl">Simple 3-step process to get your business funding</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center text-white">
-              <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">1</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Apply Online</h3>
-              <p className="text-lg">Complete our quick 5-minute application with basic business information</p>
-            </div>
-            
-            <div className="text-center text-white">
-              <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">2</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Get Approved</h3>
-              <p className="text-lg">Receive approval decision in as little as 24 hours</p>
-            </div>
-            
-            <div className="text-center text-white">
-              <div className="bg-white/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold">3</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Receive Funds</h3>
-              <p className="text-lg">Get your working capital deposited directly to your business account</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Working Capital Statistics */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#85abe4' }}>
-        <div className="container mx-auto px-4">
-          <div className="text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Accelerate the growth of your business</h2>
-            <p className="text-xl mb-12 max-w-3xl mx-auto">
-              Frustrated by funding delays? Connect one-on-one with a dedicated specialist who understands your industry and can tailor solutions to your unique business and operational goals.
-            </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-                <p className="text-lg">Expert financing specialists</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">12</div>
-                <p className="text-lg">Financing solutions</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">$20M</div>
-                <p className="text-lg">Unsecured funding available</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold mb-2">24 hrs</div>
-                <p className="text-lg">Get funding fast</p>
-              </div>
-            </div>
-
-            <button 
-              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-              className="bg-white text-[#85abe4] px-8 py-4 text-xl rounded-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
-            >
-              Browse 12 Funding Solutions
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4">FundTek Capital Group</h3>
-          <p className="text-gray-300 mb-6">Fast Business Financing Solutions</p>
-          <p className="text-gray-400">Contact: (305) 307-4658 | admin@fundtekcapitalgroup.com</p>
-          <p className="text-gray-400 mt-4">Copyright 2025 FundTek Capital Group. All rights reserved.</p>
-        </div>
-      </footer>
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2" style={{ borderColor: '#85abe4' }}></div>
     </div>
   );
 }
+
+// Component to handle scroll-to-top on route changes
+function ScrollToTop() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return null;
+}
+
+function Router() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/solutions" component={Solutions} />
+        <Route path="/solutions/term-loans" component={TermLoansDetail} />
+        <Route path="/solutions/lines-of-credit" component={LinesOfCreditDetail} />
+        <Route path="/solutions/sba-loans" component={SBALoansDetail} />
+        <Route path="/solutions/equipment-financing" component={EquipmentFinancingDetail} />
+        <Route path="/solutions/invoice-factoring" component={InvoiceFactoringDetail} />
+        <Route path="/solutions/po-financing" component={POFinancingDetail} />
+        <Route path="/solutions/debt-consolidation" component={DebtConsolidationDetail} />
+        <Route path="/solutions/credit-services" component={CreditServicesDetail} />
+        <Route path="/solutions/credit-servicing" component={CreditServicing} />
+        <Route path="/solutions/seo-web-development" component={SEOWebDevelopment} />
+        <Route path="/solutions/credit-card-processing" component={CreditCardProcessing} />
+        <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
+        <Route path="/solutions/debt-consolidation" component={DebtConsolidationPage} />
+        <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
+        <Route path="/qualified-industries" component={QualifiedIndustries} />
+        <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
+        <Route path="/term-loans" component={TermLoans} />
+        <Route path="/testimonials" component={TestimonialsPage} />
+        <Route path="/more-testimonials" component={MoreTestimonials} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/cookies" component={Cookies} />
+        <Route path="/faq" component={FAQ} />
+        <Route path="/apply" component={LoanApplication} />
+        <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
+        <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />
+        <Route path="/industries/trucking-transportation" component={TruckingTransportation} />
+        <Route path="/industries/medical-healthcare" component={MedicalHealthcare} />
+        <Route path="/industries/construction" component={Construction} />
+        <Route path="/industries/restaurant-food-service" component={RestaurantFoodService} />
+        <Route path="/industries/retail-e-commerce" component={RetailECommerce} />
+        <Route path="/industries/manufacturing" component={Manufacturing} />
+        <Route path="/industries/professional-services" component={ProfessionalServices} />
+        <Route path="/industries/technology-software" component={TechnologySoftware} />
+        <Route path="/industries/auto-transportation" component={AutoTransportation} />
+        <Route path="/industries/beauty-wellness" component={BeautyWellness} />
+        <Route path="/industries/hospitality-tourism" component={HospitalityTourism} />
+        <Route path="/industries/agriculture-farming" component={AgricultureFarming} />
+        <Route path="/industries/real-estate" component={RealEstate} />
+        <Route path="/industries/entertainment-events" component={EntertainmentEvents} />
+        <Route path="/industries/education-training" component={EducationTraining} />
+        <Route path="/industries/franchises" component={Franchises} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
+  );
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <WebVitalsOptimizer />
+        <CriticalCSS />
+        <HeadingOptimizer />
+        <ImageOptimizer />
+        <Toaster />
+        <Router />
+        <ChatWidget />
+        <CookieBanner />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
