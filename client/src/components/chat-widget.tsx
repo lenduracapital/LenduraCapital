@@ -34,38 +34,13 @@ export default function ChatWidget() {
     responses: {}
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [userContext, setUserContext] = useState({
-    timeOnPage: 0,
-    currentPage: location,
-    isReturningUser: localStorage.getItem('fundtek_user') === 'true',
-    timeOfDay: new Date().getHours() < 12 ? 'morning' : new Date().getHours() < 17 ? 'afternoon' : 'evening'
-  });
 
-  // Intelligent widget timing based on user behavior
+  // Show widget after 2 seconds
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    
-    // Show earlier for returning users, later for new users
-    const delay = userContext.isReturningUser ? 2000 : 4000;
-    
-    // Track time on page
-    const startTime = Date.now();
-    const timeTracker = setInterval(() => {
-      setUserContext(prev => ({
-        ...prev,
-        timeOnPage: Math.floor((Date.now() - startTime) / 1000)
-      }));
-    }, 1000);
-    
-    timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsVisible(true);
-      localStorage.setItem('fundtek_user', 'true'); // Mark as returning user
-    }, delay);
-    
-    return () => {
-      clearTimeout(timer);
-      clearInterval(timeTracker);
-    };
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -73,38 +48,20 @@ export default function ChatWidget() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Intelligent welcome message based on user context
+  // Initialize chat with welcome message
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setTimeout(() => {
-        const getPersonalizedWelcome = () => {
-          const timeGreeting = userContext.timeOfDay === 'morning' ? 'Good morning' : 
-                              userContext.timeOfDay === 'afternoon' ? 'Good afternoon' : 'Good evening';
-          
-          // Page-specific messaging
-          if (userContext.currentPage.includes('/solutions')) {
-            return `${timeGreeting}! I see you're exploring our financing solutions. I can help you find the perfect match for your business needs.`;
-          } else if (userContext.currentPage.includes('/industries')) {
-            return `${timeGreeting}! Looking at industry-specific financing? I'd love to help you discover options tailored to your business sector.`;
-          } else if (userContext.currentPage.includes('/qualified-industries') || userContext.currentPage.includes('/who-we-fund')) {
-            return `${timeGreeting}! I can help you determine if your industry qualifies for our specialized financing programs.`;
-          } else if (userContext.isReturningUser) {
-            return `Welcome back! ${timeGreeting}! I'm here to help with any new financing questions you might have.`;
-          } else {
-            return `${timeGreeting}! I'm here to help you find the perfect financing solution for your business. What brings you to FundTek today?`;
-          }
-        };
-
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          text: getPersonalizedWelcome(),
+          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business. What brings you to FundTek today?",
           sender: 'bot',
           timestamp: new Date()
         };
         setMessages([welcomeMessage]);
       }, 500);
     }
-  }, [isOpen, messages.length, userContext]);
+  }, [isOpen, messages.length]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
     if (delay > 0) {
@@ -135,7 +92,6 @@ export default function ChatWidget() {
     
     const newResponses = { ...chatState.responses, [responseKey]: selection };
     
-    // Progress through conversation flow with personalized responses
     if (chatState.step === 'initial') {
       if (selection.includes('financing')) {
         addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 1500);
@@ -149,8 +105,6 @@ export default function ChatWidget() {
         addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
         addMessage("A FundTek expert will call you within 1 hour to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
         setChatState({ step: 'complete', responses: newResponses });
-        
-        // Send application inquiry to backend
         sendChatData({ ...newResponses, userType: selection });
       }
     } else if (chatState.step === 'financing_timeline') {
