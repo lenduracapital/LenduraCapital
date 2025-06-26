@@ -1,16 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
-  const [videoQuality, setVideoQuality] = useState('720p');
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const [, setLocation] = useLocation();
+
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -62,7 +62,7 @@ export default function HeroSection() {
 
   return (
     <section className="hero-section relative h-screen overflow-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
-      {/* Background Video with Enhanced Optimization */}
+      {/* Background Video */}
       {videoLoaded ? (
         <video 
           ref={videoRef}
@@ -72,27 +72,15 @@ export default function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           preload="none"
-          onLoadStart={() => {}}
-          onCanPlayThrough={() => {}}
+          onLoadedData={() => setVideoLoaded(true)}
+          onError={() => setVideoLoaded(false)}
           aria-label="FundTek Capital Group business financing solutions showcase"
-          style={{
-            transform: 'translateZ(0)',
-            backfaceVisibility: 'hidden',
-            willChange: 'transform',
-            contain: 'layout style paint'
-          }}
         >
           <source src={videoPath} type="video/mp4" />
-
           Your browser does not support the video tag.
         </video>
       ) : (
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80')"
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900" />
       )}
       
 
