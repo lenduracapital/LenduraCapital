@@ -744,6 +744,12 @@ Changelog:
   * Enhanced email system to create separate submissions instead of threaded conversations
   * Updated backend to capture and display complete contact information in professional email format
   * Added unique Lead IDs to email subjects preventing Gmail threading for better lead management
+- June 26, 2025. Chat widget loop prevention fix (COMPLETE):
+  * Fixed critical initialization loop causing repeated questions after user responses
+  * Corrected state management flow: welcome → first_name → phone_number → user_type
+  * Updated useEffect dependencies to prevent chat restart cycles
+  * Enhanced state transitions with proper step progression logic
+  * Chat widget now progresses smoothly through conversation without repetitive questioning
 ```
 
 ## User Preferences

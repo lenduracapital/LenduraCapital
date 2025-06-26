@@ -10,7 +10,7 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'initial' | 'first_name' | 'phone_number' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
+  step: 'welcome' | 'first_name' | 'phone_number' | 'user_type' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
   responses: {
     firstName?: string;
     phoneNumber?: string;
@@ -33,7 +33,7 @@ export default function ChatWidget() {
   const [isTyping, setIsTyping] = useState(false);
   const [textInput, setTextInput] = useState('');
   const [chatState, setChatState] = useState<ChatState>({
-    step: 'initial',
+    step: 'welcome',
     responses: {}
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -51,9 +51,9 @@ export default function ChatWidget() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Initialize chat with welcome message
+  // Initialize chat with welcome message only once
   useEffect(() => {
-    if (isOpen && messages.length === 0) {
+    if (isOpen && messages.length === 0 && chatState.step === 'welcome') {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -75,12 +75,12 @@ export default function ChatWidget() {
               timestamp: new Date()
             };
             setMessages(prev => [...prev, firstNameMessage]);
-            setChatState({ step: 'first_name', responses: {} });
+            setChatState(prevState => ({ ...prevState, step: 'first_name' }));
           }, 2000);
         }, 1500);
       }, 500);
     }
-  }, [isOpen, messages.length]);
+  }, [isOpen, chatState.step]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
     if (delay > 0) {
@@ -119,8 +119,10 @@ export default function ChatWidget() {
     } else if (chatState.step === 'phone_number') {
       newResponses.phoneNumber = text;
       addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
-      addMessage("What brings you to FundTek today?", 'bot', 4500);
-      setChatState({ step: 'initial', responses: newResponses });
+      setTimeout(() => {
+        addMessage("What brings you to FundTek today?", 'bot', 0);
+        setChatState({ step: 'user_type', responses: newResponses });
+      }, 4500);
     }
   };
 
@@ -129,7 +131,7 @@ export default function ChatWidget() {
     
     const newResponses = { ...chatState.responses, [responseKey]: selection };
     
-    if (chatState.step === 'initial') {
+    if (chatState.step === 'user_type') {
       if (selection.includes('financing')) {
         addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 2500);
         addMessage("How soon do you need the funding?", 'bot', 5500);
@@ -292,7 +294,7 @@ export default function ChatWidget() {
       case 'phone_number':
         return null;
         
-      case 'initial':
+      case 'user_type':
         return (
           <div className="flex flex-col gap-2 mt-3">
             <button
