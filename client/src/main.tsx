@@ -1,10 +1,13 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { performanceMonitor } from "./utils/performance-monitor";
 
-// Initialize performance monitoring
-performanceMonitor;
+// Initialize performance monitoring only in browser
+if (typeof window !== 'undefined') {
+  import("./utils/performance-monitor").then(({ performanceMonitor }) => {
+    // Performance monitor automatically initializes
+  });
+}
 
 // Service Worker registration handled by external script
 
