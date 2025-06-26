@@ -1,11 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import { X, MessageCircle, Bot, Send, Phone } from "lucide-react";
+import { X, MessageCircle, Bot, Send, Phone, Clock, MapPin } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface ChatMessage {
   id: string;
   text: string;
   sender: 'bot' | 'user';
   timestamp: Date;
+}
+
+interface UserBehavior {
+  timeOnPage: number;
+  scrollDepth: number;
+  pageViews: number;
+  returningUser: boolean;
+  currentPage: string;
+  timeOfDay: 'morning' | 'afternoon' | 'evening' | 'night';
+  deviceType: 'mobile' | 'desktop';
 }
 
 interface ChatState {
@@ -20,18 +31,48 @@ interface ChatState {
     revenue?: string;
     businessType?: string;
   };
+  userBehavior: UserBehavior;
 }
 
 export default function ChatWidget() {
+  const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(true); // Start fully expanded
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
+  const getInitialUserBehavior = (): UserBehavior => {
+    const hour = new Date().getHours();
+    const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : hour < 21 ? 'evening' : 'night';
+    const deviceType = window.innerWidth <= 768 ? 'mobile' : 'desktop';
+    const returningUser = localStorage.getItem('fundtek_returning_user') === 'true';
+    
+    return {
+      timeOnPage: 0,
+      scrollDepth: 0,
+      pageViews: parseInt(localStorage.getItem('fundtek_page_views') || '1'),
+      returningUser,
+      currentPage: location,
+      timeOfDay,
+      deviceType
+    };
+  };
+
   const [chatState, setChatState] = useState<ChatState>({
     step: 'initial',
-    responses: {}
+    responses: {},
+    userBehavior: getInitialUserBehavior()
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const startTime = useRef<number>(Date.now());
+
+  // Helper function to update chat state while preserving userBehavior
+  const updateChatState = (updates: Partial<Omit<ChatState, 'userBehavior'>>) => {
+    setChatState(prev => ({
+      ...prev,
+      ...updates,
+      userBehavior: prev.userBehavior
+    }));
+  };
 
   // Show widget after 4 seconds
   useEffect(() => {
@@ -95,11 +136,11 @@ export default function ChatWidget() {
       if (selection.includes('financing')) {
         addMessage("Great! Let me ask a few quick questions to match you with the right financing specialist.", 'bot', 1500);
         addMessage("How soon do you need the funding?", 'bot', 4000);
-        setChatState({ step: 'financing_timeline', responses: newResponses });
+        updateChatState({ step: 'financing_timeline', responses: newResponses });
       } else if (selection.includes('information')) {
         addMessage("Perfect! I'd be happy to help you learn about our services.", 'bot', 1500);
         addMessage("What specific information would you like to know about?", 'bot', 3500);
-        setChatState({ step: 'info_category', responses: newResponses });
+        updateChatState({ step: 'info_category', responses: newResponses });
       } else if (selection.includes('existing application')) {
         addMessage("I understand you have questions about your application. Let me connect you with the right specialist immediately.", 'bot', 1500);
         addMessage("A FundTek expert will call you within 1 hour to assist with your application. For immediate help, call us at (305) 307-4658.", 'bot', 4000);
@@ -130,7 +171,7 @@ export default function ChatWidget() {
       if (response) {
         addMessage(response, 'bot', 2000);
         addMessage("Would you like to explore specific financing options, or do you have other questions?", 'bot', 5000);
-        setChatState({ step: 'business_info', responses: newResponses });
+        updateChatState({ step: 'business_info', responses: newResponses });
       } else {
         addMessage("Let me connect you with a specialist who can provide detailed information about that topic.", 'bot', 2000);
         setChatState({ step: 'complete', responses: newResponses });

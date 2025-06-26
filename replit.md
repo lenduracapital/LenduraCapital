@@ -714,6 +714,12 @@ Changelog:
   * Significantly reduced testimonial carousel indicator dots to 2px (w-px h-px)
   * Centered navigation arrow vertically with testimonial content (top-1/2 transform)
   * Enhanced visual appeal with minimal footprint while maintaining functionality
+- June 26, 2025. Back-to-top button implementation (COMPLETE):
+  * Added smooth back-to-top button to homepage and qualified industries pages
+  * Positioned on bottom-left to avoid conflict with chat widget
+  * Compact design with signature blue (#85abe4) styling and subtle animations
+  * Appears after 300px scroll with smooth scroll-to-top functionality
+  * Small, discreet size (16x16px icon, reduced padding) for minimal visual impact
 ```
 
 ## User Preferences
