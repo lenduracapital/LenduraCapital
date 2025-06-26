@@ -122,7 +122,7 @@ export default function ChatWidget() {
       addMessage("Great! One more thing - what's your email address?", 'bot', 2000);
       setTimeout(() => {
         setChatState({ step: 'email', responses: newResponses });
-      }, 2500);
+      }, 2000);
     } else if (chatState.step === 'email') {
       const newResponses = { ...chatState.responses, email: text };
       addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
@@ -273,9 +273,9 @@ export default function ChatWidget() {
   const renderInput = () => {
     if (chatState.step === 'first_name' || chatState.step === 'phone_number' || chatState.step === 'email') {
       const placeholders = {
-        first_name: 'Enter your first name...',
-        phone_number: 'Enter your phone number...',
-        email: 'Enter your email address...'
+        'first_name': 'Enter your first name...',
+        'phone_number': 'Enter your phone number...',
+        'email': 'Enter your email address...'
       };
       
       return (
@@ -285,7 +285,12 @@ export default function ChatWidget() {
             value={textInput}
             onChange={(e) => setTextInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSubmitText()}
-            placeholder={placeholders[chatState.step] || 'Enter your response...'}
+            placeholder={
+              chatState.step === 'first_name' ? 'Enter your first name...' :
+              chatState.step === 'phone_number' ? 'Enter your phone number...' :
+              chatState.step === 'email' ? 'Enter your email address...' :
+              'Enter your response...'
+            }
             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             autoFocus
           />
