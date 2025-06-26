@@ -112,6 +112,9 @@ button, a, input, textarea, select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+:root {
   --bg-secondary: hsl(215, 28%, 17%);
   --bg-tertiary: hsl(215, 16%, 32%);
   --text-primary: hsl(210, 40%, 98%);
