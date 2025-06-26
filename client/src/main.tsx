@@ -1,10 +1,9 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { preloadCriticalImages, enableResourceHints } from "./utils/performance";
+import { initializeSpeedOptimizations } from "./utils/speedOptimizations";
 
-// Quick performance optimizations
-preloadCriticalImages();
-enableResourceHints();
+// Initialize our speed optimizations
+initializeSpeedOptimizations();
 
 createRoot(document.getElementById("root")!).render(<App />);
