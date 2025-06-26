@@ -7,12 +7,6 @@ async function startServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  // Add connection logging
-  app.use((req, res, next) => {
-    console.log(`🔗 New connection from: ${req.ip || req.connection.remoteAddress}`);
-    next();
-  });
-
   const server = await registerRoutes(app);
 
   const isProduction = process.env.NODE_ENV === "production";
@@ -25,10 +19,7 @@ async function startServer() {
 
   const PORT = 5000;
   server.listen(PORT, "0.0.0.0", () => {
-    log(`✅ Server bound to all interfaces on port ${PORT}`);
-    log(`✅ Replit Preview: https://8b193348-00a4-4833-9d07-3dcf3473f797-00-workspace.spock.replit.dev`);
-    log(`✅ Server address: ${JSON.stringify(server.address())}`);
-    log(`✅ Server listening: ${server.listening}`);
+    log(`serving on port ${PORT}`);
   });
 }
 
