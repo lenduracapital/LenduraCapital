@@ -225,16 +225,8 @@
 </head>
 <body>
   <div id="root"></div>
-  <script>
-    // Force direct content display if React fails
-    setTimeout(() => {
-      const root = document.getElementById('root');
-      if (!root || !root.innerHTML.trim()) {
-        window.location.href = '/fundtek-direct.html';
-      }
-    }, 3000);
-  </script>
-  <script type="module" src="/src/main-fallback.tsx"></script>
+
+  <script type="module" src="/src/main.tsx"></script>
   
   <!-- Service Worker Registration -->
   <script src="/js/service-worker-registration.js"></script>
