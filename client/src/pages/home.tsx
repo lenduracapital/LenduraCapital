@@ -9,6 +9,7 @@ import BusinessSolutionsSection from "@/components/business-solutions-section";
 import TrustSignalsSection from "@/components/trust-signals-section";
 import PremiumFinancingSection from "@/components/premium-financing-section";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
 import SkipNavigation from "@/components/skip-navigation";
 import Analytics from "@/components/analytics";
@@ -47,6 +48,7 @@ export default function Home() {
         <PremiumFinancingSection />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/back-to-top";
 
 const industries = [
   {
@@ -244,6 +245,7 @@ export default function QualifiedIndustries() {
       </section>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 }
