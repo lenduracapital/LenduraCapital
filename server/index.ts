@@ -1,149 +1,44 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import path from "path";
-import { 
-  configureProductionSecurity,
-  configureApiRateLimit,
-  configureProductionErrorHandler,
-  configureHealthMonitoring,
-  configureRobotsTxt,
-  addSecurityHeaders
-} from "./production-security";
 
-const app = express();
+async function startServer() {
+  const app = express();
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
 
-// Configure trust proxy for rate limiting
-app.set('trust proxy', 1);
-
-// Add compression middleware
-import compression from "compression";
-app.use(compression({
-  level: 6,
-  threshold: 1024
-}));
-
-// Completely permissive headers for Jotform debugging
-app.use((req, res, next) => {
-  // Remove any restrictive headers
-  res.removeHeader('X-Frame-Options');
-  res.removeHeader('Content-Security-Policy');
-  res.removeHeader('X-Content-Type-Options');
-  res.removeHeader('Cross-Origin-Embedder-Policy');
-  res.removeHeader('Cross-Origin-Opener-Policy');
-  
-  // Add permissive headers for Jotform
-  res.setHeader('X-Frame-Options', 'ALLOWALL');
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
-  res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
-  res.setHeader('Feature-Policy', 'fullscreen *; payment *');
-  
-  next();
-});
-
-// Enhanced rate limiting
-import rateLimit from "express-rate-limit";
-const formLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  message: "Too many form submissions, please try again later."
-});
-
-app.use('/api/contact', formLimiter);
-app.use('/api/loan-applications', formLimiter);
-
-// Configure health monitoring
-configureHealthMonitoring(app);
-
-// Configure SEO robots.txt
-configureRobotsTxt(app);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Serve attached assets directory
-app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
-
-// Serve public directory for static assets (CSS, JS, images)
-app.use(express.static(path.join(process.cwd(), 'public'), {
-  setHeaders: (res, path) => {
-    if (path.endsWith('.js')) {
-      res.setHeader('Content-Type', 'application/javascript');
-    }
-  }
-}));
-
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
-      log(logLine);
-    }
+  // Add basic headers
+  app.use((req, res, next) => {
+    res.header('X-Frame-Options', 'ALLOWALL');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
   });
 
-  next();
-});
+  const server = await registerRoutes(app);
 
-(async () => {
-  await registerRoutes(app);
+  const isProduction = process.env.NODE_ENV === "production";
 
-  // Configure production error handler
-  configureProductionErrorHandler(app);
-
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
-    const { createServer } = await import("http");
-    const server = createServer(app);
-    await setupVite(app, server);
-    
-    // ALWAYS serve the app on port 5000
-    const port = parseInt(process.env.PORT || '5000');
-    
-    server.listen(port, '0.0.0.0', () => {
-      log(`serving on port ${port}`);
-      console.log(`✅ Server bound to all interfaces on port ${port}`);
-      console.log(`✅ Replit Preview: https://${process.env.REPLIT_DEV_DOMAIN}`);
-      
-      // Force immediate binding verification
-      setTimeout(() => {
-        console.log(`✅ Server address: ${JSON.stringify(server.address())}`);
-        console.log(`✅ Server listening: ${server.listening}`);
-      }, 100);
-    });
-    
-    server.on('connection', (socket) => {
-      console.log(`🔗 New connection from: ${socket.remoteAddress}:${socket.remotePort}`);
-    });
-  } else {
+  if (isProduction) {
     serveStatic(app);
-    
-    const port = parseInt(process.env.PORT || '5000');
-    app.listen(port, '0.0.0.0', () => {
-      log(`serving on 0.0.0.0:${port}`);
-      console.log(`✅ Production server running on port ${port}`);
-    });
+  } else {
+    await setupVite(app, server);
   }
-})();
+
+  const PORT = 5000;
+  server.listen(PORT, "0.0.0.0", () => {
+    log(`serving on port ${PORT}`);
+    console.log(`✅ Server bound to all interfaces on port ${PORT}`);
+    console.log(`✅ Replit Preview: https://${process.env.REPL_ID}-00-${process.env.REPL_SLUG}.${process.env.REPLIT_CLUSTER}.replit.dev`);
+    console.log(`✅ Server address: ${JSON.stringify(server.address())}`);
+    console.log(`✅ Server listening: ${server.listening}`);
+  });
+
+  // Log new connections for debugging
+  server.on('connection', (socket) => {
+    console.log(`🔗 New connection from: ${socket.remoteAddress}:${socket.remotePort}`);
+  });
+}
+
+startServer().catch(console.error);
