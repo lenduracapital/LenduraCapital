@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
 import ChatWidget from "@/components/chat-widget";
+import CookieBanner from "@/components/CookieBanner";
 
 
 // Lazy load non-critical pages for code splitting
@@ -140,6 +141,7 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Router />
           <ChatWidget />
+          <CookieBanner />
           <Toaster />
         </Suspense>
       </TooltipProvider>
