@@ -1,8 +1,8 @@
-import { Database } from 'sqlite3';
+import sqlite3 from 'sqlite3';
 import { Request, Response } from 'express';
 
 // SQLite database for analytics (invisible to users)
-const db = new Database('analytics.db');
+const db = new sqlite3.Database('analytics.db');
 
 // Promisified database methods
 const dbRun = (sql: string, params: any[] = []): Promise<void> => {

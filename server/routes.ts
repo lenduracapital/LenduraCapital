@@ -3,6 +3,14 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import sgMail from '@sendgrid/mail';
+import { configureCompression } from "./compression-middleware";
+import { 
+  initializeAnalytics, 
+  startSession, 
+  endSession, 
+  logEvent, 
+  getAnalyticsDashboard 
+} from "./performance-monitoring";
 
 // Initialize SendGrid
 if (process.env.SENDGRID_API_KEY) {
@@ -10,6 +18,12 @@ if (process.env.SENDGRID_API_KEY) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  
+  // Initialize invisible performance monitoring
+  await initializeAnalytics();
+  
+  // Configure invisible compression optimization
+  configureCompression(app);
   
   // FORCE remove ALL security headers in development for Replit preview
   if (process.env.NODE_ENV === 'development') {
@@ -277,6 +291,29 @@ Allow: /`;
     res.setHeader('Content-Type', 'text/plain');
     res.send(robotsTxt);
   });
+
+  // Invisible analytics endpoints (no visual impact)
+  app.post('/api/analytics/session/start', startSession);
+  app.post('/api/analytics/session/end', endSession);
+  app.post('/api/analytics/event', logEvent);
+  
+  // Batch event endpoint for efficient tracking
+  app.post('/api/analytics/batch', async (req, res) => {
+    try {
+      const { events } = req.body;
+      if (Array.isArray(events)) {
+        for (const event of events) {
+          await logEvent({ body: event } as any, res);
+        }
+      }
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: 'Batch processing failed' });
+    }
+  });
+  
+  // Admin dashboard (protected endpoint)
+  app.get('/admin/analytics', getAnalyticsDashboard);
 
   const httpServer = createServer(app);
 
