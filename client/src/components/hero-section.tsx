@@ -71,8 +71,7 @@ export default function HeroSection() {
           loop 
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          preload="metadata"
-
+          preload="none"
           onLoadStart={() => {}}
           onCanPlayThrough={() => {}}
           aria-label="FundTek Capital Group business financing solutions showcase"

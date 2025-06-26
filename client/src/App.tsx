@@ -9,9 +9,9 @@ import ChatWidget from "@/components/chat-widget";
 import CookieBanner from "@/components/CookieBanner";
 
 
-// Lazy load non-critical pages for code splitting
-const Solutions = lazy(() => import("@/pages/solutions"));
-const QualifiedIndustries = lazy(() => import("@/pages/who-we-fund"));
+// Lazy load non-critical pages for code splitting with prefetch
+const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
+const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
 const MerchantCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
 const TermLoans = lazy(() => import("@/pages/term-loans"));
 const LoanApplication = lazy(() => import("@/pages/loan-application"));
