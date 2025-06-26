@@ -11,6 +11,7 @@ import {
   logEvent, 
   getAnalyticsDashboard 
 } from "./performance-monitoring";
+import { configureProductionPerformance, scheduleMaintenanceTasks } from "./production-performance";
 
 // Initialize SendGrid
 if (process.env.SENDGRID_API_KEY) {
@@ -24,6 +25,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Configure invisible compression optimization
   configureCompression(app);
+  
+  // Configure production performance and security (invisible)
+  if (process.env.NODE_ENV === 'production') {
+    configureProductionPerformance(app);
+    scheduleMaintenanceTasks();
+  }
   
   // FORCE remove ALL security headers in development for Replit preview
   if (process.env.NODE_ENV === 'development') {
