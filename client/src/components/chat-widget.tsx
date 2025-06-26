@@ -10,10 +10,11 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'welcome' | 'first_name' | 'phone_number' | 'user_type' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
+  step: 'welcome' | 'first_name' | 'phone_number' | 'email' | 'user_type' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
   responses: {
     firstName?: string;
     phoneNumber?: string;
+    email?: string;
     userType?: string;
     timeline?: string;
     infoCategory?: string;
@@ -118,6 +119,12 @@ export default function ChatWidget() {
       }, 4000);
     } else if (chatState.step === 'phone_number') {
       const newResponses = { ...chatState.responses, phoneNumber: text };
+      addMessage("Great! One more thing - what's your email address?", 'bot', 2000);
+      setTimeout(() => {
+        setChatState({ step: 'email', responses: newResponses });
+      }, 2500);
+    } else if (chatState.step === 'email') {
+      const newResponses = { ...chatState.responses, email: text };
       addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
       setTimeout(() => {
         addMessage("What brings you to FundTek today?", 'bot');
@@ -237,6 +244,7 @@ export default function ChatWidget() {
           timestamp: new Date().toISOString(),
           firstName: responses.firstName,
           phoneNumber: responses.phoneNumber,
+          email: responses.email,
           userType: responses.userType,
           timeline: responses.timeline,
           product: responses.product,
@@ -263,15 +271,21 @@ export default function ChatWidget() {
   };
 
   const renderInput = () => {
-    if (chatState.step === 'first_name' || chatState.step === 'phone_number') {
+    if (chatState.step === 'first_name' || chatState.step === 'phone_number' || chatState.step === 'email') {
+      const placeholders = {
+        first_name: 'Enter your first name...',
+        phone_number: 'Enter your phone number...',
+        email: 'Enter your email address...'
+      };
+      
       return (
         <div className="flex gap-2 mt-3">
           <input
-            type="text"
+            type={chatState.step === 'email' ? 'email' : 'text'}
             value={textInput}
             onChange={(e) => setTextInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSubmitText()}
-            placeholder={chatState.step === 'first_name' ? 'Enter your first name...' : 'Enter your phone number...'}
+            placeholder={placeholders[chatState.step] || 'Enter your response...'}
             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             autoFocus
           />
@@ -292,6 +306,7 @@ export default function ChatWidget() {
     switch (chatState.step) {
       case 'first_name':
       case 'phone_number':
+      case 'email':
         return null;
         
       case 'user_type':

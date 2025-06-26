@@ -750,6 +750,13 @@ Changelog:
   * Updated useEffect dependencies to prevent chat restart cycles
   * Enhanced state transitions with proper step progression logic
   * Chat widget now progresses smoothly through conversation without repetitive questioning
+- June 26, 2025. Chat widget email collection enhancement (COMPLETE):
+  * Added email address collection step after phone number in conversation flow
+  * Updated chat state interface to include email field with proper TypeScript types
+  * Enhanced conversation flow: welcome → first_name → phone_number → email → user_type
+  * Updated backend email templates to include email address with color-coded display
+  * Improved input validation with email type for proper mobile keyboard display
+  * All contact information (name, phone, email) now properly collected and displayed in professional emails
 ```
 
 ## User Preferences

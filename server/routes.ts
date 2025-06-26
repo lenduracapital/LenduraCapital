@@ -114,7 +114,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Chat widget submissions endpoint
   app.post("/api/chat-submissions", async (req, res) => {
     try {
-      const { timestamp, firstName, phoneNumber, userType, timeline, product, revenue, source } = req.body;
+      const { timestamp, firstName, phoneNumber, email, userType, timeline, product, revenue, source } = req.body;
       
       // Handle undefined values with fallbacks
       const formatValue = (value: any) => value && value !== 'undefined' ? value : 'Not provided';
@@ -130,6 +130,7 @@ Source: ${formatValue(source)}
 Customer Information:
 - First Name: ${formatValue(firstName)}
 - Phone Number: ${formatValue(phoneNumber)}
+- Email Address: ${formatValue(email)}
 - User Type: ${formatValue(userType)}
 - Funding Timeline: ${formatValue(timeline)}
 - Product Interest: ${formatValue(product)}
@@ -220,6 +221,13 @@ This message was automatically generated from the FundTek Capital Group website 
                           <span style="color: #64748b; font-weight: 500;">Phone Number</span>
                           <span style="color: #0f172a; font-weight: 600; background: #ecfccb; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
                             ${formatValue(phoneNumber)}
+                          </span>
+                        </div>
+                        
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Email Address</span>
+                          <span style="color: #0f172a; font-weight: 600; background: #fce7f3; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                            ${formatValue(email)}
                           </span>
                         </div>
                         
