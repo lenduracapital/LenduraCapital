@@ -13,7 +13,6 @@ import SEOHead from "@/components/seo-head";
 import SkipNavigation from "@/components/skip-navigation";
 import Analytics from "@/components/analytics";
 import ConversionTracking from "@/components/conversion-tracking";
-import PerformanceMonitor from "@/components/performance-monitor";
 import EnhancedSchema from "@/components/enhanced-schema";
 
 export default function Home() {
@@ -32,7 +31,7 @@ export default function Home() {
         eventType="page_view" 
         eventData={{ page_title: "FundTek Capital Group - Business Funding Solutions" }} 
       />
-      <PerformanceMonitor />
+
 
       <Header transparent={true} />
       <main id="main-content">
