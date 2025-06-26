@@ -109,18 +109,18 @@ export default function ChatWidget() {
   const handleTextInput = (text: string) => {
     addMessage(text, 'user');
     
-    const newResponses = { ...chatState.responses };
-    
     if (chatState.step === 'first_name') {
-      newResponses.firstName = text;
+      const newResponses = { ...chatState.responses, firstName: text };
       addMessage(`Nice to meet you, ${text}! 👋`, 'bot', 2000);
-      addMessage("What's your phone number?", 'bot', 4000);
-      setChatState({ step: 'phone_number', responses: newResponses });
+      setTimeout(() => {
+        addMessage("What's your phone number?", 'bot');
+        setChatState({ step: 'phone_number', responses: newResponses });
+      }, 4000);
     } else if (chatState.step === 'phone_number') {
-      newResponses.phoneNumber = text;
+      const newResponses = { ...chatState.responses, phoneNumber: text };
       addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
       setTimeout(() => {
-        addMessage("What brings you to FundTek today?", 'bot', 0);
+        addMessage("What brings you to FundTek today?", 'bot');
         setChatState({ step: 'user_type', responses: newResponses });
       }, 4500);
     }
