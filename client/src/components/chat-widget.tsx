@@ -175,7 +175,7 @@ export default function ChatWidget() {
       if (response) {
         addMessage(response, 'bot', 2000);
         addMessage("Would you like to explore specific financing options, or do you have other questions?", 'bot', 5000);
-        updateChatState({ step: 'business_info', responses: newResponses });
+        setChatState({ step: 'business_info', responses: newResponses });
       } else {
         addMessage("Let me connect you with a specialist who can provide detailed information about that topic.", 'bot', 2000);
         setChatState({ step: 'complete', responses: newResponses });
