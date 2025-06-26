@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
-
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
@@ -11,79 +10,30 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setLocation] = useLocation();
 
-
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
-  // Detect optimal video quality based on viewport and connection
-  useEffect(() => {
-    const getOptimalQuality = () => {
-      const width = window.innerWidth;
-      const connection = (navigator as any).connection;
-      
-      if (width <= 768 || (connection && connection.effectiveType === '3g')) {
-        return '480p';
-      }
-      return '720p';
-    };
 
-    setVideoQuality(getOptimalQuality());
-    
-    const handleResize = () => setVideoQuality(getOptimalQuality());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    // Enhanced intersection observer with performance optimization
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-          // Delay video loading slightly to prioritize critical content
-          const timer = setTimeout(() => {
-            setVideoLoaded(true);
-          }, 150);
-          observer.disconnect();
-          return () => clearTimeout(timer);
-        }
-      },
-      { threshold: 0.1, rootMargin: "100px" }
-    );
-
-    const heroElement = document.querySelector('.hero-section');
-    if (heroElement) {
-      observer.observe(heroElement);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section className="hero-section relative h-screen overflow-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
       {/* Background Video */}
-      {videoLoaded ? (
-        <video 
-          ref={videoRef}
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          preload="none"
-          onLoadedData={() => setVideoLoaded(true)}
-          onError={() => setVideoLoaded(false)}
-          aria-label="FundTek Capital Group business financing solutions showcase"
-        >
-          <source src={videoPath} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-gray-900" />
-      )}
-      
-
+      <video 
+        ref={videoRef}
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        preload="metadata"
+        onLoadedData={() => setVideoLoaded(true)}
+        onError={() => setVideoLoaded(false)}
+        aria-label="FundTek Capital Group business financing solutions showcase"
+      >
+        <source src={videoPath} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
