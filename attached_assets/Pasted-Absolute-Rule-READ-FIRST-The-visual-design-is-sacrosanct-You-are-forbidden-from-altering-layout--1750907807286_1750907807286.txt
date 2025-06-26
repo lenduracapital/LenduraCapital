@@ -1,0 +1,77 @@
+Absolute Rule – READ FIRST
+The visual design is sacrosanct. You are forbidden from altering layout, typography, colours, spacing, imagery, or motion. Any change that causes a pixel to shift is a hard failure. All optimisations must be invisible to the user.
+
+⸻
+
+1  Baseline Audit
+	1.	Run Lighthouse in Mobile and Desktop; record LCP, FID (INP), CLS, TTI.
+	2.	Capture a DevTools Network filmstrip to identify render-blocking files and slow first byte.
+	3.	Itemise current JS/CSS bundle sizes and any uncompressed assets.
+
+2  Image Optimisation (No visual change)
+	1.	Convert every JPEG/PNG to WebP and AVIF using lossless settings.
+	2.	Supply responsive srcset widths (480 px → 1920 px).
+	3.	Apply loading="lazy" to images except the hero video poster or above-the-fold graphics.
+
+3  CSS / JS Performance
+	1.	Tree-shake and bundle JS with Rollup/Webpack; split critical vs deferred chunks.
+	2.	Inline ≤ 5 KB “critical CSS” in <head>; defer all remaining stylesheets.
+	3.	Add defer to non-essential <script> tags and async to third-party widgets.
+	4.	Self-host fonts, preload first font, set font-display: swap.
+
+4  Compression & Caching
+	1.	Enable Brotli (fallback: GZIP) on the Replit server.
+	2.	Serve static assets with Cache-Control: public, max-age=31536000, immutable.
+	3.	Front the project with Cloudflare (or BunnyCDN) for global edge delivery.
+
+5  Connection & Priority Hints
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" href="/fonts/MyFont.woff2" type="font/woff2" crossorigin>
+
+Add fetchpriority="high" on the hero poster image; enable HTTP / 2 Early Hints in the CDN.
+
+6  Analytics Backend (Replit) – Invisible to users
+	1.	Use SQLite or Replit-DB – two tables:
+
+sessions(session_id TEXT PK, start_ts INT, end_ts INT, entry_page TEXT, exit_page TEXT);
+events(id INT PK AUTOINCR, session_id TEXT, page_path TEXT, event_type TEXT,
+       element_id TEXT, ts INT);
+
+2.	Build Node.js (or Flask) endpoints:
+	•	POST /api/session/start, /session/end, /event.
+	3.	Inject a 2 KB client script: creates session_id, logs page start/end, batches click events from [data-track-id] every 5 s, all with keepalive fetch; must not block render.
+
+7  Service-Worker & Repeat-Visit Speed
+
+Generate a Workbox SW that precaches JS/CSS/fonts; exclude the main video. Provide offline fallback for static pages.
+
+8  Security & SEO Hardening
+	•	Add CSP, HSTS, X-Frame-Options, Referrer-Policy headers.
+	•	Embed JSON-LD schema for business + services.
+	•	Regenerate sitemap.xml and ping Search Console.
+
+9  QA & Monitoring
+	1.	Test on real iOS/Android devices + Slow 3G throttling; target < 1 s FCP.
+	2.	Re-run Lighthouse – Performance ≥ 95, CLS < 0.1.
+	3.	Hook Sentry for JS errors; UptimeRobot for / and /admin.
+	4.	Schedule weekly SQLite VACUUM.
+
+10  Real-User Monitoring (Bonus) – still design-safe
+
+Send LCP, FID, CLS from performance.getEntriesByType('navigation')[0] in the first analytics payload for live Core Web Vitals tracking.
+
+⸻
+
+Delivery Checklist (must be ticked before hand-off)
+	•	No CSS/HTML visual diff when overlaying before/after screenshots.
+	•	Lighthouse mobile score ≥ 95.
+	•	/admin dashboard shows sessions, avg. dwell, top clicks.
+	•	Service-worker cached assets verified via DevTools → Application → Service Workers.
+	•	Security headers pass observatory.mozilla.org scan.
+
+Follow the steps exactly; break the forbidden design rule and the deployment is rejected.
+
+
+DISCLAIMER: If anything, a page, form, layout, design, hidden pages god forbid break. 
+You are to stop the prompt. Diagnose the issue, and fix it. Find any unused and useless files and delete.  
