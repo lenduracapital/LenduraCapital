@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FundTek Capital Group - Business Funding Solutions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: rgba(0,0,0,0.9); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #85abe4; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #85abe4; }
+        
+        /* Hero Section */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f0f8ff" width="1200" height="800"/><text x="50%" y="50%" text-anchor="middle" fill="%23666" font-size="24" font-family="Arial">Video Background Placeholder</text></svg>'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
+        .btn { background: #85abe4; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.3s; }
+        .btn:hover { background: #6b8bc3; }
+        
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section:nth-child(even) { background: #f8f9fa; }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #333; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .card h3 { color: #85abe4; margin-bottom: 1rem; }
+        
+        /* Stats */
+        .stats { background: #85abe4; color: white; padding: 60px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat h3 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .stat p { font-size: 1.2rem; }
+        
+        /* Footer */
+        footer { background: #333; color: white; padding: 40px 0; text-align: center; }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">FundTek Capital Group</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="https://form.jotform.com/251417715331047" target="_blank">Apply Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Flexible Financing for Every Industry</h1>
+            <p>Get working capital in 24 hours with competitive rates</p>
+            <a href="https://form.jotform.com/251417715331047" target="_blank" class="btn">Get Approved Today</a>
+        </div>
+    </section>
+
+    <section id="solutions" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Financing Solutions</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Term Loans</h3>
+                    <p>Traditional fixed-rate business loans with predictable monthly payments.</p>
+                </div>
+                <div class="card">
+                    <h3>Lines of Credit</h3>
+                    <p>Flexible access to capital when you need it most.</p>
+                </div>
+                <div class="card">
+                    <h3>SBA Loans</h3>
+                    <p>Government-backed loans with competitive rates and terms.</p>
+                </div>
+                <div class="card">
+                    <h3>Equipment Financing</h3>
+                    <p>Finance the equipment your business needs to grow.</p>
+                </div>
+                <div class="card">
+                    <h3>Merchant Cash Advance</h3>
+                    <p>Quick access to capital based on future sales.</p>
+                </div>
+                <div class="card">
+                    <h3>Invoice Factoring</h3>
+                    <p>Convert outstanding invoices into immediate cash.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Expert Specialists</p>
+                </div>
+                <div class="stat">
+                    <h3>12</h3>
+                    <p>Financing Solutions</p>
+                </div>
+                <div class="stat">
+                    <h3>$20M</h3>
+                    <p>Maximum Funding</p>
+                </div>
+                <div class="stat">
+                    <h3>24 hrs</h3>
+                    <p>Average Approval</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Why Choose FundTek Capital Group?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Fast Approval</h3>
+                    <p>Get approved in as little as 24 hours with our streamlined process.</p>
+                </div>
+                <div class="card">
+                    <h3>Flexible Terms</h3>
+                    <p>Customized financing solutions tailored to your business needs.</p>
+                </div>
+                <div class="card">
+                    <h3>Expert Support</h3>
+                    <p>Dedicated specialists to guide you through every step.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get Working Capital Today</h2>
+            <div style="text-align: center;">
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">Ready to accelerate your business growth?</p>
+                <a href="https://form.jotform.com/251417715331047" target="_blank" class="btn" style="margin-right: 1rem;">Apply Online</a>
+                <a href="tel:+13053074658" class="btn">Call (305) 307-4658</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FundTek Capital Group. All rights reserved.</p>
+            <p>Fast, flexible business funding solutions for growing businesses.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0,0,0,0.95)';
+            } else {
+                header.style.background = 'rgba(0,0,0,0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
