@@ -149,32 +149,112 @@ This message was automatically generated from the FundTek Capital Group website 
             subject: 'New Chat Widget Lead - FundTek Capital Group',
             text: emailContent,
             html: `
-              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-                <h2 style="color: #1E88E5; border-bottom: 2px solid #1E88E5; padding-bottom: 10px;">
-                  New Chat Widget Submission - FundTek Capital Group
-                </h2>
-                
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                  <p><strong>Timestamp:</strong> ${formattedTimestamp}</p>
-                  <p><strong>Source:</strong> ${formatValue(source)}</p>
+              <!DOCTYPE html>
+              <html>
+              <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>New Lead - FundTek Capital Group</title>
+              </head>
+              <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f5f5;">
+                <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden;">
+                  
+                  <!-- Header with FundTek branding -->
+                  <div style="background: linear-gradient(135deg, #85abe4 0%, #6b9bd8 100%); padding: 30px 40px; text-align: center;">
+                    <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
+                      🎯 New Lead Alert
+                    </h1>
+                    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px;">
+                      FundTek Capital Group
+                    </p>
+                  </div>
+
+                  <!-- Lead details -->
+                  <div style="padding: 40px;">
+                    <!-- Timestamp and source -->
+                    <div style="background: #f8fafc; border-radius: 8px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #85abe4;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                          <p style="margin: 0; color: #64748b; font-size: 14px; font-weight: 500;">RECEIVED</p>
+                          <p style="margin: 5px 0 0 0; color: #0f172a; font-size: 16px; font-weight: 600;">${formattedTimestamp}</p>
+                        </div>
+                        <div style="background: #85abe4; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+                          ${formatValue(source)}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Customer information -->
+                    <h2 style="color: #1e293b; margin: 0 0 20px 0; font-size: 20px; font-weight: 600;">
+                      Lead Information
+                    </h2>
+                    
+                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden;">
+                      <div style="background: #f1f5f9; padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                        <h3 style="margin: 0; color: #475569; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                          Customer Details
+                        </h3>
+                      </div>
+                      
+                      <div style="padding: 0;">
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Inquiry Type</span>
+                          <span style="color: #0f172a; font-weight: 600; background: #dbeafe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                            ${formatValue(userType)}
+                          </span>
+                        </div>
+                        
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Funding Timeline</span>
+                          <span style="color: #0f172a; font-weight: 600;">
+                            ${formatValue(timeline)}
+                          </span>
+                        </div>
+                        
+                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Product Interest</span>
+                          <span style="color: #0f172a; font-weight: 600;">
+                            ${formatValue(product)}
+                          </span>
+                        </div>
+                        
+                        <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
+                          <span style="color: #64748b; font-weight: 500;">Monthly Revenue</span>
+                          <span style="color: #0f172a; font-weight: 600; background: #dcfce7; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                            ${formatValue(revenue)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Call to action -->
+                    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 10px; padding: 25px; margin-top: 30px; border: 1px solid #bae6fd;">
+                      <div style="text-align: center;">
+                        <h3 style="color: #0c4a6e; margin: 0 0 10px 0; font-size: 18px; font-weight: 600;">
+                          🚀 Action Required
+                        </h3>
+                        <p style="color: #075985; margin: 0 0 20px 0; font-size: 15px; line-height: 1.5;">
+                          This lead is ready for immediate follow-up. High conversion potential based on their specific requirements.
+                        </p>
+                        <div style="display: inline-block; background: #85abe4; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;">
+                          📞 Contact Within 1 Hour
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                      <p style="color: #94a3b8; font-size: 13px; margin: 0;">
+                        Automatically generated by FundTek Capital Group website chat system
+                      </p>
+                      <p style="color: #cbd5e1; font-size: 12px; margin: 8px 0 0 0;">
+                        ${formattedTimestamp} • Lead ID: ${Date.now().toString().slice(-6)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-
-                <h3 style="color: #333;">Customer Information:</h3>
-                <ul style="line-height: 1.6;">
-                  <li><strong>User Type:</strong> ${formatValue(userType)}</li>
-                  <li><strong>Funding Timeline:</strong> ${formatValue(timeline)}</li>
-                  <li><strong>Product Interest:</strong> ${formatValue(product)}</li>
-                  <li><strong>Monthly Revenue Range:</strong> ${formatValue(revenue)}</li>
-                </ul>
-
-                <div style="background: #e3f2fd; border-left: 4px solid #1E88E5; padding: 15px; margin: 20px 0;">
-                  <p style="margin: 0; font-weight: bold;">Please follow up with this potential client promptly.</p>
-                </div>
-
-                <p style="color: #666; font-size: 12px; margin-top: 30px;">
-                  This message was automatically generated from the FundTek Capital Group website chat widget.
-                </p>
-              </div>
+              </body>
+              </html>
             `
           };
 
