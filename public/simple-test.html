@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+</head>
+<body>
+    <h1 style="color: #85abe4; font-size: 32px; margin: 20px;">FundTek Capital Group - Test Page</h1>
+    <p style="margin: 20px; font-size: 18px;">If you can see this, the server is working correctly.</p>
+    <button onclick="alert('JavaScript is working!')" style="background: #85abe4; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin: 20px; font-size: 16px;">Test Button</button>
+    
+    <div id="react-test" style="margin: 20px; padding: 20px; border: 2px solid #85abe4; border-radius: 8px;">
+        <h3>React Loading Test...</h3>
+        <p>Checking if React can mount...</p>
+    </div>
+
+    <script>
+        console.log("Basic JavaScript is working");
+        
+        // Test if we can access the React script
+        const reactTest = document.getElementById('react-test');
+        
+        // Simple React mount test
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.textContent = `
+            import { createRoot } from "/node_modules/react-dom/client.js";
+            
+            const TestComponent = () => {
+                return React.createElement('div', null, 
+                    React.createElement('h3', {style: {color: 'green'}}, 'React is working!'),
+                    React.createElement('p', null, 'Successfully mounted React component')
+                );
+            };
+            
+            try {
+                const root = createRoot(document.getElementById('react-test'));
+                root.render(React.createElement(TestComponent));
+            } catch (error) {
+                document.getElementById('react-test').innerHTML = '<h3 style="color: red;">React Error: ' + error.message + '</h3>';
+                console.error('React mount error:', error);
+            }
+        `;
+        
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>

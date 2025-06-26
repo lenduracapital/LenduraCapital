@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import App from "./App-minimal";
+import App from "./App-ultra-minimal";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
