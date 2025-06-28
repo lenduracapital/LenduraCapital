@@ -7,8 +7,44 @@ import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_17501762502
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Enhanced mobile autoplay handling
+    if (videoRef.current && isMobile) {
+      const video = videoRef.current;
+      
+      // Try to play immediately
+      const playPromise = video.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Add touch/click handler to start video on first interaction
+          const startVideoOnTouch = () => {
+            video.play().catch(console.error);
+            document.removeEventListener('touchstart', startVideoOnTouch);
+            document.removeEventListener('click', startVideoOnTouch);
+          };
+          
+          document.addEventListener('touchstart', startVideoOnTouch, { once: true });
+          document.addEventListener('click', startVideoOnTouch, { once: true });
+        });
+      }
+    }
+  }, [isMobile, videoLoaded]);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -25,11 +61,20 @@ export default function HeroSection() {
         muted 
         loop 
         playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="true"
         className="absolute inset-0 w-full h-full object-cover"
         preload="metadata"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
         aria-label="FundTek Capital Group business financing solutions showcase"
+        style={{ 
+          objectFit: 'cover',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)'
+        }}
       >
         <source src={videoPath} type="video/mp4" />
         Your browser does not support the video tag.
