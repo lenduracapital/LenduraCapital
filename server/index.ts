@@ -1,4 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
+import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
@@ -16,11 +17,16 @@ const app = express();
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
 
-// Add compression middleware
-import compression from "compression";
+// Add high-performance compression middleware
 app.use(compression({
   level: 6,
-  threshold: 1024
+  threshold: 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  }
 }));
 
 // Completely permissive headers for Jotform debugging
