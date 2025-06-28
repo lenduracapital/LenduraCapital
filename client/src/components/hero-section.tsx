@@ -115,7 +115,8 @@ export default function HeroSection() {
           objectFit: 'cover',
           WebkitTransform: 'translateZ(0)',
           transform: 'translateZ(0)',
-          zIndex: videoLoaded ? 1 : 0
+          zIndex: videoLoaded ? 1 : 0,
+          pointerEvents: 'none'
         }}
       >
         <source src={videoPath} type="video/mp4" />
