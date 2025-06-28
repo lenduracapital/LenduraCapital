@@ -42,41 +42,35 @@ export default function CookieBanner() {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
       }`}
     >
-      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white shadow-2xl border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3 flex-1">
-              <div className="flex-shrink-0 p-2 rounded-full bg-white/10 backdrop-blur-sm">
-                <Cookie className="w-5 h-5 text-white" />
-              </div>
-              <div className="text-center sm:text-left">
-                <p className="text-white font-medium text-sm leading-relaxed">
-                  We use cookies to enhance your browsing experience and provide personalized content.
-                </p>
-                <p className="text-gray-300 text-xs mt-1">
-                  By continuing to use our site, you accept our cookie policy.
-                </p>
-              </div>
+      <div className="bg-white/95 backdrop-blur-md text-gray-800 shadow-lg border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <div className="flex items-center gap-2 flex-1 min-w-0">
+              <Cookie className="w-4 h-4 text-[#85abe4] flex-shrink-0" />
+              <p className="text-gray-700 text-xs sm:text-sm font-medium truncate">
+                We use cookies for better experience.
+                <span className="hidden sm:inline"> By continuing, you accept our policy.</span>
+              </p>
             </div>
             
-            <div className="flex items-center gap-3 flex-shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
               <button
                 onClick={acceptCookies}
-                className="px-6 py-2.5 rounded-lg font-semibold text-sm text-white transition-all duration-200 transform hover:scale-105 hover:shadow-lg active:scale-95 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-md font-medium text-xs sm:text-sm text-white transition-all duration-200 hover:shadow-md active:scale-95"
                 style={{ 
-                  background: 'linear-gradient(135deg, #85abe4 0%, #6b9bd8 100%)',
-                  boxShadow: '0 4px 14px 0 rgba(133, 171, 228, 0.3)'
+                  backgroundColor: '#85abe4',
+                  minWidth: '60px'
                 }}
               >
-                Accept All
+                Accept
               </button>
               
               <button
                 onClick={dismissBanner}
-                className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200"
-                aria-label="Dismiss cookie banner"
+                className="p-1.5 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all duration-200"
+                aria-label="Dismiss"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>
