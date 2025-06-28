@@ -43,6 +43,22 @@ export default function HeroSection() {
       video.removeAttribute('controls');
       video.controls = false;
       
+      // Aggressive play button removal
+      const hidePlayButton = () => {
+        const playButtons = video.querySelectorAll('*');
+        playButtons.forEach(button => {
+          if (button instanceof HTMLElement) {
+            button.style.display = 'none';
+            button.style.visibility = 'hidden';
+            button.style.opacity = '0';
+          }
+        });
+      };
+      
+      // Hide play button repeatedly
+      hidePlayButton();
+      setInterval(hidePlayButton, 100);
+      
       // Optimize video loading
       video.load();
       
@@ -98,40 +114,52 @@ export default function HeroSection() {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Background Video with improved loading */}
-      <video 
-        ref={videoRef}
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        webkit-playsinline="true"
-        x5-playsinline="true"
-        x5-video-player-type="h5"
-        x5-video-player-fullscreen="false"
-        controls={false}
-        disablePictureInPicture
-        controlsList="nodownload nofullscreen noremoteplayback"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        preload="auto"
-        onLoadedData={() => setVideoLoaded(true)}
-        onError={() => setVideoLoaded(false)}
-        onCanPlay={() => setVideoLoaded(true)}
-        onContextMenu={(e) => e.preventDefault()}
-        aria-label="FundTek Capital Group business financing solutions showcase"
-        style={{ 
-          objectFit: 'cover',
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)',
-          zIndex: videoLoaded ? 1 : 0,
-          pointerEvents: 'none',
-          outline: 'none',
-          border: 'none'
-        }}
-      >
-        <source src={videoPath} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Background Video with play button blocking overlay */}
+      <div className="absolute inset-0 w-full h-full">
+        <video 
+          ref={videoRef}
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-player-fullscreen="false"
+          controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          preload="auto"
+          onLoadedData={() => setVideoLoaded(true)}
+          onError={() => setVideoLoaded(false)}
+          onCanPlay={() => setVideoLoaded(true)}
+          onContextMenu={(e) => e.preventDefault()}
+          aria-label="FundTek Capital Group business financing solutions showcase"
+          style={{ 
+            objectFit: 'cover',
+            WebkitTransform: 'translateZ(0)',
+            transform: 'translateZ(0)',
+            zIndex: 1,
+            pointerEvents: 'none',
+            outline: 'none',
+            border: 'none'
+          }}
+        >
+          <source src={videoPath} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Invisible overlay to block any play buttons */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            zIndex: 2,
+            pointerEvents: 'none',
+            background: 'transparent'
+          }}
+        />
+      </div>
 
       {/* Content on Left */}
       <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-16 md:pt-20">
