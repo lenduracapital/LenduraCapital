@@ -46,11 +46,14 @@ export default function HeroSection() {
       // Optimize video loading
       video.load();
       
-      // Try immediate playback
+      // Force immediate playback with aggressive retry
       const attemptPlay = () => {
+        video.muted = true; // Ensure muted for autoplay
         const playPromise = video.play();
         if (playPromise !== undefined) {
-          playPromise.catch(() => {
+          playPromise.then(() => {
+            setVideoLoaded(true);
+          }).catch(() => {
             // Fallback for autoplay restrictions
             const startVideoOnInteraction = () => {
               video.play().catch(console.error);
