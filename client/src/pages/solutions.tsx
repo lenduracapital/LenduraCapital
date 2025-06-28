@@ -190,7 +190,7 @@ export default function Solutions() {
     <div className="min-h-screen bg-white">
       <SEOHead
         title="12 Small Business Loan Options & Funding Solutions | Compare Rates"
-        description="Compare 12 business funding options: SBA loans, term loans, equipment financing, merchant cash advances, lines of credit & more. Fast approval, competitive rates. Bad credit OK. Miami lender serving nationwide."
+        description="Compare 12 business funding options: SBA loans, term loans, equipment financing, merchant cash advances, lines of credit & more. Fast approval, competitive rates. Bad credit OK. Nationwide lender serving all states."
         keywords="small business loans, business funding options, SBA loans, term loans, equipment financing, merchant cash advance, lines of credit, working capital loans, business loan comparison, commercial lending, business credit"
         canonical="/solutions"
       />

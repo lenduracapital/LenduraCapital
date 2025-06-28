@@ -21,9 +21,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEOHead 
-        title="Small Business Loans & Funding | Fast Approval in 24 Hours | Miami, FL"
-        description="Get business loans approved in 24 hours. SBA loans, term loans, equipment financing, working capital & merchant cash advances. Bad credit OK. Miami-based lender serving nationwide. Call (305) 307-4658."
-        keywords="small business loans, business funding, term loans, SBA loans, merchant cash advance, equipment financing, working capital loans, business credit, commercial lending, Miami business loans, bad credit business loans"
+        title="Small Business Loans & Funding | Fast Approval in 24 Hours | FundTek"
+        description="Get business loans approved in 24 hours. SBA loans, term loans, equipment financing, working capital & merchant cash advances. Bad credit OK. Nationwide lender serving all states. Call (305) 307-4658."
+        keywords="small business loans, business funding, term loans, SBA loans, merchant cash advance, equipment financing, working capital loans, business credit, commercial lending, nationwide business loans, bad credit business loans"
         canonical="/"
       />
       <EnhancedSchema type="homepage" />
