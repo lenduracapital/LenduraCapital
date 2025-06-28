@@ -39,11 +39,11 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 5 seconds to let video autoplay properly
+  // Show widget after 1 second
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 5000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 

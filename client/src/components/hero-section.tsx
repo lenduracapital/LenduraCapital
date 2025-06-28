@@ -10,13 +10,11 @@ import cityscapeImage from "@assets/image_1750955621069.png";
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
-    // Initialize performance optimizations
-    // Simple performance optimization without external dependencies
-    
     // Detect mobile device
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
@@ -24,8 +22,37 @@ export default function HeroSection() {
     
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+
+    // Start video on any user interaction
+    const startVideoOnInteraction = () => {
+      if (videoRef.current && !videoStarted) {
+        const video = videoRef.current;
+        video.muted = true;
+        video.play().then(() => {
+          setVideoStarted(true);
+          setVideoLoaded(true);
+        }).catch(() => {
+          // If autoplay fails, video will show play button until interaction
+        });
+      }
+    };
+
+    // Add listeners for any user interaction
+    const interactionEvents = ['click', 'touchstart', 'keydown', 'scroll'];
+    interactionEvents.forEach(event => {
+      document.addEventListener(event, startVideoOnInteraction, { once: true });
+    });
+
+    // Try immediate autoplay
+    setTimeout(startVideoOnInteraction, 100);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      interactionEvents.forEach(event => {
+        document.removeEventListener(event, startVideoOnInteraction);
+      });
+    };
+  }, [videoStarted]);
 
   useEffect(() => {
     // Enhanced autoplay with performance optimization
@@ -150,15 +177,23 @@ export default function HeroSection() {
           Your browser does not support the video tag.
         </video>
         
-        {/* Invisible overlay to block any play buttons */}
-        <div 
-          className="absolute inset-0 w-full h-full"
-          style={{
-            zIndex: 2,
-            pointerEvents: 'none',
-            background: 'transparent'
-          }}
-        />
+        {/* Click overlay to start video */}
+        {!videoStarted && (
+          <div 
+            className="absolute inset-0 w-full h-full cursor-pointer"
+            style={{
+              zIndex: 2,
+              background: 'transparent'
+            }}
+            onClick={() => {
+              if (videoRef.current) {
+                videoRef.current.play();
+                setVideoStarted(true);
+                setVideoLoaded(true);
+              }
+            }}
+          />
+        )}
       </div>
 
       {/* Content on Left */}
