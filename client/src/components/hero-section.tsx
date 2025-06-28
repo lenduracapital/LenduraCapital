@@ -35,9 +35,13 @@ export default function HeroSection() {
       // Apply safe video performance optimizations
       video.style.transform = 'translateZ(0)';
       video.style.willChange = 'transform, opacity';
-      video.preload = 'metadata';
+      video.preload = 'auto';
       video.setAttribute('webkit-playsinline', 'true');
       video.setAttribute('x5-playsinline', 'true');
+      
+      // Force remove any controls
+      video.removeAttribute('controls');
+      video.controls = false;
       
       // Optimize video loading
       video.load();
@@ -101,22 +105,25 @@ export default function HeroSection() {
         webkit-playsinline="true"
         x5-playsinline="true"
         x5-video-player-type="h5"
-        x5-video-player-fullscreen="true"
+        x5-video-player-fullscreen="false"
         controls={false}
         disablePictureInPicture
-        controlsList="nodownload nofullscreen noremoteplaybook noplaybackrate"
+        controlsList="nodownload nofullscreen noremoteplayback"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        preload="metadata"
+        preload="auto"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
         onCanPlay={() => setVideoLoaded(true)}
+        onContextMenu={(e) => e.preventDefault()}
         aria-label="FundTek Capital Group business financing solutions showcase"
         style={{ 
           objectFit: 'cover',
           WebkitTransform: 'translateZ(0)',
           transform: 'translateZ(0)',
           zIndex: videoLoaded ? 1 : 0,
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          outline: 'none',
+          border: 'none'
         }}
       >
         <source src={videoPath} type="video/mp4" />
