@@ -10,24 +10,15 @@ interface SchemaProps {
   };
 }
 
-function updateStructuredData(data: object) {
-  let script = document.querySelector('script[type="application/ld+json"][data-component="enhanced-schema"]');
-  if (!script) {
-    script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute('data-component', 'enhanced-schema');
-    document.head.appendChild(script);
-  }
-  script.textContent = JSON.stringify(data);
-}
+
 
 export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
   useEffect(() => {
     // Local updateStructuredData function
     const updateStructuredData = (data: object) => {
-      let script = document.querySelector('script[type="application/ld+json"][data-component="enhanced-schema"]');
+      let script = document.querySelector('script[type="application/ld+json"][data-component="enhanced-schema"]') as HTMLScriptElement;
       if (!script) {
-        script = document.createElement("script");
+        script = document.createElement("script") as HTMLScriptElement;
         script.type = "application/ld+json";
         script.setAttribute('data-component', 'enhanced-schema');
         document.head.appendChild(script);
@@ -140,11 +131,13 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
         updateStructuredData(schemaData);
         
         // Inject FAQ schema separately
-        const faqScript = document.createElement("script");
+        const faqScript = document.createElement("script") as HTMLScriptElement;
         faqScript.type = "application/ld+json";
         faqScript.setAttribute('data-component', 'enhanced-schema-faq');
         faqScript.textContent = JSON.stringify(faqSchema);
-        document.head.appendChild(faqScript);
+        if (!document.querySelector('script[data-component="enhanced-schema-faq"]')) {
+          document.head.appendChild(faqScript);
+        }
         
         break;
 
