@@ -24,28 +24,43 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    // Enhanced mobile autoplay handling
-    if (videoRef.current && isMobile) {
+    // Enhanced autoplay with performance optimization
+    if (videoRef.current) {
       const video = videoRef.current;
       
-      // Try to play immediately
-      const playPromise = video.play();
+      // Optimize video loading
+      video.load();
       
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Add touch/click handler to start video on first interaction
-          const startVideoOnTouch = () => {
-            video.play().catch(console.error);
-            document.removeEventListener('touchstart', startVideoOnTouch);
-            document.removeEventListener('click', startVideoOnTouch);
-          };
-          
-          document.addEventListener('touchstart', startVideoOnTouch, { once: true });
-          document.addEventListener('click', startVideoOnTouch, { once: true });
-        });
-      }
+      // Try immediate playback
+      const attemptPlay = () => {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Fallback for autoplay restrictions
+            const startVideoOnInteraction = () => {
+              video.play().catch(console.error);
+              document.removeEventListener('touchstart', startVideoOnInteraction);
+              document.removeEventListener('click', startVideoOnInteraction);
+              document.removeEventListener('keydown', startVideoOnInteraction);
+            };
+            
+            document.addEventListener('touchstart', startVideoOnInteraction, { once: true });
+            document.addEventListener('click', startVideoOnInteraction, { once: true });
+            document.addEventListener('keydown', startVideoOnInteraction, { once: true });
+          });
+        }
+      };
+
+      // Attempt play when metadata loads
+      video.addEventListener('loadedmetadata', attemptPlay);
+      video.addEventListener('canplay', attemptPlay);
+      
+      return () => {
+        video.removeEventListener('loadedmetadata', attemptPlay);
+        video.removeEventListener('canplay', attemptPlay);
+      };
     }
-  }, [isMobile, videoLoaded]);
+  }, []);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251417715331047", "_blank");
@@ -80,7 +95,7 @@ export default function HeroSection() {
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        preload="auto"
+        preload="metadata"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
         onCanPlay={() => setVideoLoaded(true)}

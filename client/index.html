@@ -26,9 +26,11 @@
   
   <!-- Critical CSS for faster rendering -->
   <style>
-    body{margin:0;font-family:Inter,system-ui,sans-serif}
-    .hero-section{height:100vh;position:relative;overflow:hidden}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f8f9fa}
+    .hero-section{height:100vh;position:relative;overflow:hidden;background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/attached_assets/image_1750955621069.png);background-size:cover;background-position:center}
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5)}
+    video{opacity:0;transition:opacity 1s ease-in-out}
+    video.loaded{opacity:1}
     @media (min-width:768px){.hero-title{font-size:4rem}}
     @media (min-width:1024px){.hero-title{font-size:5rem}}
   </style>
@@ -36,10 +38,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://form.jotform.com" />
   
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png" as="image">
-  <link rel="preload" href="/attached_assets/Video (FundTek) (3)_1749674184351.mp4" as="video" type="video/mp4">
-  <link rel="preload" href="/attached_assets/image_1750955621069.png" as="image">
+  <!-- Preload critical assets with priority -->
+  <link rel="preload" href="/attached_assets/image_1750955621069.png" as="image" fetchpriority="high">
+  <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png" as="image" fetchpriority="high">
+  <link rel="preload" href="/attached_assets/Video (FundTek) (3)_1749674184351.mp4" as="video" type="video/mp4" fetchpriority="low">
   <link rel="modulepreload" href="/src/main.tsx">
   <link rel="dns-prefetch" href="https://images.unsplash.com" />
   
