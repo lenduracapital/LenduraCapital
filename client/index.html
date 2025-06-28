@@ -119,12 +119,25 @@
   </style>
   
   <!-- Favicon - Consistent circular logo across all devices -->
-  <link rel="icon" type="image/svg+xml" href="/favicon-new.svg?v=20" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=20" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-new.svg?v=20" />
+  <link rel="icon" type="image/svg+xml" href="/fundtek-icon.svg?v=1751154400" sizes="any" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1751154400" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/fundtek-icon.svg?v=1751154400" />
+  <link rel="shortcut icon" href="/fundtek-icon.svg?v=1751154400" />
   <link rel="manifest" href="/site.webmanifest" />
   
   <title>FundTek Capital Group - Business Funding Solutions | Fast Approval in 24 Hours</title>
+  
+  <!-- Force favicon refresh -->
+  <script>
+    (function() {
+      var links = document.querySelectorAll("link[rel*='icon']");
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        var href = link.href;
+        link.href = href + (href.indexOf('?') !== -1 ? '&' : '?') + 'refresh=' + Date.now();
+      }
+    })();
+  </script>
   <meta name="description" content="Get flexible business financing with FundTek Capital Group. Term loans, merchant cash advances, equipment financing & more. Call (305) 307-4658 for fast approval." />
   
   <!-- Open Graph / Facebook -->
