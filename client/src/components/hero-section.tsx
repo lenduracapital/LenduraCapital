@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { performanceOptimizer } from "@/lib/performance-optimizer";
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
@@ -13,6 +14,10 @@ export default function HeroSection() {
   const [, setLocation] = useLocation();
 
   useEffect(() => {
+    // Initialize performance optimizations
+    performanceOptimizer.preloadCriticalResources();
+    performanceOptimizer.setupComponentOptimization();
+    
     // Detect mobile device
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
@@ -27,6 +32,9 @@ export default function HeroSection() {
     // Enhanced autoplay with performance optimization
     if (videoRef.current) {
       const video = videoRef.current;
+      
+      // Apply advanced performance optimizations
+      performanceOptimizer.optimizeVideoElement(video);
       
       // Optimize video loading
       video.load();
