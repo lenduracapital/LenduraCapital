@@ -33,6 +33,10 @@
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5);contain:layout style paint;font-display:swap}
     video{opacity:0;transition:opacity 0.6s ease-in-out;transform:translateZ(0);will-change:opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden;image-rendering:optimizeSpeed}
     video.loaded{opacity:1}
+    video::-webkit-media-controls{display:none!important}
+    video::-webkit-media-controls-panel{display:none!important}
+    video::-webkit-media-controls-play-button{display:none!important}
+    video::-webkit-media-controls-start-playback-button{display:none!important}
     img{transform:translateZ(0);will-change:transform;image-rendering:crisp-edges;backface-visibility:hidden;-webkit-backface-visibility:hidden;loading:lazy}
     .component{contain:layout style paint}
     .scroll-smooth{scroll-behavior:smooth}

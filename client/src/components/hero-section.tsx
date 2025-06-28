@@ -104,7 +104,7 @@ export default function HeroSection() {
         x5-video-player-fullscreen="true"
         controls={false}
         disablePictureInPicture
-        controlsList="nodownload nofullscreen noremoteplayback"
+        controlsList="nodownload nofullscreen noremoteplaybook noplaybackrate"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         preload="metadata"
         onLoadedData={() => setVideoLoaded(true)}
