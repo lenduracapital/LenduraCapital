@@ -32,9 +32,12 @@ export default function HeroSection() {
     if (videoRef.current) {
       const video = videoRef.current;
       
-      // Apply video performance optimizations
+      // Apply safe video performance optimizations
       video.style.transform = 'translateZ(0)';
       video.style.willChange = 'transform, opacity';
+      video.preload = 'metadata';
+      video.setAttribute('webkit-playsinline', 'true');
+      video.setAttribute('x5-playsinline', 'true');
       
       // Optimize video loading
       video.load();
@@ -102,7 +105,7 @@ export default function HeroSection() {
         controls={false}
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         preload="metadata"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
