@@ -7,9 +7,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Contact FundTek Capital Group | Business Loan Specialists | Nationwide"
-        description="Contact FundTek Capital Group for business loans and funding solutions. Call (305) 307-4658 for fast approval. Nationwide lenders serving all states. Free consultation."
-        keywords="contact business lender, nationwide business loans, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
+        title="Contact FundTek Capital Group | Business Loan Specialists | Brooklyn, NY"
+        description="Contact FundTek Capital Group for business loans and funding solutions. Call (305) 307-4658 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
+        keywords="contact business lender, Brooklyn business loans, New York business funding, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
         canonical="/contact"
       />
       <Header transparent={true} />

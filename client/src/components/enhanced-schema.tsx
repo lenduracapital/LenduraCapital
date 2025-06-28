@@ -41,12 +41,12 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "email": "admin@fundtekcapitalgroup.com",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Miami",
-            "addressRegion": "FL",
-            "postalCode": "33101",
+            "streetAddress": "2727 Coney Island Ave",
+            "addressLocality": "Brooklyn",
+            "addressRegion": "NY",
             "addressCountry": "US"
           },
-          "areaServed": "United States",
+          "areaServed": ["United States", "Canada"],
           "serviceType": [
             "Business Loan Brokerage",
             "Term Loans",
