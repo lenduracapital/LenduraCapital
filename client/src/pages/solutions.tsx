@@ -189,9 +189,9 @@ export default function Solutions() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title="Business Funding Solutions - 12 Financing Options | FundTek"
-        description="Explore 12 business funding solutions: term loans, equipment financing, merchant cash advances, SBA loans & more. Get approved in 24 hours. Call (305) 307-4658."
-        keywords="business funding solutions, term loans, equipment financing, merchant cash advance, SBA loans, lines of credit"
+        title="12 Small Business Loan Options & Funding Solutions | Compare Rates"
+        description="Compare 12 business funding options: SBA loans, term loans, equipment financing, merchant cash advances, lines of credit & more. Fast approval, competitive rates. Bad credit OK. Miami lender serving nationwide."
+        keywords="small business loans, business funding options, SBA loans, term loans, equipment financing, merchant cash advance, lines of credit, working capital loans, business loan comparison, commercial lending, business credit"
         canonical="/solutions"
       />
       <EnhancedSchema type="solutions" />

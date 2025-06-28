@@ -10,8 +10,31 @@ interface SchemaProps {
   };
 }
 
+function updateStructuredData(data: object) {
+  let script = document.querySelector('script[type="application/ld+json"][data-component="enhanced-schema"]');
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.setAttribute('data-component', 'enhanced-schema');
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
+}
+
 export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
   useEffect(() => {
+    // Local updateStructuredData function
+    const updateStructuredData = (data: object) => {
+      let script = document.querySelector('script[type="application/ld+json"][data-component="enhanced-schema"]');
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute('data-component', 'enhanced-schema');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(data);
+    };
+
     let schemaData: any = {};
 
     switch (type) {
@@ -51,8 +74,78 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
             "bestRating": "5"
           },
           "openingHours": ["Mo-Fr 09:00-18:00"],
-          "priceRange": "$10,000 - $5,000,000"
+          "priceRange": "$10,000 - $5,000,000",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Business Funding Solutions",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Small Business Loans"
+                }
+              },
+              {
+                "@type": "Offer", 
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Equipment Financing"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "SBA Loans"
+                }
+              }
+            ]
+          }
         };
+        
+        // Add FAQ schema for homepage
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How fast can I get approved for a business loan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FundTek Capital Group can approve business loans in as little as 24 hours. Our streamlined process and experienced team ensure fast decisions on term loans, equipment financing, and working capital solutions."
+              }
+            },
+            {
+              "@type": "Question", 
+              "name": "What credit score do I need for a small business loan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We work with businesses of all credit profiles. While traditional loans prefer 650+ credit scores, we offer solutions for businesses with credit scores as low as 550 through alternative lending products."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer SBA loans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, FundTek Capital Group is an experienced SBA lender offering SBA 7(a) loans, SBA Express loans, and other SBA programs with competitive rates and longer repayment terms."
+              }
+            }
+          ]
+        };
+        
+        // Inject main schema
+        updateStructuredData(schemaData);
+        
+        // Inject FAQ schema separately
+        const faqScript = document.createElement("script");
+        faqScript.type = "application/ld+json";
+        faqScript.setAttribute('data-component', 'enhanced-schema-faq');
+        faqScript.textContent = JSON.stringify(faqSchema);
+        document.head.appendChild(faqScript);
+        
         break;
 
       case 'solutions':

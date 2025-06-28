@@ -1,10 +1,17 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import SEOHead from "@/components/seo-head";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Contact FundTek Capital Group | Business Loan Specialists | Miami, FL"
+        description="Contact FundTek Capital Group for business loans and funding solutions. Call (305) 307-4658 for fast approval. Miami-based lenders serving nationwide. Free consultation."
+        keywords="contact business lender, Miami business loans, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
+        canonical="/contact"
+      />
       <Header transparent={true} />
       
       {/* Hero Section */}
