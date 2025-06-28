@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
+import cityscapeImage from "@assets/image_1750955621069.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
@@ -53,8 +54,18 @@ export default function HeroSection() {
 
 
   return (
-    <section className="hero-section relative h-screen overflow-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
-      {/* Background Video */}
+    <section 
+      className="hero-section relative h-screen overflow-hidden" 
+      style={{ 
+        marginTop: 0, 
+        paddingTop: 0,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${cityscapeImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Background Video with improved loading */}
       <video 
         ref={videoRef}
         autoPlay 
@@ -65,15 +76,20 @@ export default function HeroSection() {
         x5-playsinline="true"
         x5-video-player-type="h5"
         x5-video-player-fullscreen="true"
-        className="absolute inset-0 w-full h-full object-cover"
-        preload="metadata"
+        controls={false}
+        disablePictureInPicture
+        controlsList="nodownload nofullscreen noremoteplayback"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        preload="auto"
         onLoadedData={() => setVideoLoaded(true)}
         onError={() => setVideoLoaded(false)}
+        onCanPlay={() => setVideoLoaded(true)}
         aria-label="FundTek Capital Group business financing solutions showcase"
         style={{ 
           objectFit: 'cover',
           WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)'
+          transform: 'translateZ(0)',
+          zIndex: videoLoaded ? 1 : 0
         }}
       >
         <source src={videoPath} type="video/mp4" />
