@@ -118,24 +118,55 @@
     }
   </style>
   
-  <!-- Favicon - Consistent circular logo across all devices -->
-  <link rel="icon" type="image/svg+xml" href="/fundtek-icon.svg?v=1751154400" sizes="any" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1751154400" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/fundtek-icon.svg?v=1751154400" />
-  <link rel="shortcut icon" href="/fundtek-icon.svg?v=1751154400" />
+  <!-- Favicon - Force circular logo on ALL devices -->
+  <link rel="icon" type="image/svg+xml" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="icon" type="image/png" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="57x57" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <link rel="shortcut icon" type="image/svg+xml" href="/fundtek-icon.svg?mobile=true&v=1751154500" />
+  <meta name="msapplication-TileImage" content="/fundtek-icon.svg?mobile=true&v=1751154500" />
   <link rel="manifest" href="/site.webmanifest" />
   
   <title>FundTek Capital Group - Business Funding Solutions | Fast Approval in 24 Hours</title>
   
-  <!-- Force favicon refresh -->
+  <!-- Aggressive mobile favicon replacement -->
   <script>
     (function() {
-      var links = document.querySelectorAll("link[rel*='icon']");
-      for (var i = 0; i < links.length; i++) {
-        var link = links[i];
-        var href = link.href;
-        link.href = href + (href.indexOf('?') !== -1 ? '&' : '?') + 'refresh=' + Date.now();
+      // Remove all existing favicon links
+      var existingLinks = document.querySelectorAll("link[rel*='icon']");
+      for (var i = 0; i < existingLinks.length; i++) {
+        existingLinks[i].parentNode.removeChild(existingLinks[i]);
       }
+      
+      // Force create new favicon links
+      var timestamp = Date.now();
+      var faviconUrl = '/fundtek-icon.svg?mobile=force&v=' + timestamp;
+      
+      // Create new favicon link
+      var newFavicon = document.createElement('link');
+      newFavicon.rel = 'icon';
+      newFavicon.type = 'image/svg+xml';
+      newFavicon.href = faviconUrl;
+      document.head.appendChild(newFavicon);
+      
+      // Create apple touch icon
+      var appleFavicon = document.createElement('link');
+      appleFavicon.rel = 'apple-touch-icon';
+      appleFavicon.href = faviconUrl;
+      document.head.appendChild(appleFavicon);
+      
+      // Create shortcut icon
+      var shortcutFavicon = document.createElement('link');
+      shortcutFavicon.rel = 'shortcut icon';
+      shortcutFavicon.href = faviconUrl;
+      document.head.appendChild(shortcutFavicon);
     })();
   </script>
   <meta name="description" content="Get flexible business financing with FundTek Capital Group. Term loans, merchant cash advances, equipment financing & more. Call (305) 307-4658 for fast approval." />
