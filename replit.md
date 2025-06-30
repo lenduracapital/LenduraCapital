@@ -829,6 +829,8 @@ Changelog:
   * Fixed chat widget reappearing after being closed by adding localStorage memory
   * Added chatWidgetDismissed localStorage flag to remember user's dismissal preference
   * Updated toggleChat function to completely hide widget when closed and prevent reappearance
+  * Fixed chatbot not appearing after page reload by switching from localStorage to sessionStorage
+  * Chatbot now reappears on fresh page loads but stays dismissed during current browsing session
 - June 30, 2025. Video fallback prevention when closing chat widget (COMPLETE):
   * Added videoFullyLoaded persistent state to prevent video from disappearing when chat widget closes
   * Enhanced video visibility logic to maintain video display during DOM state changes

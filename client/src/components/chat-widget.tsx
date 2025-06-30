@@ -39,13 +39,13 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 1 second, but only if user hasn't dismissed it
+  // Show widget after 2 seconds, but only if user hasn't dismissed it in this session
   useEffect(() => {
-    const chatDismissed = localStorage.getItem('chatWidgetDismissed');
+    const chatDismissed = sessionStorage.getItem('chatWidgetDismissed');
     if (chatDismissed !== 'true') {
       const timer = setTimeout(() => {
         setIsVisible(true);
-      }, 1000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -262,8 +262,8 @@ export default function ChatWidget() {
 
   const toggleChat = () => {
     if (isOpen) {
-      // User is closing the chat - remember this preference
-      localStorage.setItem('chatWidgetDismissed', 'true');
+      // User is closing the chat - remember this preference for this session only
+      sessionStorage.setItem('chatWidgetDismissed', 'true');
       setIsOpen(false);
       setIsVisible(false);
     } else {
