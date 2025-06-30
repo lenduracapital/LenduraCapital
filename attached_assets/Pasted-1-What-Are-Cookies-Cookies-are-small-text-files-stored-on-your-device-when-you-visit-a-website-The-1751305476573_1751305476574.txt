@@ -1,0 +1,70 @@
+1. What Are Cookies
+Cookies are small text files stored on your device when you visit a website. They help the site function properly, improve load speed, and track how users interact with the site.
+
+2. How We Use Cookies
+We use cookies to:
+
+Enable essential website functionality
+
+Analyze performance and improve user experience
+
+Remember user preferences and form entries
+
+Track usage data through analytics tools
+
+3. Types of Cookies We Use
+Essential Cookies
+These are required for the website to operate, including form handling, session management, and fraud prevention.
+
+Performance and Analytics Cookies
+Used to understand how visitors interact with our site. We use tools like Google Analytics to collect anonymous metrics, including page views, time on site, and navigation patterns.
+
+Functional Cookies
+These remember your preferences, such as saved form inputs or language settings, to enhance your browsing experience.
+
+4. Third-Party Cookies
+Our site may load cookies from trusted third-party services, including:
+
+Google Analytics (site analytics)
+
+Jotform (form functionality and submissions)
+
+Social media platforms (sharing and integration)
+
+5. Cookie Duration
+Session Cookies are deleted when you close your browser.
+
+Persistent Cookies remain on your device for a set period or until manually deleted.
+
+6. Managing Cookies
+You can control cookie usage through your browser settings. This includes:
+
+Blocking all cookies
+
+Deleting existing cookies
+
+Allowing cookies from selected sites only
+
+Receiving alerts when a website uses cookies
+
+Note: Disabling cookies may impact certain features or functionality.
+
+7. Browser Settings
+Instructions for managing cookies by browser:
+
+Chrome: Settings > Privacy and Security > Cookies
+
+Firefox: Preferences > Privacy & Security > Cookies and Site Data
+
+Safari: Preferences > Privacy > Manage Website Data
+
+Edge: Settings > Site permissions > Cookies and site data
+
+8. Data Protection
+All cookie-related data is handled in accordance with our Privacy Policy and relevant data protection regulations. We apply appropriate security measures to prevent unauthorized access or misuse.
+
+9. Policy Updates
+This Cookie Policy may be updated periodically. Changes will be posted on this page to keep you informed.
+
+10. Contact
+For questions about this policy or your cookie preferences, contact us at (305) 307-4658 or through our website’s contact form.
