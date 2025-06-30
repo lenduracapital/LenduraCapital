@@ -12,6 +12,10 @@ export default function SEOWebDevelopment() {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
+  const handleContactUs = () => {
+    window.open("https://calendly.com/admin-fundtekcapitalgroup/30min", "_blank");
+  };
+
   const handleBackToSolutions = () => {
     setLocation("/solutions");
     window.scrollTo(0, 0);
@@ -56,7 +60,7 @@ export default function SEOWebDevelopment() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={() => setLocation('/contact')}
+                onClick={handleContactUs}
                 size="lg"
                 className="bg-white text-[#85abe4] hover:bg-blue-50 hover:text-[#85abe4] font-bold px-8 py-4 text-lg border-0"
               >
@@ -486,7 +490,7 @@ export default function SEOWebDevelopment() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={() => setLocation('/contact')}
+              onClick={handleContactUs}
               size="lg"
               className="bg-[#85abe4] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
             >

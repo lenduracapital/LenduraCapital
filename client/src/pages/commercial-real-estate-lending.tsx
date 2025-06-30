@@ -15,6 +15,10 @@ export default function CommercialRealEstateLending() {
     window.open("https://form.jotform.com/251417715331047", "_blank");
   };
 
+  const handleContactUs = () => {
+    window.open("https://calendly.com/admin-fundtekcapitalgroup/30min", "_blank");
+  };
+
   const handleMoreTestimonials = () => {
     setLocation("/more-testimonials");
   };
@@ -418,7 +422,7 @@ export default function CommercialRealEstateLending() {
           </p>
           <div className="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
             <button
-              onClick={handleApplyNow}
+              onClick={handleContactUs}
               className="w-full sm:w-auto px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-50 transition-colors duration-200"
             >
               Contact Us
