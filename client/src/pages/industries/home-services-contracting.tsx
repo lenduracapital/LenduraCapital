@@ -310,7 +310,7 @@ export default function HomeServicesContracting() {
               onClick={() => setLocation("/contact")}
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 shadow-lg"
             >
               Contact Us
             </Button>
