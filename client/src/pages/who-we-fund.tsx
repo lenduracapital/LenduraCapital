@@ -40,7 +40,7 @@ const industries = [
   {
     title: "Professional Services",
     description: "Law firms, accounting practices, consulting companies, and other professional service providers. Funding for expansion, technology upgrades, and cash flow management.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
+    image: "/attached_assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303419004.avif"
   },
   {
     title: "Technology & Software",
