@@ -7,8 +7,7 @@ export default function CreditCardProcessing() {
   const [, setLocation] = useLocation();
 
   const handleContactUs = () => {
-    setLocation("/contact");
-    window.scrollTo(0, 0);
+    window.open("https://calendly.com/admin-fundtekcapitalgroup/30min", "_blank");
   };
 
   const handleBackToSolutions = () => {
