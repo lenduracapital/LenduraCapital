@@ -54,14 +54,14 @@ export default function CleaningJanitorialServices() {
               <Button 
                 onClick={handleApplyNow}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
               >
                 Get Approved in 24 Hours
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
               >
                 Explore Your Financing Options
               </Button>
