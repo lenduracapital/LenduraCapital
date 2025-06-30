@@ -5,7 +5,7 @@ import { useLocation } from "wouter";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
-import cityscapeImage from "@assets/image_1750955621069.png";
+import businessBackground from "@assets/image_1751299876381.png";
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
@@ -135,7 +135,7 @@ export default function HeroSection() {
       style={{ 
         marginTop: 0, 
         paddingTop: 0,
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${cityscapeImage})`,
+        backgroundImage: `linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #85abe4 100%)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
