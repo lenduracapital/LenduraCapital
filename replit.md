@@ -829,6 +829,10 @@ Changelog:
   * Fixed chat widget reappearing after being closed by adding localStorage memory
   * Added chatWidgetDismissed localStorage flag to remember user's dismissal preference
   * Updated toggleChat function to completely hide widget when closed and prevent reappearance
+- June 30, 2025. Video fallback prevention when closing chat widget (COMPLETE):
+  * Added videoFullyLoaded persistent state to prevent video from disappearing when chat widget closes
+  * Enhanced video visibility logic to maintain video display during DOM state changes
+  * Fixed fallback background reappearing issue when closing chat widget
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling

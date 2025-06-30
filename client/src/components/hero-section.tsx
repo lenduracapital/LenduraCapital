@@ -9,6 +9,7 @@ import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_17501762502
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
+  const [videoFullyLoaded, setVideoFullyLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -102,6 +103,7 @@ export default function HeroSection() {
         if (playPromise !== undefined) {
           playPromise.then(() => {
             setVideoLoaded(true);
+            setVideoFullyLoaded(true);
           }).catch(() => {
             // Fallback for autoplay restrictions
             const startVideoOnInteraction = () => {
@@ -160,10 +162,16 @@ export default function HeroSection() {
           controls={false}
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ${(videoLoaded || videoFullyLoaded) ? 'opacity-100' : 'opacity-0'}`}
           preload="auto"
-          onLoadedData={() => setVideoLoaded(true)}
-          onCanPlay={() => setVideoLoaded(true)}
+          onLoadedData={() => {
+            setVideoLoaded(true);
+            setVideoFullyLoaded(true);
+          }}
+          onCanPlay={() => {
+            setVideoLoaded(true);
+            setVideoFullyLoaded(true);
+          }}
           onError={() => setVideoLoaded(false)}
           onContextMenu={(e) => e.preventDefault()}
           aria-label="FundTek Capital Group business financing solutions showcase"
