@@ -5,8 +5,8 @@ export default function InvoiceFactoringDetail() {
     <SolutionDetailTemplate
       title="Invoice Factoring"
       description="Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity."
-      heroImage="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop"
+      heroImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop"
+      contentImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop"
       features={[
         "80-90% advance rate",
         "24-48 hour funding",

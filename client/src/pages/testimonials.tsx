@@ -43,7 +43,7 @@ const testimonials = [
     company: "Johnson Family Dentistry",
     rating: 5,
     text: "FundTek understood our unique needs as a medical practice. The invoice factoring solution helped us maintain steady cash flow while waiting for insurance payments. Highly professional service.",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop",
     solution: "Invoice Factoring"
   },
   {

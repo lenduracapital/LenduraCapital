@@ -27,7 +27,7 @@ export default function MedicalHealthcare() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&h=600&fit=crop')"
           }}
         />
         
@@ -103,8 +103,8 @@ export default function MedicalHealthcare() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop"
-                alt="Medical and healthcare facility"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop"
+                alt="Modern medical facility and equipment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">

@@ -15,7 +15,7 @@ const industries = [
   {
     title: "Medical & Healthcare",
     description: "Medical practices require funding for expensive equipment, facility expansion, technology upgrades, and managing patient payment cycles effectively.",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
   },
   {
     title: "Construction",

@@ -101,7 +101,7 @@ const solutions = [
       "Improve cash flow"
     ],
     route: "/solutions/invoice-factoring",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
   },
   {
     title: "P.O. Financing",
