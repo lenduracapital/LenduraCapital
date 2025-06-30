@@ -5,7 +5,7 @@ import { useLocation } from "wouter";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
-import businessBackground from "@assets/image_1751299876381.png";
+
 
 export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
