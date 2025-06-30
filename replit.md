@@ -814,6 +814,10 @@ Changelog:
   * Updated both main submission timestamps and error handling timestamps
   * Changed from UTC server time to proper New York time formatting
   * Format: MM/DD/YYYY, HH:MM:SS AM/PM for accurate lead timing tracking
+- June 30, 2025. Hero text positioning adjustment (COMPLETE):
+  * Moved hero text up on homepage by reducing top padding from pt-16 md:pt-20 to pt-8 md:pt-12
+  * Improved visual positioning of all hero content including heading, description, and CTA button
+  * Maintained proper spacing and readability while positioning text higher on screen
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
