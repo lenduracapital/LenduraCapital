@@ -265,13 +265,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={handleApplyNow}
-              className="bg-white text-[#85abe4] hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
+              className="bg-white text-[#85abe4] hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold shadow-lg"
             >
               Apply for Funding Today
             </Button>
             <Button 
               onClick={() => setLocation("/solutions")}
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg font-semibold"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#85abe4] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold"
             >
               View Our Solutions
             </Button>
