@@ -153,21 +153,25 @@ export default function HeroSection() {
           controls={false}
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-600 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-          preload="auto"
-          onLoadedData={() => setVideoLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          preload="metadata"
+          onLoadedMetadata={() => setVideoLoaded(true)}
+          onCanPlayThrough={() => setVideoLoaded(true)}
           onError={() => setVideoLoaded(false)}
-          onCanPlay={() => setVideoLoaded(true)}
           onContextMenu={(e) => e.preventDefault()}
           aria-label="FundTek Capital Group business financing solutions showcase"
           style={{ 
             objectFit: 'cover',
-            WebkitTransform: 'translateZ(0)',
-            transform: 'translateZ(0)',
+            WebkitTransform: 'translate3d(0,0,0)',
+            transform: 'translate3d(0,0,0)',
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
             zIndex: 1,
             pointerEvents: 'none',
             outline: 'none',
-            border: 'none'
+            border: 'none',
+            contain: 'strict'
           }}
         >
           <source src={videoPath} type="video/webm" />
