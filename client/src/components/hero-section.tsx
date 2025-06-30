@@ -207,12 +207,12 @@ export default function HeroSection() {
             Empower your business with custom tailored financial and business solutions
           </p>
           <p className="text-white text-base md:text-lg mb-8 text-shadow">
-            Call us at <span className="text-[--primary] font-bold">(305) 307-4658</span> to see your options
+            Call us at <span className="text-[#85abe4] font-bold">(305) 307-4658</span> to see your options
           </p>
           
           <Button 
             onClick={handleApplyNow}
-            className="bg-[--primary] hover:bg-[--primary-dark] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto min-h-[44px]"
+            className="bg-[#85abe4] hover:bg-[#7299d1] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto min-h-[44px]"
           >
             Get Approved in 24 Hours
           </Button>

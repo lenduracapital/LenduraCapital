@@ -3,7 +3,7 @@ import { useEffect } from "react";
 // Google Analytics 4 tracking functions
 export function initGA4() {
   // Initialize GA4 with your tracking ID
-  const GA_TRACKING_ID = 'G-XXXXXXXXXX'; // Replace with actual tracking ID
+  const GA_TRACKING_ID = 'G-C5XF22RXMM'; // FundTek Capital Group tracking ID
   
   // Load Google Analytics script
   const script1 = document.createElement('script');
