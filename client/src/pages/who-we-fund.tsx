@@ -9,7 +9,7 @@ import BackToTop from "@/components/back-to-top";
 const industries = [
   {
     title: "Trucking & Transportation",
-    description: "Trucking, construction and logistics drives business fundamentals. Goods transported across the country face operational costs, unforeseen expenses and pending payments making operations challenging.",
+    description: "Trucking and logistics companies drive business fundamentals. Goods transported across the country face operational costs, unforeseen expenses and pending payments making operations challenging.",
     image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop"
   },
   {
