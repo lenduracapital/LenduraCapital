@@ -154,9 +154,9 @@ export default function HeroSection() {
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-          preload="metadata"
-          onLoadedMetadata={() => setVideoLoaded(true)}
-          onCanPlayThrough={() => setVideoLoaded(true)}
+          preload="auto"
+          onLoadedData={() => setVideoLoaded(true)}
+          onCanPlay={() => setVideoLoaded(true)}
           onError={() => setVideoLoaded(false)}
           onContextMenu={(e) => e.preventDefault()}
           aria-label="FundTek Capital Group business financing solutions showcase"
