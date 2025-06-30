@@ -56,7 +56,7 @@ export default function PremiumFinancingSection() {
             <div className="mt-8">
               <button 
                 onClick={() => setLocation('/solutions')}
-                className="bg-[#85abe4] hover:bg-[#6b8cc4] text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                className="bg-[#85abe4] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-3 rounded-lg font-semibold shadow-lg"
               >
                 Find out more
               </button>

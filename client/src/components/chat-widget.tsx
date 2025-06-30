@@ -319,19 +319,19 @@ export default function ChatWidget() {
           <div className="flex flex-col gap-2 mt-3">
             <button
               onClick={() => handleUserSelection("I need financing for my business", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               💰 I need financing for my business
             </button>
             <button
               onClick={() => handleUserSelection("I want information about your services", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               📋 I want information about your services
             </button>
             <button
               onClick={() => handleUserSelection("I have questions about an existing application", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               📞 I have questions about an existing application
             </button>

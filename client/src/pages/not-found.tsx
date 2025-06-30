@@ -35,12 +35,12 @@ export default function NotFound() {
               </button>
             </Link>
             <Link href="/solutions">
-              <button className="w-full sm:w-auto border-2 border-[#85abe4] text-[#85abe4] px-8 py-3 rounded-lg font-semibold hover:bg-[#85abe4] hover:text-white transition-colors duration-200">
+              <button className="w-full sm:w-auto border-2 border-[#85abe4] text-[#85abe4] px-8 py-3 rounded-lg font-semibold hover:bg-[#85abe4] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg">
                 Browse Solutions
               </button>
             </Link>
             <Link href="/contact">
-              <button className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-gray-400 transition-colors duration-200">
+              <button className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-gray-400 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95">
                 Contact Us
               </button>
             </Link>
