@@ -794,6 +794,15 @@ Changelog:
   * Confirmed cookie banner functionality - displays correctly with slide-up animation and localStorage
   * Updated page title and meta description for stronger brand identity and improved SEO
   * Website now loads 200-300ms faster with optimized resource loading and corrected component errors
+- June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
+  * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
+  * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
+  * Replaced all "Speak with a specialist" buttons to link to Calendly instead of contact page
+  * Enhanced phone number styling with hover effects and consistent signature blue color
+  * Updated chat widget, FAQ page, contact page, trust signals, and testimonials page with Calendly links
+  * Changed button text to "Schedule Call" and "Schedule Consultation" for better user experience
+  * Fixed Solutions dropdown menu height from 320px to 380px to prevent content cutoff
+  * All specialist consultation requests now funnel to Calendly booking page for better lead management
 ```
 
 ## User Preferences

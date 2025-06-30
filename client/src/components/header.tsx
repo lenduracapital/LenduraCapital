@@ -97,7 +97,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               {isDropdownOpen && (
                 <div 
                   className="absolute top-full left-0 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-5 transition-all duration-150"
-                  style={{ width: '600px', height: '320px', marginTop: '8px' }}
+                  style={{ width: '600px', height: '380px', marginTop: '8px' }}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="grid grid-cols-2 gap-8">
