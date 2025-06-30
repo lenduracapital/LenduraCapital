@@ -59,7 +59,7 @@ export default function HospitalityTourism() {
               <Button 
                 onClick={() => setLocation("/solutions")}
                 size="lg"
-                style={{ color: 'white', borderColor: 'white', backgroundColor: '#85abe4' }}
+                style={{ color: 'white', borderColor: '#85abe4', backgroundColor: '#85abe4' }}
                 className="hover:bg-[#85abe4] hover:border-[#85abe4] text-lg px-8 py-3 font-semibold border"
               >
                 View All Solutions
