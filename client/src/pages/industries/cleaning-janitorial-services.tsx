@@ -201,7 +201,7 @@ export default function CleaningJanitorialServices() {
               <Button 
                 onClick={() => setLocation("/solutions")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-6 py-3 font-semibold rounded-lg shadow-lg"
               >
                 Learn More
               </Button>
@@ -212,7 +212,7 @@ export default function CleaningJanitorialServices() {
               <Button 
                 onClick={() => setLocation("/solutions")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-6 py-3 font-semibold rounded-lg shadow-lg"
               >
                 Learn More
               </Button>

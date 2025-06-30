@@ -206,7 +206,7 @@ export default function EducationTraining() {
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 font-semibold"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 font-semibold shadow-lg"
               >
                 Learn More
               </Button>
