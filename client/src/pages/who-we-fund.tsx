@@ -218,7 +218,7 @@ export default function QualifiedIndustries() {
                         }
                       }}
                       style={{ backgroundColor: '#85abe4' }}
-                      className="hover:opacity-90 text-white px-6 py-2 rounded font-semibold w-full"
+                      className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
                     >
                       Learn More →
                     </Button>
@@ -235,7 +235,7 @@ export default function QualifiedIndustries() {
               <Button 
                 onClick={handleApplyNow}
                 style={{ backgroundColor: '#85abe4' }}
-                className="hover:opacity-90 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg"
               >
                 Get Pre-Qualified Today
               </Button>

@@ -229,7 +229,7 @@ export default function Franchises() {
               onClick={handleApplyNow}
               size="lg"
               style={{ backgroundColor: '#85abe4' }}
-              className="hover:opacity-90 text-lg px-8 py-3 font-semibold text-white"
+              className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold text-white shadow-lg"
             >
               Apply Now - Get Approved in 24 Hours
             </Button>
@@ -237,8 +237,9 @@ export default function Franchises() {
               onClick={() => setLocation("/contact")}
               style={{ backgroundColor: '#85abe4', color: 'white' }}
               size="lg"
-              className="text-white border-white hover:bg-white hover:text-gray-900 text-lg px-8 py-3 font-semibold"
+              className="text-white border-white hover:bg-white hover:text-gray-900 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
             >
+              Contact Us
             </Button>
           </div>
         </div>
