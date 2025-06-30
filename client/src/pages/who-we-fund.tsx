@@ -9,92 +9,92 @@ import BackToTop from "@/components/back-to-top";
 const industries = [
   {
     title: "Trucking & Transportation",
-    description: "Trucking and logistics companies drive business fundamentals. Goods transported across the country face operational costs, unforeseen expenses and pending payments making operations challenging.",
+    description: "Trucking companies face operational costs, fuel expenses, vehicle maintenance, and pending invoice payments that create challenging cash flow gaps.",
     image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop"
   },
   {
     title: "Medical & Healthcare",
-    description: "Medical specialists and administrative professionals require specialized financing for equipment, practice expansion and healthcare facilities to serve their essential community needs.",
+    description: "Medical practices require funding for expensive equipment, facility expansion, technology upgrades, and managing patient payment cycles effectively.",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
   },
   {
     title: "Construction",
-    description: "Construction contractors and builders need specialized financing for equipment, project expenses, materials and expansion to complete projects successfully and grow their businesses.",
+    description: "Construction companies need capital for equipment purchases, material costs, project expenses, and bridging payment gaps between contracts.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
     title: "Restaurant & Food Service",
-    description: "Restaurant owners create more than food - they provide complete dining experiences. Equipment financing, inventory funding and expansion capital support culinary businesses.",
+    description: "Restaurants face equipment costs, inventory expenses, seasonal fluctuations, and need capital for renovations and expansion opportunities.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop"
   },
   {
     title: "Retail & E-commerce",
-    description: "Retail businesses require inventory financing, expansion capital and seasonal working capital. Marketing, advertising, inventory and growth opportunities need specialized funding.",
+    description: "Retail businesses require inventory financing, seasonal capital, marketing investments, and funding for expansion into new markets or locations.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop"
   },
   {
     title: "Manufacturing",
-    description: "Manufacturing companies need equipment financing, raw materials funding and working capital. Production cycles, facility expansion and large order fulfillment require capital.",
+    description: "Manufacturers need funding for raw materials, equipment upgrades, production scaling, facility expansion, and managing large order fulfillment.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop"
   },
   {
     title: "Professional Services",
-    description: "Law firms, accounting practices, consulting companies and professional service providers require funding for expansion, technology upgrades and cash flow management.",
+    description: "Law firms, accounting practices, and consulting companies require funding for technology, expansion, staff hiring, and cash flow management.",
     image: "/attached_assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303419004.avif"
   },
   {
     title: "Technology & Software",
-    description: "Technology companies and software businesses require funding for product development, marketing campaigns, talent acquisition and scaling operations in competitive markets.",
+    description: "Tech companies need capital for product development, marketing campaigns, talent acquisition, and scaling operations in competitive markets.",
     image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop"
   },
   {
     title: "Auto & Transportation",
-    description: "Auto repair shops, dealerships and transportation companies require specialized funding for inventory, equipment purchases, facility improvements and fleet expansion.",
+    description: "Auto shops and dealerships require funding for inventory, equipment purchases, facility improvements, and expanding service capabilities.",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop"
   },
   {
     title: "Beauty & Wellness",
-    description: "Salons, spas, fitness centers and wellness businesses require capital for equipment purchases, renovations, inventory and expansion to serve growing customer bases.",
+    description: "Salons, spas, and fitness centers need capital for equipment, renovations, inventory, and expansion to serve growing customer demand effectively.",
     image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
   },
   {
     title: "Hospitality & Tourism",
-    description: "Hotels, bed & breakfasts, tourism companies and hospitality businesses require funding for renovations, marketing campaigns, seasonal expenses and expansion projects.",
+    description: "Hotels and tourism businesses require funding for renovations, marketing, seasonal expenses, and expansion projects to attract more visitors.",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop"
   },
   {
     title: "Agriculture & Farming",
-    description: "Agricultural businesses require specialized funding for equipment purchases, livestock, crop production, land acquisition and managing seasonal cash flow challenges.",
+    description: "Agricultural businesses need funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
     image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&h=400&fit=crop"
   },
   {
     title: "Real Estate",
-    description: "Real estate professionals, property management companies and investors require specialized funding for property acquisition, renovations and business operations.",
+    description: "Real estate professionals require funding for property acquisition, renovations, marketing, and managing investment property cash flow cycles.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
   },
   {
     title: "Entertainment & Events",
-    description: "Event planners, entertainment venues and production companies require capital for equipment purchases, venue deposits, marketing and managing variable income streams.",
+    description: "Event planners and venues need capital for equipment, deposits, marketing, and managing the variable income streams of entertainment business.",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
   },
   {
     title: "Education & Training",
-    description: "Educational institutions, training centers and e-learning companies require funding for technology upgrades, facility improvements and program expansion initiatives.",
+    description: "Educational institutions require funding for technology upgrades, facility improvements, program expansion, and adapting to changing learning needs.",
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop"
   },
   {
     title: "Franchises",
-    description: "Franchise owners across industries require specialized funding solutions for franchise fees, equipment purchases, inventory and multi-location expansion projects.",
+    description: "Franchise owners need funding for franchise fees, equipment purchases, inventory, marketing, and multi-location expansion project investments.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
   },
   {
     title: "Home Services & Contracting",
-    description: "HVAC, plumbing, electrical, roofing and general contracting businesses require equipment financing, working capital and project funding for successful operations.",
+    description: "Contractors require funding for equipment, tools, vehicle fleets, project materials, and bridging payment gaps between completed projects.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
     title: "Cleaning & Janitorial Services", 
-    description: "Commercial cleaning, janitorial and maintenance service companies require equipment financing, vehicle loans and working capital for successful business operations.",
+    description: "Cleaning companies need funding for equipment, vehicles, supplies, staff expansion, and securing contracts with commercial property clients.",
     image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop"
   }
 ];
