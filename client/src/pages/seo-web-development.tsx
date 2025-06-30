@@ -488,7 +488,7 @@ export default function SEOWebDevelopment() {
             <Button 
               onClick={() => setLocation('/contact')}
               size="lg"
-              className="bg-[#85abe4] hover:bg-[#6b8cc4] text-white px-8 py-4 text-lg"
+              className="bg-[#85abe4] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
             >
               Contact Us
             </Button>

@@ -361,13 +361,13 @@ export default function CreditCardProcessing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={handleContactUs}
-              className="bg-white text-[#85abe4] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors min-h-[44px]"
+              className="bg-white text-[#85abe4] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px] shadow-lg"
             >
               Contact Us
             </button>
             <button 
               onClick={handleBackToSolutions}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#85abe4] transition-colors min-h-[44px]"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#85abe4] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px]"
             >
               Back to Solutions
             </button>
