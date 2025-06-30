@@ -204,7 +204,7 @@ export default function HeroSection() {
             Flexible Financing for <span style={{ color: '#85abe4' }}>Every Industry</span>
           </h1>
           <p className="text-white text-base md:text-lg mb-6 leading-relaxed text-shadow">
-            Empower your business with custom tailored financial and business solutions
+            Empower your business with <span className="text-[#85abe4] font-semibold">custom tailored</span> financial and <span className="text-[#85abe4] font-semibold">business solutions</span>
           </p>
           <p className="text-white text-base md:text-lg mb-8 text-shadow">
             Call us at <span className="text-[#85abe4] font-bold">(305) 307-4658</span> to see your options
