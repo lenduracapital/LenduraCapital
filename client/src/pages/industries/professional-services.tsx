@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Briefcase, Users, FileText } from "lucide
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import professionalServicesImage from "@assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303013612.avif";
 
 export default function ProfessionalServices() {
   const [, setLocation] = useLocation();
@@ -102,7 +103,7 @@ export default function ProfessionalServices() {
             
             <div className="relative">
               <img 
-                src="@assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303013612.avif"
+                src={professionalServicesImage}
                 alt="Professional services office environment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
