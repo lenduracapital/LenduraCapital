@@ -54,7 +54,7 @@ export default function RetailECommerce() {
                 onClick={handleApplyNow}
                 size="lg"
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
-                className="hover:opacity-90 text-lg px-8 py-3 font-semibold"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
               >
                 Get Approved in 24 Hours
               </Button>
@@ -62,7 +62,7 @@ export default function RetailECommerce() {
                 onClick={() => setLocation("/solutions")}
                 style={{ backgroundColor: '#85abe4', color: 'white' }}
                 size="lg"
-                className="hover:opacity-90 text-lg px-8 py-3 font-semibold rounded-lg transition-all duration-300"
+                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold rounded-lg shadow-lg"
               >
                 View All Solutions
               </Button>

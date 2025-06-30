@@ -102,7 +102,7 @@ export default function ProfessionalServices() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
+                src="@assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303013612.avif"
                 alt="Professional services office environment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
