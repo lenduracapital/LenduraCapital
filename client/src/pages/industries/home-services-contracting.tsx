@@ -36,7 +36,7 @@ export default function HomeServicesContracting() {
           <Button
             onClick={handleBackToIndustries}
             style={{ backgroundColor: '#85abe4', color: 'white' }}
-            className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] transition-colors"
+            className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Industries
