@@ -118,7 +118,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Handle undefined values with fallbacks
       const formatValue = (value: any) => value && value !== 'undefined' ? value : 'Not provided';
-      const formattedTimestamp = timestamp ? new Date(timestamp).toLocaleString() : new Date().toLocaleString();
+      // Format timestamp in Eastern Time (FundTek's timezone)
+      const formattedTimestamp = timestamp 
+        ? new Date(timestamp).toLocaleString('en-US', { 
+            timeZone: 'America/New_York',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          })
+        : new Date().toLocaleString('en-US', { 
+            timeZone: 'America/New_York',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          });
       
       // Create email content
       const emailContent = `
@@ -296,7 +317,16 @@ This message was automatically generated from the FundTek Capital Group website 
         } catch (emailError: any) {
           // Store failed submission for manual processing
           const failedSubmission = {
-            timestamp: new Date(timestamp).toLocaleString(),
+            timestamp: new Date(timestamp).toLocaleString('en-US', { 
+              timeZone: 'America/New_York',
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: true
+            }),
             userType,
             timeline,
             product,

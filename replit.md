@@ -809,6 +809,11 @@ Changelog:
   * Enhanced FinancialService schema with detailed service descriptions and offer catalogs
   * Fixed TypeScript errors in schema component functions for proper compilation
   * Comprehensive structured data now provides authentic FundTek Capital Group information to search engines
+- June 30, 2025. Chat widget timestamp fix for New York time (COMPLETE):
+  * Fixed chat widget email notifications to display timestamps in Eastern Time (America/New_York)
+  * Updated both main submission timestamps and error handling timestamps
+  * Changed from UTC server time to proper New York time formatting
+  * Format: MM/DD/YYYY, HH:MM:SS AM/PM for accurate lead timing tracking
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
