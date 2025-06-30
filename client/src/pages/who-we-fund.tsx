@@ -176,7 +176,7 @@ export default function QualifiedIndustries() {
                 />
                 
                 <div className="flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className={`text-xl font-bold text-gray-900 mb-4 ${industry.title === 'Trucking & Transportation' ? '-mt-2' : ''}`}>
                     {industry.title}
                   </h3>
                   <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#85abe4' }}></div>
