@@ -205,15 +205,15 @@ export default function HeroSection() {
       </div>
 
       {/* Content on Left */}
-      <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-4 md:pt-6">
+      <div className="relative z-10 h-full flex items-center justify-start px-4 sm:px-6 lg:px-8 pt-2 md:pt-3">
         <div className="max-w-md text-left ml-0 md:ml-0 lg:ml-0 w-full md:w-auto">
           <h1 className="responsive-heading-lg font-bold text-white mb-2 leading-tight hero-text" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>
             Flexible Financing for <span style={{ color: '#85abe4', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>Every Industry</span>
           </h1>
-          <p className="text-white text-base md:text-lg mb-3 leading-relaxed" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>
+          <p className="text-white md:text-lg mb-3 text-[22px]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>
             Empower your business with <span className="text-[#85abe4] font-semibold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>custom tailored</span> financial and <span className="text-[#85abe4] font-semibold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>business solutions</span>
           </p>
-          <p className="text-white text-base md:text-lg mb-4" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>
+          <p className="text-white md:text-lg mb-4 text-[20px]" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>
             Call us at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] font-bold hover:text-[#7299d1] transition-colors duration-200 cursor-pointer" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>(305) 307-4658</a> to see your options
           </p>
           
