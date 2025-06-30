@@ -103,7 +103,7 @@ export default function MedicalHealthcare() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&h=600&fit=crop"
                 alt="Modern medical facility and equipment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
