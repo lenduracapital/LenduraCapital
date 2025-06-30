@@ -9,37 +9,37 @@ import BackToTop from "@/components/back-to-top";
 const industries = [
   {
     title: "Trucking & Transportation",
-    description: "Trucking, Construction And Logistics Is One Of The Underlying Fundamentals That Drives Business; Goods Are Transported Across The Country But Operational Costs, Unforeseen Expenses And Pending Payments On Open Invoices Can Make The Trip More Difficult Than It Needs To Be.",
+    description: "Equipment financing, working capital, and fleet expansion funding for trucking companies, logistics providers, and transportation businesses managing operational costs.",
     image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop"
   },
   {
     title: "Medical & Healthcare",
-    description: "Specialized financing for medical equipment, practice expansion, and healthcare facilities. Medical Specialists And Administrative Professionals Turn To FundTek Capital Group For The Much-Needed Capital These Practices Need.",
+    description: "Specialized financing for medical equipment, practice expansion, and healthcare facilities. Medical professionals turn to FundTek for essential capital needs.",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
   },
   {
     title: "Construction",
-    description: "Construction loans, equipment financing, and working capital for contractors and builders. Funding solutions for project expenses, equipment purchases, and business growth.",
+    description: "Construction loans, equipment financing, and working capital for contractors and builders. Funding solutions for project expenses and business growth.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
     title: "Restaurant & Food Service",
-    description: "You Are Responsible For More Than Food, You Are Giving Customers An Eating Experience. Equipment financing, inventory funding, and expansion capital for restaurants and food businesses.",
+    description: "Equipment financing, inventory funding, and expansion capital for restaurants and food businesses creating exceptional customer dining experiences.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop"
   },
   {
     title: "Retail & E-commerce",
-    description: "Inventory financing, expansion capital, and seasonal working capital for retail businesses. Marketing, advertising, inventory, and growth opportunities funding solutions.",
+    description: "Inventory financing, expansion capital, and seasonal working capital for retail businesses. Funding for marketing, advertising, and growth opportunities.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop"
   },
   {
     title: "Manufacturing",
-    description: "Equipment financing, raw materials funding, and working capital for manufacturers. Support for production cycles, facility expansion, and large order fulfillment.",
+    description: "Equipment financing, raw materials funding, and working capital for manufacturers. Support for production cycles, facility expansion, and order fulfillment.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop"
   },
   {
     title: "Professional Services",
-    description: "Law firms, accounting practices, consulting companies, and other professional service providers. Funding for expansion, technology upgrades, and cash flow management.",
+    description: "Law firms, accounting practices, consulting companies, and professional service providers. Funding for expansion, technology upgrades, and cash flow management.",
     image: "/attached_assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303419004.avif"
   },
   {
@@ -64,12 +64,12 @@ const industries = [
   },
   {
     title: "Agriculture & Farming",
-    description: "Agricultural businesses require funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges in farming operations.",
+    description: "Agricultural businesses require funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
     image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&h=400&fit=crop"
   },
   {
     title: "Real Estate",
-    description: "Real estate professionals, property management companies, and real estate investors. Funding for property acquisition, renovations, and business operations.",
+    description: "Real estate professionals, property management companies, and investors. Funding for property acquisition, renovations, and business operations.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
   },
   {
