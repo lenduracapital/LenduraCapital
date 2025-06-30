@@ -30,56 +30,56 @@ export default function TermsPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-8">Last updated: May 2025</p>
+            <p className="text-gray-600 mb-8">Last updated: June 2025</p>
             
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Agreement to Terms</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-700 mb-6">
-              By accessing and using FundTek Capital Group services, you accept and agree to be bound by the terms and provision of this agreement. FundTek Capital Group is a business funding broker that connects qualified businesses with lending partners.
+              By accessing or using FundTek Capital Group's services, you agree to be bound by these Terms of Service. FundTek Capital Group operates as a business funding broker, connecting qualified businesses with independent lending partners.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Services Provided</h2>
             <p className="text-gray-700 mb-6">
-              FundTek Capital Group acts as a broker to help businesses find suitable funding solutions. We do not directly lend money but connect clients with our network of lending partners. Our services include consultation, application assistance, and ongoing support throughout the funding process.
+              We provide business funding consultation, application support, and lender matchmaking. FundTek Capital Group does not directly lend capital; instead, we facilitate access to funding options through our network of lending partners.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Broker Relationship</h2>
             <p className="text-gray-700 mb-6">
-              FundTek Capital Group operates as an independent broker. We are not affiliated with any single lender and work to present multiple funding options when available. All final lending decisions are made by the respective lending partners, not by FundTek Capital Group.
+              FundTek Capital Group is an independent broker, not affiliated with any specific lender. We work to present multiple funding options when possible. Final lending decisions—including terms, amounts, and approvals—are made solely by the lenders.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Application Process</h2>
             <p className="text-gray-700 mb-6">
-              Submitting an application through our services does not guarantee approval or funding. Applications are subject to review by lending partners who make independent decisions based on their own criteria. We strive to present applications to suitable lenders but cannot guarantee specific outcomes.
+              Submitting an application through our platform does not guarantee approval or funding. Each lending partner applies its own underwriting criteria. We strive to match your profile with appropriate lenders but cannot guarantee specific offers or outcomes.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Information Accuracy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Client Responsibilities</h2>
             <p className="text-gray-700 mb-6">
-              Clients are responsible for providing accurate and complete information in all applications and communications. False or misleading information may result in application denial and termination of services. FundTek Capital Group reserves the right to verify information provided.
+              You are responsible for ensuring that all information provided to FundTek Capital Group is truthful, complete, and accurate. Providing false, misleading, or incomplete information may result in denial of funding and/or termination of service. We reserve the right to verify any information submitted.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Fees and Compensation</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Compensation</h2>
             <p className="text-gray-700 mb-6">
-              FundTek Capital Group may receive compensation from lending partners for successful referrals. This compensation does not affect the terms offered to clients. Any direct fees charged to clients will be clearly disclosed before services are provided.
+              FundTek Capital Group may receive compensation from lending partners upon successful referral or funding. This compensation does not impact the terms or cost of your funding. Any fees payable directly by you will be disclosed in advance and require your consent.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Confidentiality</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Confidentiality & Data Use</h2>
             <p className="text-gray-700 mb-6">
-              We maintain strict confidentiality of all client information. Information is only shared with potential lending partners with client consent and for the purpose of securing funding. We do not sell or share client information for marketing purposes without explicit permission.
+              We treat all client information as confidential. Your data will only be shared with potential funding partners for the purpose of evaluating and securing financing. We do not sell or disclose your information for marketing purposes without explicit permission.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Limitation of Liability</h2>
             <p className="text-gray-700 mb-6">
-              FundTek Capital Group provides brokerage services and cannot be held liable for lending decisions made by our partners. We make no guarantees regarding funding approval, terms, or timeline. Our liability is limited to the direct services we provide as a broker.
+              FundTek Capital Group provides brokerage and referral services only. We are not responsible for lending decisions, funding timelines, or final terms. Our liability is strictly limited to services directly rendered by us, and we make no guarantees regarding outcomes.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Modifications</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Updates to Terms</h2>
             <p className="text-gray-700 mb-6">
-              These terms may be updated periodically. Continued use of our services after changes constitutes acceptance of modified terms. We will notify clients of significant changes when possible.
+              These Terms of Service may be updated periodically. Continued use of our services constitutes acceptance of the latest version. We will notify users of material changes when feasible.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Information</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact</h2>
             <p className="text-gray-700 mb-6">
-              For questions about these terms or our services, please contact us at (305) 307-4658 or through our contact form.
+              For any questions or concerns about these terms or our services, please contact us at (305) 307-4658 or via our website contact form.
             </p>
           </div>
         </div>
