@@ -140,17 +140,16 @@ export default function QualifiedIndustries() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleApplyNow}
-              className="bg-white hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105"
+              className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
               style={{ color: '#85abe4' }}
             >
               Apply for Funding
             </Button>
             <Button 
               onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
-              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
+              className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
               style={{ 
-                color: '#85abe4',
-                backgroundColor: 'white'
+                color: '#85abe4'
               }}
             >
               Schedule Consultation
