@@ -50,30 +50,34 @@ export default function SEOHead({
       "@context": "https://schema.org",
       "@type": "FinancialService",
       "name": "FundTek Capital Group",
-      "url": "https://fundtekcapital.com",
-      "logo": "https://fundtekcapital.com/assets/logo.png",
-      "description": "Professional business funding broker connecting businesses with lending partners for term loans, merchant cash advances, equipment financing, and comprehensive financial solutions.",
+      "url": "https://fundtekcapitalgroup.com",
+      "logo": "/favicon.svg",
+      "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
       "telephone": "(305) 307-4658",
       "email": "admin@fundtekcapitalgroup.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Miami",
-        "addressRegion": "FL",
-        "postalCode": "33101",
+        "streetAddress": "2727 Coney Island Ave",
+        "addressLocality": "Brooklyn",
+        "addressRegion": "NY",
+        "postalCode": "11235",
         "addressCountry": "US"
       },
-      "areaServed": "United States",
+      "areaServed": ["United States", "Canada"],
       "serviceType": [
         "Business Loan Brokerage",
         "Term Loans",
-        "Merchant Cash Advance", 
-        "Equipment Financing",
-        "SBA Loans",
         "Lines of Credit",
-        "Invoice Factoring",
-        "P.O. Financing",
+        "Cash Advance",
+        "SBA Loans",
         "Debt Consolidation",
-        "Credit Services"
+        "Equipment Loans",
+        "Factoring",
+        "P.O. Financing",
+        "CRE Lending",
+        "Card Processing",
+        "Credit Repair",
+        "Marketing"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -84,7 +88,7 @@ export default function SEOHead({
             "itemOffered": {
               "@type": "Service",
               "name": "Term Loans",
-              "description": "Traditional business term loans with competitive rates through our lending network"
+              "description": "Traditional business term loans with competitive rates and flexible repayment terms"
             }
           },
           {
@@ -92,7 +96,7 @@ export default function SEOHead({
             "itemOffered": {
               "@type": "Service",
               "name": "Equipment Financing",
-              "description": "Specialized financing for business equipment and machinery"
+              "description": "Specialized financing for business equipment, machinery, and technology purchases"
             }
           },
           {
@@ -100,7 +104,23 @@ export default function SEOHead({
             "itemOffered": {
               "@type": "Service", 
               "name": "Merchant Cash Advance",
-              "description": "Fast access to working capital based on future credit card sales"
+              "description": "Fast access to working capital based on future credit card sales with daily repayment"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "SBA Loans",
+              "description": "Government-backed SBA loans with lower down payments and competitive interest rates"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Lines of Credit",
+              "description": "Flexible revolving credit lines for ongoing business expenses and cash flow management"
             }
           }
         ]
@@ -112,9 +132,9 @@ export default function SEOHead({
         "bestRating": "5"
       },
       "openingHours": [
-        "Mo-Fr 09:00-18:00"
+        "Mo-Fr 08:30-19:30"
       ],
-      "priceRange": "$10,000 - $5,000,000"
+      "priceRange": "$10,000 - $750,000"
     };
 
     updateStructuredData(structuredData);

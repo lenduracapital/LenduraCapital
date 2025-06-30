@@ -176,9 +176,23 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "FundTek Capital Group",
-      "logo": "https://fundtekcapitalgroup.com/favicon.svg",
+      "logo": "/favicon.svg",
       "url": "https://fundtekcapitalgroup.com",
       "telephone": "(305) 307-4658",
+      "email": "admin@fundtekcapitalgroup.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2727 Coney Island Ave",
+        "addressLocality": "Brooklyn",
+        "addressRegion": "NY",
+        "postalCode": "11235",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        "United States",
+        "Canada"
+      ],
+      "openingHours": "Mo-Fr 08:30-19:30",
       "sameAs": [
         "https://www.instagram.com/fundtekcapitalgroup/",
         "https://x.com/fundtekcapital",
@@ -191,66 +205,122 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How quickly can I get approved for business funding?",
+          "name": "How do I apply for business funding with FundTek?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most applications are approved within 24 hours with funding available the same day."
-          }
-        },
-        {
-          "@type": "Question", 
-          "name": "What types of business funding do you offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We offer 12 financing solutions including term loans, lines of credit, SBA loans, equipment financing, merchant cash advances, and more."
+            "text": "You can start the process by completing our short application online or through one of our funding specialists. We'll ask for basic business and financial information to match you with the most suitable funding options."
           }
         },
         {
           "@type": "Question",
-          "name": "What are the minimum requirements for funding?",
+          "name": "How long does the funding process take?",
           "acceptedAnswer": {
-            "@type": "Answer", 
-            "text": "Generally we require 550+ credit score, 6+ months in business, and $10K+ monthly revenue, though requirements vary by product."
+            "@type": "Answer",
+            "text": "We move fast. Most clients receive approval within 24 hours, and funding can be deposited as quickly as the same or next business day after approval and document signing."
           }
         },
         {
           "@type": "Question",
-          "name": "Do you work with startups or new businesses?",
+          "name": "How much can I get approved for?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we have funding solutions for businesses as new as 6 months old with appropriate revenue levels."
+            "text": "Funding amounts typically range from $10,000 to $750,000, depending on your revenue, business health, and lender criteria. High-volume businesses may qualify for even more."
           }
         },
         {
           "@type": "Question",
-          "name": "Is there an impact on my credit score?",
+          "name": "Do you fund all industries?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our initial application process has no impact on your FICO score during the pre-qualification stage."
+            "text": "Yes. We work with business owners across all industries, including trucking, medical, restaurants, retail, construction, e-commerce, and more. Some industries may receive better terms based on stability and revenue trends."
           }
         },
         {
           "@type": "Question",
-          "name": "How much funding can I qualify for?",
+          "name": "Do I need perfect credit to qualify?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Funding amounts range from $5,000 to $20,000,000 depending on your business qualifications and the funding product."
+            "text": "No. We focus more on your business performance than your personal credit. A credit score of 500+ is often enough for short-term funding. For larger approvals or SBA options, stronger credit may help secure better terms."
           }
         },
         {
           "@type": "Question",
-          "name": "What industries do you fund?",
+          "name": "Will applying affect my credit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We fund most industries including retail, manufacturing, healthcare, professional services, construction, restaurants, and many more."
+            "text": "We do a soft pull during the pre-qualification stage, which does not affect your credit score. A hard inquiry may occur later only if you choose to move forward with a specific offer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the repayment terms like?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer flexible repayment options, including daily, weekly, and monthly schedules. Terms can range from 3 to 24 months depending on the funding product and your cash flow."
           }
         },
         {
           "@type": "Question",
           "name": "Are there any upfront fees?",
           "acceptedAnswer": {
-            "@type": "Answer", 
-            "text": "No, we do not charge any upfront fees. You only pay when you receive funding and our fees are clearly disclosed."
+            "@type": "Answer",
+            "text": "No upfront fees. We don't charge you anything to apply, get matched, or receive offers. If any costs are involved, they will be clearly disclosed by the lender before funding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documents will I need to apply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically, you'll need: Last 3–6 months of business bank statements, driver's license, voided check, and completed application. Additional documents may be requested depending on the lender and product type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use funding for any purpose?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Whether it's payroll, equipment, expansion, marketing, or debt consolidation, you can use the funds however your business needs it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the minimum revenue required to apply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most lenders require a minimum of $15,000 per month in gross business revenue. The higher your revenue, the stronger your options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get funding if I already have other advances or loans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Many of our clients have active positions. We can look into consolidations, reverse consolidations, or add-on funding based on your situation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the approval based on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lenders primarily evaluate your average monthly revenue, consistency of cash flow, number of negative days, and existing obligations. The cleaner the file, the better the offer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this a loan or a cash advance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer both. FundTek connects you to multiple options, including merchant cash advances, term loans, lines of credit, and SBA products. We'll help you choose what's best based on your goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I'm approved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Once approved, you'll receive your offer details. If you choose to move forward, you'll sign a funding agreement and submit any final documents. Funds are typically wired to your business account within hours."
           }
         }
       ]
@@ -269,9 +339,45 @@
       },
       "author": {
         "@type": "Person",
-        "name": "Maria Gonzalez"
+        "name": "Carlos Martinez"
       },
-      "reviewBody": "When our main oven broke during peak season, FundTek got us $25K for a replacement in just 2 days. Their team understood the urgency and delivered exactly when we needed it most."
+      "reviewBody": "Our trucking company needed $150K to expand our fleet. FundTek delivered exactly what we needed in 48 hours. Professional service and competitive terms made all the difference for our business growth."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "FundTek Capital Group"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jennifer Kim"
+      },
+      "reviewBody": "As a restaurant owner, cash flow is everything. FundTek provided $85K in working capital when we needed it most during the slow season. Their team understood our industry challenges and delivered fast results."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Organization",
+        "name": "FundTek Capital Group"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Michael Thompson"
+      },
+      "reviewBody": "Our construction company secured $200K through FundTek for equipment purchases. The approval process was straightforward, and funding hit our account within 24 hours. Highly recommend their services."
     },
     {
       "@context": "https://schema.org",

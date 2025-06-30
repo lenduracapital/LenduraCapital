@@ -34,9 +34,9 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "@context": "https://schema.org",
           "@type": "FinancialService",
           "name": "FundTek Capital Group",
-          "url": "https://fundtekcapital.com",
-          "logo": "https://fundtekcapital.com/favicon.svg",
-          "description": "Professional business funding broker connecting businesses with lending partners for comprehensive financial solutions including term loans, equipment financing, and merchant cash advances.",
+          "url": "https://fundtekcapitalgroup.com",
+          "logo": "/favicon.svg",
+          "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada for comprehensive financial solutions including term loans, equipment financing, and merchant cash advances.",
           "telephone": "(305) 307-4658",
           "email": "admin@fundtekcapitalgroup.com",
           "address": {
@@ -44,19 +44,24 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
             "streetAddress": "2727 Coney Island Ave",
             "addressLocality": "Brooklyn",
             "addressRegion": "NY",
+            "postalCode": "11235",
             "addressCountry": "US"
           },
           "areaServed": ["United States", "Canada"],
           "serviceType": [
             "Business Loan Brokerage",
             "Term Loans",
-            "Merchant Cash Advance",
-            "Equipment Financing",
-            "SBA Loans",
             "Lines of Credit",
-            "Invoice Factoring",
-            "Commercial Real Estate Lending",
-            "Debt Consolidation"
+            "Cash Advance",
+            "SBA Loans",
+            "Debt Consolidation",
+            "Equipment Loans",
+            "Factoring",
+            "P.O. Financing",
+            "CRE Lending",
+            "Card Processing",
+            "Credit Repair",
+            "Marketing"
           ],
           "aggregateRating": {
             "@type": "AggregateRating",
@@ -64,8 +69,8 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
             "reviewCount": "127",
             "bestRating": "5"
           },
-          "openingHours": ["Mo-Fr 09:00-18:00"],
-          "priceRange": "$10,000 - $5,000,000",
+          "openingHours": ["Mo-Fr 08:30-19:30"],
+          "priceRange": "$10,000 - $750,000",
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Business Funding Solutions",
@@ -74,21 +79,40 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Small Business Loans"
+                  "name": "Term Loans",
+                  "description": "Traditional business term loans with competitive rates and flexible repayment terms"
                 }
               },
               {
                 "@type": "Offer", 
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Equipment Financing"
+                  "name": "Equipment Financing",
+                  "description": "Specialized financing for business equipment, machinery, and technology purchases"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service", 
-                  "name": "SBA Loans"
+                  "name": "SBA Loans",
+                  "description": "Government-backed SBA loans with lower down payments and competitive interest rates"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "Merchant Cash Advance",
+                  "description": "Fast access to working capital based on future credit card sales"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service", 
+                  "name": "Lines of Credit",
+                  "description": "Flexible revolving credit lines for ongoing business expenses"
                 }
               }
             ]
