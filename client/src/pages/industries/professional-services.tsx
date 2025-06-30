@@ -27,7 +27,7 @@ export default function ProfessionalServices() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${professionalServicesImage})`
           }}
         />
         
