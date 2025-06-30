@@ -174,9 +174,9 @@ function updateLinkTag(rel: string, href: string) {
 }
 
 function updateStructuredData(data: object) {
-  let script = document.querySelector('script[type="application/ld+json"][data-component="seo-head"]');
+  let script = document.querySelector('script[type="application/ld+json"][data-component="seo-head"]') as HTMLScriptElement;
   if (!script) {
-    script = document.createElement("script");
+    script = document.createElement("script") as HTMLScriptElement;
     script.type = "application/ld+json";
     script.setAttribute('data-component', 'seo-head');
     document.head.appendChild(script);
