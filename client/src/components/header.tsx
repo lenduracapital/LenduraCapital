@@ -201,7 +201,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={handleApplyNow}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
+              className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Apply for business funding - Opens in new window"
             >
@@ -209,7 +209,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             <button 
               onClick={() => setLocation("/contact")}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
+              className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Contact FundTek Capital Group"
             >
@@ -221,7 +221,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:text-[--primary] min-h-[44px] min-w-[44px] mr-4"
+            className="lg:hidden text-white hover:text-[--primary] min-h-[44px] min-w-[44px] mr-4 transition-all duration-300 hover:scale-110 hover:bg-white/10"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
