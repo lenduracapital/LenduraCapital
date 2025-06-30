@@ -59,8 +59,8 @@ export default function Franchises() {
               <Button 
                 onClick={() => setLocation("/solutions")}
                 size="lg"
-                style={{ color: 'white', borderColor: 'white' }}
-                className="hover:bg-white hover:text-[#85abe4] text-lg px-8 py-3 font-semibold"
+                style={{ color: 'white', borderColor: 'white', backgroundColor: 'transparent' }}
+                className="hover:bg-[#85abe4] hover:border-[#85abe4] text-lg px-8 py-3 font-semibold border"
               >
                 View All Solutions
               </Button>
