@@ -68,7 +68,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={() => setLocation("/")}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
+              className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Go to homepage"
             >
@@ -193,7 +193,7 @@ export default function Header({ transparent = true }: HeaderProps) {
             </div>
             <button 
               onClick={() => setLocation("/qualified-industries")}
-              className="text-white hover:text-[--primary] transition-colors duration-200 font-medium px-3 py-2 min-h-[44px] rounded focus-ring"
+              className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="See qualified industries"
             >
