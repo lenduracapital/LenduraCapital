@@ -370,7 +370,7 @@ export default function SolutionDetailTemplate({
                 <Button 
                   onClick={handleApplyNow}
                   style={{ backgroundColor: '#85abe4' }}
-                  className="w-full text-white py-3 rounded font-semibold text-base md:text-lg hover:opacity-90"
+                  className="w-full text-white py-3 rounded font-semibold text-base md:text-lg hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
                 >
                   Apply Now
                 </Button>
@@ -378,14 +378,14 @@ export default function SolutionDetailTemplate({
                   <Button 
                     onClick={handleBackToSolutions}
                     variant="outline"
-                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white"
+                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95"
                   >
                     Back to Solutions
                   </Button>
                   <Button 
                     onClick={handleBackToHome}
                     variant="outline"
-                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white"
+                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95"
                   >
                     Back to Home
                   </Button>
