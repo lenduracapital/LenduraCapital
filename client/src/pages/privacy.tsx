@@ -30,74 +30,88 @@ export default function PrivacyPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-8">Last updated: May 2025</p>
+            <p className="text-gray-600 mb-8">Last updated: June 2025</p>
             
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Information We Collect</h2>
-            <p className="text-gray-700 mb-4">We collect information you provide directly to us, including:</p>
-            <ul className="text-gray-700 mb-6 list-disc pl-6">
-              <li>Business and personal contact information</li>
-              <li>Financial information required for funding applications</li>
-              <li>Business documentation and tax records</li>
-              <li>Communication records and preferences</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use Your Information</h2>
-            <p className="text-gray-700 mb-4">We use the information we collect to:</p>
-            <ul className="text-gray-700 mb-6 list-disc pl-6">
-              <li>Process funding applications and connect you with suitable lenders</li>
-              <li>Provide customer service and support</li>
-              <li>Communicate about your applications and our services</li>
-              <li>Comply with legal and regulatory requirements</li>
-              <li>Improve our services and user experience</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Information Sharing</h2>
             <p className="text-gray-700 mb-6">
-              We share your information only with your consent and for legitimate business purposes. This includes sharing with lending partners to process your funding applications, service providers who assist our operations, and as required by law. We do not sell your personal information to third parties.
+              We collect info you give us directly, including:<br/><br/>
+              Contact details (business and personal)<br/>
+              Financial data for funding applications<br/>
+              Business docs like tax returns, bank statements<br/>
+              Communication records and your contact preferences
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Data Security</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">2. How We Use It</h2>
             <p className="text-gray-700 mb-6">
-              We implement appropriate technical and organizational measures to protect your information against unauthorized access, alteration, disclosure, or destruction. This includes secure data transmission, encrypted storage, and restricted access to personal information.
+              We use your info to:<br/><br/>
+              Match you with funding partners<br/>
+              Help with applications and support<br/>
+              Communicate updates and services<br/>
+              Meet legal/regulatory requirements<br/>
+              Improve our service and experience
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Retention</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Who We Share It With</h2>
             <p className="text-gray-700 mb-6">
-              We retain your information for as long as necessary to provide our services, comply with legal obligations, resolve disputes, and enforce our agreements. Financial information may be retained longer due to regulatory requirements.
+              We only share your info:<br/><br/>
+              With lenders you're applying to<br/>
+              With trusted service providers (CRM, hosting, etc.)<br/>
+              When required by law<br/><br/>
+              We do not sell your info to third parties — ever.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights and Choices</h2>
-            <p className="text-gray-700 mb-4">You have the right to:</p>
-            <ul className="text-gray-700 mb-6 list-disc pl-6">
-              <li>Access and review your personal information</li>
-              <li>Request corrections to inaccurate information</li>
-              <li>Opt out of marketing communications</li>
-              <li>Request deletion of your information (subject to legal requirements)</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies and Tracking</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Keeping Your Info Safe</h2>
             <p className="text-gray-700 mb-6">
-              Our website uses cookies and similar technologies to improve functionality, analyze usage, and provide personalized experiences. You can control cookie settings through your browser preferences.
+              We use secure tech and internal controls to protect your data:<br/><br/>
+              Encrypted data transfer<br/>
+              Secure storage<br/>
+              Limited access to sensitive info
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Third-Party Services</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. How Long We Keep It</h2>
             <p className="text-gray-700 mb-6">
-              Our website may contain links to third-party services. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any information.
+              We hold onto your info as long as needed to:<br/><br/>
+              Provide services<br/>
+              Stay compliant with the law<br/>
+              Resolve disputes if they come up
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights</h2>
             <p className="text-gray-700 mb-6">
-              Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children under 18.
+              You can:<br/><br/>
+              See the info we have on you<br/>
+              Ask for corrections<br/>
+              Opt out of marketing<br/>
+              Request deletion (unless we're legally required to keep it)
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies & Tracking</h2>
+            <p className="text-gray-700 mb-6">
+              Our site uses cookies to:<br/><br/>
+              Help it run smoother<br/>
+              See how people use it<br/>
+              Offer better user experience<br/><br/>
+              You can control cookies through your browser settings.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Third-Party Links</h2>
+            <p className="text-gray-700 mb-6">
+              If we link to other sites, we're not responsible for how they handle your data. Always check their policies too.
+            </p>
+
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Minors</h2>
+            <p className="text-gray-700 mb-6">
+              Our services are for people 18 and older. We don't knowingly collect data from anyone under 18.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to This Policy</h2>
             <p className="text-gray-700 mb-6">
-              We may update this privacy policy periodically. We will notify you of significant changes by posting the updated policy on our website or through direct communication.
+              If we update anything, we'll post it here. Big changes? We'll try to give you a heads-up.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
             <p className="text-gray-700 mb-6">
-              If you have questions about this privacy policy or our data practices, please contact us at (305) 307-4658 or through our contact form. We are committed to addressing your privacy concerns promptly.
+              Questions? Hit us up at (305) 307-4658 or through our contact form. We're here to help.
             </p>
           </div>
         </div>
