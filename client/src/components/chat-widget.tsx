@@ -39,12 +39,15 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 1 second
+  // Show widget after 1 second, but only if user hasn't dismissed it
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-    return () => clearTimeout(timer);
+    const chatDismissed = localStorage.getItem('chatWidgetDismissed');
+    if (chatDismissed !== 'true') {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -258,7 +261,14 @@ export default function ChatWidget() {
   };
 
   const toggleChat = () => {
-    setIsOpen(!isOpen);
+    if (isOpen) {
+      // User is closing the chat - remember this preference
+      localStorage.setItem('chatWidgetDismissed', 'true');
+      setIsOpen(false);
+      setIsVisible(false);
+    } else {
+      setIsOpen(true);
+    }
   };
 
 

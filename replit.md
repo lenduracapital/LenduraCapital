@@ -825,6 +825,10 @@ Changelog:
 - June 30, 2025. Mobile fallback background optimization (COMPLETE):
   * Reduced mobile fallback background opacity from solid #1e3a8a to rgba(30, 58, 138, 0.3) for subtle appearance
   * Fixed mobile video loading experience with less intrusive background while video loads
+- June 30, 2025. Chat widget persistence fix (COMPLETE):
+  * Fixed chat widget reappearing after being closed by adding localStorage memory
+  * Added chatWidgetDismissed localStorage flag to remember user's dismissal preference
+  * Updated toggleChat function to completely hide widget when closed and prevent reappearance
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
