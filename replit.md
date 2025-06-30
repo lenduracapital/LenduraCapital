@@ -822,6 +822,9 @@ Changelog:
   * Additional positioning adjustment: reduced top padding from pt-8 md:pt-12 to pt-4 md:pt-6 for higher text placement
   * Final text adjustments: "Empower your business" set to 22px, "Call us" set to 20px, top padding reduced to pt-2 md:pt-3
   * Fixed font size implementation using inline fontSize styles to override CSS conflicts and ensure proper 22px/20px display
+- June 30, 2025. Mobile fallback background optimization (COMPLETE):
+  * Reduced mobile fallback background opacity from solid #1e3a8a to rgba(30, 58, 138, 0.3) for subtle appearance
+  * Fixed mobile video loading experience with less intrusive background while video loads
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling

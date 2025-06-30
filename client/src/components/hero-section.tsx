@@ -141,7 +141,7 @@ export default function HeroSection() {
       style={{ 
         marginTop: 0, 
         paddingTop: 0,
-        backgroundColor: '#1e3a8a'
+        backgroundColor: 'rgba(30, 58, 138, 0.3)' // Much more subtle blue background for mobile
       }}
     >
       {/* Background Video with play button blocking overlay */}
