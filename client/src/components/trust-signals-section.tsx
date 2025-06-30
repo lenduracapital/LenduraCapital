@@ -161,15 +161,13 @@ export default function TrustSignalsSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <a
-                href="tel:(305) 307-4658"
+                href="https://calendly.com/admin-fundtekcapitalgroup/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg text-white cursor-pointer"
                 style={{ backgroundColor: '#85abe4', pointerEvents: 'auto' }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.location.href = "tel:(305) 307-4658";
-                }}
               >
-                Call (305) 307-4658
+                Schedule Call (305) 307-4658
               </a>
               <button
                 onClick={(e) => {

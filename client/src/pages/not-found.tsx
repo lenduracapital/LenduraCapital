@@ -74,7 +74,7 @@ export default function NotFound() {
           {/* Contact Info */}
           <div className="mt-8 p-6 bg-gray-50 rounded-lg">
             <p className="text-gray-600 mb-2">Need immediate assistance?</p>
-            <a href="tel:3053074658" className="text-2xl font-bold text-[#85abe4] hover:underline">
+            <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-[#85abe4] hover:underline">
               (305) 307-4658
             </a>
             <p className="text-sm text-gray-500 mt-2">

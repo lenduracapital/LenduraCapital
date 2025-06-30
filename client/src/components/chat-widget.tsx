@@ -211,7 +211,7 @@ export default function ChatWidget() {
       setChatState({ step: 'revenue', responses: newResponses });
     } else if (chatState.step === 'revenue') {
       addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
-      addMessage("A FundTek expert will call you within 1 hour. You can also call us directly at (305) 307-4658 for immediate assistance!", 'bot', 4500);
+      addMessage("A FundTek expert will call you within 1 hour. You can also schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min for immediate assistance!", 'bot', 4500);
       setChatState({ step: 'complete', responses: newResponses });
       
       // Send data to backend
@@ -223,12 +223,12 @@ export default function ChatWidget() {
         setChatState({ step: 'revenue', responses: newResponses });
       } else if (selection.includes('more questions')) {
         addMessage("I'd be happy to connect you with a specialist who can answer your specific questions in detail.", 'bot', 1500);
-        addMessage("A FundTek expert will call you within 1 hour. For immediate help, call (305) 307-4658.", 'bot', 4000);
+        addMessage("A FundTek expert will call you within 1 hour. For immediate help, schedule at https://calendly.com/admin-fundtekcapitalgroup/30min.", 'bot', 4000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, businessType: selection });
       } else {
         addMessage("Great! I'm glad I could help. Feel free to reach out anytime if you need financing assistance.", 'bot', 1500);
-        addMessage("Remember, you can always call us at (305) 307-4658 or apply online when you're ready!", 'bot', 4000);
+        addMessage("Remember, you can always schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min or apply online when you're ready!", 'bot', 4000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, businessType: selection });
       }

@@ -207,7 +207,7 @@ export default function HeroSection() {
             Empower your business with <span className="text-[#85abe4] font-semibold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>custom tailored</span> financial and <span className="text-[#85abe4] font-semibold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>business solutions</span>
           </p>
           <p className="text-white text-base md:text-lg mb-8" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>
-            Call us at <span className="text-[#85abe4] font-bold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>(305) 307-4658</span> to see your options
+            Call us at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] font-bold hover:text-[#7299d1] transition-colors duration-200 cursor-pointer" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8), 0px 0px 6px rgba(0,0,0,0.6)' }}>(305) 307-4658</a> to see your options
           </p>
           
           <Button 

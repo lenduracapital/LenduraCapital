@@ -52,7 +52,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-black">Direct Line</h3>
-                    <p className="text-gray-600">(305) 307-4658</p>
+                    <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">(305) 307-4658</a>
                   </div>
                 </div>
 

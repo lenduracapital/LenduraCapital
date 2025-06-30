@@ -60,7 +60,7 @@ export default function Footer() {
               Would you like a free, no strings attached consultation?
             </p>
             <p className="text-black text-xs md:text-sm">
-              Call us today at (305) 307-4658
+              Call us today at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">(305) 307-4658</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
               <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#6b90d1] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
