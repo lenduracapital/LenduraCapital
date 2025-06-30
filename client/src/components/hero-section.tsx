@@ -153,6 +153,7 @@ export default function HeroSection() {
           x5-playsinline="true"
           x5-video-player-type="h5"
           x5-video-player-fullscreen="false"
+          x5-video-orientation="portraint"
           controls={false}
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
@@ -173,7 +174,7 @@ export default function HeroSection() {
             border: 'none'
           }}
         >
-          <source src={videoPath} type="video/mp4" />
+          <source src={videoPath} type="video/webm" />
           Your browser does not support the video tag.
         </video>
         
