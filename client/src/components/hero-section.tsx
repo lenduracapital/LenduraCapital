@@ -23,33 +23,39 @@ export default function HeroSection() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Start video on any user interaction
-    const startVideoOnInteraction = () => {
+    // Aggressive video preloading and instant start
+    const startVideoImmediately = () => {
       if (videoRef.current && !videoStarted) {
         const video = videoRef.current;
         video.muted = true;
+        video.currentTime = 0;
+        
+        // Force immediate load and play
+        video.load();
         video.play().then(() => {
           setVideoStarted(true);
           setVideoLoaded(true);
         }).catch(() => {
-          // If autoplay fails, video will show play button until interaction
+          // Fallback for autoplay restrictions
+          setVideoLoaded(true);
         });
       }
     };
 
-    // Add listeners for any user interaction
-    const interactionEvents = ['click', 'touchstart', 'keydown', 'scroll'];
-    interactionEvents.forEach(event => {
-      document.addEventListener(event, startVideoOnInteraction, { once: true });
-    });
+    // Start video immediately when component mounts
+    startVideoImmediately();
 
-    // Try immediate autoplay
-    setTimeout(startVideoOnInteraction, 100);
+    // Also try on any user interaction for mobile
+    const interactionEvents = ['click', 'touchstart', 'keydown'];
+    const handleInteraction = () => startVideoImmediately();
+    interactionEvents.forEach(event => {
+      document.addEventListener(event, handleInteraction, { once: true });
+    });
 
     return () => {
       window.removeEventListener('resize', checkMobile);
       interactionEvents.forEach(event => {
-        document.removeEventListener(event, startVideoOnInteraction);
+        document.removeEventListener(event, handleInteraction);
       });
     };
   }, [videoStarted]);
@@ -154,7 +160,7 @@ export default function HeroSection() {
           controls={false}
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
           preload="auto"
           onLoadedData={() => setVideoLoaded(true)}
           onCanPlay={() => setVideoLoaded(true)}
