@@ -212,7 +212,7 @@ export default function HeroSection() {
           
           <Button 
             onClick={handleApplyNow}
-            className="bg-[#85abe4] hover:bg-[#7299d1] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto min-h-[44px]"
+            className="bg-[#85abe4] hover:bg-[#7299d1] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:-translate-y-1 shadow-lg w-full sm:w-auto min-h-[44px] active:scale-95"
           >
             Get Approved in 24 Hours
           </Button>
