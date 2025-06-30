@@ -162,7 +162,7 @@ export default function HeroSection() {
           controls={false}
           disablePictureInPicture
           controlsList="nodownload nofullscreen noremoteplayback"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-150 ${(videoLoaded || videoFullyLoaded) ? 'opacity-100' : 'opacity-0'}`}
+          className="absolute inset-0 w-full h-full object-cover opacity-100"
           preload="auto"
           onLoadedData={() => {
             setVideoLoaded(true);

@@ -833,6 +833,7 @@ Changelog:
   * Added videoFullyLoaded persistent state to prevent video from disappearing when chat widget closes
   * Enhanced video visibility logic to maintain video display during DOM state changes
   * Fixed fallback background reappearing issue when closing chat widget
+  * ACTUAL FIX: Removed video opacity transition completely - video now permanently opacity-100 to prevent background bleeding through
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
