@@ -134,7 +134,8 @@ export default function HeroSection() {
       className="hero-section relative h-screen overflow-hidden" 
       style={{ 
         marginTop: 0, 
-        paddingTop: 0
+        paddingTop: 0,
+        backgroundColor: '#1e3a8a'
       }}
     >
       {/* Background Video with play button blocking overlay */}
