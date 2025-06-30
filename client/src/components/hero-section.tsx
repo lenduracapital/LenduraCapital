@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 
-import videoPath from "@assets/Video (FundTek) (3)_1749674184351.mp4";
+import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import newLogoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 import cityscapeImage from "@assets/image_1750955621069.png";
