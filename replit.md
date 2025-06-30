@@ -819,6 +819,7 @@ Changelog:
   * Improved visual positioning of all hero content including heading, description, and CTA button
   * Maintained proper spacing and readability while positioning text higher on screen
   * Further reduced text spacing: heading mb-4→mb-2, description mb-6→mb-3, phone mb-8→mb-4 for more compact layout
+  * Additional positioning adjustment: reduced top padding from pt-8 md:pt-12 to pt-4 md:pt-6 for higher text placement
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling
