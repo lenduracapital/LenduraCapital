@@ -96,14 +96,14 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Dropdown Menu - Clean Rectangle */}
               {isDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-5 transition-all duration-150"
-                  style={{ width: '600px', height: '380px', marginTop: '8px' }}
+                  className="absolute top-full left-0 bg-white border-t-4 border-[#85abe4] shadow-xl z-50 p-4 transition-all duration-150"
+                  style={{ width: '600px', height: '340px', marginTop: '8px' }}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-2 gap-6">
                     {/* Left Column - Custom Business Financing Solutions */}
                     <div>
-                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
+                      <h3 className="font-semibold mb-2 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Custom Business Financing Solutions</h3>
                       <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
                         <button
                           onClick={() => { setLocation("/solutions/term-loans"); setIsDropdownOpen(false); }}
@@ -165,8 +165,8 @@ export default function Header({ transparent = true }: HeaderProps) {
 
                     {/* Right Column - Personalized Small Business Solutions */}
                     <div>
-                      <h3 className="font-semibold mb-3 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Personalized Small Business Solutions</h3>
-                      <div className="space-y-2">
+                      <h3 className="font-semibold mb-2 text-sm border-b border-gray-300 pb-1" style={{ color: '#85abe4' }}>Personalized Small Business Solutions</h3>
+                      <div className="space-y-1">
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsDropdownOpen(false); }}
                           className="block text-left text-xs text-gray-600 hover:text-[#85abe4] hover:bg-gray-50 transition-all duration-150 py-1 px-2 rounded w-full"
