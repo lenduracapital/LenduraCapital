@@ -3,7 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Briefcase, Users, FileText } from "lucide
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import professionalServicesImage from "@assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303013612.avif";
+import professionalServicesImage from "@assets/image_1751303323000.png";
 
 export default function ProfessionalServices() {
   const [, setLocation] = useLocation();
