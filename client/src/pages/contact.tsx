@@ -62,7 +62,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-black">Email</h3>
-                    <p className="text-gray-600">admin@fundtekcapitalgroup.com</p>
+                    <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">admin@fundtekcapitalgroup.com</a>
                   </div>
                 </div>
 

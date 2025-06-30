@@ -90,7 +90,7 @@ export default function TermLoans() {
               onClick={handleContactUs}
               className="ml-4 bg-white text-green-500 hover:bg-gray-100 px-6 py-2 rounded font-semibold"
             >
-              Call us at (877) 763-6196 to speak to a loan specialist today.
+              <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Schedule a consultation</a> with our financing specialists today.
             </Button>
           </div>
         </div>

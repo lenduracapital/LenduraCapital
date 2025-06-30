@@ -78,7 +78,7 @@ export default function NotFound() {
               (305) 307-4658
             </a>
             <p className="text-sm text-gray-500 mt-2">
-              Speak with a funding specialist today
+              Schedule your consultation today
             </p>
           </div>
         </div>

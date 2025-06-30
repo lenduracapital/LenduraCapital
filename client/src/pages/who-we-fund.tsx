@@ -146,14 +146,14 @@ export default function QualifiedIndustries() {
               Apply for Funding
             </Button>
             <Button 
-              onClick={() => setLocation('/contact')}
+              onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
               className="px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200"
               style={{ 
                 color: '#85abe4',
                 backgroundColor: 'white'
               }}
             >
-              Speak with a Specialist
+              Schedule Consultation
             </Button>
           </div>
         </div>

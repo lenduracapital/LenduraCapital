@@ -157,7 +157,7 @@ export default function TrustSignalsSection() {
           {/* Contact CTA */}
           <div className="text-center mt-12 pt-8 border-t border-gray-200">
             <p className="text-lg text-gray-600 mb-6">
-              Ready to speak with a funding specialist about your business needs?
+              Ready to schedule a consultation about your business needs?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
               <a
