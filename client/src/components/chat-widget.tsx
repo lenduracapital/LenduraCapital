@@ -500,7 +500,7 @@ export default function ChatWidget() {
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <button
-                onClick={() => window.open('tel:+13053074658', '_self')}
+                onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
                 className="flex items-center justify-center gap-2 bg-[#85abe4] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />

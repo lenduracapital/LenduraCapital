@@ -186,10 +186,10 @@ export default function FAQPage() {
               Apply Now
             </button>
             <button 
-              onClick={() => window.location.href = "tel:(305) 307-4658"}
+              onClick={() => window.open("https://calendly.com/admin-fundtekcapitalgroup/30min", "_blank")}
               className="px-8 py-3 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
             >
-              Call (305) 307-4658
+              Schedule Call (305) 307-4658
             </button>
           </div>
         </div>
