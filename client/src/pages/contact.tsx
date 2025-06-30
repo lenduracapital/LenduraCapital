@@ -175,7 +175,7 @@ export default function Contact() {
           </p>
           <button 
             onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
-            className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:opacity-90 transition-colors"
+            className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
             style={{ backgroundColor: '#85abe4' }}
           >
             Apply for Funding Now

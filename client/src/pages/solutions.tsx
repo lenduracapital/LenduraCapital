@@ -338,7 +338,7 @@ export default function Solutions() {
               <Button 
                 onClick={handleApplyNow}
                 style={{ backgroundColor: '#85abe4' }}
-                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90"
+                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
               >
                 Start Your Application
               </Button>

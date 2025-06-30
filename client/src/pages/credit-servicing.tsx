@@ -414,7 +414,7 @@ export default function CreditServicing() {
               onClick={handleBackToSolutions}
               variant="outline"
               size="lg"
-              className="border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white px-8 py-4 text-lg"
+              className="border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg"
             >
               Back to Solutions
             </Button>
