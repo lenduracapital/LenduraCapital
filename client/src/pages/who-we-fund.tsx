@@ -9,92 +9,92 @@ import BackToTop from "@/components/back-to-top";
 const industries = [
   {
     title: "Trucking & Transportation",
-    description: "Equipment financing, working capital, and fleet expansion funding for trucking companies, logistics providers, and transportation businesses managing operational costs.",
+    description: "Trucking, construction and logistics drives business fundamentals. Goods transported across the country face operational costs, unforeseen expenses and pending payments making operations challenging.",
     image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop"
   },
   {
     title: "Medical & Healthcare",
-    description: "Specialized financing for medical equipment, practice expansion, and healthcare facilities. Medical professionals turn to FundTek for essential capital needs.",
+    description: "Medical specialists and administrative professionals require specialized financing for equipment, practice expansion and healthcare facilities to serve their essential community needs.",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop"
   },
   {
     title: "Construction",
-    description: "Construction loans, equipment financing, and working capital for contractors and builders. Funding solutions for project expenses and business growth.",
+    description: "Construction contractors and builders need specialized financing for equipment, project expenses, materials and expansion to complete projects successfully and grow their businesses.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
     title: "Restaurant & Food Service",
-    description: "Equipment financing, inventory funding, and expansion capital for restaurants and food businesses creating exceptional customer dining experiences.",
+    description: "Restaurant owners create more than food - they provide complete dining experiences. Equipment financing, inventory funding and expansion capital support culinary businesses.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop"
   },
   {
     title: "Retail & E-commerce",
-    description: "Inventory financing, expansion capital, and seasonal working capital for retail businesses. Funding for marketing, advertising, and growth opportunities.",
+    description: "Retail businesses require inventory financing, expansion capital and seasonal working capital. Marketing, advertising, inventory and growth opportunities need specialized funding.",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop"
   },
   {
     title: "Manufacturing",
-    description: "Equipment financing, raw materials funding, and working capital for manufacturers. Support for production cycles, facility expansion, and order fulfillment.",
+    description: "Manufacturing companies need equipment financing, raw materials funding and working capital. Production cycles, facility expansion and large order fulfillment require capital.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop"
   },
   {
     title: "Professional Services",
-    description: "Law firms, accounting practices, consulting companies, and professional service providers. Funding for expansion, technology upgrades, and cash flow management.",
+    description: "Law firms, accounting practices, consulting companies and professional service providers require funding for expansion, technology upgrades and cash flow management.",
     image: "/attached_assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303419004.avif"
   },
   {
     title: "Technology & Software",
-    description: "Tech companies and software businesses need funding for product development, marketing, talent acquisition, and scaling operations in competitive markets.",
+    description: "Technology companies and software businesses require funding for product development, marketing campaigns, talent acquisition and scaling operations in competitive markets.",
     image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop"
   },
   {
     title: "Auto & Transportation",
-    description: "Auto repair shops, dealerships, and transportation companies. Funding for inventory, equipment purchases, facility improvements, and fleet expansion.",
+    description: "Auto repair shops, dealerships and transportation companies require specialized funding for inventory, equipment purchases, facility improvements and fleet expansion.",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop"
   },
   {
     title: "Beauty & Wellness",
-    description: "Salons, spas, fitness centers, and wellness businesses. Capital for equipment, renovations, inventory, and expansion to serve growing customer bases.",
+    description: "Salons, spas, fitness centers and wellness businesses require capital for equipment purchases, renovations, inventory and expansion to serve growing customer bases.",
     image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
   },
   {
     title: "Hospitality & Tourism",
-    description: "Hotels, bed & breakfasts, tourism companies, and hospitality businesses. Funding for renovations, marketing, seasonal expenses, and expansion projects.",
+    description: "Hotels, bed & breakfasts, tourism companies and hospitality businesses require funding for renovations, marketing campaigns, seasonal expenses and expansion projects.",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop"
   },
   {
     title: "Agriculture & Farming",
-    description: "Agricultural businesses require funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
+    description: "Agricultural businesses require specialized funding for equipment purchases, livestock, crop production, land acquisition and managing seasonal cash flow challenges.",
     image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&h=400&fit=crop"
   },
   {
     title: "Real Estate",
-    description: "Real estate professionals, property management companies, and investors. Funding for property acquisition, renovations, and business operations.",
+    description: "Real estate professionals, property management companies and investors require specialized funding for property acquisition, renovations and business operations.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
   },
   {
     title: "Entertainment & Events",
-    description: "Event planners, entertainment venues, and production companies. Capital for equipment, venue deposits, marketing, and managing variable income streams.",
+    description: "Event planners, entertainment venues and production companies require capital for equipment purchases, venue deposits, marketing and managing variable income streams.",
     image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
   },
   {
     title: "Education & Training",
-    description: "Educational institutions, training centers, and e-learning companies. Funding for technology upgrades, facility improvements, and program expansion.",
+    description: "Educational institutions, training centers and e-learning companies require funding for technology upgrades, facility improvements and program expansion initiatives.",
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop"
   },
   {
     title: "Franchises",
-    description: "Franchise owners across all industries. Specialized funding solutions for franchise fees, equipment, inventory, and multi-location expansion projects.",
+    description: "Franchise owners across industries require specialized funding solutions for franchise fees, equipment purchases, inventory and multi-location expansion projects.",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
   },
   {
     title: "Home Services & Contracting",
-    description: "Equipment financing, working capital, and project funding for HVAC, plumbing, electrical, roofing, and general contracting businesses.",
+    description: "HVAC, plumbing, electrical, roofing and general contracting businesses require equipment financing, working capital and project funding for successful operations.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
   },
   {
     title: "Cleaning & Janitorial Services", 
-    description: "Equipment financing, vehicle loans, and working capital for commercial cleaning, janitorial, and maintenance service companies.",
+    description: "Commercial cleaning, janitorial and maintenance service companies require equipment financing, vehicle loans and working capital for successful business operations.",
     image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop"
   }
 ];
@@ -169,22 +169,22 @@ export default function QualifiedIndustries() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {industries.map((industry, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
                 <div 
                   className="h-48 bg-cover bg-center rounded-lg mb-6"
                   style={{ backgroundImage: `url(${industry.image})` }}
                 />
                 
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-gray-900">
+                <div className="flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {industry.title}
                   </h3>
-                  <div className="w-12 h-1" style={{ backgroundColor: '#85abe4' }}></div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#85abe4' }}></div>
+                  <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
                     {industry.description}
                   </p>
                   
-                  <div className="pt-4">
+                  <div className="mt-auto">
                     <Button 
                       onClick={() => {
                         // Create mapping for specific industry titles to match file names
