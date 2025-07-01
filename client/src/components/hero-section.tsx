@@ -16,7 +16,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Video Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-10"
