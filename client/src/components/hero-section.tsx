@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
+import cityBackgroundPath from "@assets/image_1751304641909.png";
 
 export default function HeroSection() {
   const [, setLocation] = useLocation();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleApplyClick = () => {
     window.open('https://form.jotform.com/251417715331047', '_blank');
@@ -16,14 +19,30 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-blue-900">
+    <section 
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: `url(${cityBackgroundPath})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Video Background */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover opacity-100"
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
+        style={{
+          transform: 'translateZ(0)',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden'
+        }}
       >
         <source src={videoPath} type="video/webm" />
       </video>
