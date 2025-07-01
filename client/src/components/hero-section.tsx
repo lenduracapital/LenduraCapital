@@ -65,44 +65,28 @@ export default function HeroSection() {
       <div className="relative z-20 text-white px-4 md:px-8 lg:px-16 max-w-7xl mx-auto w-full">
         <div className="flex items-center h-full">
           <div className="w-full lg:w-1/2 space-y-8 pt-2 md:pt-3">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-2">
-              Flexible Financing for<br />
-              Every Industry
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4">
+              Flexible<br />
+              Financing for<br />
+              <span style={{ color: '#85abe4' }}>Every Industry</span>
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl mb-3 max-w-2xl leading-relaxed" style={{ fontSize: '22px' }}>
-              Empower your business with working capital funding from $10K to $20M. 
-              Quick approvals, competitive rates, and flexible terms designed for your success.
+            <p className="text-lg mb-4 max-w-2xl leading-relaxed">
+              Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
+              financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-4">
-              <Button 
-                onClick={handleApplyNow}
-                size="lg" 
-                className="bg-white hover:bg-gray-100 text-black font-semibold px-8 py-4 text-lg rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95"
-              >
-                Get Approved in 24 Hours
-              </Button>
-              
-              <Button 
-                onClick={handlePhoneClick}
-                variant="outline" 
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold px-8 py-4 text-lg rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95"
-              >
-                Schedule Consultation
-              </Button>
-            </div>
+            <p className="text-lg mb-6">
+              Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
+            </p>
             
-            <div className="text-lg md:text-xl">
-              <span style={{ fontSize: '20px' }}>Call us today: </span>
-              <button 
-                onClick={handlePhoneClick}
-                className="text-white hover:text-blue-200 font-semibold transition-colors duration-300"
-              >
-                (305) 307-4658
-              </button>
-            </div>
+            <Button 
+              onClick={handleApplyNow}
+              size="lg" 
+              className="bg-[#85abe4] hover:bg-[#7299d1] text-white font-semibold px-8 py-4 text-lg rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95"
+            >
+              Get Approved in 24 Hours
+            </Button>
           </div>
         </div>
       </div>
