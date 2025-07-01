@@ -264,8 +264,11 @@ export default function ChatWidget() {
     if (isOpen) {
       // User is closing the chat - remember this preference for this session only
       sessionStorage.setItem('chatWidgetDismissed', 'true');
-      setIsOpen(false);
-      setIsVisible(false);
+      // Use setTimeout to prevent React reconciliation issues
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsVisible(false);
+      }, 0);
     } else {
       setIsOpen(true);
     }
