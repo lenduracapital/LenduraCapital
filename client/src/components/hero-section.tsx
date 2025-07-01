@@ -61,11 +61,11 @@ export default function HeroSection() {
         <div className="flex items-center h-full">
           <div className="w-full lg:w-1/2 space-y-8 pt-2 md:pt-3">
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-2">
-              <span style={{ fontSize: '22px' }}>Flexible Financing for</span><br />
+              Flexible Financing for<br />
               Every Industry
             </h1>
             
-            <p className="text-lg md:text-xl lg:text-2xl mb-3 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl lg:text-2xl mb-3 max-w-2xl leading-relaxed" style={{ fontSize: '22px' }}>
               Empower your business with working capital funding from $10K to $20M. 
               Quick approvals, competitive rates, and flexible terms designed for your success.
             </p>
