@@ -11,6 +11,7 @@ export default function HeroSection() {
   const [videoLoaded, setVideoLoaded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [videoStarted, setVideoStarted] = useState(false);
+  const [mobileVideoActive, setMobileVideoActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setLocation] = useLocation();
 
@@ -141,7 +142,7 @@ export default function HeroSection() {
       style={{ 
         marginTop: 0, 
         paddingTop: 0,
-        backgroundColor: 'rgba(30, 58, 138, 0.3)' // Much more subtle blue background for mobile
+        backgroundColor: (isMobile && !mobileVideoActive) ? 'rgba(30, 58, 138, 0.3)' : 'transparent'
       }}
     >
       {/* Background Video with play button blocking overlay */}
@@ -162,8 +163,17 @@ export default function HeroSection() {
           controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover opacity-100"
           preload="auto"
-          onLoadedData={() => setVideoLoaded(true)}
-          onCanPlay={() => setVideoLoaded(true)}
+          onLoadedData={() => {
+            setVideoLoaded(true);
+            if (isMobile) setMobileVideoActive(true);
+          }}
+          onCanPlay={() => {
+            setVideoLoaded(true);
+            if (isMobile) setMobileVideoActive(true);
+          }}
+          onPlaying={() => {
+            if (isMobile) setMobileVideoActive(true);
+          }}
           onError={() => setVideoLoaded(false)}
           onContextMenu={(e) => e.preventDefault()}
           aria-label="FundTek Capital Group business financing solutions showcase"
