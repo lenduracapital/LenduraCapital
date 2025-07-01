@@ -71,13 +71,13 @@ export default function HeroSection() {
               <span style={{ color: '#85abe4' }}>Every Industry</span>
             </h1>
             
-            <p className="mb-2 max-w-2xl text-[23px]" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>
-              Empower your business with <span style={{ color: '#85abe4', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>custom tailored</span><br />
-              financial and <span style={{ color: '#85abe4', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>business solutions</span>
+            <p className="mb-2 max-w-2xl text-[23px]" style={{ fontSize: '22px' }}>
+              Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
+              financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
             
-            <p className="mb-4" style={{ fontSize: '20px', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>
-              Call us at <span style={{ color: '#85abe4', textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0px 0px 8px rgba(0,0,0,0.6)' }}>(305) 307-4658</span> to see your options
+            <p className="mb-4" style={{ fontSize: '20px' }}>
+              Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
             </p>
             
             <Button 
