@@ -138,18 +138,25 @@ export default function ChatWidgetIsolated() {
         
         // Show widget after 2 seconds
         setTimeout(() => {
-          if (sessionStorage.getItem('chatWidgetDismissed') !== 'true') {
-            isVisible = true;
-            widget.style.transform = 'translateY(0)';
-            widget.style.opacity = '1';
-            
-            // Auto-open after appearing
-            setTimeout(() => {
-              isOpen = true;
-              button.style.display = 'none';
-              window.style.display = 'flex';
-            }, 500);
-          }
+          console.log('Chat widget timer triggered');
+          const dismissed = sessionStorage.getItem('chatWidgetDismissed');
+          console.log('Chat dismissed status:', dismissed);
+          
+          // Clear dismissal on page load
+          sessionStorage.removeItem('chatWidgetDismissed');
+          
+          isVisible = true;
+          widget.style.transform = 'translateY(0)';
+          widget.style.opacity = '1';
+          console.log('Chat widget should be visible now');
+          
+          // Auto-open after appearing
+          setTimeout(() => {
+            isOpen = true;
+            button.style.display = 'none';
+            window.style.display = 'flex';
+            console.log('Chat window opened');
+          }, 500);
         }, 2000);
         
         // Button click handler

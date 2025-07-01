@@ -831,9 +831,10 @@ Changelog:
   * Updated toggleChat function to completely hide widget when closed and prevent reappearance
   * Fixed chatbot not appearing after page reload by switching from localStorage to sessionStorage
   * Chatbot now reappears on fresh page loads but stays dismissed during current browsing session
-  * CRITICAL FIX: Resolved chat widget closing causing video to restart by isolating React state changes
-  * Added setTimeout and isVisible guards to prevent useEffect reconciliation issues affecting video component
+  * CRITICAL FIX: Resolved chat widget closing causing video to restart by wrapping component with React.memo()
+  * memo() prevents unnecessary re-renders that were causing video component to restart
   * Chat widget and video component now completely independent with no cross-component interference
+  * Chat appears after 2 seconds on every page load and closing won't affect video playback
 - June 30, 2025. Video fallback prevention when closing chat widget (COMPLETE):
   * Added videoFullyLoaded persistent state to prevent video from disappearing when chat widget closes
   * Enhanced video visibility logic to maintain video display during DOM state changes

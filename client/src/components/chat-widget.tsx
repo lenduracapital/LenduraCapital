@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { X, MessageCircle, Bot, Send, Phone, Clock, MapPin } from "lucide-react";
 import { useLocation } from "wouter";
 
@@ -26,7 +26,7 @@ interface ChatState {
   };
 }
 
-export default function ChatWidget() {
+function ChatWidget() {
   const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(true); // Start fully expanded
@@ -39,15 +39,15 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 2 seconds, but only if user hasn't dismissed it in this session
+  // Show widget after 2 seconds on every page load
   useEffect(() => {
-    const chatDismissed = sessionStorage.getItem('chatWidgetDismissed');
-    if (chatDismissed !== 'true') {
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Clear any previous dismissal so chat always appears on page load
+    sessionStorage.removeItem('chatWidgetDismissed');
+    
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -621,3 +621,5 @@ export default function ChatWidget() {
     </>
   );
 }
+
+export default memo(ChatWidget);
