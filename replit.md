@@ -841,6 +841,8 @@ Changelog:
   * Fixed fallback background reappearing issue when closing chat widget
   * ACTUAL FIX: Removed video opacity transition completely - video now permanently opacity-100 to prevent background bleeding through
   * Reverted video component to simple stable version, removing unnecessary complex state management that caused excessive reloads
+  * Completely simplified hero section with basic HTML5 video - no fallbacks, no complex logic, just autoplay muted loop
+  * Eliminated all mobile fallback backgrounds and complex state management for reliable video playback
 - June 30, 2025. Calendly integration and specialist consultation optimization (COMPLETE):
   * Converted all phone numbers (305) 307-4658 across website to clickable Calendly scheduling links
   * Updated email address admin@fundtekcapitalgroup.com to clickable mailto link with signature blue styling

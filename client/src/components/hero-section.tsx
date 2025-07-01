@@ -8,10 +8,7 @@ import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_17501762502
 
 
 export default function HeroSection() {
-  const [videoLoaded, setVideoLoaded] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [videoStarted, setVideoStarted] = useState(false);
-  const [mobileVideoActive, setMobileVideoActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setLocation] = useLocation();
 
