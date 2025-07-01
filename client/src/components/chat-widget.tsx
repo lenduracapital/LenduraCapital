@@ -29,7 +29,7 @@ interface ChatState {
 export default function ChatWidget() {
   const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(true); // Start fully expanded
+  const [isOpen, setIsOpen] = useState(false); // Start closed, open when visible
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [textInput, setTextInput] = useState('');
@@ -45,6 +45,7 @@ export default function ChatWidget() {
     if (chatDismissed !== 'true') {
       const timer = setTimeout(() => {
         setIsVisible(true);
+        setIsOpen(true); // Open immediately when visible
       }, 2000);
       return () => clearTimeout(timer);
     }

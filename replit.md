@@ -825,12 +825,15 @@ Changelog:
 - June 30, 2025. Mobile fallback background optimization (COMPLETE):
   * Reduced mobile fallback background opacity from solid #1e3a8a to rgba(30, 58, 138, 0.3) for subtle appearance
   * Fixed mobile video loading experience with less intrusive background while video loads
-- June 30, 2025. Chat widget persistence fix (COMPLETE):
-  * Fixed chat widget reappearing after being closed by adding localStorage memory
-  * Added chatWidgetDismissed localStorage flag to remember user's dismissal preference
+- June 30, 2025. Chat widget persistence and video restart fix (COMPLETE):
+  * Fixed chat widget reappearing after being closed by adding sessionStorage memory
+  * Added chatWidgetDismissed sessionStorage flag to remember user's dismissal preference during session
   * Updated toggleChat function to completely hide widget when closed and prevent reappearance
   * Fixed chatbot not appearing after page reload by switching from localStorage to sessionStorage
   * Chatbot now reappears on fresh page loads but stays dismissed during current browsing session
+  * CRITICAL FIX: Resolved chat widget closing causing video to restart by isolating React state changes
+  * Added setTimeout and isVisible guards to prevent useEffect reconciliation issues affecting video component
+  * Chat widget and video component now completely independent with no cross-component interference
 - June 30, 2025. Video fallback prevention when closing chat widget (COMPLETE):
   * Added videoFullyLoaded persistent state to prevent video from disappearing when chat widget closes
   * Enhanced video visibility logic to maintain video display during DOM state changes
