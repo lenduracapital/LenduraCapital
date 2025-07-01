@@ -39,16 +39,16 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 2 seconds, but only if user hasn't dismissed it in this session
+  // Show widget after 2 seconds on every page load
   useEffect(() => {
-    const chatDismissed = sessionStorage.getItem('chatWidgetDismissed');
-    if (chatDismissed !== 'true') {
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-        setIsOpen(true); // Open immediately when visible
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Clear dismissal flag on page load so chat can appear again
+    sessionStorage.removeItem('chatWidgetDismissed');
+    
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+      setIsOpen(true); // Open immediately when visible
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
