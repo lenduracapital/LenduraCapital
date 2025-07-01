@@ -31,20 +31,27 @@ export default function HeroSection() {
       {/* Video Background */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-100"
+        className="absolute inset-0 w-full h-full object-cover z-10"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
+        controls={false}
         style={{
           transform: 'translateZ(0)',
           willChange: 'transform',
           backfaceVisibility: 'hidden',
           WebkitBackfaceVisibility: 'hidden'
         }}
+        onLoadedData={() => {
+          if (videoRef.current) {
+            videoRef.current.play().catch(console.log);
+          }
+        }}
       >
         <source src={videoPath} type="video/webm" />
+        Your browser does not support the video tag.
       </video>
 
       {/* Logo Overlay */}
