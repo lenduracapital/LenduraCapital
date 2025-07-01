@@ -29,7 +29,7 @@ interface ChatState {
 export default function ChatWidget() {
   const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // Start closed, open when visible
+  const [isOpen, setIsOpen] = useState(true); // Start fully expanded
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [textInput, setTextInput] = useState('');
@@ -39,16 +39,15 @@ export default function ChatWidget() {
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Show widget after 2 seconds on every page load
+  // Show widget after 2 seconds, but only if user hasn't dismissed it in this session
   useEffect(() => {
-    // Clear dismissal flag on page load so chat can appear again
-    sessionStorage.removeItem('chatWidgetDismissed');
-    
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-      setIsOpen(true); // Open immediately when visible
-    }, 2000);
-    return () => clearTimeout(timer);
+    const chatDismissed = sessionStorage.getItem('chatWidgetDismissed');
+    if (chatDismissed !== 'true') {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -58,7 +57,7 @@ export default function ChatWidget() {
 
   // Initialize chat with welcome message only once
   useEffect(() => {
-    if (isOpen && isVisible && messages.length === 0 && chatState.step === 'welcome') {
+    if (isOpen && messages.length === 0 && chatState.step === 'welcome') {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -85,7 +84,7 @@ export default function ChatWidget() {
         }, 1500);
       }, 500);
     }
-  }, [isOpen, isVisible, chatState.step]);
+  }, [isOpen, chatState.step]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
     if (delay > 0) {
@@ -265,11 +264,8 @@ export default function ChatWidget() {
     if (isOpen) {
       // User is closing the chat - remember this preference for this session only
       sessionStorage.setItem('chatWidgetDismissed', 'true');
-      // Use setTimeout to prevent React reconciliation issues
-      setTimeout(() => {
-        setIsOpen(false);
-        setIsVisible(false);
-      }, 0);
+      setIsOpen(false);
+      setIsVisible(false);
     } else {
       setIsOpen(true);
     }
