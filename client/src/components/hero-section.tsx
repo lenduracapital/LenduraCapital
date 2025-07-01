@@ -62,7 +62,7 @@ export default function HeroSection() {
 
 
       {/* Text Content Overlay */}
-      <div className="absolute left-0 top-0 z-20 text-white px-8 md:px-16 w-full h-full">
+      <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
           <div className="max-w-2xl space-y-4 pt-2 md:pt-3">
             <h1 className="font-bold leading-tight mb-2" style={{ fontSize: '62px' }}>
