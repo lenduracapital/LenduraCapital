@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
-import ChatWidget from "@/components/chat-widget";
+import ChatWidgetIsolated from "@/components/chat-widget-isolated";
 import CookieBanner from "@/components/CookieBanner";
 
 
@@ -140,7 +140,7 @@ function App() {
       <TooltipProvider>
         <Suspense fallback={<PageLoader />}>
           <Router />
-          <ChatWidget />
+          <ChatWidgetIsolated />
           <CookieBanner />
           <Toaster />
         </Suspense>
