@@ -57,7 +57,7 @@ export default function ChatWidget() {
 
   // Initialize chat with welcome message only once
   useEffect(() => {
-    if (isOpen && messages.length === 0 && chatState.step === 'welcome') {
+    if (isOpen && isVisible && messages.length === 0 && chatState.step === 'welcome') {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -84,7 +84,7 @@ export default function ChatWidget() {
         }, 1500);
       }, 500);
     }
-  }, [isOpen, chatState.step]);
+  }, [isOpen, isVisible, chatState.step]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
     if (delay > 0) {
