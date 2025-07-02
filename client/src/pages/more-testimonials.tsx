@@ -4,36 +4,36 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initial: "R",
-    name: "Rafael Castillo",
+    initial: "J",
+    name: "James Castillo",
     business: "Estrella Mexican Grill",
     rating: 5,
     text: "We've been serving authentic tacos for 8 years but our fryer gave out right before Cinco de Mayo weekend. Couldn't afford to miss our busiest days. FundTek understood the urgency."
   },
   {
-    initial: "P",
-    name: "Priya Patel",
+    initial: "D",
+    name: "Daniel Patel",
     business: "Golden State Dry Cleaners",
     rating: 4,
     text: "Two pressing machines broke within the same week. My regular customers depend on me for their work clothes. Got funding approved while my competitor was still waiting for his bank appointment."
   },
   {
-    initial: "T",
-    name: "Tyrone Jackson",
+    initial: "A",
+    name: "Ava Jackson",
     business: "Motor City Detail Shop",
     rating: 5,
     text: "Police department wanted to renew our fleet contract but required new equipment certifications. Had 10 days to upgrade everything. My bank wanted six weeks just to review the application."
   },
   {
-    initial: "S",
-    name: "Sofia Petrov",
+    initial: "P",
+    name: "Paige Petrov",
     business: "Little Angels Daycare",
     rating: 4,
     text: "State changed licensing requirements - we needed new security system and playground updates by January or they'd shut us down. 15 families counting on us to stay open."
   },
   {
-    initial: "J",
-    name: "Jerome Washington",
+    initial: "M",
+    name: "Marc Washington",
     business: "Southside Barber Lounge",
     rating: 5,
     text: "Landlord sold the building, new owner doubled our rent with 30 days notice. Been cutting hair in this neighborhood for 22 years. The emergency funding kept our doors open."

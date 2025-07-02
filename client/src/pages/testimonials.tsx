@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 const testimonials = [
   {
     id: 1,
-    name: "Robert Chen",
+    name: "Marc Chen",
     title: "Auto Shop Owner",
     company: "Chen's Auto Repair",
     rating: 5,
@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Maria Rodriguez",
+    name: "Gabby Rodriguez",
     title: "Restaurant Owner",
     company: "La Casa Restaurant",
     rating: 5,
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "David Chen",
+    name: "Eric Chen",
     title: "Construction Company Owner",
     company: "Chen Construction Inc.",
     rating: 5,
@@ -38,7 +38,7 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "Sarah Johnson",
+    name: "James Johnson",
     title: "Medical Practice Owner",
     company: "Johnson Family Dentistry",
     rating: 5,
@@ -48,7 +48,7 @@ const testimonials = [
   },
   {
     id: 5,
-    name: "Michael Thompson",
+    name: "Daniel Thompson",
     title: "Tech Startup Founder",
     company: "TechFlow Solutions",
     rating: 5,
@@ -58,7 +58,7 @@ const testimonials = [
   },
   {
     id: 6,
-    name: "Lisa Williams",
+    name: "Ava Williams",
     title: "Retail Store Owner",
     company: "Williams Boutique",
     rating: 5,

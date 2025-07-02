@@ -5,22 +5,22 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    initial: "A",
-    name: "Antonio Valdez",
-    business: "Valdez Brothers Plumbing",
+    initial: "M",
+    name: "Marc Thompson",
+    business: "Thompson Brothers Plumbing",
     rating: 5,
     text: "Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. FundTek came through when my bank couldn't even see me until next month."
   },
   {
-    initial: "D",
-    name: "Danny O'Brien",
+    initial: "G",
+    name: "Gabby O'Brien",
     business: "Dublin's Irish Pub",
     rating: 5,
     text: "Our walk-in cooler died during St. Patrick's week. Would've lost thousands in spoiled food and had to cancel our biggest event. FundTek saved our season."
   },
   {
-    initial: "M",
-    name: "Maria Santos-Lopez",
+    initial: "E",
+    name: "Eric Santos",
     business: "Bella Vista Hair Studio",
     rating: 5,
     text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash to cover the deposit. Now I own the building next door too."
