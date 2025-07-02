@@ -325,10 +325,10 @@ export default function CommercialRealEstateLending() {
             <div className="bg-gray-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ backgroundColor: '#85abe4' }}>
-                  <span className="text-white font-bold">MC</span>
+                  <span className="text-white font-bold">P</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Maria Chen</h4>
+                  <h4 className="font-bold text-gray-900">Paige Chen</h4>
                   <p className="text-gray-600">Property Investor</p>
                 </div>
               </div>
@@ -340,10 +340,10 @@ export default function CommercialRealEstateLending() {
             <div className="bg-gray-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ backgroundColor: '#85abe4' }}>
-                  <span className="text-white font-bold">TS</span>
+                  <span className="text-white font-bold">G</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900">Tom Stevens</h4>
+                  <h4 className="font-bold text-gray-900">Gabby Stevens</h4>
                   <p className="text-gray-600">Development Company</p>
                 </div>
               </div>
