@@ -17,12 +17,12 @@ export default function CreditCardProcessing() {
 
   const testimonials = [
     {
-      name: "Carlos Rivera",
+      name: "Marc Rivera",
       business: "Rivera's Electronics",
       text: "Switching to FundTek's processing saved us 30% on fees. The mobile reader works perfectly at trade shows and the deposits are lightning fast."
     },
     {
-      name: "Amanda Chen",
+      name: "Ava Chen",
       business: "Garden Fresh Market",
       text: "Our old processor had hidden fees everywhere. FundTek's transparent pricing and same-day funding helped our cash flow tremendously."
     }

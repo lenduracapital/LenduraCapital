@@ -133,19 +133,19 @@ export default function RestaurantFoodService() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Marco DiVito",
+                name: "James DiVito",
                 company: "DiVito's Italian Kitchen",
                 story: "Used equipment financing to upgrade kitchen with commercial-grade appliances. Increased capacity by 50% and reduced food prep time significantly.",
                 funding: "$135,000 Equipment Financing"
               },
               {
-                name: "Chen Liu",
+                name: "Daniel Liu",
                 company: "Golden Dragon Restaurant",
                 story: "Secured working capital for renovation and new POS system. Customer satisfaction improved and takeout orders doubled during pandemic.",
                 funding: "$95,000 Term Loan"
               },
               {
-                name: "Isabella Rodriguez",
+                name: "Ava Rodriguez",
                 company: "Café Estrella",
                 story: "Got line of credit for seasonal inventory and marketing. Expanded catering services and opened second location within 18 months.",
                 funding: "$75,000 Line of Credit"

@@ -116,19 +116,19 @@ export default function RealEstate() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Michael Chen",
+                name: "Marc Chen",
                 company: "Pacific Properties LLC",
                 story: "Secured bridge financing to close on a 12-unit apartment building. Renovated and refinanced within 8 months for 35% profit.",
                 funding: "$850,000 Bridge Loan"
               },
               {
-                name: "Sarah Rodriguez",
+                name: "Gabby Rodriguez",
                 company: "Flip Smart Investments",
                 story: "Used fix-and-flip funding to purchase and renovate 3 distressed properties simultaneously. Increased property values by $200K total.",
                 funding: "$320,000 Fix & Flip Loan"
               },
               {
-                name: "David Thompson",
+                name: "Eric Thompson",
                 company: "Commercial RE Partners",
                 story: "Obtained working capital to purchase warehouse space for conversion to luxury lofts. Project sold out in pre-construction phase.",
                 funding: "$1.2M Commercial Loan"

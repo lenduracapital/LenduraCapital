@@ -134,13 +134,13 @@ export default function Construction() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Tony Morales",
+                name: "Marc Morales",
                 company: "Morales Construction LLC",
                 story: "Used equipment financing to purchase excavator and dump trucks. Secured major commercial contract and doubled project capacity.",
                 funding: "$350,000 Equipment Financing"
               },
               {
-                name: "Lisa Thompson",
+                name: "Paige Thompson",
                 company: "Thompson Roofing Co.",
                 story: "Got working capital to purchase materials for large school district project. Completed on time and under budget.",
                 funding: "$120,000 Line of Credit"
