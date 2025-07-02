@@ -5,25 +5,25 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    initial: "M",
-    name: "Marc Thompson",
-    business: "Thompson Brothers Plumbing",
+    initial: "R",
+    name: "Robert Chen",
+    business: "Chen's Auto Repair",
     rating: 5,
-    text: "Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. FundTek came through when my bank couldn't even see me until next month."
+    text: "Marc was incredible. Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. Marc got me approved in one day when my bank couldn't even see me until next month."
   },
   {
-    initial: "G",
-    name: "Gabby O'Brien",
-    business: "Dublin's Irish Pub",
+    initial: "L",
+    name: "Lisa Murphy",
+    business: "Murphy's Irish Pub",
     rating: 5,
-    text: "Our walk-in cooler died during St. Patrick's week. Would've lost thousands in spoiled food and had to cancel our biggest event. FundTek saved our season."
+    text: "Our walk-in cooler died during St. Patrick's week. Would've lost thousands in spoiled food. Gabby worked late to get us emergency funding. She literally saved our season."
   },
   {
-    initial: "E",
-    name: "Eric Santos",
+    initial: "T",
+    name: "Tony Rodriguez",
     business: "Bella Vista Hair Studio",
     rating: 5,
-    text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash to cover the deposit. Now I own the building next door too."
+    text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash. Eric understood the urgency and had funding ready in 24 hours. Amazing service."
   }
 ];
 

@@ -4,46 +4,46 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initial: "J",
-    name: "James Castillo",
+    initial: "M",
+    name: "Maria Castillo",
     business: "Estrella Mexican Grill",
     rating: 5,
-    text: "We've been serving authentic tacos for 8 years but our fryer gave out right before Cinco de Mayo weekend. Couldn't afford to miss our busiest days. FundTek understood the urgency."
+    text: "We've been serving authentic tacos for 8 years but our fryer gave out right before Cinco de Mayo weekend. Couldn't afford to miss our busiest days. James from FundTek understood the urgency and got us funded in 24 hours."
   },
   {
-    initial: "D",
-    name: "Daniel Patel",
+    initial: "R",
+    name: "Raj Patel",
     business: "Golden State Dry Cleaners",
     rating: 4,
-    text: "Two pressing machines broke within the same week. My regular customers depend on me for their work clothes. Got funding approved while my competitor was still waiting for his bank appointment."
+    text: "Two pressing machines broke within the same week. My regular customers depend on me for their work clothes. Daniel worked overtime to get my funding approved while my competitor was still waiting for his bank appointment."
+  },
+  {
+    initial: "K",
+    name: "Kevin Jackson",
+    business: "Motor City Detail Shop",
+    rating: 5,
+    text: "Police department wanted to renew our fleet contract but required new equipment certifications. Had 10 days to upgrade everything. Ava made it happen when my bank wanted six weeks just to review the application."
+  },
+  {
+    initial: "S",
+    name: "Sofia Petrov",
+    business: "Little Angels Daycare",
+    rating: 4,
+    text: "State changed licensing requirements - we needed new security system and playground updates by January or they'd shut us down. 15 families counting on us to stay open. Paige from FundTek worked through the weekend to get our approval."
+  },
+  {
+    initial: "T",
+    name: "Tommy Washington",
+    business: "Southside Barber Lounge",
+    rating: 5,
+    text: "Landlord sold the building, new owner doubled our rent with 30 days notice. Been cutting hair in this neighborhood for 22 years. Marc from FundTek got me emergency funding that kept our doors open."
   },
   {
     initial: "A",
-    name: "Ava Jackson",
-    business: "Motor City Detail Shop",
-    rating: 5,
-    text: "Police department wanted to renew our fleet contract but required new equipment certifications. Had 10 days to upgrade everything. My bank wanted six weeks just to review the application."
-  },
-  {
-    initial: "P",
-    name: "Paige Petrov",
-    business: "Little Angels Daycare",
-    rating: 4,
-    text: "State changed licensing requirements - we needed new security system and playground updates by January or they'd shut us down. 15 families counting on us to stay open."
-  },
-  {
-    initial: "M",
-    name: "Marc Washington",
-    business: "Southside Barber Lounge",
-    rating: 5,
-    text: "Landlord sold the building, new owner doubled our rent with 30 days notice. Been cutting hair in this neighborhood for 22 years. The emergency funding kept our doors open."
-  },
-  {
-    initial: "L",
-    name: "Lisa Chen-Rodriguez",
+    name: "Angela Chen-Rodriguez",
     business: "Fusion Physical Therapy",
     rating: 4,
-    text: "Insurance reimbursements were 4 months behind but patients needed treatment now. Couldn't afford to turn people away while waiting for bureaucrats to cut checks."
+    text: "Insurance reimbursements were 4 months behind but patients needed treatment now. Couldn't afford to turn people away while waiting for bureaucrats to cut checks. Gabby understood and fast-tracked our application."
   }
 ];
 
