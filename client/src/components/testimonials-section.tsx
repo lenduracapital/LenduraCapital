@@ -5,25 +5,25 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    initial: "R",
-    name: "Robert Chen",
-    business: "Chen's Auto Repair",
+    initial: "C",
+    name: "Carlos Martinez",
+    business: "Martinez Auto Repair",
     rating: 5,
     text: "Marc was incredible. Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. Marc got me approved in one day when my bank couldn't even see me until next month."
   },
   {
-    initial: "L",
-    name: "Lisa Murphy",
-    business: "Murphy's Irish Pub",
+    initial: "J",
+    name: "Jennifer Kim",
+    business: "Seoul Kitchen Restaurant",
     rating: 5,
-    text: "Our walk-in cooler died during St. Patrick's week. Would've lost thousands in spoiled food. Gabby worked late to get us emergency funding. She literally saved our season."
+    text: "Our walk-in cooler died during our busiest week. Would've lost thousands in spoiled food. Gabby worked late to get us emergency funding. She literally saved our business."
   },
   {
-    initial: "T",
-    name: "Tony Rodriguez",
-    business: "Bella Vista Hair Studio",
+    initial: "M",
+    name: "Michael Thompson",
+    business: "Thompson Construction",
     rating: 5,
-    text: "Landlord raised rent by $800 overnight. My salon's been here 12 years but I needed quick cash. Eric understood the urgency and had funding ready in 24 hours. Amazing service."
+    text: "Equipment broke down on a big job. Needed cash immediately or we'd lose the contract. Eric understood the urgency and had funding ready in 24 hours. Outstanding service."
   }
 ];
 
