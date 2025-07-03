@@ -65,18 +65,18 @@ export default function HeroSection() {
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-2 md:pt-3">
-            <h1 className="font-bold leading-tight mb-4 md:mb-2 text-4xl md:text-6xl">
+            <h1 className="font-bold mb-2 text-3xl leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
               Flexible<br />
               Financing for<br />
               <span style={{ color: '#85abe4' }}>Every Industry</span>
             </h1>
             
-            <p className="mb-6 md:mb-2 max-w-2xl text-lg md:text-[22px]">
+            <p className="mb-2 max-w-2xl text-base leading-relaxed sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
               Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
               financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
             
-            <p className="mb-8 md:mb-4 text-base md:text-[20px]">
+            <p className="mb-4 text-sm leading-relaxed sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
               Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
             </p>
             
