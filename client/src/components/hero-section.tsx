@@ -64,19 +64,19 @@ export default function HeroSection() {
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
-          <div className="max-w-2xl space-y-4 pt-2 md:pt-3">
-            <h1 className="font-bold leading-tight mb-2" style={{ fontSize: '62px' }}>
+          <div className="max-w-2xl pt-2 md:pt-3">
+            <h1 className="font-bold leading-tight mb-4 md:mb-2 text-4xl md:text-6xl">
               Flexible<br />
               Financing for<br />
               <span style={{ color: '#85abe4' }}>Every Industry</span>
             </h1>
             
-            <p className="mb-2 max-w-2xl text-[23px]" style={{ fontSize: '22px' }}>
+            <p className="mb-6 md:mb-2 max-w-2xl text-lg md:text-[22px]">
               Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
               financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
             
-            <p className="mb-4" style={{ fontSize: '20px' }}>
+            <p className="mb-8 md:mb-4 text-base md:text-[20px]">
               Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
             </p>
             
