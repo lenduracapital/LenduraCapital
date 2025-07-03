@@ -37,49 +37,106 @@ export default function Contact() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-black mb-6">
-                  Partner with FundTek Capital Group
+                  Contact FundTek Capital Group
                 </h2>
-                <p className="text-gray-600 text-lg mb-8">
-                  Ready to accelerate your business growth? Our dedicated funding specialists provide personalized solutions tailored to your unique business needs. From same-day approvals to flexible terms, we make business financing simple and accessible.
-                </p>
               </div>
 
-              {/* Contact Details */}
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-white" />
+              {/* Phone Numbers Section */}
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-black mb-6 flex items-center">
+                  <Phone className="h-6 w-6 text-[#85abe4] mr-3" />
+                  Phone Support
+                </h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
+                    <div style={{ backgroundColor: '#85abe4' }} className="p-2 rounded-lg flex-shrink-0">
+                      <Phone className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black text-lg">General Questions</h4>
+                      <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 307-4658</a>
+                      <p className="text-gray-600 text-sm mt-1">Loan inquiries, applications, and general information</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-black">Direct Line</h3>
-                    <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">(305) 307-4658</a>
+                  
+                  <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                    <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
+                      <Phone className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black text-lg">Support Line</h4>
+                      <span className="text-green-600 font-bold text-xl">(XXX) XXX-XXXX</span>
+                      <p className="text-gray-600 text-sm mt-1">Account access, payment issues, and technical assistance</p>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-center space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Mail className="h-6 w-6 text-white" />
+              {/* Email Section */}
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-black mb-6 flex items-center">
+                  <Mail className="h-6 w-6 text-[#85abe4] mr-3" />
+                  Email Support
+                </h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
+                    <div style={{ backgroundColor: '#85abe4' }} className="p-2 rounded-lg flex-shrink-0">
+                      <Mail className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black text-lg">General Inquiries</h4>
+                      <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg">admin@fundtekcapitalgroup.com</a>
+                      <p className="text-gray-600 text-sm mt-1">Business funding questions and loan applications</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-black">Email</h3>
-                    <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">admin@fundtekcapitalgroup.com</a>
+                  
+                  <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                    <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
+                      <Mail className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-black text-lg">Customer Support</h4>
+                      <a href="mailto:support@fundtekcapitalgroup.com" className="text-green-600 hover:text-green-700 transition-colors duration-200 font-bold text-lg">support@fundtekcapitalgroup.com</a>
+                      <p className="text-gray-600 text-sm mt-1">Account support, payment assistance, and technical help</p>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-start space-x-4">
-                  <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
+              {/* Business Hours & Location */}
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="font-semibold text-black mb-2">Business Hours</h3>
-                    <div className="space-y-1 text-gray-600 text-sm">
-                      <div>Monday: 9:00 AM - 7:30 PM EST</div>
-                      <div>Tuesday: 9:00 AM - 7:30 PM EST</div>
-                      <div>Wednesday: 9:00 AM - 7:30 PM EST</div>
-                      <div>Thursday: 9:00 AM - 7:30 PM EST</div>
-                      <div>Friday: 9:00 AM - 7:30 PM EST</div>
-                      <div>Saturday: Closed</div>
-                      <div>Sunday: Closed</div>
+                    <h3 className="text-lg font-bold text-black mb-4 flex items-center">
+                      <Clock className="h-5 w-5 text-[#85abe4] mr-2" />
+                      Business Hours
+                    </h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="font-medium text-black">Monday - Friday:</span>
+                          <span className="text-gray-600">9:00 AM - 7:30 PM EST</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="font-medium text-black">Weekends:</span>
+                          <span className="text-gray-600">Closed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-black mb-4 flex items-center">
+                      <MapPin className="h-5 w-5 text-[#85abe4] mr-2" />
+                      Office Location
+                    </h3>
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <p className="text-gray-700 font-medium">
+                        2727 Coney Island Ave<br />
+                        Brooklyn, NY 11235
+                      </p>
                     </div>
                   </div>
                 </div>
