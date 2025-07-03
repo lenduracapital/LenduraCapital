@@ -60,7 +60,7 @@ export default function Contact() {
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
+                  <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
                     <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
                       <Phone className="h-5 w-5 text-white" />
                     </div>
