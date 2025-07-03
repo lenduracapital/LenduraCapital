@@ -284,8 +284,8 @@ export default function Contact() {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <h3 className="text-2xl font-bold text-black mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-600 mb-8">Join thousands of businesses we've helped secure funding.</p>
+            <h3 className="text-4xl font-bold text-[#85abe4] mb-6">Ready to Get Started?</h3>
+            <p className="text-xl text-[#85abe4] mb-8">Join thousands of businesses we've helped secure funding.</p>
             <button
               onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
               className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
