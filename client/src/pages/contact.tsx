@@ -105,38 +105,21 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Business Hours & Location */}
+              {/* Business Hours */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-4 flex items-center">
-                      <Clock className="h-5 w-5 text-[#85abe4] mr-2" />
-                      Business Hours
-                    </h3>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="font-medium text-black">Monday - Friday:</span>
-                          <span className="text-gray-600">9:00 AM - 7:30 PM EST</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="font-medium text-black">Weekends:</span>
-                          <span className="text-gray-600">Closed</span>
-                        </div>
-                      </div>
+                <h3 className="text-lg font-bold text-black mb-4 flex items-center">
+                  <Clock className="h-5 w-5 text-[#85abe4] mr-2" />
+                  Business Hours
+                </h3>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="font-medium text-black">Monday - Friday:</span>
+                      <span className="text-gray-600">9:00 AM - 7:30 PM EST</span>
                     </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-lg font-bold text-black mb-4 flex items-center">
-                      <MapPin className="h-5 w-5 text-[#85abe4] mr-2" />
-                      Address
-                    </h3>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-gray-700 font-medium">
-                        2727 Coney Island Ave<br />
-                        Brooklyn, NY 11235
-                      </p>
+                    <div className="flex justify-between">
+                      <span className="font-medium text-black">Weekends:</span>
+                      <span className="text-gray-600">Closed</span>
                     </div>
                   </div>
                 </div>
