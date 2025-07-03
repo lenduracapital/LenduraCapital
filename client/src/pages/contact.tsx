@@ -130,7 +130,7 @@ export default function Contact() {
                   <div>
                     <h3 className="text-lg font-bold text-black mb-4 flex items-center">
                       <MapPin className="h-5 w-5 text-[#85abe4] mr-2" />
-                      Office Location
+                      Address
                     </h3>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <p className="text-gray-700 font-medium">
