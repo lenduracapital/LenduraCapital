@@ -66,13 +66,21 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
+                <div className="flex items-start space-x-4">
                   <div style={{ backgroundColor: '#85abe4' }} className="p-3 rounded-lg">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-black">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:30 AM - 7:30 PM EST</p>
+                    <h3 className="font-semibold text-black mb-2">Business Hours</h3>
+                    <div className="space-y-1 text-gray-600 text-sm">
+                      <div>Monday: 9:00 AM - 7:30 PM EST</div>
+                      <div>Tuesday: 9:00 AM - 7:30 PM EST</div>
+                      <div>Wednesday: 9:00 AM - 7:30 PM EST</div>
+                      <div>Thursday: 9:00 AM - 7:30 PM EST</div>
+                      <div>Friday: 9:00 AM - 7:30 PM EST</div>
+                      <div>Saturday: Closed</div>
+                      <div>Sunday: Closed</div>
+                    </div>
                   </div>
                 </div>
               </div>

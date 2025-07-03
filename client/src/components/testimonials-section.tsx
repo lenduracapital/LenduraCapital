@@ -5,25 +5,25 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    initial: "C",
-    name: "Carlos Martinez",
-    business: "Martinez Auto Repair",
+    initial: "R",
+    name: "Roberto Gonzalez",
+    business: "City Auto Center",
     rating: 5,
-    text: "Marc was incredible. Had three emergency calls but my van was in the shop for two weeks. Needed cash fast for a rental. Marc got me approved in one day when my bank couldn't even see me until next month."
+    text: "My main lift broke during inspection season - busiest time of year. Called everywhere, banks wanted weeks of paperwork. Marc from FundTek had me funded same day. Guy actually listened and understood my situation."
   },
   {
-    initial: "J",
-    name: "Jennifer Kim",
-    business: "Seoul Kitchen Restaurant",
+    initial: "L",
+    name: "Lisa Chang",
+    business: "Golden Wok",
     rating: 5,
-    text: "Our walk-in cooler died during our busiest week. Would've lost thousands in spoiled food. Gabby worked late to get us emergency funding. She literally saved our business."
+    text: "Health department required new ventilation system or we'd get shut down. Had 2 weeks to fix it. Gabby walked me through everything, kept me updated daily. She made an impossible situation manageable."
   },
   {
-    initial: "M",
-    name: "Michael Thompson",
-    business: "Thompson Construction",
+    initial: "D",
+    name: "David Rodriguez",
+    business: "Coastal Roofing",
     rating: 5,
-    text: "Equipment broke down on a big job. Needed cash immediately or we'd lose the contract. Eric understood the urgency and had funding ready in 24 hours. Outstanding service."
+    text: "Hurricane season killed our cash flow, but had three big jobs lined up. Banks said no because of seasonal income. Eric got it - he's worked with contractors before. Funding came through when I needed it most."
   }
 ];
 

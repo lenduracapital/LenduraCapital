@@ -133,22 +133,22 @@ export default function RestaurantFoodService() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "James DiVito",
-                company: "DiVito's Italian Kitchen",
-                story: "Used equipment financing to upgrade kitchen with commercial-grade appliances. Increased capacity by 50% and reduced food prep time significantly.",
-                funding: "$135,000 Equipment Financing"
+                name: "Antonio Ricci",
+                company: "Nonna's Kitchen",
+                story: "Two ovens died same week during our busiest season. Kitchen was backed up for hours. James from FundTek understood restaurants - got me funded Friday afternoon so I could get new equipment installed over weekend.",
+                funding: "$125,000 Equipment Financing"
               },
               {
-                name: "Daniel Liu",
-                company: "Golden Dragon Restaurant",
-                story: "Secured working capital for renovation and new POS system. Customer satisfaction improved and takeout orders doubled during pandemic.",
-                funding: "$95,000 Term Loan"
+                name: "Nancy Chen",
+                company: "Lucky Dragon",
+                story: "Health inspector required immediate ventilation upgrade or we'd close. Had regular customers coming for 15 years. Irving expedited everything, kept in touch daily until funding cleared. Saved our family business.",
+                funding: "$85,000 Term Loan"
               },
               {
-                name: "Ava Rodriguez",
-                company: "Café Estrella",
-                story: "Got line of credit for seasonal inventory and marketing. Expanded catering services and opened second location within 18 months.",
-                funding: "$75,000 Line of Credit"
+                name: "Sofia Gutierrez",
+                company: "Café Luna",
+                story: "Pandemic killed our dine-in, needed cash for delivery setup and marketing. Banks said restaurant industry too risky. Ava understood the pivot to takeout - she got us through the crisis.",
+                funding: "$65,000 Line of Credit"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">

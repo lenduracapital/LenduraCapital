@@ -4,46 +4,46 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initial: "M",
-    name: "Maria Gonzalez",
-    business: "Estrella Mexican Grill",
+    initial: "C",
+    name: "Carmen Rodriguez",
+    business: "La Casa Cantina",
     rating: 5,
-    text: "We've been serving authentic tacos for 8 years but our fryer gave out right before Cinco de Mayo weekend. Couldn't afford to miss our busiest days. James from FundTek understood the urgency and got us funded in 24 hours."
+    text: "Our deep fryer died Friday before Cinco de Mayo weekend - our biggest revenue day. Bank was closed, other lenders wanted credit checks and three days minimum. James picked up his phone at 7 PM, had me approved by midnight. That's real service."
+  },
+  {
+    initial: "P",
+    name: "Pradeep Sharma",
+    business: "Quality Cleaners",
+    rating: 4,
+    text: "Both steam presses went down same week, right before prom season. Customers were panicking about their formal wear. Irving worked with my limited credit history, got me funded Tuesday morning. Saved my reputation with longtime clients."
+  },
+  {
+    initial: "T",
+    name: "Tony Ricci",
+    business: "Elite Auto Detailing",
+    rating: 5,
+    text: "City contract required $50K in new equipment certifications. Had two weeks or lose everything. My credit union said maybe in 6-8 weeks. Ava understood the deadline pressure, expedited everything. Contract saved, business growing."
+  },
+  {
+    initial: "M",
+    name: "Michelle Park",
+    business: "Bright Minds Daycare",
+    rating: 4,
+    text: "State inspection found playground violations, gave us 30 days to fix or close. 18 families depend on us, kids had nowhere else to go. Paige stayed late to process paperwork, kept me updated every step. We reopened on time."
   },
   {
     initial: "R",
-    name: "Robert Singh",
-    business: "Singh Dry Cleaners",
-    rating: 4,
-    text: "Two pressing machines broke within the same week. My regular customers depend on me for their work clothes. Daniel worked overtime to get my funding approved while my competitor was still waiting for his bank appointment."
+    name: "Rico Martinez",
+    business: "Hometown Barbershop",
+    rating: 5,
+    text: "Building sold, new landlord wanted double deposit upfront. Been here 15 years, customers are like family. Victor understood this wasn't just business - it's community. Got funding in 36 hours, kept our doors open."
   },
   {
     initial: "A",
-    name: "Anthony Jackson",
-    business: "Precision Auto Detail",
-    rating: 5,
-    text: "Police department wanted to renew our fleet contract but required new equipment certifications. Had 10 days to upgrade everything. Ava made it happen when my bank wanted six weeks just to review the application."
-  },
-  {
-    initial: "L",
-    name: "Linda Williams",
-    business: "Little Angels Daycare",
+    name: "Angela Wu",
+    business: "Healing Hands Therapy",
     rating: 4,
-    text: "State changed licensing requirements - we needed new security system and playground updates by January or they'd shut us down. 15 families counting on us to stay open. Paige from FundTek worked through the weekend to get our approval."
-  },
-  {
-    initial: "D",
-    name: "David Johnson",
-    business: "Johnson's Barber Shop",
-    rating: 5,
-    text: "Landlord sold the building, new owner doubled our rent with 30 days notice. Been cutting hair in this neighborhood for 22 years. Marc from FundTek got me emergency funding that kept our doors open."
-  },
-  {
-    initial: "S",
-    name: "Sarah Chen",
-    business: "Chen Physical Therapy",
-    rating: 4,
-    text: "Insurance reimbursements were 4 months behind but patients needed treatment now. Couldn't afford to turn people away while waiting for bureaucrats to cut checks. Gabby understood and fast-tracked our application."
+    text: "Insurance payments were 5 months late, but couldn't stop treating patients. Payroll was due, rent overdue. Brian didn't just process my application, he called insurance company himself to verify payments. That's going above and beyond."
   }
 ];
 

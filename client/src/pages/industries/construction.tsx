@@ -134,22 +134,22 @@ export default function Construction() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: "Marc Morales",
-                company: "Morales Construction LLC",
-                story: "Used equipment financing to purchase excavator and dump trucks. Secured major commercial contract and doubled project capacity.",
-                funding: "$350,000 Equipment Financing"
+                name: "Miguel Torres",
+                company: "Torres Construction LLC",
+                story: "Excavator broke down on a $2M municipal job. Rental companies wanted cash upfront I didn't have. Marc from FundTek got funding approved over the weekend - saved the contract and my reputation with the city.",
+                funding: "$320,000 Equipment Financing"
               },
               {
-                name: "Paige Thompson",
-                company: "Thompson Roofing Co.",
-                story: "Got working capital to purchase materials for large school district project. Completed on time and under budget.",
-                funding: "$120,000 Line of Credit"
+                name: "Jennifer Williams",
+                company: "Summit Roofing",
+                story: "School district project required materials upfront but payment was net-60. Cash flow was killing us. Gabby understood construction cycles - lined up credit before we missed payroll.",
+                funding: "$110,000 Line of Credit"
               },
               {
-                name: "Frank DiMarco",
-                company: "DiMarco Electrical",
-                story: "Secured bridge financing while waiting for municipal project payment. Avoided laying off skilled electricians.",
-                funding: "$75,000 Term Loan"
+                name: "Bobby Russo",
+                company: "Russo Electric",
+                story: "City owed us $85K for three months, crew needed their pay. Bank said municipal receivables don't count as collateral. Victor worked with what we had - funded us in 48 hours.",
+                funding: "$65,000 Term Loan"
               }
             ].map((story, index) => (
               <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
