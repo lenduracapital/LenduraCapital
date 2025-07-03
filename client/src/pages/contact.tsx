@@ -186,45 +186,113 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Next Steps Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-black mb-6">
-              Why Choose FundTek Capital Group?
+              Next Steps - Your Path to Funding
             </h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Getting business funding with FundTek is straightforward. Here's exactly what to expect from application to approval.
+            </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div style={{ backgroundColor: '#85abe4' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            {/* How to Apply */}
+            <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-[#85abe4]">
+              <div style={{ backgroundColor: '#85abe4' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-[#85abe4] mb-4 text-center">How to Apply</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">1.</span>
+                  Complete our 5-minute online application
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">2.</span>
+                  Upload 3 months of bank statements
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">3.</span>
+                  Provide basic business information
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">4.</span>
+                  Submit driver's license and voided check
+                </li>
+              </ul>
+            </div>
+
+            {/* What to Expect */}
+            <div className="bg-green-50 p-8 rounded-lg border-l-4 border-green-400">
+              <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-6">
+                <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-[#85abe4] mb-4 text-center">What to Expect</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">•</span>
+                  Same-day application review
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">•</span>
+                  Dedicated specialist assigned
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">•</span>
+                  Multiple funding options presented
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">•</span>
+                  Transparent terms and rates
+                </li>
+              </ul>
+            </div>
+
+            {/* Timeline Breakdown */}
+            <div className="bg-yellow-50 p-8 rounded-lg border-l-4 border-yellow-400">
+              <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-6">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-black mb-3">Quick Approvals</h3>
-              <p className="text-gray-600">
-                Get approved in as little as 24 hours with our streamlined application process.
-              </p>
+              <h3 className="text-xl font-semibold text-[#85abe4] mb-4 text-center">Timeline Breakdown</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
+                  Application submitted and reviewed
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
+                  Initial approval decision made
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 2:</span>
+                  Final documentation and contracts
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 3:</span>
+                  Funds deposited in your account
+                </li>
+              </ul>
             </div>
+          </div>
 
-            <div className="text-center">
-              <div style={{ backgroundColor: '#85abe4' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-black mb-3">Expert Support</h3>
-              <p className="text-gray-600">
-                Work directly with experienced funding specialists who understand your industry.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div style={{ backgroundColor: '#85abe4' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-black mb-3">Flexible Solutions</h3>
-              <p className="text-gray-600">
-                Multiple financing options tailored to your specific business needs and goals.
-              </p>
-            </div>
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <h3 className="text-2xl font-bold text-black mb-4">Ready to Get Started?</h3>
+            <p className="text-gray-600 mb-8">Join thousands of businesses we've helped secure funding.</p>
+            <button
+              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+              className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+              style={{ backgroundColor: '#85abe4' }}
+            >
+              Apply for Funding Now
+            </button>
           </div>
         </div>
       </section>
