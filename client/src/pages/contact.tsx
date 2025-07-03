@@ -55,7 +55,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#85abe4] text-lg">General Questions</h4>
-                      <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition-colors duration-200 font-bold text-xl" style={{ color: '#e9e9e9' }}>(305) 307-4658</a>
+                      <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 307-4658</a>
                       <p className="text-[#85abe4] text-sm mt-1">Loan inquiries, applications, and general information</p>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#85abe4] text-lg">Support Line</h4>
-                      <span className="font-bold text-xl" style={{ color: '#e9e9e9' }}>(XXX) XXX-XXXX</span>
+                      <span className="text-[#85abe4] font-bold text-xl">(XXX) XXX-XXXX</span>
                       <p className="text-[#85abe4] text-sm mt-1">Account access, payment issues, and technical assistance</p>
                     </div>
                   </div>
