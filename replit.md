@@ -886,6 +886,15 @@ Changelog:
   * Updated homepage testimonials carousel, more-testimonials page, restaurant industry, construction industry pages
   * Enhanced Contact Us section with full business hours display (Monday-Friday 9:00 AM - 7:30 PM EST, weekends closed)
   * Admin email remains clickable mailto link for professional functionality
+- January 2, 2025. Contact Us page redesign with dual contact system (COMPLETE):
+  * Removed "Partner with FundTek Capital Group" section and promotional text
+  * Created professional dual contact system: 2 phone numbers and 2 email addresses
+  * Phone numbers: (305) 307-4658 for general questions, placeholder for support line
+  * Email addresses: admin@fundtekcapitalgroup.com for general inquiries, support@fundtekcapitalgroup.com for customer support
+  * Applied unified blue color scheme with signature blue (#85abe4) for all text and backgrounds
+  * Green phone icons throughout for clear visual distinction of phone contact options
+  * Enhanced layout with separate white cards for phone support, email support, and business hours/location
+  * Maintained professional appearance with better organization and clearer contact options
 ```
 
 ## User Preferences

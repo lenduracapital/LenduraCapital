@@ -92,13 +92,13 @@ export default function Contact() {
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border-l-4 border-green-400">
-                    <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
+                  <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
+                    <div style={{ backgroundColor: '#85abe4' }} className="p-2 rounded-lg flex-shrink-0">
                       <Mail className="h-5 w-5 text-white" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-[#85abe4] text-lg">Customer Support</h4>
-                      <a href="mailto:support@fundtekcapitalgroup.com" className="text-green-600 hover:text-green-700 transition-colors duration-200 font-bold text-lg">support@fundtekcapitalgroup.com</a>
+                      <a href="mailto:support@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg">support@fundtekcapitalgroup.com</a>
                       <p className="text-[#85abe4] text-sm mt-1">Account support, payment assistance, and technical help</p>
                     </div>
                   </div>
