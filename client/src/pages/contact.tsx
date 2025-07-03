@@ -186,6 +186,60 @@ export default function Contact() {
         </div>
       </section>
 
+      {/* Office Location Map */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Visit Our Brooklyn Office
+            </h2>
+            <p className="text-gray-600 text-lg">
+              2727 Coney Island Ave, Brooklyn, NY 11235
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3030.8441234567!2d-73.9631234!3d40.5985678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c244123456789a%3A0x1234567890abcdef!2s2727%20Coney%20Island%20Ave%2C%20Brooklyn%2C%20NY%2011235!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="FundTek Capital Group Office Location"
+              className="w-full"
+            />
+          </div>
+          
+          <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-black mb-2">Easy Access</h3>
+              <p className="text-gray-600 text-sm">Convenient Brooklyn location with parking available</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-black mb-2">Business Hours</h3>
+              <p className="text-gray-600 text-sm">Monday-Friday: 9:00 AM - 7:30 PM EST</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Phone className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-black mb-2">Call Ahead</h3>
+              <p className="text-gray-600 text-sm">Schedule appointments for personalized service</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
