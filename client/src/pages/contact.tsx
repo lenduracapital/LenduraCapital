@@ -44,7 +44,7 @@ export default function Contact() {
               {/* Phone Numbers Section */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold text-black mb-6 flex items-center">
-                  <Phone className="h-6 w-6 text-[#85abe4] mr-3" />
+                  <Phone className="h-6 w-6 text-green-500 mr-3" />
                   Phone Support
                 </h3>
                 
