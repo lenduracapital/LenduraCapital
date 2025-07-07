@@ -114,7 +114,7 @@ export default function ConversionTracking({ eventType, eventData = {} }: Conver
 }
 
 // Hook for tracking form interactions
-export function useFormTracking(formType: string) {
+const useFormTracking = (formType: string) => {
   const trackFormStart = () => {
     if (typeof window !== 'undefined') {
       const event = new CustomEvent('fundtek_conversion', {
@@ -145,7 +145,7 @@ export function useFormTracking(formType: string) {
 }
 
 // Enhanced phone number click tracking
-export function trackPhoneClick(phoneNumber: string = "(305) 307-4658") {
+const trackPhoneClick = (phoneNumber: string = "(305) 307-4658") => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', 'phone_call', {
       event_category: 'conversion',
@@ -156,7 +156,7 @@ export function trackPhoneClick(phoneNumber: string = "(305) 307-4658") {
 }
 
 // Solution-specific application tracking
-export function trackSolutionApply(solutionType: string) {
+const trackSolutionApply = (solutionType: string) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', 'apply_now_click', {
       event_category: 'conversion',
@@ -166,3 +166,6 @@ export function trackSolutionApply(solutionType: string) {
     });
   }
 }
+
+// Export functions for use in other components
+export { useFormTracking, trackPhoneClick, trackSolutionApply };

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 // Google Analytics 4 tracking functions
-export function initGA4() {
+const initGA4 = () => {
   // Initialize GA4 with your tracking ID
   const GA_TRACKING_ID = 'G-C5XF22RXMM'; // FundTek Capital Group tracking ID
   
@@ -26,7 +26,7 @@ export function initGA4() {
 }
 
 // Track events
-export function trackEvent(eventName: string, parameters: Record<string, any> = {}) {
+const trackEvent = (eventName: string, parameters: Record<string, any> = {}) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', eventName, {
       event_category: 'engagement',
@@ -38,7 +38,7 @@ export function trackEvent(eventName: string, parameters: Record<string, any> = 
 }
 
 // Track form submissions
-export function trackFormSubmission(formType: string, success: boolean = true) {
+const trackFormSubmission = (formType: string, success: boolean = true) => {
   trackEvent('form_submit', {
     event_category: 'form',
     event_label: formType,
@@ -49,7 +49,7 @@ export function trackFormSubmission(formType: string, success: boolean = true) {
 }
 
 // Track page views
-export function trackPageView(pagePath: string, pageTitle: string) {
+const trackPageView = (pagePath: string, pageTitle: string) => {
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('config', 'G-C5XF22RXMM', {
       page_path: pagePath,
@@ -59,13 +59,16 @@ export function trackPageView(pagePath: string, pageTitle: string) {
 }
 
 // Track conversion events
-export function trackConversion(conversionType: 'loan_application' | 'contact_form' | 'phone_call') {
+const trackConversion = (conversionType: 'loan_application' | 'contact_form' | 'phone_call') => {
   trackEvent('conversion', {
     event_category: 'conversion',
     conversion_type: conversionType,
     value: 1
   });
 }
+
+// Export functions for use in other components
+export { initGA4, trackEvent, trackFormSubmission, trackPageView, trackConversion };
 
 // Analytics provider component
 export default function Analytics() {
