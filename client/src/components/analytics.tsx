@@ -51,7 +51,7 @@ export function trackFormSubmission(formType: string, success: boolean = true) {
 // Track page views
 export function trackPageView(pagePath: string, pageTitle: string) {
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('config', 'G-XXXXXXXXXX', {
+    (window as any).gtag('config', 'G-C5XF22RXMM', {
       page_path: pagePath,
       page_title: pageTitle
     });

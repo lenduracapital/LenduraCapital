@@ -19,7 +19,7 @@ export default function ConversionTracking({ eventType, eventData = {} }: Conver
       
       switch (eventType) {
         case 'page_view':
-          gtag('config', 'G-XXXXXXXXXX', {
+          gtag('config', 'G-C5XF22RXMM', {
             page_title: eventData.page_title || document.title,
             page_location: window.location.href
           });

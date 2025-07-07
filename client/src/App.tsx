@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
 import ChatWidget from "@/components/chat-widget";
 import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/analytics";
 
 
 // Lazy load non-critical pages for code splitting with prefetch
@@ -138,6 +139,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <Analytics />
         <Suspense fallback={<PageLoader />}>
           <Router />
           <ChatWidget />
