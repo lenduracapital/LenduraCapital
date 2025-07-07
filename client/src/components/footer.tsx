@@ -57,7 +57,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-black text-xs md:text-sm">
-              Would you like a free, no strings attached consultation?
+              Would you like a free, no-obligation business-funding consultation?
             </p>
             <p className="text-black text-xs md:text-sm">
               Call us today at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-semibold">(305) 307-4658</a>
