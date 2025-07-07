@@ -262,10 +262,10 @@ function ChatWidget() {
 
   const toggleChat = () => {
     if (isOpen) {
-      // User is closing the chat - remember this preference for this session only
+      // User is closing the chat - keep bubble visible but close chat window
       sessionStorage.setItem('chatWidgetDismissed', 'true');
       setIsOpen(false);
-      setIsVisible(false);
+      // DON'T set setIsVisible(false) - this keeps the bubble visible
     } else {
       setIsOpen(true);
     }
@@ -536,8 +536,8 @@ function ChatWidget() {
 
   return (
     <>
-      {/* Floating Chat Button - Only when closed */}
-      {!isOpen && (
+      {/* Floating Chat Button - Only when visible but closed */}
+      {isVisible && !isOpen && (
         <button
           onClick={() => setIsOpen(true)}
           className="fixed bottom-4 right-4 z-40 bg-[#85abe4] hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-200"
