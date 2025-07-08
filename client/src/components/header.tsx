@@ -92,7 +92,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation - Positioned more to the right */}
-          <nav className="hidden lg:flex items-center space-x-3 flex-1 justify-center ml-32" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center space-x-1 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={handleHomeClick}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
