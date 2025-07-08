@@ -23,7 +23,6 @@ const customSolutions = [
 
 const fundTekPages = [
   { name: "About FundTek", href: "/about" },
-  { name: "Careers", href: "/careers" },
   { name: "Qualified Industries", href: "/qualified-industries" },
   { name: "Contact Us", href: "/contact" },
   { name: "Testimonials", href: "/more-testimonials" },
