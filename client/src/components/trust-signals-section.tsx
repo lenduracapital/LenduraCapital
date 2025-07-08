@@ -136,34 +136,7 @@ export default function TrustSignalsSection() {
           })}
         </div>
 
-        {/* Contact CTA */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-200">
-            <p className="text-lg text-gray-600 mb-6">
-              Ready to schedule a consultation about your business needs?
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-              <a
-                href="https://calendly.com/admin-fundtekcapitalgroup/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg text-white cursor-pointer"
-                style={{ backgroundColor: '#85abe4', pointerEvents: 'auto' }}
-              >
-                Schedule Call (305) 307-4658
-              </a>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open("https://form.jotform.com/251417715331047", "_blank");
-                }}
-                className="px-8 py-3 bg-white text-black rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg border border-gray-300 cursor-pointer"
-                style={{ pointerEvents: 'auto' }}
-              >
-                Apply Now
-              </button>
-            </div>
-        </div>
+
       </div>
     </section>
   );
