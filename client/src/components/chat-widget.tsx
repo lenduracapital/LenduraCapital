@@ -10,7 +10,7 @@ interface ChatMessage {
 }
 
 interface ChatState {
-  step: 'welcome' | 'first_name' | 'phone_number' | 'email' | 'user_type' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'complete';
+  step: 'welcome' | 'user_type' | 'financing_timeline' | 'info_category' | 'product' | 'debt_q1' | 'debt_q2' | 'revenue' | 'business_info' | 'first_name' | 'phone_number' | 'email' | 'complete';
   responses: {
     firstName?: string;
     phoneNumber?: string;
@@ -61,25 +61,25 @@ function ChatWidget() {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business. Let's start with your contact information.",
+          text: "👋 Hi! I'm here to help you find the perfect financing solution for your business.",
           sender: 'bot',
           timestamp: new Date()
         };
         setMessages([welcomeMessage]);
         
-        // Ask for first name after a delay
+        // Ask about their business needs after a delay
         setTimeout(() => {
           setIsTyping(true);
           setTimeout(() => {
             setIsTyping(false);
-            const firstNameMessage: ChatMessage = {
-              id: `firstname-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-              text: "What's your first name?",
+            const businessMessage: ChatMessage = {
+              id: `business-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+              text: "What brings you to FundTek today?",
               sender: 'bot',
               timestamp: new Date()
             };
-            setMessages(prev => [...prev, firstNameMessage]);
-            setChatState(prevState => ({ ...prevState, step: 'first_name' }));
+            setMessages(prev => [...prev, businessMessage]);
+            setChatState(prevState => ({ ...prevState, step: 'user_type' }));
           }, 2000);
         }, 1500);
       }, 500);
@@ -128,11 +128,22 @@ function ChatWidget() {
       }, 2000);
     } else if (chatState.step === 'email') {
       const newResponses = { ...chatState.responses, email: text };
-      addMessage("Perfect! Now let me help you find the right financing solution.", 'bot', 2000);
-      setTimeout(() => {
-        addMessage("What brings you to FundTek today?", 'bot');
-        setChatState({ step: 'user_type', responses: newResponses });
-      }, 4500);
+      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
+      addMessage("A FundTek expert will call you within 1 hour. You can also schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min for immediate assistance!", 'bot', 4500);
+      setChatState({ step: 'complete', responses: newResponses });
+      
+      // Send data to backend
+      sendChatData(newResponses);
+    } else if (chatState.step === 'debt_q1') {
+      const newResponses = { ...chatState.responses, debtQ1: text };
+      addMessage("Got it!", 'bot', 2000);
+      addMessage("What's the current balance with them?", 'bot', 4000);
+      setChatState({ step: 'debt_q2', responses: newResponses });
+    } else if (chatState.step === 'debt_q2') {
+      const newResponses = { ...chatState.responses, debtQ2: text };
+      addMessage("Perfect! Now let me ask about your business revenue.", 'bot', 2000);
+      addMessage("What's your business's monthly revenue range?", 'bot', 4500);
+      setChatState({ step: 'revenue', responses: newResponses });
     }
   };
 
@@ -204,21 +215,11 @@ function ChatWidget() {
         addMessage("What's your business's monthly revenue range?", 'bot', 5000);
         setChatState({ step: 'revenue', responses: newResponses });
       }
-    } else if (chatState.step === 'debt_q1') {
-      addMessage("Got it!", 'bot', 2000);
-      addMessage("What's the current balance with them?", 'bot', 4000);
-      setChatState({ step: 'debt_q2', responses: newResponses });
-    } else if (chatState.step === 'debt_q2') {
-      addMessage("Perfect! Now let me ask about your business revenue.", 'bot', 2000);
-      addMessage("What's your business's monthly revenue range?", 'bot', 4500);
-      setChatState({ step: 'revenue', responses: newResponses });
+
     } else if (chatState.step === 'revenue') {
-      addMessage("Perfect! Based on your answers, I can connect you with the right specialist.", 'bot', 1500);
-      addMessage("A FundTek expert will call you within 1 hour. You can also schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min for immediate assistance!", 'bot', 4500);
-      setChatState({ step: 'complete', responses: newResponses });
-      
-      // Send data to backend
-      sendChatData({ ...newResponses, [responseKey]: selection });
+      addMessage("Perfect! Now I just need a few contact details to connect you with the right specialist.", 'bot', 1500);
+      addMessage("What's your first name?", 'bot', 4000);
+      setChatState({ step: 'first_name', responses: newResponses });
     } else if (chatState.step === 'business_info') {
       if (selection.includes('financing options')) {
         addMessage("Excellent! Let me ask a quick question to recommend the best options.", 'bot', 1500);
@@ -226,14 +227,14 @@ function ChatWidget() {
         setChatState({ step: 'revenue', responses: newResponses });
       } else if (selection.includes('more questions')) {
         addMessage("I'd be happy to connect you with a specialist who can answer your specific questions in detail.", 'bot', 1500);
-        addMessage("A FundTek expert will call you within 1 hour. For immediate help, schedule at https://calendly.com/admin-fundtekcapitalgroup/30min.", 'bot', 4000);
-        setChatState({ step: 'complete', responses: newResponses });
-        sendChatData({ ...newResponses, businessType: selection });
+        addMessage("Let me get your contact information so they can reach you.", 'bot', 4000);
+        addMessage("What's your first name?", 'bot', 6500);
+        setChatState({ step: 'first_name', responses: newResponses });
       } else {
         addMessage("Great! I'm glad I could help. Feel free to reach out anytime if you need financing assistance.", 'bot', 1500);
-        addMessage("Remember, you can always schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min or apply online when you're ready!", 'bot', 4000);
-        setChatState({ step: 'complete', responses: newResponses });
-        sendChatData({ ...newResponses, businessType: selection });
+        addMessage("Let me get your contact details in case you need assistance later.", 'bot', 4000);
+        addMessage("What's your first name?", 'bot', 6500);
+        setChatState({ step: 'first_name', responses: newResponses });
       }
     }
   };
@@ -281,7 +282,7 @@ function ChatWidget() {
   };
 
   const renderInput = () => {
-    if (chatState.step === 'first_name' || chatState.step === 'phone_number' || chatState.step === 'email') {
+    if (chatState.step === 'first_name' || chatState.step === 'phone_number' || chatState.step === 'email' || chatState.step === 'debt_q1' || chatState.step === 'debt_q2') {
       const placeholders = {
         'first_name': 'Enter your first name...',
         'phone_number': 'Enter your phone number...',
@@ -299,6 +300,8 @@ function ChatWidget() {
               chatState.step === 'first_name' ? 'Enter your first name...' :
               chatState.step === 'phone_number' ? 'Enter your phone number...' :
               chatState.step === 'email' ? 'Enter your email address...' :
+              chatState.step === 'debt_q1' ? 'Enter lender name...' :
+              chatState.step === 'debt_q2' ? 'Enter current balance...' :
               'Enter your response...'
             }
             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
