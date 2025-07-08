@@ -13,7 +13,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +46,27 @@ export default function Header({ transparent = true }: HeaderProps) {
     setIsMobileMenuOpen(false);
   };
 
+  const handleHomeClick = () => {
+    if (location === "/") {
+      // If already on homepage, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // If not on homepage, navigate there
+      setLocation("/");
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    if (location === "/") {
+      // If already on homepage, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // If not on homepage, navigate there
+      setLocation("/");
+    }
+  };
+
   // Transparent initially, black background when scrolled
   const headerClass = isScrolled 
     ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md'
@@ -57,17 +78,23 @@ export default function Header({ transparent = true }: HeaderProps) {
         <div className="flex items-center justify-between w-full py-1">
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
-            <img 
-              src={logoPath}
-              alt="FundTek Capital Group Logo" 
-              className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain"
-            />
+            <button 
+              onClick={handleLogoClick}
+              className="focus:outline-none focus:ring-2 focus:ring-white/50 rounded transition-transform duration-300 hover:scale-105"
+              aria-label="Go to homepage"
+            >
+              <img 
+                src={logoPath}
+                alt="FundTek Capital Group Logo" 
+                className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain"
+              />
+            </button>
           </div>
 
           {/* Desktop Navigation - Positioned more to the right */}
           <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
-              onClick={() => setLocation("/")}
+              onClick={handleHomeClick}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
               aria-label="Go to homepage"
@@ -233,7 +260,7 @@ export default function Header({ transparent = true }: HeaderProps) {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-white/20 p-4 space-y-2 absolute left-0 right-0 top-full z-50">
             <button 
-              onClick={() => { setLocation("/"); setIsMobileMenuOpen(false); }}
+              onClick={handleHomeClick}
               className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
