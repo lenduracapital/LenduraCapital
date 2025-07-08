@@ -431,64 +431,9 @@ function ChatWidget() {
         );
         
       case 'debt_q1':
-        return (
-          <div className="flex flex-col gap-2 mt-3">
-            <input
-              type="text"
-              placeholder="Enter lender name (e.g., OnDeck)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-                  handleUserSelection(e.currentTarget.value.trim(), 'debtQ1');
-                  e.currentTarget.value = '';
-                }
-              }}
-            />
-            <button
-              onClick={() => {
-                const input = document.querySelector('input[placeholder*="lender name"]') as HTMLInputElement;
-                if (input && input.value.trim()) {
-                  handleUserSelection(input.value.trim(), 'debtQ1');
-                  input.value = '';
-                }
-              }}
-              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
-            >
-              Continue
-            </button>
-          </div>
-        );
-        
       case 'debt_q2':
-        return (
-          <div className="flex flex-col gap-2 mt-3">
-            <input
-              type="text"
-              placeholder="Enter balance amount (e.g., $25,000)"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-                  handleUserSelection(e.currentTarget.value.trim(), 'debtQ2');
-                  e.currentTarget.value = '';
-                }
-              }}
-            />
-            <button
-              onClick={() => {
-                const input = document.querySelector('input[placeholder*="balance amount"]') as HTMLInputElement;
-                if (input && input.value.trim()) {
-                  handleUserSelection(input.value.trim(), 'debtQ2');
-                  input.value = '';
-                }
-              }}
-              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
-            >
-              Continue
-            </button>
-          </div>
-        );
+        return null; // These now use the text input system
         
-
       
       case 'revenue':
         return (
