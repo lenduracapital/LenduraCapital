@@ -61,7 +61,7 @@ function ChatWidget() {
       setTimeout(() => {
         const welcomeMessage: ChatMessage = {
           id: `welcome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          text: "Hey there! 👋 I'm here to help you explore financing options for your business.",
+          text: "Hi! I'm here to help with business financing questions.",
           sender: 'bot',
           timestamp: new Date()
         };
@@ -74,30 +74,32 @@ function ChatWidget() {
             setIsTyping(false);
             const businessMessage: ChatMessage = {
               id: `business-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-              text: "What's on your mind today? Are you looking for funding, or do you have questions about our services?",
+              text: "What can I help you with today?",
               sender: 'bot',
               timestamp: new Date()
             };
             setMessages(prev => [...prev, businessMessage]);
             setChatState(prevState => ({ ...prevState, step: 'user_type' }));
-          }, 2500);
-        }, 1500);
+          }, 1500);
+        }, 3000);
       }, 500);
     }
   }, [isOpen, chatState.step]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', delay: number = 0) => {
     if (delay > 0) {
-      setIsTyping(true);
       setTimeout(() => {
-        setIsTyping(false);
-        const newMessage: ChatMessage = {
-          id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          text,
-          sender,
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, newMessage]);
+        setIsTyping(true);
+        setTimeout(() => {
+          setIsTyping(false);
+          const newMessage: ChatMessage = {
+            id: `${sender}-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            text,
+            sender,
+            timestamp: new Date()
+          };
+          setMessages(prev => [...prev, newMessage]);
+        }, 1500); // Typing indicator duration
       }, delay);
     } else {
       const newMessage: ChatMessage = {
@@ -115,23 +117,23 @@ function ChatWidget() {
     
     if (chatState.step === 'first_name') {
       const newResponses = { ...chatState.responses, firstName: text };
-      addMessage(`Nice to meet you, ${text}! 👋`, 'bot', 1800);
+      addMessage(`Thanks, ${text}!`, 'bot', 2000);
       setTimeout(() => {
-        addMessage("What's the best phone number to reach you at?", 'bot');
+        addMessage("What's your phone number?", 'bot');
         setChatState({ step: 'phone_number', responses: newResponses });
-      }, 3500);
+      }, 5000);
     } else if (chatState.step === 'phone_number') {
       const newResponses = { ...chatState.responses, phoneNumber: text };
-      addMessage("Perfect! And what's your email address? I want to make sure our specialist has both ways to reach you.", 'bot', 2200);
+      addMessage("Got it. What's your email address?", 'bot', 2000);
       setTimeout(() => {
         setChatState({ step: 'email', responses: newResponses });
-      }, 2200);
+      }, 4500);
     } else if (chatState.step === 'email') {
       const newResponses = { ...chatState.responses, email: text };
-      addMessage("Awesome! I have everything I need to connect you with the right financing specialist.", 'bot', 1800);
+      addMessage("Perfect! I'll have someone from our team contact you.", 'bot', 2000);
       setTimeout(() => {
-        addMessage("A FundTek expert will reach out at their earliest convenience to discuss your options. If you need immediate assistance, you can also schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min", 'bot');
-      }, 4200);
+        addMessage("A FundTek expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min", 'bot');
+      }, 5500);
       setChatState({ step: 'complete', responses: newResponses });
       
       // Send data to backend
@@ -160,36 +162,36 @@ function ChatWidget() {
     
     if (chatState.step === 'user_type') {
       if (selection.includes('financing')) {
-        addMessage("Excellent! I love helping businesses get the funding they need to grow.", 'bot', 2200);
+        addMessage("Great! Let me ask a few questions.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("Let me ask you a few quick questions so I can match you with the perfect financing specialist. How soon are you looking to get funded?", 'bot');
-        }, 5000);
+          addMessage("How soon do you need funding?", 'bot');
+        }, 6000);
         setChatState({ step: 'financing_timeline', responses: newResponses });
       } else if (selection.includes('information')) {
-        addMessage("Perfect! I'm here to help you understand all your options.", 'bot', 2200);
+        addMessage("I can help with that.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("What would you like to know more about? I can share details on our rates, requirements, or how our process works.", 'bot');
-        }, 4800);
+          addMessage("What would you like to know about?", 'bot');
+        }, 6000);
         setChatState({ step: 'info_category', responses: newResponses });
       } else if (selection.includes('existing application')) {
-        addMessage("No problem! I completely understand wanting updates on your application.", 'bot', 2200);
+        addMessage("I'll connect you with someone who can help.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("Let me get one of our specialists on the phone with you right away. They'll have access to your file and can give you a complete update. A FundTek expert will reach out at their earliest convenience, or you can reach us directly at (305) 307-4658.", 'bot');
-        }, 5800);
+          addMessage("A FundTek expert will reach out at their earliest convenience, or call us at (305) 307-4658.", 'bot');
+        }, 6000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, userType: selection });
       }
     } else if (chatState.step === 'financing_timeline') {
       if (selection === 'ASAP') {
-        addMessage("I totally get it - when you need funding, you usually need it yesterday! We're really good at fast approvals.", 'bot', 2200);
+        addMessage("We can work with urgent timelines.", 'bot', 2500);
       } else if (selection === 'Within 30 days') {
-        addMessage("That's perfect timing! Having a month gives us room to explore all your options and find the absolute best deal.", 'bot', 2200);
+        addMessage("That gives us good time to find the best option.", 'bot', 2500);
       } else {
-        addMessage("Smart approach! Doing your research early means you'll be ready to move quickly when the right opportunity comes up.", 'bot', 2200);
+        addMessage("Smart to research early.", 'bot', 2500);
       }
       setTimeout(() => {
-        addMessage("Now, what type of funding sounds like it would fit your situation best?", 'bot');
-      }, 5000);
+        addMessage("What type of funding are you looking for?", 'bot');
+      }, 6000);
       setChatState({ step: 'product', responses: newResponses });
     } else if (chatState.step === 'info_category') {
       const categoryResponses = {
@@ -211,34 +213,34 @@ function ChatWidget() {
       }
     } else if (chatState.step === 'product') {
       if (selection === 'Debt Consolidation') {
-        addMessage("Oh that's a really smart move! Consolidating can save you so much stress and usually money too.", 'bot', 2200);
+        addMessage("Debt consolidation can help simplify payments.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("Who's your main lender right now? The one giving you the biggest headache? 😅", 'bot');
-        }, 5000);
+          addMessage("Who is your main lender currently?", 'bot');
+        }, 6000);
         setChatState({ step: 'debt_q1', responses: newResponses });
       } else {
         const productResponses = {
-          'Term Loans': "Excellent choice! Term loans are awesome because you know exactly what you'll pay every month - no surprises.",
-          'Merchant Cash Advance': "Perfect for when you need cash fast! These can fund incredibly quickly, sometimes same day.",
-          'Lines of Credit': "Really smart thinking! Lines of credit are like having a safety net - you only pay for what you use.",
-          'SBA Loans': "Wow, great option! SBA loans have some of the absolute best terms in the industry.",
-          'Equipment Financing': "That's perfect! Equipment financing often covers 100% of the cost with really competitive rates.",
-          'Invoice Factoring': "That's brilliant for cash flow! Turn those slow-paying invoices into immediate cash."
+          'Term Loans': "Term loans offer predictable monthly payments.",
+          'Merchant Cash Advance': "Good for quick funding needs.",
+          'Lines of Credit': "Lines of credit provide flexible access to funds.",
+          'SBA Loans': "SBA loans typically have competitive terms.",
+          'Equipment Financing': "Equipment financing can cover 100% of equipment costs.",
+          'Invoice Factoring': "Invoice factoring helps improve cash flow."
         };
         
-        const response = productResponses[selection as keyof typeof productResponses] || "That's a really solid choice for your business!";
-        addMessage(response, 'bot', 2200);
+        const response = productResponses[selection as keyof typeof productResponses] || "That's a good financing option.";
+        addMessage(response, 'bot', 2500);
         setTimeout(() => {
-          addMessage("To help me recommend the best terms, what's your business bringing in monthly?", 'bot');
-        }, 4800);
+          addMessage("What's your monthly business revenue?", 'bot');
+        }, 6000);
         setChatState({ step: 'revenue', responses: newResponses });
       }
 
     } else if (chatState.step === 'revenue') {
-      addMessage("Perfect! That really helps me understand where you're at.", 'bot', 1800);
+      addMessage("Thanks! Let me get your contact info.", 'bot', 2500);
       setTimeout(() => {
-        addMessage("I'm going to connect you with one of our specialists who works specifically with businesses in your revenue range. What's your first name?", 'bot');
-      }, 4200);
+        addMessage("What's your first name?", 'bot');
+      }, 6000);
       setChatState({ step: 'first_name', responses: newResponses });
     } else if (chatState.step === 'business_info') {
       if (selection.includes('financing options')) {
@@ -358,19 +360,19 @@ function ChatWidget() {
               onClick={() => handleUserSelection("I need financing for my business", 'userType')}
               className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
-              💰 I'm looking for business funding
+              💰 I need business funding
             </button>
             <button
               onClick={() => handleUserSelection("I want information about your services", 'userType')}
               className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
-              📋 I want to learn about your services
+              📋 I have questions about services
             </button>
             <button
               onClick={() => handleUserSelection("I have questions about an existing application", 'userType')}
               className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
-              📞 I have questions about my application
+              📞 Questions about my application
             </button>
           </div>
         );
