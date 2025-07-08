@@ -485,6 +485,9 @@ Changelog:
   * Completed Hospitality/Tourism, Manufacturing, Medical/Healthcare, Professional Services, Real Estate
   * Finished Restaurant/Food Service, Retail/E-commerce, Technology/Software, and Trucking/Transportation pages
   * All industry pages now have matching layout structure and call-to-action flow for better conversion optimization
+  * Removed unwanted "Accelerate Growth" sections that created grey box overlays above Business Financing Steps
+  * Fixed grey box overlay issues from professional-services, trucking-transportation, medical-healthcare, construction, manufacturing, home-services-contracting, and retail-e-commerce pages
+  * Cleaned up empty section containers that were causing visual layout problems
 - June 25, 2025. Fixed Technology & Software page missing content image (COMPLETE):
   * Fixed missing content image in Technology & Software industry page by replacing broken external URL
   * Used appropriate business/cityscape image from available assets for professional appearance
