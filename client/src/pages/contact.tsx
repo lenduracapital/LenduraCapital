@@ -116,27 +116,27 @@ export default function Contact() {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Mon : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Tue : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Wed : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Thu : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Fri : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Sat & Sun : Closed</span>
                     </div>
                   </div>
