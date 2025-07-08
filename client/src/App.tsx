@@ -39,6 +39,10 @@ const Privacy = lazy(() => import("@/pages/privacy"));
 const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
 const NotFound = lazy(() => import("@/pages/not-found"));
+const Careers = lazy(() => import("@/pages/careers"));
+const LifeAtFundTek = lazy(() => import("@/pages/careers/life-at-fundtek"));
+const BenefitsPerks = lazy(() => import("@/pages/careers/benefits-perks"));
+const ApplicationProcess = lazy(() => import("@/pages/careers/application-process"));
 const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
 const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleaning-janitorial-services"));
 const TruckingTransportation = lazy(() => import("@/pages/industries/trucking-transportation"));
@@ -109,6 +113,10 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={Cookies} />
         <Route path="/faq" component={FAQ} />
+        <Route path="/careers" component={Careers} />
+        <Route path="/careers/life-at-fundtek" component={LifeAtFundTek} />
+        <Route path="/careers/benefits-perks" component={BenefitsPerks} />
+        <Route path="/careers/application-process" component={ApplicationProcess} />
         <Route path="/apply" component={LoanApplication} />
         <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
         <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />

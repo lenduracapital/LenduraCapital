@@ -92,7 +92,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           </div>
 
           {/* Desktop Navigation - Positioned more to the right */}
-          <nav className="hidden lg:flex items-center space-x-6 flex-1 justify-center ml-32" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center space-x-3 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
               onClick={handleHomeClick}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
@@ -227,6 +227,14 @@ export default function Header({ transparent = true }: HeaderProps) {
               Qualified Industries
             </button>
             <button 
+              onClick={() => setLocation("/careers")}
+              className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              aria-label="View career opportunities"
+            >
+              Careers
+            </button>
+            <button 
               onClick={handleApplyNow}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
@@ -279,6 +287,13 @@ export default function Header({ transparent = true }: HeaderProps) {
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
               Qualified Industries
+            </button>
+            <button 
+              onClick={() => { setLocation("/careers"); setIsMobileMenuOpen(false); }}
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+            >
+              Careers
             </button>
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
