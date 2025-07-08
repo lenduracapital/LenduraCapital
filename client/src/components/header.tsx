@@ -80,7 +80,7 @@ export default function Header({ transparent = true }: HeaderProps) {
           <div className="flex items-center ml-4 md:ml-8 lg:ml-8">
             <button 
               onClick={handleLogoClick}
-              className="focus:outline-none focus:ring-2 focus:ring-white/50 rounded transition-transform duration-300 hover:scale-105"
+              className="focus:outline-none transition-transform duration-300 hover:scale-105"
               aria-label="Go to homepage"
             >
               <img 
