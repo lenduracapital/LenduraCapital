@@ -114,7 +114,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Chat widget submissions endpoint
   app.post("/api/chat-submissions", async (req, res) => {
     try {
-      const { timestamp, firstName, phoneNumber, email, userType, timeline, product, revenue, source } = req.body;
+      const { timestamp, firstName, phoneNumber, email, userType, timeline, product, revenue, debtQ1, debtQ2, infoCategory, businessType, source } = req.body;
       
       // Handle undefined values with fallbacks
       const formatValue = (value: any) => value && value !== 'undefined' ? value : 'Not provided';
@@ -155,7 +155,7 @@ Customer Information:
 - User Type: ${formatValue(userType)}
 - Funding Timeline: ${formatValue(timeline)}
 - Product Interest: ${formatValue(product)}
-- Monthly Revenue Range: ${formatValue(revenue)}
+- Monthly Revenue Range: ${formatValue(revenue)}${debtQ1 ? `\n- Primary Lender: ${formatValue(debtQ1)}` : ''}${debtQ2 ? `\n- Debt Balance: ${formatValue(debtQ2)}` : ''}${infoCategory ? `\n- Information Requested: ${formatValue(infoCategory)}` : ''}${businessType ? `\n- Business Type: ${formatValue(businessType)}` : ''}
 
 Please follow up with this potential client promptly.
 

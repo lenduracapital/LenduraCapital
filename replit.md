@@ -323,6 +323,13 @@ Changelog:
   * Enhanced completion flow with direct phone number (305) 307-4658 and apply online options
   * Removed live specialist handoff functionality per user request for simplified experience
   * Streamlined bot-only conversation flow ending with clear next steps for customers
+- January 8, 2025. Chat widget conversation flow optimization (COMPLETE):
+  * Fixed message stacking issues by implementing proper setTimeout delays between bot responses
+  * Removed "Sarah" persona name - bot now introduces itself simply as being from FundTek Capital Group
+  * Updated callback timing from "within 1 hour" to "A FundTek expert will reach out at their earliest convenience"
+  * Enhanced natural conversation flow preventing overlapping messages and allowing users time to read responses
+  * Improved backend to capture all additional fields (debt consolidation details, info categories, business types)
+  * Enhanced email notifications with comprehensive field collection and professional formatting
 - June 20, 2025. Chat widget flow optimization and timing improvements (COMPLETE):
   * Removed overwhelming 3-question flows for all solutions except Debt Consolidation
   * Fixed rapid-fire messaging with proper 2-5 second delays between bot responses
