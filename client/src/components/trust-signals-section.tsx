@@ -136,26 +136,8 @@ export default function TrustSignalsSection() {
           })}
         </div>
 
-        {/* Our Expert Team */}
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Meet Our Expert Funding Specialists
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Our experienced team combines decades of commercial lending expertise 
-              with personalized service to find the perfect funding solution for your business.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {teamMembers.map((member, index) => (
-              <TeamMemberCircle key={index} member={member} />
-            ))}
-          </div>
-
-          {/* Contact CTA */}
-          <div className="text-center mt-12 pt-8 border-t border-gray-200">
+        {/* Contact CTA */}
+        <div className="text-center mt-12 pt-8 border-t border-gray-200">
             <p className="text-lg text-gray-600 mb-6">
               Ready to schedule a consultation about your business needs?
             </p>
@@ -181,7 +163,6 @@ export default function TrustSignalsSection() {
                 Apply Now
               </button>
             </div>
-          </div>
         </div>
       </div>
     </section>
