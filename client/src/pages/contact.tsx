@@ -43,8 +43,7 @@ export default function Contact() {
 
               {/* General Questions Contact */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-black mb-6 flex items-center">
-                  <Phone className="h-6 w-6 text-green-500 mr-3" />
+                <h3 className="text-xl font-bold text-black mb-6">
                   General Questions
                 </h3>
                 
@@ -77,8 +76,7 @@ export default function Contact() {
 
               {/* Customer Support Contact */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold text-black mb-6 flex items-center">
-                  <Mail className="h-6 w-6 text-[#85abe4] mr-3" />
+                <h3 className="text-xl font-bold text-black mb-6">
                   Customer Support
                 </h3>
                 
@@ -116,14 +114,30 @@ export default function Contact() {
                   Business Hours
                 </h3>
                 <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="font-medium text-black">Monday - Friday:</span>
-                      <span className="text-gray-600">9:00 AM - 7:30 PM EST</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Mon : 09:00 am - 07:30 pm</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-medium text-black">Weekends:</span>
-                      <span className="text-gray-600">Closed</span>
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Tue : 09:00 am - 07:30 pm</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Wed : 09:00 am - 07:30 pm</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Thu : 09:00 am - 07:30 pm</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Fri : 09:00 am - 07:30 pm</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-green-500 mr-3">✓</span>
+                      <span className="text-black">Sat & Sun : Closed</span>
                     </div>
                   </div>
                 </div>
