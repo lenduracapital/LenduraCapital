@@ -17,6 +17,11 @@ import Analytics from "@/components/analytics";
 import ConversionTracking from "@/components/conversion-tracking";
 import PerformanceMonitor from "@/components/performance-monitor";
 import EnhancedSchema from "@/components/enhanced-schema";
+import PerformanceOptimization from "@/components/performance-optimization";
+import EnhancedSEO from "@/components/enhanced-seo";
+import AdvancedAnalytics from "@/components/advanced-analytics";
+import CriticalCSS from "@/components/critical-css";
+import ServiceWorkerRegistration from "@/components/service-worker-registration";
 
 export default function Home() {
   return (
@@ -35,6 +40,11 @@ export default function Home() {
         eventData={{ page_title: "FundTek Capital Group - Business Funding Solutions" }} 
       />
       <PerformanceMonitor />
+      <PerformanceOptimization />
+      <EnhancedSEO pageTitle="FundTek Capital Group - Fast Business Funding Solutions" />
+      <AdvancedAnalytics />
+      <CriticalCSS />
+      <ServiceWorkerRegistration />
 
       <Header transparent={true} />
       <main id="main-content">

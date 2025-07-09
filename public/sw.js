@@ -1,109 +1,98 @@
-// Service Worker for FundTek Capital Group - Production Grade Caching
-const CACHE_NAME = 'fundtek-v1.0.0';
-const RUNTIME_CACHE = 'fundtek-runtime';
+const CACHE_NAME = 'fundtek-v1';
+const STATIC_CACHE = 'fundtek-static-v1';
+const DYNAMIC_CACHE = 'fundtek-dynamic-v1';
 
-// Critical resources for immediate caching
-const CRITICAL_ASSETS = [
+// Assets to cache immediately
+const STATIC_ASSETS = [
   '/',
-  '/solutions',
-  '/contact',
-  '/apply',
-  '/manifest.json'
+  '/offline.html',
+  '/manifest.webmanifest',
+  '/favicon.ico',
+  '/favicon-circle.svg'
 ];
 
-// API endpoints to cache with network-first strategy
-const API_ENDPOINTS = [
-  '/api/performance-alerts',
-  '/health',
-  '/sitemap.xml',
-  '/robots.txt'
-];
-
-// Install event - Cache critical resources
+// Install event - cache static assets
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(CRITICAL_ASSETS))
+    caches.open(STATIC_CACHE)
+      .then(cache => cache.addAll(STATIC_ASSETS))
       .then(() => self.skipWaiting())
   );
 });
 
-// Activate event - Clean up old caches
+// Activate event - clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames
-          .filter(cacheName => 
-            cacheName !== CACHE_NAME && 
-            cacheName !== RUNTIME_CACHE
-          )
-          .map(cacheName => caches.delete(cacheName))
-      );
-    }).then(() => self.clients.claim())
+    caches.keys()
+      .then(cacheNames => {
+        return Promise.all(
+          cacheNames
+            .filter(cacheName => cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE)
+            .map(cacheName => caches.delete(cacheName))
+        );
+      })
+      .then(() => self.clients.claim())
   );
 });
 
-// Fetch event - Advanced caching strategies
+// Fetch event - implement caching strategies
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Handle API requests with network-first strategy
-  if (url.pathname.startsWith('/api/') || API_ENDPOINTS.includes(url.pathname)) {
+  // Skip non-GET requests
+  if (request.method !== 'GET') return;
+
+  // Skip external requests
+  if (url.origin !== location.origin) return;
+
+  // API requests - network first with cache fallback
+  if (url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirstStrategy(request));
     return;
   }
 
-  // Handle HTML pages with cache-first strategy
-  if (request.destination === 'document') {
+  // Static assets - cache first
+  if (request.destination === 'image' || 
+      request.destination === 'font' || 
+      request.destination === 'style' ||
+      request.destination === 'script') {
     event.respondWith(cacheFirstStrategy(request));
     return;
   }
 
-  // Handle static assets with stale-while-revalidate
-  if (request.destination === 'script' || 
-      request.destination === 'style' || 
-      request.destination === 'image') {
+  // HTML pages - stale while revalidate
+  if (request.destination === 'document') {
     event.respondWith(staleWhileRevalidateStrategy(request));
     return;
   }
 
-  // Default to network with cache fallback
+  // Default: network with cache fallback
   event.respondWith(networkWithCacheFallback(request));
 });
 
-// Network-first strategy for API calls
+// Network first strategy for API calls
 async function networkFirstStrategy(request) {
   try {
     const networkResponse = await fetch(request);
     
     if (networkResponse.ok) {
-      const cache = await caches.open(RUNTIME_CACHE);
+      const cache = await caches.open(DYNAMIC_CACHE);
       cache.put(request, networkResponse.clone());
     }
     
     return networkResponse;
   } catch (error) {
     const cachedResponse = await caches.match(request);
-    return cachedResponse || new Response('Network error', { status: 503 });
+    return cachedResponse || new Response('Offline', { status: 503 });
   }
 }
 
-// Cache-first strategy for HTML pages
+// Cache first strategy for static assets
 async function cacheFirstStrategy(request) {
   const cachedResponse = await caches.match(request);
   
   if (cachedResponse) {
-    // Update cache in background
-    fetch(request).then(networkResponse => {
-      if (networkResponse.ok) {
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(request, networkResponse);
-        });
-      }
-    });
-    
     return cachedResponse;
   }
   
@@ -111,22 +100,19 @@ async function cacheFirstStrategy(request) {
     const networkResponse = await fetch(request);
     
     if (networkResponse.ok) {
-      const cache = await caches.open(CACHE_NAME);
+      const cache = await caches.open(STATIC_CACHE);
       cache.put(request, networkResponse.clone());
     }
     
     return networkResponse;
   } catch (error) {
-    return new Response('Page not available offline', { 
-      status: 503,
-      headers: { 'Content-Type': 'text/html' }
-    });
+    return new Response('Asset not available offline', { status: 503 });
   }
 }
 
-// Stale-while-revalidate for static assets
+// Stale while revalidate for HTML pages
 async function staleWhileRevalidateStrategy(request) {
-  const cache = await caches.open(RUNTIME_CACHE);
+  const cache = await caches.open(DYNAMIC_CACHE);
   const cachedResponse = await cache.match(request);
   
   const fetchPromise = fetch(request).then(networkResponse => {
@@ -134,9 +120,9 @@ async function staleWhileRevalidateStrategy(request) {
       cache.put(request, networkResponse.clone());
     }
     return networkResponse;
-  });
+  }).catch(() => cachedResponse);
   
-  return cachedResponse || fetchPromise;
+  return cachedResponse || fetchPromise || caches.match('/offline.html');
 }
 
 // Network with cache fallback
@@ -145,96 +131,39 @@ async function networkWithCacheFallback(request) {
     const networkResponse = await fetch(request);
     
     if (networkResponse.ok) {
-      const cache = await caches.open(RUNTIME_CACHE);
+      const cache = await caches.open(DYNAMIC_CACHE);
       cache.put(request, networkResponse.clone());
     }
     
     return networkResponse;
   } catch (error) {
-    return await caches.match(request) || 
-           new Response('Resource not available', { status: 503 });
+    const cachedResponse = await caches.match(request);
+    return cachedResponse || caches.match('/offline.html');
   }
 }
 
 // Background sync for form submissions
 self.addEventListener('sync', event => {
-  if (event.tag === 'background-form-sync') {
+  if (event.tag === 'form-submission') {
     event.waitUntil(syncFormSubmissions());
   }
 });
 
-// Sync pending form submissions when online
+// Sync cached form submissions when online
 async function syncFormSubmissions() {
-  const cache = await caches.open(RUNTIME_CACHE);
-  const pendingRequests = await cache.keys();
+  const cache = await caches.open(DYNAMIC_CACHE);
+  const requests = await cache.keys();
   
-  for (const request of pendingRequests) {
-    if (request.url.includes('/api/') && request.method === 'POST') {
-      try {
-        const response = await fetch(request);
-        if (response.ok) {
-          await cache.delete(request);
-        }
-      } catch (error) {
-        // Keep in cache for next sync attempt
-      }
+  const formRequests = requests.filter(request => 
+    request.url.includes('/api/') && request.method === 'POST'
+  );
+  
+  for (const request of formRequests) {
+    try {
+      await fetch(request);
+      await cache.delete(request);
+    } catch (error) {
+      console.log('Failed to sync form submission:', error);
     }
   }
 }
-
-// Push notification handling
-self.addEventListener('push', event => {
-  if (event.data) {
-    const options = {
-      body: event.data.text(),
-      icon: '/favicon-192.png',
-      badge: '/favicon-192.png',
-      vibrate: [200, 100, 200],
-      data: {
-        dateOfArrival: Date.now(),
-        primaryKey: 1
-      },
-      actions: [
-        {
-          action: 'explore',
-          title: 'View Details',
-          icon: '/favicon-192.png'
-        },
-        {
-          action: 'close',
-          title: 'Close',
-          icon: '/favicon-192.png'
-        }
-      ]
-    };
-    
-    event.waitUntil(
-      self.registration.showNotification('FundTek Capital Group', options)
-    );
-  }
-});
-
-// Notification click handling
-self.addEventListener('notificationclick', event => {
-  event.notification.close();
-  
-  if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/')
-    );
-  }
-});
-
-// Performance monitoring
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-  
-  if (event.data && event.data.type === 'GET_CACHE_STATUS') {
-    event.ports[0].postMessage({
-      cacheNames: [CACHE_NAME, RUNTIME_CACHE],
-      timestamp: Date.now()
-    });
-  }
-});

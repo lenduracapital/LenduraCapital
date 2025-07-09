@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import sgMail from '@sendgrid/mail';
+import { registerAdminRoutes } from "./admin-routes";
 
 // Initialize SendGrid
 if (process.env.SENDGRID_API_KEY) {
@@ -10,6 +11,9 @@ if (process.env.SENDGRID_API_KEY) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  
+  // Register admin routes
+  registerAdminRoutes(app);
   
   // FORCE remove ALL security headers in development for Replit preview
   if (process.env.NODE_ENV === 'development') {
