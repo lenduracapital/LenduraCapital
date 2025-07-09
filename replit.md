@@ -615,13 +615,7 @@ Changelog:
   * Cleaned up all routing references and lazy loading imports for career pages
   * Deleted all career page files and components from project
   * Fixed focus border removal on logo click to prevent visual distraction
-- January 8, 2025. "Why Choose FundTek" value proposition section implementation (COMPLETE):
-  * Added compelling "Why Choose FundTek Capital Group?" section between working capital and testimonials
-  * Created 4 key differentiators: Same-Day Decisions, No Hidden Fees, Personal Service, Flexible Requirements
-  * Implemented professional card design with hover effects and signature blue (#85abe4) styling
-  * Added interactive icons (Clock, Shield, Users, DollarSign) with smooth animations
-  * Included "Experience the FundTek Difference" CTA button linking to Calendly scheduling
-  * Enhanced homepage value proposition with clear competitive advantages and trust-building content
+
 - June 23, 2025. Reviews Platform removal (COMPLETE):
   * Removed comprehensive Reviews Platform at user request
   * Deleted /reviews page and all associated components
