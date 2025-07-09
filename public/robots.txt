@@ -16,7 +16,7 @@ Disallow: /admin/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://fundtekcapitalgroup.com/sitemap.xml
 
 # Crawl delay for politeness
 Crawl-delay: 1
