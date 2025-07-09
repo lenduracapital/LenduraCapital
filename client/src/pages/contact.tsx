@@ -309,10 +309,6 @@ export default function Contact() {
                   <span className="font-semibold text-[#85abe4] mr-2">Day 2:</span>
                   Final documentation and contracts
                 </li>
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 3:</span>
-                  Funds deposited in your account
-                </li>
               </ul>
             </div>
           </div>
