@@ -8,6 +8,7 @@ import MoveBusinessForwardSection from "@/components/move-business-forward-secti
 import BusinessSolutionsSection from "@/components/business-solutions-section";
 import TrustSignalsSection from "@/components/trust-signals-section";
 import PremiumFinancingSection from "@/components/premium-financing-section";
+import WhyChooseFundTekSection from "@/components/why-choose-fundtek-section";
 import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
@@ -41,6 +42,7 @@ export default function Home() {
         <ProcessSection />
         <ContactFormSection />
         <WorkingCapitalSection />
+        <WhyChooseFundTekSection />
         <TestimonialsSection />
         <TrustSignalsSection />
         <MoveBusinessForwardSection />
