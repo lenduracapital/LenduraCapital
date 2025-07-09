@@ -155,17 +155,17 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-lg p-6 shadow-lg">
-              <h3 className="text-2xl font-bold text-black mb-6">
+            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg">
+              <h3 className="text-xl sm:text-2xl font-bold text-black mb-4 sm:mb-6">
                 Request Information
               </h3>
               
               <div className="w-full">
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-lg border border-blue-200">
+                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 sm:p-6 rounded-lg border border-blue-200 mb-4">
                   <div className="text-center">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Get Working Capital Today</h3>
-                    <p className="text-gray-600 mb-6">
-                      Ready to secure funding for your business? Click below to access our secure application form.
+                    <h4 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2 sm:mb-4">Get Working Capital Today</h4>
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                      Fill out the form below and our specialists will contact you within 24 hours.
                     </p>
                     <button
                       onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
@@ -180,6 +180,47 @@ export default function Contact() {
                       Opens in a new tab with full functionality including conditional redirects
                     </p>
                   </div>
+                </div>
+                
+                {/* Mobile-Optimized Embedded Form */}
+                <div className="w-full relative">
+                  <iframe
+                    id="JotFormIFrame-251674789886078"
+                    title="FundTek Capital Group Contact Form"
+                    onLoad={() => window.parent.scrollTo(0, 0)}
+                    allowtransparency="true"
+                    allow="geolocation; microphone; camera; fullscreen"
+                    src="https://form.jotform.com/251674789886078"
+                    frameBorder="0"
+                    style={{
+                      minWidth: '100%',
+                      maxWidth: '100%',
+                      height: '600px',
+                      border: 'none',
+                    }}
+                    className="w-full rounded-lg"
+                    scrolling="yes"
+                  />
+                </div>
+                
+                {/* Mobile Form Tips */}
+                <div className="mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-[#85abe4] block sm:hidden">
+                  <p className="text-sm text-gray-600">
+                    <strong>Mobile tip:</strong> Scroll within the form above to access all fields. Tap any field to focus and use your device keyboard.
+                  </p>
+                </div>
+                
+                {/* Fallback Link */}
+                <div className="mt-4 text-center">
+                  <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                    Having trouble with the form?
+                  </p>
+                  <button
+                    onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
+                    className="text-[#85abe4] hover:text-[#7498d1] text-sm font-medium underline transition-colors"
+                  >
+                    Open in new tab
+                  </button>
                 </div>
               </div>
             </div>
