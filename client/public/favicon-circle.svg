@@ -4,9 +4,26 @@
   
   <!-- Lion head design -->
   <circle cx="16" cy="14" r="7" fill="#85abe4"/>
-  <circle cx="13" cy="12" r="1.8" fill="#1a2332"/>
-  <circle cx="19" cy="12" r="1.8" fill="#1a2332"/>
-  <path d="M13 16 Q16 18 19 16" stroke="#1a2332" stroke-width="1.8" fill="none"/>
+  
+  <!-- Lion ears -->
+  <circle cx="11" cy="10" r="2.5" fill="#85abe4"/>
+  <circle cx="21" cy="10" r="2.5" fill="#85abe4"/>
+  <circle cx="11" cy="10" r="1.5" fill="#1a2332"/>
+  <circle cx="21" cy="10" r="1.5" fill="#1a2332"/>
+  
+  <!-- Lion eyes -->
+  <ellipse cx="13" cy="12" rx="1.2" ry="1.8" fill="#1a2332"/>
+  <ellipse cx="19" cy="12" rx="1.2" ry="1.8" fill="#1a2332"/>
+  
+  <!-- Lion nose -->
+  <polygon points="16,15 15,16.5 17,16.5" fill="#1a2332"/>
+  
+  <!-- Lion mouth/muzzle -->
+  <path d="M14 17 Q16 19 18 17" stroke="#1a2332" stroke-width="1.5" fill="none"/>
+  <path d="M16 16.5 L16 17.5" stroke="#1a2332" stroke-width="1.2"/>
+  
+  <!-- Lion mane details -->
+  <circle cx="16" cy="14" r="8" fill="none" stroke="#85abe4" stroke-width="0.8" opacity="0.6"/>
   
   <!-- FUNDTEK text curved at top -->
   <path id="top-curve" d="M 5 16 A 11 11 0 0 1 27 16" fill="none"/>
