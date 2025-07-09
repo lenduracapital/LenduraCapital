@@ -259,10 +259,6 @@ export default function Contact() {
                   <span className="font-semibold text-[#85abe4] mr-2">3.</span>
                   Provide basic business information
                 </li>
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">4.</span>
-                  Submit driver's license and voided check
-                </li>
               </ul>
             </div>
 
