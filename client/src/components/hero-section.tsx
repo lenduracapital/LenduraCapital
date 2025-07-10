@@ -69,7 +69,7 @@ export default function HeroSection() {
               <span style={{ color: '#85abe4' }}>Every Industry</span>
             </h1>
             
-            <p className="mb-2 max-w-2xl text-base leading-relaxed sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
+            <p className="mb-2 max-w-2xl sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed text-[24px] font-medium" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
               Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
               financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
