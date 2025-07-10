@@ -120,8 +120,8 @@ export default function TrustSignalsSection() {
       answer: "We serve over 18 different industries including restaurants, retail, healthcare, construction, transportation, and many more. Our specialists understand the unique challenges each industry faces and tailor solutions accordingly."
     },
     {
-      question: "What makes FundTek different from other funding companies?",
-      answer: "Unlike brokers who just shop your deal around, we have direct relationships with 50+ vetted lenders. This means faster approvals, better communication, and a dedicated specialist who knows your business personally throughout the entire process."
+      question: "What makes FundTek different from Banks?",
+      answer: "While banks require perfect credit, extensive paperwork, and take weeks to decide, FundTek approves merchants in 24 hours with minimal documentation. Banks say no to 80% of small businesses - we focus on your cash flow and business performance, not just credit scores. Plus, you get a dedicated specialist instead of being transferred between departments."
     }
   ];
 
