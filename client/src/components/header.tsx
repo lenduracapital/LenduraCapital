@@ -86,7 +86,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               <img 
                 src={logoPath}
                 alt="FundTek Capital Group Logo" 
-                className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain"
+                className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain ml-[-3px] mr-[-3px] pl-[-8px] pr-[-8px] pt-[-7px] pb-[-7px] mt-[-3px] mb-[-3px]"
               />
             </button>
           </div>
