@@ -137,9 +137,9 @@ export default function TrustSignalsSection() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+        <div className="mt-12">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
               Frequently Asked Questions
             </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -147,9 +147,9 @@ export default function TrustSignalsSection() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-4">
             {/* FAQ Item 1 */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
               <h4 className="text-xl font-semibold text-gray-900 mb-3">
                 How quickly can I get approved for funding?
               </h4>
@@ -159,17 +159,17 @@ export default function TrustSignalsSection() {
             </div>
 
             {/* FAQ Item 2 */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
               <h4 className="text-xl font-semibold text-gray-900 mb-3">
                 What documents do I need to apply?
               </h4>
               <p className="text-gray-600 leading-relaxed">
-                Just three simple items: your last 3 months of bank statements, a government-issued ID, and your business registration documents. No complex financial statements or lengthy paperwork required.
+                Just three simple items: your last 3 months of bank statements, application, and your business info. No complex financial statements or lengthy paperwork required.
               </p>
             </div>
 
             {/* FAQ Item 3 */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
               <h4 className="text-xl font-semibold text-gray-900 mb-3">
                 Can I get funding if my credit isn't perfect?
               </h4>
@@ -179,7 +179,7 @@ export default function TrustSignalsSection() {
             </div>
 
             {/* FAQ Item 4 */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
               <h4 className="text-xl font-semibold text-gray-900 mb-3">
                 Do you work with businesses in my industry?
               </h4>
@@ -189,7 +189,7 @@ export default function TrustSignalsSection() {
             </div>
 
             {/* FAQ Item 5 */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
               <h4 className="text-xl font-semibold text-gray-900 mb-3">
                 What makes FundTek different from other funding companies?
               </h4>
