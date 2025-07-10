@@ -228,12 +228,12 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             
             <button 
-              onClick={() => setLocation("/blog")}
+              onClick={() => setLocation("/advisory")}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
-              aria-label="Read business funding insights"
+              aria-label="Strategic business advisory services"
             >
-              Blog
+              Advisory
             </button>
             <button 
               onClick={handleApplyNow}
@@ -291,11 +291,11 @@ export default function Header({ transparent = true }: HeaderProps) {
             </button>
             
             <button 
-              onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
+              onClick={() => { setLocation("/advisory"); setIsMobileMenuOpen(false); }}
               className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             >
-              Blog
+              Advisory
             </button>
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
