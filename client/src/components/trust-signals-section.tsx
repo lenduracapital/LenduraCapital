@@ -1,4 +1,5 @@
-import { Shield, Award, Users, TrendingUp, Clock, MapPin } from "lucide-react";
+import { Shield, Award, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 // Simple team member circle component
 const TeamMemberCircle = ({ member }: { member: any }) => {
@@ -95,8 +96,37 @@ const teamMembers = [
 ];
 
 export default function TrustSignalsSection() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqItems = [
+    {
+      question: "How quickly can I get approved for funding?",
+      answer: "Most merchants receive approval decisions within 24 hours. Our streamlined application process and direct lender relationships allow us to move fast while other companies make you wait weeks."
+    },
+    {
+      question: "What documents do I need to apply?",
+      answer: "Just three simple items: your last 3 months of bank statements, application, and your business info. No complex financial statements or lengthy paperwork required."
+    },
+    {
+      question: "Can I get funding if my credit isn't perfect?",
+      answer: "Absolutely! We focus on your business performance and cash flow, not just credit scores. Many of our merchants have been approved with credit scores as low as 550 because we look at the bigger picture."
+    },
+    {
+      question: "Do you work with businesses in my industry?",
+      answer: "We serve over 18 different industries including restaurants, retail, healthcare, construction, transportation, and many more. Our specialists understand the unique challenges each industry faces and tailor solutions accordingly."
+    },
+    {
+      question: "What makes FundTek different from other funding companies?",
+      answer: "Unlike brokers who just shop your deal around, we have direct relationships with 50+ vetted lenders. This means faster approvals, better communication, and a dedicated specialist who knows your business personally throughout the entire process."
+    }
+  ];
+
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Why Trust FundTek */}
         <div className="text-center mb-16">
@@ -147,56 +177,42 @@ export default function TrustSignalsSection() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-4">
-            {/* FAQ Item 1 */}
-            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                How quickly can I get approved for funding?
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Most merchants receive approval decisions within 24 hours. Our streamlined application process and direct lender relationships allow us to move fast while other companies make you wait weeks.
-              </p>
-            </div>
-
-            {/* FAQ Item 2 */}
-            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                What documents do I need to apply?
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Just three simple items: your last 3 months of bank statements, application, and your business info. No complex financial statements or lengthy paperwork required.
-              </p>
-            </div>
-
-            {/* FAQ Item 3 */}
-            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Can I get funding if my credit isn't perfect?
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Absolutely! We focus on your business performance and cash flow, not just credit scores. Many of our merchants have been approved with credit scores as low as 550 because we look at the bigger picture.
-              </p>
-            </div>
-
-            {/* FAQ Item 4 */}
-            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you work with businesses in my industry?
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                We serve over 18 different industries including restaurants, retail, healthcare, construction, transportation, and many more. Our specialists understand the unique challenges each industry faces and tailor solutions accordingly.
-              </p>
-            </div>
-
-            {/* FAQ Item 5 */}
-            <div className="bg-white rounded-xl p-5 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                What makes FundTek different from other funding companies?
-              </h4>
-              <p className="text-gray-600 leading-relaxed">
-                Unlike brokers who just shop your deal around, we have direct relationships with 50+ vetted lenders. This means faster approvals, better communication, and a dedicated specialist who knows your business personally throughout the entire process.
-              </p>
-            </div>
+          <div className="max-w-4xl mx-auto space-y-3">
+            {faqItems.map((faq, index) => {
+              const isOpen = openFAQ === index;
+              return (
+                <div key={index} className="bg-white rounded-xl shadow-lg border-l-4 overflow-hidden" style={{ borderLeftColor: '#85abe4' }}>
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full text-left p-5 hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-xl font-semibold text-gray-900 pr-4">
+                        {faq.question}
+                      </h4>
+                      <div className="flex-shrink-0">
+                        {isOpen ? (
+                          <ChevronUp className="w-5 h-5 text-gray-500" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        )}
+                      </div>
+                    </div>
+                  </button>
+                  
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="px-5 pb-5">
+                      <p className="text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
