@@ -136,6 +136,69 @@ export default function TrustSignalsSection() {
           })}
         </div>
 
+        {/* FAQ Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Get answers to the most common questions from merchants like you
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            {/* FAQ Item 1 */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                How quickly can I get approved for funding?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Most merchants receive approval decisions within 24 hours. Our streamlined application process and direct lender relationships allow us to move fast while other companies make you wait weeks.
+              </p>
+            </div>
+
+            {/* FAQ Item 2 */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                What documents do I need to apply?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Just three simple items: your last 3 months of bank statements, a government-issued ID, and your business registration documents. No complex financial statements or lengthy paperwork required.
+              </p>
+            </div>
+
+            {/* FAQ Item 3 */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Can I get funding if my credit isn't perfect?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Absolutely! We focus on your business performance and cash flow, not just credit scores. Many of our merchants have been approved with credit scores as low as 550 because we look at the bigger picture.
+              </p>
+            </div>
+
+            {/* FAQ Item 4 */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                Do you work with businesses in my industry?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                We serve over 18 different industries including restaurants, retail, healthcare, construction, transportation, and many more. Our specialists understand the unique challenges each industry faces and tailor solutions accordingly.
+              </p>
+            </div>
+
+            {/* FAQ Item 5 */}
+            <div className="bg-white rounded-xl p-6 shadow-lg border-l-4" style={{ borderLeftColor: '#85abe4' }}>
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                What makes FundTek different from other funding companies?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Unlike brokers who just shop your deal around, we have direct relationships with 50+ vetted lenders. This means faster approvals, better communication, and a dedicated specialist who knows your business personally throughout the entire process.
+              </p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
