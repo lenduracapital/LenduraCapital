@@ -77,7 +77,7 @@ export default function Header({ transparent = true }: HeaderProps) {
       <nav className="w-full px-0">
         <div className="flex items-center justify-between w-full py-1">
           {/* Logo on the left - aligned with hero text */}
-          <div className="flex items-center pl-4 md:pl-8">
+          <div className="flex items-center pl-8 md:pl-12 lg:pl-16">
             <button 
               onClick={handleLogoClick}
               className="focus:outline-none transition-transform duration-300 hover:scale-105"
