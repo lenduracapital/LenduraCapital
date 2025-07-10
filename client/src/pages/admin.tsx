@@ -34,6 +34,29 @@ export default function AdminDashboard() {
   const [filterStatus, setFilterStatus] = useState('all');
   const [selectedDateRange, setSelectedDateRange] = useState('7d');
   
+  // Status update function
+  const updateStatus = async (type: string, id: number, newStatus: string) => {
+    try {
+      const response = await fetch(`/api/admin/${type === 'chat' ? 'chatbot-conversations' : `${type}-applications`}/${id}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}`
+        },
+        body: JSON.stringify({ status: newStatus })
+      });
+      
+      if (response.ok) {
+        // Refetch data to update the UI
+        window.location.reload();
+      } else {
+        alert('Failed to update status');
+      }
+    } catch (error) {
+      alert('Error updating status: ' + error);
+    }
+  };
+  
   const { data: dashboardData, isLoading, error } = useQuery({
     queryKey: ['/api/admin/dashboard'],
     enabled: isAuthenticated,
@@ -421,9 +444,27 @@ export default function AdminDashboard() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="outline" size="sm">
-                            <Eye className="w-4 h-4" />
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => alert(`Chat Conversation Details\n\nLead ID: ${chat.leadId || `CHAT-${chat.id}`}\nName: ${chat.firstName || 'Anonymous'}\nPhone: ${chat.phoneNumber}\nEmail: ${chat.email}\nProduct Interest: ${chat.product}\nRevenue Range: ${chat.revenue}\nUser Type: ${chat.userType}\nTimeline: ${chat.timeline}\nSession ID: ${chat.sessionId}\nCreated: ${formatDate(chat.createdAt)}\nStatus: ${chat.status || 'New'}`)}
+                            >
+                              <Eye className="w-4 h-4" />
+                            </Button>
+                            <Select value={chat.status || 'new'} onValueChange={(value) => updateStatus('chat', chat.id, value)}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="new">New</SelectItem>
+                                <SelectItem value="contacted">Contacted</SelectItem>
+                                <SelectItem value="qualified">Qualified</SelectItem>
+                                <SelectItem value="converted">Converted</SelectItem>
+                                <SelectItem value="closed">Closed</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -498,9 +539,27 @@ export default function AdminDashboard() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="outline" size="sm">
-                            <Eye className="w-4 h-4" />
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => alert(`Jotform Submission Details\n\nSubmission ID: JF-${jotform.id}\nName: ${jotform.firstName} ${jotform.lastName}\nEmail: ${jotform.email}\nPhone: ${jotform.phoneNumber || 'Not provided'}\nForm Title: ${jotform.formTitle || 'Application Form'}\nBusiness Name: ${jotform.businessName || 'Not provided'}\nSubmitted: ${formatDate(jotform.createdAt)}\nStatus: ${jotform.status || 'New'}`)}
+                            >
+                              <Eye className="w-4 h-4" />
+                            </Button>
+                            <Select value={jotform.status || 'new'} onValueChange={(value) => updateStatus('jotform', jotform.id, value)}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="new">New</SelectItem>
+                                <SelectItem value="contacted">Contacted</SelectItem>
+                                <SelectItem value="qualified">Qualified</SelectItem>
+                                <SelectItem value="converted">Converted</SelectItem>
+                                <SelectItem value="closed">Closed</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -575,9 +634,27 @@ export default function AdminDashboard() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="outline" size="sm">
-                            <Eye className="w-4 h-4" />
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => alert(`Loan Application Details\n\nApplication ID: APP-${loan.id}\nApplicant: ${loan.firstName} ${loan.lastName}\nBusiness: ${loan.businessName || 'Not provided'}\nLoan Amount: $${loan.loanAmount?.toLocaleString() || 'Not specified'}\nEmail: ${loan.email}\nPhone: ${loan.phoneNumber || 'Not provided'}\nSubmitted: ${formatDate(loan.createdAt)}\nStatus: ${loan.status || 'Pending'}`)}
+                            >
+                              <Eye className="w-4 h-4" />
+                            </Button>
+                            <Select value={loan.status || 'pending'} onValueChange={(value) => updateStatus('loan', loan.id, value)}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="reviewed">Reviewed</SelectItem>
+                                <SelectItem value="approved">Approved</SelectItem>
+                                <SelectItem value="funded">Funded</SelectItem>
+                                <SelectItem value="declined">Declined</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -652,9 +729,27 @@ export default function AdminDashboard() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <Button variant="outline" size="sm">
-                            <Eye className="w-4 h-4" />
-                          </Button>
+                          <div className="flex gap-2">
+                            <Button 
+                              variant="outline" 
+                              size="sm"
+                              onClick={() => alert(`Contact Submission Details\n\nContact ID: CON-${contact.id}\nName: ${contact.firstName} ${contact.lastName}\nEmail: ${contact.email}\nPhone: ${contact.phoneNumber || 'Not provided'}\nMessage: ${contact.message || 'No message provided'}\nSubmitted: ${formatDate(contact.createdAt)}\nStatus: ${contact.status || 'New'}`)}
+                            >
+                              <Eye className="w-4 h-4" />
+                            </Button>
+                            <Select value={contact.status || 'new'} onValueChange={(value) => updateStatus('contact', contact.id, value)}>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="new">New</SelectItem>
+                                <SelectItem value="contacted">Contacted</SelectItem>
+                                <SelectItem value="qualified">Qualified</SelectItem>
+                                <SelectItem value="converted">Converted</SelectItem>
+                                <SelectItem value="closed">Closed</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </TableCell>
                       </TableRow>
                     ))}
