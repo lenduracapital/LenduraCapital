@@ -59,14 +59,11 @@ export default function HeroSection() {
       >
         <source src={videoPath} type="video/webm" />
       </video>
-
-
-
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-2 md:pt-3">
-            <h1 className="font-bold mb-2 text-3xl leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
+            <h1 className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
               Flexible<br />
               Financing for<br />
               <span style={{ color: '#85abe4' }}>Every Industry</span>
