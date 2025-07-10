@@ -1,4 +1,4 @@
-import { users, loanApplications, contactSubmissions, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission } from "@shared/schema";
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -12,6 +12,14 @@ export interface IStorage {
   updateLoanApplicationStatus(id: number, status: string): Promise<LoanApplication | undefined>;
   createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
   getContactSubmissions(): Promise<ContactSubmission[]>;
+  createJotformSubmission(submission: InsertJotformSubmission): Promise<JotformSubmission>;
+  getJotformSubmissions(): Promise<JotformSubmission[]>;
+  getJotformSubmission(id: number): Promise<JotformSubmission | undefined>;
+  updateJotformSubmissionStatus(id: number, status: string): Promise<JotformSubmission | undefined>;
+  createChatbotConversation(conversation: InsertChatbotConversation): Promise<ChatbotConversation>;
+  getChatbotConversations(): Promise<ChatbotConversation[]>;
+  getChatbotConversation(id: number): Promise<ChatbotConversation | undefined>;
+  updateChatbotConversation(sessionId: string, updates: Partial<InsertChatbotConversation>): Promise<ChatbotConversation | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -69,6 +77,58 @@ export class DatabaseStorage implements IStorage {
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
     return await db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
+  }
+
+  async createJotformSubmission(submission: InsertJotformSubmission): Promise<JotformSubmission> {
+    const [jotform] = await db
+      .insert(jotformSubmissions)
+      .values(submission)
+      .returning();
+    return jotform;
+  }
+
+  async getJotformSubmissions(): Promise<JotformSubmission[]> {
+    return await db.select().from(jotformSubmissions).orderBy(jotformSubmissions.createdAt);
+  }
+
+  async getJotformSubmission(id: number): Promise<JotformSubmission | undefined> {
+    const [jotform] = await db.select().from(jotformSubmissions).where(eq(jotformSubmissions.id, id));
+    return jotform || undefined;
+  }
+
+  async updateJotformSubmissionStatus(id: number, status: string): Promise<JotformSubmission | undefined> {
+    const [updated] = await db
+      .update(jotformSubmissions)
+      .set({ status, updatedAt: new Date() })
+      .where(eq(jotformSubmissions.id, id))
+      .returning();
+    return updated || undefined;
+  }
+
+  async createChatbotConversation(conversation: InsertChatbotConversation): Promise<ChatbotConversation> {
+    const [chatbot] = await db
+      .insert(chatbotConversations)
+      .values(conversation)
+      .returning();
+    return chatbot;
+  }
+
+  async getChatbotConversations(): Promise<ChatbotConversation[]> {
+    return await db.select().from(chatbotConversations).orderBy(chatbotConversations.createdAt);
+  }
+
+  async getChatbotConversation(id: number): Promise<ChatbotConversation | undefined> {
+    const [chatbot] = await db.select().from(chatbotConversations).where(eq(chatbotConversations.id, id));
+    return chatbot || undefined;
+  }
+
+  async updateChatbotConversation(sessionId: string, updates: Partial<InsertChatbotConversation>): Promise<ChatbotConversation | undefined> {
+    const [updated] = await db
+      .update(chatbotConversations)
+      .set({ ...updates, updatedAt: new Date() })
+      .where(eq(chatbotConversations.sessionId, sessionId))
+      .returning();
+    return updated || undefined;
   }
 }
 

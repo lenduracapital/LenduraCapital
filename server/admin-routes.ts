@@ -30,22 +30,34 @@ export function registerAdminRoutes(app: Express) {
   // Admin dashboard data
   app.get("/api/admin/dashboard", requireAuth, async (req, res) => {
     try {
-      const [loanApplications, contactSubmissions] = await Promise.all([
+      const [loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations] = await Promise.all([
         storage.getLoanApplications(),
-        storage.getContactSubmissions()
+        storage.getContactSubmissions(),
+        storage.getJotformSubmissions(),
+        storage.getChatbotConversations()
       ]);
 
       const stats = {
         totalLoanApplications: loanApplications.length,
         totalContactSubmissions: contactSubmissions.length,
+        totalJotformSubmissions: jotformSubmissions.length,
+        totalChatbotConversations: chatbotConversations.length,
         recentApplications: loanApplications.slice(-5),
         recentContacts: contactSubmissions.slice(-5),
+        recentJotforms: jotformSubmissions.slice(-5),
+        recentChats: chatbotConversations.slice(-5),
         conversionMetrics: {
           applicationsThisMonth: loanApplications.filter(app => 
             new Date(app.createdAt).getMonth() === new Date().getMonth()
           ).length,
           contactsThisMonth: contactSubmissions.filter(contact => 
             new Date(contact.createdAt).getMonth() === new Date().getMonth()
+          ).length,
+          jotformsThisMonth: jotformSubmissions.filter(jotform => 
+            new Date(jotform.createdAt).getMonth() === new Date().getMonth()
+          ).length,
+          chatsThisMonth: chatbotConversations.filter(chat => 
+            new Date(chat.createdAt).getMonth() === new Date().getMonth()
           ).length
         }
       };
@@ -95,6 +107,76 @@ export function registerAdminRoutes(app: Express) {
       res.json(application);
     } catch (error) {
       res.status(500).json({ error: "Failed to update loan application status" });
+    }
+  });
+
+  // Admin Jotform submissions management
+  app.get("/api/admin/jotform-submissions", requireAuth, async (req, res) => {
+    try {
+      const submissions = await storage.getJotformSubmissions();
+      res.json(submissions);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch Jotform submissions" });
+    }
+  });
+
+  // Admin chatbot conversations management
+  app.get("/api/admin/chatbot-conversations", requireAuth, async (req, res) => {
+    try {
+      const conversations = await storage.getChatbotConversations();
+      res.json(conversations);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch chatbot conversations" });
+    }
+  });
+
+  // Update Jotform submission status
+  app.patch("/api/admin/jotform-submissions/:id/status", requireAuth, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { status } = req.body;
+      
+      const validStatuses = ['new', 'contacted', 'qualified', 'converted', 'closed'];
+      if (!validStatuses.includes(status)) {
+        return res.status(400).json({ error: 'Invalid status' });
+      }
+
+      const submission = await storage.updateJotformSubmissionStatus(id, status);
+      if (!submission) {
+        return res.status(404).json({ error: "Jotform submission not found" });
+      }
+      
+      res.json(submission);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to update Jotform submission status" });
+    }
+  });
+
+  // Jotform webhook endpoint (for automatic data collection)
+  app.post("/api/jotform/webhook", async (req, res) => {
+    try {
+      const submissionData = req.body;
+      
+      // Extract common fields from Jotform submission
+      const parsedData = {
+        submissionId: submissionData.submissionID || String(Date.now()),
+        formId: submissionData.formID || 'unknown',
+        formTitle: submissionData.formTitle || 'Unknown Form',
+        firstName: submissionData.q3_firstName || submissionData.q3_name?.first || '',
+        lastName: submissionData.q3_lastName || submissionData.q3_name?.last || '',
+        email: submissionData.q4_email || submissionData.q4_emailAddress || '',
+        phone: submissionData.q5_phone || submissionData.q5_phoneNumber || '',
+        businessName: submissionData.q6_businessName || submissionData.q6_business || '',
+        fundingAmount: submissionData.q7_fundingAmount || submissionData.q7_amount || '',
+        businessType: submissionData.q8_businessType || submissionData.q8_type || '',
+        rawData: JSON.stringify(submissionData)
+      };
+
+      const submission = await storage.createJotformSubmission(parsedData);
+      res.json({ success: true, id: submission.id });
+    } catch (error) {
+      console.error('Jotform webhook error:', error);
+      res.status(500).json({ error: "Failed to process Jotform submission" });
     }
   });
 

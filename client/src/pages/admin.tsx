@@ -7,11 +7,17 @@ import SEOHead from '@/components/seo-head';
 interface DashboardStats {
   totalLoanApplications: number;
   totalContactSubmissions: number;
+  totalJotformSubmissions: number;
+  totalChatbotConversations: number;
   recentApplications: any[];
   recentContacts: any[];
+  recentJotforms: any[];
+  recentChats: any[];
   conversionMetrics: {
     applicationsThisMonth: number;
     contactsThisMonth: number;
+    jotformsThisMonth: number;
+    chatsThisMonth: number;
   };
 }
 
@@ -102,50 +108,117 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Total Applications</CardTitle>
+              <CardTitle className="text-lg">Loan Applications</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold" style={{ color: '#85abe4' }}>
                 {stats.totalLoanApplications}
               </div>
+              <div className="text-sm text-gray-600">
+                {stats.conversionMetrics.applicationsThisMonth} this month
+              </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Contact Submissions</CardTitle>
+              <CardTitle className="text-lg">Jotform Submissions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold" style={{ color: '#85abe4' }}>
+                {stats.totalJotformSubmissions}
+              </div>
+              <div className="text-sm text-gray-600">
+                {stats.conversionMetrics.jotformsThisMonth} this month
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg">Chat Conversations</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold" style={{ color: '#85abe4' }}>
+                {stats.totalChatbotConversations}
+              </div>
+              <div className="text-sm text-gray-600">
+                {stats.conversionMetrics.chatsThisMonth} this month
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg">Contact Forms</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold" style={{ color: '#85abe4' }}>
                 {stats.totalContactSubmissions}
               </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">This Month Apps</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold text-green-600">
-                {stats.conversionMetrics.applicationsThisMonth}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">This Month Contacts</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold text-green-600">
-                {stats.conversionMetrics.contactsThisMonth}
+              <div className="text-sm text-gray-600">
+                {stats.conversionMetrics.contactsThisMonth} this month
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Recent Activity */}
+        {/* Recent Activity - Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Jotform Submissions</CardTitle>
+              <CardDescription>Latest form submissions from website</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {stats.recentJotforms?.length ? stats.recentJotforms.map((jotform, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                    <div>
+                      <div className="font-medium">{jotform.firstName} {jotform.lastName}</div>
+                      <div className="text-sm text-gray-600">{jotform.email}</div>
+                      <div className="text-xs text-gray-500">{jotform.formTitle || 'Form Submission'}</div>
+                    </div>
+                    <Badge variant="outline" style={{ backgroundColor: '#85abe4', color: 'white' }}>
+                      {jotform.status || 'New'}
+                    </Badge>
+                  </div>
+                )) : (
+                  <div className="text-center text-gray-500 py-4">No Jotform submissions yet</div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Chat Conversations</CardTitle>
+              <CardDescription>Latest chat widget interactions</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {stats.recentChats?.length ? stats.recentChats.map((chat, index) => (
+                  <div key={index} className="p-3 bg-green-50 rounded-lg">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-medium">{chat.firstName || 'Anonymous User'}</div>
+                        <div className="text-sm text-gray-600">{chat.phoneNumber}</div>
+                        <div className="text-xs text-gray-500">{chat.product || 'General Inquiry'}</div>
+                      </div>
+                      <Badge variant="outline" style={{ backgroundColor: '#10b981', color: 'white' }}>
+                        {chat.status || 'Active'}
+                      </Badge>
+                    </div>
+                  </div>
+                )) : (
+                  <div className="text-center text-gray-500 py-4">No chat conversations yet</div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Traditional Submissions */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -154,17 +227,20 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {stats.recentApplications.map((app, index) => (
+                {stats.recentApplications?.length ? stats.recentApplications.map((app, index) => (
                   <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div>
-                      <div className="font-medium">${app.amount?.toLocaleString() || 'N/A'}</div>
-                      <div className="text-sm text-gray-600">{app.loanType || 'General'}</div>
+                      <div className="font-medium">${app.loanAmount?.toLocaleString() || 'N/A'}</div>
+                      <div className="text-sm text-gray-600">{app.firstName} {app.lastName}</div>
+                      <div className="text-xs text-gray-500">{app.businessName || 'Business'}</div>
                     </div>
                     <Badge variant="outline">
                       {app.status || 'Pending'}
                     </Badge>
                   </div>
-                ))}
+                )) : (
+                  <div className="text-center text-gray-500 py-4">No loan applications yet</div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -176,14 +252,17 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {stats.recentContacts.map((contact, index) => (
+                {stats.recentContacts?.length ? stats.recentContacts.map((contact, index) => (
                   <div key={index} className="p-3 bg-gray-50 rounded-lg">
-                    <div className="font-medium">{contact.subject || 'General Inquiry'}</div>
-                    <div className="text-sm text-gray-600 truncate">
+                    <div className="font-medium">{contact.firstName} {contact.lastName}</div>
+                    <div className="text-sm text-gray-600">{contact.email}</div>
+                    <div className="text-xs text-gray-500 truncate">
                       {contact.message?.substring(0, 80) || 'No message'}...
                     </div>
                   </div>
-                ))}
+                )) : (
+                  <div className="text-center text-gray-500 py-4">No contact submissions yet</div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -197,7 +276,7 @@ export default function AdminDashboard() {
               <CardDescription>Administrative tools and shortcuts</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <button 
                   className="p-4 text-left bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                   onClick={() => window.open('/api/admin/loan-applications', '_blank')}
@@ -208,10 +287,28 @@ export default function AdminDashboard() {
                 
                 <button 
                   className="p-4 text-left bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+                  style={{ backgroundColor: '#85abe4', color: 'white' }}
+                  onClick={() => window.open('/api/admin/jotform-submissions', '_blank')}
+                >
+                  <div className="font-medium">View Jotform Data</div>
+                  <div className="text-sm opacity-90">Track form submissions</div>
+                </button>
+                
+                <button 
+                  className="p-4 text-left bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors"
+                  style={{ backgroundColor: '#10b981', color: 'white' }}
+                  onClick={() => window.open('/api/admin/chatbot-conversations', '_blank')}
+                >
+                  <div className="font-medium">View Chat Data</div>
+                  <div className="text-sm opacity-90">Monitor conversations</div>
+                </button>
+                
+                <button 
+                  className="p-4 text-left bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors"
                   onClick={() => window.open('/api/admin/contact-submissions', '_blank')}
                 >
-                  <div className="font-medium text-green-900">View All Contacts</div>
-                  <div className="text-sm text-green-600">Manage contact submissions</div>
+                  <div className="font-medium text-orange-900">View All Contacts</div>
+                  <div className="text-sm text-orange-600">Manage contact submissions</div>
                 </button>
                 
                 <button 

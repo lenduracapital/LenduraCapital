@@ -115,6 +115,45 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Chat widget submission endpoint with database storage
+  app.post("/api/chat/submit", async (req, res) => {
+    try {
+      const { firstName, phoneNumber, email, userType, timeline, product, revenue, businessType, debtQ1, debtQ2, sessionId } = req.body;
+      
+      // Generate unique Lead ID and session ID if not provided
+      const leadId = `LEAD-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+      const chatSessionId = sessionId || `CHAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      
+      // Store conversation in database
+      const conversationData = {
+        sessionId: chatSessionId,
+        firstName,
+        phoneNumber,
+        email,
+        userType,
+        timeline,
+        product,
+        revenue,
+        businessType,
+        debtQ1,
+        debtQ2,
+        conversationData: JSON.stringify({
+          leadId,
+          submittedAt: new Date().toISOString(),
+          source: 'chat_widget',
+          allFields: { firstName, phoneNumber, email, userType, timeline, product, revenue, businessType, debtQ1, debtQ2 }
+        })
+      };
+      
+      await storage.createChatbotConversation(conversationData);
+      
+      res.json({ success: true, message: "Information submitted successfully", sessionId: chatSessionId, leadId });
+    } catch (error) {
+      console.error('Chat submission error:', error);
+      res.status(500).json({ error: "Failed to submit chat information" });
+    }
+  });
+
   // Chat widget submissions endpoint
   app.post("/api/chat-submissions", async (req, res) => {
     try {

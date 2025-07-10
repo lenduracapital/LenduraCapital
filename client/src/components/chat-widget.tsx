@@ -263,25 +263,31 @@ function ChatWidget() {
 
   const sendChatData = async (responses: ChatState['responses']) => {
     try {
-      await fetch('/api/chat-submissions', {
+      // Generate a unique session ID for this conversation
+      const sessionId = `CHAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      
+      const response = await fetch('/api/chat/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          firstName: responses.firstName || 'Not provided',
-          phoneNumber: responses.phoneNumber || 'Not provided',
-          email: responses.email || 'Not provided',
-          userType: responses.userType || 'Not specified',
-          timeline: responses.timeline || 'Not specified',
-          product: responses.product || 'Not specified',
-          revenue: responses.revenue || 'Not specified',
-          debtQ1: responses.debtQ1 || null,
-          debtQ2: responses.debtQ2 || null,
-          infoCategory: responses.infoCategory || null,
-          businessType: responses.businessType || null,
-          source: 'FundTek Chat Widget - Sarah AI Assistant'
+          sessionId,
+          firstName: responses.firstName || '',
+          phoneNumber: responses.phoneNumber || '',
+          email: responses.email || '',
+          userType: responses.userType || '',
+          timeline: responses.timeline || '',
+          product: responses.product || '',
+          revenue: responses.revenue || '',
+          businessType: responses.businessType || '',
+          debtQ1: responses.debtQ1 || '',
+          debtQ2: responses.debtQ2 || ''
         })
       });
+      
+      const result = await response.json();
+      if (result.success) {
+        console.log('Chat data submitted successfully:', result.sessionId);
+      }
     } catch (error) {
       console.error('Failed to send chat data:', error);
     }
