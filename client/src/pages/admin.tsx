@@ -88,6 +88,12 @@ export default function AdminDashboard() {
     retry: false
   });
 
+  const { data: auditLogs } = useQuery({
+    queryKey: ['/api/admin/audit-logs'],
+    enabled: isAuthenticated && activeTab === 'audit',
+    retry: false
+  });
+
   const exportData = (data: any[], filename: string) => {
     const csv = [
       Object.keys(data[0] || {}).join(','),
@@ -227,7 +233,7 @@ export default function AdminDashboard() {
 
         {/* Advanced Tabs Interface */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview" className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
               Overview
@@ -247,6 +253,10 @@ export default function AdminDashboard() {
             <TabsTrigger value="contacts" className="flex items-center gap-2">
               <Users className="w-4 h-4" />
               Contact Submissions
+            </TabsTrigger>
+            <TabsTrigger value="audit" className="flex items-center gap-2">
+              <Eye className="w-4 h-4" />
+              Audit Logs
             </TabsTrigger>
           </TabsList>
 
@@ -757,6 +767,109 @@ export default function AdminDashboard() {
                       <TableRow>
                         <TableCell colSpan={7} className="text-center py-8 text-gray-500">
                           No contact submissions found
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Audit Logs Tab */}
+          <TabsContent value="audit" className="space-y-6">
+            <div className="flex justify-between items-center">
+              <div>
+                <h3 className="text-lg font-semibold">Audit Logs</h3>
+                <p className="text-gray-600">Track all system activities and user actions</p>
+              </div>
+              <div className="flex gap-2">
+                <Input
+                  placeholder="Search audit logs..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-64"
+                />
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={() => auditLogs && exportData(auditLogs, 'audit-logs')}
+                  disabled={!auditLogs?.length}
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Export CSV
+                </Button>
+              </div>
+            </div>
+
+            <Card>
+              <CardContent className="p-0">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Timestamp</TableHead>
+                      <TableHead>Action</TableHead>
+                      <TableHead>Resource</TableHead>
+                      <TableHead>User</TableHead>
+                      <TableHead>IP Address</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Details</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {auditLogs?.filter(log => 
+                      !searchTerm || 
+                      log.action?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      log.resource?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      log.ipAddress?.toLowerCase().includes(searchTerm.toLowerCase())
+                    ).map((log) => (
+                      <TableRow key={log.id}>
+                        <TableCell className="font-mono text-sm">{formatDate(log.createdAt)}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className="font-mono">
+                            {log.action}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>{log.resource}</TableCell>
+                        <TableCell>{log.userId ? `User ${log.userId}` : 'Anonymous'}</TableCell>
+                        <TableCell className="font-mono text-sm">{log.ipAddress}</TableCell>
+                        <TableCell>
+                          <Badge className={log.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}>
+                            {log.success ? 'Success' : 'Failed'}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => {
+                              const details = [
+                                `Audit Log ID: ${log.id}`,
+                                `Action: ${log.action}`,
+                                `Resource: ${log.resource}`,
+                                `Resource ID: ${log.resourceId || 'N/A'}`,
+                                `User ID: ${log.userId || 'Anonymous'}`,
+                                `IP Address: ${log.ipAddress}`,
+                                `User Agent: ${log.userAgent || 'N/A'}`,
+                                `Session ID: ${log.sessionId || 'N/A'}`,
+                                `Success: ${log.success ? 'Yes' : 'No'}`,
+                                `Error Message: ${log.errorMessage || 'N/A'}`,
+                                `Timestamp: ${formatDate(log.createdAt)}`,
+                                log.oldValues ? `Old Values: ${log.oldValues}` : '',
+                                log.newValues ? `New Values: ${log.newValues}` : ''
+                              ].filter(Boolean).join('\n');
+                              alert(details);
+                            }}
+                          >
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                    {(!auditLogs || auditLogs.length === 0) && (
+                      <TableRow>
+                        <TableCell colSpan={7} className="text-center py-8 text-gray-500">
+                          No audit logs found
                         </TableCell>
                       </TableRow>
                     )}

@@ -4,6 +4,18 @@ import { storage } from "./storage";
 // Basic admin functionality (foundation for CMS)
 export function registerAdminRoutes(app: Express) {
   
+  // Get audit logs endpoint
+  app.get("/api/admin/audit-logs", async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 100;
+      const auditLogs = await storage.getAuditLogs(limit);
+      res.json(auditLogs);
+    } catch (error) {
+      console.error('Error fetching audit logs:', error);
+      res.status(500).json({ error: "Failed to fetch audit logs" });
+    }
+  });
+  
   // Basic admin authentication middleware
   const requireAuth = (req: any, res: any, next: any) => {
     // Basic auth for now - can be enhanced with proper session management

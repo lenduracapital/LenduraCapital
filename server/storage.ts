@@ -1,4 +1,4 @@
-import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation } from "@shared/schema";
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation, type AuditLog, type InsertAuditLog } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -20,6 +20,8 @@ export interface IStorage {
   getChatbotConversations(): Promise<ChatbotConversation[]>;
   getChatbotConversation(id: number): Promise<ChatbotConversation | undefined>;
   updateChatbotConversation(sessionId: string, updates: Partial<InsertChatbotConversation>): Promise<ChatbotConversation | undefined>;
+  createAuditLog(auditLog: InsertAuditLog): Promise<AuditLog>;
+  getAuditLogs(limit?: number): Promise<AuditLog[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -129,6 +131,26 @@ export class DatabaseStorage implements IStorage {
       .where(eq(chatbotConversations.sessionId, sessionId))
       .returning();
     return updated || undefined;
+  }
+
+  async createAuditLog(auditLog: InsertAuditLog): Promise<AuditLog> {
+    const auditData = {
+      ...auditLog,
+      oldValues: auditLog.oldValues ? JSON.stringify(auditLog.oldValues) : null,
+      newValues: auditLog.newValues ? JSON.stringify(auditLog.newValues) : null,
+    };
+
+    const [audit] = await db
+      .insert(auditLogs)
+      .values(auditData)
+      .returning();
+    return audit;
+  }
+
+  async getAuditLogs(limit: number = 100): Promise<AuditLog[]> {
+    return await db.select().from(auditLogs)
+      .orderBy(auditLogs.createdAt)
+      .limit(limit);
   }
 }
 

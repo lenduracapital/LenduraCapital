@@ -74,6 +74,22 @@ export const chatbotConversations = pgTable("chatbot_conversations", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+export const auditLogs = pgTable("audit_logs", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id"),
+  action: varchar("action", { length: 50 }).notNull(),
+  resource: varchar("resource", { length: 100 }).notNull(),
+  resourceId: varchar("resource_id", { length: 100 }),
+  oldValues: text("old_values"), // JSON string
+  newValues: text("new_values"), // JSON string
+  ipAddress: varchar("ip_address", { length: 45 }).notNull(),
+  userAgent: text("user_agent"),
+  sessionId: varchar("session_id", { length: 100 }),
+  success: boolean("success").default(true).notNull(),
+  errorMessage: text("error_message"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -102,6 +118,11 @@ export const insertChatbotConversationSchema = createInsertSchema(chatbotConvers
   updatedAt: true,
 });
 
+export const insertAuditLogSchema = createInsertSchema(auditLogs).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertLoanApplication = z.infer<typeof insertLoanApplicationSchema>;
@@ -112,3 +133,5 @@ export type InsertJotformSubmission = z.infer<typeof insertJotformSubmissionSche
 export type JotformSubmission = typeof jotformSubmissions.$inferSelect;
 export type InsertChatbotConversation = z.infer<typeof insertChatbotConversationSchema>;
 export type ChatbotConversation = typeof chatbotConversations.$inferSelect;
+export type InsertAuditLog = z.infer<typeof insertAuditLogSchema>;
+export type AuditLog = typeof auditLogs.$inferSelect;

@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { auditLogger } from "./audit-logger";
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import sgMail from '@sendgrid/mail';
 import { registerAdminRoutes } from "./admin-routes";
@@ -53,8 +54,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertLoanApplicationSchema.parse(req.body);
       const application = await storage.createLoanApplication(validatedData);
+      
+      // Log successful loan application creation
+      await auditLogger.logCreate(req, 'loan_application', application.id.toString(), validatedData);
+      
       res.json(application);
     } catch (error) {
+      // Log failed loan application creation
+      await auditLogger.logError(req, 'CREATE', 'loan_application', error instanceof Error ? error.message : 'Unknown error');
       res.status(400).json({ error: "Invalid loan application data" });
     }
   });
@@ -62,8 +69,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/loan-applications", async (req, res) => {
     try {
       const applications = await storage.getLoanApplications();
+      
+      // Log successful read operation
+      await auditLogger.logRead(req, 'loan_application');
+      
       res.json(applications);
     } catch (error) {
+      // Log failed read operation
+      await auditLogger.logError(req, 'READ', 'loan_application', error instanceof Error ? error.message : 'Unknown error');
       res.status(500).json({ error: "Failed to fetch loan applications" });
     }
   });
