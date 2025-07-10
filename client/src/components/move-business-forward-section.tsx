@@ -8,11 +8,7 @@ export default function MoveBusinessForwardSection() {
           <h2 className="text-4xl font-bold text-gray-800 mb-6" style={{ color: '#85abe4' }}>
             Move your Business Forward
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
-            FundTek Capital Group empowers your business with custom financing options 
-            and premier business services, allowing you to focus on the things that really matter 
-            to your business.
-          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-16">FundTek Capital Group empowers your business with tailored financing solutions and strategic services—so you can stay focused on what drives your success.</p>
 
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center flex flex-col h-full">
@@ -50,7 +46,6 @@ export default function MoveBusinessForwardSection() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
