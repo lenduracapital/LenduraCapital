@@ -39,7 +39,7 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop"
   },
   {
-    title: "Cash Advance",
+    title: "Merchant Cash Advance",
     icon: <Clock className="w-8 h-8" />,
     description: "Quick access to working capital based on your future credit card sales with flexible repayment structure.",
     features: [
