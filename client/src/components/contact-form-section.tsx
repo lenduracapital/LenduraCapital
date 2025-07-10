@@ -10,7 +10,7 @@ export default function ContactFormSection() {
               borderRadius: '8px'
             }} className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 p-4 md:p-6 lg:p-8">
               <div style={{
-                color: 'white',
+                color: 'black',
                 fontSize: 'clamp(16px, 3.5vw, 32px)',
                 fontWeight: 'normal',
                 lineHeight: '1.4',
