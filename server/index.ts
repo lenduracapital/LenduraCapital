@@ -12,10 +12,31 @@ import {
   addSecurityHeaders
 } from "./production-security";
 
+// Import enterprise-level middleware and monitoring
+import { globalErrorHandler, notFoundHandler, requestIdMiddleware } from "./middleware/error-handler";
+import { performanceMonitoringMiddleware, rateLimitMonitoringMiddleware, securityMonitoringMiddleware, slowOperationMiddleware, getHealthStatus, getPerformanceMetrics } from "./middleware/monitoring";
+import { apmCollector, getDetailedHealth } from "./monitoring/metrics-collector";
+import { setupSwagger } from "./swagger/api-docs";
+import { soc2Monitor } from "./compliance/soc2-framework";
+import { createMigrationManager } from "./data-management/migrations";
+
+// Import API v1 routes
+import apiV1Routes from "./api/v1/routes";
+
 const app = express();
 
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
+
+// Add request ID middleware for tracing
+app.use(requestIdMiddleware);
+
+// Add enterprise monitoring middleware
+app.use(performanceMonitoringMiddleware);
+app.use(rateLimitMonitoringMiddleware);
+app.use(securityMonitoringMiddleware);
+app.use(slowOperationMiddleware(2000)); // Alert on operations > 2s
+app.use(apmCollector.requestMetricsMiddleware());
 
 // Add high-performance compression middleware
 app.use(compression({
@@ -60,6 +81,70 @@ const formLimiter = rateLimit({
 app.use('/api/contact', formLimiter);
 app.use('/api/loan-applications', formLimiter);
 
+// Enhanced health endpoints
+app.get('/api/health', async (req, res) => {
+  try {
+    const health = await getHealthStatus();
+    const status = health.status === 'healthy' ? 200 : 
+                  health.status === 'degraded' ? 200 : 503;
+    res.status(status).json(health);
+  } catch (error) {
+    res.status(503).json({
+      status: 'unhealthy',
+      timestamp: new Date(),
+      error: 'Health check failed'
+    });
+  }
+});
+
+app.get('/api/health/detailed', async (req, res) => {
+  try {
+    const health = await getDetailedHealth();
+    res.json(health);
+  } catch (error) {
+    res.status(503).json({
+      status: 'unhealthy',
+      error: 'Detailed health check failed'
+    });
+  }
+});
+
+// Metrics endpoint (Prometheus format)
+app.get('/api/metrics', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain; version=0.0.4; charset=utf-8');
+  res.send(apmCollector.getPrometheusMetrics());
+});
+
+// Performance metrics endpoint (JSON)
+app.get('/api/metrics/performance', (req, res) => {
+  res.json(getPerformanceMetrics());
+});
+
+// SOC 2 compliance endpoint
+app.get('/api/compliance/soc2', async (req, res) => {
+  try {
+    const status = soc2Monitor.getComplianceStatus();
+    res.json(status);
+  } catch (error) {
+    res.status(500).json({
+      status: 'error',
+      message: 'Compliance check failed'
+    });
+  }
+});
+
+app.get('/api/compliance/soc2/report', async (req, res) => {
+  try {
+    const report = soc2Monitor.generateComplianceReport();
+    res.json(report);
+  } catch (error) {
+    res.status(500).json({
+      status: 'error',
+      message: 'Compliance report generation failed'
+    });
+  }
+});
+
 // Configure health monitoring
 configureHealthMonitoring(app);
 
@@ -103,10 +188,45 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  await registerRoutes(app);
+  // Initialize database migrations
+  try {
+    const migrationManager = createMigrationManager();
+    await migrationManager.initialize();
+    
+    const migrationStatus = await migrationManager.getStatus();
+    log(`📊 Database migrations: ${migrationStatus.executed}/${migrationStatus.total} executed`);
+    
+    if (migrationStatus.pending > 0) {
+      log(`🚀 Running ${migrationStatus.pending} pending migrations...`);
+      const result = await migrationManager.runPendingMigrations();
+      
+      if (result.success) {
+        log(`✅ Successfully ran ${result.migrationsRun.length} migrations`);
+      } else {
+        log(`❌ Migration errors: ${result.errors.join(', ')}`);
+      }
+    }
+    
+    await migrationManager.close();
+  } catch (error) {
+    log(`⚠️ Migration system error: ${error}`);
+  }
 
-  // Configure production error handler
-  configureProductionErrorHandler(app);
+  // Run initial SOC 2 compliance check
+  try {
+    const passedTests = await soc2Monitor.runAutomatedTests();
+    log(`🔒 SOC 2 compliance: ${passedTests} automated controls passed`);
+  } catch (error) {
+    log(`⚠️ SOC 2 compliance check error: ${error}`);
+  }
+
+  // Setup API documentation
+  setupSwagger(app);
+
+  // API v1 routes with enterprise features
+  app.use('/api/v1', apiV1Routes);
+
+  await registerRoutes(app);
 
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
@@ -134,8 +254,16 @@ app.use((req, res, next) => {
     server.on('connection', (socket) => {
       console.log(`🔗 New connection from: ${socket.remoteAddress}:${socket.remotePort}`);
     });
+    
+    // Add 404 handler and error handler AFTER vite setup in development
+    app.use(notFoundHandler);
+    app.use(globalErrorHandler);
   } else {
     serveStatic(app);
+    
+    // Add 404 handler and error handler AFTER static serve in production
+    app.use(notFoundHandler);
+    app.use(globalErrorHandler);
     
     const port = parseInt(process.env.PORT || '5000');
     app.listen(port, '0.0.0.0', () => {
