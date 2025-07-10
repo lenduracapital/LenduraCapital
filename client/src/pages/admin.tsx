@@ -279,7 +279,14 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <button 
                   className="p-4 text-left bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
-                  onClick={() => window.open('/api/admin/loan-applications', '_blank')}
+                  onClick={() => {
+                    fetch('/api/admin/loan-applications', {
+                      headers: { 'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}` }
+                    })
+                    .then(res => res.json())
+                    .then(data => alert(`Found ${data.length} loan applications. Check browser console for details.`))
+                    .catch(err => alert('Error loading data: ' + err.message));
+                  }}
                 >
                   <div className="font-medium text-blue-900">View All Applications</div>
                   <div className="text-sm text-blue-600">Manage loan applications</div>
@@ -288,7 +295,17 @@ export default function AdminDashboard() {
                 <button 
                   className="p-4 text-left bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
                   style={{ backgroundColor: '#85abe4', color: 'white' }}
-                  onClick={() => window.open('/api/admin/jotform-submissions', '_blank')}
+                  onClick={() => {
+                    fetch('/api/admin/jotform-submissions', {
+                      headers: { 'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}` }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      console.log('Jotform Submissions:', data);
+                      alert(`Found ${data.length} Jotform submissions. Check browser console for details.`);
+                    })
+                    .catch(err => alert('Error loading data: ' + err.message));
+                  }}
                 >
                   <div className="font-medium">View Jotform Data</div>
                   <div className="text-sm opacity-90">Track form submissions</div>
@@ -297,7 +314,17 @@ export default function AdminDashboard() {
                 <button 
                   className="p-4 text-left bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors"
                   style={{ backgroundColor: '#10b981', color: 'white' }}
-                  onClick={() => window.open('/api/admin/chatbot-conversations', '_blank')}
+                  onClick={() => {
+                    fetch('/api/admin/chatbot-conversations', {
+                      headers: { 'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}` }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      console.log('Chat Conversations:', data);
+                      alert(`Found ${data.length} chat conversations. Check browser console for details.`);
+                    })
+                    .catch(err => alert('Error loading data: ' + err.message));
+                  }}
                 >
                   <div className="font-medium">View Chat Data</div>
                   <div className="text-sm opacity-90">Monitor conversations</div>
@@ -305,7 +332,17 @@ export default function AdminDashboard() {
                 
                 <button 
                   className="p-4 text-left bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors"
-                  onClick={() => window.open('/api/admin/contact-submissions', '_blank')}
+                  onClick={() => {
+                    fetch('/api/admin/contact-submissions', {
+                      headers: { 'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}` }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                      console.log('Contact Submissions:', data);
+                      alert(`Found ${data.length} contact submissions. Check browser console for details.`);
+                    })
+                    .catch(err => alert('Error loading data: ' + err.message));
+                  }}
                 >
                   <div className="font-medium text-orange-900">View All Contacts</div>
                   <div className="text-sm text-orange-600">Manage contact submissions</div>
@@ -313,7 +350,9 @@ export default function AdminDashboard() {
                 
                 <button 
                   className="p-4 text-left bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
-                  onClick={() => window.open('/api/admin/performance', '_blank')}
+                  onClick={() => {
+                    alert('Performance data feature coming soon. This will include analytics, metrics, and performance monitoring.');
+                  }}
                 >
                   <div className="font-medium text-purple-900">Performance Data</div>
                   <div className="text-sm text-purple-600">Analytics and metrics</div>

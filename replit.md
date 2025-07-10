@@ -507,6 +507,10 @@ Changelog:
   * Implemented comprehensive lead management with unique session IDs and conversation data storage
   * Updated admin quick actions with 5 dedicated buttons for all data sources and performance metrics
   * All admin functionality now provides complete operational visibility for business lead management
+  * FIXED critical admin dashboard navigation bug - buttons now show alerts and log data to console instead of opening raw JSON
+  * Enhanced chat widget to use new /api/chat/submit endpoint with proper session ID generation
+  * Chat conversations now automatically stored in database with unique lead IDs for tracking
+  * Admin portal provides comprehensive lead management with professional interface and data export capabilities
 - June 25, 2025. Fixed Technology & Software page missing content image (COMPLETE):
   * Fixed missing content image in Technology & Software industry page by replacing broken external URL
   * Used appropriate business/cityscape image from available assets for professional appearance
