@@ -1,5 +1,7 @@
 import { Shield, Award, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 // Simple team member circle component
 const TeamMemberCircle = ({ member }: { member: any }) => {
@@ -97,6 +99,7 @@ const teamMembers = [
 
 export default function TrustSignalsSection() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [, setLocation] = useLocation();
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -213,6 +216,24 @@ export default function TrustSignalsSection() {
                 </div>
               );
             })}
+          </div>
+          
+          {/* CTAs below FAQ */}
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+              className="bg-[#85abe4] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+            >
+              Get Funding Now
+            </Button>
+            
+            <Button 
+              onClick={() => setLocation("/contact")}
+              variant="outline"
+              className="border-2 border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+            >
+              Still Have Questions?
+            </Button>
           </div>
         </div>
 
