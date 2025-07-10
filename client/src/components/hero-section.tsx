@@ -32,7 +32,8 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `url(${cityBackgroundPath})`,
+        backgroundColor: '#1e293b', // Dark navy fallback
+        backgroundImage: `linear-gradient(135deg, #1e293b 0%, #0f172a 100%)`, // Dark navy gradient
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
