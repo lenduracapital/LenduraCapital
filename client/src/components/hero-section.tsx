@@ -74,7 +74,7 @@ export default function HeroSection() {
               financial and <span style={{ color: '#85abe4' }}>business solutions</span>
             </p>
             
-            <p className="mb-4 text-sm leading-relaxed sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
+            <p className="mb-4 sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed text-[22px] font-medium" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
               Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
             </p>
             
