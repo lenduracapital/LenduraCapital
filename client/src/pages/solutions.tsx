@@ -9,7 +9,7 @@ import SEOHead from "@/components/seo-head";
 import EnhancedSchema from "@/components/enhanced-schema";
 import truckImage from "@assets/Truck_1750271749729.jpg";
 import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
-import debtConsolidationImage from "@assets/images_1750787797244.jpg";
+import debtConsolidationImage from "@assets/image_1752182868701.png";
 
 const solutions = [
   {
