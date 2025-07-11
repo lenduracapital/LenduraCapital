@@ -108,7 +108,7 @@ export default function TrustSignalsSection() {
   const faqItems = [
     {
       question: "How quickly can I get approved for funding?",
-      answer: "Most merchants receive approval decisions within 24 hours. Our streamlined application process and direct lender relationships allow us to move fast while other companies make you wait weeks."
+      answer: "Most clients receive approval decisions within 24 hours. Our streamlined application process and direct lender relationships allow us to move fast while other companies make you wait weeks."
     },
     {
       question: "What documents do I need to apply?",
@@ -116,7 +116,7 @@ export default function TrustSignalsSection() {
     },
     {
       question: "Can I get funding if my credit isn't perfect?",
-      answer: "Absolutely! We focus on your business performance and cash flow, not just credit scores. Many of our merchants have been approved with credit scores as low as 550 because we look at the bigger picture."
+      answer: "Absolutely! We focus on your business performance and cash flow, not just credit scores. Many of our clients have been approved with credit scores as low as 550 because we look at the bigger picture."
     },
     {
       question: "Do you work with businesses in my industry?",
@@ -176,7 +176,7 @@ export default function TrustSignalsSection() {
               Frequently Asked Questions
             </h3>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Get answers to the most common questions from merchants like you
+              Get answers to the most common questions from clients like you
             </p>
           </div>
 
@@ -228,7 +228,7 @@ export default function TrustSignalsSection() {
             </Button>
             
             <Button 
-              onClick={() => setLocation("/contact")}
+              onClick={() => setLocation("/faq")}
               variant="outline"
               className="border-2 border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
