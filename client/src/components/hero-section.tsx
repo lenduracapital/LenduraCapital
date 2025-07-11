@@ -39,7 +39,7 @@ export default function HeroSection() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Video Background */}
+      {/* Video Background with Performance Optimizations */}
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover opacity-100"
@@ -47,14 +47,18 @@ export default function HeroSection() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        loading="lazy"
         onCanPlay={() => {
           if (videoRef.current) {
             videoRef.current.play().catch(() => {});
           }
         }}
         style={{
-          zIndex: 1
+          zIndex: 1,
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          willChange: 'transform'
         }}
       >
         <source src={videoPath} type="video/webm" />
