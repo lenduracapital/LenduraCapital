@@ -124,13 +124,11 @@ export default function HeroSection() {
           webkit-playsinline="true"
           style={{
             zIndex: 1,
-            transform: 'translate3d(0, 0, 0)',
+            transform: 'none',
             backfaceVisibility: 'hidden',
-            willChange: 'opacity, transform',
-            WebkitTransform: 'translate3d(0, 0, 0)',
-            WebkitBackfaceVisibility: 'hidden',
-            imageRendering: 'optimizeSpeed',
-            contain: 'strict'
+            willChange: 'opacity',
+            WebkitTransform: 'none',
+            WebkitBackfaceVisibility: 'hidden'
           }}
         >
           <source src={videoPath} type="video/webm" />
