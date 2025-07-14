@@ -1,4 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import creditRepairImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 
 export default function DebtConsolidationDetail() {
   return (
@@ -6,7 +7,7 @@ export default function DebtConsolidationDetail() {
       title="Debt Consolidation"
       description="Combine multiple debts into a single payment with potentially lower rates and simplified management."
       heroImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop&crop=center"
+      contentImage={creditRepairImage}
       features={[
         "Single monthly payment",
         "Potentially lower rates",

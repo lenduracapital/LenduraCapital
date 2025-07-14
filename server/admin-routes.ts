@@ -277,8 +277,8 @@ export function registerAdminRoutes(app: Express) {
         metadata: JSON.stringify(data)
       };
 
-      // Store in database (temporarily commented until schema is pushed)
-      // await storage.createAnalyticsEvent(analyticsEvent);
+      // Store in database
+      await storage.createAnalyticsEvent(analyticsEvent);
       
       console.log('Analytics tracked:', {
         event,
