@@ -290,26 +290,50 @@ export default function Contact() {
               </ul>
             </div>
 
-            {/* Timeline Breakdown */}
-            <div className="bg-yellow-50 p-8 rounded-lg border-l-4 border-yellow-400">
-              <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-6">
-                <Clock className="h-8 w-8 text-white" />
+            {/* Professional Timeline Breakdown */}
+            <div className="bg-gradient-to-br from-[#85abe4] to-[#6b9bd8] p-8 rounded-xl shadow-lg">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-md">
+                <Clock className="h-10 w-10 text-[#85abe4]" />
               </div>
-              <h3 className="text-xl font-semibold text-[#85abe4] mb-4 text-center">Timeline Breakdown</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
-                  Application submitted and reviewed
-                </li>
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
-                  Initial approval decision made
-                </li>
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 2:</span>
-                  Final documentation and contracts
-                </li>
-              </ul>
+              <h3 className="text-2xl font-bold text-white mb-8 text-center">Fast-Track Approval Process</h3>
+              
+              <div className="space-y-6">
+                {/* Day 1 - Application & Review */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
+                      <span className="text-[#85abe4] font-bold text-lg">1</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-lg mb-2">Same Day - Application & Review</h4>
+                      <p className="text-white/90 text-sm mb-2">30 minutes to 1 hour processing time</p>
+                      <p className="text-white/80">Application submitted, reviewed by specialist, and initial approval decision made</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Day 2 - Documentation & Funding */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center mr-4">
+                      <span className="text-[#85abe4] font-bold text-lg">2</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-lg mb-2">Next Day - Documentation & Funding</h4>
+                      <p className="text-white/90 text-sm mb-2">Final contracts processed and funds disbursed</p>
+                      <p className="text-white/80">Complete documentation, contract signing, and funds transferred to your account</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fast Track Badge */}
+              <div className="text-center mt-8">
+                <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
+                  <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                  <span className="text-white font-semibold">24-48 Hour Guarantee</span>
+                </div>
+              </div>
             </div>
           </div>
 
