@@ -7,9 +7,7 @@ export default function CriticalCSS() {
     const criticalCSS = `
       /* Critical CSS for immediate paint */
       .hero-video-container {
-        transform: translateZ(0);
         backface-visibility: hidden;
-        will-change: transform;
       }
       
       /* Optimize font loading */
@@ -29,13 +27,11 @@ export default function CriticalCSS() {
       
       /* Hardware acceleration for performance */
       .header-nav {
-        transform: translateZ(0);
-        will-change: transform;
+        backface-visibility: hidden;
       }
       
       /* Optimize button interactions */
       button {
-        transform: translateZ(0);
         backface-visibility: hidden;
       }
       
