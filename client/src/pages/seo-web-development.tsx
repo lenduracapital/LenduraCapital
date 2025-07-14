@@ -4,7 +4,7 @@ import { ArrowLeft, CheckCircle, Star, Code, Search, TrendingUp, Globe, Smartpho
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import digitalImage from "@assets/pexels-philip-kapadia-94537380-9270143_1752511219358.jpg";
+import digitalImage from "@assets/pexels-pixabay-39284_1752512428556.jpg";
 
 export default function SEOWebDevelopment() {
   const [, setLocation] = useLocation();
@@ -117,225 +117,40 @@ export default function SEOWebDevelopment() {
         </div>
       </section>
 
-      {/* SEO vs Web Development Services */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Comprehensive Digital Solutions
+      {/* Key Services */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+              Our Digital Marketing Services
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our integrated approach combines powerful SEO strategies with professional web development to create digital experiences that drive results.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* SEO Services */}
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
-                <CardTitle className="text-2xl font-bold">SEO Optimization Services</CardTitle>
-              </CardHeader>
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Technical SEO Audit</h4>
-                      <p className="text-gray-600">Comprehensive website analysis and optimization</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Keyword Research & Strategy</h4>
-                      <p className="text-gray-600">Data-driven keyword targeting for maximum impact</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Content Optimization</h4>
-                      <p className="text-gray-600">SEO-optimized content that ranks and converts</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Link Building</h4>
-                      <p className="text-gray-600">High-quality backlinks from authoritative sources</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Local SEO</h4>
-                      <p className="text-gray-600">Dominate local search results and Google My Business</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Web Development Services */}
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
-                <CardTitle className="text-2xl font-bold">Web Development Services</CardTitle>
-              </CardHeader>
-              <CardContent className="p-8">
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Custom Website Design</h4>
-                      <p className="text-gray-600">Unique, brand-focused designs that stand out</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Responsive Development</h4>
-                      <p className="text-gray-600">Mobile-first websites that work on all devices</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">E-commerce Solutions</h4>
-                      <p className="text-gray-600">Powerful online stores that drive sales</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">CMS Integration</h4>
-                      <p className="text-gray-600">Easy-to-manage content management systems</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">Performance Optimization</h4>
-                      <p className="text-gray-600">Fast-loading websites that improve user experience</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Overview */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Our Digital Transformation Process
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              A strategic approach to digital success that combines technical expertise with business intelligence.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">1</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Discovery & Analysis</h3>
-              <p className="text-gray-600">Comprehensive audit of current digital presence and competitor analysis</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">2</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Strategy Development</h3>
-              <p className="text-gray-600">Custom digital strategy aligned with your business goals and target audience</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Implementation</h3>
-              <p className="text-gray-600">Professional execution of web development and SEO optimization</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">4</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Optimization & Growth</h3>
-              <p className="text-gray-600">Continuous monitoring and optimization for sustained results</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology & Platform Expertise */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Technology & Platform Expertise
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We work with the latest technologies and platforms to deliver cutting-edge digital solutions.
+              Complete digital solutions to grow your online presence and drive business results.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Monitor className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl font-bold">Web Platforms</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• WordPress & Custom CMS</li>
-                  <li>• React & Modern JavaScript</li>
-                  <li>• Shopify & WooCommerce</li>
-                  <li>• Landing Page Optimization</li>
-                  <li>• Progressive Web Apps</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl font-bold">SEO Tools</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Google Analytics & Search Console</li>
-                  <li>• SEMrush & Ahrefs</li>
-                  <li>• Technical SEO Auditing</li>
-                  <li>• Schema Markup Implementation</li>
-                  <li>• Core Web Vitals Optimization</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Smartphone className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl font-bold">Digital Marketing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Conversion Rate Optimization</li>
-                  <li>• Social Media Integration</li>
-                  <li>• Email Marketing Systems</li>
-                  <li>• Lead Generation Funnels</li>
-                  <li>• Performance Tracking</li>
-                </ul>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center mb-4">
+                <Search className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">SEO Optimization</h3>
+              <p className="text-gray-600">Get found on Google with proven SEO strategies that drive organic traffic and leads.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center mb-4">
+                <Code className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Web Development</h3>
+              <p className="text-gray-600">Professional websites that convert visitors into customers and grow with your business.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">Digital Marketing</h3>
+              <p className="text-gray-600">Complete online marketing strategies including social media, content, and analytics.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -404,145 +219,7 @@ export default function SEOWebDevelopment() {
         </div>
       </section>
 
-      {/* Information Grid */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-                Why Choose FundTek Digital Services?
-              </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Full-Service Digital Agency</h3>
-                    <p className="text-gray-600">Complete digital solutions under one roof - from strategy to implementation and ongoing optimization.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <TrendingUp className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Results-Driven Approach</h3>
-                    <p className="text-gray-600">We focus on measurable results that directly impact your bottom line and business growth.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Star className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">Industry Expertise</h3>
-                    <p className="text-gray-600">Years of experience helping businesses across industries achieve digital success.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
-                  <CardTitle className="text-2xl font-bold">Expected Results</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
-                      <span className="text-gray-700">300% increase in organic traffic within 6 months</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
-                      <span className="text-gray-700">Top 3 Google rankings for target keywords</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
-                      <span className="text-gray-700">50% improvement in website conversion rates</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
-                      <span className="text-gray-700">Mobile-optimized, fast-loading website</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
-                      <span className="text-gray-700">Comprehensive analytics and reporting</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Client Success Story */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-            Client Success Story
-          </h2>
-          
-          <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-            <CardContent className="p-8">
-              <div className="flex justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-lg md:text-xl text-gray-700 italic mb-6">
-                "We needed a better website fast because our old one looked terrible on phones. FundTek rebuilt everything and now customers can actually find us online. The phone rings more and people say they found us on Google."
-              </blockquote>
-              <div className="text-center">
-                <div className="font-bold text-gray-800">David Martinez</div>
-                <div className="text-[#85abe4]">Martinez Auto Repair</div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <div className="mt-8">
-            <Button 
-              onClick={handleMoreTestimonials}
-              variant="outline"
-              className="border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white"
-            >
-              Read More Success Stories
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Packages */}
-      <section className="py-16 md:py-20 bg-[#85abe4] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Service Packages
-          </h2>
-          <p className="text-xl text-blue-100 mb-12">
-            Choose the digital solution that best fits your business needs and growth goals
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-2xl font-bold mb-2">SEO Only</div>
-              <div className="text-blue-100 text-sm">Search optimization and content strategy</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-2xl font-bold mb-2">Web Development</div>
-              <div className="text-blue-100 text-sm">Custom website design and development</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-2xl font-bold mb-2">Complete Package</div>
-              <div className="text-blue-100 text-sm">Full SEO + web development solution</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-white">
