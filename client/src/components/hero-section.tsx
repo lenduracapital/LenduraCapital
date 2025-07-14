@@ -98,8 +98,7 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundColor: '#1e293b', // Dark navy fallback
-        backgroundImage: `linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%), url(${heroBackgroundPath})`, // Overlay with hero background
+        backgroundColor: '#1e293b', // Clean dark navy fallback only
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -117,7 +116,7 @@ export default function HeroSection() {
           loop
           playsInline
           preload="metadata"
-          poster={heroBackgroundPath}
+          poster=""
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
@@ -139,16 +138,14 @@ export default function HeroSection() {
         </video>
       )}
       
-      {/* Optimized background fallback */}
+      {/* Clean dark navy fallback */}
       <div 
-        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-300 ${
+        className={`absolute inset-0 transition-opacity duration-300 ${
           isVideoLoaded ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
-          backgroundImage: `url(${heroBackgroundPath})`,
-          zIndex: 0,
-          transform: 'translate3d(0, 0, 0)',
-          willChange: 'opacity'
+          backgroundColor: '#1e293b',
+          zIndex: 0
         }}
       />
       {/* Text Content Overlay */}
