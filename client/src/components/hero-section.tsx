@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import { trackCTAClick } from "@/hooks/use-analytics-tracking";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
-import cityBackgroundPath from "@assets/image_1752182868701.png";
+import heroBackgroundPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
 // Video optimization hook
 function useVideoOptimization() {
@@ -99,7 +99,7 @@ export default function HeroSection() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
         backgroundColor: '#1e293b', // Dark navy fallback
-        backgroundImage: `linear-gradient(135deg, #1e293b 0%, #0f172a 100%)`, // Dark navy gradient
+        backgroundImage: `linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%), url(${heroBackgroundPath})`, // Overlay with hero background
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -117,7 +117,7 @@ export default function HeroSection() {
           loop
           playsInline
           preload="metadata"
-          poster={cityBackgroundPath}
+          poster={heroBackgroundPath}
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
@@ -145,7 +145,7 @@ export default function HeroSection() {
           isVideoLoaded ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
-          backgroundImage: `url(${cityBackgroundPath})`,
+          backgroundImage: `url(${heroBackgroundPath})`,
           zIndex: 0,
           transform: 'translate3d(0, 0, 0)',
           willChange: 'opacity'
