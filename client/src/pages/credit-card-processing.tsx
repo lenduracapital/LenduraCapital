@@ -170,16 +170,27 @@ export default function CreditCardProcessing() {
         </div>
       </section>
 
-      {/* Benefits Comparison */}
-      <section className="py-16 bg-white">
+      {/* How We Compare to Traditional Processors */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            How We Compare to Traditional Processors
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-red-50 p-8 rounded-lg border border-red-200">
               <h3 className="text-xl font-bold text-red-800 mb-6 text-center">Traditional Processors</h3>
               <ul className="space-y-4 text-red-700">
                 <li className="flex items-center">
                   <span className="text-red-500 mr-3">✗</span>
-                  Hidden fees and rate increases
+                  Complex rate structures with hidden fees
+                </li>
+                <li className="flex items-center">
+                  <span className="text-red-500 mr-3">✗</span>
+                  3-5 day deposit times
+                </li>
+                <li className="flex items-center">
+                  <span className="text-red-500 mr-3">✗</span>
+                  Equipment lease requirements
                 </li>
                 <li className="flex items-center">
                   <span className="text-red-500 mr-3">✗</span>
@@ -187,161 +198,32 @@ export default function CreditCardProcessing() {
                 </li>
                 <li className="flex items-center">
                   <span className="text-red-500 mr-3">✗</span>
-                  Slow customer service response
-                </li>
-                <li className="flex items-center">
-                  <span className="text-red-500 mr-3">✗</span>
-                  Limited equipment options
-                </li>
-                <li className="flex items-center">
-                  <span className="text-red-500 mr-3">✗</span>
-                  Delayed funding and holds
+                  Limited customer support
                 </li>
               </ul>
             </div>
             <div className="bg-green-50 p-8 rounded-lg border border-green-200">
-              <h3 className="text-xl font-bold text-green-800 mb-6 text-center">FundTek Processing</h3>
+              <h3 className="text-xl font-bold text-green-800 mb-6 text-center">FundTek Capital Group</h3>
               <ul className="space-y-4 text-green-700">
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  Transparent pricing, no surprises
+                  Transparent flat-rate pricing
                 </li>
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  Flexible terms, no early termination fees
+                  Same-day or next-day deposits
                 </li>
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  Dedicated support team
+                  Free equipment programs available
                 </li>
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  Latest payment technology
+                  Month-to-month, no cancellation fees
                 </li>
                 <li className="flex items-center">
                   <span className="text-green-500 mr-3">✓</span>
-                  Fast, reliable funding
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Applications */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Perfect for Every Business Type
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Retail Stores</h3>
-              <p className="text-gray-600 text-sm">Complete POS solutions with inventory tracking and customer management</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Restaurants</h3>
-              <p className="text-gray-600 text-sm">Table-side payments, tip management, and kitchen integration</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Service Businesses</h3>
-              <p className="text-gray-600 text-sm">Mobile processing for on-site payments and invoicing</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">E-commerce</h3>
-              <p className="text-gray-600 text-sm">Secure online payments with fraud protection and analytics</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Healthcare</h3>
-              <p className="text-gray-600 text-sm">HIPAA-compliant processing for medical practices</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Professional Services</h3>
-              <p className="text-gray-600 text-sm">Recurring billing and payment scheduling for subscriptions</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Qualification Requirements */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div style={{ backgroundColor: '#85abe4' }} className="p-8 rounded-lg">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">
-              Processing Requirements
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6 text-white">
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">Legal</div>
-                <div className="text-sm">Business License Required</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">Active</div>
-                <div className="text-sm">Operating Business</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold mb-2">Stable</div>
-                <div className="text-sm">Consistent Sales History</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Success Stories */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Success Stories
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md">
-                <div className="flex items-center mb-4">
-                  <div className="flex text-yellow-400 mr-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-600 italic mb-4">"{testimonial.text}"</p>
-                <div>
-                  <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                  <p className="text-gray-600 text-sm">{testimonial.business}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How We Compare Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
-            {/* FundTek */}
-            <div className="bg-green-50 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-green-600 mb-6">FundTek Capital Group</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span className="text-gray-700">Transparent flat-rate pricing</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span className="text-gray-700">Same-day or next-day deposits</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span className="text-gray-700">Free equipment programs available</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span className="text-gray-700">Month-to-month, no cancellation fees</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span className="text-gray-700">24/7 dedicated merchant support</span>
+                  24/7 dedicated merchant support
                 </li>
               </ul>
             </div>
