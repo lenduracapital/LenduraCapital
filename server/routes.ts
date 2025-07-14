@@ -15,6 +15,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Register admin routes
   registerAdminRoutes(app);
+
+  // Analytics tracking endpoint
+  app.post("/api/analytics/track", async (req, res) => {
+    try {
+      const { event, data } = req.body;
+      
+      // Log analytics event to audit log for now
+      await auditLogger.logAction(req, event, 'analytics', JSON.stringify(data), {
+        event,
+        ...data
+      });
+      
+      res.json({ success: true });
+    } catch (error) {
+      res.status(500).json({ error: "Failed to track analytics event" });
+    }
+  });
   
   // FORCE remove ALL security headers in development for Replit preview
   if (process.env.NODE_ENV === 'development') {

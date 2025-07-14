@@ -209,4 +209,44 @@ export function registerAdminRoutes(app: Express) {
       res.status(500).json({ error: "Failed to fetch performance data" });
     }
   });
+
+  // Analytics endpoint - no auth required for now
+  app.get("/api/admin/analytics", async (req, res) => {
+    try {
+      // Mock analytics data for now - in production this would come from a real analytics service
+      const analyticsData = {
+        ctaClicks: [
+          { name: "Apply Now - Hero", location: "Homepage Hero Section", count: 245, lastClicked: new Date().toISOString() },
+          { name: "Phone Number - Hero", location: "Homepage Hero Section", count: 182, lastClicked: new Date().toISOString() },
+          { name: "Get Approved in 24 Hours", location: "Working Capital Section", count: 156, lastClicked: new Date().toISOString() },
+          { name: "Browse Solutions", location: "Business Solutions Section", count: 134, lastClicked: new Date().toISOString() },
+          { name: "Apply Now - Footer", location: "Footer Navigation", count: 98, lastClicked: new Date().toISOString() },
+        ],
+        pageViews: [
+          { page: "Homepage", views: 3456, avgTimeSpent: 45 },
+          { page: "Solutions", views: 1234, avgTimeSpent: 62 },
+          { page: "Qualified Industries", views: 987, avgTimeSpent: 38 },
+          { page: "About Us", views: 654, avgTimeSpent: 28 },
+          { page: "Contact", views: 543, avgTimeSpent: 52 },
+        ],
+        topPages: [
+          { page: "Homepage", views: 3456, bounceRate: 32 },
+          { page: "Solutions", views: 1234, bounceRate: 28 },
+          { page: "Qualified Industries", views: 987, bounceRate: 35 },
+          { page: "Term Loans", views: 765, bounceRate: 25 },
+          { page: "SBA Loans", views: 654, bounceRate: 30 },
+        ],
+        scrollDepth: {
+          "25%": 92,
+          "50%": 78,
+          "75%": 56,
+          "90%": 34,
+        }
+      };
+      
+      res.json(analyticsData);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
 }

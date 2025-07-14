@@ -22,6 +22,7 @@ import EnhancedSEO from "@/components/enhanced-seo";
 import AdvancedAnalytics from "@/components/advanced-analytics";
 import CriticalCSS from "@/components/critical-css";
 import ServiceWorkerRegistration from "@/components/service-worker-registration";
+import { useAnalytics } from "@/hooks/use-analytics-tracking";
 
 export default function Home() {
   return (

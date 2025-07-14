@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { trackCTAClick } from "@/hooks/use-analytics-tracking";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 import cityBackgroundPath from "@assets/image_1752182868701.png";
@@ -21,10 +22,12 @@ export default function HeroSection() {
   }, []);
 
   const handleApplyNow = () => {
+    trackCTAClick('Apply Now - Hero', 'Homepage Hero Section', 'Jotform Application');
     window.open('https://form.jotform.com/251417715331047', '_blank');
   };
 
   const handlePhoneClick = () => {
+    trackCTAClick('Phone Number - Hero', 'Homepage Hero Section', 'Calendly Booking');
     window.open('https://calendly.com/fundtekcapitalgroup/15min', '_blank');
   };
 
@@ -49,7 +52,6 @@ export default function HeroSection() {
         playsInline
         preload="none"
         loading="lazy"
-        poster={cityBackgroundPath}
         onCanPlay={() => {
           if (videoRef.current) {
             videoRef.current.play().catch(() => {});
