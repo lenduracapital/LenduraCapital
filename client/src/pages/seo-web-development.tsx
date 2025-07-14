@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle, Star, Code, Search, TrendingUp, Globe, Smartpho
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import digitalImage from "@assets/pexels-philip-kapadia-94537380-9270143_1752511219358.jpg";
 
 export default function SEOWebDevelopment() {
   const [, setLocation] = useLocation();
@@ -36,7 +37,7 @@ export default function SEOWebDevelopment() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${digitalImage})`
           }}
         />
         

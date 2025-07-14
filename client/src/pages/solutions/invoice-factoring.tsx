@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import invoiceImage from "@assets/pexels-mikhail-nilov-6963857_1752511219358.jpg";
 
 export default function InvoiceFactoringDetail() {
   return (
     <SolutionDetailTemplate
       title="Invoice Factoring"
       description="Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity."
-      heroImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop"
+      heroImage={invoiceImage}
+      contentImage={invoiceImage}
       features={[
         "80-90% advance rate",
         "24-48 hour funding",

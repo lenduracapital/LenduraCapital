@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from '@/components/solution-detail-template';
+import mortgageImage from "@assets/pexels-john-guccione-www-advergroup-com-1874301-3483098_1752511219359.jpg";
 
 export default function MortgageFinancing() {
   return (
     <SolutionDetailTemplate 
       title="Mortgage Financing"
       description="Secure financing for your property investments with our comprehensive mortgage programs designed for business owners and real estate investors."
-      heroImage="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-      contentImage="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      heroImage={mortgageImage}
+      contentImage={mortgageImage}
       features={[
         "Competitive interest rates starting at 3.25%",
         "Flexible down payment options from 10-25%",
