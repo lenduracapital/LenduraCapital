@@ -453,6 +453,39 @@ ${pages.map(page => `  <url>
     }
   });
 
+  // Get chat history for user
+  app.get("/api/chat/history", async (req, res) => {
+    try {
+      // Get conversations from database
+      const conversations = await storage.getChatbotConversations();
+      const formattedConversations = conversations.map(conv => ({
+        sessionId: conv.sessionId,
+        firstName: conv.firstName,
+        timestamp: conv.createdAt,
+        lastMessage: conv.conversationData ? 
+          JSON.parse(conv.conversationData).lastMessage || 'New conversation' : 
+          'New conversation'
+      }));
+      
+      res.json(formattedConversations);
+    } catch (error: any) {
+      console.error("Error fetching chat history:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Get messages for a specific conversation
+  app.get("/api/chat/messages/:sessionId", async (req, res) => {
+    try {
+      const { sessionId } = req.params;
+      const messages = await storage.getChatMessages(sessionId);
+      res.json(messages);
+    } catch (error: any) {
+      console.error("Error fetching messages:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Enhanced robots.txt for Google crawling optimization
   app.get("/robots.txt", (_req, res) => {
     const robotsTxt = `User-agent: *

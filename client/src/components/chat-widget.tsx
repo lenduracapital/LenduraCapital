@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, memo } from "react";
-import { X, MessageCircle, Bot, Send, Phone, Clock, MapPin } from "lucide-react";
+import { X, MessageCircle, Bot, Send, Phone, Clock, MapPin, ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 
 interface ChatMessage {
@@ -26,6 +26,13 @@ interface ChatState {
   };
 }
 
+interface Conversation {
+  sessionId: string;
+  firstName?: string;
+  timestamp: Date;
+  lastMessage?: string;
+}
+
 function ChatWidget() {
   const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
@@ -37,6 +44,9 @@ function ChatWidget() {
     step: 'welcome',
     responses: {}
   });
+  const [showHistory, setShowHistory] = useState(false);
+  const [conversations, setConversations] = useState<Conversation[]>([]);
+  const [currentSessionId, setCurrentSessionId] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -56,6 +66,17 @@ function ChatWidget() {
     
     // Clear any previous dismissal so chat always appears on page load
     sessionStorage.removeItem('chatWidgetDismissed');
+    
+    // Generate or get session ID
+    let sessionId = localStorage.getItem('chatSessionId');
+    if (!sessionId) {
+      sessionId = `CHAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      localStorage.setItem('chatSessionId', sessionId);
+    }
+    setCurrentSessionId(sessionId);
+    
+    // Load conversation history
+    loadConversationHistory();
     
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -280,14 +301,11 @@ function ChatWidget() {
 
   const sendChatData = async (responses: ChatState['responses']) => {
     try {
-      // Generate a unique session ID for this conversation
-      const sessionId = `CHAT-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-      
       const response = await fetch('/api/chat/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          sessionId,
+          sessionId: currentSessionId,
           firstName: responses.firstName || '',
           phoneNumber: responses.phoneNumber || '',
           email: responses.email || '',
@@ -297,16 +315,59 @@ function ChatWidget() {
           revenue: responses.revenue || '',
           businessType: responses.businessType || '',
           debtQ1: responses.debtQ1 || '',
-          debtQ2: responses.debtQ2 || ''
+          debtQ2: responses.debtQ2 || '',
+          messages: messages // Save messages for history
         })
       });
       
       const result = await response.json();
       if (result.success) {
         console.log('Chat data submitted successfully:', result.sessionId);
+        // Save session ID to local storage
+        const savedSessionIds = JSON.parse(localStorage.getItem('chatSessionIds') || '[]');
+        if (!savedSessionIds.includes(currentSessionId)) {
+          savedSessionIds.push(currentSessionId);
+          localStorage.setItem('chatSessionIds', JSON.stringify(savedSessionIds));
+        }
       }
     } catch (error) {
       console.error('Failed to send chat data:', error);
+    }
+  };
+
+  const loadConversationHistory = async () => {
+    try {
+      const savedSessionIds = JSON.parse(localStorage.getItem('chatSessionIds') || '[]');
+      if (savedSessionIds.length > 0) {
+        const response = await fetch('/api/chat/history');
+        if (response.ok) {
+          const history = await response.json();
+          setConversations(history.filter((conv: Conversation) => 
+            savedSessionIds.includes(conv.sessionId)
+          ));
+        }
+      }
+    } catch (error) {
+      console.error('Error loading conversation history:', error);
+    }
+  };
+
+  const loadConversation = async (sessionId: string) => {
+    try {
+      const response = await fetch(`/api/chat/messages/${sessionId}`);
+      if (response.ok) {
+        const messages = await response.json();
+        setMessages(messages.map((msg: any) => ({
+          id: msg.messageId,
+          text: msg.text,
+          sender: msg.sender,
+          timestamp: new Date(msg.timestamp)
+        })));
+        setCurrentSessionId(sessionId);
+        setShowHistory(false);
+      }
+    } catch (error) {
+      console.error('Error loading conversation:', error);
     }
   };
 
@@ -315,9 +376,14 @@ function ChatWidget() {
       // User is closing the chat - keep bubble visible but close chat window
       sessionStorage.setItem('chatWidgetDismissed', 'true');
       setIsOpen(false);
+      setShowHistory(false); // Reset to chat view when closing
       // DON'T set setIsVisible(false) - this keeps the bubble visible
     } else {
       setIsOpen(true);
+      // Check for previous conversations when opening
+      if (conversations.length > 0 && messages.length === 0) {
+        setShowHistory(true);
+      }
     }
   };
 
@@ -562,26 +628,81 @@ function ChatWidget() {
             {/* Header */}
             <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
+                {showHistory && (
+                  <button
+                    onClick={() => setShowHistory(false)}
+                    className="text-white hover:text-blue-200 transition-colors p-1"
+                    aria-label="Back to chat"
+                  >
+                    <ArrowLeft className="w-5 h-5" />
+                  </button>
+                )}
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                   <Bot className="w-6 h-6 text-[#85abe4]" />
                 </div>
                 <div>
-                  <div className="font-semibold text-lg">FundTek</div>
-                  <div className="text-blue-100 text-sm">Here to assist!</div>
+                  <div className="font-semibold text-lg">{showHistory ? 'Conversation(s)' : 'FundTek'}</div>
+                  <div className="text-blue-100 text-sm">{showHistory ? '' : 'Here to assist!'}</div>
                 </div>
               </div>
-              <button
-                onClick={toggleChat}
-                className="text-white hover:text-blue-200 transition-colors p-1"
-                aria-label="Close chat"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-2">
+                {!showHistory && conversations.length > 0 && (
+                  <button
+                    onClick={() => setShowHistory(true)}
+                    className="text-white hover:text-blue-200 transition-colors p-1"
+                    aria-label="View conversation history"
+                  >
+                    <Clock className="w-5 h-5" />
+                  </button>
+                )}
+                <button
+                  onClick={toggleChat}
+                  className="text-white hover:text-blue-200 transition-colors p-1"
+                  aria-label="Close chat"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
-            {/* Messages Area */}
+            {/* Messages Area or Conversation History */}
             <div className={`overflow-y-auto p-4 bg-gray-50 ${isMobile ? 'h-80' : 'h-96'}`}>
-              <div className="space-y-4">
+              {showHistory ? (
+                // Conversation History View
+                <div className="space-y-2">
+                  {conversations.length > 0 ? (
+                    conversations.map((conv) => (
+                      <div
+                        key={conv.sessionId}
+                        onClick={() => loadConversation(conv.sessionId)}
+                        className="p-4 bg-white rounded-lg border hover:border-[#85abe4] cursor-pointer transition-colors"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                              <MessageCircle className="w-5 h-5 text-gray-600" />
+                            </div>
+                            <div>
+                              <div className="font-medium">{conv.firstName || 'FundTek Chat'}</div>
+                              <div className="text-sm text-gray-600">
+                                {new Date(conv.timestamp).toLocaleDateString()} • 
+                                {new Date(conv.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                              </div>
+                            </div>
+                          </div>
+                          <Clock className="w-4 h-4 text-gray-400" />
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className="text-center py-8 text-gray-500">
+                      No previous conversations found
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Chat Messages View
+                <div className="space-y-4">
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -609,12 +730,12 @@ function ChatWidget() {
                     </div>
                   </div>
                 )}
-              </div>
-              {renderButtons()}
-              {renderInput()}
+                </div>
+              )}
+              {!showHistory && renderButtons()}
+              {!showHistory && renderInput()}
               <div ref={messagesEndRef} />
             </div>
-            
 
           </div>
         </div>

@@ -74,6 +74,16 @@ export const chatbotConversations = pgTable("chatbot_conversations", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
+export const chatMessages = pgTable("chat_messages", {
+  id: serial("id").primaryKey(),
+  conversationId: varchar("conversation_id", { length: 100 }).notNull(),
+  messageId: varchar("message_id", { length: 100 }).notNull(),
+  text: text("text").notNull(),
+  sender: varchar("sender", { length: 10 }).notNull(), // 'bot' or 'user'
+  timestamp: timestamp("timestamp").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const auditLogs = pgTable("audit_logs", {
   id: serial("id").primaryKey(),
   userId: integer("user_id"),

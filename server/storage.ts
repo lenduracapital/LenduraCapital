@@ -1,4 +1,4 @@
-import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation, type AuditLog, type InsertAuditLog } from "@shared/schema";
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation, type AuditLog, type InsertAuditLog } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -19,7 +19,10 @@ export interface IStorage {
   createChatbotConversation(conversation: InsertChatbotConversation): Promise<ChatbotConversation>;
   getChatbotConversations(): Promise<ChatbotConversation[]>;
   getChatbotConversation(id: number): Promise<ChatbotConversation | undefined>;
+  getChatbotConversationBySessionId(sessionId: string): Promise<ChatbotConversation | undefined>;
   updateChatbotConversation(sessionId: string, updates: Partial<InsertChatbotConversation>): Promise<ChatbotConversation | undefined>;
+  saveChatMessage(conversationId: string, messageId: string, text: string, sender: 'bot' | 'user', timestamp: Date): Promise<void>;
+  getChatMessages(conversationId: string): Promise<any[]>;
   createAuditLog(auditLog: InsertAuditLog): Promise<AuditLog>;
   getAuditLogs(limit?: number): Promise<AuditLog[]>;
 }
@@ -124,6 +127,11 @@ export class DatabaseStorage implements IStorage {
     return chatbot || undefined;
   }
 
+  async getChatbotConversationBySessionId(sessionId: string): Promise<ChatbotConversation | undefined> {
+    const [chatbot] = await db.select().from(chatbotConversations).where(eq(chatbotConversations.sessionId, sessionId));
+    return chatbot || undefined;
+  }
+
   async updateChatbotConversation(sessionId: string, updates: Partial<InsertChatbotConversation>): Promise<ChatbotConversation | undefined> {
     const [updated] = await db
       .update(chatbotConversations)
@@ -131,6 +139,22 @@ export class DatabaseStorage implements IStorage {
       .where(eq(chatbotConversations.sessionId, sessionId))
       .returning();
     return updated || undefined;
+  }
+
+  async saveChatMessage(conversationId: string, messageId: string, text: string, sender: 'bot' | 'user', timestamp: Date): Promise<void> {
+    await db.insert(chatMessages).values({
+      conversationId,
+      messageId,
+      text,
+      sender,
+      timestamp
+    });
+  }
+
+  async getChatMessages(conversationId: string): Promise<any[]> {
+    return await db.select().from(chatMessages)
+      .where(eq(chatMessages.conversationId, conversationId))
+      .orderBy(chatMessages.timestamp);
   }
 
   async createAuditLog(auditLog: InsertAuditLog): Promise<AuditLog> {
