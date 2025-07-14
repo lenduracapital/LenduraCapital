@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 
@@ -117,7 +117,6 @@ export default function Header({ transparent = true }: HeaderProps) {
                 aria-label="View business funding solutions"
               >
                 Solutions
-                <ChevronDown className="ml-1 w-4 h-4 transition-transform duration-200" style={{ transform: isSolutionsDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
               </button>
 
               {/* Invisible bridge to prevent dropdown closing */}
@@ -239,7 +238,6 @@ export default function Header({ transparent = true }: HeaderProps) {
                 aria-label="See qualified industries"
               >
                 Qualified Industries
-                <ChevronDown className="ml-1 w-4 h-4 transition-transform duration-200" style={{ transform: isIndustriesDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
               </button>
 
               {/* Invisible bridge to prevent dropdown closing */}
@@ -248,7 +246,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               {/* Enhanced Industries Dropdown Menu */}
               {isIndustriesDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 bg-white rounded-lg border border-gray-200 shadow-2xl z-50 p-6 transition-all duration-200 transform animate-in slide-in-from-top-2"
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white rounded-lg border border-gray-200 shadow-2xl z-50 p-6 transition-all duration-200 animate-in slide-in-from-top-2"
                   style={{ width: '680px', marginTop: '8px' }}
                   onClick={(e) => e.stopPropagation()}
                 >
