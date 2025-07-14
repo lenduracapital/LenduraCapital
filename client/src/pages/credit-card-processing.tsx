@@ -173,9 +173,6 @@ export default function CreditCardProcessing() {
       {/* Benefits Comparison */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Why Choose FundTek Payment Processing?
-          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-red-50 p-8 rounded-lg border border-red-200">
               <h3 className="text-xl font-bold text-red-800 mb-6 text-center">Traditional Processors</h3>
@@ -324,34 +321,7 @@ export default function CreditCardProcessing() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             How We Compare to Traditional Processors
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Traditional Processors */}
-            <div className="bg-red-50 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-red-600 mb-6">Traditional Processors</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✕</span>
-                  <span className="text-gray-700">Complex rate structures with hidden fees</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✕</span>
-                  <span className="text-gray-700">3-5 day deposit times</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✕</span>
-                  <span className="text-gray-700">Equipment lease requirements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✕</span>
-                  <span className="text-gray-700">Long-term contracts with penalties</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✕</span>
-                  <span className="text-gray-700">Limited customer support</span>
-                </li>
-              </ul>
-            </div>
-
+          <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
             {/* FundTek */}
             <div className="bg-green-50 p-8 rounded-lg">
               <h3 className="text-xl font-bold text-green-600 mb-6">FundTek Capital Group</h3>
