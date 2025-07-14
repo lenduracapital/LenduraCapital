@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Star, CheckCircle, ArrowRight, Users, Shield, Zap, CreditCard } from "lucide-react";
 import { useLocation } from "wouter";
-import cardProcessingImage from "@assets/download_1752510375017.jpg";
+import cardProcessingImage from "@assets/pexels-ivan-samkov-7621136_1752512222343.jpg";
 
 export default function CreditCardProcessing() {
   const [, setLocation] = useLocation();
@@ -318,9 +318,6 @@ export default function CreditCardProcessing() {
       {/* How We Compare Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            How We Compare to Traditional Processors
-          </h2>
           <div className="grid md:grid-cols-1 gap-8 max-w-2xl mx-auto">
             {/* FundTek */}
             <div className="bg-green-50 p-8 rounded-lg">
