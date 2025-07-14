@@ -298,7 +298,7 @@ export default function Contact() {
                   <span className="font-semibold mr-2 text-[#374151]">Day 1: Application submitted, reviewed (30 minutes to 1 hour), and approval decision made the same day</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 2: Final documentation, contracts, and funding disbursed</span>
+                  <span className="font-semibold mr-2 text-[#374151]">Day 2: Final documentation, contracts, and funding disbursed</span>
                 </li>
               </ul>
             </div>
