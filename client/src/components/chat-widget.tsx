@@ -552,7 +552,7 @@ function ChatWidget() {
           }`}
           style={{ 
             maxWidth: isMobile ? '100vw' : 'calc(100vw - 2rem)',
-            width: isMobile ? '100%' : 'min(380px, 80vw)',
+            width: isMobile ? '100%' : 'min(420px, 90vw)',
             maxHeight: isMobile ? '70vh' : 'calc(100vh - 2rem)'
           }}
         >
@@ -580,7 +580,7 @@ function ChatWidget() {
             </div>
 
             {/* Messages Area */}
-            <div className="h-80 overflow-y-auto p-4 bg-gray-50">
+            <div className={`overflow-y-auto p-4 bg-gray-50 ${isMobile ? 'h-80' : 'h-96'}`}>
               <div className="space-y-4">
                 {messages.map((message) => (
                   <div
