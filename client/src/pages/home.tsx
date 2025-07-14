@@ -22,6 +22,9 @@ import EnhancedSEO from "@/components/enhanced-seo";
 import AdvancedAnalytics from "@/components/advanced-analytics";
 import CriticalCSS from "@/components/critical-css";
 import ServiceWorkerRegistration from "@/components/service-worker-registration";
+import VideoPerformanceOptimizer from "@/components/video-performance-optimizer";
+import AdvancedVideoOptimizer from "@/components/advanced-video-optimizer";
+import VideoMetricsTracker from "@/components/video-metrics-tracker";
 import { useAnalytics } from "@/hooks/use-analytics-tracking";
 
 export default function Home() {
@@ -46,6 +49,9 @@ export default function Home() {
       <AdvancedAnalytics />
       <CriticalCSS />
       <ServiceWorkerRegistration />
+      <VideoPerformanceOptimizer />
+      <AdvancedVideoOptimizer />
+      <VideoMetricsTracker />
 
       <Header transparent={true} />
       <main id="main-content">

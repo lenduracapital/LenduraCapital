@@ -6,11 +6,12 @@ import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 import cityBackgroundPath from "@assets/image_1752182868701.png";
 
-export default function HeroSection() {
-  const [, setLocation] = useLocation();
+// Video optimization hook
+function useVideoOptimization() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
+  
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -18,8 +19,70 @@ export default function HeroSection() {
     
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    
+    // Delay video loading slightly for better perceived performance
+    const timer = setTimeout(() => {
+      setShouldPlayVideo(true);
+    }, 100);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timer);
+    };
   }, []);
+  
+  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile };
+}
+
+export default function HeroSection() {
+  const [, setLocation] = useLocation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile } = useVideoOptimization();
+
+  // Enhanced video loading with intersection observer
+  useEffect(() => {
+    if (!shouldPlayVideo || !videoRef.current) return;
+
+    const video = videoRef.current;
+    
+    // Progressive video loading
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVideoLoaded) {
+            video.load();
+            video.play().catch(() => {
+              // Fallback for autoplay restrictions
+              video.muted = true;
+              video.play().catch(() => {});
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(video);
+    
+    const handleCanPlay = () => {
+      setIsVideoLoaded(true);
+      video.classList.add('loaded');
+    };
+
+    const handleLoadedData = () => {
+      // Video is ready to play
+      video.style.opacity = '1';
+    };
+
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
+
+    return () => {
+      observer.disconnect();
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
+    };
+  }, [shouldPlayVideo, isVideoLoaded, setIsVideoLoaded]);
 
   const handleApplyNow = () => {
     trackCTAClick('Apply Now - Hero', 'Homepage Hero Section', 'Jotform Application');
@@ -42,32 +105,52 @@ export default function HeroSection() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Video Background with Performance Optimizations */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover opacity-100"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        loading="lazy"
-        onCanPlay={() => {
-          if (videoRef.current) {
-            videoRef.current.play().catch(() => {});
-          }
-        }}
+      {/* High-Performance Video Background */}
+      {shouldPlayVideo && (
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={cityBackgroundPath}
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+          x5-playsinline="true"
+          webkit-playsinline="true"
+          style={{
+            zIndex: 1,
+            transform: 'translate3d(0, 0, 0)',
+            backfaceVisibility: 'hidden',
+            willChange: 'opacity, transform',
+            WebkitTransform: 'translate3d(0, 0, 0)',
+            WebkitBackfaceVisibility: 'hidden',
+            imageRendering: 'optimizeSpeed',
+            contain: 'strict'
+          }}
+        >
+          <source src={videoPath} type="video/webm" />
+          <source src={videoPath.replace('.webm', '.mp4')} type="video/mp4" />
+        </video>
+      )}
+      
+      {/* Optimized background fallback */}
+      <div 
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-300 ${
+          isVideoLoaded ? 'opacity-0' : 'opacity-100'
+        }`}
         style={{
-          zIndex: 1,
-          transform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          willChange: 'transform',
-          WebkitTransform: 'translateZ(0)',
-          WebkitBackfaceVisibility: 'hidden'
+          backgroundImage: `url(${cityBackgroundPath})`,
+          zIndex: 0,
+          transform: 'translate3d(0, 0, 0)',
+          willChange: 'opacity'
         }}
-      >
-        <source src={videoPath} type="video/webm" />
-      </video>
+      />
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">

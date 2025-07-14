@@ -61,6 +61,16 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // Video and media assets - enhanced caching
+  if (request.destination === 'video' || 
+      url.pathname.includes('/attached_assets/') && 
+      (url.pathname.endsWith('.webm') || url.pathname.endsWith('.mp4') || 
+       url.pathname.endsWith('.jpg') || url.pathname.endsWith('.png') || 
+       url.pathname.endsWith('.jpeg') || url.pathname.endsWith('.webp'))) {
+    event.respondWith(enhancedMediaStrategy(request));
+    return;
+  }
+
   // HTML pages - stale while revalidate
   if (request.destination === 'document') {
     event.respondWith(staleWhileRevalidateStrategy(request));
@@ -139,6 +149,36 @@ async function networkWithCacheFallback(request) {
   } catch (error) {
     const cachedResponse = await caches.match(request);
     return cachedResponse || caches.match('/offline.html');
+  }
+}
+
+// Enhanced media caching strategy for videos and images
+async function enhancedMediaStrategy(request) {
+  const cache = await caches.open('media-cache-v1');
+  const cachedResponse = await cache.match(request);
+  
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+  
+  try {
+    const networkResponse = await fetch(request);
+    
+    if (networkResponse.ok) {
+      // Clone response for caching
+      const responseToCache = networkResponse.clone();
+      
+      // Only cache media files under 10MB to prevent storage issues
+      const contentLength = networkResponse.headers.get('content-length');
+      if (!contentLength || parseInt(contentLength) < 10 * 1024 * 1024) {
+        cache.put(request, responseToCache);
+      }
+    }
+    
+    return networkResponse;
+  } catch (error) {
+    // Return cached version or placeholder
+    return cachedResponse || new Response('Media not available offline', { status: 503 });
   }
 }
 
