@@ -100,6 +100,26 @@ export const auditLogs = pgTable("audit_logs", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const analyticsEvents = pgTable("analytics_events", {
+  id: serial("id").primaryKey(),
+  eventType: varchar("event_type", { length: 100 }).notNull(), // 'cta_click', 'page_view', 'scroll_depth'
+  eventCategory: varchar("event_category", { length: 100 }),
+  eventAction: varchar("event_action", { length: 100 }),
+  eventLabel: varchar("event_label", { length: 255 }),
+  eventValue: integer("event_value"),
+  page: varchar("page", { length: 255 }),
+  ctaName: varchar("cta_name", { length: 255 }),
+  ctaLocation: varchar("cta_location", { length: 255 }),
+  ctaDestination: varchar("cta_destination", { length: 255 }),
+  scrollDepth: integer("scroll_depth"),
+  timeSpent: integer("time_spent"), // in seconds
+  sessionId: varchar("session_id", { length: 100 }),
+  ipAddress: varchar("ip_address", { length: 45 }),
+  userAgent: text("user_agent"),
+  metadata: text("metadata"), // JSON string for additional data
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -133,6 +153,11 @@ export const insertAuditLogSchema = createInsertSchema(auditLogs).omit({
   createdAt: true,
 });
 
+export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 export type InsertLoanApplication = z.infer<typeof insertLoanApplicationSchema>;
@@ -145,3 +170,5 @@ export type InsertChatbotConversation = z.infer<typeof insertChatbotConversation
 export type ChatbotConversation = typeof chatbotConversations.$inferSelect;
 export type InsertAuditLog = z.infer<typeof insertAuditLogSchema>;
 export type AuditLog = typeof auditLogs.$inferSelect;
+export type InsertAnalyticsEvent = z.infer<typeof insertAnalyticsEventSchema>;
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;

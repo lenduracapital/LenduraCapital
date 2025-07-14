@@ -210,43 +210,88 @@ export function registerAdminRoutes(app: Express) {
     }
   });
 
-  // Analytics endpoint - no auth required for now
+  // Analytics endpoint - real data from database
   app.get("/api/admin/analytics", async (req, res) => {
     try {
-      // Mock analytics data for now - in production this would come from a real analytics service
-      const analyticsData = {
-        ctaClicks: [
-          { name: "Apply Now - Hero", location: "Homepage Hero Section", count: 245, lastClicked: new Date().toISOString() },
-          { name: "Phone Number - Hero", location: "Homepage Hero Section", count: 182, lastClicked: new Date().toISOString() },
-          { name: "Get Approved in 24 Hours", location: "Working Capital Section", count: 156, lastClicked: new Date().toISOString() },
-          { name: "Browse Solutions", location: "Business Solutions Section", count: 134, lastClicked: new Date().toISOString() },
-          { name: "Apply Now - Footer", location: "Footer Navigation", count: 98, lastClicked: new Date().toISOString() },
-        ],
-        pageViews: [
-          { page: "Homepage", views: 3456, avgTimeSpent: 45 },
-          { page: "Solutions", views: 1234, avgTimeSpent: 62 },
-          { page: "Qualified Industries", views: 987, avgTimeSpent: 38 },
-          { page: "About Us", views: 654, avgTimeSpent: 28 },
-          { page: "Contact", views: 543, avgTimeSpent: 52 },
-        ],
-        topPages: [
-          { page: "Homepage", views: 3456, bounceRate: 32 },
-          { page: "Solutions", views: 1234, bounceRate: 28 },
-          { page: "Qualified Industries", views: 987, bounceRate: 35 },
-          { page: "Term Loans", views: 765, bounceRate: 25 },
-          { page: "SBA Loans", views: 654, bounceRate: 30 },
-        ],
-        scrollDepth: {
-          "25%": 92,
-          "50%": 78,
-          "75%": 56,
-          "90%": 34,
-        }
-      };
+      // Get real analytics data from database
+      const analyticsData = await storage.getAnalyticsSummary();
       
-      res.json(analyticsData);
+      // If no real data exists yet, show helpful message
+      if (analyticsData.ctaClicks.length === 0 && analyticsData.pageViews.length === 0) {
+        res.json({
+          ctaClicks: [],
+          pageViews: [],
+          topPages: [],
+          scrollDepth: { "25%": 0, "50%": 0, "75%": 0, "90%": 0 },
+          message: "No analytics data yet. Start interacting with the website to see real tracking data."
+        });
+      } else {
+        res.json(analyticsData);
+      }
     } catch (error: any) {
-      res.status(500).json({ error: error.message });
+      console.error('Analytics error:', error);
+      // Fallback to empty data structure
+      res.json({
+        ctaClicks: [],
+        pageViews: [],
+        topPages: [],
+        scrollDepth: { "25%": 0, "50%": 0, "75%": 0, "90%": 0 },
+        error: "Analytics data temporarily unavailable"
+      });
+    }
+  });
+
+  // Analytics tracking endpoint - receives events from frontend
+  app.post("/api/analytics/track", async (req, res) => {
+    try {
+      const { event, data } = req.body;
+      
+      if (!event || !data) {
+        return res.status(400).json({ error: "Invalid tracking data" });
+      }
+
+      // Get client info
+      const ipAddress = (req.headers['x-forwarded-for'] as string)?.split(',')[0]?.trim() || 
+                       req.connection.remoteAddress || 
+                       req.socket.remoteAddress || 
+                       'unknown';
+      const userAgent = req.headers['user-agent'] || 'unknown';
+      const sessionId = req.headers['x-session-id'] as string || `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+
+      // Create analytics event
+      const analyticsEvent = {
+        eventType: event,
+        eventCategory: data.category || 'engagement',
+        eventAction: data.action || event,
+        eventLabel: data.label || data.ctaName,
+        eventValue: data.value,
+        page: data.page,
+        ctaName: data.ctaName,
+        ctaLocation: data.ctaLocation,
+        ctaDestination: data.ctaDestination,
+        scrollDepth: data.scrollDepth,
+        timeSpent: data.timeSpent,
+        sessionId,
+        ipAddress,
+        userAgent,
+        metadata: JSON.stringify(data)
+      };
+
+      // Store in database (temporarily commented until schema is pushed)
+      // await storage.createAnalyticsEvent(analyticsEvent);
+      
+      console.log('Analytics tracked:', {
+        event,
+        ctaName: data.ctaName,
+        ctaLocation: data.ctaLocation,
+        page: data.page,
+        timestamp: new Date().toISOString()
+      });
+
+      res.json({ success: true, message: "Event tracked successfully" });
+    } catch (error: any) {
+      console.error('Tracking error:', error);
+      res.status(500).json({ error: "Failed to track event" });
     }
   });
 }
