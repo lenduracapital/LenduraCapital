@@ -144,18 +144,6 @@ export default function Header({ transparent = true }: HeaderProps) {
                           Term Loans
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/sba-loans"); setIsSolutionsDropdownOpen(false); }}
-                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
-                        >
-                          SBA Loans
-                        </button>
-                        <button
-                          onClick={() => { setLocation("/solutions/equipment-financing"); setIsSolutionsDropdownOpen(false); }}
-                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
-                        >
-                          Equipment Financing
-                        </button>
-                        <button
                           onClick={() => { setLocation("/solutions/lines-of-credit"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
@@ -168,10 +156,22 @@ export default function Header({ transparent = true }: HeaderProps) {
                           Cash Advance
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/invoice-factoring"); setIsSolutionsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/solutions/sba-loans"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
-                          Invoice Factoring
+                          SBA Loans
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/debt-consolidation"); setIsSolutionsDropdownOpen(false); }}
+                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
+                        >
+                          Debt Consolidation
+                        </button>
+                        <button
+                          onClick={() => { setLocation("/solutions/equipment-financing"); setIsSolutionsDropdownOpen(false); }}
+                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
+                        >
+                          Equipment Loans
                         </button>
                       </div>
                     </div>
@@ -183,6 +183,12 @@ export default function Header({ transparent = true }: HeaderProps) {
                         <h3 className="font-bold text-[#85abe4] text-sm uppercase tracking-wide">Business Services</h3>
                       </div>
                       <div className="space-y-2">
+                        <button
+                          onClick={() => { setLocation("/solutions/invoice-factoring"); setIsSolutionsDropdownOpen(false); }}
+                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
+                        >
+                          Factoring
+                        </button>
                         <button
                           onClick={() => { setLocation("/solutions/po-financing"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
@@ -196,22 +202,16 @@ export default function Header({ transparent = true }: HeaderProps) {
                           CRE Lending
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/debt-consolidation"); setIsSolutionsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/solutions/credit-card-processing"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
-                          Debt Consolidation
+                          Card Processing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/credit-services"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
                           Credit Repair
-                        </button>
-                        <button
-                          onClick={() => { setLocation("/solutions/credit-card-processing"); setIsSolutionsDropdownOpen(false); }}
-                          className="block w-full text-left text-sm text-gray-700 hover:text-[#85abe4] hover:bg-[#85abe4]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
-                        >
-                          Card Processing
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/seo-web-development"); setIsSolutionsDropdownOpen(false); }}
