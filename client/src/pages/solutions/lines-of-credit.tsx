@@ -1,13 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import imageAsset from "@assets/image_1752190793949.png";
+import lineOfCreditImage from "@assets/pexels-shkrabaanthony-5816283_1752511864339.jpg";
 
 export default function LinesOfCreditDetail() {
   return (
     <SolutionDetailTemplate
       title="Lines of Credit"
       description="Revolving credit lines that provide flexible access to capital when you need it most for operational expenses."
-      heroImage={imageAsset}
-      contentImage={imageAsset}
+      heroImage={lineOfCreditImage}
+      contentImage={lineOfCreditImage}
       features={[
         "$25K - $1M available credit",
         "Draw funds as needed",
