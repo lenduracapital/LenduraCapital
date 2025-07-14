@@ -298,12 +298,10 @@ export default function Contact() {
               <h3 className="text-xl font-semibold text-[#85abe4] mb-4 text-center">Timeline Breakdown</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
-                  Application submitted, reviewed (30 minutes to 1 hour), and approval decision made the same day
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 1: Application submitted, reviewed (30 minutes to 1 hour), and approval decision made the same day</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 2:</span>
-                  Final documentation, contracts, and funding disbursed
+                  <span className="font-semibold text-[#85abe4] mr-2">Day 2: Final documentation, contracts, and funding disbursed</span>
                 </li>
               </ul>
             </div>
