@@ -1,13 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import businessImage from "@assets/image_1752182868701.png";
+import termLoanImage from "@assets/pexels-karolina-grabowska-4386321_1752511760082.jpg";
 
 export default function TermLoansDetail() {
   return (
     <SolutionDetailTemplate
       title="Term Loans"
       description="Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs."
-      heroImage={businessImage}
-      contentImage={businessImage}
+      heroImage={termLoanImage}
+      contentImage={termLoanImage}
       features={[
         "$10K - $5M funding available",
         "12-60 month repayment terms",
