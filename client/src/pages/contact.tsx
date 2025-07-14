@@ -299,11 +299,7 @@ export default function Contact() {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
-                  Application submitted and reviewed (30 minutes to 1 hour)
-                </li>
-                <li className="flex items-start">
-                  <span className="font-semibold text-[#85abe4] mr-2">Day 1:</span>
-                  Approval decision made the same day
+                  Application submitted, reviewed (30 minutes to 1 hour), and approval decision made the same day
                 </li>
                 <li className="flex items-start">
                   <span className="font-semibold text-[#85abe4] mr-2">Day 2:</span>
