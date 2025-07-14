@@ -20,14 +20,11 @@ function useVideoOptimization() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Delay video loading slightly for better perceived performance
-    const timer = setTimeout(() => {
-      setShouldPlayVideo(true);
-    }, 100);
+    // Load video immediately
+    setShouldPlayVideo(true);
     
     return () => {
       window.removeEventListener('resize', checkMobile);
-      clearTimeout(timer);
     };
   }, []);
   
@@ -71,7 +68,6 @@ export default function HeroSection() {
 
     const handleLoadedData = () => {
       // Video is ready to play
-      video.style.opacity = '1';
     };
 
     video.addEventListener('canplay', handleCanPlay);
@@ -108,9 +104,7 @@ export default function HeroSection() {
       {shouldPlayVideo && (
         <video
           ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-            isVideoLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -123,12 +117,7 @@ export default function HeroSection() {
           x5-playsinline="true"
           webkit-playsinline="true"
           style={{
-            zIndex: 1,
-            transform: 'none',
-            backfaceVisibility: 'hidden',
-            willChange: 'opacity',
-            WebkitTransform: 'none',
-            WebkitBackfaceVisibility: 'hidden'
+            zIndex: 1
           }}
         >
           <source src={videoPath} type="video/webm" />
@@ -138,9 +127,7 @@ export default function HeroSection() {
       
       {/* Clean dark navy fallback */}
       <div 
-        className={`absolute inset-0 transition-opacity duration-300 ${
-          isVideoLoaded ? 'opacity-0' : 'opacity-100'
-        }`}
+        className="absolute inset-0"
         style={{
           backgroundColor: '#1e293b',
           zIndex: 0

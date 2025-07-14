@@ -33,10 +33,7 @@
     body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff}
     .hero-section{height:100vh;position:relative;overflow:hidden;will-change:transform;contain:layout style paint}
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5);contain:layout style paint;font-display:swap}
-    video{opacity:0;transition:opacity 0.6s ease-in-out;transform:none;will-change:opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden;outline:none!important;border:none!important;pointer-events:none}
-    video.loaded{opacity:1}
-    video[data-loading="true"]{opacity:0}
-    video[data-loading="false"]{opacity:1}
+    video{opacity:1;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;outline:none!important;border:none!important;pointer-events:none}
     .video-container{position:relative;overflow:hidden;background:#1e293b}
     video::-webkit-media-controls{display:none!important;opacity:0!important;visibility:hidden!important}
     video::-webkit-media-controls-panel{display:none!important;opacity:0!important;visibility:hidden!important}
