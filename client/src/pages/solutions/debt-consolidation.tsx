@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import debtConsolidationImage from "@assets/download_1752510375017.jpg";
+import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
 
 export default function DebtConsolidationDetail() {
   return (
