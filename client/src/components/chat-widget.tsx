@@ -646,7 +646,7 @@ function ChatWidget() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                {!showHistory && conversations.length > 0 && (
+                {!showHistory && (
                   <button
                     onClick={() => setShowHistory(true)}
                     className="text-white hover:text-blue-200 transition-colors p-1"
