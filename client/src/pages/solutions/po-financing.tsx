@@ -90,6 +90,22 @@ export default function POFinancingDetail() {
           answer: "The lender typically requires credit insurance or may provide non-recourse financing where they bear the customer credit risk. Terms vary by arrangement."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Banks don't fund purchase orders",
+          "Require strong business credit",
+          "Need extensive collateral",
+          "Can't fund supplier costs",
+          "Miss large order opportunities"
+        ],
+        fundtek: [
+          "Specialized PO financing",
+          "Customer credit matters most",
+          "PO serves as collateral",
+          "Direct supplier payment",
+          "Fulfill any size order"
+        ]
+      }}
     />
   );
 }

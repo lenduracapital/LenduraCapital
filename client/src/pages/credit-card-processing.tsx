@@ -317,6 +317,70 @@ export default function CreditCardProcessing() {
         </div>
       </section>
 
+      {/* How We Compare Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            How We Compare to Traditional Processors
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Traditional Processors */}
+            <div className="bg-red-50 p-8 rounded-lg">
+              <h3 className="text-xl font-bold text-red-600 mb-6">Traditional Processors</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Complex rate structures with hidden fees</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">3-5 day deposit times</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Equipment lease requirements</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Long-term contracts with penalties</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Limited customer support</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* FundTek */}
+            <div className="bg-green-50 p-8 rounded-lg">
+              <h3 className="text-xl font-bold text-green-600 mb-6">FundTek Capital Group</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Transparent flat-rate pricing</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Same-day or next-day deposits</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Free equipment programs available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Month-to-month, no cancellation fees</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">24/7 dedicated merchant support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Steps */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

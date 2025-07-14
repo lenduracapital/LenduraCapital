@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import imageAsset from "@assets/image_1752190793949.png";
 
 export default function LinesOfCreditDetail() {
   return (
     <SolutionDetailTemplate
       title="Lines of Credit"
       description="Revolving credit lines that provide flexible access to capital when you need it most for operational expenses."
-      heroImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop"
+      heroImage={imageAsset}
+      contentImage={imageAsset}
       features={[
         "$25K - $1M available credit",
         "Draw funds as needed",
@@ -89,6 +90,22 @@ export default function LinesOfCreditDetail() {
           answer: "There may be origination fees, annual fees, or draw fees depending on the lender. We'll help you find options with the most favorable fee structure for your situation."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Complex credit line applications",
+          "Annual fees and maintenance charges",
+          "High revenue requirements ($1M+)",
+          "Personal guarantees required",
+          "Limited draw periods"
+        ],
+        fundtek: [
+          "Simple online application",
+          "Transparent fee structure",
+          "Revenue requirements from $15K/month",
+          "Flexible guarantee options",
+          "Continuous revolving access"
+        ]
+      }}
     />
   );
 }

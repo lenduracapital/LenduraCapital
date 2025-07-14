@@ -96,6 +96,22 @@ export default function SBALoansDetail() {
           answer: "Required documents include a comprehensive business plan, 3 years of tax returns, financial statements, cash flow projections, ownership information, and collateral documentation."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Traditional banks have limited SBA expertise",
+          "Complex application without guidance",
+          "May not offer all SBA programs",
+          "Slow processing times",
+          "Limited business support"
+        ],
+        fundtek: [
+          "SBA loan specialists on staff",
+          "Expert guidance through entire process",
+          "Access to all SBA loan programs",
+          "Streamlined 30-day processing",
+          "Dedicated support throughout"
+        ]
+      }}
     />
   );
 }

@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import downloadImage from "@assets/download_1752510375017.jpg";
 
 export default function TermLoansDetail() {
   return (
     <SolutionDetailTemplate
       title="Term Loans"
       description="Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs."
-      heroImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop"
+      heroImage={downloadImage}
+      contentImage={downloadImage}
       features={[
         "$10K - $5M funding available",
         "12-60 month repayment terms",
@@ -94,6 +95,22 @@ export default function TermLoansDetail() {
           answer: "Collateral requirements depend on the loan amount and your business profile. Some term loans are unsecured, while larger amounts may require business assets or personal guarantees."
         }
       ]}
+      comparison={{
+        traditional: [
+          "30-90 day approval process for term loans",
+          "Extensive financial documentation required",
+          "High credit score requirements (700+)",
+          "Personal collateral often required",
+          "Limited to established businesses (3+ years)"
+        ],
+        fundtek: [
+          "24-48 hour term loan approval",
+          "Basic business documentation only",
+          "Flexible credit requirements (550+)",
+          "Unsecured options available",
+          "6 months in business minimum"
+        ]
+      }}
     />
   );
 }

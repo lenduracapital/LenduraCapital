@@ -70,6 +70,22 @@ export default function CommercialRealEstateLending() {
           answer: "Required documentation includes property financials, rent rolls, environmental assessments, property appraisals, borrower financial statements, and detailed project plans for developments."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Limited to local properties only",
+          "60-90 day approval process",
+          "Rigid property requirements",
+          "High down payment (30-40%)",
+          "Limited to bank's portfolio"
+        ],
+        fundtek: [
+          "Nationwide CRE financing",
+          "30-day approval process",
+          "Flexible property types",
+          "Down payments from 20%",
+          "Multiple lender network"
+        ]
+      }}
     />
   );
 }

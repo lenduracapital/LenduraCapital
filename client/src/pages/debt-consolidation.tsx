@@ -109,6 +109,22 @@ export default function DebtConsolidationPage() {
           answer: "Most lenders require at least $25,000 in existing business debt to make consolidation worthwhile, though this varies by lender and situation."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Banks rarely consolidate business debt",
+          "Require perfect credit history",
+          "Complex refinancing process",
+          "Limited debt types accepted",
+          "May require additional collateral"
+        ],
+        fundtek: [
+          "Specialized debt consolidation",
+          "Work with challenged credit",
+          "Simple consolidation process",
+          "Consolidate any business debt",
+          "Use existing collateral"
+        ]
+      }}
     />
   );
 }

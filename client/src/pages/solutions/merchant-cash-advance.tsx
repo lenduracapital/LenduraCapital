@@ -90,6 +90,22 @@ export default function MerchantCashAdvanceDetail() {
           answer: "Retail businesses, restaurants, service providers, and any business that processes credit card sales regularly. Minimum requirements typically include $5,000+ monthly credit card volume."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Not available from traditional banks",
+          "Banks require high credit scores",
+          "Monthly fixed payment schedules",
+          "Lengthy application process",
+          "Collateral requirements"
+        ],
+        fundtek: [
+          "Specialized MCA providers",
+          "Credit scores from 500+",
+          "Flexible daily/weekly payments",
+          "24-hour approval and funding",
+          "No collateral needed"
+        ]
+      }}
     />
   );
 }

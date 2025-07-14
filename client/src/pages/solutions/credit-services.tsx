@@ -90,6 +90,22 @@ export default function CreditServicesDetail() {
           answer: "Monitor your business credit through the major bureaus: Dun & Bradstreet, Experian Business, and Equifax Business. Regular monitoring helps catch errors and track progress."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Banks don't offer credit repair",
+          "No guidance on credit building",
+          "Focus only on personal credit",
+          "No business credit support",
+          "DIY credit improvement"
+        ],
+        fundtek: [
+          "Professional credit repair services",
+          "Expert credit building strategies",
+          "Business credit establishment",
+          "Dedicated credit specialists",
+          "Proven improvement process"
+        ]
+      }}
     />
   );
 }

@@ -339,6 +339,70 @@ export default function SEOWebDevelopment() {
         </div>
       </section>
 
+      {/* How We Compare Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            How We Compare to Traditional Agencies
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Traditional Agencies */}
+            <div className="bg-red-50 p-8 rounded-lg">
+              <h3 className="text-xl font-bold text-red-600 mb-6">Traditional Digital Agencies</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">High retainer fees ($5K-$20K/month)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">6-12 month contracts required</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">One-size-fits-all packages</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Slow project timelines</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">✕</span>
+                  <span className="text-gray-700">Limited small business focus</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* FundTek */}
+            <div className="bg-green-50 p-8 rounded-lg">
+              <h3 className="text-xl font-bold text-green-600 mb-6">FundTek Capital Group</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Affordable packages for small businesses</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Month-to-month flexibility</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Custom solutions for your industry</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Rapid 2-4 week deployment</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  <span className="text-gray-700">Small business specialists</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Information Grid */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

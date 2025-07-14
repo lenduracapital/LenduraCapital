@@ -90,6 +90,22 @@ export default function InvoiceFactoringDetail() {
           answer: "This depends on whether you choose recourse or non-recourse factoring. With recourse factoring, you're responsible if the customer doesn't pay. Non-recourse protects you from customer default."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Banks don't offer factoring services",
+          "Require waiting 30-90 days for payment",
+          "No assistance with collections",
+          "Credit based on your score",
+          "Can't monetize receivables"
+        ],
+        fundtek: [
+          "Specialized factoring solutions",
+          "Get paid in 24-48 hours",
+          "Factor handles collections",
+          "Based on customer creditworthiness",
+          "Turn invoices into instant cash"
+        ]
+      }}
     />
   );
 }

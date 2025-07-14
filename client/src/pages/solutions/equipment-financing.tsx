@@ -90,6 +90,22 @@ export default function EquipmentFinancingDetail() {
           answer: "Yes, equipment purchases may qualify for Section 179 tax deductions, allowing you to deduct the full purchase price in the year of purchase rather than depreciating over time."
         }
       ]}
+      comparison={{
+        traditional: [
+          "Limited equipment financing options",
+          "20-30% down payment required",
+          "Slow approval for equipment loans",
+          "Restrictive equipment categories",
+          "Complex documentation process"
+        ],
+        fundtek: [
+          "100% equipment financing available",
+          "0% down payment options",
+          "Same-day equipment loan approval",
+          "Finance any business equipment",
+          "Simple application process"
+        ]
+      }}
     />
   );
 }
