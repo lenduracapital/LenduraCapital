@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEOHead 
-        title="FundTek Capital Group - Services"
-        description="Get fast business funding with approvals in 24 hours. FundTek helps U.S. business owners access capital with flexible terms—no delays, no red tape."
-        keywords="business funding, 24 hour approval, fast business loans, term loans, merchant cash advance, equipment financing, working capital loans, business credit, commercial lending, no red tape funding"
+        title="Business Funding Solutions Brooklyn NY | 24 Hour Approval | FundTek Capital Group"
+        description="Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 307-4658."
+        keywords="business funding Brooklyn NY, merchant cash advance near me, 24 hour business loan approval, bad credit business loans, equipment financing, SBA loans Brooklyn, working capital loans, invoice factoring, small business funding NYC, same day business funding"
         canonical="/"
       />
       <EnhancedSchema type="homepage" />

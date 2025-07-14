@@ -3,6 +3,8 @@ import { CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import SEOHead from "@/components/seo-head";
+import EnhancedSchema from "@/components/enhanced-schema";
 
 interface SolutionDetailProps {
   title: string;
@@ -69,6 +71,13 @@ export default function SolutionDetailTemplate({
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title={`${title} for Business | Fast Approval & Competitive Rates | FundTek Capital Group`}
+        description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 307-4658.`}
+        keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding`}
+        canonical={`/solutions/${title.toLowerCase().replace(/\s+/g, '-')}`}
+      />
+      <EnhancedSchema type="solution-detail" pageData={{ title, description, solution: title }} />
       <Header />
       
       {/* Hero Section with Image */}

@@ -35,7 +35,8 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "@type": "FinancialService",
           "name": "FundTek Capital Group",
           "url": "https://fundtekcapitalgroup.com",
-          "logo": "/favicon.svg",
+          "logo": "https://fundtekcapitalgroup.com/logo-icon.png",
+          "image": "https://fundtekcapitalgroup.com/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png",
           "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada for comprehensive financial solutions including term loans, equipment financing, and merchant cash advances.",
           "telephone": "(305) 307-4658",
           "email": "admin@fundtekcapitalgroup.com",
@@ -48,6 +49,13 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
             "addressCountry": "US"
           },
           "areaServed": ["United States", "Canada"],
+          "sameAs": [
+            "https://www.instagram.com/fundtekcapitalgroup/",
+            "https://x.com/fundtekcapital",
+            "https://www.facebook.com/profile.php?id=61577926551810",
+            "https://www.yelp.com/biz/fundtek-capital-group-brooklyn",
+            "https://www.trustpilot.com/review/fundtekcapitalgroup.com"
+          ],
           "serviceType": [
             "Business Loan Brokerage",
             "Term Loans",
@@ -207,10 +215,30 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "provider": {
             "@type": "FinancialService",
             "name": "FundTek Capital Group",
-            "telephone": "(305) 307-4658"
+            "telephone": "(305) 307-4658",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "2727 Coney Island Ave",
+              "addressLocality": "Brooklyn",
+              "addressRegion": "NY",
+              "postalCode": "11235",
+              "addressCountry": "US"
+            }
           },
-          "areaServed": "United States",
-          "serviceType": "Business Financing"
+          "areaServed": ["United States", "Canada"],
+          "serviceType": "Business Financing",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": pageData.title,
+            "itemListElement": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "Varies",
+                "priceCurrency": "USD"
+              }
+            }
+          }
         };
         break;
 
@@ -220,10 +248,39 @@ export default function EnhancedSchema({ type, pageData = {} }: SchemaProps) {
           "@type": "WebPage",
           "name": `${pageData.industry} Business Funding`,
           "description": `Specialized business funding solutions for ${pageData.industry} companies`,
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://fundtekcapitalgroup.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Industries",
+                "item": "https://fundtekcapitalgroup.com/industries"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": pageData.industry,
+                "item": `https://fundtekcapitalgroup.com/industries/${pageData.industry?.toLowerCase().replace(/\s+/g, '-')}`
+              }
+            ]
+          },
           "mainEntity": {
             "@type": "FinancialService",
             "name": "FundTek Capital Group",
-            "serviceType": `${pageData.industry} Business Financing`
+            "serviceType": `${pageData.industry} Business Financing`,
+            "areaServed": ["United States", "Canada"],
+            "provider": {
+              "@type": "Organization",
+              "name": "FundTek Capital Group",
+              "telephone": "(305) 307-4658"
+            }
           }
         };
         break;
