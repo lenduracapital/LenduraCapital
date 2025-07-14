@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
-import cityBackgroundPath from "@assets/image_1751304641909.png";
+import cityBackgroundPath from "@assets/image_1752182868701.png";
 
 export default function HeroSection() {
   const [, setLocation] = useLocation();
@@ -49,6 +49,7 @@ export default function HeroSection() {
         playsInline
         preload="none"
         loading="lazy"
+        poster={cityBackgroundPath}
         onCanPlay={() => {
           if (videoRef.current) {
             videoRef.current.play().catch(() => {});
@@ -58,7 +59,9 @@ export default function HeroSection() {
           zIndex: 1,
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
-          willChange: 'transform'
+          willChange: 'transform',
+          WebkitTransform: 'translateZ(0)',
+          WebkitBackfaceVisibility: 'hidden'
         }}
       >
         <source src={videoPath} type="video/webm" />
@@ -66,7 +69,7 @@ export default function HeroSection() {
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
-          <div className="max-w-2xl pt-2 md:pt-3">
+          <div className="max-w-2xl pt-2 md:pt-3" style={{ contain: 'layout' }}>
             <h1 className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
               Flexible<br />
               Financing for<br />

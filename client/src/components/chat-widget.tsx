@@ -29,7 +29,7 @@ interface ChatState {
 function ChatWidget() {
   const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
-  const [isOpen, setIsOpen] = useState(true); // Start fully expanded
+  const [isOpen, setIsOpen] = useState(false); // Start collapsed on mobile
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [textInput, setTextInput] = useState('');
@@ -38,16 +38,33 @@ function ChatWidget() {
     responses: {}
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Show widget after 2 seconds on every page load
+  // Check if mobile and show widget after delay
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      // Start collapsed on mobile, expanded on desktop
+      if (!mobile && messages.length === 0) {
+        setIsOpen(true);
+      }
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     // Clear any previous dismissal so chat always appears on page load
     sessionStorage.removeItem('chatWidgetDismissed');
     
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 2000);
-    return () => clearTimeout(timer);
+    }, isMobile ? 5000 : 2000); // Longer delay on mobile
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   // Auto-scroll to bottom when new messages arrive
@@ -530,14 +547,18 @@ function ChatWidget() {
       {/* Chat Widget Container - Only when open */}
       {isOpen && (
         <div 
-          className="fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out"
+          className={`fixed z-50 transition-all duration-300 ease-in-out ${
+            isMobile ? 'bottom-0 right-0 left-0' : 'bottom-4 right-4'
+          }`}
           style={{ 
-            maxWidth: 'calc(100vw - 2rem)',
-            width: 'min(380px, 80vw)',
-            maxHeight: 'calc(100vh - 2rem)'
+            maxWidth: isMobile ? '100vw' : 'calc(100vw - 2rem)',
+            width: isMobile ? '100%' : 'min(380px, 80vw)',
+            maxHeight: isMobile ? '70vh' : 'calc(100vh - 2rem)'
           }}
         >
-          <div className="bg-white rounded-lg shadow-2xl border overflow-hidden">
+          <div className={`bg-white shadow-2xl border overflow-hidden ${
+            isMobile ? 'rounded-t-lg' : 'rounded-lg'
+          }`}>
             {/* Header */}
             <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
