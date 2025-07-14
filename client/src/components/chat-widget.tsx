@@ -641,8 +641,12 @@ function ChatWidget() {
                   <Bot className="w-6 h-6 text-[#85abe4]" />
                 </div>
                 <div>
-                  <div className="font-semibold text-lg">{showHistory ? 'Conversation(s)' : 'FundTek'}</div>
-                  <div className="text-blue-100 text-sm">{showHistory ? '' : 'Here to assist!'}</div>
+                  <div className={`font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}>
+                    {showHistory ? 'Conversation(s)' : 'FundTek'}
+                  </div>
+                  <div className={`text-blue-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                    {showHistory ? '' : 'Here to assist!'}
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -675,22 +679,24 @@ function ChatWidget() {
                       <div
                         key={conv.sessionId}
                         onClick={() => loadConversation(conv.sessionId)}
-                        className="p-4 bg-white rounded-lg border hover:border-[#85abe4] cursor-pointer transition-colors"
+                        className={`${isMobile ? 'p-3' : 'p-4'} bg-white rounded-lg border hover:border-[#85abe4] cursor-pointer transition-colors`}
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                              <MessageCircle className="w-5 h-5 text-gray-600" />
+                            <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-gray-100 rounded-full flex items-center justify-center`}>
+                              <MessageCircle className={`${isMobile ? 'w-4 h-4' : 'w-5 h-5'} text-gray-600`} />
                             </div>
                             <div>
-                              <div className="font-medium">{conv.firstName || 'FundTek Chat'}</div>
-                              <div className="text-sm text-gray-600">
+                              <div className={`font-medium ${isMobile ? 'text-sm' : 'text-base'}`}>
+                                {conv.firstName || 'FundTek Chat'}
+                              </div>
+                              <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-600`}>
                                 {new Date(conv.timestamp).toLocaleDateString()} • 
                                 {new Date(conv.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                               </div>
                             </div>
                           </div>
-                          <Clock className="w-4 h-4 text-gray-400" />
+                          <Clock className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} text-gray-400`} />
                         </div>
                       </div>
                     ))
@@ -708,7 +714,7 @@ function ChatWidget() {
                     key={message.id}
                     className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <div className={`max-w-[80%] p-3 rounded-lg shadow-sm ${
+                    <div className={`max-w-[80%] ${isMobile ? 'p-2 text-sm' : 'p-3 text-base'} rounded-lg shadow-sm ${
                       message.sender === 'user'
                         ? 'bg-[#85abe4] text-white rounded-br-sm'
                         : 'bg-white text-gray-800 border rounded-bl-sm'
