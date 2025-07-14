@@ -1,13 +1,13 @@
 import SolutionDetailTemplate from '@/components/solution-detail-template';
-import realEstateImage from "@assets/pexels-goumbik-574077_1752511219354.jpg";
+import commercialBuildingImage from "@assets/pexels-philip-kapadia-94537380-9270143 (1)_1752512055187.jpg";
 
 export default function CommercialRealEstateLending() {
   return (
     <SolutionDetailTemplate 
       title="Commercial Real Estate Lending"
       description="Access capital for commercial real estate purchases, refinancing, and development projects with our specialized CRE lending programs."
-      heroImage={realEstateImage}
-      contentImage={realEstateImage}
+      heroImage={commercialBuildingImage}
+      contentImage={commercialBuildingImage}
       features={[
         "Loan amounts from $1M to $50M+",
         "Competitive rates starting at 4.5%",
