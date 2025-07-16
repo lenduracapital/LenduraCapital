@@ -34,7 +34,7 @@ export function encryptField(plaintext: string): string | null {
 
   try {
     const iv = crypto.randomBytes(IV_LENGTH);
-    const cipher = crypto.createCipher(ALGORITHM, encryptionKey);
+    const cipher = crypto.createCipheriv(ALGORITHM, encryptionKey, iv);
     cipher.setAAD(Buffer.from('fundtek-aad')); // Additional authenticated data
     
     let encrypted = cipher.update(plaintext, 'utf8', 'base64');
@@ -65,7 +65,7 @@ export function decryptField(encryptedData: string): string | null {
     const tag = combined.subarray(IV_LENGTH, IV_LENGTH + TAG_LENGTH);
     const encrypted = combined.subarray(IV_LENGTH + TAG_LENGTH);
     
-    const decipher = crypto.createDecipher(ALGORITHM, encryptionKey);
+    const decipher = crypto.createDecipheriv(ALGORITHM, encryptionKey, iv);
     decipher.setAuthTag(tag);
     decipher.setAAD(Buffer.from('fundtek-aad'));
     
