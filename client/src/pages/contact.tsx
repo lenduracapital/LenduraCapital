@@ -151,53 +151,29 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4 sm:mb-6">
-                Request Information
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4">
+                Get Working Capital Today
               </h3>
               
+              {/* Form Container */}
               <div className="w-full">
-                
-                
-                {/* Mobile-Optimized Embedded Form */}
-                <div className="w-full relative">
-                  <iframe
-                    id="JotFormIFrame-251674789886078"
-                    title="FundTek Capital Group Contact Form"
-                    onLoad={() => window.parent.scrollTo(0, 0)}
-                    allowtransparency="true"
-                    allow="geolocation; microphone; camera; fullscreen"
-                    src="https://form.jotform.com/251674789886078"
-                    frameBorder="0"
-                    style={{
-                      minWidth: '100%',
-                      maxWidth: '100%',
-                      height: '500px',
-                      border: 'none',
-                    }}
-                    className="w-full rounded-lg"
-                    scrolling="yes"
-                  />
-                </div>
-                
-                {/* Mobile Form Tips */}
-                <div className="mt-3 sm:mt-4 p-3 bg-blue-50 rounded-lg border-l-4 border-[#85abe4] block sm:hidden">
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    <strong>Mobile tip:</strong> Scroll within the form above to access all fields. Tap any field to focus and use your device keyboard.
-                  </p>
-                </div>
-                
-                {/* Fallback Link */}
-                <div className="mt-3 sm:mt-4 text-center">
-                  <p className="text-xs sm:text-sm text-gray-500 mb-2">
-                    Having trouble with the form?
-                  </p>
-                  <button
-                    onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
-                    className="text-[#85abe4] hover:text-[#7498d1] text-xs sm:text-sm font-medium underline transition-colors"
-                  >
-                    Open in new tab
-                  </button>
-                </div>
+                <iframe
+                  id="JotFormIFrame-251674789886078"
+                  title="FundTek Capital Group Contact Form"
+                  onLoad={() => window.parent.scrollTo(0, 0)}
+                  allowtransparency="true"
+                  allow="geolocation; microphone; camera; fullscreen"
+                  src="https://form.jotform.com/251674789886078"
+                  frameBorder="0"
+                  style={{
+                    minWidth: '100%',
+                    maxWidth: '100%',
+                    height: '800px',
+                    border: 'none',
+                  }}
+                  className="w-full rounded-lg"
+                  scrolling="no"
+                />
               </div>
             </div>
           </div>
