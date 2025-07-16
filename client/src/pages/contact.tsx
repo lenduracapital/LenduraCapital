@@ -156,26 +156,7 @@ export default function Contact() {
               </h3>
               
               <div className="w-full">
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 sm:p-6 rounded-lg border border-blue-200 mb-4">
-                  <div className="text-center">
-                    <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-2 sm:mb-4">Get Working Capital Today</h4>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                      Fill out the form below and our specialists will contact you within 24 hours.
-                    </p>
-                    <button
-                      onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
-                      className="bg-[#85abe4] hover:bg-[#7498d1] text-white font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg transition-colors inline-flex items-center gap-2 text-sm sm:text-base"
-                    >
-                      Open Contact Form
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </button>
-                    <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
-                      Opens in a new tab with full functionality including conditional redirects
-                    </p>
-                  </div>
-                </div>
+                
                 
                 {/* Mobile-Optimized Embedded Form */}
                 <div className="w-full relative">
