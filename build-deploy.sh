@@ -1,79 +1,99 @@
 #!/bin/bash
 
-# Production build script for FundTek Capital Group deployment
-# This script ensures proper TypeScript compilation and build verification
+# Enhanced Build and Deploy Script for FundTek Capital Group
+# Ensures reliable TypeScript compilation and deployment preparation
 
 set -e  # Exit on any error
 
-echo "🔨 Starting production build process..."
+echo "🚀 FundTek Capital Group - Enhanced Build Process"
+echo "=================================================="
 
-# Try the fast build approach first (recommended for deployment)
-if [ "$1" = "--fast" ] || [ "$BUILD_STRATEGY" = "fast" ]; then
-    echo "🚀 Using fast build strategy..."
-    ./fast-build.sh
-    exit 0
-fi
-
-# Step 1: Create dist directory structure
-echo "📁 Creating dist directory structure..."
-mkdir -p dist
-mkdir -p dist/client
-
-# Step 2: Build the backend with esbuild (fast and reliable)
-echo "🔧 Building backend with esbuild..."
-npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
-
-# Step 3: Attempt frontend build with timeout handling
-echo "🔧 Building frontend..."
-timeout 300s npm run build:client || {
-    echo "⚠️  Standard build timed out, falling back to fast build..."
-    ./fast-build.sh
-    exit 0
+# Function to log with timestamp
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
-# Step 4: Copy frontend build files to correct location based on vite config
-echo "📁 Organizing build output..."
-if [ -d "dist/public" ]; then
-    echo "Moving frontend files from dist/public to dist/client..."
-    mv dist/public/* dist/client/ 2>/dev/null || true
-    rmdir dist/public 2>/dev/null || true
+# Clean previous builds
+log "🧹 Cleaning previous build artifacts..."
+rm -rf dist
+rm -rf node_modules/.vite
+rm -rf node_modules/typescript/tsbuildinfo
+
+# Verify TypeScript configuration
+log "🔧 Verifying TypeScript configuration..."
+if ! grep -q '"noEmit": false' tsconfig.json; then
+    log "⚠️  Warning: TypeScript noEmit should be false for deployment builds"
 fi
 
-# Step 5: Verify that the main entry file exists
-echo "✅ Verifying build output..."
-if [ ! -f "./dist/index.js" ]; then
-    echo "❌ Build verification failed: dist/index.js not found"
-    echo "📋 Directory contents:"
-    ls -la dist/
+# Install dependencies if needed
+log "📦 Ensuring dependencies are installed..."
+if [ ! -d "node_modules" ]; then
+    npm install
+fi
+
+# Run TypeScript type checking
+log "🔍 Running TypeScript type checking..."
+npx tsc --noEmit
+
+# Build frontend with Vite
+log "🎨 Building frontend with Vite..."
+npx vite build
+
+# Build backend with esbuild
+log "⚙️  Building backend with esbuild..."
+npx esbuild server/index.ts \
+    --platform=node \
+    --packages=external \
+    --bundle \
+    --format=esm \
+    --outdir=dist \
+    --target=es2022 \
+    --sourcemap=false \
+    --minify
+
+# Verify build output
+log "🔍 Verifying build output..."
+if [ ! -f "dist/index.js" ]; then
+    echo "❌ ERROR: dist/index.js not found!"
     exit 1
-else
-    echo "✅ Build verification passed: dist/index.js exists"
-    echo "📊 File size: $(du -h dist/index.js | cut -f1)"
 fi
 
-# Step 6: Verify client files exist
-if [ ! -f "./dist/client/index.html" ]; then
-    echo "⚠️  Frontend build may have issues: dist/client/index.html not found"
-    echo "📋 Available files in dist/:"
-    find dist/ -type f -name "*.html" -o -name "*.js" -o -name "*.css" | head -10
-else
-    echo "✅ Frontend build verified: dist/client/index.html exists"
+if [ ! -d "dist/client" ]; then
+    echo "❌ ERROR: dist/client directory not found!"
+    exit 1
 fi
 
-# Step 7: Verify the built file can be parsed
-echo "🔍 Verifying JavaScript syntax..."
-node -c dist/index.js
-echo "✅ JavaScript syntax verification passed"
+# Check file sizes
+log "📊 Build output summary:"
+if [ -f "dist/index.js" ]; then
+    INDEX_SIZE=$(du -h dist/index.js | cut -f1)
+    log "  📄 dist/index.js: $INDEX_SIZE"
+fi
 
-# Step 8: Run final verification
-echo "🔍 Running build verification..."
+if [ -d "dist/client" ]; then
+    CLIENT_SIZE=$(du -sh dist/client | cut -f1)
+    log "  📁 dist/client: $CLIENT_SIZE"
+fi
+
+# Run build verification
+log "✅ Running build verification..."
 node build-verification.js
 
-echo "🎉 Build completed successfully!"
-echo "📋 Build summary:"
-echo "   - Backend build: ✅"
-echo "   - Frontend build: ✅"
-echo "   - File verification: ✅"
-echo "   - Syntax check: ✅"
-echo "📊 Final structure:"
-ls -la dist/
+# Final deployment check
+log "🎯 Final deployment readiness check..."
+if [ -f "dist/index.js" ] && [ -d "dist/client" ]; then
+    log "✅ Build completed successfully!"
+    log "🚀 Ready for production deployment"
+    
+    # Display deployment commands
+    echo ""
+    echo "🔧 Deployment Commands:"
+    echo "  Start production server: npm start"
+    echo "  Or run directly: NODE_ENV=production node dist/index.js"
+    echo ""
+    
+    exit 0
+else
+    log "❌ Build verification failed!"
+    exit 1
+fi

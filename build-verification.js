@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Build verification script for FundTek Capital Group
- * Ensures all required files exist and are properly formatted
+ * Enhanced Build verification script for FundTek Capital Group
+ * Ensures all required files exist and are properly formatted for production deployment
  */
 
 import fs from 'fs';
@@ -22,7 +22,15 @@ const optionalFiles = [
   'dist/client/assets'
 ];
 
-console.log('🔍 Starting build verification...');
+const criticalChecks = [
+  { name: 'TypeScript Configuration', check: checkTypeScriptConfig },
+  { name: 'Build Output Structure', check: checkBuildStructure },
+  { name: 'Production Dependencies', check: checkProductionDependencies },
+  { name: 'Environment Configuration', check: checkEnvironmentConfig }
+];
+
+console.log('🔍 Starting enhanced build verification...');
+console.log('📋 Deployment readiness check for FundTek Capital Group');
 
 let allChecksPassed = true;
 
@@ -124,14 +132,100 @@ if (fs.existsSync('dist')) {
   allChecksPassed = false;
 }
 
+// Run critical deployment checks
+console.log('\n🔧 Running critical deployment checks:');
+for (const { name, check } of criticalChecks) {
+  try {
+    const result = check();
+    if (result.passed) {
+      console.log(`  ✅ ${name}: ${result.message}`);
+    } else {
+      console.log(`  ❌ ${name}: ${result.message}`);
+      allChecksPassed = false;
+    }
+  } catch (error) {
+    console.log(`  ❌ ${name}: Error - ${error.message}`);
+    allChecksPassed = false;
+  }
+}
+
 // Final verification result
-console.log('\n' + '='.repeat(50));
+console.log('\n' + '='.repeat(60));
 if (allChecksPassed) {
   console.log('✅ BUILD VERIFICATION PASSED');
-  console.log('🚀 Ready for deployment');
+  console.log('🚀 Ready for production deployment');
+  console.log('📊 All systems operational for FundTek Capital Group');
   process.exit(0);
 } else {
   console.log('❌ BUILD VERIFICATION FAILED');
   console.log('🔧 Please fix the issues above before deployment');
+  console.log('📞 Contact DevOps team if issues persist');
   process.exit(1);
+}
+
+// Helper functions for critical checks
+function checkTypeScriptConfig() {
+  try {
+    const tsConfig = JSON.parse(fs.readFileSync('tsconfig.json', 'utf8'));
+    const noEmit = tsConfig.compilerOptions?.noEmit;
+    
+    if (noEmit === false) {
+      return { passed: true, message: 'TypeScript compilation enabled' };
+    } else {
+      return { passed: false, message: 'noEmit should be false for compilation output' };
+    }
+  } catch (error) {
+    return { passed: false, message: 'tsconfig.json not found or invalid' };
+  }
+}
+
+function checkBuildStructure() {
+  const distExists = fs.existsSync('dist');
+  const indexExists = fs.existsSync('dist/index.js');
+  const clientExists = fs.existsSync('dist/client');
+  
+  if (distExists && indexExists && clientExists) {
+    return { passed: true, message: 'Complete build structure present' };
+  } else {
+    const missing = [];
+    if (!distExists) missing.push('dist directory');
+    if (!indexExists) missing.push('dist/index.js');
+    if (!clientExists) missing.push('dist/client');
+    return { passed: false, message: `Missing: ${missing.join(', ')}` };
+  }
+}
+
+function checkProductionDependencies() {
+  try {
+    const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    const hasBuildScript = packageJson.scripts?.build;
+    const hasStartScript = packageJson.scripts?.start;
+    const hasExpressDep = packageJson.dependencies?.express;
+    
+    if (hasBuildScript && hasStartScript && hasExpressDep) {
+      return { passed: true, message: 'Production scripts and dependencies ready' };
+    } else {
+      const missing = [];
+      if (!hasBuildScript) missing.push('build script');
+      if (!hasStartScript) missing.push('start script');
+      if (!hasExpressDep) missing.push('express dependency');
+      return { passed: false, message: `Missing: ${missing.join(', ')}` };
+    }
+  } catch (error) {
+    return { passed: false, message: 'package.json not found or invalid' };
+  }
+}
+
+function checkEnvironmentConfig() {
+  const indexContent = fs.existsSync('dist/index.js') ? 
+    fs.readFileSync('dist/index.js', 'utf8') : '';
+  
+  const hasExpressSetup = indexContent.includes('express') || indexContent.includes('app.listen');
+  const hasPortBinding = indexContent.includes('process.env.PORT') || indexContent.includes('5000');
+  
+  if (hasExpressSetup && hasPortBinding) {
+    return { passed: true, message: 'Server configuration detected' };
+  } else {
+    return { passed: false, message: 'Server configuration incomplete' };
+  }
 }

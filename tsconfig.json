@@ -18,13 +18,15 @@
     "moduleResolution": "bundler",
     "baseUrl": ".",
     "types": ["node", "vite/client"],
-    "declaration": true,
+    "declaration": false,
     "declarationMap": false,
     "sourceMap": false,
     "removeComments": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noEmitOnError": false,
+    "isolatedModules": true,
     "paths": {
       "@/*": ["./client/src/*"],
       "@shared/*": ["./shared/*"]
