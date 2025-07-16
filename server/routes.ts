@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { auditLogger } from "./audit-logger";
+// Import validation schemas from client-safe shared schema
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import sgMail from '@sendgrid/mail';
 import { registerAdminRoutes } from "./admin-routes";

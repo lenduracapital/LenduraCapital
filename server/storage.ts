@@ -1,4 +1,7 @@
-import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages, analyticsEvents, type User, type InsertUser, type LoanApplication, type InsertLoanApplication, type ContactSubmission, type InsertContactSubmission, type JotformSubmission, type InsertJotformSubmission, type ChatbotConversation, type InsertChatbotConversation, type AuditLog, type InsertAuditLog, type AnalyticsEvent, type InsertAnalyticsEvent } from "@shared/schema";
+// Import database tables from server schema
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages, analyticsEvents } from "./schema";
+// Import types from shared schema (client-safe)
+import type { User, InsertUser, LoanApplication, InsertLoanApplication, ContactSubmission, InsertContactSubmission, JotformSubmission, InsertJotformSubmission, ChatbotConversation, InsertChatbotConversation, AuditLog, InsertAuditLog, AnalyticsEvent, InsertAnalyticsEvent } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 

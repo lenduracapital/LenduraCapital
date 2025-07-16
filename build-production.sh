@@ -1,63 +1,84 @@
 #!/bin/bash
-set -e
 
-echo "🔨 Starting production build for FundTek Capital Group..."
+# Production Build Script for FundTek Capital Group
+# Addresses deployment failures by ensuring reliable TypeScript compilation
+# Creates required dist/index.js file for deployment
 
-# Clean previous build
-echo "🧹 Cleaning previous build..."
-rm -rf dist server/public
+set -e  # Exit on any error
 
-# Create directories
-echo "📁 Creating build directories..."
-mkdir -p dist
-mkdir -p server/public
+echo "🚀 FundTek Capital Group - Production Build Process"
+echo "=================================================="
+echo "Fixing deployment issues with TypeScript compilation"
+echo ""
 
-# Build frontend with Vite (optimized for production)
-echo "⚛️ Building frontend with Vite..."
-export NODE_ENV=production
-timeout 300s npx vite build || {
-  echo "⚠️ Vite build timed out, using minimal frontend build..."
-  mkdir -p dist/public
-  cp server/public/index.html dist/public/
+# Function to log with timestamp
+log() {
+    echo "[$(date '+%H:%M:%S')] $1"
 }
 
-# Build backend with esbuild
-echo "🔧 Building backend with esbuild..."
+log "🧹 Step 1: Clean build artifacts..."
+rm -rf dist
+rm -rf node_modules/.vite
+mkdir -p dist
+
+log "🔧 Step 2: Verify TypeScript configuration..."
+if ! grep -q '"noEmit": false' tsconfig.json; then
+    log "❌ ERROR: TypeScript noEmit must be false for compilation output"
+    exit 1
+fi
+log "✅ TypeScript compilation enabled"
+
+log "📦 Step 3: Build frontend with Vite (optimized)..."
+# Use faster build with limited parallelization to avoid timeout
+NODE_OPTIONS="--max-old-space-size=2048" npx vite build --mode production --logLevel error
+
+log "⚡ Step 4: Build server with esbuild..."
 npx esbuild server/index.ts \
-  --platform=node \
-  --packages=external \
-  --bundle \
-  --format=esm \
-  --outfile=dist/index.js \
-  --target=node18 \
-  --sourcemap
+    --platform=node \
+    --packages=external \
+    --bundle \
+    --format=esm \
+    --outfile=dist/index.js \
+    --target=es2022 \
+    --minify \
+    --sourcemap \
+    --external:pg-native \
+    --external:bufferutil \
+    --external:utf-8-validate \
+    --external:fsevents
 
-# Copy frontend build to server/public for serving
-echo "📋 Copying frontend build to server/public..."
-cp -r dist/public/* server/public/
-
-# Verify build output
-echo "✅ Verifying build output..."
+log "✅ Step 5: Verify build output..."
 if [ -f "dist/index.js" ]; then
-    echo "  ✓ dist/index.js created successfully"
-    INDEX_SIZE=$(du -h dist/index.js | cut -f1)
-    echo "    Size: $INDEX_SIZE"
+    SIZE=$(stat -c%s dist/index.js 2>/dev/null || stat -f%z dist/index.js 2>/dev/null || echo "unknown")
+    log "✅ dist/index.js created successfully (${SIZE} bytes)"
+    
+    # Test JavaScript syntax
+    if node -c dist/index.js 2>/dev/null; then
+        log "✅ JavaScript syntax valid"
+    else
+        log "❌ JavaScript syntax validation failed"
+        exit 1
+    fi
 else
-    echo "  ❌ dist/index.js not found!"
+    log "❌ CRITICAL: dist/index.js not created"
     exit 1
 fi
 
-if [ -f "server/public/index.html" ]; then
-    echo "  ✓ Frontend built and copied to server/public"
-    FRONTEND_SIZE=$(du -sh server/public | cut -f1)
-    echo "    Size: $FRONTEND_SIZE"
+# Verify frontend build
+if [ -f "dist/index.html" ]; then
+    log "✅ Frontend build complete"
 else
-    echo "  ❌ Frontend build not found in server/public!"
+    log "❌ Frontend build missing"
     exit 1
 fi
 
-echo "🎉 Production build completed successfully!"
+log "🎉 Production build complete!"
+log "📁 Build artifacts:"
+ls -la dist/ | head -10
+
 echo ""
-echo "🚀 To start production server:"
-echo "   NODE_ENV=production node dist/index.js"
+echo "✅ DEPLOYMENT READY"
+echo "📋 Next steps:"
+echo "   npm start                 # Start production server"
+echo "   node dist/index.js        # Direct server start"
 echo ""
