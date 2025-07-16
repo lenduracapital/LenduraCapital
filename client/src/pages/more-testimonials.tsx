@@ -136,7 +136,7 @@ export default function MoreTestimonials() {
             Get the funding your business needs to grow and thrive.
           </p>
           <button 
-            onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+            onClick={() => window.open("https://form.jotform.com/251965198766173", "_blank")}
             style={{ backgroundColor: '#85abe4' }}
             className="px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
           >

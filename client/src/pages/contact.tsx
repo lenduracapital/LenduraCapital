@@ -107,12 +107,12 @@ export default function Contact() {
               {/* Contact Form */}
               <div className="bg-white rounded-lg shadow-lg">
                 <iframe
-                  id="JotFormIFrame-251674789886078"
+                  id="JotFormIFrame-251965198766173"
                   title="FundTek Capital Group Contact Form"
                   onLoad={() => window.parent.scrollTo(0, 0)}
                   allowtransparency="true"
                   allow="geolocation; microphone; camera; fullscreen"
-                  src="https://form.jotform.com/251674789886078"
+                  src="https://form.jotform.com/251965198766173"
                   frameBorder="0"
                   style={{
                     minWidth: '100%',
@@ -260,7 +260,7 @@ export default function Contact() {
             <h3 className="text-4xl font-bold text-[#85abe4] mb-6">Ready to Get Started?</h3>
             <p className="text-xl text-[#85abe4] mb-8">Join thousands of businesses we've helped secure funding.</p>
             <button
-              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+              onClick={() => window.open("https://form.jotform.com/251965198766173", "_blank")}
               className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
               style={{ backgroundColor: '#85abe4' }}
             >

@@ -179,7 +179,7 @@ export default function FAQPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+              onClick={() => window.open("https://form.jotform.com/251965198766173", "_blank")}
               className="px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
               style={{ backgroundColor: '#85abe4' }}
             >

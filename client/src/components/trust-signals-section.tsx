@@ -221,7 +221,7 @@ export default function TrustSignalsSection() {
           {/* CTAs below FAQ */}
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
-              onClick={() => window.open("https://form.jotform.com/251417715331047", "_blank")}
+              onClick={() => window.open("https://form.jotform.com/251965198766173", "_blank")}
               className="bg-[#85abe4] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
               Get Funding Now

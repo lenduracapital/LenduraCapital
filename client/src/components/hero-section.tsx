@@ -82,7 +82,7 @@ export default function HeroSection() {
 
   const handleApplyNow = () => {
     trackCTAClick('Apply Now - Hero', 'Homepage Hero Section', 'Jotform Application');
-    window.open('https://form.jotform.com/251417715331047', '_blank');
+    window.open('https://form.jotform.com/251965198766173', '_blank');
   };
 
   const handlePhoneClick = () => {

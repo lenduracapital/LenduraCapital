@@ -9,7 +9,7 @@ export default function RealEstate() {
   const [, setLocation] = useLocation();
 
   const handleApplyClick = () => {
-    window.open("https://form.jotform.com/251417715331047", "_blank");
+    window.open("https://form.jotform.com/251965198766173", "_blank");
   };
 
   const handleSolutionsClick = () => {

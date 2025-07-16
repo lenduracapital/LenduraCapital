@@ -12,7 +12,7 @@ export default function CommercialRealEstateLending() {
   };
 
   const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251417715331047", "_blank");
+    window.open("https://form.jotform.com/251965198766173", "_blank");
   };
 
   const handleContactUs = () => {
