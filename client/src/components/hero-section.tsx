@@ -100,11 +100,7 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundColor: '#1e293b',
-        backgroundImage: `url(${heroBackgroundPath})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundColor: '#1e293b'
       }}
     >
       {/* Optimized Video Background */}
