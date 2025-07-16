@@ -188,7 +188,7 @@ export default function WorkingCapitalSection() {
                     </div>
                     <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 leading-tight px-2">Get Started in Minutes and See Your Options</h3>
                     <Button 
-                      onClick={() => window.open("https://form.jotform.com/251965198766173", "_blank")}
+                      onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
                       className="bg-gradient-to-r from-[#85abe4] to-[#6b8cc4] hover:from-[#6b8cc4] hover:to-[#5a7ab8] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-h-[44px]"
                     >
                       Apply Now ➤

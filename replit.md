@@ -101,7 +101,7 @@ FundTek Capital Group is a comprehensive business funding platform built as a fu
 ```
 Changelog:
 - January 16, 2025. Comprehensive Jotform URL update across entire website (COMPLETE):
-  * Updated all Apply Now buttons and funding CTAs to new Jotform: https://form.jotform.com/251965198766173
+  * Updated all Apply Now buttons and funding CTAs to new Jotform: https://form.jotform.com/251965461165159
   * Updated contact page form iframe to use new funding application form
   * Updated hero section main Apply Now button to new form URL
   * Updated chat widget Apply Online button to new form URL

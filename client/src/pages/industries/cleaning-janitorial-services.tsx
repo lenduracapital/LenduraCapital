@@ -10,7 +10,7 @@ export default function CleaningJanitorialServices() {
   const [, setLocation] = useLocation();
 
   const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251965198766173", "_blank");
+    window.open("https://form.jotform.com/251965461165159", "_blank");
   };
 
   const handleBackToIndustries = () => {
