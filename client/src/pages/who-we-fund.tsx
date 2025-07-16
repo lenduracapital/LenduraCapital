@@ -42,7 +42,7 @@ const industries = [
   {
     title: "Professional Services",
     description: "Law firms, accounting practices, and consulting companies require funding for technology, expansion, staff hiring, and cash flow management.",
-    image: "/attached_assets/pnc_insights_sb_5-ways-professional-services-organizations-changed-2023_1751303419004.avif"
+    image: "/attached_assets/pexels-philip-kapadia-94537380-9270143_1752511219358.jpg"
   },
   {
     title: "Technology & Software",
