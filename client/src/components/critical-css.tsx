@@ -8,6 +8,8 @@ export default function CriticalCSS() {
       /* Critical CSS for immediate paint */
       .hero-video-container {
         backface-visibility: hidden;
+        transform: translateZ(0);
+        will-change: transform;
       }
       
       /* Optimize font loading */
@@ -19,26 +21,69 @@ export default function CriticalCSS() {
         src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2') format('woff2');
       }
       
-      /* Prevent layout shift */
-      img, video {
+      /* Enhanced video and image loading performance */
+      video {
         max-width: 100%;
         height: auto;
+        transform: translateZ(0);
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+        transform: translateZ(0);
+        will-change: transform;
+        backface-visibility: hidden;
       }
       
       /* Hardware acceleration for performance */
       .header-nav {
         backface-visibility: hidden;
+        transform: translateZ(0);
       }
       
       /* Optimize button interactions */
       button {
         backface-visibility: hidden;
+        transform: translateZ(0);
       }
       
-      /* Prevent text flash */
+      /* Prevent text flash and optimize rendering */
       body {
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
         text-rendering: optimizeSpeed;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Optimize critical above-the-fold content */
+      .hero-section {
+        contain: layout style paint;
+        transform: translateZ(0);
+      }
+      
+      /* Reduce layout thrashing */
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Optimize scroll performance */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Image placeholder optimization */
+      .image-placeholder {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
       }
     `;
 

@@ -2,15 +2,17 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { trackCTAClick } from "@/hooks/use-analytics-tracking";
+import { usePerformanceOptimization } from "@/components/performance-optimizer";
 import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
 import heroBackgroundPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
 
-// Video optimization hook
+// Enhanced video optimization hook
 function useVideoOptimization() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   
   useEffect(() => {
     const checkMobile = () => {
@@ -20,65 +22,69 @@ function useVideoOptimization() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Load video immediately
-    setShouldPlayVideo(true);
+    // Performance optimization will handle video preloading
     
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
   }, []);
   
-  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile };
+  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying };
 }
 
 export default function HeroSection() {
   const [, setLocation] = useLocation();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile } = useVideoOptimization();
+  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying } = useVideoOptimization();
+  const { optimizer, isInitialized } = usePerformanceOptimization();
 
-  // Enhanced video loading with intersection observer
+  // Enhanced video loading with performance optimization
   useEffect(() => {
-    if (!shouldPlayVideo || !videoRef.current) return;
+    if (!shouldPlayVideo || !videoRef.current || !isInitialized) return;
 
     const video = videoRef.current;
     
-    // Progressive video loading
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isVideoLoaded) {
-            video.load();
-            video.play().catch(() => {
-              // Fallback for autoplay restrictions
-              video.muted = true;
-              video.play().catch(() => {});
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(video);
-    
     const handleCanPlay = () => {
       setIsVideoLoaded(true);
+      setIsVideoPlaying(true);
       video.classList.add('loaded');
+      
+      // Enable buffer management for smooth playback
+      optimizer.manageVideoBuffer(video);
     };
 
     const handleLoadedData = () => {
-      // Video is ready to play
+      setIsVideoLoaded(true);
+      setIsVideoPlaying(true);
     };
+
+    const handlePlay = () => {
+      setIsVideoPlaying(true);
+    };
+
+    // Check if video is already preloaded
+    if (optimizer.isResourcePreloaded(videoPath)) {
+      handleCanPlay();
+    }
+
+    // Immediate video loading and playback
+    video.load();
+    video.play().catch(() => {
+      // Fallback for autoplay restrictions
+      video.muted = true;
+      video.play().catch(() => {});
+    });
 
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('play', handlePlay);
 
     return () => {
-      observer.disconnect();
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('play', handlePlay);
     };
-  }, [shouldPlayVideo, isVideoLoaded, setIsVideoLoaded]);
+  }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying, isInitialized, optimizer]);
 
   const handleApplyNow = () => {
     trackCTAClick('Apply Now - Hero', 'Homepage Hero Section', 'Jotform Application');
@@ -94,22 +100,23 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundColor: '#1e293b', // Clean dark navy fallback only
+        backgroundColor: isVideoPlaying ? 'transparent' : '#1e293b',
+        backgroundImage: !isVideoPlaying ? `url(${heroBackgroundPath})` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* High-Performance Video Background */}
+      {/* Optimized Video Background */}
       {shouldPlayVideo && (
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster=""
           controls={false}
           disablePictureInPicture
@@ -117,7 +124,9 @@ export default function HeroSection() {
           x5-playsinline="true"
           webkit-playsinline="true"
           style={{
-            zIndex: 1
+            zIndex: isVideoLoaded ? 1 : 0,
+            transform: 'translateZ(0)', // GPU acceleration
+            willChange: 'transform'
           }}
         >
           <source src={videoPath} type="video/webm" />
@@ -125,14 +134,19 @@ export default function HeroSection() {
         </video>
       )}
       
-      {/* Clean dark navy fallback */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          backgroundColor: '#1e293b',
-          zIndex: 0
-        }}
-      />
+      {/* Background image fallback - only shows when video not playing */}
+      {!isVideoPlaying && (
+        <div 
+          className="absolute inset-0 transition-opacity duration-300"
+          style={{
+            backgroundImage: `url(${heroBackgroundPath})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 0
+          }}
+        />
+      )}
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">

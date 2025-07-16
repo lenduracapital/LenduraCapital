@@ -4,31 +4,41 @@ interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
-  style?: React.CSSProperties;
+  loading?: 'lazy' | 'eager';
   priority?: boolean;
+  style?: React.CSSProperties;
+  [key: string]: any;
 }
 
-export default function OptimizedImage({ src, alt, className = '', style = {}, priority = false }: OptimizedImageProps) {
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const imgRef = useRef<HTMLDivElement>(null);
+export default function OptimizedImage({
+  src,
+  alt,
+  className = '',
+  loading = 'lazy',
+  priority = false,
+  style,
+  ...props
+}: OptimizedImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (priority) {
-      setIsIntersecting(true);
+      setIsInView(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsIntersecting(true);
+          setIsInView(true);
           observer.disconnect();
         }
       },
       {
-        rootMargin: '50px',
-        threshold: 0.01
+        threshold: 0.1,
+        rootMargin: '50px'
       }
     );
 
@@ -39,31 +49,41 @@ export default function OptimizedImage({ src, alt, className = '', style = {}, p
     return () => observer.disconnect();
   }, [priority]);
 
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
+  const handleError = () => {
+    setIsLoaded(true); // Still set as loaded to avoid infinite loading states
+  };
+
   return (
-    <div ref={imgRef} className={`relative ${className}`} style={style}>
-      {/* Placeholder with blur effect */}
-      {!hasLoaded && (
-        <div 
-          className="absolute inset-0 bg-gray-200 animate-pulse"
-          style={{ filter: 'blur(20px)' }}
-        />
+    <div
+      ref={imgRef}
+      className={`relative overflow-hidden ${className}`}
+      style={style}
+      {...props}
+    >
+      {/* Placeholder background */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
       )}
       
-      {/* Actual image */}
-      {isIntersecting && (
+      {/* Optimized image */}
+      {isInView && (
         <img
           src={src}
           alt={alt}
-          className={`${className} ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          loading={loading}
+          onLoad={handleLoad}
+          onError={handleError}
           style={{
-            ...style,
-            transition: 'opacity 0.3s ease-in-out',
-            transform: 'translateZ(0)',
-            backfaceVisibility: 'hidden'
+            transform: 'translateZ(0)', // GPU acceleration
+            willChange: 'transform'
           }}
-          onLoad={() => setHasLoaded(true)}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
         />
       )}
     </div>
