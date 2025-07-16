@@ -154,9 +154,12 @@ export default function Contact() {
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-3">
                 Get Working Capital Today
               </h3>
+              <p className="text-gray-600 mb-4 text-sm">
+                Complete the form below and our specialists will contact you within 24 hours.
+              </p>
               
               {/* Form Container */}
-              <div className="w-full -mt-1">
+              <div className="w-full">
                 <iframe
                   id="JotFormIFrame-251674789886078"
                   title="FundTek Capital Group Contact Form"
@@ -168,12 +171,22 @@ export default function Contact() {
                   style={{
                     minWidth: '100%',
                     maxWidth: '100%',
-                    height: '600px',
+                    height: '450px',
                     border: 'none',
                   }}
                   className="w-full rounded-lg"
                   scrolling="yes"
                 />
+              </div>
+              
+              {/* Form Footer */}
+              <div className="mt-3 text-center">
+                <button
+                  onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
+                  className="text-[#85abe4] hover:text-[#7498d1] text-sm font-medium underline transition-colors"
+                >
+                  Open form in new tab for best experience
+                </button>
               </div>
             </div>
           </div>
