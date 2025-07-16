@@ -4,6 +4,8 @@ import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import fundTekLogo from "@assets/image_1752182868701.png";
 
+import ChatGPT_Image_Jun_5__2025__12_13_54_PM from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM.png";
+
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
   { name: "Lines of Credit", href: "/solutions/lines-of-credit" },
@@ -51,7 +53,7 @@ export default function Footer() {
           <div className="space-y-3 md:space-y-4 text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-start space-x-3">
               <img 
-                src={fundTekLogo} 
+                src={ChatGPT_Image_Jun_5__2025__12_13_54_PM} 
                 alt="FundTek Capital Group" 
                 className="h-20 sm:h-24 md:h-40 w-auto"
               />
