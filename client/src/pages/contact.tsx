@@ -82,7 +82,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#85abe4] text-lg">Phone</h4>
-                        <span className="text-[#85abe4] font-bold text-xl">(XXX) XXX-XXXX</span>
+                        <span className="text-[#85abe4] font-bold text-xl">(315) 503-7874</span>
                       </div>
                     </div>
                     
