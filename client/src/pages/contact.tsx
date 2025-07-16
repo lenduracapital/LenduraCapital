@@ -193,9 +193,9 @@ export default function Contact() {
         </div>
       </section>
       {/* Next Steps Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-black mb-6">
               Next Steps - Your Path to Funding
             </h2>
