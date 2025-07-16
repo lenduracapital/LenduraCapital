@@ -26,41 +26,40 @@ export default function Contact() {
       {/* Contact Information & Form Section */}
       <section className="py-8 sm:py-12" style={{ backgroundColor: '#f5f6f6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            
-            {/* Contact Information */}
-            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4 sm:mb-6">
-                  Contact FundTek Capital Group
-                </h2>
-              </div>
-
+          <div className="mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black text-center">
+              Contact FundTek Capital Group
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Left Column - Contact Information */}
+            <div className="space-y-6">
               {/* General Questions Contact */}
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
-                <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-black mb-6">
                   General Questions
                 </h3>
                 
-                <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-4">
                       <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
                         <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#85abe4] text-base sm:text-lg">Phone</h4>
-                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg sm:text-xl">(305) 307-4658</a>
+                        <h4 className="font-semibold text-[#85abe4] text-lg">Phone</h4>
+                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 307-4658</a>
                       </div>
                     </div>
                     
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="flex items-start space-x-4">
                       <div style={{ backgroundColor: '#85abe4' }} className="p-2 rounded-lg flex-shrink-0">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#85abe4] text-base sm:text-lg">Email</h4>
-                        <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-sm sm:text-lg break-all">admin@fundtekcapitalgroup.com</a>
+                        <h4 className="font-semibold text-[#85abe4] text-lg">Email</h4>
+                        <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">admin@fundtekcapitalgroup.com</a>
                       </div>
                     </div>
                     
@@ -70,43 +69,43 @@ export default function Contact() {
               </div>
 
               {/* Customer Support Contact */}
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
-                <h3 className="text-lg sm:text-xl font-bold text-black mb-4 sm:mb-6">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-black mb-6">
                   Customer Support
                 </h3>
                 
-                <div className="p-3 sm:p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-[#85abe4]">
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-4">
                       <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
                         <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#85abe4] text-base sm:text-lg">Phone</h4>
-                        <span className="text-[#85abe4] font-bold text-lg sm:text-xl">(XXX) XXX-XXXX</span>
+                        <h4 className="font-semibold text-[#85abe4] text-lg">Phone</h4>
+                        <span className="text-[#85abe4] font-bold text-xl">(XXX) XXX-XXXX</span>
                       </div>
                     </div>
                     
-                    <div className="flex items-start space-x-3 sm:space-x-4">
+                    <div className="flex items-start space-x-4">
                       <div style={{ backgroundColor: '#85abe4' }} className="p-2 rounded-lg flex-shrink-0">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#85abe4] text-base sm:text-lg">Email</h4>
-                        <a href="mailto:support@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-sm sm:text-lg break-all">support@fundtekcapitalgroup.com</a>
+                        <h4 className="font-semibold text-[#85abe4] text-lg">Email</h4>
+                        <a href="mailto:support@fundtekcapitalgroup.com" className="text-[#85abe4] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">support@fundtekcapitalgroup.com</a>
                       </div>
                     </div>
                     
-                    <p className="text-[#85abe4] text-xs sm:text-sm mt-2 sm:mt-3">Account access, payment issues, technical assistance, and customer support</p>
+                    <p className="text-[#85abe4] text-sm mt-3">Account access, payment issues, technical assistance, and customer support</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="space-y-6 order-1 lg:order-2">
-              {/* Contact Form Container */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="space-y-6">
+              {/* Contact Form */}
+              <div className="bg-white rounded-lg shadow-lg">
                 <iframe
                   id="JotFormIFrame-251674789886078"
                   title="FundTek Capital Group Contact Form"
@@ -120,41 +119,41 @@ export default function Contact() {
                     maxWidth: '100%',
                     border: 'none',
                   }}
-                  className="w-full h-[400px] md:h-[450px]"
+                  className="w-full h-[500px] rounded-lg"
                   scrolling="yes"
                 />
               </div>
 
               {/* Business Hours */}
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
-                <h3 className="text-base sm:text-lg font-bold text-black mb-3 sm:mb-4 flex items-center">
-                  <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-[#85abe4] mr-2" />
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-lg font-bold text-black mb-4 flex items-center">
+                  <Clock className="h-5 w-5 text-[#85abe4] mr-2" />
                   Business Hours
                 </h3>
-                <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
-                  <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="space-y-3 text-sm">
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Mon : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Tue : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Wed : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Thu : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Fri : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#85abe4] mr-2 sm:mr-3">✓</span>
+                      <span className="text-[#85abe4] mr-3">✓</span>
                       <span className="text-black">Sat & Sun : Closed</span>
                     </div>
                   </div>
@@ -162,11 +161,11 @@ export default function Contact() {
               </div>
 
               {/* Quick Response Promise */}
-              <div style={{ backgroundColor: '#85abe4' }} className="p-4 sm:p-6 rounded-lg">
-                <h3 className="text-white font-semibold text-base sm:text-lg mb-2">
+              <div style={{ backgroundColor: '#85abe4' }} className="p-6 rounded-lg">
+                <h3 className="text-white font-semibold text-lg mb-2">
                   Same-Day Response Guarantee
                 </h3>
-                <p className="text-white text-sm sm:text-base">
+                <p className="text-white text-base">
                   Get funding decisions within 24 hours. Our specialists are standing by to provide immediate assistance with your business financing needs.
                 </p>
               </div>
