@@ -107,12 +107,12 @@ export default function Contact() {
               {/* Contact Form */}
               <div className="bg-white rounded-lg shadow-lg">
                 <iframe
-                  id="JotFormIFrame-251965198766173"
+                  id="JotFormIFrame-251674789886078"
                   title="FundTek Capital Group Contact Form"
                   onLoad={() => window.parent.scrollTo(0, 0)}
                   allowtransparency="true"
                   allow="geolocation; microphone; camera; fullscreen"
-                  src="https://form.jotform.com/251965198766173"
+                  src="https://form.jotform.com/251674789886078"
                   frameBorder="0"
                   style={{
                     minWidth: '100%',
