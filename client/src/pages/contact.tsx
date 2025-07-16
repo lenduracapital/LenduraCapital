@@ -102,8 +102,27 @@ export default function Contact() {
                 </div>
               </div>
 
+            {/* Contact Form */}
+            <iframe
+              id="JotFormIFrame-251674789886078"
+              title="FundTek Capital Group Contact Form"
+              onLoad={() => window.parent.scrollTo(0, 0)}
+              allowtransparency="true"
+              allow="geolocation; microphone; camera; fullscreen"
+              src="https://form.jotform.com/251674789886078"
+              frameBorder="0"
+              style={{
+                minWidth: '100%',
+                maxWidth: '100%',
+                height: '450px',
+                border: 'none',
+              }}
+              className="w-full"
+              scrolling="no"
+            />
+
               {/* Business Hours */}
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg mt-6">
                 <h3 className="text-base sm:text-lg font-bold text-black mb-3 sm:mb-4 flex items-center">
                   <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-[#85abe4] mr-2" />
                   Business Hours
@@ -139,7 +158,7 @@ export default function Contact() {
               </div>
 
               {/* Quick Response Promise */}
-              <div style={{ backgroundColor: '#85abe4' }} className="p-4 sm:p-6 rounded-lg">
+              <div style={{ backgroundColor: '#85abe4' }} className="p-4 sm:p-6 rounded-lg mt-6">
                 <h3 className="text-white font-semibold text-base sm:text-lg mb-2">
                   Same-Day Response Guarantee
                 </h3>
@@ -148,25 +167,6 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <iframe
-              id="JotFormIFrame-251674789886078"
-              title="FundTek Capital Group Contact Form"
-              onLoad={() => window.parent.scrollTo(0, 0)}
-              allowtransparency="true"
-              allow="geolocation; microphone; camera; fullscreen"
-              src="https://form.jotform.com/251674789886078"
-              frameBorder="0"
-              style={{
-                minWidth: '100%',
-                maxWidth: '100%',
-                height: '450px',
-                border: 'none',
-              }}
-              className="w-full"
-              scrolling="no"
-            />
           </div>
         </div>
       </section>
