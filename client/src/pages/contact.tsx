@@ -149,46 +149,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-3">
-                Get Working Capital Today
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                Complete the form below and our specialists will contact you within 24 hours.
-              </p>
-              
-              {/* Form Container */}
-              <div className="w-full">
-                <iframe
-                  id="JotFormIFrame-251674789886078"
-                  title="FundTek Capital Group Contact Form"
-                  onLoad={() => window.parent.scrollTo(0, 0)}
-                  allowtransparency="true"
-                  allow="geolocation; microphone; camera; fullscreen"
-                  src="https://form.jotform.com/251674789886078"
-                  frameBorder="0"
-                  style={{
-                    minWidth: '100%',
-                    maxWidth: '100%',
-                    height: '450px',
-                    border: 'none',
-                  }}
-                  className="w-full rounded-lg"
-                  scrolling="yes"
-                />
-              </div>
-              
-              {/* Form Footer */}
-              <div className="mt-3 text-center">
-                <button
-                  onClick={() => window.open('https://form.jotform.com/251674789886078', '_blank')}
-                  className="text-[#85abe4] hover:text-[#7498d1] text-sm font-medium underline transition-colors"
-                >
-                  Open form in new tab for best experience
-                </button>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
