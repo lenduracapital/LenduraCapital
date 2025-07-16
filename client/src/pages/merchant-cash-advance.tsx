@@ -5,7 +5,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-export default function MerchantCashAdvance() {
+export default function ClientCashAdvance() {
   const [, setLocation] = useLocation();
 
   const handleBackToHome = () => {
@@ -66,13 +66,13 @@ export default function MerchantCashAdvance() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Merchant Cash Advance
+              Client Cash Advance
             </h1>
             <p className="text-xl text-teal-100 mb-8">
               Alternative to lengthy approval processes and strict credit requirements for traditional term loans
             </p>
             <p className="text-lg text-teal-200 mb-8">
-              A merchant cash advance (MCA) provides unsecured capital to small business owners on future credit card sales, providing small businesses an alternative to traditional bank loans. MCA quickly provides cash for businesses, allowing you to borrow against future earnings to access that capital today.
+              A client cash advance (CCA) provides unsecured capital to small business owners on future credit card sales, providing small businesses an alternative to traditional bank loans. CCA quickly provides cash for businesses, allowing you to borrow against future earnings to access that capital today.
             </p>
             <Button 
               onClick={handleContactUs}

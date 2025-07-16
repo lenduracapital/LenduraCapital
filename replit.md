@@ -969,6 +969,14 @@ Changelog:
   * Enhanced FinancialService schema with detailed service descriptions and offer catalogs
   * Fixed TypeScript errors in schema component functions for proper compilation
   * Comprehensive structured data now provides authentic FundTek Capital Group information to search engines
+- January 8, 2025. Complete "Merchants" to "Clients" terminology update (COMPLETE):
+  * Updated all "Merchant Cash Advance" references to "Client Cash Advance" throughout the website
+  * Changed component names: MerchantCashAdvanceDetail → ClientCashAdvanceDetail, MerchantCashAdvance → ClientCashAdvance
+  * Updated FAQ questions from "merchant cash advance" to "client cash advance" 
+  * Changed trust signals section FAQ from "FundTek approves merchants" to "FundTek approves clients"
+  * Updated business solutions section from "Merchant Cash Advance" to "Client Cash Advance"
+  * Modified all content text from "merchant cash advance (MCA)" to "client cash advance (CCA)"
+  * Complete terminology consistency achieved across all components, pages, and documentation
 - January 8, 2025. Favicon implementation with transparent background (COMPLETE):
   * Successfully implemented professional FundTek Capital Group favicon using user's actual logo design
   * Resolved browser caching issues by creating new filename (logo-icon.png) and adding aggressive cache-busting headers

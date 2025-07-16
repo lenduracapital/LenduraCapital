@@ -13,10 +13,10 @@ import Analytics from "@/components/analytics";
 // Lazy load non-critical pages for code splitting with prefetch
 const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
 const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
-const MerchantCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
+const ClientCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
 const TermLoans = lazy(() => import("@/pages/term-loans"));
 const LoanApplication = lazy(() => import("@/pages/loan-application"));
-const MerchantCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
+const ClientCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
 const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
 const LinesOfCreditDetail = lazy(() => import("@/pages/solutions/lines-of-credit"));
 const SBALoansDetail = lazy(() => import("@/pages/solutions/sba-loans"));
@@ -102,9 +102,9 @@ function Router() {
         <Route path="/solutions/credit-card-processing" component={CreditCardProcessing} />
         <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
         <Route path="/solutions/mortgage-financing" component={MortgageFinancing} />
-        <Route path="/solutions/merchant-cash-advance" component={MerchantCashAdvanceDetail} />
+        <Route path="/solutions/merchant-cash-advance" component={ClientCashAdvanceDetail} />
         <Route path="/qualified-industries" component={QualifiedIndustries} />
-        <Route path="/merchant-cash-advance" component={MerchantCashAdvance} />
+        <Route path="/merchant-cash-advance" component={ClientCashAdvance} />
         <Route path="/term-loans" component={TermLoans} />
         <Route path="/testimonials" component={TestimonialsPage} />
         <Route path="/more-testimonials" component={MoreTestimonials} />

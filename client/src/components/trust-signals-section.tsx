@@ -124,7 +124,7 @@ export default function TrustSignalsSection() {
     },
     {
       question: "What makes FundTek different from Banks?",
-      answer: "While banks require perfect credit, extensive paperwork, and take weeks to decide, FundTek approves merchants in 24 hours with minimal documentation. Banks say no to 80% of small businesses - we focus on your cash flow and business performance, not just credit scores. Plus, you get a dedicated specialist instead of being transferred between departments."
+      answer: "While banks require perfect credit, extensive paperwork, and take weeks to decide, FundTek approves clients in 24 hours with minimal documentation. Banks say no to 80% of small businesses - we focus on your cash flow and business performance, not just credit scores. Plus, you get a dedicated specialist instead of being transferred between departments."
     }
   ];
 
