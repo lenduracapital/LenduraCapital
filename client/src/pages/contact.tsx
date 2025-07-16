@@ -161,7 +161,7 @@ export default function Contact() {
               style={{
                 minWidth: '100%',
                 maxWidth: '100%',
-                height: '600px',
+                height: '450px',
                 border: 'none',
               }}
               className="w-full"
