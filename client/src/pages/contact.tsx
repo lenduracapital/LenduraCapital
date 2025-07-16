@@ -26,10 +26,10 @@ export default function Contact() {
       {/* Contact Information & Form Section */}
       <section className="py-8 sm:py-12" style={{ backgroundColor: '#f5f6f6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Contact Information */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-black mb-4 sm:mb-6">
                   Contact FundTek Capital Group
@@ -104,7 +104,7 @@ export default function Contact() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="space-y-6">
+            <div className="space-y-6 order-1 lg:order-2">
               {/* Contact Form */}
               <iframe
                 id="JotFormIFrame-251674789886078"
@@ -117,10 +117,9 @@ export default function Contact() {
                 style={{
                   minWidth: '100%',
                   maxWidth: '100%',
-                  height: '450px',
                   border: 'none',
                 }}
-                className="w-full"
+                className="w-full h-[400px] md:h-[450px]"
                 scrolling="no"
               />
 
