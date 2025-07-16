@@ -100,8 +100,8 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundColor: isVideoPlaying ? 'transparent' : '#1e293b',
-        backgroundImage: !isVideoPlaying ? `url(${heroBackgroundPath})` : 'none',
+        backgroundColor: '#1e293b',
+        backgroundImage: `url(${heroBackgroundPath})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -134,19 +134,7 @@ export default function HeroSection() {
         </video>
       )}
       
-      {/* Background image fallback - only shows when video not playing */}
-      {!isVideoPlaying && (
-        <div 
-          className="absolute inset-0 transition-opacity duration-300"
-          style={{
-            backgroundImage: `url(${heroBackgroundPath})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            zIndex: 0
-          }}
-        />
-      )}
+      {/* Background image is now always visible until video loads */}
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
