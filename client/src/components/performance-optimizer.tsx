@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
+// Video path - using external URL to avoid build issues
+const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
 
 // Performance optimization class
 export class PerformanceOptimizer {

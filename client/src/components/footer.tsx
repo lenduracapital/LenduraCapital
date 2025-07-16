@@ -2,7 +2,7 @@ import { ChartLine } from "lucide-react";
 import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
-import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png";
+import fundTekLogo from "@assets/image_1752182868701.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },

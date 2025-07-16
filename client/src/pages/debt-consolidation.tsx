@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from '../components/solution-detail-template';
-import heroImage from '@assets/download (2)_1750787760177.jpg';
+import heroImage from '@assets/Debt-Consolidation_1752510306630.jpeg';
 
 export default function DebtConsolidationPage() {
   // Using simple working image URL 

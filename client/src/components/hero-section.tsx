@@ -3,9 +3,10 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { trackCTAClick } from "@/hooks/use-analytics-tracking";
 import { usePerformanceOptimization } from "@/components/performance-optimizer";
-import videoPath from "@assets/Video (FundTek)_1751295081956.webm";
-import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750176250237.png";
-import heroBackgroundPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png";
+// Video path - using external URL to avoid build issues
+const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
+import logoPath from "@assets/image_1752182868701.png";
+import heroBackgroundPath from "@assets/image_1752190793949.png";
 
 // Enhanced video optimization hook
 function useVideoOptimization() {
