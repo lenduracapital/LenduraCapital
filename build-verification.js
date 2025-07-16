@@ -26,7 +26,8 @@ const criticalChecks = [
   { name: 'TypeScript Configuration', check: checkTypeScriptConfig },
   { name: 'Build Output Structure', check: checkBuildStructure },
   { name: 'Production Dependencies', check: checkProductionDependencies },
-  { name: 'Environment Configuration', check: checkEnvironmentConfig }
+  { name: 'Environment Configuration', check: checkEnvironmentConfig },
+  { name: 'Deployment Readiness', check: checkDeploymentReadiness }
 ];
 
 console.log('🔍 Starting enhanced build verification...');
@@ -227,5 +228,34 @@ function checkEnvironmentConfig() {
     return { passed: true, message: 'Server configuration detected' };
   } else {
     return { passed: false, message: 'Server configuration incomplete' };
+  }
+}
+
+function checkDeploymentReadiness() {
+  const requiredForDeployment = [
+    'dist/index.js',
+    'package.json',
+    'tsconfig.json'
+  ];
+  
+  const missing = requiredForDeployment.filter(file => !fs.existsSync(file));
+  
+  if (missing.length === 0) {
+    // Check if dist/index.js has proper export structure
+    try {
+      const content = fs.readFileSync('dist/index.js', 'utf8');
+      const hasProperStructure = content.includes('express') && 
+                                  (content.includes('listen') || content.includes('createServer'));
+      
+      if (hasProperStructure) {
+        return { passed: true, message: 'All deployment requirements met' };
+      } else {
+        return { passed: false, message: 'dist/index.js missing server structure' };
+      }
+    } catch (error) {
+      return { passed: false, message: 'Cannot read dist/index.js' };
+    }
+  } else {
+    return { passed: false, message: `Missing deployment files: ${missing.join(', ')}` };
   }
 }

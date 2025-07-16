@@ -5,6 +5,7 @@
     "incremental": true,
     "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
     "noEmit": false,
+    "emitDeclarationOnly": false,
     "outDir": "./dist",
     "rootDir": "./",
     "target": "ES2022",
