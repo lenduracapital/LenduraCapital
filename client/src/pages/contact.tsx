@@ -151,12 +151,12 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="bg-white rounded-lg p-4 sm:p-6 shadow-lg">
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-black mb-3">
                 Get Working Capital Today
               </h3>
               
               {/* Form Container */}
-              <div className="w-full">
+              <div className="w-full -mt-1">
                 <iframe
                   id="JotFormIFrame-251674789886078"
                   title="FundTek Capital Group Contact Form"
@@ -168,11 +168,11 @@ export default function Contact() {
                   style={{
                     minWidth: '100%',
                     maxWidth: '100%',
-                    height: '800px',
+                    height: '600px',
                     border: 'none',
                   }}
                   className="w-full rounded-lg"
-                  scrolling="no"
+                  scrolling="yes"
                 />
               </div>
             </div>
