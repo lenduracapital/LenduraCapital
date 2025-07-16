@@ -60,10 +60,20 @@ export function decryptField(encryptedData: string): string | null {
   try {
     const combined = Buffer.from(encryptedData, 'base64');
     
+    // Validate minimum data length
+    if (combined.length < IV_LENGTH + TAG_LENGTH) {
+      throw new Error('Invalid encrypted data: insufficient length');
+    }
+    
     // Extract components
     const iv = combined.subarray(0, IV_LENGTH);
     const tag = combined.subarray(IV_LENGTH, IV_LENGTH + TAG_LENGTH);
     const encrypted = combined.subarray(IV_LENGTH + TAG_LENGTH);
+    
+    // Validate authentication tag length (security fix)
+    if (tag.length !== TAG_LENGTH) {
+      throw new Error(`Invalid authentication tag length: expected ${TAG_LENGTH} bytes, got ${tag.length} bytes`);
+    }
     
     const decipher = crypto.createDecipheriv(ALGORITHM, encryptionKey, iv);
     decipher.setAuthTag(tag);
