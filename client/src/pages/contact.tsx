@@ -26,7 +26,7 @@ export default function Contact() {
       {/* Contact Information & Form Section */}
       <section className="py-8 sm:py-12" style={{ backgroundColor: '#f5f6f6' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Contact Information */}
             <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
@@ -105,23 +105,25 @@ export default function Contact() {
 
             {/* Right Column - Contact Form */}
             <div className="space-y-6 order-1 lg:order-2">
-              {/* Contact Form */}
-              <iframe
-                id="JotFormIFrame-251674789886078"
-                title="FundTek Capital Group Contact Form"
-                onLoad={() => window.parent.scrollTo(0, 0)}
-                allowtransparency="true"
-                allow="geolocation; microphone; camera; fullscreen"
-                src="https://form.jotform.com/251674789886078"
-                frameBorder="0"
-                style={{
-                  minWidth: '100%',
-                  maxWidth: '100%',
-                  border: 'none',
-                }}
-                className="w-full h-[400px] md:h-[450px]"
-                scrolling="no"
-              />
+              {/* Contact Form Container */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <iframe
+                  id="JotFormIFrame-251674789886078"
+                  title="FundTek Capital Group Contact Form"
+                  onLoad={() => window.parent.scrollTo(0, 0)}
+                  allowtransparency="true"
+                  allow="geolocation; microphone; camera; fullscreen"
+                  src="https://form.jotform.com/251674789886078"
+                  frameBorder="0"
+                  style={{
+                    minWidth: '100%',
+                    maxWidth: '100%',
+                    border: 'none',
+                  }}
+                  className="w-full h-[400px] md:h-[450px]"
+                  scrolling="yes"
+                />
+              </div>
 
               {/* Business Hours */}
               <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg">
