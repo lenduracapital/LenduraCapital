@@ -3,7 +3,6 @@ import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
-// Swagger removed for lighter deployment
 
 const app = express();
 
@@ -76,15 +75,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Swagger API documentation removed for lighter deployment
-
+// Enhanced server startup with better error handling
 (async () => {
   try {
-    console.log(`🚀 Starting server in ${process.env.NODE_ENV || 'development'} mode...`);
-    console.log(`📡 Port: ${process.env.PORT || 5000}`);
-    console.log(`🗄️ Database: ${process.env.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL'}`);
-    
-    // In development, set up Vite first
     let server: any;
     
     if (app.get("env") === "development") {
@@ -95,52 +88,52 @@ app.use((req, res, next) => {
       server = await registerRoutes(app);
     }
 
-  // Setup error handlers AFTER static files
-  app.use((req, res) => {
-    res.status(404).json({ error: "Not found" });
-  });
-
-  app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    console.error(err.stack);
-    res.status(500).json({ error: "Internal server error" });
-  });
-
-  const PORT = process.env.PORT || 5000;
-  const HOST = '0.0.0.0';
-
-  // Enhanced error handling for deployment
-  const startServer = () => {
-    return new Promise((resolve, reject) => {
-      const serverInstance = server.listen(PORT, HOST, (err?: Error) => {
-        if (err) {
-          console.error(`❌ Failed to bind to ${HOST}:${PORT}`, err);
-          reject(err);
-          return;
-        }
-        
-        log(`serving on port ${PORT}`);
-        console.log(`✅ Server successfully started on ${HOST}:${PORT}`);
-        console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
-        resolve(serverInstance);
-      });
-
-      // Handle server errors after startup
-      serverInstance.on('error', (err: Error) => {
-        console.error('❌ Server error after startup:', err);
-        if (err.message.includes('EADDRINUSE')) {
-          console.error(`Port ${PORT} is already in use`);
-        }
-      });
-
-      serverInstance.on('listening', () => {
-        const addr = serverInstance.address();
-        console.log('✅ Server address:', addr);
-        console.log('✅ Server listening:', serverInstance.listening);
-      });
+    // Setup error handlers AFTER static files
+    app.use((req, res) => {
+      res.status(404).json({ error: "Not found" });
     });
-  };
 
-  await startServer();
+    app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+      console.error('Server error:', err.stack);
+      res.status(500).json({ error: "Internal server error" });
+    });
+
+    const PORT = process.env.PORT || 5000;
+    const HOST = '0.0.0.0';
+
+    // Enhanced error handling for deployment
+    const startServer = () => {
+      return new Promise((resolve, reject) => {
+        server.listen(PORT, HOST, (err?: Error) => {
+          if (err) {
+            console.error(`❌ Failed to bind to ${HOST}:${PORT}`, err);
+            reject(err);
+            return;
+          }
+          
+          log(`serving on port ${PORT}`);
+          console.log(`✅ Server successfully started on ${HOST}:${PORT}`);
+          console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
+          resolve(server);
+        });
+
+        // Handle server errors after startup
+        server.on('error', (err: Error) => {
+          console.error('❌ Server error after startup:', err);
+          if (err.message.includes('EADDRINUSE')) {
+            console.error(`Port ${PORT} is already in use`);
+          }
+        });
+
+        server.on('listening', () => {
+          const addr = server.address();
+          console.log('✅ Server address:', addr);
+          console.log('✅ Server listening:', server.listening);
+        });
+      });
+    };
+
+    await startServer();
 
   } catch (error) {
     console.error('❌ Fatal server startup error:', error);
