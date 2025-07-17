@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import equipmentImage from "@assets/Truck_1750271749729.jpg";
+import equipmentImage from "@assets/pexels-rezwan-1078884 (1)_1752763129069.jpg";
 
 export default function EquipmentFinancingDetail() {
   return (
