@@ -57,7 +57,7 @@ export default function ClientCashAdvance() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg')"
           }}
         >
           <div className="absolute inset-0 bg-teal-900 bg-opacity-20"></div>
