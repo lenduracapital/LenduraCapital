@@ -4,7 +4,7 @@ import paymentImage from "@assets/pexels-imin-technology-276315592-12935045_1752
 export default function ClientCashAdvanceDetail() {
   return (
     <SolutionDetailTemplate
-      title="Client Cash Advance"
+      title="Merchant Cash Advance"
       description="Quick access to working capital based on your future credit card sales with flexible repayment structure."
       heroImage={paymentImage}
       contentImage={paymentImage}
@@ -59,16 +59,16 @@ export default function ClientCashAdvanceDetail() {
         "How quickly do you need funding?"
       ]}
       goodToKnow={[
-        "Even if your credit score is low or you have negative financial history or the business is less than one year old, there are still funding options with a client cash advance",
-        "We can consolidate existing client cash advances to lower payments and increase cash flow",
+        "Even if your credit score is low or you have negative financial history or the business is less than one year old, there are still funding options with a merchant cash advance",
+        "We can consolidate existing merchant cash advances to lower payments and increase cash flow",
         "This is a fast and convenient process with minimal paperwork and same-day funding available",
         "When the balance is 50% paid, your business will be eligible for additional funding",
         "Great option of any business that is grossing $10,000 in revenue per month and has been in business for at least 6 months"
       ]}
       faq={[
         {
-          question: "How does a client cash advance work?",
-          answer: "A client cash advance provides upfront capital in exchange for a percentage of your future credit card sales. Repayment is automatic through daily credit card processing or ACH withdrawals."
+          question: "How does a merchant cash advance work?",
+          answer: "A merchant cash advance provides upfront capital in exchange for a percentage of your future credit card sales. Repayment is automatic through daily credit card processing or ACH withdrawals."
         },
         {
           question: "What's the difference between factor rates and interest rates?",
@@ -76,7 +76,7 @@ export default function ClientCashAdvanceDetail() {
         },
         {
           question: "How quickly can I get funded?",
-          answer: "Client cash advances offer some of the fastest funding available, often within 24-48 hours of approval. Same-day funding may be available in some cases."
+          answer: "Merchant cash advances offer some of the fastest funding available, often within 24-48 hours of approval. Same-day funding may be available in some cases."
         },
         {
           question: "What if my credit card sales are low some days?",
@@ -87,7 +87,7 @@ export default function ClientCashAdvanceDetail() {
           answer: "Many providers offer renewal options once you've paid down 50-70% of your current advance, allowing access to additional working capital."
         },
         {
-          question: "What businesses qualify for client cash advances?",
+          question: "What businesses qualify for merchant cash advances?",
           answer: "Retail businesses, restaurants, service providers, and any business that processes credit card sales regularly. Minimum requirements typically include $5,000+ monthly credit card volume."
         }
       ]}
