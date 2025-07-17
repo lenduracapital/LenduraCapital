@@ -29,7 +29,7 @@ export default function CommercialRealEstateLending() {
       <section 
         className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-cover bg-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop')"
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/attached_assets/pexels-expect-best-79873-323705_1752763331753.jpg')"
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

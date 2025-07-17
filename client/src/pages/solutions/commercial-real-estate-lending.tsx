@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from '@/components/solution-detail-template';
-import commercialBuildingImage from "@assets/Debt-Consolidation_1752510134665.jpeg";
+import commercialBuildingImage from "@assets/pexels-expect-best-79873-323705_1752763331753.jpg";
 
 export default function CommercialRealEstateLending() {
   return (
