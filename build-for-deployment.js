@@ -30,21 +30,29 @@ async function build() {
     }
     console.log('✅ Client built in client/dist');
     
-    // Step 4: Copy client/dist/index.html → dist/index.html (and all assets)
-    console.log('📂 Copying frontend files to dist...');
+    // Step 4: Copy client/dist files to both dist/ and dist/public/ 
+    console.log('📂 Copying frontend files...');
+    
+    // Create dist/public directory
+    await fs.mkdir('dist/public', { recursive: true });
+    
+    // Copy files to both locations for compatibility
     const clientDistFiles = await fs.readdir('client/dist');
     for (const file of clientDistFiles) {
       const srcPath = path.join('client/dist', file);
       const destPath = path.join('dist', file);
+      const publicDestPath = path.join('dist/public', file);
       const stats = await fs.stat(srcPath);
       
       if (stats.isDirectory()) {
         await fs.cp(srcPath, destPath, { recursive: true });
+        await fs.cp(srcPath, publicDestPath, { recursive: true });
       } else {
         await fs.copyFile(srcPath, destPath);
+        await fs.copyFile(srcPath, publicDestPath);
       }
     }
-    console.log('✅ Frontend files copied to dist');
+    console.log('✅ Frontend files copied to dist and dist/public');
     
     // Step 5: Create package.json for ESM support
     console.log('📝 Creating dist/package.json...');

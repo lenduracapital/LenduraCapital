@@ -6,20 +6,20 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 ## Recent Changes (July 17, 2025)
 
 ### Deployment Build System Complete ✅ COMPLETE - July 17, 2025
-**Problem**: Build failing with 404 error - index.html not in correct location for deployment
+**Problem**: Build failing with "Cannot find module '/home/runner/workspace/dist/index.js'" and server looking for static files in wrong location
 
 **Solution Implemented**:
 1. **Created Custom Build Script**: `build-for-deployment.js`
    - Compiles TypeScript server to dist/index.js
    - Builds Vite frontend in client/dist
-   - Copies all frontend files to dist root
-   - Creates proper deployment structure
+   - Copies frontend files to BOTH dist/ and dist/public/
+   - Server expects static files in dist/public/ for production
 
 2. **Build Process Flow**:
    - Step 1: Clean dist directory
    - Step 2: Compile server → dist/index.js (58.16 KB)
    - Step 3: Build Vite frontend → client/dist/
-   - Step 4: Copy client/dist/* → dist/
+   - Step 4: Copy client files → dist/ AND dist/public/
    - Step 5: Create dist/package.json for ESM
    - Step 6: Verify all critical files exist
 
@@ -29,16 +29,22 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 **Deployment Configuration**:
 - Build command: `./replit-deploy.sh` or `node build-for-deployment.js`
-- Start command: `npm start`
+- Start command: `npm start` (runs `NODE_ENV=production node dist/index.js`)
 - Output directory: `dist`
 
 **Verified Output Structure**:
 - dist/index.js (58.16 KB) - Server entry point
-- dist/index.html (22.91 KB) - Client entry point
-- dist/assets/ - Client assets folder
+- dist/index.html (22.91 KB) - Client entry (for compatibility)
+- dist/public/index.html - Server serves from here in production
+- dist/public/assets/ - All frontend assets
 - dist/package.json - ESM configuration
 
-**Impact**: Deployment now works correctly with proper file structure.
+**Homepage Location**: 
+- Source: `client/src/pages/home.tsx`
+- Route: `/` (root path)
+- Entry: `client/src/App.tsx`
+
+**Impact**: Production server now runs successfully. Server API health check confirmed working.
 
 ## Recent Changes (July 17, 2025)
 
