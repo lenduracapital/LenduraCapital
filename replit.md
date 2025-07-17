@@ -51,6 +51,30 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 - Simplified monorepo structure matching guidelines
 - Consistent builds guaranteed
 
+### Deployment Crash Loop Fix ✅ COMPLETE - July 17, 2025
+**Problem**: Deployment failing with "Cannot find module '/home/runner/workspace/dist/index.js'" - build process not creating required file
+
+**Root Cause**: Build script used `--outdir=dist` which created `dist/server/index.js` instead of `dist/index.js`
+
+**Solution Implemented**:
+1. **Created Custom Build Script**: `replit-deploy.sh`
+   - Uses `--outfile=dist/index.js` instead of `--outdir=dist`
+   - Adds ESM module support with dist/package.json
+   - Includes module banner for Node.js compatibility
+   - Verifies build output before completion
+
+2. **Build Output Verified**:
+   - ✅ dist/index.js (58.20 KB)
+   - ✅ dist/public/ (frontend assets)
+   - ✅ dist/package.json (ESM module marker)
+
+3. **Deployment Configuration**:
+   - Build command: `./replit-deploy.sh`
+   - Start command: `npm start`
+   - Server runs on port 5000
+
+**Impact**: Deployment crash loop resolved. Application builds correctly for production deployment.
+
 ### Deployment Build System Complete ✅ COMPLETE - July 17, 2025
 **Problem**: Build failing with "Cannot find module '/home/runner/workspace/dist/index.js'" and server looking for static files in wrong location
 
