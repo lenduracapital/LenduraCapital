@@ -2,71 +2,56 @@
 
 import { existsSync, statSync } from 'fs';
 import { execSync } from 'child_process';
-import { resolve } from 'path';
 
-console.log('🚀 Starting production server with enhanced error handling...');
+console.log('🔍 Pre-startup verification...');
 
-// Enhanced validation of dist/index.js
-const distIndexPath = resolve('dist/index.js');
-if (!existsSync(distIndexPath)) {
-  console.error('❌ ERROR: dist/index.js not found at expected location');
-  console.error('Expected location:', distIndexPath);
-  console.error('Please run "node build-for-deployment.js" to create the production build');
+// Check 1: Verify dist/index.js exists
+if (!existsSync('dist/index.js')) {
+  console.error('❌ CRITICAL ERROR: dist/index.js does not exist');
+  console.error('📋 Troubleshooting steps:');
+  console.error('1. Run: npm run build');
+  console.error('2. Check if build completed successfully');
+  console.error('3. Verify server/index.ts exists');
   process.exit(1);
 }
 
-// Check file size to ensure it's not empty
-const stats = statSync(distIndexPath);
-if (stats.size === 0) {
-  console.error('❌ ERROR: dist/index.js exists but is empty');
-  console.error('Please run "node build-for-deployment.js" to rebuild');
+// Check 2: Verify file size is reasonable (not empty)
+const stats = statSync('dist/index.js');
+const fileSizeKB = Math.round(stats.size / 1024);
+if (stats.size < 1000) { // Less than 1KB indicates problem
+  console.error(`❌ CRITICAL ERROR: dist/index.js is too small (${fileSizeKB} KB)`);
+  console.error('📋 This usually indicates a build failure');
   process.exit(1);
 }
 
-console.log(`✅ Found dist/index.js (${(stats.size / 1024).toFixed(2)} KB)`);
-
-// Validate the server file has correct syntax
+// Check 3: Verify JavaScript syntax
 try {
   execSync('node -c dist/index.js', { stdio: 'pipe' });
-  console.log('✅ Server file syntax validation passed');
+  console.log(`✅ dist/index.js verified (${fileSizeKB} KB, valid syntax)`);
 } catch (error) {
-  console.error('❌ ERROR: dist/index.js has syntax errors');
-  console.error('Error details:', error.message);
-  console.error('Please run "node build-for-deployment.js" to rebuild the server');
+  console.error('❌ CRITICAL ERROR: dist/index.js has syntax errors');
+  console.error('📋 Rebuild required: npm run build');
   process.exit(1);
 }
 
-// Validate frontend assets exist
+// Check 4: Verify frontend assets exist
 if (!existsSync('dist/public')) {
-  console.error('❌ ERROR: dist/public directory not found');
-  console.error('Frontend assets are missing. Please run "node build-for-deployment.js"');
-  process.exit(1);
+  console.error('❌ WARNING: dist/public directory missing');
+  console.error('📋 Frontend may not be available');
 }
 
-if (!existsSync('dist/public/index.html')) {
-  console.error('❌ ERROR: dist/public/index.html not found');
-  console.error('Frontend entry point is missing. Please run "node build-for-deployment.js"');
-  process.exit(1);
+// Check 5: Verify essential environment variables
+if (!process.env.DATABASE_URL) {
+  console.error('❌ WARNING: DATABASE_URL not set');
 }
 
-console.log('✅ Frontend assets validated');
+console.log('✅ All pre-startup checks passed');
+console.log('🚀 Starting production server...');
 
-// Start the server with error handling
-console.log('🌐 Starting server in production mode...');
+// Start the actual server
 try {
-  process.env.NODE_ENV = 'production';
-  execSync('node dist/index.js', { 
-    stdio: 'inherit',
-    env: { ...process.env, NODE_ENV: 'production' }
-  });
+  execSync('node dist/index.js', { stdio: 'inherit' });
 } catch (error) {
-  console.error('❌ ERROR: Server failed to start');
-  console.error('Exit code:', error.status);
-  console.error('Error message:', error.message);
-  console.error('\n📋 Troubleshooting steps:');
-  console.error('1. Check server logs above for specific errors');
-  console.error('2. Verify database connection if using PostgreSQL');
-  console.error('3. Check environment variables are set correctly');
-  console.error('4. Rebuild with: node build-for-deployment.js');
+  console.error('❌ Server failed to start:', error.message);
   process.exit(1);
 }

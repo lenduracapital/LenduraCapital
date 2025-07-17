@@ -31,6 +31,11 @@ try {
   // Step 4: Build backend with esbuild - using --outfile for exact location
   console.log('⚙️  Building backend with esbuild to exact location...');
   execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js --banner:js="import { createRequire } from \'module\'; const require = createRequire(import.meta.url);"', { stdio: 'inherit' });
+  
+  // Immediate verification that dist/index.js was created
+  if (!existsSync('dist/index.js')) {
+    throw new Error('esbuild failed to create dist/index.js - build process incomplete');
+  }
 
   // Step 5: Enhanced verification of build output
   console.log('🔍 Verifying build output...');
