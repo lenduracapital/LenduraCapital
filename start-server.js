@@ -34,13 +34,22 @@ try {
   process.exit(1);
 }
 
-// Check 4: Verify frontend assets exist
+// Check 4: Verify dist/package.json exists for ES modules
+if (!existsSync('dist/package.json')) {
+  console.error('❌ CRITICAL ERROR: dist/package.json missing');
+  console.error('📋 Required for ES modules deployment');
+  console.error('1. Run: node build-for-deployment.js');
+  process.exit(1);
+}
+console.log('✅ ES modules configuration verified');
+
+// Check 5: Verify frontend assets exist
 if (!existsSync('dist/public')) {
   console.error('❌ WARNING: dist/public directory missing');
   console.error('📋 Frontend may not be available');
 }
 
-// Check 5: Verify essential environment variables
+// Check 6: Verify essential environment variables
 if (!process.env.DATABASE_URL) {
   console.error('❌ WARNING: DATABASE_URL not set');
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from 'child_process';
-import { existsSync, rmSync } from 'fs';
+import { existsSync, rmSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 console.log('🚀 Starting deployment build...');
@@ -24,11 +24,17 @@ try {
     // Don't fail the build for TypeScript warnings, but log them
   }
 
-  // Step 3: Build frontend with Vite
+  // Step 3: Clean dist directory before building to prevent conflicts
+  console.log('🧹 Ensuring clean dist directory before build...');
+  if (existsSync('dist')) {
+    rmSync('dist', { recursive: true, force: true });
+  }
+
+  // Step 4: Build frontend with Vite (creates dist/public)
   console.log('📦 Building frontend with Vite...');
   execSync('npx vite build', { stdio: 'inherit' });
 
-  // Step 4: Build backend with esbuild - using --outfile for exact location
+  // Step 5: Build backend with esbuild - using --outfile for exact location
   console.log('⚙️  Building backend with esbuild to exact location...');
   execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js --banner:js="import { createRequire } from \'module\'; const require = createRequire(import.meta.url);"', { stdio: 'inherit' });
   
@@ -37,7 +43,16 @@ try {
     throw new Error('esbuild failed to create dist/index.js - build process incomplete');
   }
 
-  // Step 5: Enhanced verification of build output
+  // Step 6: Create dist/package.json to enable ES modules for Node.js
+  console.log('📄 Creating dist/package.json for ES modules...');
+  const distPackageJson = {
+    "type": "module",
+    "name": "deployed-app",
+    "main": "index.js"
+  };
+  writeFileSync('dist/package.json', JSON.stringify(distPackageJson, null, 2));
+
+  // Step 7: Enhanced verification of build output
   console.log('🔍 Verifying build output...');
   if (!existsSync('dist/index.js')) {
     throw new Error('dist/index.js was not created');
@@ -59,6 +74,11 @@ try {
   // Verify main HTML file exists
   if (!existsSync('dist/public/index.html')) {
     throw new Error('dist/public/index.html was not created - frontend build incomplete');
+  }
+
+  // Verify dist/package.json was created
+  if (!existsSync('dist/package.json')) {
+    throw new Error('dist/package.json was not created - deployment configuration missing');
   }
   
   // Copy frontend assets to server/public for production static serving
