@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "target": "ES2022",
     "module": "ESNext",
     "esModuleInterop": true,
@@ -19,7 +19,7 @@
       "@shared/*": ["./shared/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["server/**/*", "client/**/*", "shared/**/*"],
   "exclude": ["node_modules", "dist"],
   "ts-node": {
     "esm": true,
