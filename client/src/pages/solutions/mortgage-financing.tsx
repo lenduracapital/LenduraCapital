@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from '@/components/solution-detail-template';
-import mortgageImage from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import mortgageImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 
 export default function MortgageFinancing() {
   return (

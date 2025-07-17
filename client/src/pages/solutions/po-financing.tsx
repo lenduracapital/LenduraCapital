@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import poImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
+import poImage from "@assets/download_1752510375017.jpg";
 
 export default function POFinancingDetail() {
   return (

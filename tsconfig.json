@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./",
+    "rootDir": "./src",
     "target": "ES2022",
     "module": "ESNext",
     "esModuleInterop": true,
@@ -12,13 +12,15 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "allowJs": true,
+    "noEmit": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./client/src/*"],
       "@shared/*": ["./shared/*"]
     }
   },
-  "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
