@@ -107,7 +107,7 @@ export default function SolutionDetailTemplate({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Everything You Need to Know About {title}
+              Everything You Need to Know About {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               {description} Our comprehensive guide covers all aspects of this financing solution to help you make an informed decision for your business.
@@ -134,7 +134,7 @@ export default function SolutionDetailTemplate({
             
             <div className="order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8">
-                What is {title}?
+                What is {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}?
               </h2>
               <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
                 <p>{description}</p>
@@ -418,7 +418,9 @@ export default function SolutionDetailTemplate({
       {faq && faq.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">{title} FAQ</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title} FAQ
+            </h2>
             
             <div className="space-y-6">
               {faq.map((item, index) => (
