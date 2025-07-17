@@ -58,8 +58,22 @@ try {
   
   console.log('✅ All build artifacts verified successfully');
 
+  // Run additional verification
+  console.log('🔍 Running comprehensive deployment verification...');
+  try {
+    execSync('node build-verification.js', { stdio: 'inherit' });
+  } catch (verifyError) {
+    throw new Error(`Deployment verification failed: ${verifyError.message}`);
+  }
+
   console.log('✅ Deployment build completed successfully!');
+  console.log('🚀 Ready for deployment with: npm run start');
 } catch (error) {
   console.error('❌ Build failed:', error.message);
+  console.error('\n📋 Troubleshooting tips:');
+  console.error('1. Check if all dependencies are installed: npm install');
+  console.error('2. Verify TypeScript compilation: npx tsc --noEmit');
+  console.error('3. Clean node_modules and reinstall if needed');
+  console.error('4. Check that server/index.ts exists and is valid');
   process.exit(1);
 }
