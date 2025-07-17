@@ -39,7 +39,7 @@ const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
 
 const AdminDashboard = lazy(() => import("@/pages/admin"));
-const AnalyticsDashboard = lazy(() => import("@/pages/analytics-dashboard"));
+
 const NotFound = lazy(() => import("@/pages/not-found"));
 const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
 const CleaningJanitorialServices = lazy(() => import("@/pages/industries/cleaning-janitorial-services"));
@@ -114,7 +114,7 @@ function Router() {
         <Route path="/faq" component={FAQ} />
 
         <Route path="/admin" component={AdminDashboard} />
-        <Route path="/analytics" component={AnalyticsDashboard} />
+
         <Route path="/apply" component={LoanApplication} />
         <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
         <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />

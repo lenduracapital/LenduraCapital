@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
-import { trackCTAClick } from "@/hooks/use-analytics-tracking";
-import { usePerformanceOptimization } from "@/components/performance-optimizer";
+
+
 // Video path - using external URL to avoid build issues
 const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/image_1752182868701.png";
@@ -37,11 +37,10 @@ export default function HeroSection() {
   const [, setLocation] = useLocation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying } = useVideoOptimization();
-  const { optimizer, isInitialized } = usePerformanceOptimization();
 
-  // Enhanced video loading with performance optimization
+  // Simple video loading
   useEffect(() => {
-    if (!shouldPlayVideo || !videoRef.current || !isInitialized) return;
+    if (!shouldPlayVideo || !videoRef.current) return;
 
     const video = videoRef.current;
     
@@ -49,9 +48,6 @@ export default function HeroSection() {
       setIsVideoLoaded(true);
       setIsVideoPlaying(true);
       video.classList.add('loaded');
-      
-      // Enable buffer management for smooth playback
-      optimizer.manageVideoBuffer(video);
     };
 
     const handleLoadedData = () => {
@@ -62,11 +58,6 @@ export default function HeroSection() {
     const handlePlay = () => {
       setIsVideoPlaying(true);
     };
-
-    // Check if video is already preloaded
-    if (optimizer.isResourcePreloaded(videoPath)) {
-      handleCanPlay();
-    }
 
     // Immediate video loading and playback
     video.load();
@@ -85,15 +76,13 @@ export default function HeroSection() {
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('play', handlePlay);
     };
-  }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying, isInitialized, optimizer]);
+  }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying]);
 
   const handleApplyNow = () => {
-    trackCTAClick('Apply Now - Hero', 'Homepage Hero Section', 'Jotform Application');
     window.open('https://form.jotform.com/251965461165159', '_blank');
   };
 
   const handlePhoneClick = () => {
-    trackCTAClick('Phone Number - Hero', 'Homepage Hero Section', 'Calendly Booking');
     window.open('https://calendly.com/fundtekcapitalgroup/15min', '_blank');
   };
 

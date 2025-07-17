@@ -76,23 +76,7 @@ export const insertAuditLogSchema = z.object({
   errorMessage: z.string().optional(),
 });
 
-export const insertAnalyticsEventSchema = z.object({
-  eventType: z.string().max(100),
-  eventCategory: z.string().max(100).optional(),
-  eventAction: z.string().max(100).optional(),
-  eventLabel: z.string().max(255).optional(),
-  eventValue: z.number().optional(),
-  page: z.string().max(255).optional(),
-  ctaName: z.string().max(255).optional(),
-  ctaLocation: z.string().max(255).optional(),
-  ctaDestination: z.string().max(255).optional(),
-  scrollDepth: z.number().optional(),
-  timeSpent: z.number().optional(),
-  sessionId: z.string().max(100).optional(),
-  ipAddress: z.string().max(45).optional(),
-  userAgent: z.string().optional(),
-  metadata: z.string().optional(),
-});
+
 
 // Type definitions
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -189,23 +173,4 @@ export type AuditLog = {
   createdAt: Date;
 };
 
-export type InsertAnalyticsEvent = z.infer<typeof insertAnalyticsEventSchema>;
-export type AnalyticsEvent = {
-  id: number;
-  eventType: string;
-  eventCategory: string | null;
-  eventAction: string | null;
-  eventLabel: string | null;
-  eventValue: number | null;
-  page: string | null;
-  ctaName: string | null;
-  ctaLocation: string | null;
-  ctaDestination: string | null;
-  scrollDepth: number | null;
-  timeSpent: number | null;
-  sessionId: string | null;
-  ipAddress: string | null;
-  userAgent: string | null;
-  metadata: string | null;
-  createdAt: Date;
-};
+

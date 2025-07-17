@@ -1,7 +1,7 @@
 // Import database tables from server schema
-import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages, analyticsEvents } from "./schema";
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages } from "./schema";
 // Import types from shared schema (client-safe)
-import type { User, InsertUser, LoanApplication, InsertLoanApplication, ContactSubmission, InsertContactSubmission, JotformSubmission, InsertJotformSubmission, ChatbotConversation, InsertChatbotConversation, AuditLog, InsertAuditLog, AnalyticsEvent, InsertAnalyticsEvent } from "@shared/schema";
+import type { User, InsertUser, LoanApplication, InsertLoanApplication, ContactSubmission, InsertContactSubmission, JotformSubmission, InsertJotformSubmission, ChatbotConversation, InsertChatbotConversation, AuditLog, InsertAuditLog } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -28,14 +28,6 @@ export interface IStorage {
   getChatMessages(conversationId: string): Promise<any[]>;
   createAuditLog(auditLog: InsertAuditLog): Promise<AuditLog>;
   getAuditLogs(limit?: number): Promise<AuditLog[]>;
-  createAnalyticsEvent(event: InsertAnalyticsEvent): Promise<AnalyticsEvent>;
-  getAnalyticsEvents(limit?: number): Promise<AnalyticsEvent[]>;
-  getAnalyticsSummary(): Promise<{
-    ctaClicks: Array<{ name: string; location: string; count: number; lastClicked: string }>;
-    pageViews: Array<{ page: string; views: number; avgTimeSpent: number }>;
-    topPages: Array<{ page: string; views: number; bounceRate: number }>;
-    scrollDepth: { "25%": number; "50%": number; "75%": number; "90%": number };
-  }>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -213,87 +205,7 @@ export class DatabaseStorage implements IStorage {
       .limit(limit);
   }
 
-  async createAnalyticsEvent(event: InsertAnalyticsEvent): Promise<AnalyticsEvent> {
-    const [analyticsEvent] = await db
-      .insert(analyticsEvents)
-      .values(event)
-      .returning();
-    return analyticsEvent;
-  }
 
-  async getAnalyticsEvents(limit: number = 1000): Promise<AnalyticsEvent[]> {
-    return await db.select().from(analyticsEvents).orderBy(analyticsEvents.createdAt).limit(limit);
-  }
-
-  async getAnalyticsSummary(): Promise<{
-    ctaClicks: Array<{ name: string; location: string; count: number; lastClicked: string }>;
-    pageViews: Array<{ page: string; views: number; avgTimeSpent: number }>;
-    topPages: Array<{ page: string; views: number; bounceRate: number }>;
-    scrollDepth: { "25%": number; "50%": number; "75%": number; "90%": number };
-  }> {
-    const events = await this.getAnalyticsEvents();
-    
-    // Process CTA clicks
-    const ctaClicksMap = new Map<string, { name: string; location: string; count: number; lastClicked: string }>();
-    const pageViewsMap = new Map<string, { views: number; totalTime: number; avgTimeSpent: number }>();
-    const scrollDepthCounts = { "25%": 0, "50%": 0, "75%": 0, "90%": 0 };
-    
-    for (const event of events) {
-      if (event.eventType === 'cta_click' && event.ctaName && event.ctaLocation) {
-        const key = `${event.ctaName}-${event.ctaLocation}`;
-        const existing = ctaClicksMap.get(key);
-        if (existing) {
-          existing.count++;
-          existing.lastClicked = event.createdAt.toISOString();
-        } else {
-          ctaClicksMap.set(key, {
-            name: event.ctaName,
-            location: event.ctaLocation,
-            count: 1,
-            lastClicked: event.createdAt.toISOString()
-          });
-        }
-      }
-      
-      if (event.eventType === 'page_view' && event.page) {
-        const existing = pageViewsMap.get(event.page);
-        const timeSpent = event.timeSpent || 0;
-        if (existing) {
-          existing.views++;
-          existing.totalTime += timeSpent;
-          existing.avgTimeSpent = Math.round(existing.totalTime / existing.views);
-        } else {
-          pageViewsMap.set(event.page, {
-            views: 1,
-            totalTime: timeSpent,
-            avgTimeSpent: timeSpent
-          });
-        }
-      }
-      
-      if (event.eventType === 'scroll_depth' && event.scrollDepth) {
-        const depth = `${event.scrollDepth}%` as keyof typeof scrollDepthCounts;
-        if (scrollDepthCounts[depth] !== undefined) {
-          scrollDepthCounts[depth]++;
-        }
-      }
-    }
-    
-    return {
-      ctaClicks: Array.from(ctaClicksMap.values()).sort((a, b) => b.count - a.count),
-      pageViews: Array.from(pageViewsMap.entries()).map(([page, data]) => ({
-        page,
-        views: data.views,
-        avgTimeSpent: data.avgTimeSpent
-      })).sort((a, b) => b.views - a.views),
-      topPages: Array.from(pageViewsMap.entries()).map(([page, data]) => ({
-        page,
-        views: data.views,
-        bounceRate: Math.round(Math.random() * 20 + 20) // Simple bounce rate simulation
-      })).sort((a, b) => b.views - a.views),
-      scrollDepth: scrollDepthCounts
-    };
-  }
 }
 
 export const storage = new DatabaseStorage();
