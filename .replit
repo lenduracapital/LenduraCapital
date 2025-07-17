@@ -7,7 +7,7 @@ channel = "stable-24_05"
 packages = ["chromium", "ffmpeg"]
 
 [deployment]
-deploymentTarget = "autoscale"
+deploymentTarget = "gce"
 build = ["node", "build-for-deployment.js"]
 run = ["npm", "run", "start"]
 
