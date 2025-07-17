@@ -5,6 +5,37 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 ## Recent Changes (July 17, 2025)
 
+### Deployment Build Fix ✅ COMPLETE - July 17, 2025
+**Problem**: Build failing with 404 error - index.html not in correct location for deployment
+
+**Solution Implemented**:
+1. **Created Custom Build Script**: `build-for-deployment.js`
+   - Builds client with `npm run build` in client folder
+   - Copies client dist contents to root dist folder
+   - Builds server with esbuild to dist/index.js
+   - Ensures index.html is in dist root (not dist/public)
+
+2. **Verified Client Structure**:
+   - ✅ client/package.json exists
+   - ✅ client/vite.config.ts configured
+   - ✅ client/index.html present
+   - ✅ client/public/ folder with assets
+   - ✅ Build creates client/dist/ successfully
+
+3. **Build Output Structure**:
+   - dist/index.html (22.91 KB) - Client entry point
+   - dist/index.js (58.16 KB) - Server entry point
+   - dist/assets/ - Client assets
+   - dist/package.json - ESM module marker
+
+**Deployment Configuration**:
+- Build command: `node build-for-deployment.js`
+- Start command: `npm start`
+
+**Impact**: Deployment 404 error resolved. Files now in correct locations for production deployment.
+
+## Recent Changes (July 17, 2025)
+
 ### Backend Simplification & Analytics Cleanup ✅ COMPLETE - July 17, 2025
 **User Request**: Remove custom analytics system and simplify overly complex backend
 **Reason**: User already has Google Analytics 4 for tracking; backend was unnecessarily complex
