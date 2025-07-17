@@ -12,7 +12,6 @@ import Analytics from "@/components/analytics";
 const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
 const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
 const ClientCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
-const TermLoans = lazy(() => import("@/pages/term-loans"));
 const LoanApplication = lazy(() => import("@/pages/loan-application"));
 const ClientCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
 const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
@@ -28,7 +27,6 @@ const SEOWebDevelopment = lazy(() => import("@/pages/seo-web-development"));
 const CreditCardProcessing = lazy(() => import("@/pages/credit-card-processing"));
 const CommercialRealEstateLending = lazy(() => import("@/pages/solutions/commercial-real-estate-lending"));
 const MortgageFinancing = lazy(() => import("@/pages/solutions/mortgage-financing"));
-const DebtConsolidationPage = lazy(() => import("@/pages/debt-consolidation"));
 const TestimonialsPage = lazy(() => import("@/pages/testimonials"));
 const MoreTestimonials = lazy(() => import("@/pages/more-testimonials"));
 const Contact = lazy(() => import("@/pages/contact"));
@@ -103,7 +101,7 @@ function Router() {
         <Route path="/solutions/merchant-cash-advance" component={ClientCashAdvanceDetail} />
         <Route path="/qualified-industries" component={QualifiedIndustries} />
         <Route path="/merchant-cash-advance" component={ClientCashAdvance} />
-        <Route path="/term-loans" component={TermLoans} />
+        <Route path="/term-loans" component={TermLoansDetail} />
         <Route path="/testimonials" component={TestimonialsPage} />
         <Route path="/more-testimonials" component={MoreTestimonials} />
         <Route path="/about" component={About} />
