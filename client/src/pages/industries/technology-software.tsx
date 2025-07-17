@@ -26,7 +26,7 @@ export default function TechnologySoftware() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/pexels-olly-840996_1752763715224.jpg')"
           }}
         />
         
@@ -102,7 +102,7 @@ export default function TechnologySoftware() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
+                src="/attached_assets/pexels-olly-840996_1752763715224.jpg"
                 alt="Technology and software development"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

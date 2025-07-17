@@ -47,7 +47,7 @@ const industries = [
   {
     title: "Technology & Software",
     description: "Tech companies need capital for product development, marketing campaigns, talent acquisition, and scaling operations in competitive markets.",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop"
+    image: "/attached_assets/pexels-olly-840996_1752763715224.jpg"
   },
   {
     title: "Auto & Transportation",
