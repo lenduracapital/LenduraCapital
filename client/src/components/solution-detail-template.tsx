@@ -93,7 +93,7 @@ export default function SolutionDetailTemplate({
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wider">
-              {title}
+              {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}
             </h1>
             <p className="text-base md:text-xl text-gray-200 leading-relaxed px-4">
               {description}
