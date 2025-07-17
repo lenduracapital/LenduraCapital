@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-// Using logo from public directory
-const fundTekLogo = "/fundtek-icon.svg";
+// Using the white and blue FundTek logo
+import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
 
 interface HeaderProps {
   transparent?: boolean;

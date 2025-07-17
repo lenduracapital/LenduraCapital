@@ -2,8 +2,8 @@ import { ChartLine } from "lucide-react";
 import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
-// Using logo from public directory
-const fundTekLogo = "/fundtek-icon.svg";
+// Using the white and blue FundTek logo
+import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },

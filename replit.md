@@ -5,6 +5,22 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 ## Recent Changes (July 17, 2025)
 
+### Logo Update ✅ COMPLETE - July 17, 2025
+**Request**: User requested to change the logo in both header and footer to use the white and blue FundTek logo
+
+**Solution Implemented**:
+- Updated header component to use new logo: `ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png`
+- Updated footer component to use the same logo for consistency
+- Logo features "Fund" in white and "Tek" in blue with "CAPITAL GROUP" text
+- Imported from attached_assets directory using @assets alias
+
+**Impact**:
+- Consistent branding across header and footer
+- Professional white and blue color scheme
+- Clear FundTek Capital Group branding
+
+## Recent Changes (July 17, 2025)
+
 ### Project Cleanup & Optimization ✅ COMPLETE - July 17, 2025
 **Problem**: Project had unnecessary files, unused dependencies, and redundant UI components
 
