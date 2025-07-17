@@ -4,7 +4,7 @@ import { ArrowLeft, CheckCircle, Star, Code, Search, TrendingUp, Globe, Smartpho
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import digitalImage from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import digitalImage from "@assets/pexels-mikael-blomkvist-6476808_1752763455829.jpg";
 
 export default function SEOWebDevelopment() {
   const [, setLocation] = useLocation();
