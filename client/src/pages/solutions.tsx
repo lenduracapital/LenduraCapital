@@ -6,7 +6,7 @@ import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import EnhancedSchema from "@/components/enhanced-schema";
+
 import truckImage from "@assets/Truck_1750271749729.jpg";
 import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
@@ -194,7 +194,7 @@ export default function Solutions() {
         keywords="small business loans, business funding options, SBA loans, term loans, equipment financing, merchant cash advance, lines of credit, working capital loans, business loan comparison, commercial lending, Brooklyn business loans, New York business funding"
         canonical="/solutions"
       />
-      <EnhancedSchema type="solutions" />
+
       <Header />
       
       {/* Hero Section with Professional Design */}

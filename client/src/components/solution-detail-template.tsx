@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import EnhancedSchema from "@/components/enhanced-schema";
+
 
 interface SolutionDetailProps {
   title: string;
@@ -77,7 +77,7 @@ export default function SolutionDetailTemplate({
         keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding`}
         canonical={`/solutions/${title.toLowerCase().replace(/\s+/g, '-')}`}
       />
-      <EnhancedSchema type="solution-detail" pageData={{ title, description, solution: title }} />
+
       <Header />
       
       {/* Hero Section with Image */}

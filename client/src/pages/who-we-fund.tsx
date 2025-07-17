@@ -6,7 +6,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
-import EnhancedSchema from "@/components/enhanced-schema";
+
 
 const industries = [
   {
@@ -120,7 +120,7 @@ export default function QualifiedIndustries() {
         keywords="business funding by industry, trucking business loans, medical practice financing, construction loans, restaurant funding, retail business loans, manufacturing financing, technology startup funding, Brooklyn business lender"
         canonical="/industries"
       />
-      <EnhancedSchema type="industry" pageData={{ industry: "All Industries" }} />
+
       <Header />
       
       {/* Hero Section */}
