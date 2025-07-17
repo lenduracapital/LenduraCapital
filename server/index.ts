@@ -14,6 +14,17 @@ import {
 
 // Updated: July 16, 2025 - Deployment fixes applied
 
+// Global error handlers to prevent crashes
+process.on('uncaughtException', (error) => {
+  console.error('❌ Uncaught Exception:', error);
+  // Don't exit the process, try to recover
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason);
+  // Don't exit the process, try to recover
+});
+
 // Import enterprise-level middleware and monitoring
 import { globalErrorHandler, notFoundHandler, requestIdMiddleware } from "./middleware/error-handler";
 import { performanceMonitoringMiddleware, rateLimitMonitoringMiddleware, securityMonitoringMiddleware, slowOperationMiddleware, getHealthStatus, getPerformanceMetrics } from "./middleware/monitoring";
@@ -236,6 +247,13 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     const { createServer } = await import("http");
     const server = createServer(app);
+    
+    // Add connection limits and timeout handling
+    server.maxConnections = 1000;
+    server.timeout = 120000; // 2 minutes
+    server.keepAliveTimeout = 65000;
+    server.headersTimeout = 70000;
+    
     await setupVite(app, server);
     
     // ALWAYS serve the app on port 5000
@@ -253,9 +271,28 @@ app.use((req, res, next) => {
       }, 100);
     });
     
-    server.on('connection', (socket) => {
-      console.log(`🔗 New connection from: ${socket.remoteAddress}:${socket.remotePort}`);
+    // Add error handling
+    server.on('error', (error) => {
+      console.error('❌ Server error:', error);
+      if (error.code === 'EADDRINUSE') {
+        console.error(`Port ${port} is already in use`);
+        process.exit(1);
+      }
     });
+    
+    // Handle server shutdown gracefully
+    process.on('SIGTERM', () => {
+      console.log('SIGTERM received, shutting down gracefully...');
+      server.close(() => {
+        console.log('Server closed');
+        process.exit(0);
+      });
+    });
+    
+    // Remove verbose connection logging to prevent log flooding
+    // server.on('connection', (socket) => {
+    //   console.log(`🔗 New connection from: ${socket.remoteAddress}:${socket.remotePort}`);
+    // });
     
     // Add 404 handler and error handler AFTER vite setup in development
     app.use(notFoundHandler);
