@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue FundTek logo
-import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import { fundTekLogo } from "../assets/images";
 
 interface HeaderProps {
   transparent?: boolean;
@@ -87,7 +87,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               aria-label="Go to homepage"
             >
               <img 
-                src={fundTekLogo}
+                src="attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM.png"
                 alt="FundTek Capital Group Logo" 
                 className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain ml-[-3px] mr-[-3px] pl-[-8px] pr-[-8px] pt-[-7px] pb-[-7px] mt-[-3px] mb-[-3px]"
               />
