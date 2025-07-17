@@ -28,7 +28,7 @@ export default function CleaningJanitorialServices() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/pexels-mastercowley-713297_1752764075512.jpg')"
           }}
         />
         
