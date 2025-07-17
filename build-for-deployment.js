@@ -9,41 +9,63 @@ async function build() {
   console.log('🚀 Starting deployment build...');
   
   try {
-    // Clean dist directory
+    // Step 1: Clean dist directory
     console.log('📦 Cleaning dist directory...');
     await fs.rm('dist', { recursive: true, force: true });
     await fs.mkdir('dist', { recursive: true });
     
-    // Build client
-    console.log('🎨 Building client...');
-    const { stdout: clientStdout, stderr: clientStderr } = await execAsync('cd client && npm run build');
-    if (clientStderr) console.error('Client build warnings:', clientStderr);
-    
-    // Copy client build to dist root
-    console.log('📂 Copying client build to dist...');
-    await fs.cp('client/dist', 'dist', { recursive: true });
-    
-    // Build server
-    console.log('🔧 Building server...');
+    // Step 2: Build TypeScript server to dist/index.js
+    console.log('🔧 Compiling TypeScript server...');
     const { stdout: serverStdout, stderr: serverStderr } = await execAsync(
       'esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js'
     );
     if (serverStderr) console.error('Server build warnings:', serverStderr);
+    console.log('✅ Server compiled to dist/index.js');
     
-    // Create package.json for ESM
+    // Step 3: Build Vite frontend in client directory
+    console.log('🎨 Building Vite frontend...');
+    const { stdout: clientStdout, stderr: clientStderr } = await execAsync('cd client && npm run build');
+    if (clientStderr && !clientStderr.includes('Browserslist')) {
+      console.error('Client build warnings:', clientStderr);
+    }
+    console.log('✅ Client built in client/dist');
+    
+    // Step 4: Copy client/dist/index.html → dist/index.html (and all assets)
+    console.log('📂 Copying frontend files to dist...');
+    const clientDistFiles = await fs.readdir('client/dist');
+    for (const file of clientDistFiles) {
+      const srcPath = path.join('client/dist', file);
+      const destPath = path.join('dist', file);
+      const stats = await fs.stat(srcPath);
+      
+      if (stats.isDirectory()) {
+        await fs.cp(srcPath, destPath, { recursive: true });
+      } else {
+        await fs.copyFile(srcPath, destPath);
+      }
+    }
+    console.log('✅ Frontend files copied to dist');
+    
+    // Step 5: Create package.json for ESM support
     console.log('📝 Creating dist/package.json...');
     await fs.writeFile('dist/package.json', JSON.stringify({ type: 'module' }, null, 2));
     
-    // Verify build
-    console.log('✅ Verifying build output...');
-    const indexHtmlExists = await fs.access('dist/index.html').then(() => true).catch(() => false);
-    const indexJsExists = await fs.access('dist/index.js').then(() => true).catch(() => false);
+    // Step 6: Verify critical files
+    console.log('\n✅ Verifying build output...');
+    const checks = [
+      { file: 'dist/index.js', desc: 'Server entry point' },
+      { file: 'dist/index.html', desc: 'Client entry point' },
+      { file: 'dist/package.json', desc: 'ESM configuration' }
+    ];
     
-    if (!indexHtmlExists) {
-      throw new Error('dist/index.html not found!');
-    }
-    if (!indexJsExists) {
-      throw new Error('dist/index.js not found!');
+    for (const check of checks) {
+      try {
+        const stats = await fs.stat(check.file);
+        console.log(`✓ ${check.desc}: ${check.file} (${(stats.size / 1024).toFixed(2)} KB)`);
+      } catch (err) {
+        console.error(`❌ Missing: ${check.file}`);
+        throw new Error(`Build verification failed: ${check.file} not found`);
+      }
     }
     
     // List dist contents
@@ -55,9 +77,11 @@ async function build() {
       console.log(`  - ${file} ${size}`);
     }
     
-    console.log('\n✅ Build completed successfully!');
-    console.log('📍 dist/index.html - Client entry point');
-    console.log('📍 dist/index.js - Server entry point');
+    console.log('\n🎉 Build completed successfully!');
+    console.log('\n📋 Deployment settings:');
+    console.log('  Build Command: npm run build');
+    console.log('  Start Command: npm start');
+    console.log('  Output Directory: dist');
     
   } catch (error) {
     console.error('❌ Build failed:', error.message);
