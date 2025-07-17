@@ -75,7 +75,7 @@ export function decryptField(encryptedData: string): string | null {
       throw new Error(`Invalid authentication tag length: expected ${TAG_LENGTH} bytes, got ${tag.length} bytes`);
     }
     
-    const decipher = crypto.createDecipheriv(ALGORITHM, encryptionKey, iv);
+    const decipher = crypto.createDecipheriv(ALGORITHM, encryptionKey, iv, { authTagLength: TAG_LENGTH });
     decipher.setAuthTag(tag);
     decipher.setAAD(Buffer.from('fundtek-aad'));
     
