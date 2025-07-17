@@ -8,7 +8,7 @@ packages = ["chromium", "ffmpeg"]
 
 [deployment]
 deploymentTarget = "autoscale"
-build = ["npm", "run", "build"]
+build = ["node", "build-for-deployment.js"]
 run = ["npm", "run", "start"]
 
 [[ports]]
