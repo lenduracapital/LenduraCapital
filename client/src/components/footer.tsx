@@ -3,7 +3,7 @@ import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 // Using logo from public directory
-const fundTekLogo = "/fundtek-icon.png";
+const fundTekLogo = "/fundtek-icon.svg";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },

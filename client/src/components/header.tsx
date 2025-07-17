@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 // Using logo from public directory
-const fundTekLogo = "/fundtek-icon.png";
+const fundTekLogo = "/fundtek-icon.svg";
 
 interface HeaderProps {
   transparent?: boolean;
