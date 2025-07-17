@@ -2,9 +2,8 @@ import { ChartLine } from "lucide-react";
 import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
-import fundTekLogo from "@assets/image_1752182868701.png";
-
-import ChatGPT_Image_Jun_5__2025__12_13_54_PM from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM.png";
+// Using logo from public directory
+const fundTekLogo = "/fundtek-icon.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
@@ -53,7 +52,7 @@ export default function Footer() {
           <div className="space-y-3 md:space-y-4 text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-start space-x-3">
               <img 
-                src={ChatGPT_Image_Jun_5__2025__12_13_54_PM} 
+                src={fundTekLogo} 
                 alt="FundTek Capital Group" 
                 className="h-20 sm:h-24 md:h-40 w-auto"
               />
