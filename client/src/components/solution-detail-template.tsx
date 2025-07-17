@@ -249,10 +249,10 @@ export default function SolutionDetailTemplate({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Complete {title} Guide
+                Complete {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title} Guide
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to know about {title.toLowerCase()}, from how they work to what documents you'll need.
+                Everything you need to know about {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title.toLowerCase()}, from how they work to what documents you'll need.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
