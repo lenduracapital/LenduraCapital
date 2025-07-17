@@ -4,13 +4,7 @@ import { storage } from "./storage";
 
 // Import validation schemas from client-safe shared schema
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
-import sgMail from '@sendgrid/mail';
 import { registerAdminRoutes } from "./admin-routes";
-
-// Initialize SendGrid
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   

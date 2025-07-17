@@ -3,7 +3,7 @@ import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
-import { setupSwagger } from "./swagger/api-docs";
+// Swagger removed for lighter deployment
 
 const app = express();
 
@@ -76,8 +76,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Set up Swagger API documentation
-setupSwagger(app);
+// Swagger API documentation removed for lighter deployment
 
 (async () => {
   // In development, set up Vite first

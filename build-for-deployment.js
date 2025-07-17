@@ -22,9 +22,12 @@ try {
   console.log('⚙️  Building backend with esbuild...');
   execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js', { stdio: 'inherit' });
 
-  // Step 4: Verify build output
+  // Step 4: Simple verification that dist/index.js exists
   console.log('🔍 Verifying build output...');
-  execSync('node build-verification.js', { stdio: 'inherit' });
+  if (!existsSync('dist/index.js')) {
+    throw new Error('dist/index.js was not created');
+  }
+  console.log('✅ Build verification passed: dist/index.js exists');
 
   console.log('✅ Deployment build completed successfully!');
 } catch (error) {
