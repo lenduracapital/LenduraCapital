@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import lineOfCreditImage from "@assets/pexels-shkrabaanthony-5816283_1752511864339.jpg";
+import lineOfCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 
 export default function LinesOfCreditDetail() {
   return (

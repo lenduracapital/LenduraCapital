@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import invoiceImage from "@assets/pexels-mikhail-nilov-6963857_1752511219358.jpg";
+import invoiceImage from "@assets/download_1752510375017.jpg";
 
 export default function InvoiceFactoringDetail() {
   return (
