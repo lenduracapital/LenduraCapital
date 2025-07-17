@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import termLoanImage from "@assets/Debt-Consolidation_1752510134665.jpeg";
+import termLoanImage from "@assets/pexels-shkrabaanthony-5816299_1752762804868.jpg";
 
 export default function TermLoansDetail() {
   return (

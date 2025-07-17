@@ -51,7 +51,7 @@ export default function TermLoans() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/pexels-shkrabaanthony-5816299_1752762804868.jpg')"
           }}
         >
           <div className="absolute inset-0 bg-blue-900 bg-opacity-80"></div>
