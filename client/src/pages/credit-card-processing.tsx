@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Star, CheckCircle, ArrowRight, Users, Shield, Zap, CreditCard } from "lucide-react";
 import { useLocation } from "wouter";
-import cardProcessingImage from "@assets/download_1752510375017.jpg";
+import cardProcessingImage from "@assets/pexels-ivan-samkov-7621136 (1)_1752763383710.jpg";
 
 export default function CreditCardProcessing() {
   const [, setLocation] = useLocation();
