@@ -5,9 +5,8 @@ import { useLocation } from "wouter";
 
 // Video path - using external URL to avoid build issues
 const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
-// Updated to use attached_assets paths
-const logoPath = "attached_assets/logo.png";
-const heroBackgroundPath = "attached_assets/hero-background.jpg";
+import logoPath from "@assets/image_1752182868701.png";
+import heroBackgroundPath from "@assets/image_1752190793949.png";
 
 // Enhanced video optimization hook
 function useVideoOptimization() {
