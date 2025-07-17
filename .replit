@@ -7,9 +7,9 @@ channel = "stable-24_05"
 packages = ["chromium", "ffmpeg"]
 
 [deployment]
-deploymentTarget = "gce"
+deploymentTarget = "cloudrun"
 build = ["node", "build-for-deployment.js"]
-run = ["npm", "run", "start"]
+run = ["sh", "-c", "node dist/index.js"]
 
 [[ports]]
 localPort = 3000
