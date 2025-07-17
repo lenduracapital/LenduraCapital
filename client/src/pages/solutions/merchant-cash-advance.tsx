@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import paymentImage from "@assets/pexels-kampus-8475161_1752511219357.jpg";
+import paymentImage from "@assets/download_1752510375017.jpg";
 
 export default function ClientCashAdvanceDetail() {
   return (

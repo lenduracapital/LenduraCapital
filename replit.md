@@ -5,6 +5,20 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 ## Recent Changes (July 17, 2025)
 
+### Deployment Asset Fix ✅ COMPLETE - July 17, 2025
+**Problem**: Deployment failed due to missing image file `pexels-kampus-8475161_1752511219357.jpg` referenced in merchant-cash-advance.tsx
+
+**Solution Implemented**:
+- Replaced missing image reference with existing asset: `download_1752510375017.jpg`
+- Updated import in `client/src/pages/solutions/merchant-cash-advance.tsx`
+- Verified @assets alias is properly configured in both Vite configs
+- Confirmed replacement image exists and is appropriate for financial services content
+
+**Impact**:
+- Eliminates build failure during deployment
+- Merchant cash advance page now uses valid, existing asset
+- No functionality changes, only asset reference correction
+
 ### Logo Update ✅ COMPLETE - July 17, 2025
 **Request**: User requested to change the logo in both header and footer to use the white and blue FundTek logo
 
