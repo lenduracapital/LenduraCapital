@@ -28,7 +28,7 @@ export default function AutoTransportation() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=600&fit=crop')"
+            backgroundImage: "url('/attached_assets/pexels-georgesultan-1409999_1752763876354.jpg')"
           }}
         />
         
@@ -104,7 +104,7 @@ export default function AutoTransportation() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop"
+                src="/attached_assets/pexels-georgesultan-1409999_1752763876354.jpg"
                 alt="Auto and transportation services"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
