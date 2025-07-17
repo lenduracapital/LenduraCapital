@@ -16,7 +16,7 @@ interface PerformanceMetrics {
   lastReset: Date;
 }
 
-// In-memory metrics storage (in production, use Redis)
+// In-memory metrics storage with periodic cleanup to prevent memory leaks
 let metrics: PerformanceMetrics = {
   requestCount: 0,
   responseTimeTotal: 0,
@@ -25,6 +25,18 @@ let metrics: PerformanceMetrics = {
   endpoints: {},
   lastReset: new Date()
 };
+
+// Reset metrics every hour to prevent memory buildup
+setInterval(() => {
+  metrics = {
+    requestCount: 0,
+    responseTimeTotal: 0,
+    errorCount: 0,
+    statusCodes: {},
+    endpoints: {},
+    lastReset: new Date()
+  };
+}, 60 * 60 * 1000); // 1 hour
 
 // Health check status
 interface HealthStatus {
@@ -51,8 +63,15 @@ export const performanceMonitoringMiddleware = (req: Request, res: Response, nex
   // Increment request counter
   metrics.requestCount++;
   
-  // Track endpoint-specific metrics
+  // Track endpoint-specific metrics with limit to prevent memory growth
   if (!metrics.endpoints[endpoint]) {
+    // Limit number of tracked endpoints to prevent memory leak
+    const endpointKeys = Object.keys(metrics.endpoints);
+    if (endpointKeys.length > 100) {
+      // Remove oldest endpoint
+      delete metrics.endpoints[endpointKeys[0]];
+    }
+    
     metrics.endpoints[endpoint] = {
       count: 0,
       totalTime: 0,

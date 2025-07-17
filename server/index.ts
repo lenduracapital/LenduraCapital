@@ -35,6 +35,7 @@ import { createMigrationManager } from "./data-management/migrations";
 
 // Import API v1 routes
 import apiV1Routes from "./api/v1/routes";
+import { applyStabilityImprovements } from "./stability-improvements";
 
 const app = express();
 
@@ -247,6 +248,9 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     const { createServer } = await import("http");
     const server = createServer(app);
+    
+    // Apply stability improvements to the server instance
+    applyStabilityImprovements(app, server);
     
     // Add connection limits and timeout handling
     server.maxConnections = 1000;

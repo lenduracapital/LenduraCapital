@@ -43,9 +43,9 @@ export default function AdvancedVideoOptimizer() {
           }
         });
 
-        // Performance monitoring for video
+        // Performance monitoring for video - disabled excessive logging
         video.addEventListener('waiting', () => {
-          console.log('Video buffering - optimizing...');
+          // console.log('Video buffering - optimizing...');
           video.setAttribute('data-loading', 'true');
         });
 
