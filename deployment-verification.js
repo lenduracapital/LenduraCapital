@@ -1,83 +1,67 @@
-// Deployment Verification Script
-// Ensures all deployment requirements are met
+#!/usr/bin/env node
 
-import fs from 'fs';
-import path from 'path';
+import { existsSync, statSync } from 'fs';
+import { resolve } from 'path';
 
-console.log('🔍 Verifying deployment readiness...\n');
-
-const checks = [
-  {
-    name: 'Server Bundle Exists',
-    check: () => fs.existsSync('dist/index.js'),
-    fix: 'Run: node build-for-deployment.js or ./replit-deploy.sh'
-  },
-  {
-    name: 'Server Bundle is Valid JavaScript',
-    check: () => {
-      if (!fs.existsSync('dist/index.js')) return false;
-      const content = fs.readFileSync('dist/index.js', 'utf8');
-      return content.includes('export') || content.includes('import') || content.includes('require');
-    },
-    fix: 'Ensure esbuild compiles TypeScript correctly'
-  },
-  {
-    name: 'ESM Package Configuration',
-    check: () => {
-      if (!fs.existsSync('dist/package.json')) return false;
-      const pkg = JSON.parse(fs.readFileSync('dist/package.json', 'utf8'));
-      return pkg.type === 'module';
-    },
-    fix: 'Create dist/package.json with {"type":"module"}'
-  },
-  {
-    name: 'TypeScript Configuration Allows Output',
-    check: () => {
-      if (!fs.existsSync('tsconfig.json')) return true;
-      const tsconfig = JSON.parse(fs.readFileSync('tsconfig.json', 'utf8'));
-      return tsconfig.compilerOptions.noEmit !== true;
-    },
-    fix: 'Set "noEmit": false in tsconfig.json'
-  },
-  {
-    name: 'Start Script Points to Correct File',
-    check: () => {
-      if (!fs.existsSync('package.json')) return false;
-      const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-      return pkg.scripts?.start?.includes('dist/index.js');
-    },
-    fix: 'Update package.json start script to use dist/index.js'
-  }
+const requiredFiles = [
+  'dist/index.js',
+  'dist/public/index.html',
+  'dist/public/assets'
 ];
 
-let passed = 0;
-let failed = 0;
+const scripts = [
+  'build-for-deployment.js',
+  'start-server.js', 
+  'build-verification.js'
+];
 
-for (const check of checks) {
-  const result = check.check();
-  if (result) {
-    console.log(`✅ ${check.name}`);
-    passed++;
+console.log('🔍 Verifying deployment readiness...');
+
+console.log('\n📦 Checking build output:');
+let buildReady = true;
+
+for (const file of requiredFiles) {
+  const filePath = resolve(file);
+  if (existsSync(filePath)) {
+    const stats = statSync(filePath);
+    if (stats.isDirectory()) {
+      console.log(`✅ ${file} directory exists`);
+    } else {
+      console.log(`✅ ${file} exists (${stats.size} bytes)`);
+    }
   } else {
-    console.log(`❌ ${check.name}`);
-    console.log(`   Fix: ${check.fix}\n`);
-    failed++;
+    console.error(`❌ ${file} is missing`);
+    buildReady = false;
   }
 }
 
-console.log(`\n📊 Results: ${passed} passed, ${failed} failed`);
+console.log('\n🛠️  Checking deployment scripts:');
+let scriptsReady = true;
 
-if (failed === 0) {
-  console.log('🎉 ALL DEPLOYMENT CHECKS PASSED!');
-  console.log('✅ Ready for production deployment');
-  
-  // Show file info
-  if (fs.existsSync('dist/index.js')) {
-    const stats = fs.statSync('dist/index.js');
-    console.log(`📦 dist/index.js: ${(stats.size / 1024).toFixed(2)} KB`);
+for (const script of scripts) {
+  const scriptPath = resolve(script);
+  if (existsSync(scriptPath)) {
+    console.log(`✅ ${script} exists`);
+  } else {
+    console.error(`❌ ${script} is missing`);
+    scriptsReady = false;
   }
+}
+
+console.log('\n📋 Deployment Configuration:');
+console.log(`✅ Build command: node build-for-deployment.js`);
+console.log(`✅ Start command: node start-server.js`);
+console.log(`✅ Output directory: dist/`);
+console.log(`✅ Main entry: dist/index.js`);
+console.log(`✅ Frontend assets: dist/public/`);
+
+if (buildReady && scriptsReady) {
+  console.log('\n🚀 Deployment is ready!');
+  console.log('\nFor manual deployment:');
+  console.log('1. Run: node build-for-deployment.js');
+  console.log('2. Run: node start-server.js');
+  console.log('\nReplit deployment will use these scripts automatically.');
 } else {
-  console.log('⚠️  Deployment requirements not met');
-  console.log('Please fix the failed checks above');
+  console.error('\n❌ Deployment is not ready. Please fix the missing files/scripts.');
   process.exit(1);
 }

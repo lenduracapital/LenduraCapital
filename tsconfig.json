@@ -13,6 +13,8 @@
     "moduleResolution": "node",
     "allowJs": true,
     "noEmit": false,
+    "declaration": false,
+    "sourceMap": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./client/src/*"],
