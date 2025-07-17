@@ -81,7 +81,7 @@ app.use((req, res, next) => {
 (async () => {
   try {
     console.log(`🚀 Starting server in ${process.env.NODE_ENV || 'development'} mode...`);
-    console.log(`📡 Port: ${process.env.PORT || 5000}`);
+    console.log(`📡 Port: ${process.env.PORT || (process.env.NODE_ENV === 'production' ? 3000 : 5000)}`);
     console.log(`🗄️ Database: ${process.env.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL'}`);
     
     // In development, set up Vite first
@@ -105,7 +105,7 @@ app.use((req, res, next) => {
     res.status(500).json({ error: "Internal server error" });
   });
 
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 3000 : 5000);
   const HOST = '0.0.0.0';
 
   // Enhanced error handling for deployment

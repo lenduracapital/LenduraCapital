@@ -56,6 +56,11 @@ try {
     throw new Error('dist/public/index.html was not created - frontend build incomplete');
   }
   
+  // Copy frontend assets to server/public for production static serving
+  console.log('📁 Setting up production static files...');
+  execSync('mkdir -p server/public', { stdio: 'pipe' });
+  execSync('cp -r dist/public/* server/public/', { stdio: 'pipe' });
+  
   console.log('✅ All build artifacts verified successfully');
 
   // Run additional verification
