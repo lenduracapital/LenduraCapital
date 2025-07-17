@@ -28,9 +28,9 @@ try {
   console.log('📦 Building frontend with Vite...');
   execSync('npx vite build', { stdio: 'inherit' });
 
-  // Step 4: Build backend with esbuild
+  // Step 4: Build backend with esbuild - ensure exact location
   console.log('⚙️  Building backend with esbuild...');
-  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js', { stdio: 'inherit' });
+  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js --banner:js="import { createRequire } from \'module\'; const require = createRequire(import.meta.url);"', { stdio: 'inherit' });
 
   // Step 5: Enhanced verification of build output
   console.log('🔍 Verifying build output...');
