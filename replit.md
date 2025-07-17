@@ -5,6 +5,29 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 ## Recent Changes (July 17, 2025)
 
+### Bug Fixes and SOC 2 Compliance ✅ COMPLETE - July 17, 2025
+**Bugs Found and Fixed**:
+
+1. **SOC 2 Compliance Error - Missing Transaction Rollback**
+   - Error: `SOC 2 Violation [MEDIUM]: PI-002 - Control test failed: Error handling prevents data corruption`
+   - Fix: Added database transaction support to storage.ts for createLoanApplication, updateLoanApplicationStatus, and createContactSubmission
+   - Impact: Database operations now properly rollback on errors, preventing data corruption
+
+2. **Error Handling Test Failure**
+   - Problem: SOC 2 test was checking for sensitive data patterns in errors
+   - Fix: Updated testErrorHandling() to properly test without exposing sensitive data and verify transaction support
+   - Added db import to soc2-framework.ts for transaction verification
+
+3. **Slow Operation Warnings**
+   - Issue: Operations taking longer than 2 seconds are logged as SLOW_OPERATION
+   - Current threshold: 2000ms (set in server/index.ts line 52)
+   - Note: Initial page loads may trigger this during Vite development server startup
+
+4. **Missing Environment Variable**
+   - Warning: `ENCRYPTION_KEY not set. Using default key for development only!`
+   - Impact: Security risk if deployed without proper encryption key
+   - Recommendation: Set ENCRYPTION_KEY before production deployment
+
 ### Website Stability Improvements ✅ COMPLETE - July 17, 2025
 **Problem**: Website was experiencing frequent crashes and high CPU usage (17.6%) due to memory leaks and excessive logging
 

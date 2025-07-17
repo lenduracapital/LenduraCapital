@@ -58,11 +58,20 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createLoanApplication(application: InsertLoanApplication): Promise<LoanApplication> {
-    const [loanApp] = await db
-      .insert(loanApplications)
-      .values(application)
-      .returning();
-    return loanApp;
+    try {
+      // Use transaction to ensure data integrity
+      const result = await db.transaction(async (tx) => {
+        const [loanApp] = await tx
+          .insert(loanApplications)
+          .values(application)
+          .returning();
+        return loanApp;
+      });
+      return result;
+    } catch (error) {
+      // Transaction automatically rolls back on error
+      throw error;
+    }
   }
 
   async getLoanApplications(): Promise<LoanApplication[]> {
@@ -75,20 +84,36 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateLoanApplicationStatus(id: number, status: string): Promise<LoanApplication | undefined> {
-    const [updated] = await db
-      .update(loanApplications)
-      .set({ status, updatedAt: new Date() })
-      .where(eq(loanApplications.id, id))
-      .returning();
-    return updated || undefined;
+    try {
+      const result = await db.transaction(async (tx) => {
+        const [updated] = await tx
+          .update(loanApplications)
+          .set({ status, updatedAt: new Date() })
+          .where(eq(loanApplications.id, id))
+          .returning();
+        return updated;
+      });
+      return result || undefined;
+    } catch (error) {
+      // Transaction automatically rolls back on error
+      throw error;
+    }
   }
 
   async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
-    const [contact] = await db
-      .insert(contactSubmissions)
-      .values(submission)
-      .returning();
-    return contact;
+    try {
+      const result = await db.transaction(async (tx) => {
+        const [contact] = await tx
+          .insert(contactSubmissions)
+          .values(submission)
+          .returning();
+        return contact;
+      });
+      return result;
+    } catch (error) {
+      // Transaction automatically rolls back on error
+      throw error;
+    }
   }
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
