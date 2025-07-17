@@ -3,7 +3,16 @@
 import { Application } from 'express';
 import { Server } from 'http';
 
+// Track if improvements have already been applied to prevent duplicates
+let improvementsApplied = false;
+
 export function applyStabilityImprovements(app: Application, server?: Server) {
+  // Prevent applying improvements multiple times
+  if (improvementsApplied) {
+    console.log('⚠️ Stability improvements already applied, skipping...');
+    return;
+  }
+  improvementsApplied = true;
   // 1. Limit request body size to prevent memory issues
   app.use((req, res, next) => {
     if (req.headers['content-length']) {

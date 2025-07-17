@@ -95,7 +95,7 @@ export class PerformanceOptimizer {
           const targetBuffer = Math.min(currentTime + 10, duration);
           
           if (bufferEnd >= targetBuffer) {
-            console.log('Video buffering - optimized');
+            // console.log('Video buffering - optimized');
             return;
           }
         }

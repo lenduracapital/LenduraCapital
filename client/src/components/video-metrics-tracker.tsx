@@ -9,14 +9,14 @@ export default function VideoMetricsTracker() {
       videos.forEach((video: HTMLVideoElement, index) => {
         const startTime = performance.now();
         
-        // Track video loading time
+        // Track video loading time - disabled excessive logging
         video.addEventListener('loadstart', () => {
-          console.log(`Video ${index + 1} loading started`);
+          // console.log(`Video ${index + 1} loading started`);
         });
 
         video.addEventListener('canplay', () => {
           const loadTime = performance.now() - startTime;
-          console.log(`Video ${index + 1} ready to play in ${loadTime.toFixed(2)}ms`);
+          // console.log(`Video ${index + 1} ready to play in ${loadTime.toFixed(2)}ms`);
           
           // Send to analytics
           if (typeof gtag !== 'undefined') {
@@ -30,7 +30,7 @@ export default function VideoMetricsTracker() {
 
         video.addEventListener('loadeddata', () => {
           const dataLoadTime = performance.now() - startTime;
-          console.log(`Video ${index + 1} data loaded in ${dataLoadTime.toFixed(2)}ms`);
+          // console.log(`Video ${index + 1} data loaded in ${dataLoadTime.toFixed(2)}ms`);
         });
 
         // Track buffer health
@@ -42,18 +42,18 @@ export default function VideoMetricsTracker() {
             
             if (bufferPercent > 30 && !video.hasAttribute('data-buffer-healthy')) {
               video.setAttribute('data-buffer-healthy', 'true');
-              console.log(`Video ${index + 1} buffer healthy: ${bufferPercent.toFixed(1)}%`);
+              // console.log(`Video ${index + 1} buffer healthy: ${bufferPercent.toFixed(1)}%`);
             }
           }
         });
 
-        // Track stalling events
+        // Track stalling events - disabled excessive logging
         video.addEventListener('waiting', () => {
-          console.warn(`Video ${index + 1} buffering...`);
+          // console.warn(`Video ${index + 1} buffering...`);
         });
 
         video.addEventListener('stalled', () => {
-          console.warn(`Video ${index + 1} stalled`);
+          // console.warn(`Video ${index + 1} stalled`);
         });
       });
 
@@ -72,7 +72,7 @@ export default function VideoMetricsTracker() {
               PageLoad: navigation.loadEventEnd - navigation.navigationStart
             };
 
-            console.log('Page Performance Metrics:', metrics);
+            // console.log('Page Performance Metrics:', metrics);
             
             // Send to analytics
             if (typeof gtag !== 'undefined') {
