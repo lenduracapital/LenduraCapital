@@ -16,17 +16,42 @@ app.use(compression({
   threshold: 1024
 }));
 
-// Permissive headers for development
+// Environment-specific headers
 app.use((req, res, next) => {
-  res.removeHeader('X-Frame-Options');
-  res.removeHeader('Content-Security-Policy');
-  res.removeHeader('X-Content-Type-Options');
-  res.removeHeader('Cross-Origin-Embedder-Policy');
-  res.removeHeader('Cross-Origin-Opener-Policy');
+  if (process.env.NODE_ENV === 'production') {
+    // Production security headers
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    
+    // CORS for production domain
+    const allowedOrigins = [
+      'https://*.replit.app',
+      'https://*.replit.dev', 
+      process.env.PRODUCTION_DOMAIN
+    ].filter(Boolean);
+    
+    const origin = req.headers.origin;
+    if (origin && allowedOrigins.some(allowed => 
+      allowed.includes('*') ? 
+        origin.includes(allowed.replace('*', '')) : 
+        origin === allowed
+    )) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+  } else {
+    // Development: permissive headers
+    res.removeHeader('X-Frame-Options');
+    res.removeHeader('Content-Security-Policy');
+    res.removeHeader('X-Content-Type-Options');
+    res.removeHeader('Cross-Origin-Embedder-Policy');
+    res.removeHeader('Cross-Origin-Opener-Policy');
+    
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }
   
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   
   if (req.method === 'OPTIONS') {
     return res.sendStatus(200);
@@ -91,8 +116,40 @@ app.use((req, res, next) => {
       server = await registerRoutes(app);
       await setupVite(app, server);
     } else {
-      serveStatic(app);
+      // Production: Set up proper routing for frontend + backend
       server = await registerRoutes(app);
+      
+      // Production static file serving
+      console.log('📁 Setting up production static file serving...');
+      const distPath = path.join(process.cwd(), 'dist', 'public');
+      const serverPublicPath = path.join(process.cwd(), 'server', 'public');
+      
+      // Try to serve from dist/public first, fallback to server/public
+      const staticPath = require('fs').existsSync(distPath) ? distPath : serverPublicPath;
+      console.log(`📁 Serving static files from: ${staticPath}`);
+      
+      // Serve static assets with caching headers
+      app.use(express.static(staticPath, {
+        maxAge: '1y',
+        etag: true,
+        lastModified: true
+      }));
+      
+      // SPA routing: serve index.html for non-API routes
+      app.use('*', (req, res, next) => {
+        // Don't serve index.html for API routes
+        if (req.originalUrl.startsWith('/api/')) {
+          return next();
+        }
+        
+        // Serve index.html for all other routes (SPA routing)
+        const indexPath = path.join(staticPath, 'index.html');
+        if (require('fs').existsSync(indexPath)) {
+          res.sendFile(indexPath);
+        } else {
+          res.status(404).json({ error: 'Frontend not built' });
+        }
+      });
     }
 
   // Setup error handlers AFTER static files
@@ -106,7 +163,7 @@ app.use((req, res, next) => {
   });
 
   const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 3000 : 5000);
-  const HOST = '0.0.0.0';
+  const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '0.0.0.0';
 
   // Enhanced error handling for deployment
   const startServer = () => {

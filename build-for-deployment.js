@@ -24,17 +24,11 @@ try {
     // Don't fail the build for TypeScript warnings, but log them
   }
 
-  // Step 3: Clean dist directory before building to prevent conflicts
-  console.log('🧹 Ensuring clean dist directory before build...');
-  if (existsSync('dist')) {
-    rmSync('dist', { recursive: true, force: true });
-  }
-
-  // Step 4: Build frontend with Vite (creates dist/public)
+  // Step 3: Build frontend with Vite (creates dist/public)
   console.log('📦 Building frontend with Vite...');
   execSync('npx vite build', { stdio: 'inherit' });
 
-  // Step 5: Build backend with esbuild - using --outfile for exact location
+  // Step 4: Build backend with esbuild - using --outfile for exact location
   console.log('⚙️  Building backend with esbuild to exact location...');
   execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js --banner:js="import { createRequire } from \'module\'; const require = createRequire(import.meta.url);"', { stdio: 'inherit' });
   
@@ -43,7 +37,7 @@ try {
     throw new Error('esbuild failed to create dist/index.js - build process incomplete');
   }
 
-  // Step 6: Create dist/package.json to enable ES modules for Node.js
+  // Step 5: Create dist/package.json to enable ES modules for Node.js
   console.log('📄 Creating dist/package.json for ES modules...');
   const distPackageJson = {
     "type": "module",
@@ -52,7 +46,7 @@ try {
   };
   writeFileSync('dist/package.json', JSON.stringify(distPackageJson, null, 2));
 
-  // Step 7: Enhanced verification of build output
+  // Step 6: Enhanced verification of build output
   console.log('🔍 Verifying build output...');
   if (!existsSync('dist/index.js')) {
     throw new Error('dist/index.js was not created');
@@ -85,6 +79,12 @@ try {
   console.log('📁 Setting up production static files...');
   execSync('mkdir -p server/public', { stdio: 'pipe' });
   execSync('cp -r dist/public/* server/public/', { stdio: 'pipe' });
+  
+  // Also ensure dist/public exists for direct serving
+  console.log('📁 Verifying dist/public structure for production...');
+  if (!existsSync('dist/public/index.html')) {
+    throw new Error('dist/public/index.html not found - frontend build incomplete');
+  }
   
   console.log('✅ All build artifacts verified successfully');
 
