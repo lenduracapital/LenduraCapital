@@ -30,16 +30,16 @@ try {
 execSync('npx vite build', { stdio: 'inherit' });
 console.log('✅ Frontend built');
 
-// Step 4: Build backend with esbuild
+// Step 4: Build backend with esbuild - directly to start.js
 const serverEntry = resolve(__dirname, 'server/index.ts');
-const outputIndex = resolve(distPath, 'index.js');
+const outputStart = resolve(distPath, 'start.js');
 
-execSync(`npx esbuild ${serverEntry} --platform=node --packages=external --bundle --format=esm --outfile=${outputIndex} --banner:js="import { createRequire } from 'module'; const require = createRequire(import.meta.url);"`, { stdio: 'inherit' });
+execSync(`npx esbuild ${serverEntry} --platform=node --packages=external --bundle --format=esm --outfile=${outputStart} --banner:js="import { createRequire } from 'module'; const require = createRequire(import.meta.url);"`, { stdio: 'inherit' });
 
-if (!existsSync(outputIndex)) {
-  throw new Error('❌ dist/index.js was not created');
+if (!existsSync(outputStart)) {
+  throw new Error('❌ dist/start.js was not created');
 }
-execSync(`node -c ${outputIndex}`, { stdio: 'pipe' });
+execSync(`node -c ${outputStart}`, { stdio: 'pipe' });
 console.log('✅ Backend validated');
 
 // Step 5: Validate frontend index
@@ -61,40 +61,8 @@ const packageJson = {
 writeFileSync(resolve(distPath, 'package.json'), JSON.stringify(packageJson, null, 2));
 console.log('✅ Created dist/package.json');
 
-// Step 7: Create ESM-safe start.js wrapper
-const startScript = `#!/usr/bin/env node
-import { existsSync, readdirSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { spawn } from 'child_process';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const indexPath = resolve(__dirname, 'index.js');
-
-console.log("=== DEPLOYMENT START ===");
-if (!existsSync(indexPath)) {
-  console.error("❌ Missing index.js at:", indexPath);
-  console.error("Contents:", readdirSync(__dirname));
-  process.exit(1);
-}
-
-const syntaxCheck = spawn('node', ['-c', indexPath]);
-syntaxCheck.on('close', async (code) => {
-  if (code === 0) {
-    console.log("✅ Syntax valid, launching...");
-    await import(indexPath);
-  } else {
-    console.error("❌ Syntax check failed");
-    process.exit(1);
-  }
-});`;
-
+// Step 7: Verify start.js was created successfully (no wrapper needed)
 const startPath = resolve(distPath, 'start.js');
-writeFileSync(startPath, startScript);
-console.log('✅ Created start.js wrapper');
-
-// Step 7a: Verify start.js was created successfully
 if (!existsSync(startPath)) {
   throw new Error('❌ dist/start.js was not created');
 }
@@ -106,18 +74,10 @@ execSync('mkdir -p server/public', { stdio: 'pipe' });
 execSync('cp -r dist/public/* server/public/', { stdio: 'pipe' });
 console.log('✅ Copied frontend assets to server/public');
 
-// Step 9: Fallback safeguard
-if (!existsSync(outputIndex)) {
-  mkdirSync(dirname(outputIndex), { recursive: true });
-  writeFileSync(outputIndex, 'console.log("⚠️ Build fallback placeholder");');
-  console.warn('⚠️ Created fallback dist/index.js');
-}
-
 // Final verification step
 console.log('🔍 Final deployment verification...');
 const requiredFiles = [
   resolve(distPath, 'start.js'),
-  resolve(distPath, 'index.js'),
   resolve(distPath, 'package.json'),
   resolve(distPath, 'public/index.html')
 ];
