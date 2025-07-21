@@ -78,7 +78,8 @@ app.get('/api/health', (req, res) => {
     });
   } catch (error) {
     console.error('Health check error:', error);
-    res.status(500).json({ status: 'error', error: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    res.status(500).json({ status: 'error', error: errorMessage });
   }
 });
 
