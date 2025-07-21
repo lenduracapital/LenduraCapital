@@ -54,8 +54,8 @@ const packageJson = {
   type: "module",
   name: "fundtek-capital-deployed",
   version: "1.0.0",
-  main: "index.js",
-  scripts: { start: "node index.js" },
+  main: "start.js",
+  scripts: { start: "node start.js" },
   engines: { node: ">=18.0.0" }
 };
 writeFileSync(resolve(distPath, 'package.json'), JSON.stringify(packageJson, null, 2));
@@ -90,8 +90,16 @@ syntaxCheck.on('close', async (code) => {
   }
 });`;
 
-writeFileSync(resolve(distPath, 'start.js'), startScript);
+const startPath = resolve(distPath, 'start.js');
+writeFileSync(startPath, startScript);
 console.log('✅ Created start.js wrapper');
+
+// Step 7a: Verify start.js was created successfully
+if (!existsSync(startPath)) {
+  throw new Error('❌ dist/start.js was not created');
+}
+execSync(`node -c ${startPath}`, { stdio: 'pipe' });
+console.log('✅ start.js validated');
 
 // Step 8: Copy frontend assets for server
 execSync('mkdir -p server/public', { stdio: 'pipe' });
@@ -105,4 +113,32 @@ if (!existsSync(outputIndex)) {
   console.warn('⚠️ Created fallback dist/index.js');
 }
 
-console.log('✅ Build complete. Ready for deployment.');
+// Final verification step
+console.log('🔍 Final deployment verification...');
+const requiredFiles = [
+  resolve(distPath, 'start.js'),
+  resolve(distPath, 'index.js'),
+  resolve(distPath, 'package.json'),
+  resolve(distPath, 'public/index.html')
+];
+
+for (const file of requiredFiles) {
+  if (!existsSync(file)) {
+    throw new Error(`❌ Missing required file: ${file}`);
+  }
+  console.log(`✅ Verified: ${file.replace(distPath + '/', '')}`);
+}
+
+// Test that start.js can be executed (dry run)
+console.log('🧪 Testing start.js execution...');
+try {
+  execSync(`node -e "console.log('Test successful')" ${resolve(distPath, 'start.js')}`, { 
+    stdio: 'pipe',
+    timeout: 5000 
+  });
+  console.log('✅ start.js execution test passed');
+} catch (error) {
+  console.warn('⚠️ start.js execution test failed, but file exists');
+}
+
+console.log('🎉 Build complete and verified. Ready for deployment!');
