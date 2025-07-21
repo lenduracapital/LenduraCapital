@@ -1,5 +1,5 @@
-// Import database tables from server schema
-import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages } from "./schema";
+// Import database tables from shared schema
+import { users, loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations, auditLogs, chatMessages } from "@shared/schema";
 // Import types from shared schema (client-safe)
 import type { User, InsertUser, LoanApplication, InsertLoanApplication, ContactSubmission, InsertContactSubmission, JotformSubmission, InsertJotformSubmission, ChatbotConversation, InsertChatbotConversation, AuditLog, InsertAuditLog } from "@shared/schema";
 import { db } from "./db";
@@ -67,7 +67,12 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getLoanApplications(): Promise<LoanApplication[]> {
-    return await db.select().from(loanApplications).orderBy(loanApplications.createdAt);
+    try {
+      return await db.select().from(loanApplications).orderBy(loanApplications.createdAt);
+    } catch (error) {
+      console.error('Error in getLoanApplications:', error);
+      return [];
+    }
   }
 
   async getLoanApplication(id: number): Promise<LoanApplication | undefined> {
@@ -109,7 +114,12 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
-    return await db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
+    try {
+      return await db.select().from(contactSubmissions).orderBy(contactSubmissions.createdAt);
+    } catch (error) {
+      console.error('Error in getContactSubmissions:', error);
+      return [];
+    }
   }
 
   async createJotformSubmission(submission: InsertJotformSubmission): Promise<JotformSubmission> {
@@ -121,7 +131,12 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getJotformSubmissions(): Promise<JotformSubmission[]> {
-    return await db.select().from(jotformSubmissions).orderBy(jotformSubmissions.createdAt);
+    try {
+      return await db.select().from(jotformSubmissions).orderBy(jotformSubmissions.createdAt);
+    } catch (error) {
+      console.error('Error in getJotformSubmissions:', error);
+      return [];
+    }
   }
 
   async getJotformSubmission(id: number): Promise<JotformSubmission | undefined> {
@@ -147,7 +162,12 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getChatbotConversations(): Promise<ChatbotConversation[]> {
-    return await db.select().from(chatbotConversations).orderBy(chatbotConversations.createdAt);
+    try {
+      return await db.select().from(chatbotConversations).orderBy(chatbotConversations.createdAt);
+    } catch (error) {
+      console.error('Error in getChatbotConversations:', error);
+      return [];
+    }
   }
 
   async getChatbotConversation(id: number): Promise<ChatbotConversation | undefined> {

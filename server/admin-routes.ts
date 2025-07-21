@@ -42,12 +42,45 @@ export function registerAdminRoutes(app: Express) {
   // Admin dashboard data
   app.get("/api/admin/dashboard", requireAuth, async (req, res) => {
     try {
-      const [loanApplications, contactSubmissions, jotformSubmissions, chatbotConversations] = await Promise.all([
-        storage.getLoanApplications(),
-        storage.getContactSubmissions(),
-        storage.getJotformSubmissions(),
-        storage.getChatbotConversations()
-      ]);
+      console.log('🔍 Admin dashboard: Starting data fetch...');
+      
+      // Test each storage method individually to identify issues
+      let loanApplications: any[] = [];
+      let contactSubmissions: any[] = [];
+      let jotformSubmissions: any[] = [];
+      let chatbotConversations: any[] = [];
+
+      try {
+        console.log('📋 Fetching loan applications...');
+        loanApplications = await storage.getLoanApplications();
+        console.log(`✅ Found ${loanApplications.length} loan applications`);
+      } catch (error) {
+        console.error('❌ Error fetching loan applications:', error);
+      }
+
+      try {
+        console.log('📞 Fetching contact submissions...');
+        contactSubmissions = await storage.getContactSubmissions();
+        console.log(`✅ Found ${contactSubmissions.length} contact submissions`);
+      } catch (error) {
+        console.error('❌ Error fetching contact submissions:', error);
+      }
+
+      try {
+        console.log('📝 Fetching jotform submissions...');
+        jotformSubmissions = await storage.getJotformSubmissions();
+        console.log(`✅ Found ${jotformSubmissions.length} jotform submissions`);
+      } catch (error) {
+        console.error('❌ Error fetching jotform submissions:', error);
+      }
+
+      try {
+        console.log('💬 Fetching chatbot conversations...');
+        chatbotConversations = await storage.getChatbotConversations();
+        console.log(`✅ Found ${chatbotConversations.length} chatbot conversations`);
+      } catch (error) {
+        console.error('❌ Error fetching chatbot conversations:', error);
+      }
 
       const stats = {
         totalLoanApplications: loanApplications.length,
@@ -60,23 +93,28 @@ export function registerAdminRoutes(app: Express) {
         recentChats: chatbotConversations.slice(-5),
         conversionMetrics: {
           applicationsThisMonth: loanApplications.filter(app => 
-            new Date(app.createdAt).getMonth() === new Date().getMonth()
+            app.createdAt && new Date(app.createdAt).getMonth() === new Date().getMonth()
           ).length,
           contactsThisMonth: contactSubmissions.filter(contact => 
-            new Date(contact.createdAt).getMonth() === new Date().getMonth()
+            contact.createdAt && new Date(contact.createdAt).getMonth() === new Date().getMonth()
           ).length,
           jotformsThisMonth: jotformSubmissions.filter(jotform => 
-            new Date(jotform.createdAt).getMonth() === new Date().getMonth()
+            jotform.createdAt && new Date(jotform.createdAt).getMonth() === new Date().getMonth()
           ).length,
           chatsThisMonth: chatbotConversations.filter(chat => 
-            new Date(chat.createdAt).getMonth() === new Date().getMonth()
+            chat.createdAt && new Date(chat.createdAt).getMonth() === new Date().getMonth()
           ).length
         }
       };
 
+      console.log('📊 Dashboard stats computed successfully');
       res.json(stats);
     } catch (error) {
-      res.status(500).json({ error: "Failed to fetch admin dashboard data" });
+      console.error('💥 Admin dashboard error:', error);
+      res.status(500).json({ 
+        error: "Failed to fetch admin dashboard data", 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      });
     }
   });
 

@@ -1,5 +1,6 @@
-// Client-safe type definitions - no drizzle-orm imports
+// Database schema and type definitions
 import { z } from "zod";
+import { pgTable, text, serial, integer, boolean, varchar, timestamp } from "drizzle-orm/pg-core";
 
 // Zod schemas for validation (client-safe)
 export const insertUserSchema = z.object({
@@ -76,7 +77,102 @@ export const insertAuditLogSchema = z.object({
   errorMessage: z.string().optional(),
 });
 
+// Database table definitions (for Drizzle schema generation)
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  password: text("password").notNull(),
+});
 
+export const loanApplications = pgTable("loan_applications", {
+  id: serial("id").primaryKey(),
+  firstName: varchar("first_name", { length: 100 }).notNull(),
+  lastName: varchar("last_name", { length: 100 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  phone: varchar("phone", { length: 20 }),
+  businessName: varchar("business_name", { length: 255 }).notNull(),
+  businessType: varchar("business_type", { length: 100 }),
+  yearsInBusiness: integer("years_in_business"),
+  monthlyRevenue: integer("monthly_revenue"),
+  loanAmount: integer("loan_amount").notNull(),
+  loanPurpose: text("loan_purpose"),
+  creditScore: integer("credit_score"),
+  status: varchar("status", { length: 50 }).default("pending").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const contactSubmissions = pgTable("contact_submissions", {
+  id: serial("id").primaryKey(),
+  firstName: varchar("first_name", { length: 100 }).notNull(),
+  lastName: varchar("last_name", { length: 100 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  phone: varchar("phone", { length: 20 }),
+  fundingAmount: varchar("funding_amount", { length: 50 }),
+  message: text("message"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const jotformSubmissions = pgTable("jotform_submissions", {
+  id: serial("id").primaryKey(),
+  submissionId: varchar("submission_id", { length: 100 }).unique().notNull(),
+  formId: varchar("form_id", { length: 100 }).notNull(),
+  formTitle: varchar("form_title", { length: 255 }),
+  firstName: varchar("first_name", { length: 100 }),
+  lastName: varchar("last_name", { length: 100 }),
+  email: varchar("email", { length: 255 }),
+  phone: varchar("phone", { length: 20 }),
+  businessName: varchar("business_name", { length: 255 }),
+  fundingAmount: varchar("funding_amount", { length: 100 }),
+  businessType: varchar("business_type", { length: 100 }),
+  rawData: text("raw_data"),
+  status: varchar("status", { length: 50 }).default("new").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const chatbotConversations = pgTable("chatbot_conversations", {
+  id: serial("id").primaryKey(),
+  sessionId: varchar("session_id", { length: 100 }).unique().notNull(),
+  firstName: varchar("first_name", { length: 100 }),
+  phoneNumber: varchar("phone_number", { length: 20 }),
+  email: varchar("email", { length: 255 }),
+  userType: varchar("user_type", { length: 100 }),
+  timeline: varchar("timeline", { length: 100 }),
+  product: varchar("product", { length: 100 }),
+  revenue: varchar("revenue", { length: 100 }),
+  businessType: varchar("business_type", { length: 100 }),
+  debtQ1: varchar("debt_q1", { length: 100 }),
+  debtQ2: varchar("debt_q2", { length: 100 }),
+  conversationData: text("conversation_data"),
+  status: varchar("status", { length: 50 }).default("active").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const chatMessages = pgTable("chat_messages", {
+  id: serial("id").primaryKey(),
+  conversationId: varchar("conversation_id", { length: 100 }).notNull(),
+  messageId: varchar("message_id", { length: 100 }).notNull(),
+  text: text("text").notNull(),
+  sender: varchar("sender", { length: 10 }).notNull(),
+  timestamp: timestamp("timestamp").notNull(),
+});
+
+export const auditLogs = pgTable("audit_logs", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id"),
+  action: varchar("action", { length: 50 }).notNull(),
+  resource: varchar("resource", { length: 100 }).notNull(),
+  resourceId: varchar("resource_id", { length: 100 }),
+  oldValues: text("old_values"),
+  newValues: text("new_values"),
+  ipAddress: varchar("ip_address", { length: 45 }).notNull(),
+  userAgent: text("user_agent"),
+  sessionId: varchar("session_id", { length: 100 }),
+  success: boolean("success").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
 
 // Type definitions
 export type InsertUser = z.infer<typeof insertUserSchema>;
