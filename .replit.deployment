@@ -1,4 +1,4 @@
 [deployment]
 deploymentTarget = "cloudrun"
-build = ["node", "./build-for-deployment.js"]
-run = ["node", "./dist/index.js"]
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]

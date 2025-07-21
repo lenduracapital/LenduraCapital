@@ -5,6 +5,13 @@ import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
 // Swagger removed for lighter deployment
 
+console.log("=== SERVER STARTUP DEBUG ===");
+console.log("Current Working Directory:", process.cwd());
+console.log("Script Location:", import.meta.url);
+console.log("Node Version:", process.version);
+console.log("NODE_ENV:", process.env.NODE_ENV);
+console.log("__dirname equivalent:", path.dirname(new URL(import.meta.url).pathname));
+
 const app = express();
 
 // Configure trust proxy for rate limiting
