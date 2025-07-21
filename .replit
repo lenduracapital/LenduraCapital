@@ -9,7 +9,7 @@ channel = "stable-24_05"
 packages = ["chromium", "ffmpeg"]
 
 [deployment]
-deploymentTarget = "cloudrun"
+deploymentTarget = "gce"
 
 # ✅ Build your full deployment process
 build = ["node", "build-for-deployment.js"]
@@ -18,36 +18,8 @@ build = ["node", "build-for-deployment.js"]
 run = ["node", "./dist/start.js"]
 
 [[ports]]
-localPort = 3000
-externalPort = 3000
-
-[[ports]]
-localPort = 3001
-externalPort = 3001
-
-[[ports]]
-localPort = 3003
-externalPort = 5000
-
-[[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 5001
-externalPort = 3002
-
-[[ports]]
-localPort = 8080
-externalPort = 8080
-
-[[ports]]
-localPort = 9001
-externalPort = 3003
-
-[[ports]]
-localPort = 9003
-externalPort = 4200
 
 [workflows]
 runButton = "Start application"
