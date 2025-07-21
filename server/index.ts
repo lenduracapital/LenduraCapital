@@ -2,20 +2,39 @@ import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { config, getDeploymentInfo } from "./config";
+import { 
+  environmentMiddleware, 
+  createHealthCheckHandler, 
+  createEnvValidationHandler,
+  requestLoggingMiddleware 
+} from "./middleware/environment";
 import path from "path";
-// Swagger removed for lighter deployment
 
-console.log("=== SERVER STARTUP DEBUG ===");
-console.log("Current Working Directory:", process.cwd());
-console.log("Script Location:", import.meta.url);
-console.log("Node Version:", process.version);
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("__dirname equivalent:", path.dirname(new URL(import.meta.url).pathname));
+console.log("=== FUNDTEK CAPITAL GROUP - SERVER STARTUP ===");
+console.log("📍 Current Working Directory:", process.cwd());
+console.log("📄 Script Location:", import.meta.url);
+console.log("🟢 Node Version:", process.version);
+console.log("🌍 Environment:", config.NODE_ENV);
+console.log("🌐 Port:", config.PORT);
+console.log("🗄️  Database:", config.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL');
+
+const deployment = getDeploymentInfo();
+console.log("🚀 Deployment Platform:", deployment.name);
+if (deployment.url !== 'localhost') {
+  console.log("🌐 Platform URL:", deployment.url);
+}
 
 const app = express();
 
 // Configure trust proxy for rate limiting
 app.set('trust proxy', 1);
+
+// Add environment context to all requests
+app.use(environmentMiddleware);
+
+// Add request logging (respects LOG_LEVEL and DEBUG_REQUESTS)
+app.use(requestLoggingMiddleware);
 
 // Add compression middleware
 app.use(compression({
@@ -26,14 +45,14 @@ app.use(compression({
 // Environment-specific headers with enhanced error handling
 app.use((req, res, next) => {
   try {
-    // Detect production mode more reliably
-    const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
+    const isProduction = config.NODE_ENV === 'production';
     
     if (isProduction) {
       // Production security headers
       res.setHeader('X-Content-Type-Options', 'nosniff');
       res.setHeader('X-Frame-Options', 'DENY');
       res.setHeader('X-XSS-Protection', '1; mode=block');
+      res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
       
       // Simple CORS for production - allow all origins for deployment platform
       res.setHeader('Access-Control-Allow-Origin', '*');
@@ -49,39 +68,28 @@ app.use((req, res, next) => {
     }
     
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
     
     if (req.method === 'OPTIONS') {
       return res.sendStatus(200);
     }
   } catch (error) {
-    console.error('Header middleware error:', error);
+    console.error('❌ Header middleware error:', error);
     // Continue with basic headers
     res.setHeader('Access-Control-Allow-Origin', '*');
   }
   next();
 });
 
-// Health check endpoints - both root and /api/health for deployment platform
+// Enhanced health check endpoints with comprehensive environment info
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-app.get('/api/health', (req, res) => {
-  try {
-    res.json({ 
-      status: 'healthy', 
-      timestamp: new Date(),
-      environment: process.env.NODE_ENV || 'development',
-      port: process.env.PORT || 'not set',
-      cwd: process.cwd()
-    });
-  } catch (error) {
-    console.error('Health check error:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    res.status(500).json({ status: 'error', error: errorMessage });
-  }
-});
+app.get('/api/health', createHealthCheckHandler());
+
+// Environment validation endpoint for debugging deployment issues
+app.get('/api/env-status', createEnvValidationHandler());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -89,55 +97,19 @@ app.use(express.urlencoded({ extended: false }));
 // Serve attached assets directory
 app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
 
-// Simple request logging
-app.use((req, res, next) => {
-  const start = Date.now();
-  const path = req.path;
-  let capturedJsonResponse: Record<string, any> | undefined = undefined;
-
-  const originalResJson = res.json;
-  res.json = function (bodyJson, ...args) {
-    capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
-  };
-
-  res.on("finish", () => {
-    const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
-      if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
-      }
-
-      if (logLine.length > 80) {
-        logLine = logLine.slice(0, 79) + "…";
-      }
-
-      log(logLine);
-    }
-  });
-
-  next();
-});
+// Enhanced request logging is now handled by requestLoggingMiddleware
 
 // Swagger API documentation removed for lighter deployment
 
 (async () => {
   try {
-    // Detect if we're in production mode by checking if we're running from dist directory
-    // or if NODE_ENV is explicitly set to production
-    const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
-
-    // Use PORT environment variable from deployment platform
-    // Common deployment platforms use PORT env var, fallback to 80 for production
-    const PORT = process.env.PORT || (isProduction ? 80 : 5000);
-    console.log(`🔧 Port configuration: process.env.PORT=${process.env.PORT || 'not set'}, final PORT=${PORT}`);
-    const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
+    const isProduction = config.NODE_ENV === 'production';
+    const PORT = config.PORT;
+    const HOST = config.HOST;
 
     console.log(`🚀 Starting server in ${isProduction ? 'production' : 'development'} mode...`);
-    console.log(`🔧 Mode detection: NODE_ENV=${process.env.NODE_ENV || 'not set'}, cwd=${process.cwd()}`);
-    console.log(`📡 Port: ${PORT}`);
-    console.log(`🗄️ Database: ${process.env.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL'}`);
+    console.log(`📡 Port: ${PORT} (from ${process.env.PORT ? 'environment' : 'default'})`);
+    console.log(`🌐 Host: ${HOST}`);
     
     // In development, set up Vite first
     let server: any;
