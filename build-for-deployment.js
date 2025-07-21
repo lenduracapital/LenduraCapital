@@ -155,16 +155,141 @@ await import(indexPath);`;
     throw new Error(`Deployment verification failed: ${verifyError.message}`);
   }
 
-  console.log('✅ Deployment build completed successfully!');
-  console.log('🚀 Ready for deployment with: npm run start');
-  
-  // Step 8: Final fallback - ensure dist/index.js exists
-  console.log('🔍 Final verification and fallback...');
+  // Step 8: Enhanced production readiness check
+  console.log('🔍 Enhanced production readiness verification...');
   const finalIndexPath = resolve(__dirname, 'dist/index.js');
-  if (!existsSync(finalIndexPath)) {
-    console.log('⚠️  Creating fallback dist/index.js...');
-    writeFileSync(finalIndexPath, 'console.log("Dummy fallback entry point - build may have failed");');
+  const prodPackageJsonPath = resolve(__dirname, 'dist/package.json');
+  const frontendIndexPath = resolve(__dirname, 'dist/public/index.html');
+  
+  // Comprehensive file existence check
+  const requiredFiles = [
+    { path: finalIndexPath, name: 'dist/index.js (server bundle)' },
+    { path: prodPackageJsonPath, name: 'dist/package.json (ES module config)' },
+    { path: frontendIndexPath, name: 'dist/public/index.html (frontend)' }
+  ];
+  
+  for (const file of requiredFiles) {
+    if (!existsSync(file.path)) {
+      throw new Error(`Required deployment file missing: ${file.name} at ${file.path}`);
+    }
+    console.log(`✅ ${file.name} verified`);
   }
+
+  // Enhanced dist/package.json with all production requirements
+  console.log('📦 Creating production-ready package.json...');
+  const enhancedPackageJson = {
+    "type": "module",
+    "name": "fundtek-capital-deployed",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  };
+  writeFileSync(prodPackageJsonPath, JSON.stringify(enhancedPackageJson, null, 2));
+  console.log('✅ Enhanced dist/package.json created');
+
+  // Step 9: Create deployment startup validation script
+  console.log('🔧 Creating enhanced startup wrapper...');
+  const productionStartScript = `#!/usr/bin/env node
+
+// Enhanced production startup wrapper with comprehensive validation
+import { existsSync, readFileSync, statSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+console.log("=== PRODUCTION DEPLOYMENT STARTUP ===");
+console.log("Timestamp:", new Date().toISOString());
+console.log("Current Working Directory:", process.cwd());
+console.log("Script Directory:", __dirname);
+console.log("Node Version:", process.version);
+console.log("Platform:", process.platform);
+console.log("Environment Variables:");
+console.log("- NODE_ENV:", process.env.NODE_ENV || 'not set');
+console.log("- PORT:", process.env.PORT || 'not set');
+
+// Comprehensive pre-startup validation
+const indexPath = resolve(__dirname, 'index.js');
+const packagePath = resolve(__dirname, 'package.json');
+const publicPath = resolve(__dirname, 'public/index.html');
+
+console.log("\\n=== DEPLOYMENT FILE VERIFICATION ===");
+
+// Check main server file
+if (!existsSync(indexPath)) {
+  console.error("❌ CRITICAL ERROR: index.js not found at:", indexPath);
+  console.error("Directory contents:");
+  try { console.error(require('fs').readdirSync(__dirname)); } catch(e) {}
+  process.exit(1);
+}
+const indexStats = statSync(indexPath);
+console.log("✅ Server bundle found:", indexPath);
+console.log("  Size:", Math.round(indexStats.size / 1024), "KB");
+console.log("  Modified:", indexStats.mtime.toISOString());
+
+// Check package.json
+if (!existsSync(packagePath)) {
+  console.error("❌ WARNING: package.json not found at:", packagePath);
+} else {
+  console.log("✅ Package config found:", packagePath);
+}
+
+// Check frontend assets
+if (!existsSync(publicPath)) {
+  console.error("❌ WARNING: Frontend assets not found at:", publicPath);
+} else {
+  console.log("✅ Frontend assets found:", publicPath);
+}
+
+// Validate JavaScript syntax
+console.log("\\n=== JAVASCRIPT SYNTAX VALIDATION ===");
+try {
+  const { spawn } = await import('child_process');
+  const syntaxCheck = spawn('node', ['-c', indexPath]);
+  
+  await new Promise((resolve, reject) => {
+    syntaxCheck.on('close', (code) => {
+      if (code === 0) {
+        console.log("✅ JavaScript syntax validation passed");
+        resolve();
+      } else {
+        reject(new Error(\`Syntax validation failed with code \${code}\`));
+      }
+    });
+    syntaxCheck.on('error', reject);
+  });
+} catch (syntaxError) {
+  console.error("❌ CRITICAL ERROR: JavaScript syntax validation failed");
+  console.error(syntaxError.message);
+  process.exit(1);
+}
+
+console.log("\\n=== STARTING SERVER ===");
+console.log("Loading server from:", indexPath);
+
+try {
+  // Import and start the server
+  await import(indexPath);
+} catch (startupError) {
+  console.error("❌ CRITICAL ERROR: Server startup failed");
+  console.error(startupError.message);
+  console.error(startupError.stack);
+  process.exit(1);
+}`;
+
+  writeFileSync(resolve(__dirname, 'dist/start.js'), productionStartScript);
+  console.log('✅ Enhanced startup wrapper created');
+
+  console.log('✅ Deployment build completed successfully!');
+  console.log('🚀 Ready for deployment with: node dist/start.js');
+  console.log('📋 Alternative start: NODE_ENV=production node dist/index.js');
+  
   console.log('✅ Final check: dist/index.js exists:', existsSync(finalIndexPath));
   
 } catch (error) {
