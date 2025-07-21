@@ -69,7 +69,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// Enhanced health check endpoint
+// Health check endpoints - both root and /api/health for deployment platform
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.get('/api/health', (req, res) => {
   try {
     res.json({ 
@@ -130,8 +134,10 @@ app.use((req, res, next) => {
     // or if NODE_ENV is explicitly set to production
     const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
 
-    // Use PORT environment variable from deployment, fallback appropriately
+    // Use PORT environment variable from deployment platform
+    // Common deployment platforms use PORT env var, fallback to 80 for production
     const PORT = process.env.PORT || (isProduction ? 80 : 5000);
+    console.log(`🔧 Port configuration: process.env.PORT=${process.env.PORT || 'not set'}, final PORT=${PORT}`);
     const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
 
     console.log(`🚀 Starting server in ${isProduction ? 'production' : 'development'} mode...`);
