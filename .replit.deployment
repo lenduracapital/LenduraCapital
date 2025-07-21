@@ -2,15 +2,16 @@
 # This file helps ensure correct deployment
 
 # Build command that creates dist/index.js with the exact filename
-build = "node replit-deployment-fix.mjs"
+build = "node build-for-deployment.js"
 
 # Start command
-run = "npm start"
+run = "NODE_ENV=production node dist/index.js"
 
 # Environment
 NODE_ENV = "production"
 
 # Notes:
-# - The default npm run build uses --outdir which doesn't create dist/index.js
-# - Our custom build script uses --outfile to ensure the exact filename
+# - The build-for-deployment.js script uses --outfile=dist/index.js to create the exact file
+# - It includes comprehensive verification to ensure all deployment files are created
+# - The script cleans the dist directory, builds frontend and backend, and verifies output
 # - This configuration ensures Replit deployment succeeds
