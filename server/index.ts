@@ -25,7 +25,10 @@ app.use(compression({
 
 // Environment-specific headers
 app.use((req, res, next) => {
-  if (process.env.NODE_ENV === 'production') {
+  // Detect production mode more reliably
+  const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
+  
+  if (isProduction) {
     // Production security headers
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
@@ -66,9 +69,20 @@ app.use((req, res, next) => {
   next();
 });
 
-// Simple health check endpoint
+// Enhanced health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date() });
+  try {
+    res.json({ 
+      status: 'healthy', 
+      timestamp: new Date(),
+      environment: process.env.NODE_ENV || 'development',
+      port: process.env.PORT || 'not set',
+      cwd: process.cwd()
+    });
+  } catch (error) {
+    console.error('Health check error:', error);
+    res.status(500).json({ status: 'error', error: error.message });
+  }
 });
 
 app.use(express.json());
@@ -112,18 +126,23 @@ app.use((req, res, next) => {
 
 (async () => {
   try {
+    // Detect if we're in production mode by checking if we're running from dist directory
+    // or if NODE_ENV is explicitly set to production
+    const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
+
     // Use PORT environment variable from deployment, fallback appropriately
-    const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 80 : 5000);
+    const PORT = process.env.PORT || (isProduction ? 80 : 5000);
     const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
 
-    console.log(`🚀 Starting server in ${process.env.NODE_ENV || 'development'} mode...`);
+    console.log(`🚀 Starting server in ${isProduction ? 'production' : 'development'} mode...`);
+    console.log(`🔧 Mode detection: NODE_ENV=${process.env.NODE_ENV || 'not set'}, cwd=${process.cwd()}`);
     console.log(`📡 Port: ${PORT}`);
     console.log(`🗄️ Database: ${process.env.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL'}`);
     
     // In development, set up Vite first
     let server: any;
     
-    if (app.get("env") === "development") {
+    if (!isProduction) {
       server = await registerRoutes(app);
       await setupVite(app, server);
     } else {
@@ -154,17 +173,24 @@ app.use((req, res, next) => {
       
       // SPA routing: serve index.html for non-API routes
       app.use('*', (req, res, next) => {
-        // Don't serve index.html for API routes
-        if (req.originalUrl.startsWith('/api/')) {
-          return next();
-        }
-        
-        // Serve index.html for all other routes (SPA routing)
-        const indexPath = path.join(staticPath, 'index.html');
-        if (require('fs').existsSync(indexPath)) {
-          res.sendFile(indexPath);
-        } else {
-          res.status(404).json({ error: 'Frontend not built' });
+        try {
+          // Don't serve index.html for API routes
+          if (req.originalUrl.startsWith('/api/')) {
+            return next();
+          }
+          
+          // Serve index.html for all other routes (SPA routing)
+          const indexPath = path.join(staticPath, 'index.html');
+          if (require('fs').existsSync(indexPath)) {
+            console.log(`📄 Serving SPA route: ${req.originalUrl} -> ${indexPath}`);
+            res.sendFile(indexPath);
+          } else {
+            console.error(`❌ Frontend index.html not found at: ${indexPath}`);
+            res.status(404).json({ error: 'Frontend not built' });
+          }
+        } catch (error) {
+          console.error('❌ SPA routing error:', error);
+          res.status(500).json({ error: 'SPA routing failed' });
         }
       });
     }
@@ -175,8 +201,16 @@ app.use((req, res, next) => {
   });
 
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    console.error(err.stack);
-    res.status(500).json({ error: "Internal server error" });
+    console.error('❌ Request error:', {
+      path: req.path,
+      method: req.method,
+      error: err.message,
+      stack: err.stack
+    });
+    res.status(500).json({ 
+      error: "Internal server error", 
+      details: process.env.NODE_ENV === 'development' ? err.message : undefined 
+    });
   });
 
 
