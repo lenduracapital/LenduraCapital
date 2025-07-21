@@ -23,48 +23,41 @@ app.use(compression({
   threshold: 1024
 }));
 
-// Environment-specific headers
+// Environment-specific headers with enhanced error handling
 app.use((req, res, next) => {
-  // Detect production mode more reliably
-  const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
-  
-  if (isProduction) {
-    // Production security headers
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
+  try {
+    // Detect production mode more reliably
+    const isProduction = process.env.NODE_ENV === 'production' || process.cwd().endsWith('/dist');
     
-    // CORS for production domain
-    const allowedOrigins = [
-      'https://*.replit.app',
-      'https://*.replit.dev', 
-      process.env.PRODUCTION_DOMAIN
-    ].filter(Boolean);
-    
-    const origin = req.headers.origin;
-    if (origin && allowedOrigins.some(allowed => 
-      allowed && allowed.includes('*') ? 
-        origin.includes(allowed.replace('*', '')) : 
-        origin === allowed
-    )) {
-      res.setHeader('Access-Control-Allow-Origin', origin);
+    if (isProduction) {
+      // Production security headers
+      res.setHeader('X-Content-Type-Options', 'nosniff');
+      res.setHeader('X-Frame-Options', 'DENY');
+      res.setHeader('X-XSS-Protection', '1; mode=block');
+      
+      // Simple CORS for production - allow all origins for deployment platform
+      res.setHeader('Access-Control-Allow-Origin', '*');
+    } else {
+      // Development: permissive headers
+      res.removeHeader('X-Frame-Options');
+      res.removeHeader('Content-Security-Policy');
+      res.removeHeader('X-Content-Type-Options');
+      res.removeHeader('Cross-Origin-Embedder-Policy');
+      res.removeHeader('Cross-Origin-Opener-Policy');
+      
+      res.setHeader('Access-Control-Allow-Origin', '*');
     }
-  } else {
-    // Development: permissive headers
-    res.removeHeader('X-Frame-Options');
-    res.removeHeader('Content-Security-Policy');
-    res.removeHeader('X-Content-Type-Options');
-    res.removeHeader('Cross-Origin-Embedder-Policy');
-    res.removeHeader('Cross-Origin-Opener-Policy');
     
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
+  } catch (error) {
+    console.error('Header middleware error:', error);
+    // Continue with basic headers
     res.setHeader('Access-Control-Allow-Origin', '*');
-  }
-  
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
   }
   next();
 });
