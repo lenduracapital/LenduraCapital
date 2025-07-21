@@ -112,8 +112,12 @@ app.use((req, res, next) => {
 
 (async () => {
   try {
+    // Use PORT environment variable from deployment, fallback appropriately
+    const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 80 : 5000);
+    const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
+
     console.log(`🚀 Starting server in ${process.env.NODE_ENV || 'development'} mode...`);
-    console.log(`📡 Port: ${process.env.PORT || (process.env.NODE_ENV === 'production' ? 3000 : 5000)}`);
+    console.log(`📡 Port: ${PORT}`);
     console.log(`🗄️ Database: ${process.env.DATABASE_URL ? 'Connected' : 'Missing DATABASE_URL'}`);
     
     // In development, set up Vite first
@@ -128,11 +132,17 @@ app.use((req, res, next) => {
       
       // Production static file serving
       console.log('📁 Setting up production static file serving...');
-      const distPath = path.join(process.cwd(), 'dist', 'public');
+      
+      // Check if we're running from the dist directory (deployment) or project root
+      const isRunningFromDist = process.cwd().endsWith('/dist');
+      const publicPath = isRunningFromDist 
+        ? path.join(process.cwd(), 'public')  // dist/public when running from dist/
+        : path.join(process.cwd(), 'dist', 'public');  // dist/public when running from project root
+      
       const serverPublicPath = path.join(process.cwd(), 'server', 'public');
       
-      // Try to serve from dist/public first, fallback to server/public
-      const staticPath = require('fs').existsSync(distPath) ? distPath : serverPublicPath;
+      // Try to serve from the correct public path first, fallback to server/public
+      const staticPath = require('fs').existsSync(publicPath) ? publicPath : serverPublicPath;
       console.log(`📁 Serving static files from: ${staticPath}`);
       
       // Serve static assets with caching headers
@@ -169,9 +179,7 @@ app.use((req, res, next) => {
     res.status(500).json({ error: "Internal server error" });
   });
 
-  // Use PORT environment variable from deployment, fallback appropriately
-  const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 80 : 5000);
-  const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
+
 
   // Enhanced error handling for deployment
   const startServer = () => {
