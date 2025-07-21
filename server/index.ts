@@ -169,8 +169,9 @@ app.use((req, res, next) => {
     res.status(500).json({ error: "Internal server error" });
   });
 
-  const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 3000 : 5000);
-  const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '0.0.0.0';
+  // Use PORT environment variable from deployment, fallback appropriately
+  const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' ? 80 : 5000);
+  const HOST = '0.0.0.0'; // Always use 0.0.0.0 for external access
 
   // Enhanced error handling for deployment
   const startServer = () => {
