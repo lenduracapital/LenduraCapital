@@ -40,7 +40,7 @@ app.use((req, res, next) => {
     
     const origin = req.headers.origin;
     if (origin && allowedOrigins.some(allowed => 
-      allowed.includes('*') ? 
+      allowed && allowed.includes('*') ? 
         origin.includes(allowed.replace('*', '')) : 
         origin === allowed
     )) {
