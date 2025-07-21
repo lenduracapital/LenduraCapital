@@ -18,24 +18,8 @@ build = ["node", "build-for-deployment.js"]
 run = ["node", "./dist/start.js"]
 
 [[ports]]
-localPort = 80
-externalPort = 3000
-
-[[ports]]
-localPort = 3000
-externalPort = 3002
-
-[[ports]]
 localPort = 5000
 externalPort = 80
-
-[[ports]]
-localPort = 8080
-externalPort = 8080
-
-[[ports]]
-localPort = 9999
-externalPort = 3001
 
 [workflows]
 runButton = "Start application"
