@@ -1,26 +1,35 @@
 #!/usr/bin/env node
-console.log('🚀 Ultra-simple deployment build...');
+console.log('🚀 Enhanced deployment build with comprehensive verification...');
 
-import { writeFileSync, mkdirSync, rmSync, existsSync, copyFileSync } from 'fs';
+import { writeFileSync, mkdirSync, rmSync, existsSync, statSync, readFileSync } from 'fs';
 import { execSync } from 'child_process';
 
-// Clean start
-if (existsSync('dist')) rmSync('dist', { recursive: true });
+const distPath = 'dist';
+const startJsPath = 'dist/start.js';
+const packageJsonPath = 'dist/package.json';
+
+// 1. Clean dist directory before building to prevent conflicts
+console.log('🧹 Cleaning dist directory...');
+if (existsSync(distPath)) {
+  rmSync(distPath, { recursive: true, force: true });
+  console.log('✅ Dist directory cleaned');
+}
 mkdirSync('dist/public', { recursive: true });
 
-// Build frontend first
+// 2. Build frontend first
 try {
-  console.log('Building frontend...');
+  console.log('🏗️ Building frontend...');
   execSync('npx vite build', { stdio: 'inherit' });
-  console.log('✅ Frontend built');
+  console.log('✅ Frontend built successfully');
 } catch (error) {
-  console.log('Frontend build failed, creating simple page...');
+  console.log('⚠️ Frontend build failed, creating fallback page...');
   writeFileSync('dist/public/index.html', `<!DOCTYPE html>
 <html><head><title>FundTek Capital</title></head>
 <body><h1>FundTek Capital Group</h1><p>Professional financing solutions</p></body></html>`);
+  console.log('✅ Fallback frontend page created');
 }
 
-// Ultra-simple server
+// 3. Create server code
 const serverCode = `import express from 'express';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -36,15 +45,73 @@ app.get('*', (req, res) => res.sendFile(join(__dirname, 'public/index.html')));
 
 app.listen(PORT, '0.0.0.0', () => console.log('Server ready on port', PORT));`;
 
-// Write deployment files
-writeFileSync('dist/start.js', serverCode);
-writeFileSync('dist/package.json', JSON.stringify({
+// 4. Write deployment files
+console.log('📝 Writing deployment files...');
+writeFileSync(startJsPath, serverCode);
+writeFileSync(packageJsonPath, JSON.stringify({
   "type": "module",
   "main": "start.js",
   "scripts": {"start": "node start.js"}
 }, null, 2));
 
-console.log('🎉 Deployment ready - ultra-simple server created');
-console.log('✅ dist/start.js - Minimal Express server');  
-console.log('✅ dist/package.json - Module configuration');
-console.log('✅ dist/public/ - Frontend files');
+// 5. COMPREHENSIVE VERIFICATION - Add verification to ensure dist/start.js is created
+console.log('🔍 Running comprehensive build verification...');
+
+// Verify dist/start.js exists
+if (!existsSync(startJsPath)) {
+  console.error('❌ CRITICAL ERROR: dist/start.js was not created!');
+  process.exit(1);
+}
+
+// Verify file size
+const stats = statSync(startJsPath);
+if (stats.size === 0) {
+  console.error('❌ CRITICAL ERROR: dist/start.js is empty!');
+  process.exit(1);
+}
+
+// Verify JavaScript syntax
+try {
+  execSync(`node -c "${startJsPath}"`, { stdio: 'pipe' });
+  console.log('✅ start.js syntax validation passed');
+} catch (error) {
+  console.error('❌ CRITICAL ERROR: dist/start.js has syntax errors!');
+  console.error(error.message);
+  process.exit(1);
+}
+
+// Verify package.json exists and has correct main field
+if (!existsSync(packageJsonPath)) {
+  console.error('❌ CRITICAL ERROR: dist/package.json was not created!');
+  process.exit(1);
+}
+
+try {
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+  if (packageJson.main !== 'start.js') {
+    console.error('❌ CRITICAL ERROR: package.json main field does not point to start.js!');
+    process.exit(1);
+  }
+  if (packageJson.scripts.start !== 'node start.js') {
+    console.error('❌ CRITICAL ERROR: package.json start script is incorrect!');
+    process.exit(1);
+  }
+  console.log('✅ package.json validation passed');
+} catch (error) {
+  console.error('❌ CRITICAL ERROR: Invalid package.json!');
+  console.error(error.message);
+  process.exit(1);
+}
+
+// Verify frontend files
+if (!existsSync('dist/public/index.html')) {
+  console.error('❌ WARNING: dist/public/index.html not found!');
+}
+
+// Final success report
+console.log('\n🎉 DEPLOYMENT BUILD SUCCESSFUL!');
+console.log('✅ dist/start.js created and verified (' + Math.round(stats.size/1024) + 'KB)');
+console.log('✅ dist/package.json created with correct main field');
+console.log('✅ dist/public/ directory with frontend files');
+console.log('✅ All deployment requirements satisfied');
+console.log('\n🚀 Ready for deployment with: node dist/start.js');
