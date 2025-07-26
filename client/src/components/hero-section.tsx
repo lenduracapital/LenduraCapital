@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 
 
-// Video path - using external URL to avoid build issues
+// Defer video loading to improve initial page speed
 const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
 import logoPath from "@assets/image_1752182868701.png";
 import heroBackgroundPath from "@assets/image_1752190793949.png";
@@ -38,7 +38,7 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying } = useVideoOptimization();
 
-  // Simple video loading
+  // Deferred video loading for better performance
   useEffect(() => {
     if (!shouldPlayVideo || !videoRef.current) return;
 
@@ -59,19 +59,23 @@ export default function HeroSection() {
       setIsVideoPlaying(true);
     };
 
-    // Immediate video loading and playback
-    video.load();
-    video.play().catch(() => {
-      // Fallback for autoplay restrictions
-      video.muted = true;
-      video.play().catch(() => {});
-    });
+    // Defer video loading by 1 second to let page render first
+    const loadVideo = () => {
+      video.load();
+      video.play().catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    };
+
+    const videoTimer = setTimeout(loadVideo, 1000);
 
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('play', handlePlay);
 
     return () => {
+      clearTimeout(videoTimer);
       video.removeEventListener('canplay', handleCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('play', handlePlay);
