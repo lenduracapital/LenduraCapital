@@ -27,8 +27,8 @@ if (deployment.url !== 'localhost') {
 
 const app = express();
 
-// Configure trust proxy for rate limiting
-app.set('trust proxy', 1);
+// Configure trust proxy for Replit deployment (CRITICAL for 500 error fix)
+app.set('trust proxy', true);
 
 // Add environment context to all requests
 app.use(environmentMiddleware);

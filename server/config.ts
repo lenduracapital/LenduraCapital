@@ -60,9 +60,11 @@ function validateEnvironment() {
       process.env.NODE_ENV = 'production';
     }
     
-    // Auto-detect deployment platform port
+    // Use port from environment or default based on mode
     if (!process.env.PORT) {
-      process.env.PORT = isProduction ? '3000' : '5000';
+      // Replit deployment expects the app to bind to PORT environment variable
+      // If not set, use 80 for production (deployment) or 5000 for development
+      process.env.PORT = isProduction ? '80' : '5000';
     }
     
     // Generate secure session secret if missing
