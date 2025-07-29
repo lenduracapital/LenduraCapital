@@ -4,17 +4,15 @@
 const CRITICAL_RESOURCES = [
   // Critical CSS - already handled by Vite
   // Logo - needed for header
-  '/assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1752722086552.png',
+  '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png',
   // Hero background if small
-  '/assets/image_1752182868701.png'
+  '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg'
 ];
 
-// Video resources for preloading
+// Video resources for preloading (using actual available files)
 const VIDEO_RESOURCES = [
-  '/video/optimized/hero-poster.jpg', // Poster image - preload immediately
-  '/video/optimized/hero-video-480p.mp4', // Mobile/slow connection video
-  '/video/optimized/hero-video-720p.webm', // Desktop video - WebM format
-  '/video/optimized/hero-video-720p.mp4' // Desktop video - MP4 fallback
+  '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg', // Poster image - preload immediately
+  '/attached_assets/Video (FundTek)_1751295081956.webm' // Main video file
 ];
 
 // Large resources that should be deferred
@@ -41,7 +39,7 @@ export function prioritizeResourceLoading() {
   const posterLink = document.createElement('link');
   posterLink.rel = 'preload';
   posterLink.as = 'image';
-  posterLink.href = '/video/optimized/hero-poster.jpg';
+  posterLink.href = '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg';
   posterLink.crossOrigin = 'anonymous';
   document.head.appendChild(posterLink);
 
@@ -74,11 +72,8 @@ export function prioritizeResourceLoading() {
     videoLink.rel = 'preload';
     videoLink.as = 'video';
     
-    if (isMobile || connectionSpeed === 'slow') {
-      videoLink.href = '/video/optimized/hero-video-480p.mp4';
-    } else {
-      videoLink.href = '/video/optimized/hero-video-720p.webm';
-    }
+    // Use the actual video file available
+    videoLink.href = '/attached_assets/Video (FundTek)_1751295081956.webm';
     
     videoLink.crossOrigin = 'anonymous';
     document.head.appendChild(videoLink);

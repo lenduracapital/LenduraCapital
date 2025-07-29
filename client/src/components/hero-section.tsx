@@ -4,16 +4,16 @@ import { useLocation } from "wouter";
 import { videoPreloader } from "@/utils/video-preloader";
 
 
-// Optimized video paths with multiple quality options
+// Optimized video paths with fallback to actual video file
 const videoSources = {
-  webm720: "/video/optimized/hero-video-720p.webm",
-  mp4720: "/video/optimized/hero-video-720p.mp4", 
-  mp4480: "/video/optimized/hero-video-480p.mp4",
+  webm720: "/attached_assets/Video (FundTek)_1751295081956.webm",
+  mp4720: "/attached_assets/Video (FundTek)_1751295081956.webm", 
+  mp4480: "/attached_assets/Video (FundTek)_1751295081956.webm",
   fallback: "/attached_assets/Video (FundTek)_1751295081956.webm"
 };
-const videoPoster = "/video/optimized/hero-poster.jpg";
-import logoPath from "@assets/image_1752182868701.png";
-import heroBackgroundPath from "@assets/image_1752190793949.png";
+const videoPoster = "/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
+import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import heroBackgroundPath from "@assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
 
 // Enhanced video optimization hook with intelligent loading
 function useVideoOptimization() {
