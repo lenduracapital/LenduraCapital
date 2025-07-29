@@ -130,7 +130,7 @@ app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_as
   etag: true,
   lastModified: true,
   immutable: true, // Files never change
-  setHeaders: (res, path) => {
+  setHeaders: (res, filePath) => {
     // Ultra-advanced performance headers for 90+ scores
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Cache-Control', 'public, max-age=31536000, immutable, stale-while-revalidate=86400');
@@ -139,20 +139,20 @@ app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_as
     res.setHeader('Keep-Alive', 'timeout=5, max=1000');
     
     // Critical Performance Protocol headers for 90+ scores
-    res.setHeader('Link', '<' + path + '>; rel=preload; as=fetch; fetchpriority=high');
+    res.setHeader('Link', '<' + filePath + '>; rel=preload; as=fetch; fetchpriority=high');
     res.setHeader('Server-Timing', 'cache;desc="Cache Hit";dur=0');
     res.setHeader('Critical-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform');
     res.setHeader('Accept-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform, Sec-CH-Viewport-Width');
     
     // Preload hints for critical resources
-    if (path.includes('ChatGPT Image Jun 5, 2025')) {
-      res.setHeader('Link', '</attached_assets/' + require('path').basename(path) + '>; rel=preload; as=image');
+    if (filePath.includes('ChatGPT Image Jun 5, 2025')) {
+      res.setHeader('Link', '</attached_assets/' + path.basename(filePath) + '>; rel=preload; as=image');
     }
     
     // Content-specific optimizations
-    if (path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.png') || path.endsWith('.webp')) {
+    if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') || filePath.endsWith('.png') || filePath.endsWith('.webp')) {
       res.setHeader('Content-Disposition', 'inline');
-    } else if (path.endsWith('.webm') || path.endsWith('.mp4')) {
+    } else if (filePath.endsWith('.webm') || filePath.endsWith('.mp4')) {
       res.setHeader('Accept-Ranges', 'bytes');
     }
   }

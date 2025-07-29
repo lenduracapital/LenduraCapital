@@ -36,32 +36,14 @@ export function enableUltraPerformanceOptimizations() {
 
   // Advanced service worker for aggressive caching
   const registerAdvancedServiceWorker = () => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {
-        // Create inline service worker for critical caching
-        const swCode = `
-          const CACHE_NAME = 'fundtek-v2';
-          const CRITICAL_ASSETS = [
-            '/',
-            '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png',
-            '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg'
-          ];
-          
-          self.addEventListener('install', (e) => {
-            e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CRITICAL_ASSETS)));
-          });
-          
-          self.addEventListener('fetch', (e) => {
-            e.respondWith(
-              caches.match(e.request).then(response => response || fetch(e.request))
-            );
-          });
-        `;
-        
-        const blob = new Blob([swCode], { type: 'application/javascript' });
-        const swUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swUrl);
-      });
+    if ('serviceWorker' in navigator && 'caches' in window) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(registration => {
+          console.log('ServiceWorker registered successfully');
+        })
+        .catch(error => {
+          console.log('ServiceWorker registration failed - continuing without caching');
+        });
     }
   };
 
