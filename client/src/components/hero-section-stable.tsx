@@ -1,21 +1,28 @@
 import { Button } from "@/components/ui/button";
-import heroBackgroundPath from "@assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
 
-// CRITICAL: Ultra-minimal hero section for maximum performance
-export function HeroSection() {
+// STABLE: Crash-free hero section with no complex dependencies
+export default function HeroSection() {
   const handleApplyNow = () => {
-    window.open('https://form.jotform.com/251965461165159', '_blank');
+    try {
+      window.open('https://form.jotform.com/251965461165159', '_blank');
+    } catch (error) {
+      console.error('Apply now error:', error);
+    }
   };
 
   const handlePhoneClick = () => {
-    window.open('https://calendly.com/fundtekcapitalgroup/15min', '_blank');
+    try {
+      window.open('https://calendly.com/fundtekcapitalgroup/15min', '_blank');
+    } catch (error) {
+      console.error('Phone click error:', error);
+    }
   };
 
   return (
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `url(${heroBackgroundPath})`,
+        backgroundImage: `url(/attached_assets/pexels-mikhail-nilov-6963857\ \(1\)_1752762912598.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundColor: '#1e293b'

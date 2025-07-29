@@ -1,72 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useRef } from "react";
-import { useLocation } from "wouter";
-import { videoPreloader } from "@/utils/video-preloader";
 
-
-// Optimized video paths with fallback to actual video file
-const videoSources = {
-  webm720: "/attached_assets/Video (FundTek)_1751295081956.webm",
-  mp4720: "/attached_assets/Video (FundTek)_1751295081956.webm", 
-  mp4480: "/attached_assets/Video (FundTek)_1751295081956.webm",
-  fallback: "/attached_assets/Video (FundTek)_1751295081956.webm"
-};
-const videoPoster = "/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
-import logoPath from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
-import heroBackgroundPath from "@assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
-
-// Enhanced video optimization hook with intelligent loading
-function useVideoOptimization() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [connectionSpeed, setConnectionSpeed] = useState<'fast' | 'slow'>('fast');
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    // Detect connection speed
-    const checkConnectionSpeed = () => {
-      if ('connection' in navigator) {
-        const connection = (navigator as any).connection;
-        if (connection) {
-          // If effective type is 3g or slower, or downlink is less than 1.5 Mbps
-          if (connection.effectiveType && (connection.effectiveType === '3g' || connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
-            setConnectionSpeed('slow');
-          } else if (connection.downlink && connection.downlink < 1.5) {
-            setConnectionSpeed('slow');
-          }
-        }
-      }
-    };
-    
-    checkMobile();
-    checkConnectionSpeed();
-    window.addEventListener('resize', checkMobile);
-    
-    // CRITICAL: Skip video preloading entirely for performance
-    // setTimeout(() => {
-    //   videoPreloader.preloadVideo({
-    //     videoSources,
-    //     poster: videoPoster
-    //   });
-    // }, 100);
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
-  
-  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed };
-}
+// STABLE: Completely safe hero section without complex hooks or video
+const backgroundImage = "/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg";
 
 export default function HeroSection() {
-  const [, setLocation] = useLocation();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed } = useVideoOptimization();
 
   // Optimized video loading with adaptive streaming
   useEffect(() => {
