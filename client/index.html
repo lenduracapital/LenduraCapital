@@ -217,8 +217,21 @@
   <!-- Using Google Fonts instead of missing local fonts -->
   
 
-  <!-- Circle favicon with lion and FundTek Capital text -->
-  <link rel="icon" type="image/svg+xml" href="/favicon-circle.svg" />
+  <!-- Circle favicon with lion and FundTek Capital text - force complete refresh -->
+  <link rel="icon" type="image/svg+xml" href="/favicon-circle.svg?t=1753808260" />
+  <link rel="shortcut icon" href="/favicon-circle.svg?t=1753808260" />
+  <link rel="apple-touch-icon" href="/favicon-circle.svg?t=1753808260" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <!-- Force favicon reload -->
+  <script>
+    // Force favicon refresh
+    var link = document.querySelector("link[rel~='icon']");
+    if (link) {
+      link.href = link.href.split('?')[0] + '?t=' + Date.now();
+    }
+  </script>
   
   <link rel="manifest" href="/site.webmanifest" />
   
