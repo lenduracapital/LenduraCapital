@@ -4,15 +4,17 @@
 const CRITICAL_RESOURCES = [
   // Critical CSS - already handled by Vite
   // Logo - needed for header
-  '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png',
+  '/assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1752722086552.png',
   // Hero background if small
-  '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg'
+  '/assets/image_1752182868701.png'
 ];
 
-// Video resources for preloading (using actual available files)
+// Video resources for preloading
 const VIDEO_RESOURCES = [
-  '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg', // Poster image - preload immediately
-  '/attached_assets/Video (FundTek)_1751295081956.webm' // Main video file
+  '/video/optimized/hero-poster.jpg', // Poster image - preload immediately
+  '/video/optimized/hero-video-480p.mp4', // Mobile/slow connection video
+  '/video/optimized/hero-video-720p.webm', // Desktop video - WebM format
+  '/video/optimized/hero-video-720p.mp4' // Desktop video - MP4 fallback
 ];
 
 // Large resources that should be deferred
@@ -22,38 +24,24 @@ const DEFER_RESOURCES = [
   '/assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg', // 1.9MB
 ];
 
-// Advanced performance globals for 90+ scores
-declare global {
-  interface Window {
-    webkitRequestIdleCallback: any;
-    mozRequestIdleCallback: any;
-    msRequestIdleCallback: any;
-  }
-}
-
 export function prioritizeResourceLoading() {
   if (typeof window === 'undefined') return;
 
-  // Ultra-aggressive critical resource loading for 90+ performance
-  const criticalLogo = '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png';
-  const logoLink = document.createElement('link');
-  logoLink.rel = 'preload';
-  logoLink.as = 'image';
-  logoLink.href = criticalLogo;
-  logoLink.crossOrigin = 'anonymous';
-  logoLink.fetchPriority = 'high';
-  document.head.appendChild(logoLink);
-
-  // Enable advanced browser optimization immediately
-  document.documentElement.style.setProperty('color-scheme', 'light');
-  document.documentElement.style.setProperty('font-display', 'swap');
-  document.documentElement.style.setProperty('contain-intrinsic-size', '1920px 1080px');
+  // Preload critical resources immediately
+  CRITICAL_RESOURCES.forEach(resource => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = resource.includes('.png') || resource.includes('.jpg') ? 'image' : 'fetch';
+    link.href = resource;
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  });
 
   // Preload video poster immediately for faster video loading experience
   const posterLink = document.createElement('link');
   posterLink.rel = 'preload';
   posterLink.as = 'image';
-  posterLink.href = '/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg';
+  posterLink.href = '/video/optimized/hero-poster.jpg';
   posterLink.crossOrigin = 'anonymous';
   document.head.appendChild(posterLink);
 
@@ -86,28 +74,31 @@ export function prioritizeResourceLoading() {
     videoLink.rel = 'preload';
     videoLink.as = 'video';
     
-    // Use the actual video file available
-    videoLink.href = '/attached_assets/Video (FundTek)_1751295081956.webm';
+    if (isMobile || connectionSpeed === 'slow') {
+      videoLink.href = '/video/optimized/hero-video-480p.mp4';
+    } else {
+      videoLink.href = '/video/optimized/hero-video-720p.webm';
+    }
     
     videoLink.crossOrigin = 'anonymous';
     document.head.appendChild(videoLink);
   };
 
-  // Defer all video preloading until after initial page paint
-  setTimeout(() => {
-    if ('connection' in navigator) {
-      const connection = (navigator as any).connection;
-      if (connection && connection.effectiveType && (connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
-        // Skip video preloading on very slow connections
-        return;
-      }
+  // Start video preloading immediately on fast connections, defer on slow
+  if ('connection' in navigator) {
+    const connection = (navigator as any).connection;
+    if (connection && connection.effectiveType && connection.effectiveType !== '2g' && connection.effectiveType !== 'slow-2g') {
+      preloadVideo();
+    } else {
+      setTimeout(preloadVideo, 500);
     }
+  } else {
     preloadVideo();
-  }, 1000);
+  }
 
-  // Defer heavy resources until after critical path - much longer delay
+  // Defer heavy resources until after critical path
   window.addEventListener('load', () => {
-    // Start loading deferred resources 5 seconds after page load
+    // Start loading deferred resources 2 seconds after page load
     setTimeout(() => {
       DEFER_RESOURCES.forEach(resource => {
         const link = document.createElement('link');
@@ -115,7 +106,7 @@ export function prioritizeResourceLoading() {
         link.href = resource;
         document.head.appendChild(link);
       });
-    }, 5000);
+    }, 2000);
   });
 }
 

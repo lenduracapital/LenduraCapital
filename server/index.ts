@@ -1,6 +1,5 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
-import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { config, getDeploymentInfo } from "./config";
@@ -28,8 +27,8 @@ if (deployment.url !== 'localhost') {
 
 const app = express();
 
-// Configure trust proxy for Replit deployment (CRITICAL for 500 error fix)
-app.set('trust proxy', true);
+// Configure trust proxy for rate limiting
+app.set('trust proxy', 1);
 
 // Add environment context to all requests
 app.use(environmentMiddleware);
@@ -37,39 +36,10 @@ app.use(environmentMiddleware);
 // Add request logging (respects LOG_LEVEL and DEBUG_REQUESTS)
 app.use(requestLoggingMiddleware);
 
-// Ultra-enhanced compression middleware for maximum performance
+// Add compression middleware
 app.use(compression({
-  level: 9, // Maximum compression
-  threshold: 256, // Compress even smaller files (was 512)
-  memLevel: 9, // Maximum memory for better compression
-  windowBits: 15, // Maximum window size for better compression ratios
-  chunkSize: 16384, // Optimize chunk size for performance
-  strategy: 2, // Use Z_HUFFMAN_ONLY for text files
-  filter: (req, res) => {
-    // Don't compress images or videos
-    const contentType = res.getHeader('content-type') as string;
-    if (contentType?.startsWith('image/') || 
-        contentType?.startsWith('video/')) {
-      return false;
-    }
-    // Compress all text-based content aggressively
-    return true;
-  }
-}));
-
-// Apply security headers with helmet
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
-      connectSrc: ["'self'", "https://www.google-analytics.com"],
-      mediaSrc: ["'self'", "data:", "blob:"],
-    },
-  },
+  level: 6,
+  threshold: 1024
 }));
 
 // Environment-specific headers with enhanced error handling
@@ -124,39 +94,8 @@ app.get('/api/env-status', createEnvValidationHandler());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Enhanced static file serving with aggressive caching + compression
-app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets'), {
-  maxAge: '1y', // Cache for 1 year
-  etag: true,
-  lastModified: true,
-  immutable: true, // Files never change
-  setHeaders: (res, filePath) => {
-    // Ultra-advanced performance headers for 90+ scores
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable, stale-while-revalidate=86400');
-    res.setHeader('Vary', 'Accept-Encoding');
-    res.setHeader('Connection', 'keep-alive');
-    res.setHeader('Keep-Alive', 'timeout=5, max=1000');
-    
-    // Critical Performance Protocol headers for 90+ scores
-    res.setHeader('Link', '<' + filePath + '>; rel=preload; as=fetch; fetchpriority=high');
-    res.setHeader('Server-Timing', 'cache;desc="Cache Hit";dur=0');
-    res.setHeader('Critical-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform');
-    res.setHeader('Accept-CH', 'Sec-CH-UA, Sec-CH-UA-Mobile, Sec-CH-UA-Platform, Sec-CH-Viewport-Width');
-    
-    // Preload hints for critical resources
-    if (filePath.includes('ChatGPT Image Jun 5, 2025')) {
-      res.setHeader('Link', '</attached_assets/' + path.basename(filePath) + '>; rel=preload; as=image');
-    }
-    
-    // Content-specific optimizations
-    if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') || filePath.endsWith('.png') || filePath.endsWith('.webp')) {
-      res.setHeader('Content-Disposition', 'inline');
-    } else if (filePath.endsWith('.webm') || filePath.endsWith('.mp4')) {
-      res.setHeader('Accept-Ranges', 'bytes');
-    }
-  }
-}));
+// Serve attached assets directory
+app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
 
 // Enhanced request logging is now handled by requestLoggingMiddleware
 
@@ -197,22 +136,11 @@ app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_as
       const staticPath = require('fs').existsSync(publicPath) ? publicPath : serverPublicPath;
       console.log(`📁 Serving static files from: ${staticPath}`);
       
-      // Serve static assets with optimized caching headers
+      // Serve static assets with caching headers
       app.use(express.static(staticPath, {
         maxAge: '1y',
         etag: true,
-        lastModified: true,
-        immutable: true,
-        setHeaders: (res, filePath) => {
-          // Optimize cache headers based on file type
-          if (filePath.endsWith('.js') || filePath.endsWith('.css')) {
-            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-          } else if (filePath.endsWith('.jpg') || filePath.endsWith('.png') || filePath.endsWith('.webp') || filePath.endsWith('.jpeg')) {
-            res.setHeader('Cache-Control', 'public, max-age=31536000');
-          } else if (filePath.endsWith('.html')) {
-            res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-          }
-        }
+        lastModified: true
       }));
       
       // SPA routing: serve index.html for non-API routes

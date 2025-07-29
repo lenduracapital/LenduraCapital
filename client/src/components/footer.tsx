@@ -46,19 +46,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#d9d9d9] border-t border-gray-200 py-8 md:py-12 relative z-50" role="contentinfo" aria-label="Site footer">
+    <footer className="bg-[#d9d9d9] border-t border-gray-200 py-8 md:py-12 relative z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-start" style={{ pointerEvents: 'auto' }}>
           <div className="space-y-3 md:space-y-4 text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-start space-x-3">
               <img 
                 src={fundTekLogo} 
-                alt="FundTek Capital Group - Business Funding Solutions Company Logo" 
+                alt="FundTek Capital Group" 
                 className="h-20 sm:h-24 md:h-40 w-auto"
-                loading="lazy"
-                decoding="async"
-                width="auto"
-                height="160"
               />
             </div>
             <p className="text-black text-xs md:text-sm">
@@ -95,7 +91,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-[#85abe4] font-semibold mb-4">Custom Business Financing Solutions</h3>
+            <h4 className="text-[#85abe4] font-semibold mb-4">Custom Business Financing Solutions</h4>
             <ul className="space-y-5 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
@@ -111,7 +107,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-[#85abe4] font-semibold mb-4">Personalized Small Business Solutions</h3>
+            <h4 className="text-[#85abe4] font-semibold mb-4">Personalized Small Business Solutions</h4>
             <ul className="space-y-5 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
@@ -127,7 +123,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-[#85abe4] font-semibold mb-4">FundTek Capital Group</h3>
+            <h4 className="text-[#85abe4] font-semibold mb-4">FundTek Capital Group</h4>
             <ul className="space-y-5 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
