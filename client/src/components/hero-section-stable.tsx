@@ -83,12 +83,22 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button 
                 onClick={handleApplyNow}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
-                aria-label="Apply for business funding - Opens application form in new window"
+                className="text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                style={{ 
+                  backgroundColor: '#85abe4',
+                  borderColor: '#85abe4'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#6b9bd8';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#85abe4';
+                }}
+                aria-label="Get approved for business funding in 24 hours - Opens application form in new window"
                 role="button"
                 tabIndex={0}
               >
-                Apply Now
+                Get Approved in 24 Hours
               </button>
             </div>
           </div>
