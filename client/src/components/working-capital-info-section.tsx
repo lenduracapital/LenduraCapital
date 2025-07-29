@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function WorkingCapitalInfoSection() {
   const handleApplyNow = () => {
     window.open('https://form.jotform.com/251965461165159', '_blank');

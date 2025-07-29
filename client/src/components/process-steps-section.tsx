@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ProcessStepsSection() {
   return (
     <section className="py-16 md:py-24" style={{ backgroundColor: '#85abe4' }}>

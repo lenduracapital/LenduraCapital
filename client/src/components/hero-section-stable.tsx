@@ -65,92 +65,47 @@ export default function HeroSection() {
           }}
         />
       )}
-      {/* Content Overlay - Left Text + Right Form */}
-      <div className="absolute inset-0 z-20 text-white">
-        <div className="flex items-center h-full max-w-7xl mx-auto px-4 md:px-8">
-          {/* Left Side - Text Content */}
-          <div className="flex-1 pr-8">
-            <div className="max-w-2xl pt-2 md:pt-3">
-              <h1 className="font-bold mb-2 text-4xl md:text-5xl lg:text-6xl leading-tight" id="main-heading">
-                Flexible<br />
-                Financing for<br />
-                <span style={{ color: '#85abe4' }} aria-label="Every Industry - highlighted text">Every Industry</span>
-              </h1>
-              
-              <p className="mb-2 max-w-2xl text-lg md:text-xl lg:text-2xl font-medium" aria-describedby="main-heading">
-                Empower your business with <span style={{ color: '#85abe4' }} aria-label="custom tailored - highlighted text">custom tailored</span><br />
-                loan programs designed to fuel your growth and success.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <button 
-                  onClick={handleApplyNow}
-                  className="text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 focus:ring-4 focus:ring-blue-300 focus:outline-none transform hover:scale-105 hover:shadow-lg"
-                  style={{ 
-                    backgroundColor: '#85abe4',
-                    borderColor: '#85abe4',
-                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#6b9bd8';
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.boxShadow = '0 8px 15px rgba(107, 155, 216, 0.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#85abe4';
-                    e.currentTarget.style.transform = 'scale(1)';
-                    e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-                  }}
-                  aria-label="Get approved for business funding in 24 hours - Opens application form in new window"
-                  role="button"
-                  tabIndex={0}
-                >
-                  Get Approved in 24 Hours
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Quick Contact Form */}
-          <div className="hidden lg:block w-96 bg-white/95 backdrop-blur-sm rounded-lg p-6 shadow-2xl">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Get Pre-Qualified</h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-              </div>
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-              </div>
-              <div>
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-              </div>
-              <button
-                type="button"
+      {/* Text Content Overlay */}
+      <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
+        <div className="flex items-center h-full">
+          <div className="max-w-2xl pt-2 md:pt-3">
+            <h1 className="font-bold mb-2 text-4xl md:text-5xl lg:text-6xl leading-tight" id="main-heading">
+              Flexible<br />
+              Financing for<br />
+              <span style={{ color: '#85abe4' }} aria-label="Every Industry - highlighted text">Every Industry</span>
+            </h1>
+            
+            <p className="mb-2 max-w-2xl text-lg md:text-xl lg:text-2xl font-medium" aria-describedby="main-heading">
+              Empower your business with <span style={{ color: '#85abe4' }} aria-label="custom tailored - highlighted text">custom tailored</span><br />
+              loan programs designed to fuel your growth and success.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <button 
                 onClick={handleApplyNow}
-                className="w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg"
-                style={{ backgroundColor: '#85abe4' }}
+                className="text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 focus:ring-4 focus:ring-blue-300 focus:outline-none transform hover:scale-105 hover:shadow-lg"
+                style={{ 
+                  backgroundColor: '#85abe4',
+                  borderColor: '#85abe4',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+                }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#6b9bd8';
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 15px rgba(107, 155, 216, 0.4)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = '#85abe4';
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
                 }}
+                aria-label="Get approved for business funding in 24 hours - Opens application form in new window"
+                role="button"
+                tabIndex={0}
               >
-                Submit Application
+                Get Approved in 24 Hours
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
