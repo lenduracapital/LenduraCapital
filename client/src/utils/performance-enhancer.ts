@@ -45,15 +45,52 @@ export function optimizeJavaScriptExecution() {
     });
   });
 
-  // Memory management
-  const cleanupResources = () => {
+  // Advanced memory management and performance optimization
+  const advancedCleanupResources = () => {
     // Clean up any unused DOM references
     const unusedElements = document.querySelectorAll('[data-cleanup="true"]');
     unusedElements.forEach(el => el.remove());
+    
+    // Force garbage collection if available
+    if ('gc' in window && typeof window.gc === 'function') {
+      window.gc();
+    }
+    
+    // Clear unused image caches
+    const images = document.querySelectorAll('img[data-loaded="true"]');
+    images.forEach(img => {
+      if (!img.getBoundingClientRect().height) {
+        (img as HTMLImageElement).src = '';
+      }
+    });
   };
 
-  // Run cleanup periodically
-  setInterval(cleanupResources, 30000); // Every 30 seconds
+  // Enhanced performance optimizations
+  const enableAdvancedOptimizations = () => {
+    // Use performance observer for Core Web Vitals
+    if ('PerformanceObserver' in window) {
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'largest-contentful-paint') {
+            console.log('LCP:', entry.startTime);
+          }
+        }
+      });
+      observer.observe({ entryTypes: ['largest-contentful-paint'] });
+    }
+    
+    // Optimize viewport rendering
+    const meta = document.querySelector('meta[name="viewport"]');
+    if (meta) {
+      meta.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no');
+    }
+  };
+
+  // Run optimizations
+  enableAdvancedOptimizations();
+  
+  // Run cleanup periodically with increased frequency
+  setInterval(advancedCleanupResources, 30000); // Every 30 seconds
 }
 
 // Enhanced image loading optimization

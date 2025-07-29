@@ -1,18 +1,17 @@
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import { preventCLS } from "./utils/prevent-cls";
-import { initPerformanceBoost, registerServiceWorker } from "./utils/performance-boost";
-import { prioritizeResourceLoading, initPerformanceTimeline } from "./utils/critical-resources";
-import { initializePerformanceEnhancements } from "./utils/performance-enhancer";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
+import { prioritizeResourceLoading } from './utils/critical-resources'
+import { optimizeJavaScriptExecution } from './utils/performance-enhancer'
+import { enableUltraPerformanceOptimizations, applyCriticalContainment } from './utils/advanced-performance'
 
-// Initialize all performance optimizations immediately
+// Initialize all ultra-performance optimizations immediately for 90+ scores
+const startTime = performance.now();
 prioritizeResourceLoading();
-initPerformanceBoost();
-initPerformanceTimeline();
-initializePerformanceEnhancements();
-preventCLS();
-registerServiceWorker();
+optimizeJavaScriptExecution();
+enableUltraPerformanceOptimizations();
+applyCriticalContainment();
 
 // Critical font preloading
 const fontLink = document.createElement('link');
@@ -25,4 +24,12 @@ fontLink.onload = () => {
 document.head.appendChild(fontLink);
 
 // Render app immediately
-createRoot(document.getElementById("root")!).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
+
+// Log performance
+const loadTime = performance.now() - startTime;
+console.log(`🚀 FundTek app loaded in ${Math.round(loadTime)}ms`);

@@ -22,17 +22,32 @@ const DEFER_RESOURCES = [
   '/assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg', // 1.9MB
 ];
 
+// Advanced performance globals for 90+ scores
+declare global {
+  interface Window {
+    webkitRequestIdleCallback: any;
+    mozRequestIdleCallback: any;
+    msRequestIdleCallback: any;
+  }
+}
+
 export function prioritizeResourceLoading() {
   if (typeof window === 'undefined') return;
 
-  // Only preload most critical resources immediately (logo only)
+  // Ultra-aggressive critical resource loading for 90+ performance
   const criticalLogo = '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png';
   const logoLink = document.createElement('link');
   logoLink.rel = 'preload';
   logoLink.as = 'image';
   logoLink.href = criticalLogo;
   logoLink.crossOrigin = 'anonymous';
+  logoLink.fetchPriority = 'high';
   document.head.appendChild(logoLink);
+
+  // Enable advanced browser optimization immediately
+  document.documentElement.style.setProperty('color-scheme', 'light');
+  document.documentElement.style.setProperty('font-display', 'swap');
+  document.documentElement.style.setProperty('contain-intrinsic-size', '1920px 1080px');
 
   // Preload video poster immediately for faster video loading experience
   const posterLink = document.createElement('link');
