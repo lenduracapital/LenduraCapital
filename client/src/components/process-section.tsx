@@ -1,49 +1,47 @@
+import { CheckCircle, Clock, DollarSign } from "lucide-react";
+
 export default function ProcessSection() {
   return (
-    <section className="py-16" style={{ backgroundColor: '#85abe4' }}>
+    <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Business Financing To Fit Your Business Needs.
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Simple 3-Step Process
           </h2>
-          <p className="text-lg text-white">Just 3 Easy Steps</p>
+          <p className="text-lg text-gray-600">
+            Get funded quickly with our streamlined application process
+          </p>
         </div>
         
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">1</span>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                <CheckCircle className="w-8 h-8 text-blue-600" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Apply Online</h3>
-            <p className="text-white">Quick and secure application process</p>
-          </div>
-          
-          <div className="hidden md:block text-white">
-            <svg width="60" height="20" viewBox="0 0 60 20" fill="currentColor">
-              <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
+            <h3 className="text-xl font-semibold mb-2">1. Apply Online</h3>
+            <p className="text-gray-600">Complete our quick 5-minute application form</p>
           </div>
           
           <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">2</span>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                <Clock className="w-8 h-8 text-blue-600" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Approval in 1 hour</h3>
-            <p className="text-white">Fast decision process</p>
-          </div>
-          
-          <div className="hidden md:block text-white">
-            <svg width="60" height="20" viewBox="0 0 60 20" fill="currentColor">
-              <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
+            <h3 className="text-xl font-semibold mb-2">2. Get Approved</h3>
+            <p className="text-gray-600">Receive approval decision within 24 hours</p>
           </div>
           
           <div className="text-center">
-            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-              <span className="text-2xl font-bold text-[--primary]">3</span>
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                <DollarSign className="w-8 h-8 text-blue-600" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Get Funded</h3>
-            <p className="text-white">Receive your funds quickly</p>
+            <h3 className="text-xl font-semibold mb-2">3. Receive Funds</h3>
+            <p className="text-gray-600">Get your funds deposited same day</p>
           </div>
         </div>
       </div>
