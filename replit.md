@@ -42,9 +42,9 @@ A high-performance digital platform for FundTek Capital Group, delivering advanc
 
 6. **✅ WEBSITE STABILITY FIX & JavaScript Optimizations**:
    - FIXED CRASHING: Replaced broken hero-section with completely stable version
-   - Removed all problematic imports and complex video hooks
-   - Eliminated useEffect and video processing that caused freezing
-   - Created crash-free component with simple background image
+   - Restored video with lightweight implementation (no complex hooks)
+   - Added simple video loading with background image fallback
+   - Eliminated problematic video preloading that caused freezing
    - Removed all non-critical resource preloads (fonts, images)
    - Reduced critical CSS from 3KB to minimal 0.5KB inline styles
 

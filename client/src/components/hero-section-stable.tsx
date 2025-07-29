@@ -1,7 +1,20 @@
 import { Button } from "@/components/ui/button";
+import { useState, useEffect, useRef } from "react";
 
-// STABLE: Crash-free hero section with no complex dependencies
+// STABLE: Hero section with lightweight video implementation
 export default function HeroSection() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Simple video loading without complex hooks
+    if (videoRef.current) {
+      videoRef.current.addEventListener('loadeddata', () => {
+        setVideoLoaded(true);
+      });
+    }
+  }, []);
+
   const handleApplyNow = () => {
     try {
       window.open('https://form.jotform.com/251965461165159', '_blank');
@@ -22,12 +35,32 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `url(/attached_assets/pexels-mikhail-nilov-6963857\ \(1\)_1752762912598.jpg)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
         backgroundColor: '#1e293b'
       }}
     >
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg"
+      >
+        <source src="/attached_assets/Video (FundTek)_1751295081956.webm" type="video/webm" />
+      </video>
+
+      {/* Background image fallback */}
+      {!videoLoaded && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(/attached_assets/pexels-mikhail-nilov-6963857\ \(1\)_1752762912598.jpg)`
+          }}
+        />
+      )}
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
