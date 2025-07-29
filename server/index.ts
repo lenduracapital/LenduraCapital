@@ -1,5 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
+import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { config, getDeploymentInfo } from "./config";
@@ -40,6 +41,21 @@ app.use(requestLoggingMiddleware);
 app.use(compression({
   level: 6,
   threshold: 1024
+}));
+
+// Apply security headers with helmet
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://www.google-analytics.com"],
+      connectSrc: ["'self'", "https://www.google-analytics.com"],
+      mediaSrc: ["'self'", "data:", "blob:"],
+    },
+  },
 }));
 
 // Environment-specific headers with enhanced error handling
@@ -136,11 +152,22 @@ app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_as
       const staticPath = require('fs').existsSync(publicPath) ? publicPath : serverPublicPath;
       console.log(`📁 Serving static files from: ${staticPath}`);
       
-      // Serve static assets with caching headers
+      // Serve static assets with optimized caching headers
       app.use(express.static(staticPath, {
         maxAge: '1y',
         etag: true,
-        lastModified: true
+        lastModified: true,
+        immutable: true,
+        setHeaders: (res, filePath) => {
+          // Optimize cache headers based on file type
+          if (filePath.endsWith('.js') || filePath.endsWith('.css')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+          } else if (filePath.endsWith('.jpg') || filePath.endsWith('.png') || filePath.endsWith('.webp') || filePath.endsWith('.jpeg')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000');
+          } else if (filePath.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+          }
+        }
       }));
       
       // SPA routing: serve index.html for non-API routes

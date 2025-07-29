@@ -1,0 +1,86 @@
+ 1. Lazy load the video
+
+Wrap your <video> tag with:
+
+html
+Copy
+Edit
+<video loading="lazy" ...>
+Use poster attribute for a thumbnail image.
+
+Also, make sure the video uses .webm or .mp4 (with compression).
+
+🛠 2. Use async/defer on scripts
+
+You're bundling with Vite — confirm in your final HTML (inside dist/public/index.html) that <script> tags are using type="module" and are at the bottom of <body>.
+
+🛠 3. Enable gzip or Brotli compression
+
+In express, add this (you already have the package):
+
+ts
+Copy
+Edit
+import compression from 'compression';
+app.use(compression());
+🛠 4. Enable long-term browser caching
+
+In express.static(), set cache headers:
+
+ts
+Copy
+Edit
+app.use(express.static('public', {
+  maxAge: '1y',
+  etag: false
+}));
+🔍 SEO FIXES (currently 61)
+🛠 5. Add meta tags in index.html
+Paste this inside <head>:
+
+html
+Copy
+Edit
+<meta name="description" content="Fast, reliable business funding from FundTek Capital Group. Get funded in 24 hours.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yourdomain.com" />
+🛠 6. Structured data (JSON-LD)
+Add this below the <title> tag:
+
+html
+Copy
+Edit
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "FundTek Capital Group",
+  "url": "https://yourdomain.com",
+  "description": "We provide fast business funding for small business owners across the U.S.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "US"
+  }
+}
+</script>
+🛠 7. Add alt attributes to every image
+
+✅ BEST PRACTICES (currently 70)
+🛠 8. Security headers with helmet (you already have it)
+Just activate it:
+
+ts
+Copy
+Edit
+import helmet from 'helmet';
+app.use(helmet());
+🛠 9. Remove mixed content
+Make sure all assets (CSS, JS, images) use https://.
+
+♿ ACCESSIBILITY (already solid at 85)
+🛠 10. Check color contrast
+Run your site through https://webaim.org/resources/contrastchecker/ — dark text on dark backgrounds is a silent killer.
+
+💣 Final Pro Tip:
+Run vite build --analyze with the rollup-plugin-visualizer to see what’s bloating your bundle.

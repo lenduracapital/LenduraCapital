@@ -151,6 +151,7 @@ export default function HeroSection() {
           muted
           loop
           playsInline
+          loading="lazy"
           preload="none"
           poster={videoPoster}
           controls={false}
