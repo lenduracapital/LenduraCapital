@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import HeroSection from "@/components/hero-section-stable";
-
-
+import ProcessStepsSection from "@/components/process-steps-section";
+import WorkingCapitalInfoSection from "@/components/working-capital-info-section";
 // TestimonialsSection removed - component cleaned up
 import MoveBusinessForwardSection from "@/components/move-business-forward-section";
 import BusinessSolutionsSection from "@/components/business-solutions-section";
@@ -26,6 +26,8 @@ export default function Home() {
       <Header transparent={true} />
       <main id="main-content">
         <HeroSection />
+        <ProcessStepsSection />
+        <WorkingCapitalInfoSection />
         <TrustSignalsSection />
         <MoveBusinessForwardSection />
         <BusinessSolutionsSection />
