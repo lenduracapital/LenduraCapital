@@ -47,13 +47,13 @@ function useVideoOptimization() {
     checkConnectionSpeed();
     window.addEventListener('resize', checkMobile);
     
-    // Defer video preloading to after critical resources
-    setTimeout(() => {
-      videoPreloader.preloadVideo({
-        videoSources,
-        poster: videoPoster
-      });
-    }, 100);
+    // CRITICAL: Skip video preloading entirely for performance
+    // setTimeout(() => {
+    //   videoPreloader.preloadVideo({
+    //     videoSources,
+    //     poster: videoPoster
+    //   });
+    // }, 100);
     
     return () => {
       window.removeEventListener('resize', checkMobile);
@@ -142,8 +142,8 @@ export default function HeroSection() {
         backgroundColor: '#1e293b'
       }}
     >
-      {/* Optimized Video Background with Adaptive Quality */}
-      {shouldPlayVideo && (
+      {/* CRITICAL: Disable video entirely for maximum performance */}
+      {false && shouldPlayVideo && (
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -180,16 +180,14 @@ export default function HeroSection() {
         </video>
       )}
       
-      {/* Poster image fallback when video is loading */}
-      {!isVideoLoaded && (
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${videoPoster})`,
-            zIndex: 0
-          }}
-        />
-      )}
+      {/* Static background image for maximum performance */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${videoPoster})`,
+          zIndex: 0
+        }}
+      />
       
       {/* Background image is now always visible until video loads */}
       {/* Text Content Overlay */}

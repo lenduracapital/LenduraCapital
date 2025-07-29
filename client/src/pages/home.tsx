@@ -1,5 +1,5 @@
 import Header from "@/components/header";
-import HeroSection from "@/components/hero-section";
+import { HeroSection } from "@/components/hero-section-minimal";
 import ProcessSection from "@/components/process-section";
 import ContactFormSection from "@/components/contact-form-section";
 import WorkingCapitalSection from "@/components/working-capital-section";
