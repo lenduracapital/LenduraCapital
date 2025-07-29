@@ -25,15 +25,14 @@ const DEFER_RESOURCES = [
 export function prioritizeResourceLoading() {
   if (typeof window === 'undefined') return;
 
-  // Preload critical resources immediately
-  CRITICAL_RESOURCES.forEach(resource => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = resource.includes('.png') || resource.includes('.jpg') ? 'image' : 'fetch';
-    link.href = resource;
-    link.crossOrigin = 'anonymous';
-    document.head.appendChild(link);
-  });
+  // Only preload most critical resources immediately (logo only)
+  const criticalLogo = '/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png';
+  const logoLink = document.createElement('link');
+  logoLink.rel = 'preload';
+  logoLink.as = 'image';
+  logoLink.href = criticalLogo;
+  logoLink.crossOrigin = 'anonymous';
+  document.head.appendChild(logoLink);
 
   // Preload video poster immediately for faster video loading experience
   const posterLink = document.createElement('link');
@@ -79,21 +78,21 @@ export function prioritizeResourceLoading() {
     document.head.appendChild(videoLink);
   };
 
-  // Start video preloading immediately on fast connections, defer on slow
-  if ('connection' in navigator) {
-    const connection = (navigator as any).connection;
-    if (connection && connection.effectiveType && connection.effectiveType !== '2g' && connection.effectiveType !== 'slow-2g') {
-      preloadVideo();
-    } else {
-      setTimeout(preloadVideo, 500);
+  // Defer all video preloading until after initial page paint
+  setTimeout(() => {
+    if ('connection' in navigator) {
+      const connection = (navigator as any).connection;
+      if (connection && connection.effectiveType && (connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
+        // Skip video preloading on very slow connections
+        return;
+      }
     }
-  } else {
     preloadVideo();
-  }
+  }, 1000);
 
-  // Defer heavy resources until after critical path
+  // Defer heavy resources until after critical path - much longer delay
   window.addEventListener('load', () => {
-    // Start loading deferred resources 2 seconds after page load
+    // Start loading deferred resources 5 seconds after page load
     setTimeout(() => {
       DEFER_RESOURCES.forEach(resource => {
         const link = document.createElement('link');
@@ -101,7 +100,7 @@ export function prioritizeResourceLoading() {
         link.href = resource;
         document.head.appendChild(link);
       });
-    }, 2000);
+    }, 5000);
   });
 }
 

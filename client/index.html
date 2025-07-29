@@ -14,23 +14,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#85abe4" />
   <meta name="robots" content="index, follow" />
-  <meta name="description" content="Fast approval business funding solutions. Get working capital in 24 hours with FundTek Capital Group. Term loans, lines of credit, SBA loans and more." />
+  <meta name="description" content="FundTek Capital Group provides advanced SBA loan solutions, term loans, equipment financing, and commercial real estate lending for small businesses. Get fast approval with competitive rates and expert support." />
   <link rel="canonical" href="https://fundtekcapitalgroup.com/" />
   
-  <!-- Critical performance optimizations -->
+  <!-- Optimized font loading for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+  <style>
+    /* Inline critical font styles to prevent FOUT */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyeMZs.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZs.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYMZs.woff2') format('woff2');
+    }
+  </style>
   <link rel="dns-prefetch" href="//form.jotform.com">
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="preload" href="/src/main.tsx" as="script" type="module" crossorigin>
   
   <!-- Critical CSS for faster rendering -->
   <style>
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;height:100%}
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff;height:100%;overflow-x:hidden}
+    /* Critical above-the-fold styles */
+    #root{height:100%;contain:layout style paint}
     .hero-section{height:100vh;position:relative;overflow:hidden;will-change:transform;contain:layout style paint}
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5);contain:layout style paint;font-display:swap}
     video{opacity:1;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;outline:none!important;border:none!important;pointer-events:none}

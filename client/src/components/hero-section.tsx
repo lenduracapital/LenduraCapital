@@ -47,11 +47,13 @@ function useVideoOptimization() {
     checkConnectionSpeed();
     window.addEventListener('resize', checkMobile);
     
-    // Start preloading video immediately
-    videoPreloader.preloadVideo({
-      videoSources,
-      poster: videoPoster
-    });
+    // Defer video preloading to after critical resources
+    setTimeout(() => {
+      videoPreloader.preloadVideo({
+        videoSources,
+        poster: videoPoster
+      });
+    }, 100);
     
     return () => {
       window.removeEventListener('resize', checkMobile);
@@ -149,7 +151,7 @@ export default function HeroSection() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={videoPoster}
           controls={false}
           disablePictureInPicture
