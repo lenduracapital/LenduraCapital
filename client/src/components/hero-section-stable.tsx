@@ -83,16 +83,21 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button 
                 onClick={handleApplyNow}
-                className="text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                className="text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 focus:ring-4 focus:ring-blue-300 focus:outline-none transform hover:scale-105 hover:shadow-lg"
                 style={{ 
                   backgroundColor: '#85abe4',
-                  borderColor: '#85abe4'
+                  borderColor: '#85abe4',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = '#6b9bd8';
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 15px rgba(107, 155, 216, 0.4)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = '#85abe4';
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
                 }}
                 aria-label="Get approved for business funding in 24 hours - Opens application form in new window"
                 role="button"
