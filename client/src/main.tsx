@@ -4,11 +4,13 @@ import "./index.css";
 import { preventCLS } from "./utils/prevent-cls";
 import { initPerformanceBoost, registerServiceWorker } from "./utils/performance-boost";
 import { prioritizeResourceLoading, initPerformanceTimeline } from "./utils/critical-resources";
+import { initializePerformanceEnhancements } from "./utils/performance-enhancer";
 
 // Initialize all performance optimizations immediately
 prioritizeResourceLoading();
 initPerformanceBoost();
 initPerformanceTimeline();
+initializePerformanceEnhancements();
 preventCLS();
 registerServiceWorker();
 

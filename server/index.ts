@@ -37,10 +37,20 @@ app.use(environmentMiddleware);
 // Add request logging (respects LOG_LEVEL and DEBUG_REQUESTS)
 app.use(requestLoggingMiddleware);
 
-// Add compression middleware
+// Enhanced compression middleware for better performance
 app.use(compression({
-  level: 6,
-  threshold: 1024
+  level: 9, // Maximum compression
+  threshold: 512, // Compress smaller files too
+  filter: (req, res) => {
+    // Don't compress images or videos
+    const contentType = res.getHeader('content-type') as string;
+    if (contentType?.startsWith('image/') || 
+        contentType?.startsWith('video/')) {
+      return false;
+    }
+    // Default compression filter for other content
+    return true;
+  }
 }));
 
 // Apply security headers with helmet
@@ -110,8 +120,23 @@ app.get('/api/env-status', createEnvValidationHandler());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Serve attached assets directory
-app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
+// Enhanced static file serving with aggressive caching
+app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets'), {
+  maxAge: '1y', // Cache for 1 year
+  etag: true,
+  lastModified: true,
+  immutable: true, // Files never change
+  setHeaders: (res, path) => {
+    // Different cache strategies by file type
+    if (path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.png') || path.endsWith('.webp')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year for images
+    } else if (path.endsWith('.webm') || path.endsWith('.mp4')) {
+      res.setHeader('Cache-Control', 'public, max-age=2592000'); // 30 days for videos
+    } else if (path.endsWith('.js') || path.endsWith('.css')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year for JS/CSS
+    }
+  }
+}));
 
 // Enhanced request logging is now handled by requestLoggingMiddleware
 
