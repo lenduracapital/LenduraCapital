@@ -88,14 +88,18 @@ export default function Header({ transparent = true }: HeaderProps) {
             >
               <img 
                 src={fundTekLogo}
-                alt="FundTek Capital Group Logo" 
+                alt="FundTek Capital Group - Business Funding Solutions Logo" 
                 className="h-20 sm:h-24 md:h-28 lg:h-36 w-auto object-contain ml-[-3px] mr-[-3px] pl-[-8px] pr-[-8px] pt-[-7px] pb-[-7px] mt-[-3px] mb-[-3px]"
+                loading="eager"
+                decoding="async"
+                width="auto"
+                height="144"
               />
             </button>
           </div>
 
           {/* Desktop Navigation - Positioned more to the right */}
-          <nav className="hidden lg:flex items-center space-x-1 flex-1 justify-center ml-32" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center space-x-1 flex-1 justify-center ml-32" aria-label="Main navigation" role="navigation">
             <button 
               onClick={handleHomeClick}
               className="text-white hover:text-[--primary] transition-all duration-300 font-medium px-3 py-2 min-h-[44px] rounded focus-ring hover:scale-105 hover:bg-white/10"

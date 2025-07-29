@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 
 // STABLE: Hero section with lightweight video implementation
@@ -37,6 +36,8 @@ export default function HeroSection() {
       style={{
         backgroundColor: '#1e293b'
       }}
+      aria-label="Hero section with business funding solutions"
+      role="banner"
     >
       {/* Background Video */}
       <video
@@ -48,8 +49,11 @@ export default function HeroSection() {
         playsInline
         preload="metadata"
         poster="/attached_assets/pexels-mikhail-nilov-6963857 (1)_1752762912598.jpg"
+        aria-label="Background video showing business professionals discussing funding solutions"
+        title="FundTek Capital Group - Business Funding Solutions"
       >
         <source src="/attached_assets/Video (FundTek)_1751295081956.webm" type="video/webm" />
+        <track kind="captions" src="" label="No audio track" default />
       </video>
 
       {/* Background image fallback */}
@@ -65,32 +69,27 @@ export default function HeroSection() {
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-2 md:pt-3">
-            <h1 className="font-bold mb-2 text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="font-bold mb-2 text-4xl md:text-5xl lg:text-6xl leading-tight" id="main-heading">
               Flexible<br />
               Financing for<br />
-              <span style={{ color: '#85abe4' }}>Every Industry</span>
+              <span style={{ color: '#85abe4' }} aria-label="Every Industry - highlighted text">Every Industry</span>
             </h1>
             
-            <p className="mb-2 max-w-2xl text-lg md:text-xl lg:text-2xl font-medium">
-              Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
+            <p className="mb-2 max-w-2xl text-lg md:text-xl lg:text-2xl font-medium" aria-describedby="main-heading">
+              Empower your business with <span style={{ color: '#85abe4' }} aria-label="custom tailored - highlighted text">custom tailored</span><br />
               loan programs designed to fuel your growth and success.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <Button 
+              <button 
                 onClick={handleApplyNow}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                aria-label="Apply for business funding - Opens application form in new window"
+                role="button"
+                tabIndex={0}
               >
                 Apply Now
-              </Button>
-              
-              <Button 
-                onClick={handlePhoneClick}
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg font-semibold rounded-lg transition-colors duration-200"
-              >
-                Call Now
-              </Button>
+              </button>
             </div>
           </div>
         </div>

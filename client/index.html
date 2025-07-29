@@ -13,8 +13,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#85abe4" />
-  <meta name="robots" content="index, follow" />
-  <meta name="description" content="FundTek Capital Group provides advanced SBA loan solutions, term loans, equipment financing, and commercial real estate lending for small businesses. Get fast approval with competitive rates and expert support." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="description" content="Get $10K-$750K business funding approved in 24 hours. FundTek Capital Group offers term loans, SBA loans, equipment financing, merchant cash advances & more. Bad credit OK. Apply online or call (305) 307-4658." />
+  <meta name="keywords" content="business funding, term loans, SBA loans, equipment financing, merchant cash advance, business loans bad credit, working capital loans, small business financing, same day funding, business cash advance" />
+  <meta name="author" content="FundTek Capital Group" />
+  <meta name="geo.region" content="US-NY" />
+  <meta name="geo.placename" content="Brooklyn" />
+  <meta name="geo.position" content="40.5833;-73.9500" />
+  <meta name="ICBM" content="40.5833, -73.9500" />
   <link rel="canonical" href="https://fundtekcapitalgroup.com/" />
   
   <!-- Optimized font loading for performance -->
@@ -47,16 +53,31 @@
   <!-- CRITICAL: Remove non-essential preloads to improve TBT -->
   <link rel="dns-prefetch" href="//form.jotform.com">
   
-  <!-- CRITICAL: Minimal inline CSS for fastest first paint -->
+  <!-- CRITICAL: Minimal inline CSS for fastest first paint with accessibility -->
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    html{height:100%}
-    body{margin:0;font-family:system-ui,sans-serif;background:#fff;height:100%}
+    html{height:100%;scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,sans-serif;background:#fff;height:100%;line-height:1.6}
     #root{height:100%}
     .hero-section{height:100vh;position:relative;background-size:cover;background-position:center}
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5)}
     @media (min-width:768px){.hero-title{font-size:4rem}}
     @media (min-width:1024px){.hero-title{font-size:5rem}}
+    /* Focus states for accessibility */
+    button:focus,a:focus{outline:2px solid #85abe4;outline-offset:2px}
+    /* Skip link for screen readers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .sr-only:focus{position:static;width:auto;height:auto;padding:inherit;margin:inherit;overflow:visible;clip:auto;white-space:normal}
+    /* High contrast for better readability */
+    @media (prefers-contrast:high){
+      .hero-title{text-shadow:0 3px 6px rgba(0,0,0,0.8)}
+      button{border:2px solid currentColor}
+    }
+    /* Reduced motion support */
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+      html{scroll-behavior:auto}
+    }
   </style>
   <!-- CRITICAL: Only preload essential assets -->
   <link rel="modulepreload" href="/src/main.tsx">
@@ -73,22 +94,27 @@
   
   <!-- Using Google Fonts instead of missing local fonts -->
   
-  <!-- Favicon - Complete cache bypass -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <link rel="icon" type="image/png" href="/logo-icon.png" />
-  <link rel="shortcut icon" href="/logo-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/logo-icon.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/logo-icon.png" />
+  <!-- Favicon - FundTek Company Logo -->
+  <link rel="icon" type="image/png" href="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
+  <link rel="shortcut icon" href="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
+  <link rel="apple-touch-icon" href="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
   <link rel="manifest" href="/site.webmanifest" />
   
   <!-- Mobile-specific meta tags for favicon consistency -->
-  <meta name="msapplication-TileImage" content="/logo-icon.png">
+  <meta name="msapplication-TileImage" content="/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png">
   <meta name="msapplication-TileColor" content="#85abe4">
   <meta name="theme-color" content="#85abe4">
   
   <title>Business Funding Solutions | Fast Approvals in 24 Hours | FundTek Capital Group</title>
+  <meta name="application-name" content="FundTek Capital Group" />
+  <meta name="msapplication-tooltip" content="Business Funding Solutions - Fast Approvals" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FundTek Capital" />
   
   <!-- Structured Data for SEO -->
   <script type="application/ld+json">
@@ -158,13 +184,19 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="FundTek Capital Group" />
   
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://www.fundtekcapitalgroup.com/" />
-  <meta property="twitter:title" content="Business Funding Solutions | Fast Approvals in 24 Hours | FundTek Capital Group" />
-  <meta property="twitter:description" content="Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 307-4658." />
-  <meta property="twitter:image" content="https://www.fundtekcapitalgroup.com/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
-  <meta property="twitter:site" content="@fundtekcapital" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fundtekcapital" />
+  <meta name="twitter:creator" content="@fundtekcapital" />
+  <meta name="twitter:url" content="https://www.fundtekcapitalgroup.com/" />
+  <meta name="twitter:title" content="Business Funding Solutions | Fast Approvals in 24 Hours | FundTek Capital Group" />
+  <meta name="twitter:description" content="Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 307-4658." />
+  <meta name="twitter:image" content="https://www.fundtekcapitalgroup.com/attached_assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1750718184734.png" />
+  <meta name="twitter:image:alt" content="FundTek Capital Group - Business Funding Solutions" />
+  <meta name="twitter:label1" content="Funding Range" />
+  <meta name="twitter:data1" content="$10K - $750K" />
+  <meta name="twitter:label2" content="Approval Time" />
+  <meta name="twitter:data2" content="24 Hours" />
   
   <!-- Additional SEO -->
   <meta name="keywords" content="business funding Brooklyn NY, term loans near me, merchant cash advance, equipment financing, SBA loans, small business loans, working capital loans, bad credit business loans, same day business funding, business financing solutions" />
