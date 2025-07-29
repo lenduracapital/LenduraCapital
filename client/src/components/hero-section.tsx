@@ -1,44 +1,72 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
+import { videoPreloader } from "@/utils/video-preloader";
 
 
-// Defer video loading to improve initial page speed
-const videoPath = "/attached_assets/Video (FundTek)_1751295081956.webm";
+// Optimized video paths with multiple quality options
+const videoSources = {
+  webm720: "/video/optimized/hero-video-720p.webm",
+  mp4720: "/video/optimized/hero-video-720p.mp4", 
+  mp4480: "/video/optimized/hero-video-480p.mp4",
+  fallback: "/attached_assets/Video (FundTek)_1751295081956.webm"
+};
+const videoPoster = "/video/optimized/hero-poster.jpg";
 import logoPath from "@assets/image_1752182868701.png";
 import heroBackgroundPath from "@assets/image_1752190793949.png";
 
-// Enhanced video optimization hook
+// Enhanced video optimization hook with intelligent loading
 function useVideoOptimization() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [shouldPlayVideo, setShouldPlayVideo] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [connectionSpeed, setConnectionSpeed] = useState<'fast' | 'slow'>('fast');
   
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
     
+    // Detect connection speed
+    const checkConnectionSpeed = () => {
+      if ('connection' in navigator) {
+        const connection = (navigator as any).connection;
+        if (connection) {
+          // If effective type is 3g or slower, or downlink is less than 1.5 Mbps
+          if (connection.effectiveType && (connection.effectiveType === '3g' || connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
+            setConnectionSpeed('slow');
+          } else if (connection.downlink && connection.downlink < 1.5) {
+            setConnectionSpeed('slow');
+          }
+        }
+      }
+    };
+    
     checkMobile();
+    checkConnectionSpeed();
     window.addEventListener('resize', checkMobile);
     
-    // Performance optimization will handle video preloading
+    // Start preloading video immediately
+    videoPreloader.preloadVideo({
+      videoSources,
+      poster: videoPoster
+    });
     
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
   }, []);
   
-  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying };
+  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed };
 }
 
 export default function HeroSection() {
   const [, setLocation] = useLocation();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying } = useVideoOptimization();
+  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed } = useVideoOptimization();
 
-  // Deferred video loading for better performance
+  // Optimized video loading with adaptive streaming
   useEffect(() => {
     if (!shouldPlayVideo || !videoRef.current) return;
 
@@ -59,16 +87,31 @@ export default function HeroSection() {
       setIsVideoPlaying(true);
     };
 
-    // Defer video loading by 1 second to let page render first
+    // Intelligent video loading based on device and connection
     const loadVideo = () => {
-      video.load();
-      video.play().catch(() => {
-        video.muted = true;
-        video.play().catch(() => {});
-      });
+      // Check if video is already preloaded for instant playback
+      const bestSource = (isMobile || connectionSpeed === 'slow') ? 
+        videoSources.mp4480 : videoSources.webm720;
+        
+      if (videoPreloader.isPreloaded(bestSource)) {
+        // Video is preloaded - start immediately
+        video.play().catch(() => {
+          video.muted = true;
+          video.play().catch(() => {});
+        });
+      } else {
+        // Not preloaded - load and play
+        video.load();
+        video.play().catch(() => {
+          video.muted = true;
+          video.play().catch(() => {});
+        });
+      }
     };
 
-    const videoTimer = setTimeout(loadVideo, 1000);
+    // Start loading immediately for fast connections, brief delay for slow ones
+    const delay = connectionSpeed === 'slow' ? 200 : 0;
+    const videoTimer = setTimeout(loadVideo, delay);
 
     video.addEventListener('canplay', handleCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
@@ -80,7 +123,7 @@ export default function HeroSection() {
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('play', handlePlay);
     };
-  }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying]);
+  }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying, connectionSpeed]);
 
   const handleApplyNow = () => {
     window.open('https://form.jotform.com/251965461165159', '_blank');
@@ -97,17 +140,17 @@ export default function HeroSection() {
         backgroundColor: '#1e293b'
       }}
     >
-      {/* Optimized Video Background */}
+      {/* Optimized Video Background with Adaptive Quality */}
       {shouldPlayVideo && (
         <video
           ref={videoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
-          poster=""
+          preload="metadata"
+          poster={videoPoster}
           controls={false}
           disablePictureInPicture
           disableRemotePlayback
@@ -116,12 +159,33 @@ export default function HeroSection() {
           style={{
             zIndex: isVideoLoaded ? 1 : 0,
             transform: 'translateZ(0)', // GPU acceleration
-            willChange: 'transform'
+            willChange: 'transform',
+            filter: isVideoLoaded ? 'none' : 'blur(4px)'
           }}
         >
-          <source src={videoPath} type="video/webm" />
-          <source src={videoPath.replace('.webm', '.mp4')} type="video/mp4" />
+          {/* Serve appropriate quality based on device and connection */}
+          {!isMobile && connectionSpeed === 'fast' && (
+            <source src={videoSources.webm720} type="video/webm" />
+          )}
+          {!isMobile && connectionSpeed === 'fast' && (
+            <source src={videoSources.mp4720} type="video/mp4" />
+          )}
+          {(isMobile || connectionSpeed === 'slow') && (
+            <source src={videoSources.mp4480} type="video/mp4" />
+          )}
+          <source src={videoSources.fallback} type="video/webm" />
         </video>
+      )}
+      
+      {/* Poster image fallback when video is loading */}
+      {!isVideoLoaded && (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${videoPoster})`,
+            zIndex: 0
+          }}
+        />
       )}
       
       {/* Background image is now always visible until video loads */}
