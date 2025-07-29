@@ -5,13 +5,12 @@ import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/home";
 import ChatWidget from "@/components/chat-widget";
 import CookieBanner from "@/components/CookieBanner";
-import Analytics from "@/components/analytics";
+// Analytics removed - using GA4 directly in HTML
 
 
 // Lazy load non-critical pages for code splitting with prefetch
 const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
 const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
-const ClientCashAdvance = lazy(() => import("@/pages/merchant-cash-advance"));
 const LoanApplication = lazy(() => import("@/pages/loan-application"));
 const ClientCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
 const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
@@ -100,7 +99,6 @@ function Router() {
         <Route path="/solutions/mortgage-financing" component={MortgageFinancing} />
         <Route path="/solutions/merchant-cash-advance" component={ClientCashAdvanceDetail} />
         <Route path="/qualified-industries" component={QualifiedIndustries} />
-        <Route path="/merchant-cash-advance" component={ClientCashAdvance} />
         <Route path="/term-loans" component={TermLoansDetail} />
         <Route path="/testimonials" component={TestimonialsPage} />
         <Route path="/more-testimonials" component={MoreTestimonials} />
@@ -141,7 +139,6 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Analytics />
       <Suspense fallback={<PageLoader />}>
         <Router />
         <ChatWidget />

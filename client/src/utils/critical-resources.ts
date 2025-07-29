@@ -67,20 +67,7 @@ export function initPerformanceTimeline() {
       const measure = performance.getEntriesByName('app-load-time')[0];
       console.log(`🚀 FundTek app loaded in ${Math.round(measure.duration)}ms`);
       
-      // Show performance in development
-      if (process.env.NODE_ENV === 'development') {
-        const perfDisplay = document.createElement('div');
-        perfDisplay.innerHTML = `Load: ${Math.round(measure.duration)}ms`;
-        perfDisplay.style.cssText = `
-          position: fixed; top: 10px; right: 10px; 
-          background: #22c55e; color: white; 
-          padding: 4px 8px; border-radius: 4px; 
-          font-size: 12px; z-index: 9999;
-          font-family: monospace;
-        `;
-        document.body.appendChild(perfDisplay);
-        setTimeout(() => perfDisplay.remove(), 5000);
-      }
+      // Performance logged to console only
     } catch (e) {
       // Performance API not fully supported
     }
