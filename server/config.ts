@@ -62,7 +62,7 @@ function validateEnvironment() {
     
     // Auto-detect deployment platform port
     if (!process.env.PORT) {
-      process.env.PORT = isProduction ? '80' : '5000';
+      process.env.PORT = isProduction ? '3000' : '5000';
     }
     
     // Generate secure session secret if missing

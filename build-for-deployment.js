@@ -33,7 +33,7 @@ try {
 // 3. Build full server with esbuild (includes all functionality)
 try {
   console.log('🏗️ Building production server...');
-  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/index.js', { stdio: 'inherit' });
+  execSync('npx esbuild server/index.ts --platform=node --packages=external --bundle --format=cjs --outfile=dist/index.js', { stdio: 'inherit' });
   console.log('✅ Production server built successfully');
 } catch (error) {
   console.log('⚠️ Server build failed, creating simple fallback server...');
@@ -64,14 +64,13 @@ app.listen(PORT, '0.0.0.0', () => {
   writeFileSync('dist/index.js', fallbackServerCode);
 }
 
-// Create simplified start.js wrapper
-const serverCode = `import('./index.js').catch(console.error);`;
+// Create simplified start.js wrapper for CommonJS
+const serverCode = `require('./index.js');`;
 
 // 4. Write deployment files
 console.log('📝 Writing deployment files...');
 writeFileSync(startJsPath, serverCode);
 writeFileSync(packageJsonPath, JSON.stringify({
-  "type": "module",
   "main": "start.js",
   "scripts": {"start": "node start.js"}
 }, null, 2));
