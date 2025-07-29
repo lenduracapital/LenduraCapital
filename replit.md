@@ -1684,6 +1684,7 @@ NODE_ENV=production node dist/index.js
 - Focus on deployment readiness and reliability
 - Comprehensive documentation for production systems
 - Performance optimization priorities
+- CRITICAL: Must use circle favicon with lion and FundTek Capital text (/favicon-circle.svg) - user specifically requested this design
 
 ## Security & Compliance
 - SOC 2 compliance monitoring
