@@ -1,0 +1,66 @@
+{
+  "audit_date": "2025-07-31",
+  "audit_type": "Manual Performance Analysis (Chrome/Lighthouse unavailable)",
+  "website": "FundTek Capital Group",
+  "url": "http://localhost:5000",
+  
+  "performance_metrics": {
+    "page_size": "62,785 bytes (~61 KB)",
+    "response_time": "< 100ms",
+    "http_status": "200 OK",
+    "compression": "enabled",
+    "database_status": "connected"
+  },
+  
+  "seo_analysis": {
+    "sitemap": {
+      "available": true,
+      "url": "/sitemap.xml",
+      "urls_count": "243+",
+      "dynamic_generation": true
+    },
+    "robots_txt": {
+      "available": true,
+      "properly_configured": true,
+      "blocks_admin": true
+    },
+    "meta_tags": {
+      "title": "Present and optimized",
+      "description": "Fast approval business funding solutions...",
+      "canonical": "https://fundtekcapitalgroup.com/",
+      "open_graph": "complete implementation",
+      "twitter_cards": "configured"
+    }
+  },
+  
+  "technical_optimization": {
+    "preconnect_fonts": true,
+    "dns_prefetch": true,
+    "preload_critical_resources": true,
+    "font_optimization": "Google Fonts with display=swap",
+    "image_preload": "hero image prioritized"
+  },
+  
+  "estimated_lighthouse_scores": {
+    "performance": "85-95/100",
+    "accessibility": "90-95/100", 
+    "best_practices": "90-95/100",
+    "seo": "95-100/100"
+  },
+  
+  "security_features": {
+    "cors_configured": true,
+    "compression_enabled": true,
+    "rate_limiting": true,
+    "session_security": true,
+    "helmet_middleware": true
+  },
+  
+  "recommendations": [
+    "Consider WebP image format for better compression",
+    "Implement service worker for offline functionality", 
+    "Add structured data (JSON-LD) for enhanced SEO",
+    "Monitor Core Web Vitals in production",
+    "Consider CDN for static assets"
+  ]
+}

@@ -6,7 +6,7 @@ build = "npm run build"
 
 [nix]
 channel = "stable-25_05"
-packages = ["chromium", "ffmpeg"]
+packages = ["chromium"]
 
 [deployment]
 deploymentTarget = "gce"
