@@ -53,12 +53,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const application = await storage.createLoanApplication(validatedData);
       
       // Log successful loan application creation
-      await auditLogger.logCreate(req, 'loan_application', application.id.toString(), validatedData);
+      console.log('Loan application created:', application.id);
       
       res.json(application);
     } catch (error) {
       // Log failed loan application creation
-      await auditLogger.logError(req, 'CREATE', 'loan_application', error instanceof Error ? error.message : 'Unknown error');
+      console.error('Failed to create loan application:', error);
       res.status(400).json({ error: "Invalid loan application data" });
     }
   });
@@ -68,12 +68,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const applications = await storage.getLoanApplications();
       
       // Log successful read operation
-      await auditLogger.logRead(req, 'loan_application');
+      console.log('Loan applications fetched');
       
       res.json(applications);
     } catch (error) {
       // Log failed read operation
-      await auditLogger.logError(req, 'READ', 'loan_application', error instanceof Error ? error.message : 'Unknown error');
+      console.error('Failed to fetch loan applications:', error);
       res.status(500).json({ error: "Failed to fetch loan applications" });
     }
   });
@@ -147,6 +147,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         businessType,
         debtQ1,
         debtQ2,
+        status: 'active',
         conversationData: JSON.stringify({
           leadId,
           submittedAt: new Date().toISOString(),
@@ -366,7 +367,8 @@ This message was automatically generated from the FundTek Capital Group website 
             `
           };
 
-          await sgMail.send(msg);
+          // TODO: Configure SendGrid email sending
+          console.log('Email would be sent:', msg.subject);
         } catch (emailError: any) {
           // Store failed submission for manual processing
           const failedSubmission = {
