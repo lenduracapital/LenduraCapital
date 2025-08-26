@@ -1,7 +1,5 @@
-modules = ["nodejs-20", "web", "postgresql-16"]
-
-# Run/build for the editor only (optional, safe to keep)
-run = "npm run start"
+modules = ["nodejs-20", "web"]
+run = "npm run dev"
 build = "npm run build"
 
 [nix]
@@ -9,11 +7,8 @@ channel = "stable-25_05"
 packages = ["chromium"]
 
 [deployment]
-deploymentTarget = "gce"
-
-# ✅ Build your full deployment process
-build = ["node", "build-for-deployment.js"]
-run = ["sh", "-c", "node dist/index.js"]
+deploymentTarget = "autoscale"
+run = ["sh", "-c", "npm run dev"]
 
 [[ports]]
 localPort = 80
@@ -32,8 +27,12 @@ externalPort = 80
 [[ports]]
 localPort = 8080
 
+[[ports]]
+localPort = 24678
+externalPort = 3001
+
 [workflows]
-runButton = "Start application"
+runButton = "Project"
 
 [[workflows.workflow]]
 name = "Project"
