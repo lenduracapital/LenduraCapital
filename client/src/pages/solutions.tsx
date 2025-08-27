@@ -18,6 +18,7 @@ import debtConsolidationImageNew from "@assets/debtconsolidation.jpg";
 import equipmentLoansImage from "@assets/equipmentloans.jpg";
 import invoiceFactoringImage from "@assets/invoicefactoring.jpg";
 import purchaseOrderFinancingImage from "@assets/purchaseorderfinancing.jpg";
+import creLendingImage from "@assets/crelending.jpg";
 
 const solutions = [
   {
@@ -135,7 +136,7 @@ const solutions = [
       "Competitive rates"
     ],
     route: "/solutions/commercial-real-estate-lending",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
+    image: creLendingImage
   },
   {
     title: "Card Processing",
