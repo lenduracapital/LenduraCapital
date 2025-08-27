@@ -11,7 +11,7 @@ import CookieBanner from "@/components/CookieBanner";
 // Lazy load non-critical pages for code splitting with prefetch
 const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
 const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
-const LoanApplication = lazy(() => import("@/pages/loan-application"));
+const ApplyNow = lazy(() => import("@/pages/apply-now"));
 const ClientCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
 const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
 const LinesOfCreditDetail = lazy(() => import("@/pages/solutions/lines-of-credit"));
@@ -111,7 +111,8 @@ function Router() {
 
         <Route path="/admin" component={AdminDashboard} />
 
-        <Route path="/apply" component={LoanApplication} />
+        <Route path="/apply" component={ApplyNow} />
+        <Route path="/apply-now" component={ApplyNow} />
         <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
         <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />
         <Route path="/industries/trucking-transportation" component={TruckingTransportation} />

@@ -203,7 +203,7 @@ export default function WorkingCapitalSection() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <Button 
-                onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
+                onClick={() => window.location.href = '/apply-now'}
                 className="bg-white text-[#193a59] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-200 flex-1"
               >
                 Apply Now ➤

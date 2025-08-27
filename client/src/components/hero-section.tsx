@@ -126,7 +126,7 @@ export default function HeroSection() {
   }, [shouldPlayVideo, setIsVideoLoaded, setIsVideoPlaying, connectionSpeed]);
 
   const handleApplyNow = () => {
-    window.open('https://form.jotform.com/251965461165159', '_blank');
+    window.location.href = '/apply-now';
   };
 
   const handlePhoneClick = () => {

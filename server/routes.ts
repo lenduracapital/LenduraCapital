@@ -364,6 +364,244 @@ This message was automatically generated from the Lendura Capital website contac
     }
   });
 
+  // Loan Application endpoint with PDF processing
+  app.post("/api/loan-application", async (req, res) => {
+    try {
+      const multer = require('multer');
+      const upload = multer({ storage: multer.memoryStorage() });
+      
+      // Use multer middleware to handle FormData
+      upload.single('pdf')(req, res, async (err) => {
+        if (err) {
+          console.error('File upload error:', err);
+          return res.status(400).json({ error: "File upload failed" });
+        }
+
+        try {
+          const applicationData = JSON.parse(req.body.applicationData);
+          const pdfBuffer = req.file?.buffer;
+
+          // Generate unique application ID
+          const applicationId = `LC-APP-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+
+          // Format timestamp
+          const timestamp = new Date().toLocaleString('en-US', { 
+            timeZone: 'America/New_York',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          });
+
+          // Create email content
+          const emailContent = `
+New Loan Application Submitted - Lendura Capital
+
+Application ID: ${applicationId}
+Timestamp: ${timestamp}
+Source: Website Application Form
+
+APPLICANT INFORMATION:
+- Name: ${applicationData.firstName} ${applicationData.lastName}
+- Email: ${applicationData.email}
+- Phone: ${applicationData.phone}
+- Date of Birth: ${applicationData.dateOfBirth}
+- SSN: ${applicationData.ssn ? `***-**-${applicationData.ssn.slice(-4)}` : 'Not provided'}
+
+BUSINESS INFORMATION:
+- Legal Company Name: ${applicationData.legalCompanyName}
+- DBA Name: ${applicationData.dbaName || 'Not provided'}
+- EIN: ${applicationData.ein}
+- Business Type: ${applicationData.businessType}
+- Industry: ${applicationData.industryType || 'Not provided'}
+- Time in Business: ${applicationData.timeInBusiness}
+- Employee Count: ${applicationData.employeeCount || 'Not provided'}
+
+FINANCIAL DETAILS:
+- Monthly Revenue: ${applicationData.monthlyRevenue}
+- Requested Amount: ${applicationData.requestedAmount}
+- Use of Funds: ${applicationData.useOfFunds}
+- Credit Score Range: ${applicationData.creditScore || 'Not provided'}
+- Bank Name: ${applicationData.bankName || 'Not provided'}
+- Current Loans: ${applicationData.currentLoans || 'Not provided'}
+
+ADDITIONAL INFORMATION:
+- Business Ownership: ${applicationData.businessOwnership || 'Not provided'}
+- Has Partners: ${applicationData.hasPartners || 'Not provided'}
+- Collateral Available: ${applicationData.hasCollateral || 'Not provided'}
+
+CONSENTS:
+- Credit Check Consent: ${applicationData.consentToCredit ? 'Yes' : 'No'}
+- Communication Consent: ${applicationData.consentToCommunications ? 'Yes' : 'No'}
+- Electronic Signature: ${applicationData.electronicSignature}
+- Signature Date: ${applicationData.signatureDate}
+
+Please review this loan application promptly and follow up with the applicant.
+
+This application was submitted electronically through the Lendura Capital website.
+          `.trim();
+
+          // Send email with PDF attachment using SendGrid
+          if (process.env.SENDGRID_API_KEY) {
+            try {
+              const sgMail = require('@sendgrid/mail');
+              sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+              const msg = {
+                to: 'sam@lenduracapital.com',
+                from: 'subs@lenduracapital.com',
+                subject: `New Loan Application ${applicationId} - ${applicationData.firstName} ${applicationData.lastName}`,
+                text: emailContent,
+                html: `
+                  <!DOCTYPE html>
+                  <html>
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>New Loan Application - Lendura Capital</title>
+                  </head>
+                  <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f5f5;">
+                    <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden;">
+                      
+                      <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); padding: 30px 40px; text-align: center;">
+                        <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
+                          📄 New Loan Application
+                        </h1>
+                        <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px;">
+                          Lendura Capital
+                        </p>
+                      </div>
+
+                      <div style="padding: 40px;">
+                        <div style="background: #f8fafc; border-radius: 8px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #193a59;">
+                          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                            <div>
+                              <p style="margin: 0; color: #64748b; font-size: 14px; font-weight: 500;">APPLICATION ID</p>
+                              <p style="margin: 5px 0 0 0; color: #0f172a; font-size: 16px; font-weight: 600;">${applicationId}</p>
+                            </div>
+                            <div style="background: #193a59; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+                              LOAN APPLICATION
+                            </div>
+                          </div>
+                        </div>
+
+                        <h2 style="color: #1e293b; margin: 0 0 20px 0; font-size: 20px; font-weight: 600;">
+                          Application Summary
+                        </h2>
+                        
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
+                          <div style="background: #f1f5f9; padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
+                            <h3 style="margin: 0; color: #475569; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                              Key Details
+                            </h3>
+                          </div>
+                          
+                          <div style="padding: 0;">
+                            <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                              <span style="color: #64748b; font-weight: 500;">Applicant</span>
+                              <span style="color: #0f172a; font-weight: 600; background: #fef3c7; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                                ${applicationData.firstName} ${applicationData.lastName}
+                              </span>
+                            </div>
+                            
+                            <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                              <span style="color: #64748b; font-weight: 500;">Business</span>
+                              <span style="color: #0f172a; font-weight: 600; background: #fce7f3; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                                ${applicationData.legalCompanyName}
+                              </span>
+                            </div>
+                            
+                            <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                              <span style="color: #64748b; font-weight: 500;">Requested Amount</span>
+                              <span style="color: #0f172a; font-weight: 600; background: #dbeafe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
+                                ${applicationData.requestedAmount}
+                              </span>
+                            </div>
+
+                            <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+                              <span style="color: #64748b; font-weight: 500;">Monthly Revenue</span>
+                              <span style="color: #0f172a; font-weight: 600;">
+                                ${applicationData.monthlyRevenue}
+                              </span>
+                            </div>
+
+                            <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
+                              <span style="color: #64748b; font-weight: 500;">Use of Funds</span>
+                              <span style="color: #0f172a; font-weight: 600;">
+                                ${applicationData.useOfFunds}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); border-radius: 8px; text-align: center;">
+                          <p style="color: white; margin: 0; font-size: 14px; font-weight: 500;">
+                            🚀 Priority application - Review and contact within 24 hours for best conversion
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </body>
+                  </html>
+                `,
+                attachments: pdfBuffer ? [{
+                  content: pdfBuffer.toString('base64'),
+                  filename: `${applicationId}.pdf`,
+                  type: 'application/pdf',
+                  disposition: 'attachment'
+                }] : []
+              };
+
+              await sgMail.send(msg);
+              console.log(`Loan application email sent for: ${applicationId}`);
+
+              // Store in database
+              const loanData = {
+                firstName: applicationData.firstName,
+                lastName: applicationData.lastName,
+                email: applicationData.email,
+                phone: applicationData.phone,
+                businessName: applicationData.legalCompanyName,
+                requestedAmount: applicationData.requestedAmount,
+                useOfFunds: applicationData.useOfFunds,
+                monthlyRevenue: applicationData.monthlyRevenue,
+                timeInBusiness: applicationData.timeInBusiness,
+                creditScore: applicationData.creditScore || '',
+                status: 'submitted'
+              };
+
+              await storage.createLoanApplication(loanData);
+
+              res.json({ 
+                success: true, 
+                message: "Your loan application has been submitted successfully! We will review your application and contact you within 24 hours.",
+                applicationId 
+              });
+
+            } catch (emailError) {
+              console.error('SendGrid email error:', emailError);
+              res.status(500).json({ error: "Failed to send application notification" });
+            }
+          } else {
+            console.error('SENDGRID_API_KEY not configured');
+            res.status(500).json({ error: "Email service not configured" });
+          }
+
+        } catch (parseError) {
+          console.error('Application parsing error:', parseError);
+          res.status(400).json({ error: "Invalid application data" });
+        }
+      });
+
+    } catch (error) {
+      console.error('Loan application submission error:', error);
+      res.status(500).json({ error: "Failed to submit loan application" });
+    }
+  });
+
   // Chat widget submission endpoint with database storage
   app.post("/api/chat/submit", async (req, res) => {
     try {
