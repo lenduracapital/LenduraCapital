@@ -213,7 +213,7 @@ Customer Information:
 
 Please follow up with this potential client promptly.
 
-This message was automatically generated from the FundTek Capital Group website chat widget.
+This message was automatically generated from the Lendura Capital website chat widget.
       `.trim();
 
       // Track submission internally
@@ -228,13 +228,13 @@ This message was automatically generated from the FundTek Capital Group website 
           const customerName = formatValue(firstName) !== 'Not provided' ? ` - ${formatValue(firstName)}` : '';
           
           // Determine recipient based on submission content
-          const isForBrian = userType && userType.toLowerCase().includes('brian');
-          const recipient = isForBrian ? 'brian@fundtekcapitalgroup.com' : 'admin@fundtekcapitalgroup.com';
+          const isForSam = userType && userType.toLowerCase().includes('sam');
+          const recipient = isForSam ? 'Sam@lenduracapital.com' : 'Sam@lenduracapital.com';
           
           const msg = {
             to: recipient,
-            from: 'brian@fundtekcapitalgroup.com', // Verified sender address
-            subject: `New Chat Lead #${leadId}${customerName} - FundTek Capital Group`,
+            from: 'Sam@lenduracapital.com', // Verified sender address
+            subject: `New Chat Lead #${leadId}${customerName} - Lendura Capital`,
             text: emailContent,
             html: `
               <!DOCTYPE html>
@@ -242,7 +242,7 @@ This message was automatically generated from the FundTek Capital Group website 
               <head>
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>New Lead - FundTek Capital Group</title>
+                <title>New Lead - Lendura Capital</title>
               </head>
               <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f5f5;">
                 <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden;">
@@ -253,7 +253,7 @@ This message was automatically generated from the FundTek Capital Group website 
                       🎯 New Lead Alert
                     </h1>
                     <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px;">
-                      FundTek Capital Group
+                      Lendura Capital
                     </p>
                   </div>
 
