@@ -92,7 +92,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#2563eb] text-lg">Email</h4>
-                        <a href="mailto:support@fundtekcapitalgroup.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">support@fundtekcapitalgroup.com</a>
+                        <a href="mailto:support@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">support@lenduracapital.com</a>
                       </div>
                     </div>
                     
@@ -181,7 +181,7 @@ export default function Contact() {
               Next Steps - Your Path to Funding
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Getting business funding with FundTek is straightforward. Here's exactly what to expect from application to approval.
+              Getting business funding with Lendura Capital is straightforward. Here's exactly what to expect from application to approval.
             </p>
           </div>
           
