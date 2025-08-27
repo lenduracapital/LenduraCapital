@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
+import CustomContactForm from "@/components/custom-contact-form";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Contact() {
@@ -105,24 +106,7 @@ export default function Contact() {
             {/* Right Column - Contact Form */}
             <div className="space-y-6">
               {/* Contact Form */}
-              <div className="bg-white rounded-lg shadow-lg">
-                <iframe
-                  id="JotFormIFrame-251674789886078"
-                  title="Lendura Capital Contact Form"
-                  onLoad={() => window.parent.scrollTo(0, 0)}
-                  allowtransparency="true"
-                  allow="geolocation; microphone; camera; fullscreen"
-                  src="https://form.jotform.com/251674789886078"
-                  frameBorder="0"
-                  style={{
-                    minWidth: '100%',
-                    maxWidth: '100%',
-                    border: 'none',
-                  }}
-                  className="w-full h-[500px] rounded-lg"
-                  scrolling="yes"
-                />
-              </div>
+              <CustomContactForm />
 
               {/* Business Hours */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -259,13 +243,13 @@ export default function Contact() {
           <div className="text-center mt-12">
             <h3 className="text-4xl font-bold text-[#193a59] mb-6">Ready to Get Started?</h3>
             <p className="text-xl text-[#193a59] mb-8">Join thousands of businesses we've helped secure funding.</p>
-            <button
-              onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-              className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+            <a
+              href="/apply-now"
+              className="inline-block px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
               style={{ backgroundColor: '#193a59' }}
             >
               Apply for Funding Now
-            </button>
+            </a>
           </div>
         </div>
       </section>
