@@ -577,7 +577,7 @@ function ChatWidget() {
                 className="flex items-center justify-center gap-2 bg-[#2563eb] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                Call (305) 834-7168
+                Call (305) 765-7168
               </button>
               <button
                 onClick={() => window.open('https://form.jotform.com/251965461165159', '_blank')}

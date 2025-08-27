@@ -8,7 +8,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <SEOHead
         title="Contact Lendura Capital | Business Loan Specialists | Brooklyn, NY"
-        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 834-7168 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
+        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 765-7168 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
         keywords="contact business lender, Brooklyn business loans, New York business funding, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
         canonical="/contact"
       />
@@ -49,7 +49,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#2563eb] text-lg">Phone</h4>
-                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 834-7168</a>
+                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
                       </div>
                     </div>
                     
@@ -59,7 +59,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#2563eb] text-lg">Email</h4>
-                        <a href="mailto:Sam@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">Sam@lenduracapital.com</a>
+                        <a href="mailto:Admin@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">Admin@lenduracapital.com</a>
                       </div>
                     </div>
                     
