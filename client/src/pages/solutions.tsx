@@ -12,6 +12,7 @@ import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_175077173
 import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
 import termLoansImage from "@assets/termloans.jpg";
 import linesOfCreditImage from "@assets/lines of credit.jpg";
+import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";
 
 const solutions = [
   {
@@ -51,7 +52,7 @@ const solutions = [
       "No collateral required"
     ],
     route: "/solutions/merchant-cash-advance",
-    image: "https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=400&fit=crop"
+    image: merchantCashAdvanceImage
   },
   {
     title: "SBA Loans",
