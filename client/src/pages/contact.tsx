@@ -92,7 +92,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Email</h4>
-                        <a href="mailto:support@lenduracapital.com" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-lg break-all">support@lenduracapital.com</a>
+                        <a href="mailto:support@lenduracapital.com" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-lg break-all">Support@lenduracapital.com</a>
                       </div>
                     </div>
                     
