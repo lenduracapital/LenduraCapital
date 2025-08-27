@@ -11,6 +11,7 @@ import truckImage from "@assets/Truck_1750271749729.jpg";
 import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
 import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
 import termLoansImage from "@assets/termloans.jpg";
+import linesOfCreditImage from "@assets/lines of credit.jpg";
 
 const solutions = [
   {
@@ -37,7 +38,7 @@ const solutions = [
       "Flexible repayment"
     ],
     route: "/solutions/lines-of-credit",
-    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&h=400&fit=crop"
+    image: linesOfCreditImage
   },
   {
     title: "Merchant Cash Advance",
