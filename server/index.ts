@@ -110,17 +110,39 @@ app.use(
       // Dev: Vite integration
       await setupVite(app, null);
     } else {
-      // Prod: Serve static
+      // Prod: Serve static files with proper MIME types
       console.log("📁 Serving static files...");
       const distPath = path.join(__dirname, "../dist/public");
       const staticRoot = fs.existsSync(distPath)
         ? distPath
-        : path.join(__dirname, "public");
+        : path.join(__dirname, "../public");
       console.log("Static path:", staticRoot);
-      app.use(express.static(staticRoot, { maxAge: "1y", etag: true }));
-      // SPA fallback
+      
+      // Serve static assets with proper MIME types
+      app.use("/assets", express.static(path.join(staticRoot, "assets"), { 
+        maxAge: "1y", 
+        etag: true,
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith('.js')) {
+            res.setHeader('Content-Type', 'text/javascript');
+          } else if (filePath.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+          }
+        }
+      }));
+      
+      // Serve other static files from public folder
+      app.use(express.static(staticRoot, { 
+        maxAge: "1y", 
+        etag: true,
+        index: false  // Don't serve index.html for static routes
+      }));
+      
+      // SPA fallback - only for non-API, non-asset routes
       app.use((req, res, next) => {
-        if (req.path.startsWith("/api/")) return next();
+        if (req.path.startsWith("/api/") || req.path.startsWith("/assets/")) {
+          return next();
+        }
         const indexFile = path.join(staticRoot, "index.html");
         if (fs.existsSync(indexFile)) {
           res.sendFile(indexFile);
