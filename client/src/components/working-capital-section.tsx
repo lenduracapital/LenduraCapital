@@ -152,134 +152,73 @@ export default function WorkingCapitalSection() {
           </div>
         </div>
 
-        {/* FundTek Tailored Section */}
-        <div className="max-w-7xl mx-auto mb-12 md:mb-16 px-4">
-          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-            {/* Left Side - No Impact & Application */}
-            <div className="space-y-6 md:space-y-8">
-              {/* No Impact on Credit Score */}
-              <div className="relative bg-gradient-to-br from-emerald-50 to-green-100 p-5 md:p-8 lg:p-10 rounded-2xl shadow-xl border border-emerald-200 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-200 rounded-full opacity-20 -translate-y-16 translate-x-16"></div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-green-300 rounded-full opacity-15 translate-y-12 -translate-x-12"></div>
-                <div className="relative text-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-emerald-500 rounded-full mb-4 md:mb-6">
-                    <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-emerald-800 mb-2 md:mb-3">No Impact</h3>
-                  <p className="text-base md:text-lg text-emerald-700 font-medium mb-3">On Your FICO</p>
-                  <div className="text-xs md:text-sm text-emerald-600">
-                    Soft credit check only - won't affect your rating
-                  </div>
-                </div>
+        {/* Simplified Action Section */}
+        <div className="max-w-6xl mx-auto mb-12 md:mb-16 px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            {/* Fast Approval */}
+            <div className="text-center bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#193a59] to-[#285d8a] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
-              
-              {/* Application Process */}
-              <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 p-5 md:p-8 lg:p-10 rounded-2xl text-white shadow-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#193a59] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-400 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
-                <div className="relative">
-                  <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#193a59] rounded-full mb-4 md:mb-6">
-                      <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 leading-tight px-2">Get Started in Minutes and See Your Options</h3>
-                    <Button 
-                      onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-                      className="bg-gradient-to-r from-[#193a59] to-[#6b8cc4] hover:from-[#6b8cc4] hover:to-[#5a7ab8] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-h-[44px]"
-                    >
-                      Apply Now ➤
-                    </Button>
-                  </div>
-                  <div className="text-center border-t border-slate-600 pt-4 md:pt-6">
-                    <div className="text-3xl md:text-5xl lg:text-6xl font-black mb-2 md:mb-3 bg-gradient-to-r from-[#193a59] to-blue-300 bg-clip-text text-transparent">5 Min.</div>
-                    <div className="text-base md:text-lg opacity-90 font-medium">Application Process</div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Same Day</h3>
+              <p className="text-lg text-[#193a59] font-semibold mb-2">Approval</p>
+              <p className="text-gray-600 text-sm">Get approved in hours, not weeks</p>
             </div>
 
-            {/* Right Side - Expert Advice & Requirements */}
-            <div className="space-y-6 md:space-y-8">
-              {/* Expert Advice */}
-              <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 p-5 md:p-8 lg:p-10 rounded-2xl shadow-xl border border-blue-200 overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#193a59] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-300 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
-                
-                <div className="relative flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6">
-                  <div className="flex-shrink-0 mx-auto sm:mx-0">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#193a59] to-[#285d8a] rounded-full flex items-center justify-center shadow-lg">
-                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#193a59] mb-3 md:mb-4 leading-tight">
-                      Get 1-2-1 advice from an in-house team of experts on funding
-                    </h3>
-                    <p className="text-gray-700 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
-                      Tired of funding delays? Partner with a dedicated specialist for fast working capital loans, equipment financing, payroll support, and tailored revenue-based funding to power your growth. Whether you need cash for marketing campaigns, inventory restocks, or expansion initiatives, we deliver same-day approval, transparent terms, and reliable service—so you can focus on running your business, not chasing capital.
-                    </p>
-                    
-                    {/* Information Needed */}
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-md border border-gray-200 mb-3 md:mb-4">
-                      <h4 className="font-bold text-gray-800 text-sm md:text-base mb-2 md:mb-3 text-center sm:text-left">Information Needed</h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 sm:divide-x divide-gray-300">
-                        <div className="text-center">
-                          <div className="text-[#193a59] font-bold text-xs md:text-sm">Personal Info</div>
-                          <div className="text-gray-600 text-xs">To Verify Identity</div>
-                        </div>
-                        <div className="text-center sm:px-3">
-                          <div className="text-[#193a59] font-bold text-xs md:text-sm">Business Info</div>
-                          <div className="text-gray-600 text-xs">For Verification</div>
-                        </div>
-                        <div className="text-center sm:px-3">
-                          <div className="text-[#193a59] font-bold text-xs md:text-sm">Bank Connection</div>
-                          <div className="text-gray-600 text-xs">To Evaluate Revenue</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Minimum Qualifications */}
-                    <div className="bg-white p-3 md:p-4 rounded-lg shadow-md border border-gray-200">
-                      <h4 className="font-bold text-gray-800 text-sm md:text-base mb-2 md:mb-3 text-center sm:text-left">Minimum Qualifications</h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 sm:divide-x divide-gray-300">
-                        <div className="text-center">
-                          <div className="text-[#193a59] font-bold text-lg md:text-xl">550+</div>
-                          <div className="text-gray-600 text-xs">Min. Credit Score</div>
-                        </div>
-                        <div className="text-center sm:px-3">
-                          <div className="text-[#193a59] font-bold text-lg md:text-xl">6+</div>
-                          <div className="text-gray-600 text-xs">Months Time In Business</div>
-                        </div>
-                        <div className="text-center sm:px-3">
-                          <div className="text-[#193a59] font-bold text-lg md:text-xl">$10K+</div>
-                          <div className="text-gray-600 text-xs">Min. Monthly Revenue</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            {/* Funding Range */}
+            <div className="text-center bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#193a59] to-[#285d8a] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
               </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">$10K - $5M</h3>
+              <p className="text-lg text-[#193a59] font-semibold mb-2">Available</p>
+              <p className="text-gray-600 text-sm">Flexible amounts for any business size</p>
             </div>
+
+            {/* Credit Protection */}
+            <div className="text-center bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">No Impact</h3>
+              <p className="text-lg text-emerald-600 font-semibold mb-2">On Credit Score</p>
+              <p className="text-gray-600 text-sm">Soft check only - protects your rating</p>
+            </div>
+
           </div>
         </div>
 
-        <div className="text-center">
-          <Button 
-            onClick={() => {
-              setLocation('/solutions');
-              window.scrollTo(0, 0);
-            }}
-            style={{ backgroundColor: '#193a59' }}
-            className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg w-full sm:w-auto min-h-[44px] shadow-lg"
-          >
-            Browse 12 Funding Solutions
-          </Button>
+        {/* Simple CTA Section */}
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16 px-4">
+          <div className="bg-gradient-to-br from-[#193a59] to-[#285d8a] rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Grow Your Business?</h2>
+            <p className="text-xl mb-8 opacity-90">Get the capital you need with transparent terms and no hidden fees</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+              <Button 
+                onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
+                className="bg-white text-[#193a59] hover:bg-gray-100 px-8 py-4 rounded-xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-200 flex-1"
+              >
+                Apply Now ➤
+              </Button>
+              <Button 
+                onClick={() => {
+                  setLocation('/solutions');
+                  window.scrollTo(0, 0);
+                }}
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#193a59] px-8 py-4 rounded-xl font-bold text-lg transform hover:scale-105 transition-all duration-200 flex-1"
+              >
+                View Solutions
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
