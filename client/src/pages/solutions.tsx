@@ -21,6 +21,7 @@ import purchaseOrderFinancingImage from "@assets/purchaseorderfinancing.jpg";
 import creLendingImage from "@assets/crelending.jpg";
 import creditCardProcessingImage from "@assets/creditcardprocessing.jpg";
 import creditRepairImage from "@assets/creditrepair.jpg";
+import marketingImage from "@assets/marketing.jpg";
 
 const solutions = [
   {
@@ -177,7 +178,7 @@ const solutions = [
       "Online presence management"
     ],
     route: "/solutions/seo-web-development",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    image: marketingImage
   }
 ];
 

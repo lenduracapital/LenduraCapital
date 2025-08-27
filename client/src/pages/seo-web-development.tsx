@@ -4,7 +4,7 @@ import { ArrowLeft, CheckCircle, Star, Code, Search, TrendingUp, Globe, Smartpho
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import digitalImage from "@assets/pexels-mikael-blomkvist-6476808_1752763455829.jpg";
+import digitalImage from "@assets/marketing.jpg";
 
 export default function SEOWebDevelopment() {
   const [, setLocation] = useLocation();
