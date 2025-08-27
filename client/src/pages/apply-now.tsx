@@ -47,28 +47,7 @@ export default function ApplyNow() {
         </div>
       </div>
 
-      {/* Trust Indicators */}
-      <div className="bg-white py-8 border-t">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-[#193a59] mb-2">🔒</div>
-              <h3 className="font-semibold text-gray-900 mb-1">Secure & Protected</h3>
-              <p className="text-sm text-gray-600">Your information is encrypted and protected with bank-level security.</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-[#193a59] mb-2">⚡</div>
-              <h3 className="font-semibold text-gray-900 mb-1">Fast Processing</h3>
-              <p className="text-sm text-gray-600">Get pre-approved in as little as 24 hours with our streamlined process.</p>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-[#193a59] mb-2">🎯</div>
-              <h3 className="font-semibold text-gray-900 mb-1">No Obligation</h3>
-              <p className="text-sm text-gray-600">Applying is free and doesn't affect your credit score until you accept an offer.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 }
