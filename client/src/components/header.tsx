@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue FundTek logo
-import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import fundTekLogo from "attached_assets/ChatGPT Image Aug 26, 2025, 04_32_58 PM.png";
 
 interface HeaderProps {
   transparent?: boolean;
