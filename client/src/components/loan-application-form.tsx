@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import SignatureCanvas from 'react-signature-canvas';
 
 interface LoanApplicationData {
   // Step 1: Contact Information
@@ -48,6 +49,7 @@ const steps = [
 export default function LoanApplicationForm() {
   const [currentStep, setCurrentStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const signatureRef = useRef<SignatureCanvas>(null);
   const [formData, setFormData] = useState<LoanApplicationData>({
     firstName: "",
     lastName: "",
@@ -163,7 +165,7 @@ export default function LoanApplicationForm() {
 
       case 3: // Signature
         if (!formData.consentToCommunications) newErrors.consentToCommunications = "Consent to communications is required";
-        if (!formData.electronicSignature.trim()) newErrors.electronicSignature = "Electronic signature is required";
+        if (!signatureRef.current || signatureRef.current.isEmpty()) newErrors.electronicSignature = "Electronic signature is required";
         break;
     }
 
@@ -257,6 +259,9 @@ export default function LoanApplicationForm() {
     setSubmitStatus(null);
 
     try {
+      // Get signature data
+      const signatureDataURL = signatureRef.current?.toDataURL() || '';
+      
       // Generate PDF
       const pdf = await generatePDF();
       const pdfBlob = pdf.output('blob');
@@ -266,6 +271,7 @@ export default function LoanApplicationForm() {
       submitFormData.append('pdf', pdfBlob, `loan-application-${Date.now()}.pdf`);
       submitFormData.append('formData', JSON.stringify({
         ...formData,
+        electronicSignature: signatureDataURL,
         signatureDate: new Date().toISOString(),
         submissionDate: new Date().toISOString()
       }));
@@ -637,20 +643,36 @@ export default function LoanApplicationForm() {
             {errors.consentToCommunications && <span className="text-red-500 text-sm">{errors.consentToCommunications}</span>}
 
             <div>
-              <Label htmlFor="electronicSignature">Electronic Signature *</Label>
-              <Input
-                id="electronicSignature"
-                type="text"
-                value={formData.electronicSignature}
-                onChange={(e) => handleInputChange('electronicSignature', e.target.value)}
-                placeholder="Type your full name to sign electronically"
-                className={errors.electronicSignature ? 'border-red-500 text-lg' : 'text-lg'}
-                data-testid="input-electronic-signature"
-              />
-              {errors.electronicSignature && <span className="text-red-500 text-sm">{errors.electronicSignature}</span>}
-              <p className="text-xs text-gray-500 mt-1">
-                By typing your name above, you agree to sign this application electronically.
-              </p>
+              <Label className="text-base font-medium text-gray-700">Electronic Signature *</Label>
+              <div className="mt-2">
+                <div className="border-2 border-gray-300 rounded-lg p-4 bg-white">
+                  <SignatureCanvas
+                    ref={signatureRef}
+                    canvasProps={{
+                      width: 500,
+                      height: 200,
+                      className: 'signature-canvas w-full h-48 border-none'
+                    }}
+                    backgroundColor="rgba(255,255,255,1)"
+                    penColor="black"
+                  />
+                </div>
+                <div className="flex gap-2 mt-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => signatureRef.current?.clear()}
+                    className="text-xs"
+                  >
+                    Clear Signature
+                  </Button>
+                </div>
+                {errors.electronicSignature && <span className="text-red-500 text-sm">{errors.electronicSignature}</span>}
+                <p className="text-xs text-gray-500 mt-2">
+                  Please sign above using your mouse or finger. By signing, you agree to the terms and electronically sign this application.
+                </p>
+              </div>
             </div>
           </div>
         );
