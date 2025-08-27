@@ -15,6 +15,7 @@ import linesOfCreditImage from "@assets/lines of credit.jpg";
 import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";
 import sbaLoansImage from "@assets/sbaloans.jpg";
 import debtConsolidationImageNew from "@assets/debtconsolidation.jpg";
+import equipmentLoansImage from "@assets/equipmentloans.jpg";
 
 const solutions = [
   {
@@ -93,7 +94,7 @@ const solutions = [
       "Tax advantages"
     ],
     route: "/solutions/equipment-financing", 
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+    image: equipmentLoansImage
   },
   {
     title: "Factoring",
