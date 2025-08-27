@@ -129,44 +129,105 @@ export default function TrustSignalsSection() {
   ];
 
   return (
-    <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-gray-50">
+    <section className="pt-16 md:pt-24 pb-16 md:pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Why Trust FundTek */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Choose Lendura Capital?
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Why Choose <span className="text-[#193a59]">Lendura Capital</span>?
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            We've helped thousands of businesses secure funding quickly and efficiently. 
-            Our track record speaks for itself.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Proven results. Trusted expertise. Your success is our mission.
           </p>
         </div>
 
-        {/* Trust Indicators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {certifications.map((cert, index) => {
-            const IconComponent = cert.icon;
-            return (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div 
-                    className="p-3 rounded-lg mr-4"
-                    style={{ backgroundColor: '#193a59' }}
-                  >
-                    <div className="w-6 h-6 text-white">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {cert.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  {cert.description}
-                </p>
-              </div>
-            );
-          })}
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-black text-[#193a59] mb-2">$1B+</div>
+            <div className="text-gray-600 font-medium">Total Funded</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-black text-[#193a59] mb-2">5K+</div>
+            <div className="text-gray-600 font-medium">Clients Served</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-black text-[#193a59] mb-2">24hr</div>
+            <div className="text-gray-600 font-medium">Fast Decisions</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-black text-[#193a59] mb-2">50</div>
+            <div className="text-gray-600 font-medium">States Served</div>
+          </div>
+        </div>
+
+        {/* Main Benefits - 2x2 Grid */}
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
+          
+          {/* Speed & Efficiency */}
+          <div className="bg-gradient-to-br from-[#193a59] to-[#285d8a] rounded-3xl p-8 text-white">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6">
+              <Clock className="w-8 h-8 text-[#193a59]" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Lightning Fast Process</h3>
+            <p className="text-lg opacity-90 mb-6">
+              While banks take weeks, we deliver funding decisions in 24 hours. 
+              No endless paperwork or bureaucratic delays.
+            </p>
+            <div className="flex items-center text-sm opacity-80">
+              <div className="w-2 h-2 bg-white rounded-full mr-3"></div>
+              Same-day approval available
+            </div>
+          </div>
+
+          {/* Trust & Experience */}
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200">
+            <div className="w-16 h-16 bg-[#193a59] rounded-2xl flex items-center justify-center mb-6">
+              <Shield className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Proven Track Record</h3>
+            <p className="text-lg text-gray-600 mb-6">
+              Over $1 billion funded to 5,000+ businesses nationwide. 
+              Our success stories speak louder than promises.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <div className="w-2 h-2 bg-[#193a59] rounded-full mr-3"></div>
+              Trusted by businesses in 18+ industries
+            </div>
+          </div>
+
+          {/* Flexible Solutions */}
+          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 border border-gray-200">
+            <div className="w-16 h-16 bg-[#193a59] rounded-2xl flex items-center justify-center mb-6">
+              <TrendingUp className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Flexible Requirements</h3>
+            <p className="text-lg text-gray-600 mb-6">
+              Credit score as low as 550? No problem. We focus on your business 
+              performance and cash flow, not just credit history.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <div className="w-2 h-2 bg-[#193a59] rounded-full mr-3"></div>
+              No prepayment penalties or hidden fees
+            </div>
+          </div>
+
+          {/* Personal Service */}
+          <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-3xl p-8 border border-emerald-200">
+            <div className="w-16 h-16 bg-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+              <Users className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Dedicated Support</h3>
+            <p className="text-lg text-gray-600 mb-6">
+              Work directly with funding specialists who understand your industry. 
+              No call centers, no runaround - just expert guidance.
+            </p>
+            <div className="flex items-center text-sm text-gray-500">
+              <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></div>
+              1-on-1 consultation with industry experts
+            </div>
+          </div>
+
         </div>
 
         {/* FAQ Section */}
