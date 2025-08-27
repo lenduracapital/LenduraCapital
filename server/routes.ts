@@ -407,36 +407,22 @@ Source: Website Application Form
 APPLICANT INFORMATION:
 - Name: ${applicationData.firstName} ${applicationData.lastName}
 - Email: ${applicationData.email}
-- Phone: ${applicationData.phone}
+- Mobile Phone: ${applicationData.mobilePhone}
 - Date of Birth: ${applicationData.dateOfBirth}
 - SSN: ${applicationData.ssn ? `***-**-${applicationData.ssn.slice(-4)}` : 'Not provided'}
 
 BUSINESS INFORMATION:
 - Legal Company Name: ${applicationData.legalCompanyName}
 - DBA Name: ${applicationData.dbaName || 'Not provided'}
+- Business Address: ${applicationData.businessAddress}, ${applicationData.city}, ${applicationData.state} ${applicationData.zipCode}
 - EIN: ${applicationData.ein}
 - Business Type: ${applicationData.businessType}
-- Industry: ${applicationData.industryType || 'Not provided'}
 - Time in Business: ${applicationData.timeInBusiness}
-- Employee Count: ${applicationData.employeeCount || 'Not provided'}
-
-FINANCIAL DETAILS:
 - Monthly Revenue: ${applicationData.monthlyRevenue}
-- Requested Amount: ${applicationData.requestedAmount}
-- Use of Funds: ${applicationData.useOfFunds}
-- Credit Score Range: ${applicationData.creditScore || 'Not provided'}
-- Bank Name: ${applicationData.bankName || 'Not provided'}
-- Current Loans: ${applicationData.currentLoans || 'Not provided'}
-
-ADDITIONAL INFORMATION:
-- Business Ownership: ${applicationData.businessOwnership || 'Not provided'}
-- Has Partners: ${applicationData.hasPartners || 'Not provided'}
-- Collateral Available: ${applicationData.hasCollateral || 'Not provided'}
 
 CONSENTS:
-- Credit Check Consent: ${applicationData.consentToCredit ? 'Yes' : 'No'}
 - Communication Consent: ${applicationData.consentToCommunications ? 'Yes' : 'No'}
-- Electronic Signature: ${applicationData.electronicSignature}
+- Electronic Signature: Signature on file
 - Signature Date: ${applicationData.signatureDate}
 
 Please review this loan application promptly and follow up with the applicant.
@@ -515,9 +501,9 @@ This application was submitted electronically through the Lendura Capital websit
                             </div>
                             
                             <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                              <span style="color: #64748b; font-weight: 500;">Requested Amount</span>
+                              <span style="color: #64748b; font-weight: 500;">Business Type</span>
                               <span style="color: #0f172a; font-weight: 600; background: #dbeafe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
-                                ${applicationData.requestedAmount}
+                                ${applicationData.businessType}
                               </span>
                             </div>
 
@@ -529,9 +515,9 @@ This application was submitted electronically through the Lendura Capital websit
                             </div>
 
                             <div style="padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
-                              <span style="color: #64748b; font-weight: 500;">Use of Funds</span>
+                              <span style="color: #64748b; font-weight: 500;">Time in Business</span>
                               <span style="color: #0f172a; font-weight: 600;">
-                                ${applicationData.useOfFunds}
+                                ${applicationData.timeInBusiness}
                               </span>
                             </div>
                           </div>
@@ -563,10 +549,10 @@ This application was submitted electronically through the Lendura Capital websit
                 firstName: applicationData.firstName,
                 lastName: applicationData.lastName,
                 email: applicationData.email,
-                phone: applicationData.phone,
+                phone: applicationData.mobilePhone, // Fix field name
                 businessName: applicationData.legalCompanyName,
-                requestedAmount: applicationData.requestedAmount,
-                useOfFunds: applicationData.useOfFunds,
+                requestedAmount: 'Not specified', // This field doesn't exist in new form
+                useOfFunds: 'Business funding', // This field doesn't exist in new form
                 monthlyRevenue: applicationData.monthlyRevenue,
                 timeInBusiness: applicationData.timeInBusiness,
                 creditScore: applicationData.creditScore || '',
