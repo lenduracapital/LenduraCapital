@@ -25,98 +25,110 @@ import cleaningImage from "@assets/cleaning.jpg";
 import franchisesImage from "@assets/franchises.jpg";
 
 
-const industries = [
-  {
-    title: "Trucking & Transportation",
-    description: "Trucking companies face operational costs, fuel expenses, vehicle maintenance, and pending invoice payments that create challenging cash flow gaps.",
-    image: truckingImage
-  },
-  {
-    title: "Medical & Healthcare",
-    description: "Medical practices require funding for expensive equipment, facility expansion, technology upgrades, and managing patient payment cycles effectively.",
-    image: medicalImage
-  },
-  {
-    title: "Construction",
-    description: "Construction companies need capital for equipment purchases, material costs, project expenses, and bridging payment gaps between contracts.",
-    image: constructionImage
-  },
-  {
-    title: "Restaurant & Food Service",
-    description: "Restaurants face equipment costs, inventory expenses, seasonal fluctuations, and need capital for renovations and expansion opportunities.",
-    image: restaurantImage
-  },
-  {
-    title: "Retail & E-commerce",
-    description: "Retail businesses require inventory financing, seasonal capital, marketing investments, and funding for expansion into new markets or locations.",
-    image: retailImage
-  },
-  {
-    title: "Manufacturing",
-    description: "Manufacturers need funding for raw materials, equipment upgrades, production scaling, facility expansion, and managing large order fulfillment.",
-    image: manufacturingImage
-  },
-  {
-    title: "Professional Services",
-    description: "Law firms, accounting practices, and consulting companies require funding for technology, expansion, staff hiring, and cash flow management.",
-    image: "/attached_assets/pexels-kindelmedia-7979438_1752763530596.jpg"
-  },
-  {
-    title: "Technology & Software",
-    description: "Tech companies need capital for product development, marketing campaigns, talent acquisition, and scaling operations in competitive markets.",
-    image: techImage
-  },
-  {
-    title: "Auto & Transportation",
-    description: "Auto shops and dealerships require funding for inventory, equipment purchases, facility improvements, and expanding service capabilities.",
-    image: autoImage
-  },
-  {
-    title: "Beauty & Wellness",
-    description: "Salons, spas, and fitness centers need capital for equipment, renovations, inventory, and expansion to serve growing customer demand effectively.",
-    image: beautyImage
-  },
-  {
-    title: "Hospitality & Tourism",
-    description: "Hotels and tourism businesses require funding for renovations, marketing, seasonal expenses, and expansion projects to attract more visitors.",
-    image: hospitalityImage
-  },
-  {
-    title: "Agriculture & Farming",
-    description: "Agricultural businesses need funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
-    image: eagricultureImage
-  },
-  {
-    title: "Real Estate",
-    description: "Real estate professionals require funding for property acquisition, renovations, marketing, and managing investment property cash flow cycles.",
-    image: realestateImage
-  },
-  {
-    title: "Entertainment & Events",
-    description: "Event planners and venues need capital for equipment, deposits, marketing, and managing the variable income streams of entertainment business.",
-    image: eventsImage
-  },
-  {
-    title: "Education & Training",
-    description: "Educational institutions require funding for technology upgrades, facility improvements, program expansion, and adapting to changing learning needs.",
-    image: educationImage
-  },
-  {
-    title: "Franchises",
-    description: "Franchise owners need funding for franchise fees, equipment purchases, inventory, marketing, and multi-location expansion project investments.",
-    image: franchisesImage
-  },
-  {
-    title: "Home Services & Contracting",
-    description: "Contractors require funding for equipment, tools, vehicle fleets, project materials, and bridging payment gaps between completed projects.",
-    image: homeservicesImage
-  },
-  {
-    title: "Cleaning & Janitorial Services", 
-    description: "Cleaning companies need funding for equipment, vehicles, supplies, staff expansion, and securing contracts with commercial property clients.",
-    image: cleaningImage
-  }
-];
+const industryCategories = {
+  "Service-Based Industries": [
+    {
+      title: "Medical & Healthcare",
+      description: "Medical practices require funding for expensive equipment, facility expansion, technology upgrades, and managing patient payment cycles effectively.",
+      image: medicalImage
+    },
+    {
+      title: "Professional Services",
+      description: "Law firms, accounting practices, and consulting companies require funding for technology, expansion, staff hiring, and cash flow management.",
+      image: "/attached_assets/pexels-kindelmedia-7979438_1752763530596.jpg"
+    },
+    {
+      title: "Beauty & Wellness",
+      description: "Salons, spas, and fitness centers need capital for equipment, renovations, inventory, and expansion to serve growing customer demand effectively.",
+      image: beautyImage
+    },
+    {
+      title: "Home Services & Contracting",
+      description: "Contractors require funding for equipment, tools, vehicle fleets, project materials, and bridging payment gaps between completed projects.",
+      image: homeservicesImage
+    },
+    {
+      title: "Cleaning & Janitorial Services", 
+      description: "Cleaning companies need funding for equipment, vehicles, supplies, staff expansion, and securing contracts with commercial property clients.",
+      image: cleaningImage
+    },
+    {
+      title: "Education & Training",
+      description: "Educational institutions require funding for technology upgrades, facility improvements, program expansion, and adapting to changing learning needs.",
+      image: educationImage
+    }
+  ],
+  "Product & Manufacturing": [
+    {
+      title: "Manufacturing",
+      description: "Manufacturers need funding for raw materials, equipment upgrades, production scaling, facility expansion, and managing large order fulfillment.",
+      image: manufacturingImage
+    },
+    {
+      title: "Retail & E-commerce",
+      description: "Retail businesses require inventory financing, seasonal capital, marketing investments, and funding for expansion into new markets or locations.",
+      image: retailImage
+    },
+    {
+      title: "Restaurant & Food Service",
+      description: "Restaurants face equipment costs, inventory expenses, seasonal fluctuations, and need capital for renovations and expansion opportunities.",
+      image: restaurantImage
+    },
+    {
+      title: "Auto & Transportation",
+      description: "Auto shops and dealerships require funding for inventory, equipment purchases, facility improvements, and expanding service capabilities.",
+      image: autoImage
+    },
+    {
+      title: "Agriculture & Farming",
+      description: "Agricultural businesses need funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
+      image: eagricultureImage
+    }
+  ],
+  "Transportation & Logistics": [
+    {
+      title: "Trucking & Transportation",
+      description: "Trucking companies face operational costs, fuel expenses, vehicle maintenance, and pending invoice payments that create challenging cash flow gaps.",
+      image: truckingImage
+    }
+  ],
+  "Construction & Real Estate": [
+    {
+      title: "Construction",
+      description: "Construction companies need capital for equipment purchases, material costs, project expenses, and bridging payment gaps between contracts.",
+      image: constructionImage
+    },
+    {
+      title: "Real Estate",
+      description: "Real estate professionals require funding for property acquisition, renovations, marketing, and managing investment property cash flow cycles.",
+      image: realestateImage
+    }
+  ],
+  "Technology & Entertainment": [
+    {
+      title: "Technology & Software",
+      description: "Tech companies need capital for product development, marketing campaigns, talent acquisition, and scaling operations in competitive markets.",
+      image: techImage
+    },
+    {
+      title: "Entertainment & Events",
+      description: "Event planners and venues need capital for equipment, deposits, marketing, and managing the variable income streams of entertainment business.",
+      image: eventsImage
+    }
+  ],
+  "Hospitality & Franchising": [
+    {
+      title: "Hospitality & Tourism",
+      description: "Hotels and tourism businesses require funding for renovations, marketing, seasonal expenses, and expansion projects to attract more visitors.",
+      image: hospitalityImage
+    },
+    {
+      title: "Franchises",
+      description: "Franchise owners need funding for franchise fees, equipment purchases, inventory, marketing, and multi-location expansion project investments.",
+      image: franchisesImage
+    }
+  ]
+};
 
 export default function QualifiedIndustries() {
   const [, setLocation] = useLocation();
@@ -193,65 +205,78 @@ export default function QualifiedIndustries() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {industries.map((industry, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-                <div 
-                  className="h-48 bg-cover bg-center rounded-lg mb-6"
-                  style={{ backgroundImage: `url(${industry.image})` }}
-                />
-                
-                <div className="flex flex-col flex-grow">
-                  <h3 className={`text-xl font-bold text-gray-900 mb-4 ${industry.title === 'Trucking & Transportation' ? '-mt-2' : ''}`}>
-                    {industry.title}
-                  </h3>
-                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#193a59' }}></div>
-                  <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                    {industry.description}
-                  </p>
-                  
-                  <div className="mt-auto">
-                    <Button 
-                      onClick={() => {
-                        // Create mapping for specific industry titles to match file names
-                        const slugMap = {
-                          "Trucking & Transportation": "trucking-transportation",
-                          "Medical & Healthcare": "medical-healthcare", 
-                          "Construction": "construction",
-                          "Restaurant & Food Service": "restaurant-food-service",
-                          "Retail & E-commerce": "retail-e-commerce",
-                          "Manufacturing": "manufacturing",
-                          "Professional Services": "professional-services",
-                          "Technology & Software": "technology-software",
-                          "Auto & Transportation": "auto-transportation",
-                          "Beauty & Wellness": "beauty-wellness",
-                          "Hospitality & Tourism": "hospitality-tourism",
-                          "Agriculture & Farming": "agriculture-farming",
-                          "Real Estate": "real-estate",
-                          "Entertainment & Events": "entertainment-events",
-                          "Education & Training": "education-training",
-                          "Franchises": "franchises",
-                          "Home Services & Contracting": "home-services-contracting",
-                          "Cleaning & Janitorial Services": "cleaning-janitorial-services"
-                        };
-                        
-                        const slug = slugMap[industry.title];
-                        if (slug) {
-                          setLocation(`/industries/${slug}`);
-                        } else {
-                          setLocation('/solutions');
-                        }
-                      }}
-                      style={{ backgroundColor: '#193a59' }}
-                      className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
-                    >
-                      Learn More →
-                    </Button>
-                  </div>
-                </div>
+          {Object.entries(industryCategories).map(([categoryName, industries], categoryIndex) => (
+            <div key={categoryIndex} className="mb-16">
+              {/* Category Header */}
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  {categoryName}
+                </h3>
+                <div className="w-24 h-1 bg-gradient-to-r from-[#193a59] to-[#285d8a] rounded-full"></div>
               </div>
-            ))}
-          </div>
+              
+              {/* Category Industries Grid */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                {industries.map((industry, index) => (
+                  <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                    <div 
+                      className="h-48 bg-cover bg-center rounded-lg mb-6"
+                      style={{ backgroundImage: `url(${industry.image})` }}
+                    />
+                    
+                    <div className="flex flex-col flex-grow">
+                      <h3 className={`text-xl font-bold text-gray-900 mb-4 ${industry.title === 'Trucking & Transportation' ? '-mt-2' : ''}`}>
+                        {industry.title}
+                      </h3>
+                      <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#193a59' }}></div>
+                      <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                        {industry.description}
+                      </p>
+                      
+                      <div className="mt-auto">
+                        <Button 
+                          onClick={() => {
+                            // Create mapping for specific industry titles to match file names
+                            const slugMap = {
+                              "Trucking & Transportation": "trucking-transportation",
+                              "Medical & Healthcare": "medical-healthcare", 
+                              "Construction": "construction",
+                              "Restaurant & Food Service": "restaurant-food-service",
+                              "Retail & E-commerce": "retail-e-commerce",
+                              "Manufacturing": "manufacturing",
+                              "Professional Services": "professional-services",
+                              "Technology & Software": "technology-software",
+                              "Auto & Transportation": "auto-transportation",
+                              "Beauty & Wellness": "beauty-wellness",
+                              "Hospitality & Tourism": "hospitality-tourism",
+                              "Agriculture & Farming": "agriculture-farming",
+                              "Real Estate": "real-estate",
+                              "Entertainment & Events": "entertainment-events",
+                              "Education & Training": "education-training",
+                              "Franchises": "franchises",
+                              "Home Services & Contracting": "home-services-contracting",
+                              "Cleaning & Janitorial Services": "cleaning-janitorial-services"
+                            };
+                            
+                            const slug = slugMap[industry.title];
+                            if (slug) {
+                              setLocation(`/industries/${slug}`);
+                            } else {
+                              setLocation('/solutions');
+                            }
+                          }}
+                          style={{ backgroundColor: '#193a59' }}
+                          className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
+                        >
+                          Learn More →
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
           
           <div className="text-center mt-16">
             <div className="bg-gray-50 p-8 rounded-xl">
