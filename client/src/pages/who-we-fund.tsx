@@ -20,6 +20,7 @@ import eagricultureImage from "@assets/eagriculture.jpg";
 import realestateImage from "@assets/realestate.jpg";
 import eventsImage from "@assets/events.jpg";
 import educationImage from "@assets/education.jpg";
+import franchisesImage from "@assets/franchises.jpg";
 
 
 const industries = [
@@ -101,7 +102,7 @@ const industries = [
   {
     title: "Franchises",
     description: "Franchise owners need funding for franchise fees, equipment purchases, inventory, marketing, and multi-location expansion project investments.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+    image: franchisesImage
   },
   {
     title: "Home Services & Contracting",

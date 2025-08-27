@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Store, Building, Users } from "lucide-rea
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import franchisesImage from "@assets/franchises.jpg";
 
 export default function Franchises() {
   const [, setLocation] = useLocation();
@@ -26,7 +27,7 @@ export default function Franchises() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${franchisesImage})`
           }}
         />
         
@@ -102,7 +103,7 @@ export default function Franchises() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
+                src={franchisesImage}
                 alt="Franchise business operations"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
