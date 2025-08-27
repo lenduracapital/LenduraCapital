@@ -145,6 +145,10 @@ app.use(
         }
         const indexFile = path.join(staticRoot, "index.html");
         if (fs.existsSync(indexFile)) {
+          // Set no-cache headers for index.html to prevent caching issues
+          res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+          res.setHeader('Pragma', 'no-cache');
+          res.setHeader('Expires', '0');
           res.sendFile(indexFile);
         } else {
           res.status(404).json({ error: "Frontend not built" });

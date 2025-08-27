@@ -125,7 +125,7 @@ export function initPerformanceTimeline() {
     try {
       performance.measure('app-load-time', 'app-start', 'app-loaded');
       const measure = performance.getEntriesByName('app-load-time')[0];
-      console.log(`🚀 FundTek app loaded in ${Math.round(measure.duration)}ms`);
+      console.log(`🚀 Lendura Capital loaded in ${Math.round(measure.duration)}ms`);
       
       // Performance logged to console only
     } catch (e) {
