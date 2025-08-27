@@ -1,10 +1,10 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import poImage from "@assets/pexels-tima-miroshnichenko-6169650_1752763276873.jpg";
+import poImage from "@assets/purchaseorderfinancing.jpg";
 
 export default function POFinancingDetail() {
   return (
     <SolutionDetailTemplate
-      title="P.O. Financing"
+      title="Purchase Order Financing"
       description="Purchase Order financing helps businesses fulfill large orders by providing working capital to cover supplier costs upfront."
       heroImage={poImage}
       contentImage={poImage}

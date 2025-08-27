@@ -17,6 +17,7 @@ import sbaLoansImage from "@assets/sbaloans.jpg";
 import debtConsolidationImageNew from "@assets/debtconsolidation.jpg";
 import equipmentLoansImage from "@assets/equipmentloans.jpg";
 import invoiceFactoringImage from "@assets/invoicefactoring.jpg";
+import purchaseOrderFinancingImage from "@assets/purchaseorderfinancing.jpg";
 
 const solutions = [
   {
@@ -111,7 +112,7 @@ const solutions = [
     image: invoiceFactoringImage
   },
   {
-    title: "P.O. Financing",
+    title: "Purchase Order Financing",
     icon: <FileText className="w-8 h-8" />,
     description: "Purchase Order financing helps businesses fulfill large orders by providing working capital to cover supplier costs upfront.",
     features: [
@@ -121,7 +122,7 @@ const solutions = [
       "Competitive rates"
     ],
     route: "/solutions/po-financing",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop"
+    image: purchaseOrderFinancingImage
   },
   {
     title: "CRE Lending",
