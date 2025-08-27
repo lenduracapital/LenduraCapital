@@ -221,26 +221,25 @@ export default function LoanApplicationForm() {
 
     addSection('Contact Information', [
       {label: 'Name', value: `${formData.firstName} ${formData.lastName}`},
+      {label: 'Date of Birth', value: formData.dateOfBirth},
+      {label: 'SSN', value: formData.ssn},
       {label: 'Email', value: formData.email},
-      {label: 'Phone', value: formData.phone}
+      {label: 'Mobile Phone', value: formData.mobilePhone}
     ]);
 
     addSection('Business Information', [
-      {label: 'Company Name', value: formData.companyName},
+      {label: 'Legal Company Name', value: formData.legalCompanyName},
+      {label: 'DBA Name', value: formData.dbaName || 'N/A'},
+      {label: 'Business Address', value: `${formData.businessAddress}, ${formData.city}, ${formData.state} ${formData.zipCode}`},
+      {label: 'EIN', value: formData.ein},
+      {label: 'Business Type', value: formData.businessType},
       {label: 'Time in Business', value: formData.timeInBusiness},
-      {label: 'Industry', value: formData.industryType},
       {label: 'Monthly Revenue', value: formData.monthlyRevenue}
     ]);
 
-    addSection('Loan Details', [
-      {label: 'Requested Amount', value: formData.requestedAmount},
-      {label: 'Use of Funds', value: formData.useOfFunds}
-    ]);
-
     addSection('Consents & Signature', [
-      {label: 'Credit Check Consent', value: formData.consentToCredit ? 'Yes' : 'No'},
       {label: 'Communication Consent', value: formData.consentToCommunications ? 'Yes' : 'No'},
-      {label: 'Electronic Signature', value: formData.electronicSignature},
+      {label: 'Electronic Signature', value: 'Signature on file'},
       {label: 'Signature Date', value: currentDate}
     ]);
 
@@ -268,7 +267,7 @@ export default function LoanApplicationForm() {
       // Create FormData for file upload
       const submitFormData = new FormData();
       submitFormData.append('pdf', pdfBlob, `loan-application-${Date.now()}.pdf`);
-      submitFormData.append('formData', JSON.stringify({
+      submitFormData.append('applicationData', JSON.stringify({
         ...formData,
         electronicSignature: signatureDataURL,
         signatureDate: new Date().toISOString(),
