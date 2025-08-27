@@ -18,6 +18,7 @@ import beautyImage from "@assets/beauty.jpg";
 import hospitalityImage from "@assets/hospitality.jpg";
 import eagricultureImage from "@assets/eagriculture.jpg";
 import realestateImage from "@assets/realestate.jpg";
+import eventsImage from "@assets/events.jpg";
 
 
 const industries = [
@@ -89,7 +90,7 @@ const industries = [
   {
     title: "Entertainment & Events",
     description: "Event planners and venues need capital for equipment, deposits, marketing, and managing the variable income streams of entertainment business.",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
+    image: eventsImage
   },
   {
     title: "Education & Training",

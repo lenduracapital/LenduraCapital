@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Music, Camera, Calendar } from "lucide-re
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import eventsImage from "@assets/events.jpg";
 
 export default function EntertainmentEvents() {
   const [, setLocation] = useLocation();
@@ -26,7 +27,7 @@ export default function EntertainmentEvents() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${eventsImage})`
           }}
         />
         
@@ -102,7 +103,7 @@ export default function EntertainmentEvents() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop"
+                src={eventsImage}
                 alt="Entertainment and events production"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
