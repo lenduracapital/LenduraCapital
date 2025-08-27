@@ -684,32 +684,6 @@ export default function LoanApplicationForm() {
 
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8">
-      {/* Progress Steps */}
-      <div className="flex justify-center mb-8">
-        <div className="flex items-center space-x-4">
-          {steps.map((step, index) => (
-            <div key={index} className="flex items-center">
-              <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 font-semibold text-sm ${
-                index <= currentStep 
-                  ? 'bg-[#193a59] text-white border-[#193a59]' 
-                  : 'bg-white text-gray-400 border-gray-300'
-              }`}>
-                {index + 1}
-              </div>
-              <span className={`ml-2 text-sm font-medium ${
-                index <= currentStep ? 'text-[#193a59]' : 'text-gray-400'
-              }`}>
-                {step}
-              </span>
-              {index < steps.length - 1 && (
-                <div className={`w-8 h-0.5 ml-4 ${
-                  index < currentStep ? 'bg-[#193a59]' : 'bg-gray-300'
-                }`} />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Success/Error Messages */}
       {submitStatus && (
