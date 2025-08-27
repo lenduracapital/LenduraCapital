@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Wheat, Tractor, Sprout } from "lucide-rea
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import eagricultureImage from "@assets/eagriculture.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function AgricultureFarming() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${eagricultureImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function AgricultureFarming() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop"
+                src={eagricultureImage}
                 alt="Agriculture and farming operations"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

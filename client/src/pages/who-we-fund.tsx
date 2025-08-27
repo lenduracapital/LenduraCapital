@@ -16,6 +16,7 @@ import techImage from "@assets/tech.jpg";
 import autoImage from "@assets/auto.jpg";
 import beautyImage from "@assets/beauty.jpg";
 import hospitalityImage from "@assets/hospitality.jpg";
+import eagricultureImage from "@assets/eagriculture.jpg";
 
 
 const industries = [
@@ -77,7 +78,7 @@ const industries = [
   {
     title: "Agriculture & Farming",
     description: "Agricultural businesses need funding for equipment, livestock, crop production, land acquisition, and managing seasonal cash flow challenges.",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&h=400&fit=crop"
+    image: eagricultureImage
   },
   {
     title: "Real Estate",
