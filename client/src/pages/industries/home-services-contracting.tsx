@@ -5,6 +5,7 @@ import { CheckCircle, ArrowLeft, Star, Wrench, Home, Zap } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import homeservicesImage from "@assets/homeservices.jpg";
 
 export default function HomeServicesContracting() {
   const [, setLocation] = useLocation();
@@ -28,7 +29,7 @@ export default function HomeServicesContracting() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${homeservicesImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function HomeServicesContracting() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop"
+                src={homeservicesImage}
                 alt="Home services and contracting work"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

@@ -20,6 +20,7 @@ import eagricultureImage from "@assets/eagriculture.jpg";
 import realestateImage from "@assets/realestate.jpg";
 import eventsImage from "@assets/events.jpg";
 import educationImage from "@assets/education.jpg";
+import homeservicesImage from "@assets/homeservices.jpg";
 import franchisesImage from "@assets/franchises.jpg";
 
 
@@ -107,7 +108,7 @@ const industries = [
   {
     title: "Home Services & Contracting",
     description: "Contractors require funding for equipment, tools, vehicle fleets, project materials, and bridging payment gaps between completed projects.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop"
+    image: homeservicesImage
   },
   {
     title: "Cleaning & Janitorial Services", 
