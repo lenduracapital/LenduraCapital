@@ -23,168 +23,174 @@ import creditCardProcessingImage from "@assets/creditcardprocessing.jpg";
 import creditRepairImage from "@assets/creditrepair.jpg";
 import marketingImage from "@assets/marketing.jpg";
 
-const solutions = [
-  {
-    title: "Term Loans",
-    icon: <DollarSign className="w-8 h-8" />,
-    description: "Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs.",
-    features: [
-      "$10K - $5M funding",
-      "12-60 month terms", 
-      "Fixed or variable rates",
-      "Quick approval process"
-    ],
-    route: "/solutions/term-loans",
-    image: termLoansImage
-  },
-  {
-    title: "Lines of Credit",
-    icon: <CreditCard className="w-8 h-8" />,
-    description: "Revolving credit lines that provide flexible access to capital when you need it most for operational expenses.",
-    features: [
-      "$25K - $1M available",
-      "Draw as needed",
-      "Pay interest only on used funds",
-      "Flexible repayment"
-    ],
-    route: "/solutions/lines-of-credit",
-    image: linesOfCreditImage
-  },
-  {
-    title: "Merchant Cash Advance",
-    icon: <Clock className="w-8 h-8" />,
-    description: "Quick access to working capital based on your future credit card sales with flexible repayment structure.",
-    features: [
-      "Fast approval process",
-      "No fixed monthly payments", 
-      "Repayment tied to sales",
-      "No collateral required"
-    ],
-    route: "/solutions/merchant-cash-advance",
-    image: merchantCashAdvanceImage
-  },
-  {
-    title: "SBA Loans",
-    icon: <Building className="w-8 h-8" />,
-    description: "Government-backed loans offering favorable terms and lower down payments for qualified businesses.",
-    features: [
-      "Lower down payments",
-      "Competitive rates",
-      "Longer repayment terms",
-      "Government backed"
-    ],
-    route: "/solutions/sba-loans",
-    image: sbaLoansImage
-  },
-  {
-    title: "Debt Consolidation",
-    icon: <Building className="w-8 h-8" />,
-    description: "Consolidate multiple business debts into one manageable payment with better terms and lower interest rates.",
-    features: [
-      "Multiple debt consolidation",
-      "Lower monthly payments",
-      "Improved cash flow",
-      "Simplified management"
-    ],
-    route: "/solutions/debt-consolidation",
-    image: debtConsolidationImageNew
-  },
-  {
-    title: "Equipment Loans",
-    icon: <Truck className="w-8 h-8" />,
-    description: "Specialized financing for purchasing or leasing business equipment, machinery, and vehicles.",
-    features: [
-      "100% financing available",
-      "Equipment as collateral",
-      "2-7 year terms",
-      "Tax advantages"
-    ],
-    route: "/solutions/equipment-financing", 
-    image: equipmentLoansImage
-  },
-  {
-    title: "Invoice Factoring",
-    icon: <FileText className="w-8 h-8" />,
-    description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
-    features: [
-      "80-90% advance rate",
-      "24-48 hour funding", 
-      "No long-term commitment",
-      "Improve cash flow"
-    ],
-    route: "/solutions/invoice-factoring",
-    image: invoiceFactoringImage
-  },
-  {
-    title: "Purchase Order Financing",
-    icon: <FileText className="w-8 h-8" />,
-    description: "Purchase Order financing helps businesses fulfill large orders by providing working capital to cover supplier costs upfront.",
-    features: [
-      "Fulfill large orders",
-      "No personal guarantees",
-      "Quick turnaround",
-      "Competitive rates"
-    ],
-    route: "/solutions/po-financing",
-    image: purchaseOrderFinancingImage
-  },
-  {
-    title: "CRE Lending",
-    icon: <Building className="w-8 h-8" />,
-    description: "Commercial real estate financing for property acquisition, refinancing, and development projects nationwide.",
-    features: [
-      "Property acquisition",
-      "Refinancing options",
-      "Development loans",
-      "Competitive rates"
-    ],
-    route: "/solutions/commercial-real-estate-lending",
-    image: creLendingImage
-  },
-  {
-    title: "Credit Card Processing",
-    icon: <CreditCard className="w-8 h-8" />,
-    description: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing for all business types.",
-    features: [
-      "Multi-channel processing",
-      "Fast funding",
-      "Secure transactions",
-      "24/7 support"
-    ],
-    route: "/solutions/credit-card-processing",
-    image: creditCardProcessingImage
-  },
-  {
-    title: "Credit Repair",
-    icon: <Star className="w-8 h-8" />,
-    description: "Professional business credit building and repair services to improve your company's financial standing.",
-    features: [
-      "Credit analysis",
-      "Score improvement",
-      "Credit monitoring",
-      "Expert guidance"
-    ],
-    route: "/solutions/credit-services",
-    image: creditRepairImage
-  },
-  {
-    title: "Marketing",
-    icon: <Building className="w-8 h-8" />,
-    description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
-    features: [
-      "SEO optimization",
-      "Website development",
-      "Digital marketing",
-      "Online presence management"
-    ],
-    route: "/solutions/seo-web-development",
-    image: marketingImage
-  }
-];
+const solutionCategories = {
+  "Traditional Lending": [
+    {
+      title: "Term Loans",
+      icon: <DollarSign className="w-8 h-8" />,
+      description: "Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs.",
+      features: [
+        "$10K - $5M funding",
+        "12-60 month terms", 
+        "Fixed or variable rates",
+        "Quick approval process"
+      ],
+      route: "/solutions/term-loans",
+      image: termLoansImage
+    },
+    {
+      title: "Lines of Credit",
+      icon: <CreditCard className="w-8 h-8" />,
+      description: "Revolving credit lines that provide flexible access to capital when you need it most for operational expenses.",
+      features: [
+        "$25K - $1M available",
+        "Draw as needed",
+        "Pay interest only on used funds",
+        "Flexible repayment"
+      ],
+      route: "/solutions/lines-of-credit",
+      image: linesOfCreditImage
+    },
+    {
+      title: "SBA Loans",
+      icon: <Building className="w-8 h-8" />,
+      description: "Government-backed loans offering favorable terms and lower down payments for qualified businesses.",
+      features: [
+        "Lower down payments",
+        "Competitive rates",
+        "Longer repayment terms",
+        "Government backed"
+      ],
+      route: "/solutions/sba-loans",
+      image: sbaLoansImage
+    },
+    {
+      title: "Equipment Loans",
+      icon: <Truck className="w-8 h-8" />,
+      description: "Specialized financing for purchasing or leasing business equipment, machinery, and vehicles.",
+      features: [
+        "100% financing available",
+        "Equipment as collateral",
+        "2-7 year terms",
+        "Tax advantages"
+      ],
+      route: "/solutions/equipment-financing", 
+      image: equipmentLoansImage
+    }
+  ],
+  "Alternative Funding": [
+    {
+      title: "Merchant Cash Advance",
+      icon: <Clock className="w-8 h-8" />,
+      description: "Quick access to working capital based on your future credit card sales with flexible repayment structure.",
+      features: [
+        "Fast approval process",
+        "No fixed monthly payments", 
+        "Repayment tied to sales",
+        "No collateral required"
+      ],
+      route: "/solutions/merchant-cash-advance",
+      image: merchantCashAdvanceImage
+    },
+    {
+      title: "Invoice Factoring",
+      icon: <FileText className="w-8 h-8" />,
+      description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
+      features: [
+        "80-90% advance rate",
+        "24-48 hour funding", 
+        "No long-term commitment",
+        "Improve cash flow"
+      ],
+      route: "/solutions/invoice-factoring",
+      image: invoiceFactoringImage
+    },
+    {
+      title: "Purchase Order Financing",
+      icon: <FileText className="w-8 h-8" />,
+      description: "Purchase Order financing helps businesses fulfill large orders by providing working capital to cover supplier costs upfront.",
+      features: [
+        "Fulfill large orders",
+        "No personal guarantees",
+        "Quick turnaround",
+        "Competitive rates"
+      ],
+      route: "/solutions/po-financing",
+      image: purchaseOrderFinancingImage
+    },
+    {
+      title: "Debt Consolidation",
+      icon: <Building className="w-8 h-8" />,
+      description: "Consolidate multiple business debts into one manageable payment with better terms and lower interest rates.",
+      features: [
+        "Multiple debt consolidation",
+        "Lower monthly payments",
+        "Improved cash flow",
+        "Simplified management"
+      ],
+      route: "/solutions/debt-consolidation",
+      image: debtConsolidationImageNew
+    }
+  ],
+  "Specialized Solutions": [
+    {
+      title: "CRE Lending",
+      icon: <Building className="w-8 h-8" />,
+      description: "Commercial real estate financing for property acquisition, refinancing, and development projects nationwide.",
+      features: [
+        "Property acquisition",
+        "Refinancing options",
+        "Development loans",
+        "Competitive rates"
+      ],
+      route: "/solutions/commercial-real-estate-lending",
+      image: creLendingImage
+    },
+    {
+      title: "Credit Card Processing",
+      icon: <CreditCard className="w-8 h-8" />,
+      description: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing for all business types.",
+      features: [
+        "Multi-channel processing",
+        "Fast funding",
+        "Secure transactions",
+        "24/7 support"
+      ],
+      route: "/solutions/credit-card-processing",
+      image: creditCardProcessingImage
+    },
+    {
+      title: "Credit Repair",
+      icon: <Star className="w-8 h-8" />,
+      description: "Professional business credit building and repair services to improve your company's financial standing.",
+      features: [
+        "Credit analysis",
+        "Score improvement",
+        "Credit monitoring",
+        "Expert guidance"
+      ],
+      route: "/solutions/credit-services",
+      image: creditRepairImage
+    },
+    {
+      title: "Marketing",
+      icon: <Building className="w-8 h-8" />,
+      description: "Professional SEO services and web development to enhance your online presence and drive business growth.",
+      features: [
+        "SEO optimization",
+        "Website development",
+        "Digital marketing",
+        "Online presence management"
+      ],
+      route: "/solutions/seo-web-development",
+      image: marketingImage
+    }
+  ]
+};
 
 export default function Solutions() {
   const [, setLocation] = useLocation();
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   const handleApplyNow = () => {
     window.open("https://form.jotform.com/251965461165159", "_blank");
@@ -194,8 +200,8 @@ export default function Solutions() {
     setLocation("/");
   };
 
-  const toggleCard = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
+  const toggleCard = (cardId: string) => {
+    setExpandedCard(expandedCard === cardId ? null : cardId);
   };
 
   return (
@@ -240,79 +246,93 @@ export default function Solutions() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {solutions.map((solution, index) => {
-              const isExpanded = expandedCard === index;
-              return (
-                <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
-                    <img 
-                      src={solution.image}
-                      alt={solution.title}
-                      className="w-full h-full object-cover transition-transform duration-300"
-                    />
+          {Object.entries(solutionCategories).map(([categoryName, solutions], categoryIndex) => (
+            <div key={categoryIndex} className="mb-16">
+              {/* Category Header */}
+              <div className="mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  {categoryName}
+                </h3>
+                <div className="w-24 h-1 bg-gradient-to-r from-[#193a59] to-[#285d8a] rounded-full"></div>
+              </div>
+              
+              {/* Category Solutions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                {solutions.map((solution, index) => {
+                  const cardId = `${categoryIndex}-${index}`;
+                  const isExpanded = expandedCard === cardId;
+                  return (
+                    <div key={cardId} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+                      <div className="aspect-video bg-gray-200 relative overflow-hidden">
+                        <img 
+                          src={solution.image}
+                          alt={solution.title}
+                          className="w-full h-full object-cover transition-transform duration-300"
+                        />
 
-                    <div className="absolute top-4 left-4">
-                      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                        <div style={{ color: '#193a59' }}>
-                          {solution.icon}
+                        <div className="absolute top-4 left-4">
+                          <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                            <div style={{ color: '#193a59' }}>
+                              {solution.icon}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight break-words line-clamp-2">{solution.title}</h3>
                         </div>
                       </div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight break-words line-clamp-2">{solution.title}</h3>
-                    </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    {/* Tap to expand button */}
-                    <button
-                      onClick={() => toggleCard(index)}
-                      className="w-full flex items-center justify-between p-3 mb-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200 touch-target focus-ring"
-                      aria-expanded={isExpanded}
-                      aria-label={`${isExpanded ? 'Hide' : 'Show'} details for ${solution.title}`}
-                    >
-                      <span className="text-gray-700 font-medium">
-                        {isExpanded ? 'Hide Details' : 'Tap for Details'}
-                      </span>
-                      {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-600" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-600" />
-                      )}
-                    </button>
-                    
-                    {/* Expandable content with smooth animation */}
-                    <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <div className="pb-4">
-                        <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                      
+                      <div className="p-6">
+                        {/* Tap to expand button */}
+                        <button
+                          onClick={() => toggleCard(cardId)}
+                          className="w-full flex items-center justify-between p-3 mb-4 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors duration-200 touch-target focus-ring"
+                          aria-expanded={isExpanded}
+                          aria-label={`${isExpanded ? 'Hide' : 'Show'} details for ${solution.title}`}
+                        >
+                          <span className="text-gray-700 font-medium">
+                            {isExpanded ? 'Hide Details' : 'Tap for Details'}
+                          </span>
+                          {isExpanded ? (
+                            <ChevronUp className="w-5 h-5 text-gray-600" />
+                          ) : (
+                            <ChevronDown className="w-5 h-5 text-gray-600" />
+                          )}
+                        </button>
                         
-                        <ul className="space-y-2 mb-6">
-                          {solution.features.map((feature, idx) => (
-                            <li key={idx} className="text-gray-700 text-sm flex items-center">
-                              <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#193a59' }} />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
+                        {/* Expandable content with smooth animation */}
+                        <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                          isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}>
+                          <div className="pb-4">
+                            <p className="text-gray-600 mb-4 leading-relaxed">{solution.description}</p>
+                            
+                            <ul className="space-y-2 mb-6">
+                              {solution.features.map((feature, idx) => (
+                                <li key={idx} className="text-gray-700 text-sm flex items-center">
+                                  <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#193a59' }} />
+                                  {feature}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        
+                        <Button 
+                          onClick={() => setLocation(solution.route)}
+                          style={{ backgroundColor: '#193a59' }}
+                          className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity touch-target focus-ring"
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
                       </div>
                     </div>
-                    
-                    <Button 
-                      onClick={() => setLocation(solution.route)}
-                      style={{ backgroundColor: '#193a59' }}
-                      className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity touch-target focus-ring"
-                    >
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
