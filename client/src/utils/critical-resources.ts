@@ -4,9 +4,9 @@
 const CRITICAL_RESOURCES = [
   // Critical CSS - already handled by Vite
   // Logo - needed for header
-  '/assets/ChatGPT%20Image%20Jun%205,%202025,%2012_13_54%20PM_1752722086552.png',
-  // Hero background if small
-  '/assets/image_1752182868701.png'
+  '/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png',
+  // Hero video
+  '/hero-video.mp4'
 ];
 
 // Video resources for preloading

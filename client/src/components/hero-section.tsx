@@ -6,14 +6,14 @@ import { videoPreloader } from "@/utils/video-preloader";
 
 // Optimized video paths with multiple quality options
 const videoSources = {
-  webm720: "/attached_assets/hero-video.mp4",
-  mp4720: "/attached_assets/hero-video.mp4", 
-  mp4480: "/attached_assets/hero-video.mp4",
-  fallback: "/attached_assets/hero-video.mp4"
+  webm720: "/hero-video.mp4",
+  mp4720: "/hero-video.mp4", 
+  mp4480: "/hero-video.mp4",
+  fallback: "/hero-video.mp4"
 };
-const videoPoster = "/attached_assets/hero-video.mp4";
-import logoPath from "@assets/image_1752182868701.png";
-import heroBackgroundPath from "@assets/image_1752190793949.png";
+const videoPoster = "/hero-video.mp4";
+const logoPath = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+const heroBackgroundPath = "/pexels-mikael-blomkvist-6476808_1752763455829.jpg";
 
 // Enhanced video optimization hook with intelligent loading
 function useVideoOptimization() {
