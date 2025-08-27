@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useLocation } from "wouter";
+import realestateImage from "@assets/realestate.jpg";
 
 
 export default function RealEstate() {
@@ -25,7 +26,7 @@ export default function RealEstate() {
       <section 
         className="relative pt-40 md:pt-48 pb-32 md:pb-40 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80')"
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${realestateImage})`
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

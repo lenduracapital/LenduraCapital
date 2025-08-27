@@ -17,6 +17,7 @@ import autoImage from "@assets/auto.jpg";
 import beautyImage from "@assets/beauty.jpg";
 import hospitalityImage from "@assets/hospitality.jpg";
 import eagricultureImage from "@assets/eagriculture.jpg";
+import realestateImage from "@assets/realestate.jpg";
 
 
 const industries = [
@@ -83,7 +84,7 @@ const industries = [
   {
     title: "Real Estate",
     description: "Real estate professionals require funding for property acquisition, renovations, marketing, and managing investment property cash flow cycles.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
+    image: realestateImage
   },
   {
     title: "Entertainment & Events",
