@@ -16,6 +16,7 @@ import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";
 import sbaLoansImage from "@assets/sbaloans.jpg";
 import debtConsolidationImageNew from "@assets/debtconsolidation.jpg";
 import equipmentLoansImage from "@assets/equipmentloans.jpg";
+import invoiceFactoringImage from "@assets/invoicefactoring.jpg";
 
 const solutions = [
   {
@@ -97,7 +98,7 @@ const solutions = [
     image: equipmentLoansImage
   },
   {
-    title: "Factoring",
+    title: "Invoice Factoring",
     icon: <FileText className="w-8 h-8" />,
     description: "Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity.",
     features: [
@@ -107,7 +108,7 @@ const solutions = [
       "Improve cash flow"
     ],
     route: "/solutions/invoice-factoring",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
+    image: invoiceFactoringImage
   },
   {
     title: "P.O. Financing",
