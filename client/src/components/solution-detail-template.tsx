@@ -73,7 +73,7 @@ export default function SolutionDetailTemplate({
     <div className="min-h-screen bg-white">
       <SEOHead 
         title={`${title} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
-        description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 307-4658.`}
+        description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 834-7168.`}
         keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding`}
         canonical={`/solutions/${title.toLowerCase().replace(/\s+/g, '-')}`}
       />
@@ -374,7 +374,7 @@ export default function SolutionDetailTemplate({
               <div className="space-y-4">
                 <div className="bg-gray-50 p-3 md:p-4 rounded border-l-4" style={{ borderLeftColor: '#2563eb' }}>
                   <p className="text-xs md:text-sm text-gray-600">Call us directly:</p>
-                  <p className="text-xl md:text-2xl font-bold text-black">(305) 307-4658</p>
+                  <p className="text-xl md:text-2xl font-bold text-black">(305) 834-7168</p>
                 </div>
                 <Button 
                   onClick={handleApplyNow}

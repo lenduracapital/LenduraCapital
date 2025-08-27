@@ -170,7 +170,7 @@ function ChatWidget() {
       const newResponses = { ...chatState.responses, email: text };
       addMessage("Perfect! I'll have someone from our team contact you.", 'bot', 2000);
       setTimeout(() => {
-        addMessage("A Lendura expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min", 'bot');
+        addMessage("A Lendura expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/lenduracapital/30min", 'bot');
       }, 5500);
       setChatState({ step: 'complete', responses: newResponses });
       
@@ -214,7 +214,7 @@ function ChatWidget() {
       } else if (selection.includes('existing application')) {
         addMessage("I'll connect you with someone who can help.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("A Lendura expert will reach out at their earliest convenience, or call us at (305) 307-4658.", 'bot');
+          addMessage("A Lendura expert will reach out at their earliest convenience, or call us at (305) 834-7168.", 'bot');
         }, 6000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, userType: selection });
@@ -573,7 +573,7 @@ function ChatWidget() {
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <button
-                onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
+                onClick={() => window.open('https://calendly.com/lenduracapital/30min', '_blank')}
                 className="flex items-center justify-center gap-2 bg-[#2563eb] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />

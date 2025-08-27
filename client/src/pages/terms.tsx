@@ -79,7 +79,7 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact</h2>
             <p className="text-gray-700 mb-6">
-              For any questions or concerns about these terms or our services, please contact us at (305) 307-4658 or via our website contact form.
+              For any questions or concerns about these terms or our services, please contact us at (305) 834-7168 or via our website contact form.
             </p>
           </div>
         </div>

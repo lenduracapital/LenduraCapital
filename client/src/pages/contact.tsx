@@ -8,7 +8,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <SEOHead
         title="Contact Lendura Capital | Business Loan Specialists | Brooklyn, NY"
-        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 307-4658 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
+        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 834-7168 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
         keywords="contact business lender, Brooklyn business loans, New York business funding, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
         canonical="/contact"
       />
@@ -59,7 +59,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#2563eb] text-lg">Email</h4>
-                        <a href="mailto:admin@fundtekcapitalgroup.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">admin@fundtekcapitalgroup.com</a>
+                        <a href="mailto:Sam@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">Sam@lenduracapital.com</a>
                       </div>
                     </div>
                     

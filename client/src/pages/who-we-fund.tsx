@@ -116,7 +116,7 @@ export default function QualifiedIndustries() {
     <div className="min-h-screen bg-[--bg-primary] text-[--text-primary]">
       <SEOHead
         title="Industries We Fund | 18 Business Sectors | Lendura Capital Brooklyn"
-        description="FundTek provides specialized business funding for 18+ industries including trucking, medical, construction, restaurants, retail & more. Bad credit OK. Same day approval. Call (305) 307-4658."
+        description="FundTek provides specialized business funding for 18+ industries including trucking, medical, construction, restaurants, retail & more. Bad credit OK. Same day approval. Call (305) 834-7168."
         keywords="business funding by industry, trucking business loans, medical practice financing, construction loans, restaurant funding, retail business loans, manufacturing financing, technology startup funding, Brooklyn business lender"
         canonical="/industries"
       />
@@ -155,7 +155,7 @@ export default function QualifiedIndustries() {
               Apply for Funding
             </Button>
             <Button 
-              onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
+              onClick={() => window.open('https://calendly.com/lenduracapital/30min', '_blank')}
               className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
               style={{ 
                 color: '#2563eb'

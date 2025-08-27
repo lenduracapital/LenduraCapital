@@ -373,7 +373,7 @@ export default function Solutions() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
               <p className="text-gray-300 text-sm mb-2">Call us directly:</p>
-              <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-3xl font-bold text-white hover:text-gray-200 transition-colors">(305) 307-4658</a>
+              <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-3xl font-bold text-white hover:text-gray-200 transition-colors">(305) 834-7168</a>
               <p className="text-gray-300 text-sm">Schedule your consultation today</p>
             </div>
             <div className="text-center">

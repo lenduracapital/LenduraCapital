@@ -31,9 +31,9 @@ export default function ContactFormSection() {
                 lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
-                Fast Revenue-Based Financing &<br />
-                Working Capital Loans for<br />
-                Growing Businesses
+                Quick Approval Business<br />
+                Funding When You Need It<br />
+                Most
               </div>
             </div>
             
@@ -46,9 +46,9 @@ export default function ContactFormSection() {
                 lineHeight: '1.4',
                 fontFamily: 'system-ui, -apple-system, sans-serif'
               }}>
-                A Funding Partner<br />
-                Focused on Your Business<br />
-                Growth & Cash Flow
+                Your Business Growth<br />
+                Partner - Not Just Another<br />
+                Lender
               </div>
             </div>
           </div>

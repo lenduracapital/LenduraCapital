@@ -108,7 +108,7 @@ export default function CookiesPage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact</h2>
             <p className="text-gray-700 mb-6">
-              For questions about this policy or your cookie preferences, contact us at (305) 307-4658 or through our website's contact form.
+              For questions about this policy or your cookie preferences, contact us at (305) 834-7168 or through our website's contact form.
             </p>
           </div>
         </div>

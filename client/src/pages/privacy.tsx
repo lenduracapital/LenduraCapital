@@ -111,7 +111,7 @@ export default function PrivacyPage() {
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
             <p className="text-gray-700 mb-6">
-              Questions? Hit us up at (305) 307-4658 or through our contact form. We're here to help.
+              Questions? Hit us up at (305) 834-7168 or through our contact form. We're here to help.
             </p>
           </div>
         </div>

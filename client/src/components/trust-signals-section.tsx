@@ -123,8 +123,8 @@ export default function TrustSignalsSection() {
       answer: "We serve over 18 different industries including restaurants, retail, healthcare, construction, transportation, and many more. Our specialists understand the unique challenges each industry faces and tailor solutions accordingly."
     },
     {
-      question: "What makes FundTek different from Banks?",
-      answer: "While banks require perfect credit, extensive paperwork, and take weeks to decide, FundTek approves clients in 24 hours with minimal documentation. Banks say no to 80% of small businesses - we focus on your cash flow and business performance, not just credit scores. Plus, you get a dedicated specialist instead of being transferred between departments."
+      question: "What makes Lendura Capital different from banks?",
+      answer: "Banks require perfect credit, extensive paperwork, and take weeks to decide. We approve clients in 24 hours with minimal documentation. Banks reject 80% of small businesses - we focus on your cash flow and business performance, not just credit scores. You work with a dedicated specialist, not a call center."
     }
   ];
 
@@ -134,11 +134,11 @@ export default function TrustSignalsSection() {
         {/* Why Trust FundTek */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Trust Lendura Capital?
+            Why Choose Lendura Capital?
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Our commitment to transparency, expertise, and results has made us a trusted partner 
-            for thousands of businesses seeking reliable funding solutions.
+            We've helped thousands of businesses secure funding quickly and efficiently. 
+            Our track record speaks for itself.
           </p>
         </div>
 

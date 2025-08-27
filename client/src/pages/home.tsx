@@ -20,7 +20,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black">
       <SEOHead 
         title="Business Funding Solutions Brooklyn NY | 24 Hour Approval | Lendura Capital"
-        description="Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 307-4658."
+        description="Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 834-7168."
         keywords="business funding Brooklyn NY, merchant cash advance near me, 24 hour business loan approval, bad credit business loans, equipment financing, SBA loans Brooklyn, working capital loans, invoice factoring, small business funding NYC, same day business funding"
         canonical="/"
       />

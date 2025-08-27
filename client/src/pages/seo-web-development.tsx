@@ -14,7 +14,7 @@ export default function SEOWebDevelopment() {
   };
 
   const handleContactUs = () => {
-    window.open("https://calendly.com/admin-fundtekcapitalgroup/30min", "_blank");
+    window.open("https://calendly.com/lenduracapital/30min", "_blank");
   };
 
   const handleBackToSolutions = () => {

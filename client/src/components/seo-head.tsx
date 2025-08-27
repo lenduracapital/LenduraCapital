@@ -53,7 +53,7 @@ export default function SEOHead({
       "url": "https://lenduracapital.com",
       "logo": "/favicon.svg",
       "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
-      "telephone": "(305) 307-4658",
+      "telephone": "(305) 834-7168",
       "email": "admin@lenduracapital.com",
       "address": {
         "@type": "PostalAddress",
