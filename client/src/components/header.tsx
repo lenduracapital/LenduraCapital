@@ -78,7 +78,7 @@ export default function Header({ transparent = true }: HeaderProps) {
   return (
     <header className={headerClass}>
       <nav className="w-full px-0">
-        <div className="flex items-center justify-between w-full py-1">
+        <div className="flex items-center justify-between w-full py-1 mb-4">
           {/* Logo on the left - aligned with hero text */}
           <div className="flex items-center pl-6 md:pl-8 lg:pl-10">
             <button 
