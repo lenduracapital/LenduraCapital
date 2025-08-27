@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Truck, MapPin, Clock } from "lucide-react
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import truckingImage from "@assets/trucking.jpg";
 
 
 export default function TruckingTransportation() {
@@ -27,7 +28,7 @@ export default function TruckingTransportation() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${truckingImage})`
           }}
         />
         
@@ -103,7 +104,7 @@ export default function TruckingTransportation() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=600&fit=crop"
+                src={truckingImage}
                 alt="Trucking and transportation business"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

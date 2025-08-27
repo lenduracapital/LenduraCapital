@@ -6,13 +6,14 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
+import truckingImage from "@assets/trucking.jpg";
 
 
 const industries = [
   {
     title: "Trucking & Transportation",
     description: "Trucking companies face operational costs, fuel expenses, vehicle maintenance, and pending invoice payments that create challenging cash flow gaps.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop"
+    image: truckingImage
   },
   {
     title: "Medical & Healthcare",
