@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Car, Truck, Wrench } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import autoImage from "@assets/auto.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function AutoTransportation() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('/attached_assets/pexels-georgesultan-1409999_1752763876354.jpg')"
+            backgroundImage: `url(${autoImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function AutoTransportation() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/pexels-georgesultan-1409999_1752763876354.jpg"
+                src={autoImage}
                 alt="Auto and transportation services"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

@@ -13,6 +13,7 @@ import restaurantImage from "@assets/restaurant.jpg";
 import retailImage from "@assets/retail.jpg";
 import manufacturingImage from "@assets/manufacturing.jpg";
 import techImage from "@assets/tech.jpg";
+import autoImage from "@assets/auto.jpg";
 
 
 const industries = [
@@ -59,7 +60,7 @@ const industries = [
   {
     title: "Auto & Transportation",
     description: "Auto shops and dealerships require funding for inventory, equipment purchases, facility improvements, and expanding service capabilities.",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop"
+    image: autoImage
   },
   {
     title: "Beauty & Wellness",
