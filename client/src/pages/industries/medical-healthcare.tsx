@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Heart, Stethoscope, Building2 } from "luc
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import medicalImage from "@assets/medical.jpg";
 
 
 export default function MedicalHealthcare() {
@@ -27,7 +28,7 @@ export default function MedicalHealthcare() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${medicalImage})`
           }}
         />
         
@@ -103,7 +104,7 @@ export default function MedicalHealthcare() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&h=600&fit=crop"
+                src={medicalImage}
                 alt="Modern medical facility and equipment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
 import truckingImage from "@assets/trucking.jpg";
+import medicalImage from "@assets/medical.jpg";
 
 
 const industries = [
@@ -18,7 +19,7 @@ const industries = [
   {
     title: "Medical & Healthcare",
     description: "Medical practices require funding for expensive equipment, facility expansion, technology upgrades, and managing patient payment cycles effectively.",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop"
+    image: medicalImage
   },
   {
     title: "Construction",
