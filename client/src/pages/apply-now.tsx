@@ -38,7 +38,7 @@ export default function ApplyNow() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
             <p className="text-gray-600 text-lg">
-              Thank you for placing your trust in us. Please take a few minutes to complete the form below. 
+              Thank you for placing your trust in Lendura Capital. Please take a few minutes to complete the form below. 
               We will process your request right away.
             </p>
           </div>
