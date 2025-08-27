@@ -6,12 +6,12 @@ import { videoPreloader } from "@/utils/video-preloader";
 
 // Optimized video paths with multiple quality options
 const videoSources = {
-  webm720: "/video/optimized/hero-video-720p.webm",
-  mp4720: "/video/optimized/hero-video-720p.mp4", 
-  mp4480: "/video/optimized/hero-video-480p.mp4",
-  fallback: "/attached_assets/Video (FundTek)_1751295081956.webm"
+  webm720: "/attached_assets/hero-video.mp4",
+  mp4720: "/attached_assets/hero-video.mp4", 
+  mp4480: "/attached_assets/hero-video.mp4",
+  fallback: "/attached_assets/hero-video.mp4"
 };
-const videoPoster = "/video/optimized/hero-poster.jpg";
+const videoPoster = "/attached_assets/hero-video.mp4";
 import logoPath from "@assets/image_1752182868701.png";
 import heroBackgroundPath from "@assets/image_1752190793949.png";
 
