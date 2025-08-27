@@ -371,7 +371,7 @@ This message was automatically generated from the Lendura Capital website contac
       const upload = multer({ storage: multer.memoryStorage() });
       
       // Use multer middleware to handle FormData
-      upload.single('pdf')(req, res, async (err) => {
+      upload.single('pdf')(req, res, async (err: any) => {
         if (err) {
           console.error('File upload error:', err);
           return res.status(400).json({ error: "File upload failed" });
@@ -551,10 +551,8 @@ This application was submitted electronically through the Lendura Capital websit
                 email: applicationData.email,
                 phone: applicationData.mobilePhone, // Fix field name
                 businessName: applicationData.legalCompanyName,
-                requestedAmount: 'Not specified', // This field doesn't exist in new form
-                useOfFunds: 'Business funding', // This field doesn't exist in new form
+                loanAmount: 0, // Required field for database schema
                 monthlyRevenue: applicationData.monthlyRevenue,
-                timeInBusiness: applicationData.timeInBusiness,
                 creditScore: applicationData.creditScore || '',
                 status: 'submitted'
               };
