@@ -1,8 +1,210 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import CustomContactForm from "@/components/custom-contact-form";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+
+function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error'; message: string} | null>(null);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: "" }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.firstName.trim()) newErrors.firstName = "First name is required";
+    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          submissionDate: new Date().toISOString(),
+          source: 'contact-page'
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for contacting us! We will get back to you within 24 hours.'
+        });
+        
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        throw new Error('Failed to submit contact form');
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'There was an error submitting your message. Please try again or call us directly at (305) 765-7168.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div>
+      <div className="mb-6">
+        <h3 className="text-xl font-bold text-[#193a59] mb-2">Send Us a Message</h3>
+        <p className="text-gray-600">Complete the form below and we'll get back to you within 24 hours</p>
+      </div>
+
+      {submitStatus && (
+        <div className={`mb-6 p-4 rounded-lg ${
+          submitStatus.type === 'success' 
+            ? 'bg-green-50 text-green-800 border border-green-200' 
+            : 'bg-red-50 text-red-800 border border-red-200'
+        }`}>
+          {submitStatus.message}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="firstName">First Name *</Label>
+            <Input
+              id="firstName"
+              type="text"
+              value={formData.firstName}
+              onChange={(e) => handleInputChange('firstName', e.target.value)}
+              className={errors.firstName ? 'border-red-500' : ''}
+            />
+            {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName}</span>}
+          </div>
+
+          <div>
+            <Label htmlFor="lastName">Last Name *</Label>
+            <Input
+              id="lastName"
+              type="text"
+              value={formData.lastName}
+              onChange={(e) => handleInputChange('lastName', e.target.value)}
+              className={errors.lastName ? 'border-red-500' : ''}
+            />
+            {errors.lastName && <span className="text-red-500 text-sm">{errors.lastName}</span>}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="email">Email Address *</Label>
+            <Input
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              className={errors.email ? 'border-red-500' : ''}
+            />
+            {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
+          </div>
+
+          <div>
+            <Label htmlFor="phone">Phone Number *</Label>
+            <Input
+              id="phone"
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => handleInputChange('phone', e.target.value)}
+              className={errors.phone ? 'border-red-500' : ''}
+            />
+            {errors.phone && <span className="text-red-500 text-sm">{errors.phone}</span>}
+          </div>
+        </div>
+
+        <div>
+          <Label htmlFor="company">Company Name (Optional)</Label>
+          <Input
+            id="company"
+            type="text"
+            value={formData.company}
+            onChange={(e) => handleInputChange('company', e.target.value)}
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="message">Message *</Label>
+          <Textarea
+            id="message"
+            value={formData.message}
+            onChange={(e) => handleInputChange('message', e.target.value)}
+            placeholder="Tell us about your business funding needs or ask any questions..."
+            className={errors.message ? 'border-red-500' : ''}
+            rows={4}
+          />
+          {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
+        </div>
+
+        <div className="pt-4">
+          <Button 
+            type="submit" 
+            disabled={isSubmitting}
+            className="w-full bg-[#193a59] hover:bg-[#2a4a6b] text-white py-3 text-lg font-semibold"
+          >
+            {isSubmitting ? 'Sending Message...' : 'Send Message'}
+          </Button>
+        </div>
+
+        <div className="text-center text-xs text-gray-500 mt-4">
+          <p>🔒 Your information is secure and will never be shared with third parties.</p>
+        </div>
+      </form>
+    </div>
+  );
+}
 
 export default function Contact() {
   return (
@@ -105,8 +307,10 @@ export default function Contact() {
 
             {/* Right Column - Contact Form */}
             <div className="space-y-6">
-              {/* Contact Form */}
-              <CustomContactForm />
+              {/* Simple Contact Form */}
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <ContactForm />
+              </div>
 
               {/* Business Hours */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
