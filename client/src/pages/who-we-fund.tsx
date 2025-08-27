@@ -11,6 +11,7 @@ import medicalImage from "@assets/medical.jpg";
 import constructionImage from "@assets/construction.jpg";
 import restaurantImage from "@assets/restaurant.jpg";
 import retailImage from "@assets/retail.jpg";
+import manufacturingImage from "@assets/manufacturing.jpg";
 
 
 const industries = [
@@ -42,7 +43,7 @@ const industries = [
   {
     title: "Manufacturing",
     description: "Manufacturers need funding for raw materials, equipment upgrades, production scaling, facility expansion, and managing large order fulfillment.",
-    image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop"
+    image: manufacturingImage
   },
   {
     title: "Professional Services",

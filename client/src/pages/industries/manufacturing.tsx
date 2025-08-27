@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Factory, Cog, Package } from "lucide-reac
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import manufacturingImage from "@assets/manufacturing.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function Manufacturing() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${manufacturingImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function Manufacturing() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop"
+                src={manufacturingImage}
                 alt="Manufacturing facility and equipment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
