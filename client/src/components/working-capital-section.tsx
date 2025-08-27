@@ -188,7 +188,7 @@ export default function WorkingCapitalSection() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">No Impact</h3>
-              <p className="text-lg text-emerald-600 font-semibold mb-2">On Credit Score</p>
+              <p className="text-lg font-semibold mb-2 text-[#193a59]">On Credit Score</p>
               <p className="text-gray-600 text-sm">Soft check only - protects your rating</p>
             </div>
 
