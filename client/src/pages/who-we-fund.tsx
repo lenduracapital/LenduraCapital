@@ -15,6 +15,7 @@ import manufacturingImage from "@assets/manufacturing.jpg";
 import techImage from "@assets/tech.jpg";
 import autoImage from "@assets/auto.jpg";
 import beautyImage from "@assets/beauty.jpg";
+import hospitalityImage from "@assets/hospitality.jpg";
 
 
 const industries = [
@@ -71,7 +72,7 @@ const industries = [
   {
     title: "Hospitality & Tourism",
     description: "Hotels and tourism businesses require funding for renovations, marketing, seasonal expenses, and expansion projects to attract more visitors.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop"
+    image: hospitalityImage
   },
   {
     title: "Agriculture & Farming",

@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, MapPin, Utensils, Bed } from "lucide-reac
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import hospitalityImage from "@assets/hospitality.jpg";
 
 export default function HospitalityTourism() {
   const [, setLocation] = useLocation();
@@ -26,7 +27,7 @@ export default function HospitalityTourism() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${hospitalityImage})`
           }}
         />
         
@@ -102,7 +103,7 @@ export default function HospitalityTourism() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop"
+                src={hospitalityImage}
                 alt="Hospitality and tourism services"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
