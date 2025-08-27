@@ -8,6 +8,7 @@ import BackToTop from "@/components/back-to-top";
 import SEOHead from "@/components/seo-head";
 import truckingImage from "@assets/trucking.jpg";
 import medicalImage from "@assets/medical.jpg";
+import constructionImage from "@assets/construction.jpg";
 
 
 const industries = [
@@ -24,7 +25,7 @@ const industries = [
   {
     title: "Construction",
     description: "Construction companies need capital for equipment purchases, material costs, project expenses, and bridging payment gaps between contracts.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop"
+    image: constructionImage
   },
   {
     title: "Restaurant & Food Service",

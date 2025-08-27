@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, HardHat, Truck, Building } from "lucide-r
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import constructionImage from "@assets/construction.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function Construction() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${constructionImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function Construction() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop"
+                src={constructionImage}
                 alt="Construction work and equipment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
