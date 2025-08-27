@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Utensils, ChefHat, Clock } from "lucide-r
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import restaurantImage from "@assets/restaurant.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function RestaurantFoodService() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${restaurantImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function RestaurantFoodService() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
+                src={restaurantImage}
                 alt="Restaurant and food service"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

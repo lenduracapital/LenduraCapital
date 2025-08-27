@@ -9,6 +9,7 @@ import SEOHead from "@/components/seo-head";
 import truckingImage from "@assets/trucking.jpg";
 import medicalImage from "@assets/medical.jpg";
 import constructionImage from "@assets/construction.jpg";
+import restaurantImage from "@assets/restaurant.jpg";
 
 
 const industries = [
@@ -30,7 +31,7 @@ const industries = [
   {
     title: "Restaurant & Food Service",
     description: "Restaurants face equipment costs, inventory expenses, seasonal fluctuations, and need capital for renovations and expansion opportunities.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop"
+    image: restaurantImage
   },
   {
     title: "Retail & E-commerce",
