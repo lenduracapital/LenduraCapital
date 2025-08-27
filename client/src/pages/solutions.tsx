@@ -20,6 +20,7 @@ import invoiceFactoringImage from "@assets/invoicefactoring.jpg";
 import purchaseOrderFinancingImage from "@assets/purchaseorderfinancing.jpg";
 import creLendingImage from "@assets/crelending.jpg";
 import creditCardProcessingImage from "@assets/creditcardprocessing.jpg";
+import creditRepairImage from "@assets/creditrepair.jpg";
 
 const solutions = [
   {
@@ -163,7 +164,7 @@ const solutions = [
       "Expert guidance"
     ],
     route: "/solutions/credit-services",
-    image: fixCreditImage
+    image: creditRepairImage
   },
   {
     title: "Marketing",

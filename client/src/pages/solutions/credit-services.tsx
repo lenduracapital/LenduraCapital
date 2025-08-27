@@ -1,12 +1,13 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
+import creditRepairImage from "@assets/creditrepair.jpg";
 
 export default function CreditServicesDetail() {
   return (
     <SolutionDetailTemplate
       title="Credit Repair"
       description="Professional business credit building and repair services to improve your company's financial standing."
-      heroImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=600&fit=crop"
-      contentImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop"
+      heroImage={creditRepairImage}
+      contentImage={creditRepairImage}
       features={[
         "Credit analysis",
         "Score improvement",
