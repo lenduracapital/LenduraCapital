@@ -108,7 +108,7 @@ app.use(
 
     if (!isProd) {
       // Dev: Vite integration
-      const server = await setupVite(app);
+      await setupVite(app);
     } else {
       // Prod: Serve static
       console.log("📁 Serving static files...");
