@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, BookOpen, GraduationCap, Users } from "lu
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import educationImage from "@assets/education.jpg";
 
 export default function EducationTraining() {
   const [, setLocation] = useLocation();
@@ -26,7 +27,7 @@ export default function EducationTraining() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${educationImage})`
           }}
         />
         
@@ -102,7 +103,7 @@ export default function EducationTraining() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop"
+                src={educationImage}
                 alt="Education and training environment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

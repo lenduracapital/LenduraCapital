@@ -19,6 +19,7 @@ import hospitalityImage from "@assets/hospitality.jpg";
 import eagricultureImage from "@assets/eagriculture.jpg";
 import realestateImage from "@assets/realestate.jpg";
 import eventsImage from "@assets/events.jpg";
+import educationImage from "@assets/education.jpg";
 
 
 const industries = [
@@ -95,7 +96,7 @@ const industries = [
   {
     title: "Education & Training",
     description: "Educational institutions require funding for technology upgrades, facility improvements, program expansion, and adapting to changing learning needs.",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop"
+    image: educationImage
   },
   {
     title: "Franchises",
