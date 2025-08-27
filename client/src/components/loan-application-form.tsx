@@ -159,8 +159,7 @@ export default function LoanApplicationForm() {
         break;
 
       case 2: // Basic Documents
-        if (!formData.bankStatementsUploaded) newErrors.bankStatementsUploaded = "Bank statements confirmation is required";
-        if (!formData.businessLicenseUploaded) newErrors.businessLicenseUploaded = "Business license confirmation is required";
+        // No validation required for document upload step - documents can be uploaded later
         break;
 
       case 3: // Signature
@@ -580,9 +579,22 @@ export default function LoanApplicationForm() {
               <div>
                 <Label className="text-base font-medium text-gray-700 mb-3 block">Bank Statement(s)</Label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
-                  <div className="text-gray-500">
-                    <p className="mb-2">Drop a file or <span className="text-blue-500 underline cursor-pointer">browse</span></p>
-                  </div>
+                  <input
+                    type="file"
+                    id="bankStatements"
+                    accept=".pdf,.jpg,.jpeg,.png,.tiff"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => {
+                      // Handle file upload here if needed
+                      console.log('Bank statements files:', e.target.files);
+                    }}
+                  />
+                  <label htmlFor="bankStatements" className="cursor-pointer">
+                    <div className="text-gray-500">
+                      <p className="mb-2">Drop a file or <span className="text-blue-500 underline">browse</span></p>
+                    </div>
+                  </label>
                 </div>
               </div>
 
@@ -590,9 +602,22 @@ export default function LoanApplicationForm() {
               <div>
                 <Label className="text-base font-medium text-gray-700 mb-3 block">Additional Document(s)</Label>
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
-                  <div className="text-gray-500">
-                    <p className="mb-2">Drop a file or <span className="text-blue-500 underline cursor-pointer">browse</span></p>
-                  </div>
+                  <input
+                    type="file"
+                    id="additionalDocs"
+                    accept=".pdf,.jpg,.jpeg,.png,.tiff"
+                    multiple
+                    className="hidden"
+                    onChange={(e) => {
+                      // Handle file upload here if needed
+                      console.log('Additional docs files:', e.target.files);
+                    }}
+                  />
+                  <label htmlFor="additionalDocs" className="cursor-pointer">
+                    <div className="text-gray-500">
+                      <p className="mb-2">Drop a file or <span className="text-blue-500 underline">browse</span></p>
+                    </div>
+                  </label>
                 </div>
               </div>
             </div>
