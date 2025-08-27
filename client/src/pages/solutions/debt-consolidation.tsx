@@ -1,12 +1,12 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
+import debtConsolidationImage from "@assets/debtconsolidation.jpg";
 
 export default function DebtConsolidationDetail() {
   return (
     <SolutionDetailTemplate
       title="Debt Consolidation"
       description="Combine multiple debts into a single payment with potentially lower rates and simplified management."
-      heroImage="https://images.unsplash.com/photo-1554224154-26032fced8bd?w=1200&h=600&fit=crop"
+      heroImage={debtConsolidationImage}
       contentImage={debtConsolidationImage}
       features={[
         "Single monthly payment",

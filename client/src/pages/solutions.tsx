@@ -14,6 +14,7 @@ import termLoansImage from "@assets/termloans.jpg";
 import linesOfCreditImage from "@assets/lines of credit.jpg";
 import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";
 import sbaLoansImage from "@assets/sbaloans.jpg";
+import debtConsolidationImageNew from "@assets/debtconsolidation.jpg";
 
 const solutions = [
   {
@@ -79,7 +80,7 @@ const solutions = [
       "Simplified management"
     ],
     route: "/solutions/debt-consolidation",
-    image: debtConsolidationImage
+    image: debtConsolidationImageNew
   },
   {
     title: "Equipment Loans",
