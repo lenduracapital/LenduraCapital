@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from "@/components/solution-detail-template";
-import truckImage from "@assets/Truck_1750271749729.jpg";
+import truckImage from "@assets/sbaloans.jpg";
 
 export default function SBALoansDetail() {
   return (

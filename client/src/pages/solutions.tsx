@@ -13,6 +13,7 @@ import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpe
 import termLoansImage from "@assets/termloans.jpg";
 import linesOfCreditImage from "@assets/lines of credit.jpg";
 import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";
+import sbaLoansImage from "@assets/sbaloans.jpg";
 
 const solutions = [
   {
@@ -65,7 +66,7 @@ const solutions = [
       "Government backed"
     ],
     route: "/solutions/sba-loans",
-    image: truckImage
+    image: sbaLoansImage
   },
   {
     title: "Debt Consolidation",
