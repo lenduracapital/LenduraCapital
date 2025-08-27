@@ -130,7 +130,7 @@ export default function HeroSection() {
   };
 
   const handlePhoneClick = () => {
-    window.open('https://calendly.com/fundtekcapitalgroup/15min', '_blank');
+    window.open('https://calendly.com/lenduracapital/15min', '_blank');
   };
 
   return (
@@ -194,15 +194,15 @@ export default function HeroSection() {
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-6 md:pt-8" style={{ contain: 'layout' }}>
             <h1 className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
-              Flexible Financing. Real Solutions. <span style={{ color: '#2563eb' }}>For Every Industry.</span>
+              Get Business Funding <span style={{ color: '#2563eb' }}>Without the Wait</span>
             </h1>
             
             <p className="mb-2 max-w-2xl sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed text-[24px] font-medium" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
-              Fuel your growth with funding tailored to your business—no cookie-cutter offers.
+              Fast approvals, flexible terms, and funding designed for your business needs.
             </p>
             
             <p className="mb-4 sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed text-[22px] font-medium" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
-              Call <span style={{ color: '#2563eb' }}>(305) 307-4658</span> to see your best options today.
+              Call <span style={{ color: '#2563eb' }}>(305) 834-7168</span> or apply online in minutes.
             </p>
             
             <Button 

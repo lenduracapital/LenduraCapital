@@ -3,7 +3,7 @@ import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
 import { SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 // Using the white and blue FundTek logo
-import fundTekLogo from "@assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1752722086552.png";
+import fundTekLogo from "attached_assets/ChatGPT Image Aug 26, 2025, 04_32_58 PM.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
@@ -61,7 +61,7 @@ export default function Footer() {
               Would you like a free, no-obligation business-funding consultation?
             </p>
             <p className="text-black text-xs md:text-sm">
-              Call us today at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 307-4658</a>
+              Call us today at <a href="https://calendly.com/admin-fundtekcapitalgroup/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
               <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">

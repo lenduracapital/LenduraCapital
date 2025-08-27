@@ -224,7 +224,7 @@ export default function TrustSignalsSection() {
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
               className="bg-[#2563eb] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
-              Get Funding Now
+              Apply for Funding
             </Button>
             
             <Button 
@@ -232,7 +232,7 @@ export default function TrustSignalsSection() {
               variant="outline"
               className="border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
-              Still Have Questions?
+              View All FAQs
             </Button>
           </div>
         </div>
