@@ -19,6 +19,7 @@ import equipmentLoansImage from "@assets/equipmentloans.jpg";
 import invoiceFactoringImage from "@assets/invoicefactoring.jpg";
 import purchaseOrderFinancingImage from "@assets/purchaseorderfinancing.jpg";
 import creLendingImage from "@assets/crelending.jpg";
+import creditCardProcessingImage from "@assets/creditcardprocessing.jpg";
 
 const solutions = [
   {
@@ -139,7 +140,7 @@ const solutions = [
     image: creLendingImage
   },
   {
-    title: "Card Processing",
+    title: "Credit Card Processing",
     icon: <CreditCard className="w-8 h-8" />,
     description: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing for all business types.",
     features: [
@@ -149,7 +150,7 @@ const solutions = [
       "24/7 support"
     ],
     route: "/solutions/credit-card-processing",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+    image: creditCardProcessingImage
   },
   {
     title: "Credit Repair",
