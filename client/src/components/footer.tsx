@@ -61,16 +61,16 @@ export default function Footer() {
               Would you like a free, no-obligation business-funding consultation?
             </p>
             <p className="text-black text-xs md:text-sm">
-              Call us today at <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
+              Call us today at <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
-              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <FaInstagram size={24} />
               </a>
-              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <span className="text-2xl leading-none font-bold">𝕏</span>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <FaFacebook size={24} />
               </a>
             </div>
@@ -80,10 +80,10 @@ export default function Footer() {
                 Leave us a Review
               </p>
               <div className="flex items-center justify-start space-x-1">
-                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                   <FaYelp size={24} />
                 </a>
-                <a href="https://www.trustpilot.com/review/fundtekcapitalgroup.com" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <a href="https://www.trustpilot.com/review/fundtekcapitalgroup.com" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                   <SiTrustpilot size={24} />
                 </a>
               </div>
@@ -91,13 +91,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[#2563eb] font-semibold mb-4">Custom Business Financing Solutions</h4>
+            <h4 className="text-[#193a59] font-semibold mb-4">Custom Business Financing Solutions</h4>
             <ul className="space-y-5 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:text-[#2563eb] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {service.name}
                   </span>
@@ -107,13 +107,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[#2563eb] font-semibold mb-4">Personalized Small Business Solutions</h4>
+            <h4 className="text-[#193a59] font-semibold mb-4">Personalized Small Business Solutions</h4>
             <ul className="space-y-5 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:text-[#2563eb] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {solution.name}
                   </span>
@@ -123,13 +123,13 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[#2563eb] font-semibold mb-4">Lendura Capital</h4>
+            <h4 className="text-[#193a59] font-semibold mb-4">Lendura Capital</h4>
             <ul className="space-y-5 text-sm text-black">
               {fundTekPages.map((page, index) => (
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:text-[#2563eb] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
                   >
                     {page.name}
                   </span>
@@ -148,7 +148,7 @@ export default function Footer() {
               <div key={index} className="flex items-center">
                 <span
                   onClick={() => handleNavigation(page.href)}
-                  className="hover:text-[#2563eb] transition-all duration-300 ease-in-out transform hover:scale-105 text-black text-xs md:text-sm cursor-pointer"
+                  className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black text-xs md:text-sm cursor-pointer"
                 >
                   {page.name}
                 </span>

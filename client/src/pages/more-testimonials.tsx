@@ -100,7 +100,7 @@ export default function MoreTestimonials() {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                style={{ backgroundColor: '#2563eb' }}
+                style={{ backgroundColor: '#193a59' }}
                 className="p-6 rounded-lg shadow-lg"
               >
                 <div className="flex items-center mb-4">
@@ -137,7 +137,7 @@ export default function MoreTestimonials() {
           </p>
           <button 
             onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-            style={{ backgroundColor: '#2563eb' }}
+            style={{ backgroundColor: '#193a59' }}
             className="px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
           >
             Apply for Funding Today

@@ -162,7 +162,7 @@ export default function AdminDashboard() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#193a59] mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading admin dashboard...</p>
         </div>
       </div>
@@ -267,12 +267,12 @@ export default function AdminDashboard() {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <CreditCard className="w-5 h-5" style={{ color: '#2563eb' }} />
+                    <CreditCard className="w-5 h-5" style={{ color: '#193a59' }} />
                     Loan Applications
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold" style={{ color: '#2563eb' }}>
+                  <div className="text-3xl font-bold" style={{ color: '#193a59' }}>
                     {stats.totalLoanApplications}
                   </div>
                   <p className="text-sm text-gray-600 mt-1">
@@ -343,13 +343,13 @@ export default function AdminDashboard() {
                 <CardContent>
                   <div className="space-y-4">
                     {stats.recentJotforms?.length ? stats.recentJotforms.map((jotform, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div>
                           <div className="font-medium">{jotform.firstName} {jotform.lastName}</div>
                           <div className="text-sm text-gray-600">{jotform.email}</div>
                           <div className="text-xs text-gray-500">{jotform.formTitle || 'Form Submission'}</div>
                         </div>
-                        <Badge variant="outline" style={{ backgroundColor: '#2563eb', color: 'white' }}>
+                        <Badge variant="outline" style={{ backgroundColor: '#193a59', color: 'white' }}>
                           {jotform.status || 'New'}
                         </Badge>
                       </div>
@@ -929,7 +929,7 @@ function LoginForm({ onLogin }: { onLogin: (username: string, password: string) 
                 required
               />
             </div>
-            <Button type="submit" className="w-full" style={{ backgroundColor: '#2563eb' }}>
+            <Button type="submit" className="w-full" style={{ backgroundColor: '#193a59' }}>
               Sign In
             </Button>
           </form>

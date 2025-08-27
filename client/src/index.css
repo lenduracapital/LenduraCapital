@@ -15,7 +15,7 @@
   --card-foreground: hsl(20, 14.3%, 4.1%);
   --border: hsl(20, 5.9%, 90%);
   --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(218, 91%, 60%);
+  --primary: hsl(216, 53%, 23%);
   --primary-foreground: hsl(212, 100%, 99%);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
@@ -30,8 +30,9 @@
   --bg-primary: hsl(222, 84%, 5%);
   
   /* Enhanced signature blue with 5% darker for better contrast (4.5:1 ratio) */
-  --signature-blue: hsl(218, 91%, 60%); /* Updated to #2563eb for brand consistency */
-  --signature-blue-hover: hsl(218, 91%, 55%);
+  --signature-blue: hsl(216, 53%, 23%); /* Updated to #193a59 for brand consistency */
+  --signature-blue-hover: hsl(212, 52%, 34%); /* Medium variant #285d8a */
+  --signature-blue-light: hsl(208, 51%, 45%); /* Light accent #3c7ab3 */
 }
 
 /* Critical CSS for above-the-fold content */
@@ -161,8 +162,8 @@ button, a, input, textarea, select {
   --accent-dark: hsl(142, 76%, 26%);
   
   /* Improved contrast colors */
-  --fundtek-blue: #2563eb; /* New brand blue for better contrast */
-  --fundtek-blue-light: #2563eb; /* Updated brand blue for backgrounds */
+  --fundtek-blue: #193a59; /* New brand blue for better contrast */
+  --fundtek-blue-light: #193a59; /* Updated brand blue for backgrounds */
 }
 
 /* 3D Flip Animation Utilities */
@@ -227,18 +228,18 @@ button, a, input, textarea, select {
 
 /* Enhanced form focus states for mobile */
 .form-focus:focus {
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: rgba(25, 58, 89, 0.05);
   border-color: var(--fundtek-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
   outline: none;
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
 
 .form-focus:focus-within {
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: rgba(25, 58, 89, 0.05);
   border-color: var(--fundtek-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
 }
 
 /* Input field enhancements */
@@ -247,9 +248,9 @@ input[type="email"]:focus,
 input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-  background-color: rgba(133, 171, 228, 0.05) !important;
+  background-color: rgba(25, 58, 89, 0.05) !important;
   border-color: var(--fundtek-blue) !important;
-  box-shadow: 0 0 0 3px rgba(133, 171, 228, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1) !important;
   outline: none !important;
 }
 
@@ -297,7 +298,7 @@ button, .btn, .touch-target {
   --card-foreground: hsl(0, 0%, 98%);
   --border: hsl(240, 3.7%, 15.9%);
   --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(218, 91%, 60%);
+  --primary: hsl(216, 53%, 23%);
   --primary-foreground: hsl(212, 100%, 99%);
   --secondary: hsl(240, 3.7%, 15.9%);
   --secondary-foreground: hsl(0, 0%, 98%);
@@ -387,13 +388,13 @@ button, .btn, .touch-target {
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.01em;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(25, 58, 89, 0.3);
   transition: all 0.2s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(25, 58, 89, 0.4);
 }
 
 /* Navigation text shadow for better readability */

@@ -73,22 +73,22 @@ export default function CreditCardProcessing() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <CreditCard className="h-12 w-12 text-[#2563eb] mx-auto mb-4" />
+              <CreditCard className="h-12 w-12 text-[#193a59] mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Multi-Channel Processing</h3>
               <p className="text-gray-600 text-sm">Accept cards in-store, online, mobile, and over the phone with unified reporting</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <Zap className="h-12 w-12 text-[#2563eb] mx-auto mb-4" />
+              <Zap className="h-12 w-12 text-[#193a59] mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Fast Funding</h3>
               <p className="text-gray-600 text-sm">Next-day or same-day deposits to keep your cash flow moving</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <Shield className="h-12 w-12 text-[#2563eb] mx-auto mb-4" />
+              <Shield className="h-12 w-12 text-[#193a59] mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Secure Transactions</h3>
               <p className="text-gray-600 text-sm">PCI compliant with advanced fraud protection and encryption</p>
             </div>
             <div className="text-center p-6 bg-gray-50 rounded-lg">
-              <Users className="h-12 w-12 text-[#2563eb] mx-auto mb-4" />
+              <Users className="h-12 w-12 text-[#193a59] mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-800 mb-3">24/7 Support</h3>
               <p className="text-gray-600 text-sm">Dedicated customer service team available around the clock</p>
             </div>
@@ -107,19 +107,19 @@ export default function CreditCardProcessing() {
               <h3 className="text-xl font-bold text-gray-800 mb-4">Retail Processing</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Countertop terminals and mobile readers</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>EMV chip and contactless payments</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Gift card and loyalty programs</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Inventory management integration</span>
                 </li>
               </ul>
@@ -128,19 +128,19 @@ export default function CreditCardProcessing() {
               <h3 className="text-xl font-bold text-gray-800 mb-4">E-commerce Processing</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Secure online payment gateway</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Shopping cart integration</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Recurring billing capabilities</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Mobile-optimized checkout</span>
                 </li>
               </ul>
@@ -149,19 +149,19 @@ export default function CreditCardProcessing() {
               <h3 className="text-xl font-bold text-gray-800 mb-4">Mobile Processing</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Smartphone and tablet readers</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Accept payments anywhere</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Real-time transaction monitoring</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#2563eb] mr-3 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-[#193a59] mr-3 mt-0.5 flex-shrink-0" />
                   <span>Digital receipt delivery</span>
                 </li>
               </ul>
@@ -239,22 +239,22 @@ export default function CreditCardProcessing() {
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+              <div className="w-12 h-12 bg-[#193a59] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Apply</h3>
               <p className="text-gray-600 text-sm">Submit your business information and processing needs</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+              <div className="w-12 h-12 bg-[#193a59] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Review</h3>
               <p className="text-gray-600 text-sm">We analyze your requirements and recommend solutions</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+              <div className="w-12 h-12 bg-[#193a59] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Setup</h3>
               <p className="text-gray-600 text-sm">Equipment installation and staff training provided</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
+              <div className="w-12 h-12 bg-[#193a59] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">4</div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Process</h3>
               <p className="text-gray-600 text-sm">Start accepting payments with ongoing support</p>
             </div>
@@ -263,7 +263,7 @@ export default function CreditCardProcessing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#2563eb]">
+      <section className="py-20 bg-[#193a59]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to Streamline Your Payment Processing?
@@ -274,13 +274,13 @@ export default function CreditCardProcessing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={handleContactUs}
-              className="bg-white text-[#2563eb] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px] shadow-lg"
+              className="bg-white text-[#193a59] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px] shadow-lg"
             >
               Contact Us
             </button>
             <button 
               onClick={handleBackToSolutions}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#2563eb] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px]"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#193a59] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 min-h-[44px]"
             >
               Back to Solutions
             </button>

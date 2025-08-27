@@ -6,7 +6,7 @@ export default function ContactFormSection() {
           <div className="flex flex-col justify-between h-[400px] sm:h-[500px] md:h-[700px] lg:h-[800px] space-y-3 sm:space-y-4 md:space-y-8 lg:space-y-0">
             {/* Blue box at the TOP */}
             <div style={{ 
-              backgroundColor: '#2563eb', 
+              backgroundColor: '#193a59', 
               borderRadius: '8px'
             }} className="w-full max-w-md mx-auto lg:mx-0 lg:w-96 p-4 md:p-6 lg:p-8">
               <div style={{

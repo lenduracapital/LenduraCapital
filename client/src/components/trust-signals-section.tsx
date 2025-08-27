@@ -8,7 +8,7 @@ const TeamMemberCircle = ({ member }: { member: any }) => {
   return (
     <div className="text-center">
       <div className="w-24 h-24 mx-auto mb-4">
-        <div className="w-24 h-24 rounded-full bg-[#2563eb] flex items-center justify-center">
+        <div className="w-24 h-24 rounded-full bg-[#193a59] flex items-center justify-center">
           <span className="text-white text-2xl font-bold">
             {member.initials}
           </span>
@@ -151,7 +151,7 @@ export default function TrustSignalsSection() {
                 <div className="flex items-center mb-4">
                   <div 
                     className="p-3 rounded-lg mr-4"
-                    style={{ backgroundColor: '#2563eb' }}
+                    style={{ backgroundColor: '#193a59' }}
                   >
                     <div className="w-6 h-6 text-white">
                       <IconComponent className="w-6 h-6 text-white" />
@@ -184,10 +184,10 @@ export default function TrustSignalsSection() {
             {faqItems.map((faq, index) => {
               const isOpen = openFAQ === index;
               return (
-                <div key={index} className="bg-white rounded-xl shadow-lg border-l-4 overflow-hidden" style={{ borderLeftColor: '#2563eb' }}>
+                <div key={index} className="bg-white rounded-xl shadow-lg border-l-4 overflow-hidden" style={{ borderLeftColor: '#193a59' }}>
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full text-left p-5 hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                    className="w-full text-left p-5 hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#193a59] focus:ring-inset"
                     aria-expanded={isOpen}
                   >
                     <div className="flex items-center justify-between">
@@ -222,7 +222,7 @@ export default function TrustSignalsSection() {
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-              className="bg-[#2563eb] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              className="bg-[#193a59] hover:bg-[#285d8a] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
               Apply for Funding
             </Button>
@@ -230,7 +230,7 @@ export default function TrustSignalsSection() {
             <Button 
               onClick={() => setLocation("/faq")}
               variant="outline"
-              className="border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              className="border-2 border-[#193a59] text-[#193a59] hover:bg-[#193a59] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
               View All FAQs
             </Button>

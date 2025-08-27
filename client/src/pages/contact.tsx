@@ -14,7 +14,7 @@ export default function Contact() {
       />
       <Header transparent={true} />
       {/* Hero Section */}
-      <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-8 sm:pb-12" style={{ backgroundColor: '#2563eb' }}>
+      <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-8 sm:pb-12" style={{ backgroundColor: '#193a59' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6 leading-tight">
@@ -41,29 +41,29 @@ export default function Contact() {
                   General Questions
                 </h3>
                 
-                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-[#2563eb]">
+                <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#193a59]">
                   <div className="space-y-4">
                     <div className="flex items-start space-x-4">
                       <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
                         <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#2563eb] text-lg">Phone</h4>
-                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
+                        <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
+                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
                       </div>
                     </div>
                     
                     <div className="flex items-start space-x-4">
-                      <div style={{ backgroundColor: '#2563eb' }} className="p-2 rounded-lg flex-shrink-0">
+                      <div style={{ backgroundColor: '#193a59' }} className="p-2 rounded-lg flex-shrink-0">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#2563eb] text-lg">Email</h4>
-                        <a href="mailto:Admin@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">Admin@lenduracapital.com</a>
+                        <h4 className="font-semibold text-[#193a59] text-lg">Email</h4>
+                        <a href="mailto:Admin@lenduracapital.com" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-lg break-all">Admin@lenduracapital.com</a>
                       </div>
                     </div>
                     
-                    <p className="text-[#2563eb] text-sm mt-3">Loan inquiries, applications, partnership inquiries, and general business matters</p>
+                    <p className="text-[#193a59] text-sm mt-3">Loan inquiries, applications, partnership inquiries, and general business matters</p>
                   </div>
                 </div>
               </div>
@@ -74,29 +74,29 @@ export default function Contact() {
                   Customer Support
                 </h3>
                 
-                <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-[#2563eb]">
+                <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-[#193a59]">
                   <div className="space-y-4">
                     <div className="flex items-start space-x-4">
                       <div className="bg-green-500 p-2 rounded-lg flex-shrink-0">
                         <Phone className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#2563eb] text-lg">Phone</h4>
-                        <span className="text-[#2563eb] font-bold text-xl">(305) 765-7168</span>
+                        <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
+                        <span className="text-[#193a59] font-bold text-xl">(305) 765-7168</span>
                       </div>
                     </div>
                     
                     <div className="flex items-start space-x-4">
-                      <div style={{ backgroundColor: '#2563eb' }} className="p-2 rounded-lg flex-shrink-0">
+                      <div style={{ backgroundColor: '#193a59' }} className="p-2 rounded-lg flex-shrink-0">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#2563eb] text-lg">Email</h4>
-                        <a href="mailto:support@lenduracapital.com" className="text-[#2563eb] hover:text-[#7299d1] transition-colors duration-200 font-bold text-lg break-all">support@lenduracapital.com</a>
+                        <h4 className="font-semibold text-[#193a59] text-lg">Email</h4>
+                        <a href="mailto:support@lenduracapital.com" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-lg break-all">support@lenduracapital.com</a>
                       </div>
                     </div>
                     
-                    <p className="text-[#2563eb] text-sm mt-3">Account access, payment issues, technical assistance, and customer support</p>
+                    <p className="text-[#193a59] text-sm mt-3">Account access, payment issues, technical assistance, and customer support</p>
                   </div>
                 </div>
               </div>
@@ -127,33 +127,33 @@ export default function Contact() {
               {/* Business Hours */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-lg font-bold text-black mb-4 flex items-center">
-                  <Clock className="h-5 w-5 text-[#2563eb] mr-2" />
+                  <Clock className="h-5 w-5 text-[#193a59] mr-2" />
                   Business Hours
                 </h3>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Mon : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Tue : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Wed : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Thu : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Fri : 09:00 am - 07:30 pm</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="text-[#2563eb] mr-3">✓</span>
+                      <span className="text-[#193a59] mr-3">✓</span>
                       <span className="text-black">Sat & Sun : Closed</span>
                     </div>
                   </div>
@@ -161,7 +161,7 @@ export default function Contact() {
               </div>
 
               {/* Quick Response Promise */}
-              <div style={{ backgroundColor: '#2563eb' }} className="p-6 rounded-lg">
+              <div style={{ backgroundColor: '#193a59' }} className="p-6 rounded-lg">
                 <h3 className="text-white font-semibold text-lg mb-2">
                   Same-Day Response Guarantee
                 </h3>
@@ -187,24 +187,24 @@ export default function Contact() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* How to Apply */}
-            <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-[#2563eb] font-semibold">
-              <div style={{ backgroundColor: '#2563eb' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="bg-gray-50 p-8 rounded-lg border-l-4 border-[#193a59] font-semibold">
+              <div style={{ backgroundColor: '#193a59' }} className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#2563eb] mb-4 text-center">How to Apply</h3>
+              <h3 className="text-xl font-semibold text-[#193a59] mb-4 text-center">How to Apply</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">1.</span>
+                  <span className="font-semibold text-[#193a59] mr-2">1.</span>
                   Complete our 5-minute online application
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">2.</span>
+                  <span className="font-semibold text-[#193a59] mr-2">2.</span>
                   Upload 3 months of bank statements
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">3.</span>
+                  <span className="font-semibold text-[#193a59] mr-2">3.</span>
                   Provide basic business information
                 </li>
               </ul>
@@ -217,22 +217,22 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-[#2563eb] mb-4 text-center">What to Expect</h3>
+              <h3 className="text-xl font-semibold text-[#193a59] mb-4 text-center">What to Expect</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">•</span>
+                  <span className="font-semibold text-[#193a59] mr-2">•</span>
                   Same-day application review
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">•</span>
+                  <span className="font-semibold text-[#193a59] mr-2">•</span>
                   Dedicated specialist assigned
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">•</span>
+                  <span className="font-semibold text-[#193a59] mr-2">•</span>
                   Multiple funding options presented
                 </li>
                 <li className="flex items-start">
-                  <span className="font-semibold text-[#2563eb] mr-2">•</span>
+                  <span className="font-semibold text-[#193a59] mr-2">•</span>
                   Transparent terms and rates
                 </li>
               </ul>
@@ -243,7 +243,7 @@ export default function Contact() {
               <div className="w-16 h-16 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-6">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-[#2563eb] mb-4 text-center">Timeline Breakdown</h3>
+              <h3 className="text-xl font-semibold text-[#193a59] mb-4 text-center">Timeline Breakdown</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="font-semibold mr-2 text-[#374151]">Day 1: Application submitted, reviewed (30 minutes to 1 hour), and approval decision made the same day</span>
@@ -257,12 +257,12 @@ export default function Contact() {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <h3 className="text-4xl font-bold text-[#2563eb] mb-6">Ready to Get Started?</h3>
-            <p className="text-xl text-[#2563eb] mb-8">Join thousands of businesses we've helped secure funding.</p>
+            <h3 className="text-4xl font-bold text-[#193a59] mb-6">Ready to Get Started?</h3>
+            <p className="text-xl text-[#193a59] mb-8">Join thousands of businesses we've helped secure funding.</p>
             <button
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-              className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
-              style={{ backgroundColor: '#2563eb' }}
+              className="px-8 py-4 rounded-lg font-semibold text-lg text-white hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+              style={{ backgroundColor: '#193a59' }}
             >
               Apply for Funding Now
             </button>

@@ -32,8 +32,8 @@ export default function SEOWebDevelopment() {
       <Header />
       
       {/* Enhanced Hero Section */}
-      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-[#2563eb] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
+      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -46,7 +46,7 @@ export default function SEOWebDevelopment() {
             <div className="mb-6">
               <Button 
                 onClick={handleBackToSolutions}
-                className="bg-white text-[#2563eb] hover:bg-blue-50 hover:text-[#2563eb] mb-4 border-0"
+                className="bg-white text-[#193a59] hover:bg-gray-50 hover:text-[#193a59] mb-4 border-0"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Solutions
@@ -63,14 +63,14 @@ export default function SEOWebDevelopment() {
               <Button 
                 onClick={handleContactUs}
                 size="lg"
-                className="bg-white text-[#2563eb] hover:bg-blue-50 hover:text-[#2563eb] font-bold px-8 py-4 text-lg border-0"
+                className="bg-white text-[#193a59] hover:bg-gray-50 hover:text-[#193a59] font-bold px-8 py-4 text-lg border-0"
               >
                 Contact Us
               </Button>
               <Button 
                 onClick={handleMoreTestimonials}
                 size="lg" 
-                className="bg-white text-[#2563eb] hover:bg-blue-50 hover:text-[#2563eb] px-8 py-4 text-lg border-0"
+                className="bg-white text-[#193a59] hover:bg-gray-50 hover:text-[#193a59] px-8 py-4 text-lg border-0"
               >
                 Read Success Stories
               </Button>
@@ -92,21 +92,21 @@ export default function SEOWebDevelopment() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#193a59] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Search className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">SEO Optimization</h3>
                 <p className="text-gray-600">Dominate search rankings and drive organic traffic</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#193a59] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Code className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Web Development</h3>
                 <p className="text-gray-600">Custom websites that convert visitors into customers</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#193a59] rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Performance Analytics</h3>
@@ -131,21 +131,21 @@ export default function SEOWebDevelopment() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#193a59] rounded-lg flex items-center justify-center mb-4">
                 <Search className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">SEO Optimization</h3>
               <p className="text-gray-600">Get found on Google with proven SEO strategies that drive organic traffic and leads.</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#193a59] rounded-lg flex items-center justify-center mb-4">
                 <Code className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Web Development</h3>
               <p className="text-gray-600">Professional websites that convert visitors into customers and grow with your business.</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-[#193a59] rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Digital Marketing</h3>
@@ -234,7 +234,7 @@ export default function SEOWebDevelopment() {
             <Button 
               onClick={handleContactUs}
               size="lg"
-              className="bg-[#2563eb] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
+              className="bg-[#193a59] hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
             >
               Contact Us
             </Button>
@@ -242,7 +242,7 @@ export default function SEOWebDevelopment() {
               onClick={handleBackToSolutions}
               variant="outline"
               size="lg"
-              className="border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white px-8 py-4 text-lg"
+              className="border-[#193a59] text-[#193a59] hover:bg-[#193a59] hover:text-white px-8 py-4 text-lg"
             >
               Back to Solutions
             </Button>

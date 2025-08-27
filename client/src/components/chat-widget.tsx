@@ -419,13 +419,13 @@ function ChatWidget() {
               chatState.step === 'debt_q2' ? 'Enter current balance...' :
               'Enter your response...'
             }
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#193a59] text-sm"
             autoFocus
           />
           <button
             onClick={handleSubmitText}
             disabled={!textInput.trim()}
-            className="bg-[#2563eb] hover:bg-[#1d4ed8] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
+            className="bg-[#193a59] hover:bg-[#1d4ed8] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
           >
             <Send className="w-4 h-4" />
           </button>
@@ -447,19 +447,19 @@ function ChatWidget() {
           <div className="flex flex-col gap-2 mt-3">
             <button
               onClick={() => handleUserSelection("I need financing for my business", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
+              className="bg-gray-50 hover:bg-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               💰 I need business funding
             </button>
             <button
               onClick={() => handleUserSelection("I want information about your services", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
+              className="bg-gray-50 hover:bg-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               📋 I have questions about services
             </button>
             <button
               onClick={() => handleUserSelection("I have questions about an existing application", 'userType')}
-              className="bg-blue-50 hover:bg-blue-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium text-left"
+              className="bg-gray-50 hover:bg-gray-100 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium text-left"
             >
               📞 Questions about my application
             </button>
@@ -473,7 +473,7 @@ function ChatWidget() {
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'timeline')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+                className="bg-gray-50 hover:bg-gray-100 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
               >
                 {option}
               </button>
@@ -493,7 +493,7 @@ function ChatWidget() {
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'infoCategory')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+                className="bg-gray-50 hover:bg-gray-100 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
               >
                 {option}
               </button>
@@ -506,13 +506,13 @@ function ChatWidget() {
           <div className="flex flex-col gap-2 mt-3">
             <button
               onClick={() => handleUserSelection("I'd like to explore financing options", 'businessType')}
-              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-[#193a59] hover:bg-[#1d4ed8] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
             >
               💰 Explore financing options for my business
             </button>
             <button
               onClick={() => handleUserSelection("I have more questions", 'businessType')}
-              className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-gray-50 hover:bg-gray-100 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
             >
               ❓ I have more specific questions
             </button>
@@ -537,7 +537,7 @@ function ChatWidget() {
               <button
                 key={product}
                 onClick={() => handleUserSelection(product, 'product')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+                className="bg-gray-50 hover:bg-gray-100 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
               >
                 {product}
               </button>
@@ -557,7 +557,7 @@ function ChatWidget() {
               <button
                 key={option}
                 onClick={() => handleUserSelection(option, 'revenue')}
-                className="bg-blue-50 hover:bg-blue-100 text-blue-700 px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+                className="bg-gray-50 hover:bg-gray-100 text-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
               >
                 {option}
               </button>
@@ -567,21 +567,21 @@ function ChatWidget() {
       
       case 'complete':
         return (
-          <div className="flex flex-col gap-3 mt-4 p-4 bg-gradient-to-r from-[#2563eb]/10 to-blue-50 rounded-lg border border-[#2563eb]/20">
+          <div className="flex flex-col gap-3 mt-4 p-4 bg-gradient-to-r from-[#193a59]/10 to-blue-50 rounded-lg border border-[#193a59]/20">
             <div className="text-center text-gray-700 text-sm font-medium mb-2">
               Need immediate assistance?
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={() => window.open('https://calendly.com/lenduracapital/30min', '_blank')}
-                className="flex items-center justify-center gap-2 bg-[#2563eb] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#193a59] hover:bg-[#285d8a] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 Call (305) 765-7168
               </button>
               <button
                 onClick={() => window.open('https://form.jotform.com/251965461165159', '_blank')}
-                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#2563eb] border-2 border-[#2563eb] px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#193a59] border-2 border-[#193a59] px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Send className="w-4 h-4" />
                 Apply Online
@@ -603,7 +603,7 @@ function ChatWidget() {
       {isVisible && !isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 z-40 bg-[#2563eb] hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-200"
+          className="fixed bottom-4 right-4 z-40 bg-[#193a59] hover:bg-[#285d8a] text-white p-4 rounded-full shadow-lg transition-all duration-200"
           aria-label="Open chat"
         >
           <MessageCircle className="w-6 h-6" />
@@ -626,7 +626,7 @@ function ChatWidget() {
             isMobile ? 'rounded-t-lg' : 'rounded-lg'
           }`}>
             {/* Header */}
-            <div className="bg-[#2563eb] text-white p-4 flex items-center justify-between">
+            <div className="bg-[#193a59] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 {showHistory && (
                   <button
@@ -638,7 +638,7 @@ function ChatWidget() {
                   </button>
                 )}
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-[#2563eb]" />
+                  <Bot className="w-6 h-6 text-[#193a59]" />
                 </div>
                 <div>
                   <div className={`font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}>
@@ -679,7 +679,7 @@ function ChatWidget() {
                       <div
                         key={conv.sessionId}
                         onClick={() => loadConversation(conv.sessionId)}
-                        className={`${isMobile ? 'p-3' : 'p-4'} bg-white rounded-lg border hover:border-[#2563eb] cursor-pointer transition-colors`}
+                        className={`${isMobile ? 'p-3' : 'p-4'} bg-white rounded-lg border hover:border-[#193a59] cursor-pointer transition-colors`}
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
@@ -716,7 +716,7 @@ function ChatWidget() {
                   >
                     <div className={`max-w-[80%] ${isMobile ? 'p-2 text-sm' : 'p-3 text-base'} rounded-lg shadow-sm ${
                       message.sender === 'user'
-                        ? 'bg-[#2563eb] text-white rounded-br-sm'
+                        ? 'bg-[#193a59] text-white rounded-br-sm'
                         : 'bg-white text-gray-800 border rounded-bl-sm'
                     }`}>
                       {message.text}

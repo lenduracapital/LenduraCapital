@@ -61,7 +61,7 @@ const Franchises = lazy(() => import("@/pages/industries/franchises"));
 function PageLoader() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="animate-spin rounded-full h-8 w-8 border-b-2" style={{ borderColor: '#2563eb' }}></div>
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2" style={{ borderColor: '#193a59' }}></div>
     </div>
   );
 }

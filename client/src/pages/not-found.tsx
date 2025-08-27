@@ -14,8 +14,8 @@ export default function NotFound() {
         <div className="text-center max-w-2xl mx-auto">
           {/* 404 Visual */}
           <div className="mb-8">
-            <h1 className="text-9xl font-bold text-[#2563eb] opacity-20 mb-4">404</h1>
-            <div className="w-24 h-1 bg-[#2563eb] mx-auto mb-8"></div>
+            <h1 className="text-9xl font-bold text-[#193a59] opacity-20 mb-4">404</h1>
+            <div className="w-24 h-1 bg-[#193a59] mx-auto mb-8"></div>
           </div>
           
           {/* Error Message */}
@@ -30,12 +30,12 @@ export default function NotFound() {
           {/* Quick Actions */}
           <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center mb-12">
             <Link href="/">
-              <button className="w-full sm:w-auto bg-[#2563eb] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#7299d1] transition-colors duration-200">
+              <button className="w-full sm:w-auto bg-[#193a59] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#285d8a] transition-colors duration-200">
                 Return Home
               </button>
             </Link>
             <Link href="/solutions">
-              <button className="w-full sm:w-auto border-2 border-[#2563eb] text-[#2563eb] px-8 py-3 rounded-lg font-semibold hover:bg-[#2563eb] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg">
+              <button className="w-full sm:w-auto border-2 border-[#193a59] text-[#193a59] px-8 py-3 rounded-lg font-semibold hover:bg-[#193a59] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg">
                 Browse Solutions
               </button>
             </Link>
@@ -50,22 +50,22 @@ export default function NotFound() {
           <div className="border-t border-gray-200 pt-8">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Popular Pages</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
-              <Link href="/solutions/term-loans" className="text-[#2563eb] hover:underline">
+              <Link href="/solutions/term-loans" className="text-[#193a59] hover:underline">
                 Term Loans
               </Link>
-              <Link href="/solutions/merchant-cash-advance" className="text-[#2563eb] hover:underline">
+              <Link href="/solutions/merchant-cash-advance" className="text-[#193a59] hover:underline">
                 Cash Advance
               </Link>
-              <Link href="/solutions/equipment-financing" className="text-[#2563eb] hover:underline">
+              <Link href="/solutions/equipment-financing" className="text-[#193a59] hover:underline">
                 Equipment Financing
               </Link>
-              <Link href="/solutions/sba-loans" className="text-[#2563eb] hover:underline">
+              <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline">
                 SBA Loans
               </Link>
-              <Link href="/qualified-industries" className="text-[#2563eb] hover:underline">
+              <Link href="/qualified-industries" className="text-[#193a59] hover:underline">
                 Qualified Industries
               </Link>
-              <Link href="/testimonials" className="text-[#2563eb] hover:underline">
+              <Link href="/testimonials" className="text-[#193a59] hover:underline">
                 Success Stories
               </Link>
             </div>
@@ -74,7 +74,7 @@ export default function NotFound() {
           {/* Contact Info */}
           <div className="mt-8 p-6 bg-gray-50 rounded-lg">
             <p className="text-gray-600 mb-2">Need immediate assistance?</p>
-            <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-[#2563eb] hover:underline">
+            <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-2xl font-bold text-[#193a59] hover:underline">
               (305) 834-7168
             </a>
             <p className="text-sm text-gray-500 mt-2">

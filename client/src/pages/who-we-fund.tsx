@@ -153,7 +153,7 @@ export default function QualifiedIndustries() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-wider">
-            Qualified <span style={{ color: '#2563eb' }}>Industries</span>
+            Qualified <span style={{ color: '#193a59' }}>Industries</span>
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
             Lendura Capital specializes in providing tailored financing solutions across diverse industries. 
@@ -167,7 +167,7 @@ export default function QualifiedIndustries() {
             <Button 
               onClick={handleApplyNow}
               className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
-              style={{ color: '#2563eb' }}
+              style={{ color: '#193a59' }}
             >
               Apply for Funding
             </Button>
@@ -175,7 +175,7 @@ export default function QualifiedIndustries() {
               onClick={() => window.open('https://calendly.com/lenduracapital/30min', '_blank')}
               className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
               style={{ 
-                color: '#2563eb'
+                color: '#193a59'
               }}
             >
               Schedule Consultation
@@ -205,7 +205,7 @@ export default function QualifiedIndustries() {
                   <h3 className={`text-xl font-bold text-gray-900 mb-4 ${industry.title === 'Trucking & Transportation' ? '-mt-2' : ''}`}>
                     {industry.title}
                   </h3>
-                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#2563eb' }}></div>
+                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#193a59' }}></div>
                   <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
                     {industry.description}
                   </p>
@@ -242,8 +242,8 @@ export default function QualifiedIndustries() {
                           setLocation('/solutions');
                         }
                       }}
-                      style={{ backgroundColor: '#2563eb' }}
-                      className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
+                      style={{ backgroundColor: '#193a59' }}
+                      className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
                     >
                       Learn More →
                     </Button>
@@ -259,8 +259,8 @@ export default function QualifiedIndustries() {
               <p className="text-gray-600 mb-6">Almost all industries qualify for our programs. Contact us to discuss your specific business needs.</p>
               <Button 
                 onClick={handleApplyNow}
-                style={{ backgroundColor: '#2563eb' }}
-                className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg"
+                style={{ backgroundColor: '#193a59' }}
+                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg"
               >
                 Get Pre-Qualified Today
               </Button>

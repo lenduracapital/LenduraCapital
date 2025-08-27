@@ -210,8 +210,8 @@ export default function Solutions() {
       <Header />
       
       {/* Hero Section with Professional Design */}
-      <section className="relative pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-[#2563eb] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
+      <section className="relative pt-20 md:pt-24 pb-12 md:pb-20 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -254,7 +254,7 @@ export default function Solutions() {
 
                     <div className="absolute top-4 left-4">
                       <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                        <div style={{ color: '#2563eb' }}>
+                        <div style={{ color: '#193a59' }}>
                           {solution.icon}
                         </div>
                       </div>
@@ -292,7 +292,7 @@ export default function Solutions() {
                         <ul className="space-y-2 mb-6">
                           {solution.features.map((feature, idx) => (
                             <li key={idx} className="text-gray-700 text-sm flex items-center">
-                              <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#2563eb' }} />
+                              <CheckCircle className="w-4 h-4 mr-3" style={{ color: '#193a59' }} />
                               {feature}
                             </li>
                           ))}
@@ -302,7 +302,7 @@ export default function Solutions() {
                     
                     <Button 
                       onClick={() => setLocation(solution.route)}
-                      style={{ backgroundColor: '#2563eb' }}
+                      style={{ backgroundColor: '#193a59' }}
                       className="w-full text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity touch-target focus-ring"
                     >
                       Learn More
@@ -330,27 +330,27 @@ export default function Solutions() {
               
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center p-6 bg-gray-50 rounded-lg">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#2563eb' }}>98%</div>
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#193a59' }}>98%</div>
                   <div className="text-gray-700 text-sm">Client Satisfaction Rate</div>
                 </div>
                 <div className="text-center p-6 bg-gray-50 rounded-lg">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#2563eb' }}>24hr</div>
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#193a59' }}>24hr</div>
                   <div className="text-gray-700 text-sm">Average Approval Time</div>
                 </div>
                 <div className="text-center p-6 bg-gray-50 rounded-lg">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#2563eb' }}>$20M+</div>
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#193a59' }}>$20M+</div>
                   <div className="text-gray-700 text-sm">Capital Deployed</div>
                 </div>
                 <div className="text-center p-6 bg-gray-50 rounded-lg">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#2563eb' }}>16+</div>
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#193a59' }}>16+</div>
                   <div className="text-gray-700 text-sm">Industries Served</div>
                 </div>
               </div>
               
               <Button 
                 onClick={handleApplyNow}
-                style={{ backgroundColor: '#2563eb' }}
-                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+                style={{ backgroundColor: '#193a59' }}
+                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
               >
                 Start Your Application
               </Button>
@@ -391,8 +391,8 @@ export default function Solutions() {
             <div className="text-center">
               <Button 
                 onClick={handleApplyNow}
-                style={{ backgroundColor: '#2563eb' }}
-                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+                style={{ backgroundColor: '#193a59' }}
+                className="text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
               >
                 Apply Now - No Impact to Credit
               </Button>

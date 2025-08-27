@@ -113,7 +113,7 @@ export default function FAQPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16" style={{ backgroundColor: '#2563eb' }}>
+      <section className="pt-32 pb-16" style={{ backgroundColor: '#193a59' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Frequently Asked Questions
@@ -129,7 +129,7 @@ export default function FAQPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqData.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6" style={{ color: '#2563eb' }}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6" style={{ color: '#193a59' }}>
                 {category.category}
               </h2>
               <div className="space-y-4">
@@ -181,7 +181,7 @@ export default function FAQPage() {
             <button 
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
               className="px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
-              style={{ backgroundColor: '#2563eb' }}
+              style={{ backgroundColor: '#193a59' }}
             >
               Apply Now
             </button>

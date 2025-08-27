@@ -39,14 +39,14 @@ export default function RealEstate() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               onClick={handleApplyClick}
-              className="bg-[#2563eb] hover:bg-[#7098d9] text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="bg-[#193a59] hover:bg-[#7098d9] text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get Approved in 24 Hours
             </Button>
             <Button 
               onClick={handleSolutionsClick}
-              style={{ backgroundColor: '#2563eb', color: 'white' }}
-              className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
+              style={{ backgroundColor: '#193a59', color: 'white' }}
+              className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
             >
               Explore Your Financing Options
             </Button>
@@ -70,29 +70,29 @@ export default function RealEstate() {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold" style={{ color: '#2563eb' }}>24 Hours</div>
+                  <div className="text-2xl font-bold" style={{ color: '#193a59' }}>24 Hours</div>
                   <div className="text-sm text-gray-600">Fast Approval</div>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold" style={{ color: '#2563eb' }}>$20M</div>
+                  <div className="text-2xl font-bold" style={{ color: '#193a59' }}>$20M</div>
                   <div className="text-sm text-gray-600">Max Funding</div>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-[#2563eb] text-white p-6 rounded-lg">
+              <div className="bg-[#193a59] text-white p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-4">Fix & Flip Loans</h3>
                 <p className="text-blue-100">Fast funding for property acquisition and renovation costs</p>
               </div>
-              <div className="bg-[#2563eb] text-white p-6 rounded-lg">
+              <div className="bg-[#193a59] text-white p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-4 text-white">Commercial RE</h3>
                 <p className="text-blue-100">Investment property and commercial real estate financing</p>
               </div>
               <div className="bg-gray-100 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#2563eb' }}>Bridge Loans</h3>
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#193a59' }}>Bridge Loans</h3>
                 <p className="text-gray-700">Short-term financing for time-sensitive opportunities</p>
               </div>
-              <div className="bg-[#2563eb] text-white p-6 rounded-lg">
+              <div className="bg-[#193a59] text-white p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-4">BRRRR Strategy</h3>
                 <p className="text-blue-100">Buy, Rehab, Rent, Refinance, Repeat financing</p>
               </div>
@@ -103,7 +103,7 @@ export default function RealEstate() {
 
 
       {/* Business Financing Steps */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#2563eb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#193a59' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -117,7 +117,7 @@ export default function RealEstate() {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>1</span>
+                <span className="text-2xl font-bold" style={{ color: '#193a59' }}>1</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Apply Online</h3>
               <p className="text-white/90">Quick and secure application process</p>
@@ -125,7 +125,7 @@ export default function RealEstate() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>2</span>
+                <span className="text-2xl font-bold" style={{ color: '#193a59' }}>2</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Approval in 1 hour</h3>
               <p className="text-white/90">Fast decision process</p>
@@ -133,7 +133,7 @@ export default function RealEstate() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>3</span>
+                <span className="text-2xl font-bold" style={{ color: '#193a59' }}>3</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Get Funded</h3>
               <p className="text-white/90">Receive your funds quickly</p>
@@ -175,7 +175,7 @@ export default function RealEstate() {
                 funding: "$1.2M Commercial Loan"
               }
             ].map((story, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#2563eb] shadow-lg">
+              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#193a59] shadow-lg">
                 <div className="flex items-start space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
@@ -185,7 +185,7 @@ export default function RealEstate() {
                 <div className="border-t pt-4">
                   <div className="font-semibold text-black">{story.name}</div>
                   <div className="text-sm text-gray-600 mb-2">{story.company}</div>
-                  <div className="text-sm font-medium" style={{ color: '#2563eb' }}>{story.funding}</div>
+                  <div className="text-sm font-medium" style={{ color: '#193a59' }}>{story.funding}</div>
                 </div>
               </div>
             ))}
@@ -194,7 +194,7 @@ export default function RealEstate() {
       </section>
 
       {/* Recommended Solutions */}
-      <section className="py-16 md:py-24 bg-[#2563eb] text-white">
+      <section className="py-16 md:py-24 bg-[#193a59] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
             Recommended Financing Solutions
@@ -209,7 +209,7 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Investment property acquisition and commercial development financing</p>
               <Button 
                 onClick={handleSolutionsClick}
-                style={{ backgroundColor: '#2563eb', color: 'white' }}
+                style={{ backgroundColor: '#193a59', color: 'white' }}
                 className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
@@ -220,7 +220,7 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Construction equipment, tools, and vehicle financing for real estate operations</p>
               <Button 
                 onClick={handleSolutionsClick}
-                style={{ backgroundColor: '#2563eb', color: 'white' }}
+                style={{ backgroundColor: '#193a59', color: 'white' }}
                 className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
@@ -231,7 +231,7 @@ export default function RealEstate() {
               <p className="text-blue-100 mb-6">Working capital for property management, renovations, and business expansion</p>
               <Button 
                 onClick={handleSolutionsClick}
-                style={{ backgroundColor: '#2563eb', color: 'white' }}
+                style={{ backgroundColor: '#193a59', color: 'white' }}
                 className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More

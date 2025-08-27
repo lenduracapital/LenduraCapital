@@ -88,7 +88,7 @@ export default function SolutionDetailTemplate({
             backgroundImage: `url('${heroImage}')`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/20 to-transparent"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
@@ -126,7 +126,7 @@ export default function SolutionDetailTemplate({
                 alt={`${title} financing solution`}
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#2563eb] text-white p-6 rounded-lg shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-[#193a59] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-sm font-medium">{approvalTime?.label || "Fast Approval"}</div>
                 <div className="text-2xl font-bold">{approvalTime?.duration || "24-48hrs"}</div>
               </div>
@@ -145,7 +145,7 @@ export default function SolutionDetailTemplate({
               <ul className="space-y-4 mb-8 md:mb-12">
                 {features.map((feature, index) => (
                   <li key={index} className="flex items-center">
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 flex-shrink-0" style={{ color: '#2563eb' }} />
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 flex-shrink-0" style={{ color: '#193a59' }} />
                     <span className="text-sm md:text-base text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -180,8 +180,8 @@ export default function SolutionDetailTemplate({
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {perfectFor.map((industry, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
-                <div className="w-16 h-16 bg-[#2563eb]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-2xl font-bold text-[#2563eb]">{index + 1}</div>
+                <div className="w-16 h-16 bg-[#193a59]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-2xl font-bold text-[#193a59]">{index + 1}</div>
                 </div>
                 <h3 className="text-lg font-bold text-black mb-2">{industry}</h3>
                 <p className="text-gray-600 text-sm">Ideal financing solution for growth and operational needs</p>
@@ -261,7 +261,7 @@ export default function SolutionDetailTemplate({
               {howItWorks && (
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#2563eb' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
                       1
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">{howItWorks.title}</h3>
@@ -269,7 +269,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {howItWorks.items.map((item, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#2563eb' }}>■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
                         <span className="text-gray-700">{item}</span>
                       </li>
                     ))}
@@ -281,7 +281,7 @@ export default function SolutionDetailTemplate({
               {ratesBasedOn && (
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#2563eb' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
                       2
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">Rates are based on</h3>
@@ -289,7 +289,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {ratesBasedOn.map((factor, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#2563eb' }}>■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
                         <span className="text-gray-700">{factor}</span>
                       </li>
                     ))}
@@ -301,7 +301,7 @@ export default function SolutionDetailTemplate({
               {requiredDocuments && (
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#2563eb' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
                       3
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">Required documents</h3>
@@ -309,7 +309,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {requiredDocuments.map((doc, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#2563eb' }}>■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
                         <span className="text-gray-700">{doc}</span>
                       </li>
                     ))}
@@ -321,7 +321,7 @@ export default function SolutionDetailTemplate({
               {askYourself && (
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#2563eb' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
                       4
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">Ask Yourself</h3>
@@ -329,7 +329,7 @@ export default function SolutionDetailTemplate({
                   <ul className="space-y-3">
                     {askYourself.map((question, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#2563eb' }}>■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
                         <span className="text-gray-700">{question}</span>
                       </li>
                     ))}
@@ -341,7 +341,7 @@ export default function SolutionDetailTemplate({
               {goodToKnow && (
                 <div className="bg-gray-50 p-6 rounded-lg md:col-span-2 lg:col-span-3">
                   <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#2563eb' }}>
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
                       5
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">Good to know</h3>
@@ -349,7 +349,7 @@ export default function SolutionDetailTemplate({
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {goodToKnow.map((tip, index) => (
                       <div key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#2563eb' }}>■</span>
+                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
                         <span className="text-gray-700">{tip}</span>
                       </div>
                     ))}
@@ -372,14 +372,14 @@ export default function SolutionDetailTemplate({
                 Ready to secure funding for your business? Our specialists are standing by to help you find the perfect {title.toLowerCase()} solution.
               </p>
               <div className="space-y-4">
-                <div className="bg-gray-50 p-3 md:p-4 rounded border-l-4" style={{ borderLeftColor: '#2563eb' }}>
+                <div className="bg-gray-50 p-3 md:p-4 rounded border-l-4" style={{ borderLeftColor: '#193a59' }}>
                   <p className="text-xs md:text-sm text-gray-600">Call us directly:</p>
                   <p className="text-xl md:text-2xl font-bold text-black">(305) 834-7168</p>
                 </div>
                 <Button 
                   onClick={handleApplyNow}
-                  style={{ backgroundColor: '#2563eb' }}
-                  className="w-full text-white py-3 rounded font-semibold text-base md:text-lg hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
+                  style={{ backgroundColor: '#193a59' }}
+                  className="w-full text-white py-3 rounded font-semibold text-base md:text-lg hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
                 >
                   Apply Now
                 </Button>
@@ -402,7 +402,7 @@ export default function SolutionDetailTemplate({
               </div>
             </div>
 
-            <div className="p-6 md:p-8 rounded-lg" style={{ backgroundColor: '#2563eb' }}>
+            <div className="p-6 md:p-8 rounded-lg" style={{ backgroundColor: '#193a59' }}>
               <h4 className="text-lg md:text-xl font-bold text-white mb-4">Qualification Requirements</h4>
               <ul className="space-y-2 text-white">
                 {qualificationRequirements.map((req, index) => (
