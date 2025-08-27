@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, ShoppingBag, Store, Package } from "lucid
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import retailImage from "@assets/retail.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function RetailECommerce() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${retailImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function RetailECommerce() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+                src={retailImage}
                 alt="Retail and e-commerce business"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />

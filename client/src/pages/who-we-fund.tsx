@@ -10,6 +10,7 @@ import truckingImage from "@assets/trucking.jpg";
 import medicalImage from "@assets/medical.jpg";
 import constructionImage from "@assets/construction.jpg";
 import restaurantImage from "@assets/restaurant.jpg";
+import retailImage from "@assets/retail.jpg";
 
 
 const industries = [
@@ -36,7 +37,7 @@ const industries = [
   {
     title: "Retail & E-commerce",
     description: "Retail businesses require inventory financing, seasonal capital, marketing investments, and funding for expansion into new markets or locations.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop"
+    image: retailImage
   },
   {
     title: "Manufacturing",
