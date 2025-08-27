@@ -59,8 +59,9 @@ export default function AdminDashboard() {
   
   const { data: dashboardData, isLoading, error } = useQuery({
     queryKey: ['/api/admin/dashboard'],
-    enabled: isAuthenticated,
-    retry: false
+    enabled: isAuthenticated && typeof window !== 'undefined' && window.location.pathname === '/admin',
+    retry: false,
+    refetchOnWindowFocus: false,
   });
 
   // Fetch detailed data for each section
