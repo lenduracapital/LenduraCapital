@@ -12,6 +12,7 @@ import constructionImage from "@assets/construction.jpg";
 import restaurantImage from "@assets/restaurant.jpg";
 import retailImage from "@assets/retail.jpg";
 import manufacturingImage from "@assets/manufacturing.jpg";
+import techImage from "@assets/tech.jpg";
 
 
 const industries = [
@@ -53,7 +54,7 @@ const industries = [
   {
     title: "Technology & Software",
     description: "Tech companies need capital for product development, marketing campaigns, talent acquisition, and scaling operations in competitive markets.",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop"
+    image: techImage
   },
   {
     title: "Auto & Transportation",

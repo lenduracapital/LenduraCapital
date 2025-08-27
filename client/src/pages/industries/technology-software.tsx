@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Monitor, Code, Cpu } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import techImage from "@assets/tech.jpg";
 
 export default function TechnologySoftware() {
   const [, setLocation] = useLocation();
@@ -26,7 +27,7 @@ export default function TechnologySoftware() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('/attached_assets/pexels-olly-840996_1752763715224.jpg')"
+            backgroundImage: `url(${techImage})`
           }}
         />
         
@@ -102,7 +103,7 @@ export default function TechnologySoftware() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/pexels-olly-840996_1752763715224.jpg"
+                src={techImage}
                 alt="Technology and software development"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
