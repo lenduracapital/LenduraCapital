@@ -1,3 +1,5 @@
+import CustomContactForm from './custom-contact-form';
+
 export default function ContactFormSection() {
   return (
     <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
@@ -57,15 +59,7 @@ export default function ContactFormSection() {
             <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
               Get Working Capital Today
             </h3>
-            <iframe
-              src="https://form.jotform.com/251581480799066"
-              width="100%"
-              height="800"
-              frameBorder="0"
-              scrolling="yes"
-              title="Get Working Capital Today"
-              className="w-full h-[800px] border-0"
-            ></iframe>
+            <CustomContactForm />
           </div>
         </div>
       </div>
