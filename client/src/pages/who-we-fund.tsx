@@ -14,6 +14,7 @@ import retailImage from "@assets/retail.jpg";
 import manufacturingImage from "@assets/manufacturing.jpg";
 import techImage from "@assets/tech.jpg";
 import autoImage from "@assets/auto.jpg";
+import beautyImage from "@assets/beauty.jpg";
 
 
 const industries = [
@@ -65,7 +66,7 @@ const industries = [
   {
     title: "Beauty & Wellness",
     description: "Salons, spas, and fitness centers need capital for equipment, renovations, inventory, and expansion to serve growing customer demand effectively.",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
+    image: beautyImage
   },
   {
     title: "Hospitality & Tourism",

@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, Sparkles, Scissors, Heart } from "lucide-
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import beautyImage from "@assets/beauty.jpg";
 
 
 
@@ -28,7 +29,7 @@ export default function BeautyWellness() {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=600&fit=crop')"
+            backgroundImage: `url(${beautyImage})`
           }}
         />
         
@@ -104,7 +105,7 @@ export default function BeautyWellness() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+                src={beautyImage}
                 alt="Beauty and wellness salon"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
