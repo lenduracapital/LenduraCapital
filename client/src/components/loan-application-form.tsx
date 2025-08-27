@@ -76,6 +76,45 @@ export default function LoanApplicationForm() {
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error'; message: string} | null>(null);
 
   const handleInputChange = (field: keyof LoanApplicationData, value: string | boolean) => {
+    // Apply input masks for specific fields
+    if (typeof value === 'string') {
+      if (field === 'ssn') {
+        // SSN mask: XXX-XX-XXXX
+        const cleaned = value.replace(/\D/g, '');
+        let formatted = cleaned;
+        if (cleaned.length >= 3) {
+          formatted = cleaned.slice(0, 3) + '-';
+          if (cleaned.length >= 5) {
+            formatted += cleaned.slice(3, 5) + '-' + cleaned.slice(5, 9);
+          } else {
+            formatted += cleaned.slice(3);
+          }
+        }
+        value = formatted;
+      } else if (field === 'mobilePhone') {
+        // Phone mask: (XXX) XXX-XXXX
+        const cleaned = value.replace(/\D/g, '');
+        let formatted = cleaned;
+        if (cleaned.length >= 3) {
+          formatted = '(' + cleaned.slice(0, 3) + ')';
+          if (cleaned.length >= 6) {
+            formatted += ' ' + cleaned.slice(3, 6) + '-' + cleaned.slice(6, 10);
+          } else if (cleaned.length > 3) {
+            formatted += ' ' + cleaned.slice(3);
+          }
+        }
+        value = formatted;
+      } else if (field === 'ein') {
+        // EIN mask: XX-XXXXXXX
+        const cleaned = value.replace(/\D/g, '');
+        let formatted = cleaned;
+        if (cleaned.length >= 2) {
+          formatted = cleaned.slice(0, 2) + '-' + cleaned.slice(2, 9);
+        }
+        value = formatted;
+      }
+    }
+
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
@@ -530,61 +569,31 @@ export default function LoanApplicationForm() {
       case 2: // Basic Documents
         return (
           <div className="space-y-6">
-            <div className="text-center text-gray-600 mb-6">
-              <p>Please confirm you have the following documents ready:</p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="border rounded-lg p-4">
-                <div className="flex items-start space-x-3">
-                  <input
-                    type="checkbox"
-                    id="bankStatementsUploaded"
-                    checked={formData.bankStatementsUploaded}
-                    onChange={(e) => handleInputChange('bankStatementsUploaded', e.target.checked)}
-                    className="mt-1 h-4 w-4 text-[#193a59] focus:ring-[#193a59] border-gray-300 rounded"
-                    data-testid="checkbox-bank-statements"
-                  />
-                  <div>
-                    <Label htmlFor="bankStatementsUploaded" className="font-medium">
-                      Bank Statements (Last 3 months) *
-                    </Label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Business bank statements showing your monthly revenue and cash flow
-                    </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Bank Statement(s) */}
+              <div>
+                <Label className="text-base font-medium text-gray-700 mb-3 block">Bank Statement(s)</Label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
+                  <div className="text-gray-500">
+                    <p className="mb-2">Drop a file or <span className="text-blue-500 underline cursor-pointer">browse</span></p>
                   </div>
                 </div>
-                {errors.bankStatementsUploaded && <span className="text-red-500 text-sm">{errors.bankStatementsUploaded}</span>}
               </div>
 
-              <div className="border rounded-lg p-4">
-                <div className="flex items-start space-x-3">
-                  <input
-                    type="checkbox"
-                    id="businessLicenseUploaded"
-                    checked={formData.businessLicenseUploaded}
-                    onChange={(e) => handleInputChange('businessLicenseUploaded', e.target.checked)}
-                    className="mt-1 h-4 w-4 text-[#193a59] focus:ring-[#193a59] border-gray-300 rounded"
-                    data-testid="checkbox-business-license"
-                  />
-                  <div>
-                    <Label htmlFor="businessLicenseUploaded" className="font-medium">
-                      Business License or Articles of Incorporation *
-                    </Label>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Valid business registration documents
-                    </p>
+              {/* Additional Document(s) */}
+              <div>
+                <Label className="text-base font-medium text-gray-700 mb-3 block">Additional Document(s)</Label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
+                  <div className="text-gray-500">
+                    <p className="mb-2">Drop a file or <span className="text-blue-500 underline cursor-pointer">browse</span></p>
                   </div>
                 </div>
-                {errors.businessLicenseUploaded && <span className="text-red-500 text-sm">{errors.businessLicenseUploaded}</span>}
               </div>
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-sm text-blue-800">
-                📄 <strong>Note:</strong> You can upload these documents after submitting your application. 
-                Our team will contact you with secure upload instructions within 24 hours.
-              </p>
+            <div className="text-sm text-gray-500 mt-4">
+              <p>Supported formats are PDF, JPG, JPEG, PNG, TIFF less than 10Mb</p>
+              <p className="font-medium mt-2">Please include last 4 month of business bank statements</p>
             </div>
           </div>
         );
