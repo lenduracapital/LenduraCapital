@@ -21,6 +21,7 @@ import realestateImage from "@assets/realestate.jpg";
 import eventsImage from "@assets/events.jpg";
 import educationImage from "@assets/education.jpg";
 import homeservicesImage from "@assets/homeservices.jpg";
+import cleaningImage from "@assets/cleaning.jpg";
 import franchisesImage from "@assets/franchises.jpg";
 
 
@@ -113,7 +114,7 @@ const industries = [
   {
     title: "Cleaning & Janitorial Services", 
     description: "Cleaning companies need funding for equipment, vehicles, supplies, staff expansion, and securing contracts with commercial property clients.",
-    image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600&h=400&fit=crop"
+    image: cleaningImage
   }
 ];
 

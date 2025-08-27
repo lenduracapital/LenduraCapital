@@ -34,7 +34,7 @@ export default function PremiumFinancingSection() {
               Streamline financial and marketing systems to increase sales and improve the customer experience.
             </p>
             <p className="text-gray-700 font-medium mb-8">
-              FundTek and its team of dedicated service advisors will help identify, optimize, and deploy the right business solutions to meet your needs, including:
+              Lendura and its team of dedicated service advisors will help identify, optimize, and deploy the right business solutions to meet your needs, including:
             </p>
             
             <div className="space-y-3 mb-8">
