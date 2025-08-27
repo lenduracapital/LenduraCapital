@@ -64,13 +64,13 @@ export default function Footer() {
               Call us today at <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
-              <a href="https://www.instagram.com/fundtekcapitalgroup/" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://www.instagram.com/lenduracapital/?hl=en" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <FaInstagram size={24} />
               </a>
-              <a href="https://x.com/fundtekcapital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://x.com/lenduracapital?=11" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <span className="text-2xl leading-none font-bold">𝕏</span>
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61577926551810" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+              <a href="https://www.facebook.com/Lenduracapital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                 <FaFacebook size={24} />
               </a>
             </div>
@@ -80,7 +80,7 @@ export default function Footer() {
                 Leave us a Review
               </p>
               <div className="flex items-center justify-start space-x-1">
-                <a href="https://biz.yelp.com/biz_info/afSWaUVJaOUl0Nbj9-dzOA" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <a href="https://biz.yelp.com/biz_info/uTlQOdkEY_HypI6er1xDUg" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
                   <FaYelp size={24} />
                 </a>
                 <a href="https://www.trustpilot.com/review/fundtekcapitalgroup.com" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
