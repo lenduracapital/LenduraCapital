@@ -6,14 +6,14 @@ export default function CookiesPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead 
-        title="Cookies Policy - FundTek Capital Group"
-        description="Learn about how FundTek Capital Group uses cookies to improve your browsing experience and website functionality."
+        title="Cookies Policy - Lendura Capital"
+        description="Learn about how Lendura Capital uses cookies to improve your browsing experience and website functionality."
         canonical="/cookies"
       />
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>
+      <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#2563eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-6">

@@ -194,24 +194,21 @@ export default function HeroSection() {
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-6 md:pt-8" style={{ contain: 'layout' }}>
             <h1 className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
-              Flexible<br />
-              Financing for<br />
-              <span style={{ color: '#85abe4' }}>Every Industry</span>
+              Flexible Financing. Real Solutions. <span style={{ color: '#2563eb' }}>For Every Industry.</span>
             </h1>
             
             <p className="mb-2 max-w-2xl sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed text-[24px] font-medium" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
-              Empower your business with <span style={{ color: '#85abe4' }}>custom tailored</span><br />
-              financial and <span style={{ color: '#85abe4' }}>business solutions</span>
+              Fuel your growth with funding tailored to your business—no cookie-cutter offers.
             </p>
             
             <p className="mb-4 sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed text-[22px] font-medium" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
-              Call us at <span style={{ color: '#85abe4' }}>(305) 307-4658</span> to see your options
+              Call <span style={{ color: '#2563eb' }}>(305) 307-4658</span> to see your best options today.
             </p>
             
             <Button 
               onClick={handleApplyNow}
               size="lg" 
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-[#7299d1] text-white font-semibold rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 bg-[#85abe4] text-left w-full sm:w-auto px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg md:px-8 md:text-[20px] h-auto min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-[#1d4ed8] text-white font-semibold rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 bg-[#2563eb] text-left w-full sm:w-auto px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg md:px-8 md:text-[20px] h-auto min-h-[44px]"
             >
               Get Approved in 24 Hours
             </Button>

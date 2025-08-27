@@ -1,7 +1,7 @@
-# FundTek Capital Group - Replit Documentation
+# Lendura Capital - Replit Documentation
 
 ## Overview
-FundTek Capital Group provides advanced Small Business Administration (SBA) loan solutions through a high-performance digital platform. The project aims to deliver cutting-edge performance optimization, a superior user experience, and robust, scalable digital services. The platform focuses on streamlining the loan application process, managing contact submissions, and providing a secure, reliable environment for financial transactions and client interactions.
+Lendura Capital provides advanced Small Business Administration (SBA) loan solutions through a high-performance digital platform. The project aims to deliver cutting-edge performance optimization, a superior user experience, and robust, scalable digital services. The platform focuses on streamlining the loan application process, managing contact submissions, and providing a secure, reliable environment for financial transactions and client interactions.
 
 ## User Preferences
 - Professional, technical communication style

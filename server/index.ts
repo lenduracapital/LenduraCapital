@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Startup logs
-console.log("=== FUNDTEK CAPITAL GROUP - SERVER STARTUP ===");
+console.log("=== LENDURA CAPITAL - SERVER STARTUP ===");
 console.log("📍 Working Dir:", process.cwd());
 console.log("📄 Script:", import.meta.url);
 console.log("🟢 Node:", process.version);

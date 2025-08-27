@@ -46,8 +46,8 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-40 md:pt-48 pb-16 bg-gradient-to-br from-[#85abe4] to-blue-600">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
+      <section className="relative pt-40 md:pt-48 pb-16 bg-gradient-to-br from-[#2563eb] to-blue-600">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -58,7 +58,7 @@ export default function About() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About FundTek Capital Group
+              About Lendura Capital
             </h1>
             <p className="text-xl text-white/90 mb-8">
               Your trusted partner in business financing solutions, dedicated to helping businesses grow and thrive.
@@ -73,13 +73,13 @@ export default function About() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Our Track Record</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Since our founding, FundTek Capital Group has established itself as a trusted leader in business financing solutions.
+              Since our founding, Lendura Capital has established itself as a trusted leader in business financing solutions.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center bg-white p-8 rounded-lg shadow-lg">
-                <div className="text-4xl md:text-5xl font-bold text-[#85abe4] mb-4">
+                <div className="text-4xl md:text-5xl font-bold text-[#2563eb] mb-4">
                   {stat.number}
                 </div>
                 <div className="text-gray-700 text-base md:text-lg font-medium">
@@ -99,7 +99,7 @@ export default function About() {
               <h2 className="text-4xl font-bold text-black mb-8">Our Story</h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  FundTek Capital Group was founded with a simple mission: to bridge the gap between traditional banking limitations and the real financing needs of growing businesses. We recognized that entrepreneurs and business owners needed more than just capital – they needed a partner who understood their challenges.
+                  Lendura Capital was founded with a simple mission: to bridge the gap between traditional banking limitations and the real financing needs of growing businesses. We recognized that entrepreneurs and business owners needed more than just capital – they needed a partner who understood their challenges.
                 </p>
                 <p>
                   Our journey began when our founders experienced firsthand the frustrations of lengthy bank approval processes, excessive documentation requirements, and rigid lending criteria that often left qualified businesses without the funding they deserved.
@@ -115,10 +115,10 @@ export default function About() {
             <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop"
-                alt="FundTek Capital Group office"
+                alt="Lendura Capital office"
                 className="w-full h-80 md:h-96 object-cover rounded-lg shadow-xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-[#2563eb] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-2xl font-bold">2019</div>
                 <div className="text-sm">Founded</div>
               </div>
@@ -142,8 +142,8 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {values.map((value, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#85abe4]/10 rounded-full mb-6">
-                  <value.icon className="h-10 w-10 text-[#85abe4]" />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-[#2563eb]/10 rounded-full mb-6">
+                  <value.icon className="h-10 w-10 text-[#2563eb]" />
                 </div>
                 <h3 className="text-2xl font-bold text-black mb-4">
                   {value.title}
@@ -161,7 +161,7 @@ export default function About() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-black mb-6">Why Choose FundTek Capital Group?</h2>
+            <h2 className="text-4xl font-bold text-black mb-6">Why Choose Lendura Capital?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We've built our reputation on delivering results when traditional banking falls short. Here's what sets us apart from other funding companies.
             </p>
@@ -169,8 +169,8 @@ export default function About() {
           
           <div className="grid lg:grid-cols-3 gap-12 mb-16">
             <div className="text-center">
-              <div className="bg-[#85abe4]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                <div className="text-3xl font-bold text-[#85abe4]">24hr</div>
+              <div className="bg-[#2563eb]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                <div className="text-3xl font-bold text-[#2563eb]">24hr</div>
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">Lightning Fast Process</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -179,8 +179,8 @@ export default function About() {
             </div>
             
             <div className="text-center">
-              <div className="bg-[#85abe4]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                <div className="text-3xl font-bold text-[#85abe4]">50+</div>
+              <div className="bg-[#2563eb]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                <div className="text-3xl font-bold text-[#2563eb]">50+</div>
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">Expert Team</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -189,8 +189,8 @@ export default function About() {
             </div>
             
             <div className="text-center">
-              <div className="bg-[#85abe4]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-                <div className="text-3xl font-bold text-[#85abe4]">$1B+</div>
+              <div className="bg-[#2563eb]/10 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                <div className="text-3xl font-bold text-[#2563eb]">$1B+</div>
               </div>
               <h3 className="text-2xl font-bold text-black mb-4">Proven Track Record</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -254,7 +254,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#85abe4]">
+      <section className="py-20 bg-[#2563eb]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Experience the FundTek Difference?
@@ -265,13 +265,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={handleApplyNow}
-              className="bg-white text-[#85abe4] hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold shadow-lg"
+              className="bg-white text-[#2563eb] hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold shadow-lg"
             >
               Apply for Funding Today
             </Button>
             <Button 
               onClick={() => setLocation("/solutions")}
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#85abe4] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2563eb] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold"
             >
               View Our Solutions
             </Button>

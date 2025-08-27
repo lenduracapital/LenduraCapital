@@ -1,11 +1,11 @@
 {
-  "name": "FundTek Capital Group",
+  "name": "Lendura Capital",
   "short_name": "FundTek",
   "description": "Professional business funding solutions including term loans, merchant cash advances, and equipment financing",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#85abe4",
+  "theme_color": "#2563eb",
   "orientation": "portrait",
   "categories": ["business", "finance"],
   "lang": "en-US",

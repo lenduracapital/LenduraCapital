@@ -37,7 +37,7 @@ export default function SEOHead({
     updateMetaProperty("og:description", description);
     updateMetaProperty("og:type", type);
     updateMetaProperty("og:image", image);
-    updateMetaProperty("og:site_name", "FundTek Capital Group");
+    updateMetaProperty("og:site_name", "Lendura Capital");
     
     // Twitter Card tags
     updateMetaTag("twitter:card", "summary_large_image");
@@ -49,12 +49,12 @@ export default function SEOHead({
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "FinancialService",
-      "name": "FundTek Capital Group",
-      "url": "https://fundtekcapitalgroup.com",
+      "name": "Lendura Capital",
+      "url": "https://lenduracapital.com",
       "logo": "/favicon.svg",
       "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
       "telephone": "(305) 307-4658",
-      "email": "admin@fundtekcapitalgroup.com",
+      "email": "admin@lenduracapital.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "2727 Coney Island Ave",

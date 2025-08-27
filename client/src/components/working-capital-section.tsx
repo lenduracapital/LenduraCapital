@@ -123,9 +123,9 @@ export default function WorkingCapitalSection() {
               </ul>
             </div>
             
-            {/* FundTek Capital Group */}
+            {/* Lendura Capital */}
             <div className="bg-green-50 p-6 md:p-8 rounded-lg border border-green-200">
-              <h3 className="text-xl md:text-2xl font-bold text-green-800 mb-4 md:mb-6">FundTek Capital Group</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-green-800 mb-4 md:mb-6">Lendura Capital</h3>
               <ul className="space-y-3 md:space-y-4">
                 <li className="flex items-start">
                   <span className="text-green-500 mr-3 mt-1 text-lg">✓</span>
@@ -177,11 +177,11 @@ export default function WorkingCapitalSection() {
               
               {/* Application Process */}
               <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 p-5 md:p-8 lg:p-10 rounded-2xl text-white shadow-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#85abe4] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#2563eb] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-400 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
                 <div className="relative">
                   <div className="text-center mb-6 md:mb-8">
-                    <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#85abe4] rounded-full mb-4 md:mb-6">
+                    <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#2563eb] rounded-full mb-4 md:mb-6">
                       <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -189,13 +189,13 @@ export default function WorkingCapitalSection() {
                     <h3 className="text-lg md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 leading-tight px-2">Get Started in Minutes and See Your Options</h3>
                     <Button 
                       onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-                      className="bg-gradient-to-r from-[#85abe4] to-[#6b8cc4] hover:from-[#6b8cc4] hover:to-[#5a7ab8] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-h-[44px]"
+                      className="bg-gradient-to-r from-[#2563eb] to-[#6b8cc4] hover:from-[#6b8cc4] hover:to-[#5a7ab8] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg shadow-lg transform hover:scale-105 transition-all duration-200 w-full sm:w-auto min-h-[44px]"
                     >
                       Apply Now ➤
                     </Button>
                   </div>
                   <div className="text-center border-t border-slate-600 pt-4 md:pt-6">
-                    <div className="text-3xl md:text-5xl lg:text-6xl font-black mb-2 md:mb-3 bg-gradient-to-r from-[#85abe4] to-blue-300 bg-clip-text text-transparent">5 Min.</div>
+                    <div className="text-3xl md:text-5xl lg:text-6xl font-black mb-2 md:mb-3 bg-gradient-to-r from-[#2563eb] to-blue-300 bg-clip-text text-transparent">5 Min.</div>
                     <div className="text-base md:text-lg opacity-90 font-medium">Application Process</div>
                   </div>
                 </div>
@@ -206,19 +206,19 @@ export default function WorkingCapitalSection() {
             <div className="space-y-6 md:space-y-8">
               {/* Expert Advice */}
               <div className="relative bg-gradient-to-br from-blue-50 to-indigo-100 p-5 md:p-8 lg:p-10 rounded-2xl shadow-xl border border-blue-200 overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#85abe4] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[#2563eb] rounded-full opacity-10 -translate-y-20 translate-x-20"></div>
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-300 rounded-full opacity-10 translate-y-16 -translate-x-16"></div>
                 
                 <div className="relative flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6">
                   <div className="flex-shrink-0 mx-auto sm:mx-0">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#85abe4] to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#2563eb] to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                       <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
                   </div>
                   <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#85abe4] mb-3 md:mb-4 leading-tight">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#2563eb] mb-3 md:mb-4 leading-tight">
                       Get 1-2-1 advice from an in-house team of experts on funding
                     </h3>
                     <p className="text-gray-700 text-sm md:text-base mb-6 md:mb-8 leading-relaxed">
@@ -230,15 +230,15 @@ export default function WorkingCapitalSection() {
                       <h4 className="font-bold text-gray-800 text-sm md:text-base mb-2 md:mb-3 text-center sm:text-left">Information Needed</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 sm:divide-x divide-gray-300">
                         <div className="text-center">
-                          <div className="text-[#85abe4] font-bold text-xs md:text-sm">Personal Info</div>
+                          <div className="text-[#2563eb] font-bold text-xs md:text-sm">Personal Info</div>
                           <div className="text-gray-600 text-xs">To Verify Identity</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-xs md:text-sm">Business Info</div>
+                          <div className="text-[#2563eb] font-bold text-xs md:text-sm">Business Info</div>
                           <div className="text-gray-600 text-xs">For Verification</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-xs md:text-sm">Bank Connection</div>
+                          <div className="text-[#2563eb] font-bold text-xs md:text-sm">Bank Connection</div>
                           <div className="text-gray-600 text-xs">To Evaluate Revenue</div>
                         </div>
                       </div>
@@ -249,15 +249,15 @@ export default function WorkingCapitalSection() {
                       <h4 className="font-bold text-gray-800 text-sm md:text-base mb-2 md:mb-3 text-center sm:text-left">Minimum Qualifications</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-0 sm:divide-x divide-gray-300">
                         <div className="text-center">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">550+</div>
+                          <div className="text-[#2563eb] font-bold text-lg md:text-xl">550+</div>
                           <div className="text-gray-600 text-xs">Min. Credit Score</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">6+</div>
+                          <div className="text-[#2563eb] font-bold text-lg md:text-xl">6+</div>
                           <div className="text-gray-600 text-xs">Months Time In Business</div>
                         </div>
                         <div className="text-center sm:px-3">
-                          <div className="text-[#85abe4] font-bold text-lg md:text-xl">$10K+</div>
+                          <div className="text-[#2563eb] font-bold text-lg md:text-xl">$10K+</div>
                           <div className="text-gray-600 text-xs">Min. Monthly Revenue</div>
                         </div>
                       </div>
@@ -275,7 +275,7 @@ export default function WorkingCapitalSection() {
               setLocation('/solutions');
               window.scrollTo(0, 0);
             }}
-            style={{ backgroundColor: '#85abe4' }}
+            style={{ backgroundColor: '#2563eb' }}
             className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg w-full sm:w-auto min-h-[44px] shadow-lg"
           >
             Browse 12 Funding Solutions

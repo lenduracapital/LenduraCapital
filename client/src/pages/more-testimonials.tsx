@@ -65,7 +65,7 @@ export default function MoreTestimonials() {
             Client Success Stories
           </h1>
           <p className="text-xl text-white max-w-3xl mx-auto" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-            Discover how FundTek Capital Group has helped businesses across industries achieve their goals with flexible financing solutions.
+            Discover how Lendura Capital has helped businesses across industries achieve their goals with flexible financing solutions.
           </p>
         </div>
       </section>
@@ -79,7 +79,7 @@ export default function MoreTestimonials() {
           
           <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
             <p>
-              Small businesses are the backbone of our economy, and they deserve funding partners who understand their unique challenges. Unlike traditional banks with rigid requirements, FundTek Capital Group specializes in flexible financing solutions that work for real business situations.
+              Small businesses are the backbone of our economy, and they deserve funding partners who understand their unique challenges. Unlike traditional banks with rigid requirements, Lendura Capital specializes in flexible financing solutions that work for real business situations.
             </p>
             
             <p>
@@ -100,7 +100,7 @@ export default function MoreTestimonials() {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                style={{ backgroundColor: '#85abe4' }}
+                style={{ backgroundColor: '#2563eb' }}
                 className="p-6 rounded-lg shadow-lg"
               >
                 <div className="flex items-center mb-4">
@@ -137,7 +137,7 @@ export default function MoreTestimonials() {
           </p>
           <button 
             onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-            style={{ backgroundColor: '#85abe4' }}
+            style={{ backgroundColor: '#2563eb' }}
             className="px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
           >
             Apply for Funding Today

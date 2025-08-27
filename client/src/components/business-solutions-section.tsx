@@ -54,7 +54,7 @@ export default function BusinessSolutionsSection() {
             <ul className="space-y-3 mb-8">
               {solutions.map((solution, index) => (
                 <li key={index} className="flex items-center text-gray-700">
-                  <span className="w-2 h-2 rounded-full mr-4" style={{ backgroundColor: '#85abe4' }}></span>
+                  <span className="w-2 h-2 rounded-full mr-4" style={{ backgroundColor: '#2563eb' }}></span>
                   {solution}
                 </li>
               ))}
@@ -69,7 +69,7 @@ export default function BusinessSolutionsSection() {
                 setLocation('/solutions');
                 window.scrollTo(0, 0);
               }}
-              style={{ backgroundColor: '#85abe4' }}
+              style={{ backgroundColor: '#2563eb' }}
               className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 rounded-lg font-semibold text-lg min-h-[44px] shadow-lg"
             >
               Explore Your Financing Options →

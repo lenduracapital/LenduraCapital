@@ -23,8 +23,8 @@ export default function CleaningJanitorialServices() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#85abe4] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
+      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#2563eb] to-blue-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -35,8 +35,8 @@ export default function CleaningJanitorialServices() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             onClick={handleBackToIndustries}
-            style={{ backgroundColor: '#85abe4', color: 'white' }}
-            className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
+            style={{ backgroundColor: '#2563eb', color: 'white' }}
+            className="mb-8 text-white border-white hover:bg-white hover:text-[#2563eb] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Industries
@@ -53,14 +53,14 @@ export default function CleaningJanitorialServices() {
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Button 
                 onClick={handleApplyNow}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
               >
                 Get Approved in 24 Hours
               </Button>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg"
               >
                 Explore Your Financing Options
@@ -82,36 +82,36 @@ export default function CleaningJanitorialServices() {
                 The cleaning and janitorial services industry requires reliable equipment, supplies, and working capital to maintain operations and grow. From commercial cleaning contracts to residential services, our financing solutions help you maintain cash flow and invest in growth opportunities.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Whether you need equipment financing for industrial cleaning machines, working capital for supplies and payroll, or expansion funding for new contracts, FundTek Capital Group provides fast, flexible financing tailored to cleaning service businesses.
+                Whether you need equipment financing for industrial cleaning machines, working capital for supplies and payroll, or expansion funding for new contracts, Lendura Capital provides fast, flexible financing tailored to cleaning service businesses.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>24 Hours</div>
+                  <div className="text-2xl font-bold" style={{ color: '#2563eb' }}>24 Hours</div>
                   <div className="text-sm text-gray-600">Fast Approval</div>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold" style={{ color: '#85abe4' }}>$20M</div>
+                  <div className="text-2xl font-bold" style={{ color: '#2563eb' }}>$20M</div>
                   <div className="text-sm text-gray-600">Max Funding</div>
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+              <div className="bg-[#2563eb] text-white p-6 rounded-lg">
                 <Sparkles className="w-8 h-8 mb-4" />
                 <h3 className="text-xl font-bold mb-4">Equipment Financing</h3>
                 <p className="text-blue-100">Industrial cleaners, floor machines, and commercial vehicles</p>
               </div>
               <div className="bg-gray-100 p-6 rounded-lg">
-                <Shield className="w-8 h-8 mb-4" style={{ color: '#85abe4' }} />
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Working Capital</h3>
+                <Shield className="w-8 h-8 mb-4" style={{ color: '#2563eb' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#2563eb' }}>Working Capital</h3>
                 <p className="text-gray-700">Supplies, payroll, and operational expenses</p>
               </div>
               <div className="bg-gray-100 p-6 rounded-lg">
-                <Clock className="w-8 h-8 mb-4" style={{ color: '#85abe4' }} />
-                <h3 className="text-xl font-bold mb-4" style={{ color: '#85abe4' }}>Contract Funding</h3>
+                <Clock className="w-8 h-8 mb-4" style={{ color: '#2563eb' }} />
+                <h3 className="text-xl font-bold mb-4" style={{ color: '#2563eb' }}>Contract Funding</h3>
                 <p className="text-gray-700">Capital to fulfill large commercial cleaning contracts</p>
               </div>
-              <div className="bg-[#85abe4] text-white p-6 rounded-lg">
+              <div className="bg-[#2563eb] text-white p-6 rounded-lg">
                 <Monitor className="w-8 h-8 mb-4" />
                 <h3 className="text-xl font-bold mb-4">Expansion Capital</h3>
                 <p className="text-blue-100">Grow into new markets and service areas</p>
@@ -123,7 +123,7 @@ export default function CleaningJanitorialServices() {
 
 
       {/* Business Financing Steps */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#85abe4' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#2563eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -137,7 +137,7 @@ export default function CleaningJanitorialServices() {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>1</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>1</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Apply Online</h3>
               <p className="text-white/90">Quick and secure application process</p>
@@ -145,7 +145,7 @@ export default function CleaningJanitorialServices() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>2</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>2</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Approval in 1 hour</h3>
               <p className="text-white/90">Fast decision process</p>
@@ -153,7 +153,7 @@ export default function CleaningJanitorialServices() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>3</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>3</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Get Funded</h3>
               <p className="text-white/90">Receive your funds quickly</p>
@@ -170,7 +170,7 @@ export default function CleaningJanitorialServices() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Cleaning service businesses that expanded their operations with FundTek Capital Group financing
+              Cleaning service businesses that expanded their operations with Lendura Capital financing
             </p>
           </div>
           
@@ -195,7 +195,7 @@ export default function CleaningJanitorialServices() {
                 funding: "$45,000 Term Loan"
               }
             ].map((story, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
+              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#2563eb] shadow-lg">
                 <div className="flex items-start space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
@@ -205,7 +205,7 @@ export default function CleaningJanitorialServices() {
                 <div className="border-t pt-4">
                   <div className="font-semibold text-black">{story.name}</div>
                   <div className="text-sm text-gray-600 mb-2">{story.company}</div>
-                  <div className="text-sm font-medium" style={{ color: '#85abe4' }}>{story.funding}</div>
+                  <div className="text-sm font-medium" style={{ color: '#2563eb' }}>{story.funding}</div>
                 </div>
               </div>
             ))}
@@ -214,7 +214,7 @@ export default function CleaningJanitorialServices() {
       </section>
 
       {/* Recommended Solutions */}
-      <section className="py-16 md:py-24 bg-[#85abe4] text-white">
+      <section className="py-16 md:py-24 bg-[#2563eb] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
             Recommended Financing Solutions
@@ -229,7 +229,7 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Industrial cleaning equipment, vehicles, and commercial-grade supplies</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:opacity-90 px-6 py-3 font-semibold rounded-lg transition-all duration-300"
               >
                 Learn More
@@ -240,7 +240,7 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Cash flow for supplies, payroll, and day-to-day operational expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-6 py-3 font-semibold rounded-lg shadow-lg"
               >
                 Learn More
@@ -251,7 +251,7 @@ export default function CleaningJanitorialServices() {
               <p className="text-blue-100 mb-6">Business expansion, new location setup, and major contract fulfillment</p>
               <Button 
                 onClick={() => setLocation("/solutions")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-6 py-3 font-semibold rounded-lg shadow-lg"
               >
                 Learn More

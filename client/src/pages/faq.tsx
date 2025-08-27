@@ -9,8 +9,8 @@ const faqData = [
     category: "Getting Started",
     questions: [
       {
-        question: "What is FundTek Capital Group?",
-        answer: "FundTek Capital Group is a business funding broker that connects qualified businesses with our network of trusted lending partners. We help businesses find the right financing solutions for their specific needs, from equipment purchases to working capital."
+        question: "What is Lendura Capital?",
+        answer: "Lendura Capital is a business funding broker that connects qualified businesses with our network of trusted lending partners. We help businesses find the right financing solutions for their specific needs, from equipment purchases to working capital."
       },
       {
         question: "How does the application process work?",
@@ -106,14 +106,14 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead 
-        title="FAQ - Frequently Asked Questions | FundTek Capital Group"
-        description="Get answers to common questions about business funding, application process, requirements, and working with FundTek Capital Group."
+        title="FAQ - Frequently Asked Questions | Lendura Capital"
+        description="Get answers to common questions about business funding, application process, requirements, and working with Lendura Capital."
         canonical="/faq"
       />
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16" style={{ backgroundColor: '#85abe4' }}>
+      <section className="pt-32 pb-16" style={{ backgroundColor: '#2563eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Frequently Asked Questions
@@ -129,7 +129,7 @@ export default function FAQPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqData.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6" style={{ color: '#85abe4' }}>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6" style={{ color: '#2563eb' }}>
                 {category.category}
               </h2>
               <div className="space-y-4">
@@ -181,7 +181,7 @@ export default function FAQPage() {
             <button 
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
               className="px-8 py-3 text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
-              style={{ backgroundColor: '#85abe4' }}
+              style={{ backgroundColor: '#2563eb' }}
             >
               Apply Now
             </button>

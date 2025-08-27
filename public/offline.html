@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offline - FundTek Capital Group</title>
+    <title>Offline - Lendura Capital</title>
     <style>
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -14,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #85abe4 0%, #5a8fd3 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #5a8fd3 100%);
             color: white;
             text-align: center;
         }
@@ -70,7 +70,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">FundTek Capital Group</div>
+        <div class="logo">Lendura Capital</div>
         <div class="icon">🌐</div>
         <h1>You're Currently Offline</h1>
         <p>
@@ -107,7 +107,7 @@
             if (navigator.onLine) {
                 document.body.style.background = 'linear-gradient(135deg, #4ade80 0%, #22c55e 100%)';
                 document.querySelector('h1').textContent = 'Connection Restored!';
-                document.querySelector('p').textContent = 'Redirecting you back to FundTek Capital Group...';
+                document.querySelector('p').textContent = 'Redirecting you back to Lendura Capital...';
                 setTimeout(() => location.reload(), 2000);
             }
         }

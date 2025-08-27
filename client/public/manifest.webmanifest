@@ -1,10 +1,10 @@
 {
-  "name": "FundTek Capital Group",
+  "name": "Lendura Capital",
   "short_name": "FundTek",
   "description": "Business funding solutions and working capital loans",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#85abe4",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff",
   "orientation": "portrait-primary",
   "icons": [

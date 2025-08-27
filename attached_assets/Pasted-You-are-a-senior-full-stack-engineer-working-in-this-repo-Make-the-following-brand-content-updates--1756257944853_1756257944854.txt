@@ -1,0 +1,107 @@
+You are a senior full-stack engineer working in this repo. Make the following brand/content updates in a clean branch and open a PR.
+
+Goals
+
+Replace the brand blue #85abe4 everywhere with #2563eb (primary blue).
+
+Update the homepage hero copy to the exact text below (no extra marketing fluff).
+
+Replace every exact occurrence of “FundTek Capital Group” with “Lendura Capital.”
+
+Branch & Setup
+
+Create branch: feat/rebrand-blue-copy-rename
+
+Do not touch node_modules, .git, lock files, or env files.
+
+Run and build locally to confirm no type/style errors.
+
+Color Changes
+
+Replace all hex case variants of #85abe4 with #2563eb across these file types:
+.css, .scss, .sass, .less, .pcss, .styl, .svg, .html, .mdx, .js, .jsx, .ts, .tsx, .json, .yml, .yaml, .toml.
+
+If Tailwind is used:
+
+In tailwind.config.*, set theme.extend.colors.primary = '#2563eb' (create if missing).
+
+If there is a custom brand color key (e.g., fundtek, brand, primary), point it to #2563eb.
+
+Grep for any text-[#85abe4], bg-[#85abe4], border-[#85abe4] utility classes and update to #2563eb.
+
+If CSS variables are used (e.g., --primary / --brand), update their values to #2563eb.
+
+Update any inline styles or JSON theme tokens (e.g., theme.json, design-tokens.json) that contain 85abe4.
+
+Hero Copy Update (exact text)
+Find the current hero that reads roughly like:
+
+“Flexible / Financing for / Every Industry”
+
+“Empower your business with custom tailored financial and business solutions”
+
+“Call us at (305) 307-4658 to see your options”
+
+Replace the headline, subhead, and CTA with exactly:
+
+Headline (H1): Flexible Financing. Real Solutions. For Every Industry.
+
+Subhead (paragraph): Fuel your growth with funding tailored to your business—no cookie-cutter offers.
+
+CTA/Contact line: Call (305) 307-4658 to see your best options today.
+
+Notes:
+
+Keep formatting clean (no emojis, no hype words, no “AI” tone).
+
+Preserve existing classes/layout. Only swap the strings in the relevant hero component/template (likely index, Home, or Hero files).
+
+If multiple hero variants exist, update the primary landing/home hero only.
+
+Company Name Replacement
+
+Replace exact string FundTek Capital Group → Lendura Capital across the repo (same file types as above).
+
+Do not alter email addresses, domains, or legal entities unless the exact full string matches.
+
+Update <title> tags, meta descriptions, footers, headers, nav, and PDF/OG meta if present.
+
+Skip binary files.
+
+Verification
+
+Start dev server; verify:
+
+No #85abe4 remains.
+
+Primary interactive elements (buttons/links/CTAs) render in #2563eb.
+
+Homepage hero shows the exact new copy.
+
+“FundTek Capital Group” is fully replaced with “Lendura Capital” (search confirms 0 matches left).
+
+Run linter/typecheck/build; fix any errors introduced by edits.
+
+Deliverables
+
+Commit with message: chore(brand): switch #85abe4 → #2563eb; update hero copy; rename brand to Lendura Capital
+
+Open a PR titled: Rebrand: new blue, updated hero copy, FundTek → Lendura Capital
+
+In the PR description, include:
+
+A checklist of the three goals and their status (all checked).
+
+A short note confirming Tailwind/CSS vars updated (if applicable).
+
+A one-line grep proof that #85abe4 no longer appears.
+
+Acceptance Criteria
+
+Zero occurrences of #85abe4.
+
+Hero text matches exactly the three lines provided.
+
+Zero occurrences of the exact string FundTek Capital Group.
+
+Build passes; site renders correctly.

@@ -115,7 +115,7 @@ export default function QualifiedIndustries() {
   return (
     <div className="min-h-screen bg-[--bg-primary] text-[--text-primary]">
       <SEOHead
-        title="Industries We Fund | 18 Business Sectors | FundTek Capital Group Brooklyn"
+        title="Industries We Fund | 18 Business Sectors | Lendura Capital Brooklyn"
         description="FundTek provides specialized business funding for 18+ industries including trucking, medical, construction, restaurants, retail & more. Bad credit OK. Same day approval. Call (305) 307-4658."
         keywords="business funding by industry, trucking business loans, medical practice financing, construction loans, restaurant funding, retail business loans, manufacturing financing, technology startup funding, Brooklyn business lender"
         canonical="/industries"
@@ -136,10 +136,10 @@ export default function QualifiedIndustries() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-wider">
-            Qualified <span style={{ color: '#85abe4' }}>Industries</span>
+            Qualified <span style={{ color: '#2563eb' }}>Industries</span>
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
-            FundTek Capital Group specializes in providing tailored financing solutions across diverse industries. 
+            Lendura Capital specializes in providing tailored financing solutions across diverse industries. 
             Our expertise spans multiple sectors, ensuring we understand your unique business challenges.
           </p>
           <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto">
@@ -150,7 +150,7 @@ export default function QualifiedIndustries() {
             <Button 
               onClick={handleApplyNow}
               className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
-              style={{ color: '#85abe4' }}
+              style={{ color: '#2563eb' }}
             >
               Apply for Funding
             </Button>
@@ -158,7 +158,7 @@ export default function QualifiedIndustries() {
               onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
               className="bg-white hover:bg-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 rounded-lg font-semibold text-lg shadow-lg"
               style={{ 
-                color: '#85abe4'
+                color: '#2563eb'
               }}
             >
               Schedule Consultation
@@ -188,7 +188,7 @@ export default function QualifiedIndustries() {
                   <h3 className={`text-xl font-bold text-gray-900 mb-4 ${industry.title === 'Trucking & Transportation' ? '-mt-2' : ''}`}>
                     {industry.title}
                   </h3>
-                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#85abe4' }}></div>
+                  <div className="w-12 h-1 mb-4" style={{ backgroundColor: '#2563eb' }}></div>
                   <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
                     {industry.description}
                   </p>
@@ -225,7 +225,7 @@ export default function QualifiedIndustries() {
                           setLocation('/solutions');
                         }
                       }}
-                      style={{ backgroundColor: '#85abe4' }}
+                      style={{ backgroundColor: '#2563eb' }}
                       className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-2 rounded font-semibold w-full shadow-lg"
                     >
                       Learn More →
@@ -242,7 +242,7 @@ export default function QualifiedIndustries() {
               <p className="text-gray-600 mb-6">Almost all industries qualify for our programs. Contact us to discuss your specific business needs.</p>
               <Button 
                 onClick={handleApplyNow}
-                style={{ backgroundColor: '#85abe4' }}
+                style={{ backgroundColor: '#2563eb' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-3 rounded-lg font-semibold text-lg shadow-lg"
               >
                 Get Pre-Qualified Today

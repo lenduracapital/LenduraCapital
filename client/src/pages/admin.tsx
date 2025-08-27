@@ -187,8 +187,8 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <SEOHead 
-        title="Admin Dashboard - FundTek Capital Group"
-        description="Administrative dashboard for FundTek Capital Group"
+        title="Admin Dashboard - Lendura Capital"
+        description="Administrative dashboard for Lendura Capital"
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -196,7 +196,7 @@ export default function AdminDashboard() {
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-            <p className="text-gray-600">FundTek Capital Group Management Portal</p>
+            <p className="text-gray-600">Lendura Capital Management Portal</p>
           </div>
           <div className="flex gap-4">
             <Select value={selectedDateRange} onValueChange={setSelectedDateRange}>
@@ -267,12 +267,12 @@ export default function AdminDashboard() {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <CreditCard className="w-5 h-5" style={{ color: '#85abe4' }} />
+                    <CreditCard className="w-5 h-5" style={{ color: '#2563eb' }} />
                     Loan Applications
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-3xl font-bold" style={{ color: '#85abe4' }}>
+                  <div className="text-3xl font-bold" style={{ color: '#2563eb' }}>
                     {stats.totalLoanApplications}
                   </div>
                   <p className="text-sm text-gray-600 mt-1">
@@ -349,7 +349,7 @@ export default function AdminDashboard() {
                           <div className="text-sm text-gray-600">{jotform.email}</div>
                           <div className="text-xs text-gray-500">{jotform.formTitle || 'Form Submission'}</div>
                         </div>
-                        <Badge variant="outline" style={{ backgroundColor: '#85abe4', color: 'white' }}>
+                        <Badge variant="outline" style={{ backgroundColor: '#2563eb', color: 'white' }}>
                           {jotform.status || 'New'}
                         </Badge>
                       </div>
@@ -896,14 +896,14 @@ function LoginForm({ onLogin }: { onLogin: (username: string, password: string) 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <SEOHead 
-        title="Admin Login - FundTek Capital Group"
-        description="Administrative login for FundTek Capital Group"
+        title="Admin Login - Lendura Capital"
+        description="Administrative login for Lendura Capital"
       />
       
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Admin Login</CardTitle>
-          <CardDescription>Access FundTek Capital Group admin dashboard</CardDescription>
+          <CardDescription>Access Lendura Capital admin dashboard</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -929,7 +929,7 @@ function LoginForm({ onLogin }: { onLogin: (username: string, password: string) 
                 required
               />
             </div>
-            <Button type="submit" className="w-full" style={{ backgroundColor: '#85abe4' }}>
+            <Button type="submit" className="w-full" style={{ backgroundColor: '#2563eb' }}>
               Sign In
             </Button>
           </form>

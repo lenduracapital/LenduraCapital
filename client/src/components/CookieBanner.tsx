@@ -46,7 +46,7 @@ export default function CookieBanner() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3">
           <div className="flex items-center justify-between gap-2 sm:gap-4">
             <div className="flex items-center gap-2 flex-1 min-w-0">
-              <Cookie className="w-4 h-4 text-[#85abe4] flex-shrink-0" />
+              <Cookie className="w-4 h-4 text-[#2563eb] flex-shrink-0" />
               <p className="text-gray-700 text-xs sm:text-sm font-medium truncate">
                 We use cookies for better experience.
                 <span className="hidden sm:inline"> By continuing, you accept our policy.</span>
@@ -58,7 +58,7 @@ export default function CookieBanner() {
                 onClick={acceptCookies}
                 className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-md font-medium text-xs sm:text-sm text-white transition-all duration-200 hover:shadow-md active:scale-95"
                 style={{ 
-                  backgroundColor: '#85abe4',
+                  backgroundColor: '#2563eb',
                   minWidth: '60px'
                 }}
               >

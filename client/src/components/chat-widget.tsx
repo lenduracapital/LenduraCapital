@@ -170,7 +170,7 @@ function ChatWidget() {
       const newResponses = { ...chatState.responses, email: text };
       addMessage("Perfect! I'll have someone from our team contact you.", 'bot', 2000);
       setTimeout(() => {
-        addMessage("A FundTek expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min", 'bot');
+        addMessage("A Lendura expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/admin-fundtekcapitalgroup/30min", 'bot');
       }, 5500);
       setChatState({ step: 'complete', responses: newResponses });
       
@@ -214,7 +214,7 @@ function ChatWidget() {
       } else if (selection.includes('existing application')) {
         addMessage("I'll connect you with someone who can help.", 'bot', 2500);
         setTimeout(() => {
-          addMessage("A FundTek expert will reach out at their earliest convenience, or call us at (305) 307-4658.", 'bot');
+          addMessage("A Lendura expert will reach out at their earliest convenience, or call us at (305) 307-4658.", 'bot');
         }, 6000);
         setChatState({ step: 'complete', responses: newResponses });
         sendChatData({ ...newResponses, userType: selection });
@@ -235,7 +235,7 @@ function ChatWidget() {
       const categoryResponses = {
         'Financing options and rates': "Our financing options include Term Loans (6-36 months), SBA Loans (up to 25 years), Lines of Credit (flexible access), and Merchant Cash Advances (3-18 months). Rates vary from 8-35% based on qualifications.",
         'Application requirements': "We typically need: 3+ months in business, $10K+ monthly revenue, 550+ credit score, bank statements, and basic business documents. Most applications are processed within 24 hours.",
-        'How FundTek works': "FundTek Capital Group is a professional financing firm that connects businesses with our network of trusted lenders. We analyze your business profile and match you with the most suitable funding solutions, managing the entire process from application to funding.",
+        'How Lendura works': "Lendura Capital Group is a professional financing firm that connects businesses with our network of trusted lenders. We analyze your business profile and match you with the most suitable funding solutions, managing the entire process from application to funding.",
         'Industry expertise': "We specialize in restaurants, retail, healthcare, construction, trucking, e-commerce, professional services, and many other industries with tailored solutions for each sector's unique needs."
       };
       
@@ -425,7 +425,7 @@ function ChatWidget() {
           <button
             onClick={handleSubmitText}
             disabled={!textInput.trim()}
-            className="bg-[#85abe4] hover:bg-[#7ba0d9] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
+            className="bg-[#2563eb] hover:bg-[#1d4ed8] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
           >
             <Send className="w-4 h-4" />
           </button>
@@ -487,7 +487,7 @@ function ChatWidget() {
             {[
               'Financing options and rates',
               'Application requirements', 
-              'How FundTek works',
+              'How Lendura works',
               'Industry expertise'
             ].map((option) => (
               <button
@@ -506,7 +506,7 @@ function ChatWidget() {
           <div className="flex flex-col gap-2 mt-3">
             <button
               onClick={() => handleUserSelection("I'd like to explore financing options", 'businessType')}
-              className="bg-[#85abe4] hover:bg-[#7099d6] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors text-left"
             >
               💰 Explore financing options for my business
             </button>
@@ -567,21 +567,21 @@ function ChatWidget() {
       
       case 'complete':
         return (
-          <div className="flex flex-col gap-3 mt-4 p-4 bg-gradient-to-r from-[#85abe4]/10 to-blue-50 rounded-lg border border-[#85abe4]/20">
+          <div className="flex flex-col gap-3 mt-4 p-4 bg-gradient-to-r from-[#2563eb]/10 to-blue-50 rounded-lg border border-[#2563eb]/20">
             <div className="text-center text-gray-700 text-sm font-medium mb-2">
               Need immediate assistance?
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
               <button
                 onClick={() => window.open('https://calendly.com/admin-fundtekcapitalgroup/30min', '_blank')}
-                className="flex items-center justify-center gap-2 bg-[#85abe4] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center justify-center gap-2 bg-[#2563eb] hover:bg-blue-600 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 Call (305) 307-4658
               </button>
               <button
                 onClick={() => window.open('https://form.jotform.com/251965461165159', '_blank')}
-                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#85abe4] border-2 border-[#85abe4] px-4 py-3 rounded-lg text-sm font-medium transition-colors"
+                className="flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#2563eb] border-2 border-[#2563eb] px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Send className="w-4 h-4" />
                 Apply Online
@@ -603,7 +603,7 @@ function ChatWidget() {
       {isVisible && !isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 z-40 bg-[#85abe4] hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-200"
+          className="fixed bottom-4 right-4 z-40 bg-[#2563eb] hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-200"
           aria-label="Open chat"
         >
           <MessageCircle className="w-6 h-6" />
@@ -626,7 +626,7 @@ function ChatWidget() {
             isMobile ? 'rounded-t-lg' : 'rounded-lg'
           }`}>
             {/* Header */}
-            <div className="bg-[#85abe4] text-white p-4 flex items-center justify-between">
+            <div className="bg-[#2563eb] text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 {showHistory && (
                   <button
@@ -638,11 +638,11 @@ function ChatWidget() {
                   </button>
                 )}
                 <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-[#85abe4]" />
+                  <Bot className="w-6 h-6 text-[#2563eb]" />
                 </div>
                 <div>
                   <div className={`font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}>
-                    {showHistory ? 'Conversation(s)' : 'FundTek'}
+                    {showHistory ? 'Conversation(s)' : 'Lendura'}
                   </div>
                   <div className={`text-blue-100 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                     {showHistory ? '' : 'Here to assist!'}
@@ -679,7 +679,7 @@ function ChatWidget() {
                       <div
                         key={conv.sessionId}
                         onClick={() => loadConversation(conv.sessionId)}
-                        className={`${isMobile ? 'p-3' : 'p-4'} bg-white rounded-lg border hover:border-[#85abe4] cursor-pointer transition-colors`}
+                        className={`${isMobile ? 'p-3' : 'p-4'} bg-white rounded-lg border hover:border-[#2563eb] cursor-pointer transition-colors`}
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
@@ -688,7 +688,7 @@ function ChatWidget() {
                             </div>
                             <div>
                               <div className={`font-medium ${isMobile ? 'text-sm' : 'text-base'}`}>
-                                {conv.firstName || 'FundTek Chat'}
+                                {conv.firstName || 'Lendura Chat'}
                               </div>
                               <div className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-600`}>
                                 {new Date(conv.timestamp).toLocaleDateString()} • 
@@ -716,7 +716,7 @@ function ChatWidget() {
                   >
                     <div className={`max-w-[80%] ${isMobile ? 'p-2 text-sm' : 'p-3 text-base'} rounded-lg shadow-sm ${
                       message.sender === 'user'
-                        ? 'bg-[#85abe4] text-white rounded-br-sm'
+                        ? 'bg-[#2563eb] text-white rounded-br-sm'
                         : 'bg-white text-gray-800 border rounded-bl-sm'
                     }`}>
                       {message.text}

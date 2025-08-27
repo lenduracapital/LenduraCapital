@@ -8,7 +8,7 @@ const TeamMemberCircle = ({ member }: { member: any }) => {
   return (
     <div className="text-center">
       <div className="w-24 h-24 mx-auto mb-4">
-        <div className="w-24 h-24 rounded-full bg-[#85abe4] flex items-center justify-center">
+        <div className="w-24 h-24 rounded-full bg-[#2563eb] flex items-center justify-center">
           <span className="text-white text-2xl font-bold">
             {member.initials}
           </span>
@@ -134,7 +134,7 @@ export default function TrustSignalsSection() {
         {/* Why Trust FundTek */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Trust FundTek Capital Group?
+            Why Trust Lendura Capital?
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Our commitment to transparency, expertise, and results has made us a trusted partner 
@@ -151,7 +151,7 @@ export default function TrustSignalsSection() {
                 <div className="flex items-center mb-4">
                   <div 
                     className="p-3 rounded-lg mr-4"
-                    style={{ backgroundColor: '#85abe4' }}
+                    style={{ backgroundColor: '#2563eb' }}
                   >
                     <div className="w-6 h-6 text-white">
                       <IconComponent className="w-6 h-6 text-white" />
@@ -184,7 +184,7 @@ export default function TrustSignalsSection() {
             {faqItems.map((faq, index) => {
               const isOpen = openFAQ === index;
               return (
-                <div key={index} className="bg-white rounded-xl shadow-lg border-l-4 overflow-hidden" style={{ borderLeftColor: '#85abe4' }}>
+                <div key={index} className="bg-white rounded-xl shadow-lg border-l-4 overflow-hidden" style={{ borderLeftColor: '#2563eb' }}>
                   <button
                     onClick={() => toggleFAQ(index)}
                     className="w-full text-left p-5 hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
@@ -222,7 +222,7 @@ export default function TrustSignalsSection() {
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               onClick={() => window.open("https://form.jotform.com/251965461165159", "_blank")}
-              className="bg-[#85abe4] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              className="bg-[#2563eb] hover:bg-[#7299d1] text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
               Get Funding Now
             </Button>
@@ -230,7 +230,7 @@ export default function TrustSignalsSection() {
             <Button 
               onClick={() => setLocation("/faq")}
               variant="outline"
-              className="border-2 border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
+              className="border-2 border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white font-semibold px-6 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 w-full sm:w-auto"
             >
               Still Have Questions?
             </Button>

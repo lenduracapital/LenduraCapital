@@ -6,14 +6,14 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead 
-        title="Privacy Policy - FundTek Capital Group"
-        description="Privacy policy for FundTek Capital Group. Learn how we protect and handle your personal and business information."
+        title="Privacy Policy - Lendura Capital"
+        description="Privacy policy for Lendura Capital. Learn how we protect and handle your personal and business information."
         canonical="/privacy"
       />
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#85abe4' }}>
+      <section className="pt-24 md:pt-32 lg:pt-40 pb-12" style={{ backgroundColor: '#2563eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-6">

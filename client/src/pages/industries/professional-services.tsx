@@ -22,8 +22,8 @@ export default function ProfessionalServices() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#85abe4] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
+      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#2563eb] to-blue-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -34,8 +34,8 @@ export default function ProfessionalServices() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             onClick={handleBackToIndustries}
-            style={{ backgroundColor: '#85abe4', color: 'white' }}
-            className="mb-8 text-white border-white hover:bg-white hover:text-[#85abe4] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
+            style={{ backgroundColor: '#2563eb', color: 'white' }}
+            className="mb-8 text-white border-white hover:bg-white hover:text-[#2563eb] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Industries
@@ -52,7 +52,7 @@ export default function ProfessionalServices() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
               >
                 Get Approved in 24 Hours
@@ -60,7 +60,7 @@ export default function ProfessionalServices() {
               <Button 
                 onClick={() => setLocation("/solutions")}
                 size="lg"
-                style={{ color: 'white', borderColor: '#85abe4', backgroundColor: '#85abe4' }}
+                style={{ color: 'white', borderColor: '#2563eb', backgroundColor: '#2563eb' }}
                 className="hover:bg-[#7299d1] hover:border-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold border shadow-lg"
               >
                 View All Solutions
@@ -80,7 +80,7 @@ export default function ProfessionalServices() {
               </h2>
               <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
                 <p>Professional service firms face unique challenges: client payment delays, technology upgrades, staff expansion, and maintaining competitive advantage in knowledge-based industries.</p>
-                <p>FundTek Capital Group understands professional services and provides flexible financing solutions that help firms invest in technology, expand teams, and maintain steady cash flow.</p>
+                <p>Lendura Capital understands professional services and provides flexible financing solutions that help firms invest in technology, expand teams, and maintain steady cash flow.</p>
               </div>
               
               <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Common Financing Needs</h3>
@@ -94,7 +94,7 @@ export default function ProfessionalServices() {
                   "Professional development and training"
                 ].map((need, index) => (
                   <li key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#85abe4' }} />
+                    <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#2563eb' }} />
                     <span className="text-gray-700">{need}</span>
                   </li>
                 ))}
@@ -107,7 +107,7 @@ export default function ProfessionalServices() {
                 alt="Professional services office environment"
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
               />
-              <div className="absolute -bottom-6 -right-6 bg-[#85abe4] text-white p-6 rounded-lg shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-[#2563eb] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-sm font-medium text-white">Fast Approval</div>
                 <div className="text-2xl font-bold text-white">24-48hrs</div>
               </div>
@@ -119,7 +119,7 @@ export default function ProfessionalServices() {
 
 
       {/* Business Financing Steps */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#85abe4' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#2563eb' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -133,7 +133,7 @@ export default function ProfessionalServices() {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>1</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>1</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Apply Online</h3>
               <p className="text-white/90">Quick and secure application process</p>
@@ -141,7 +141,7 @@ export default function ProfessionalServices() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>2</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>2</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Approval in 1 hour</h3>
               <p className="text-white/90">Fast decision process</p>
@@ -149,7 +149,7 @@ export default function ProfessionalServices() {
             
             <div className="text-center">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold" style={{ color: '#85abe4' }}>3</span>
+                <span className="text-2xl font-bold" style={{ color: '#2563eb' }}>3</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Get Funded</h3>
               <p className="text-white/90">Receive your funds quickly</p>
@@ -166,7 +166,7 @@ export default function ProfessionalServices() {
               Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Real professional service firms that grew with FundTek Capital Group financing
+              Real professional service firms that grew with Lendura Capital financing
             </p>
           </div>
           
@@ -191,7 +191,7 @@ export default function ProfessionalServices() {
                 funding: "$95,000 Term Loan"
               }
             ].map((story, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#85abe4] shadow-lg">
+              <div key={index} className="bg-white p-8 rounded-lg border-l-4 border-[#2563eb] shadow-lg">
                 <div className="flex items-start space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
@@ -201,7 +201,7 @@ export default function ProfessionalServices() {
                 <div className="border-t pt-4">
                   <div className="font-semibold text-black">{story.name}</div>
                   <div className="text-sm text-gray-600 mb-2">{story.company}</div>
-                  <div className="text-sm font-medium" style={{ color: '#85abe4' }}>{story.funding}</div>
+                  <div className="text-sm font-medium" style={{ color: '#2563eb' }}>{story.funding}</div>
                 </div>
               </div>
             ))}
@@ -210,7 +210,7 @@ export default function ProfessionalServices() {
       </section>
 
       {/* Recommended Solutions */}
-      <section className="py-16 md:py-24 bg-[#85abe4] text-white">
+      <section className="py-16 md:py-24 bg-[#2563eb] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
             Recommended Financing Solutions
@@ -225,7 +225,7 @@ export default function ProfessionalServices() {
               <p className="text-blue-100 mb-6">Ideal for office expansion, technology upgrades, and staff hiring</p>
               <Button 
                 onClick={() => setLocation("/solutions/term-loans")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
                 Learn More
@@ -236,7 +236,7 @@ export default function ProfessionalServices() {
               <p className="text-blue-100 mb-6">Perfect for managing cash flow and covering operational expenses</p>
               <Button 
                 onClick={() => setLocation("/solutions/lines-of-credit")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:opacity-90 font-semibold"
               >
                 Learn More
@@ -247,7 +247,7 @@ export default function ProfessionalServices() {
               <p className="text-blue-100 mb-6">Financing for office equipment, technology systems, and business tools</p>
               <Button 
                 onClick={() => setLocation("/solutions/equipment-financing")}
-                style={{ backgroundColor: '#85abe4', color: 'white' }}
+                style={{ backgroundColor: '#2563eb', color: 'white' }}
                 className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 font-semibold shadow-lg"
               >
                 Learn More
@@ -270,14 +270,14 @@ export default function ProfessionalServices() {
             <Button 
               onClick={handleApplyNow}
               size="lg"
-              style={{ backgroundColor: '#85abe4' }}
+              style={{ backgroundColor: '#2563eb' }}
               className="hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold text-white shadow-lg"
             >
               Apply Now - Get Approved in 24 Hours
             </Button>
             <Button 
               onClick={() => setLocation("/contact")}
-              style={{ backgroundColor: '#85abe4', color: 'white' }}
+              style={{ backgroundColor: '#2563eb', color: 'white' }}
               size="lg"
               className="text-white border-white hover:bg-white hover:text-gray-900 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
             >

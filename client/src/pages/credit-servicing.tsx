@@ -27,8 +27,8 @@ export default function CreditServicing() {
       <Header />
       
       {/* Enhanced Hero Section */}
-      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-[#85abe4] to-blue-600 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#85abe4]/30 to-transparent"></div>
+      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-[#2563eb] to-blue-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{
@@ -42,7 +42,7 @@ export default function CreditServicing() {
               <Button 
                 onClick={handleBackToSolutions}
                 variant="outline" 
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] mb-4"
+                className="text-white border-white hover:bg-white hover:text-[#2563eb] mb-4"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Solutions
@@ -59,7 +59,7 @@ export default function CreditServicing() {
               <Button 
                 onClick={handleApplyNow}
                 size="lg"
-                className="bg-white text-[#85abe4] hover:bg-blue-50 font-bold px-8 py-4 text-lg"
+                className="bg-white text-[#2563eb] hover:bg-blue-50 font-bold px-8 py-4 text-lg"
               >
                 Get Approved in 24 Hours
               </Button>
@@ -67,7 +67,7 @@ export default function CreditServicing() {
                 onClick={handleMoreTestimonials}
                 variant="outline"
                 size="lg" 
-                className="text-white border-white hover:bg-white hover:text-[#85abe4] px-8 py-4 text-lg"
+                className="text-white border-white hover:bg-white hover:text-[#2563eb] px-8 py-4 text-lg"
               >
                 Read Success Stories
               </Button>
@@ -89,21 +89,21 @@ export default function CreditServicing() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Score Improvement</h3>
                 <p className="text-gray-600">Strategic credit optimization to maximize your scores</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Credit Monitoring</h3>
                 <p className="text-gray-600">Continuous monitoring and protection services</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Expert Guidance</h3>
@@ -128,35 +128,35 @@ export default function CreditServicing() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Personal Credit Services */}
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
+            <Card className="border-2 border-[#2563eb]/20 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-[#2563eb] to-blue-600 text-white">
                 <CardTitle className="text-2xl font-bold">Personal Credit Services</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Credit Report Analysis</h4>
                       <p className="text-gray-600">Comprehensive review of all three credit bureaus</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Dispute Resolution</h4>
                       <p className="text-gray-600">Professional handling of inaccurate or outdated items</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Score Optimization</h4>
                       <p className="text-gray-600">Strategic planning to maximize FICO and VantageScore</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Credit Building Strategy</h4>
                       <p className="text-gray-600">Personalized plans for long-term credit health</p>
@@ -167,35 +167,35 @@ export default function CreditServicing() {
             </Card>
 
             {/* Business Credit Services */}
-            <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
+            <Card className="border-2 border-[#2563eb]/20 shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-[#2563eb] to-blue-600 text-white">
                 <CardTitle className="text-2xl font-bold">Business Credit Services</CardTitle>
               </CardHeader>
               <CardContent className="p-8">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Business Credit Establishment</h4>
                       <p className="text-gray-600">Complete setup with Dun & Bradstreet, Experian, Equifax</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Vendor Credit Lines</h4>
                       <p className="text-gray-600">Strategic vendor relationships to build credit history</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Corporate Credit Monitoring</h4>
                       <p className="text-gray-600">Ongoing monitoring and protection services</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-[#85abe4] mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-6 h-6 text-[#2563eb] mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-800">Financing Optimization</h4>
                       <p className="text-gray-600">Maximize funding opportunities and approval rates</p>
@@ -222,28 +222,28 @@ export default function CreditServicing() {
 
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Credit Analysis</h3>
               <p className="text-gray-600">Comprehensive evaluation of current credit status and identification of improvement opportunities</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Strategic Planning</h3>
               <p className="text-gray-600">Custom strategy development based on your specific goals and timeline requirements</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Implementation</h3>
               <p className="text-gray-600">Professional execution of credit repair and optimization strategies</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[#85abe4] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-white">4</span>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">Monitoring & Maintenance</h3>
@@ -264,7 +264,7 @@ export default function CreditServicing() {
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Star className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -274,7 +274,7 @@ export default function CreditServicing() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -284,7 +284,7 @@ export default function CreditServicing() {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-[#85abe4] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -296,30 +296,30 @@ export default function CreditServicing() {
             </div>
             
             <div>
-              <Card className="border-2 border-[#85abe4]/20 shadow-lg">
-                <CardHeader className="bg-gradient-to-r from-[#85abe4] to-blue-600 text-white">
+              <Card className="border-2 border-[#2563eb]/20 shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-[#2563eb] to-blue-600 text-white">
                   <CardTitle className="text-2xl font-bold">Service Benefits</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
+                      <CheckCircle className="w-5 h-5 text-[#2563eb]" />
                       <span className="text-gray-700">Improved credit scores within 60-90 days</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
+                      <CheckCircle className="w-5 h-5 text-[#2563eb]" />
                       <span className="text-gray-700">Better financing terms and interest rates</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
+                      <CheckCircle className="w-5 h-5 text-[#2563eb]" />
                       <span className="text-gray-700">Increased borrowing capacity</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
+                      <CheckCircle className="w-5 h-5 text-[#2563eb]" />
                       <span className="text-gray-700">Enhanced business funding opportunities</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-[#85abe4]" />
+                      <CheckCircle className="w-5 h-5 text-[#2563eb]" />
                       <span className="text-gray-700">Professional credit monitoring</span>
                     </div>
                   </div>
@@ -337,7 +337,7 @@ export default function CreditServicing() {
             Client Success Story
           </h2>
           
-          <Card className="border-2 border-[#85abe4]/20 shadow-lg">
+          <Card className="border-2 border-[#2563eb]/20 shadow-lg">
             <CardContent className="p-8">
               <div className="flex justify-center mb-6">
                 {[...Array(5)].map((_, i) => (
@@ -349,7 +349,7 @@ export default function CreditServicing() {
               </blockquote>
               <div className="text-center">
                 <div className="font-bold text-gray-800">Michael Rodriguez</div>
-                <div className="text-[#85abe4]">Rodriguez Construction LLC</div>
+                <div className="text-[#2563eb]">Rodriguez Construction LLC</div>
               </div>
             </CardContent>
           </Card>
@@ -358,7 +358,7 @@ export default function CreditServicing() {
             <Button 
               onClick={handleMoreTestimonials}
               variant="outline"
-              className="border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white"
+              className="border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white"
             >
               Read More Success Stories
             </Button>
@@ -367,7 +367,7 @@ export default function CreditServicing() {
       </section>
 
       {/* Qualification Requirements */}
-      <section className="py-16 md:py-20 bg-[#85abe4] text-white">
+      <section className="py-16 md:py-20 bg-[#2563eb] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Service Requirements
@@ -406,7 +406,7 @@ export default function CreditServicing() {
             <Button 
               onClick={handleApplyNow}
               size="lg"
-              className="bg-[#85abe4] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
+              className="bg-[#2563eb] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-8 py-4 text-lg shadow-lg"
             >
               Get Approved in 24 Hours
             </Button>
@@ -414,7 +414,7 @@ export default function CreditServicing() {
               onClick={handleBackToSolutions}
               variant="outline"
               size="lg"
-              className="border-[#85abe4] text-[#85abe4] hover:bg-[#85abe4] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg"
+              className="border-[#2563eb] text-[#2563eb] hover:bg-[#2563eb] hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 px-8 py-4 text-lg"
             >
               Back to Solutions
             </Button>

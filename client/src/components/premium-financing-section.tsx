@@ -39,16 +39,16 @@ export default function PremiumFinancingSection() {
             
             <div className="space-y-3 mb-8">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#2563eb] rounded-full mr-4"></div>
                 <span className="text-gray-700">Credit Servicing (Personal & Business)</span>
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#2563eb] rounded-full mr-4"></div>
                 <span className="text-gray-700">Credit Card Processing</span>
               </div>
 
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#85abe4] rounded-full mr-4"></div>
+                <div className="w-2 h-2 bg-[#2563eb] rounded-full mr-4"></div>
                 <span className="text-gray-700">Search Engine Optimization and Web Development</span>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function PremiumFinancingSection() {
             <div className="mt-8">
               <button 
                 onClick={() => setLocation('/solutions')}
-                className="bg-[#85abe4] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-3 rounded-lg font-semibold shadow-lg"
+                className="bg-[#2563eb] hover:bg-[#7299d1] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-white px-6 py-3 rounded-lg font-semibold shadow-lg"
               >
                 Find out more
               </button>
