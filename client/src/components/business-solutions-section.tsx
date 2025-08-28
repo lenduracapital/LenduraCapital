@@ -5,7 +5,7 @@ export default function BusinessSolutionsSection() {
   const [, setLocation] = useLocation();
   
   const solutions = [
-    "Client Cash Advance",
+    "Merchant Cash Advance",
     "Line of Credit", 
     "Equipment Financing",
     "Mortgage Financing",
