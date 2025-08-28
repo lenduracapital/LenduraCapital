@@ -11,7 +11,7 @@ export default function PremiumFinancingSection() {
           <div className="order-2 lg:order-1">
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                src="/attached_assets/building.jpg" 
                 alt="City skyline representing business growth"
                 className="w-full h-full object-cover"
               />
