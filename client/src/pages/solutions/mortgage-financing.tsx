@@ -1,5 +1,5 @@
 import SolutionDetailTemplate from '@/components/solution-detail-template';
-import mortgageImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
+import mortgageImage from "@assets/realestate.jpg";
 
 export default function MortgageFinancing() {
   return (

@@ -7,8 +7,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 
-import truckImage from "@assets/Truck_1750271749729.jpg";
-import fixCreditImage from "@assets/bigstock-Fix-Your-Credit-146067395_1750771733188.jpg";
+import truckImage from "@assets/trucking.jpg";
+import fixCreditImage from "@assets/creditrepair.jpg";
 import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
 import termLoansImage from "@assets/termloans.jpg";
 import linesOfCreditImage from "@assets/lines of credit.jpg";
