@@ -22,7 +22,7 @@ export default function BusinessSolutionsSection() {
           <div className="relative order-2 lg:order-1">
             <div className="bg-slate-800 rounded-lg overflow-hidden h-[300px] md:h-[400px] lg:h-[500px]">
               <img 
-                src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop"
+                src="/attached_assets/pexels-aman-kushwaha-2148018158-33608269.jpg"
                 alt="City skyline at night"
                 className="w-full h-full object-cover"
               />
