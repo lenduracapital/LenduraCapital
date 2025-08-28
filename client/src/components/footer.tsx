@@ -77,9 +77,6 @@ export default function Footer() {
             
             <div className="mt-4 text-left">
               <div className="flex items-center justify-start space-x-1">
-                <a href="https://biz.yelp.com/biz_info/uTlQOdkEY_HypI6er1xDUg" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
-                  <FaYelp size={24} />
-                </a>
                 
               </div>
             </div>
