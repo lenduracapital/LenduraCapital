@@ -252,7 +252,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
-                        <a href="https://calendly.com/fundtek/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
+                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
                       </div>
                     </div>
                     

@@ -61,7 +61,7 @@ export default function Footer() {
               Would you like a free, no strings attached consultation?
             </p>
             <p className="text-black text-xs md:text-sm">
-              Call us today at <a href="https://calendly.com/lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
+              Call us today at <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(305) 834-7168</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
               <a href="https://www.instagram.com/lenduracapital/?hl=en" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">

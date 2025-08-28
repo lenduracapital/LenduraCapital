@@ -170,7 +170,7 @@ function ChatWidget() {
       const newResponses = { ...chatState.responses, email: text };
       addMessage("Perfect! I'll have someone from our team contact you.", 'bot', 2000);
       setTimeout(() => {
-        addMessage("A Lendura expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/lenduracapital/30min", 'bot');
+        addMessage("A Lendura expert will reach out at their earliest convenience. For immediate help, you can schedule a call at https://calendly.com/sam-lenduracapital/30min", 'bot');
       }, 5500);
       setChatState({ step: 'complete', responses: newResponses });
       
