@@ -196,7 +196,7 @@ function ContactForm() {
           onChange={(e) => handleInputChange('agree', e.target.checked)}
         />
         <Label htmlFor="agree" className="text-sm text-gray-700">
-          I agree to receive messages and communications from Lendura Capital.
+          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up.  Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the <a href="https://lenduracapital.com/terms">Terms and Conditions</a> & <a href="https://lenduracapital.com/privacy">Privacy Policy</a>.
         </Label>
       </div>
 
