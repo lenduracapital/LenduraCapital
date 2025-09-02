@@ -17,6 +17,7 @@ function ContactForm() {
     phone: "",
     company: "",
     message: "",
+    agree: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error'; message: string} | null>(null);
@@ -187,6 +188,17 @@ function ContactForm() {
           />
           {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
         </div>
+         <div className="mb-2 flex items-start space-x-2">
+        <input
+          id="agree"
+          type="checkbox"
+          checked={formData.agree}
+          onChange={(e) => handleInputChange('agree', e.target.checked)}
+        />
+        <Label htmlFor="agree" className="text-sm text-gray-700">
+          I agree to receive messages and communications from Lendura Capital.
+        </Label>
+      </div>
 
         <div className="pt-4">
           <Button 
