@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "web", "bash"]
 run = "npm run dev"
 build = "npm run build"
 
@@ -8,7 +8,8 @@ packages = ["chromium"]
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["sh", "-c", "npm run start"]
+run = ["npm", "run", "start"]
+build = ["npm", "run", "build"]
 
 [[ports]]
 localPort = 80
@@ -30,6 +31,10 @@ localPort = 8080
 [[ports]]
 localPort = 24678
 externalPort = 3001
+
+[[ports]]
+localPort = 43379
+externalPort = 3002
 
 [workflows]
 runButton = "Project"
