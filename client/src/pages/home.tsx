@@ -29,12 +29,12 @@ export default function Home() {
       <Header transparent={true} />
       <main id="main-content">
         <HeroSection />
-        <ProcessSection />
-        <ContactFormSection />
-        <WorkingCapitalSection />
         <TrustSignalsSection />
-        <MoveBusinessForwardSection />
+        <ProcessSection />
         <BusinessSolutionsSection />
+        <MoveBusinessForwardSection />
+        <WorkingCapitalSection />
+        <ContactFormSection />
         <PremiumFinancingSection />
       </main>
       <Footer />

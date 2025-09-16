@@ -1,42 +1,8 @@
-import { Shield, Award, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { Shield, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
-// Simple team member circle component
-const TeamMemberCircle = ({ member }: { member: any }) => {
-  return (
-    <div className="text-center">
-      <div className="w-24 h-24 mx-auto mb-4">
-        <div className="w-24 h-24 rounded-full bg-[#193a59] flex items-center justify-center">
-          <span className="text-white text-2xl font-bold">
-            {member.initials}
-          </span>
-        </div>
-      </div>
-      
-      <h4 className="text-xl font-semibold text-gray-900 mb-2">
-        {member.name}
-      </h4>
-      <p className="text-gray-600 font-medium mb-2">
-        {member.title}
-      </p>
-      <p className="text-sm text-gray-500 mb-3">
-        {member.experience} • {member.credentials}
-      </p>
-      <div className="flex flex-wrap justify-center gap-2">
-        {member.specialties.map((specialty: string, idx: number) => (
-          <span
-            key={idx}
-            className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700"
-          >
-            {specialty}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const certifications = [
   {
@@ -78,24 +44,6 @@ const certifications = [
   }
 ];
 
-const teamMembers = [
-  {
-    name: "Marc Hoffman",
-    title: "Founder & CEO",
-    experience: "15+ years",
-    specialties: ["Strategic Leadership", "Business Development", "Financial Solutions"],
-    credentials: "Certified Executive Leader",
-    initials: "MH"
-  },
-  {
-    name: "Gabby Goodman", 
-    title: "Co Founder & COO",
-    experience: "12+ years",
-    specialties: ["Operations Management", "Client Relations", "Process Optimization"],
-    credentials: "Business Operations Specialist",
-    initials: "GG"
-  }
-];
 
 export default function TrustSignalsSection() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -129,16 +77,15 @@ export default function TrustSignalsSection() {
   ];
 
   return (
-    <section className="pt-16 md:pt-24 pb-8 md:pb-12 bg-gray-50">
+    <section className="py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Why Trust FundTek */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Why Choose Lendura Capital?
+        {/* Trust signals header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Trusted by 5,000+ Businesses Nationwide
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            We've helped thousands of businesses secure funding quickly and efficiently. 
-            Our track record speaks for itself.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Over $1 billion in funding deployed. 24-hour decisions. Nationwide coverage.
           </p>
         </div>
 
