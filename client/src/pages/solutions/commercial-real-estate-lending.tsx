@@ -4,6 +4,7 @@ import commercialBuildingImage from "@assets/crelending.jpg";
 export default function CommercialRealEstateLending() {
   return (
     <SolutionDetailTemplate 
+      slug="commercial-real-estate-lending"
       title="Commercial Real Estate Lending"
       description="Access capital for commercial real estate purchases, refinancing, and development projects with our specialized CRE lending programs."
       heroImage={commercialBuildingImage}

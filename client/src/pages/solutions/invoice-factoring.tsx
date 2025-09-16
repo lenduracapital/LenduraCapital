@@ -4,6 +4,7 @@ import invoiceImage from "@assets/invoicefactoring.jpg";
 export default function InvoiceFactoringDetail() {
   return (
     <SolutionDetailTemplate
+      slug="invoice-factoring"
       title="Invoice Factoring"
       description="Convert outstanding invoices into immediate cash flow by selling them at a discount to improve liquidity."
       heroImage={invoiceImage}

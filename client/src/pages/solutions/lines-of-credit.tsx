@@ -4,6 +4,7 @@ import lineOfCreditImage from "@assets/lines of credit.jpg";
 export default function LinesOfCreditDetail() {
   return (
     <SolutionDetailTemplate
+      slug="lines-of-credit"
       title="Lines of Credit"
       description="Revolving credit lines that provide flexible access to capital when you need it most for operational expenses."
       heroImage={lineOfCreditImage}

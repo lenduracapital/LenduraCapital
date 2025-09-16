@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Phone } from "lucide-react";
 import { useLocation } from "wouter";
 import { IndustryLayout } from "@/components/Layout";
 import { getRelatedSolutions, generateSEOKeywords } from "@/lib/internalLinks";
+import Hero from "@/components/Hero";
+import BenefitList from "@/components/BenefitList";
+import FAQAccordion from "@/components/FAQAccordion";
+import CTAButton from "@/components/CTAButton";
 
 interface IndustryData {
   // Basic info
@@ -42,19 +44,26 @@ interface IndustryTemplateProps {
 
 export default function IndustryTemplate({ data }: IndustryTemplateProps) {
   const [, setLocation] = useLocation();
-
-  const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
-  };
   
   // Get related solutions for internal linking
   const relatedSolutions = getRelatedSolutions(data.slug);
   const additionalKeywords = generateSEOKeywords(relatedSolutions);
 
-  const handleBackToIndustries = () => {
-    setLocation("/who-we-fund");
-    window.scrollTo(0, 0);
-  };
+  // Sample FAQ data - replace with actual data from props or API
+  const sampleFAQs = [
+    {
+      question: `How fast can ${data.name} businesses get approved for funding?`,
+      answer: `${data.name} businesses can typically get approved for funding in 24-48 hours through our streamlined application process.`
+    },
+    {
+      question: `What funding amounts are available for ${data.name} businesses?`,
+      answer: `We offer funding from $10,000 to $750,000+ for ${data.name.toLowerCase()} businesses, depending on revenue and business needs.`
+    },
+    {
+      question: `Do ${data.name} businesses need collateral for financing?`,
+      answer: `Most of our ${data.name.toLowerCase()} financing solutions are unsecured and don't require collateral.`
+    }
+  ];
 
   return (
     <IndustryLayout
@@ -70,89 +79,45 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
       }}
     >
       
-      {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url(${data.heroImage})`
-          }}
-        />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button
-            onClick={handleBackToIndustries}
-            style={{ backgroundColor: '#193a59', color: 'white' }}
-            className="mb-8 text-white border-white hover:bg-white hover:text-[#193a59] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95"
-            data-testid="button-back-industries"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Industries
-          </Button>
-          
-          <div className="text-left max-w-4xl mt-8 md:mt-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6" data-testid="text-industry-title">
-              {data.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed" data-testid="text-industry-description">
-              {data.description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                onClick={handleApplyNow}
-                size="lg"
-                style={{ backgroundColor: '#193a59', color: 'white' }}
-                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
-                data-testid="button-apply-now"
-              >
-                Get Approved in 24 Hours
-              </Button>
-              <Button 
-                onClick={() => setLocation("/solutions")}
-                size="lg"
-                style={{ color: 'white', borderColor: '#193a59', backgroundColor: '#193a59' }}
-                className="hover:bg-[#285d8a] hover:border-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold border shadow-lg"
-                data-testid="button-view-solutions"
-              >
-                View All Solutions
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* H1: Main keyword (industry name) - Use Hero component */}
+      <Hero
+        title={data.title}
+        description={data.description}
+        backgroundImage={data.heroImage}
+        breadcrumbs={[
+          { label: "Industries", href: "/who-we-fund" },
+          { label: data.name, href: `/industries/${data.slug}` }
+        ]}
+        ctaText="Get Approved in 24 Hours"
+        ctaAction={() => window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer')}
+        size="large"
+        overlay="dark"
+        alignment="center"
+        data-testid="hero-industry-detail"
+      />
 
-      {/* Industry Overview */}
+      {/* H2: What is [Industry] Financing? */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8" data-testid="text-overview-title">
-                {data.overviewTitle}
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8" data-testid="heading-what-is-financing">
+                What is {data.name} Financing?
               </h2>
               <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
-                {data.overviewContent.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
+                {/* Replace with optimized copy for {data.name} */}
+                <p>{data.description}</p>
+                <p>{data.name} financing provides specialized funding solutions tailored to the unique needs and challenges of {data.name.toLowerCase()} businesses.</p>
+                <p>Our {data.name.toLowerCase()} financing programs are designed to help businesses grow, manage cash flow, and seize opportunities in this dynamic industry.</p>
               </div>
-              
-              <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Common Financing Needs</h3>
-              <ul className="space-y-4 mb-8 md:mb-12" data-testid="list-financing-needs">
-                {data.commonNeeds.map((need, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" style={{ color: '#193a59' }} />
-                    <span className="text-gray-700">{need}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
             
             <div className="relative">
               <img 
                 src={data.heroImage}
-                alt={data.heroImageAlt}
+                alt={data.heroImageAlt || `${data.name} financing solutions`}
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
-                data-testid="img-industry-hero"
+                data-testid="img-industry-content"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#193a59] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-sm font-medium text-white">Fast Approval</div>
@@ -163,115 +128,63 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
         </div>
       </section>
 
-      {/* Business Financing Steps */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#193a59' }}>
+      {/* H2: Why [Industry] Businesses Use Our Services */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              How to Get Business Financing
-            </h2>
-            <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-              Our streamlined process makes it easy to get the funding your {data.name.toLowerCase()} business needs
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              {
-                step: "1",
-                title: "Apply Online",
-                description: "Complete our simple application in minutes with basic business information"
-              },
-              {
-                step: "2", 
-                title: "Get Pre-Approved",
-                description: "Receive preliminary approval within hours, not days or weeks"
-              },
-              {
-                step: "3",
-                title: "Receive Funding",
-                description: "Get funds deposited directly into your business account in 24-48 hours"
-              }
-            ].map((step, index) => (
-              <div key={index} className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-6 md:p-8">
-                <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white text-[#193a59] rounded-full text-xl md:text-2xl font-bold mb-4 md:mb-6">
-                  {step.step}
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{step.title}</h3>
-                <p className="text-blue-100 leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-            Ready to Grow Your {data.name} Business?
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-why-businesses-use">
+            Why {data.name} Businesses Use Our Services
           </h2>
-          <p className="text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed">
-            Get the financing you need with competitive rates and fast approval times. 
-            Our {data.name.toLowerCase()} financing experts are ready to help.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button 
-              onClick={handleApplyNow}
-              size="lg"
-              style={{ backgroundColor: '#193a59', color: 'white' }}
-              className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
-              data-testid="button-cta-apply"
-            >
-              Apply Now - Get Approved Fast
-            </Button>
-            
-            <div className="flex items-center text-[#193a59] font-semibold">
-              <Phone className="w-5 h-5 mr-2" />
-              <a href="tel:3058347168" className="hover:text-[#285d8a] transition-colors" data-testid="link-phone">
-                (305) 834-7168
-              </a>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="bg-white p-4 rounded-lg shadow-sm border">
-              <div className="text-2xl font-bold text-[#193a59]">24-48hrs</div>
-              <div className="text-sm text-gray-600">Approval Time</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border">
-              <div className="text-2xl font-bold text-[#193a59]">$10K+</div>
-              <div className="text-sm text-gray-600">Funding Amount</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border">
-              <div className="text-2xl font-bold text-[#193a59]">99%+</div>
-              <div className="text-sm text-gray-600">Approval Rate</div>
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-sm border">
-              <div className="text-2xl font-bold text-[#193a59]">500+</div>
-              <div className="text-sm text-gray-600">Credit Score OK</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Related Solutions Section */}
-      {relatedSolutions && relatedSolutions.length > 0 && (
-        <section className="py-16 md:py-20 bg-white border-t border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Best Financing Solutions for {data.name} Businesses
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Discover the most popular funding options specifically designed for {data.name.toLowerCase()} businesses like yours:
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#193a59]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-2xl font-bold text-[#193a59]">1</div>
+              </div>
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">Industry Expertise</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {data.name} */}
+                We understand the unique challenges and opportunities in the {data.name.toLowerCase()} industry.
               </p>
             </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#193a59]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-2xl font-bold text-[#193a59]">2</div>
+              </div>
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">Flexible Solutions</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {data.name} */}
+                Customized financing options that match your {data.name.toLowerCase()} business model and cash flow.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-[#193a59]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="text-2xl font-bold text-[#193a59]">3</div>
+              </div>
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">Fast Approval</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {data.name} */}
+                Get approved in 24-48 hours with minimal paperwork and quick funding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* H2: Best Financing Solutions for [Industry] Businesses - Auto-render internal links */}
+      {relatedSolutions && relatedSolutions.length > 0 && (
+        <section className="py-16 md:py-24 bg-white" data-testid="section-related-solutions">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-best-solutions">
+              Best Financing Solutions for {data.name} Businesses
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+              {/* Replace with optimized copy for {data.name} */}
+              Discover the most popular funding options specifically designed for {data.name.toLowerCase()} businesses like yours:
+            </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {relatedSolutions.map((solution, index) => (
-                <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
+                <div key={index} className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
                   <h3 className="text-xl md:text-2xl font-semibold text-[#193a59] mb-4 group-hover:text-[#285d8a] transition-colors">
                     <button
                       onClick={() => {
@@ -299,40 +212,162 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
                       Learn More About This Solution →
                     </button>
                   </div>
-                  <div className="mt-3">
-                    <Button
-                      onClick={() => {
-                        window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
-                      }}
-                      size="sm"
-                      style={{ backgroundColor: '#193a59', color: 'white' }}
-                      className="hover:bg-[#285d8a] transition-colors text-xs px-4 py-2 font-medium shadow-sm"
-                      data-testid={`button-apply-${solution.slug}`}
-                    >
-                      Apply Now
-                    </Button>
-                  </div>
                 </div>
               ))}
-            </div>
-            
-            <div className="text-center mt-12 md:mt-16">
-              <Button
-                onClick={() => {
-                  setLocation('/solutions');
-                  window.scrollTo(0, 0);
-                }}
-                size="lg"
-                style={{ backgroundColor: '#193a59', color: 'white' }}
-                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
-                data-testid="button-view-all-solutions"
-              >
-                View All Financing Solutions
-              </Button>
             </div>
           </div>
         </section>
       )}
+      {/* H2: How Lendura Capital Helps [Industry] Businesses */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-how-lendura-helps">
+            How Lendura Capital Helps {data.name} Businesses
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+            {/* Replace with optimized copy for {data.name} */}
+            We specialize in {data.name.toLowerCase()} financing solutions that work for your business. Our expertise in this industry means faster approvals and better terms.
+          </p>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
+              <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Lenders</h3>
+              <ul className="space-y-4">
+                {[
+                  "30-90 day approval process",
+                  "Extensive documentation required", 
+                  "High credit score requirements",
+                  "No industry specialization",
+                  "Limited product options"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start" data-testid={`traditional-item-${index}`}>
+                    <span className="text-red-500 mr-3 mt-1">✗</span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
+              <h3 className="text-2xl font-bold text-green-800 mb-6">Lendura Capital</h3>
+              <ul className="space-y-4">
+                {[
+                  "24-48 hour approval process",
+                  "Minimal documentation needed",
+                  "Flexible credit requirements", 
+                  `${data.name} industry expertise`,
+                  "12 different financing solutions"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start" data-testid={`lendura-industry-item-${index}`}>
+                    <span className="text-green-500 mr-3 mt-1">✓</span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Key Benefits for [Industry] Businesses - Use BenefitList component */}
+      <BenefitList
+        benefits={data.commonNeeds || [
+          "Fast approval in 24-48 hours",
+          "No collateral required for most programs", 
+          "Credit scores as low as 500 accepted",
+          "Funding amounts from $10K to $750K",
+          "Industry-specific financing solutions",
+          "Dedicated {industry} financing specialist".replace('{industry}', data.name.toLowerCase())
+        ]}
+        title={`Key Benefits for ${data.name} Businesses`}
+        variant="checkmarks"
+        columns={2}
+        iconColor="green"
+        size="md"
+        className="py-16 md:py-24 bg-white"
+        data-testid="benefit-list-industry-benefits"
+      />
+
+      {/* H2: FAQs - Use FAQAccordion component + JSON-LD schema */}
+      <FAQAccordion
+        faqs={sampleFAQs}
+        title={`${data.name} Financing FAQ`}
+        generateSchema={true}
+        className="bg-gray-50"
+        data-testid="faq-accordion-industry"
+      />
+
+      {/* CTA block at bottom - Use CTAButton component for "Apply Now" */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#193a59] to-[#285d8a]" data-testid="section-cta-bottom">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Grow Your {data.name} Business?
+          </h2>
+          <p className="text-lg md:text-xl text-blue-100 mb-8 md:mb-12 leading-relaxed">
+            {/* Replace with optimized copy for {data.name} */}
+            Get the financing your {data.name.toLowerCase()} business needs with competitive rates and fast approval. 
+            Our {data.name.toLowerCase()} financing experts are ready to help you succeed.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <CTAButton
+              variant="apply-now"
+              size="lg"
+              href="https://form.jotform.com/251965461165159"
+              className="text-lg px-8 py-3 font-semibold"
+              data-testid="cta-button-apply-now"
+            >
+              Apply Now - Get Approved Fast
+            </CTAButton>
+            
+            <CTAButton
+              variant="phone"
+              size="lg"
+              href="tel:3058347168"
+              className="text-lg px-8 py-3 font-semibold"
+              data-testid="cta-button-phone"
+            >
+              Call (305) 834-7168
+            </CTAButton>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">24-48hrs</div>
+              <div className="text-sm text-blue-100">Approval Time</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">$10K+</div>
+              <div className="text-sm text-blue-100">Funding Amount</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">99%+</div>
+              <div className="text-sm text-blue-100">Approval Rate</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">500+</div>
+              <div className="text-sm text-blue-100">Credit Score OK</div>
+            </div>
+          </div>
+          
+          {/* Industry-specific trust signals */}
+          {data.trustSignals && (
+            <div className="mt-12 bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-white mb-4">{data.name} Financing Highlights</h3>
+              <div className="grid md:grid-cols-2 gap-4 text-center">
+                <div className="text-blue-100">
+                  <div className="text-lg font-semibold">{data.trustSignals.approvalTime}</div>
+                  <div className="text-sm">Average Approval</div>
+                </div>
+                <div className="text-blue-100">
+                  <div className="text-lg font-semibold">{data.trustSignals.fundingRange}</div>
+                  <div className="text-sm">Funding Range</div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
     </IndustryLayout>
   );

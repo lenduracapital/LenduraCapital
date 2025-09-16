@@ -4,6 +4,7 @@ import truckImage from "@assets/sbaloans.jpg";
 export default function SBALoansDetail() {
   return (
     <SolutionDetailTemplate
+      slug="sba-loans"
       title="SBA Loans"
       description="Government-backed loans offering favorable terms and lower down payments for qualified businesses."
       heroImage={truckImage}

@@ -4,6 +4,7 @@ import paymentImage from "@assets/merchantcashadvance.jpg";
 export default function ClientCashAdvanceDetail() {
   return (
     <SolutionDetailTemplate
+      slug="merchant-cash-advance"
       title="Merchant Cash Advance"
       description="Quick access to working capital based on your future credit card sales with flexible repayment structure."
       heroImage={paymentImage}

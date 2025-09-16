@@ -4,6 +4,7 @@ import debtConsolidationImage from "@assets/debtconsolidation.jpg";
 export default function DebtConsolidationDetail() {
   return (
     <SolutionDetailTemplate
+      slug="debt-consolidation"
       title="Debt Consolidation"
       description="Combine multiple debts into a single payment with potentially lower rates and simplified management."
       heroImage={debtConsolidationImage}

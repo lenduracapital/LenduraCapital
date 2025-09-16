@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
 import { SolutionLayout } from "@/components/Layout";
 import { getRelatedIndustries, generateSEOKeywords } from "@/lib/internalLinks";
+import Hero from "@/components/Hero";
+import BenefitList from "@/components/BenefitList";
+import FAQAccordion from "@/components/FAQAccordion";
+import CTAButton from "@/components/CTAButton";
 
 
 interface SolutionDetailProps {
@@ -56,408 +58,125 @@ export default function SolutionDetailTemplate({
 }: SolutionDetailProps) {
   const [, setLocation] = useLocation();
   
-  const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
-  };
-  
   // Get related industries for internal linking
   const relatedIndustries = getRelatedIndustries(slug);
   const additionalKeywords = generateSEOKeywords(relatedIndustries);
 
-  const handleBackToSolutions = () => {
-    setLocation("/solutions");
-    window.scrollTo(0, 0);
-  };
-
-  const handleBackToHome = () => {
-    setLocation("/");
-    window.scrollTo(0, 0);
-  };
+  // Clean title for display (handle merchant cash advance)
+  const displayTitle = title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') 
+    ? 'Merchant Cash Advance' 
+    : title;
 
   return (
     <SolutionLayout
       solutionName={title}
-      title={`${title} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
+      title={`${displayTitle} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
       description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 834-7168.`}
       keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding${additionalKeywords ? ', ' + additionalKeywords : ''}`}
       canonical={`/solutions/${slug}`}
       openGraph={{
-        title: `${title} for Business | Lendura Capital`,
+        title: `${displayTitle} for Business | Lendura Capital`,
         description: `Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description}`,
         type: "service"
       }}
     >
       
-      {/* Hero Section with Image */}
-      <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url('${heroImage}')`
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/20 to-transparent"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-wider">
-              {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}
-            </h1>
-            <p className="text-base md:text-xl text-gray-200 leading-relaxed px-4">
-              {description}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* H1: Main keyword (page topic) - Use Hero component */}
+      <Hero
+        title={displayTitle}
+        description={description}
+        backgroundImage={heroImage}
+        breadcrumbs={[
+          { label: "Solutions", href: "/solutions" },
+          { label: displayTitle, href: `/solutions/${slug}` }
+        ]}
+        ctaText="Get Approved in 24 Hours"
+        ctaAction={() => window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer')}
+        size="large"
+        overlay="dark"
+        alignment="center"
+        data-testid="hero-solution-detail"
+      />
 
-      {/* Introduction Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Everything You Need to Know About {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              {description} Our comprehensive guide covers all aspects of this financing solution to help you make an informed decision for your business.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
+      {/* H2: What is [Keyword]? */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-start">
-            <div className="relative order-2 lg:order-1">
+          <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8" data-testid="heading-what-is">
+                What is {displayTitle}?
+              </h2>
+              <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
+                {/* Replace with optimized copy for {displayTitle} */}
+                <p>{description}</p>
+                <p>This financing solution is designed for businesses that need flexible access to capital without the lengthy approval processes and strict requirements of traditional bank loans.</p>
+                <p>With {displayTitle.toLowerCase()}, businesses can get the funding they need quickly and with minimal documentation requirements.</p>
+              </div>
+            </div>
+            
+            <div className="relative">
               <img 
                 src={contentImage}
-                alt={`${title} financing solution`}
+                alt={`${displayTitle} financing solution`}
                 className="w-full h-80 md:h-96 lg:h-[500px] object-cover rounded-lg shadow-xl"
+                data-testid="img-solution-content"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#193a59] text-white p-6 rounded-lg shadow-lg">
                 <div className="text-sm font-medium">{approvalTime?.label || "Fast Approval"}</div>
                 <div className="text-2xl font-bold">{approvalTime?.duration || "24-48hrs"}</div>
               </div>
             </div>
-            
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 md:mb-8">
-                What is {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}?
-              </h2>
-              <div className="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 leading-relaxed space-y-4">
-                <p>{description}</p>
-                <p>This financing solution is designed for businesses that need flexible access to capital without the lengthy approval processes and strict requirements of traditional bank loans.</p>
-              </div>
-              
-              <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Key Features & Benefits</h3>
-              <ul className="space-y-4 mb-8 md:mb-12">
-                {features.map((feature, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 flex-shrink-0" style={{ color: '#193a59' }} />
-                    <span className="text-sm md:text-base text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <h3 className="text-xl md:text-2xl font-bold text-black mb-3 md:mb-4">Perfect for:</h3>
-              <ul className="space-y-1 md:space-y-2 mb-6 md:mb-8">
-                {perfectFor.map((use, index) => (
-                  <li key={index} className="flex items-center text-gray-600">
-                    <span className="mr-2 md:mr-3">•</span>
-                    <span className="text-sm md:text-base">{use}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Industry Focus Section */}
+      {/* H2: Why Businesses Use [Keyword] */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Perfect For These Industries
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {title} work exceptionally well for businesses in these sectors due to their unique operational characteristics and cash flow patterns.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {perfectFor.map((industry, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center">
-                <div className="w-16 h-16 bg-[#193a59]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="text-2xl font-bold text-[#193a59]">{index + 1}</div>
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">{industry}</h3>
-                <p className="text-gray-600 text-sm">Ideal financing solution for growth and operational needs</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Comparison */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              How We Compare to Traditional Banks
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See the clear advantages of choosing Lendura Capital over traditional banking institutions.
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
-              <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Banks</h3>
-              <ul className="space-y-4">
-                {(comparison?.traditional || [
-                  "30-90 day approval process",
-                  "Extensive documentation required", 
-                  "High credit score requirements",
-                  "Rigid qualification criteria",
-                  "Limited product options"
-                ]).map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-red-500 mr-3 mt-1">✗</span>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
-              <h3 className="text-2xl font-bold text-green-800 mb-6">Lendura Capital</h3>
-              <ul className="space-y-4">
-                {(comparison?.fundtek || [
-                  "24-48 hour approval process",
-                  "Minimal documentation needed",
-                  "Flexible credit requirements", 
-                  "Revenue-based qualification",
-                  "12 different financing solutions"
-                ]).map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Information Sections */}
-      {(howItWorks || ratesBasedOn || requiredDocuments || askYourself || goodToKnow) && (
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Complete {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title} Guide
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Everything you need to know about {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title.toLowerCase()}, from how they work to what documents you'll need.
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-why-businesses-use">
+            Why Businesses Use {displayTitle}
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">Fast Approval Process</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {displayTitle} */}
+                Get approved in 24-48 hours compared to weeks or months with traditional banks.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
-              {/* How It Works */}
-              {howItWorks && (
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
-                      1
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">{howItWorks.title}</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {howItWorks.items.map((item, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
-                        <span className="text-gray-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Rates Based On */}
-              {ratesBasedOn && (
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
-                      2
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">Rates are based on</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {ratesBasedOn.map((factor, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
-                        <span className="text-gray-700">{factor}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Required Documents */}
-              {requiredDocuments && (
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
-                      3
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">Required documents</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {requiredDocuments.map((doc, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
-                        <span className="text-gray-700">{doc}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Ask Yourself */}
-              {askYourself && (
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
-                      4
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">Ask Yourself</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {askYourself.map((question, index) => (
-                      <li key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
-                        <span className="text-gray-700">{question}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Good to Know */}
-              {goodToKnow && (
-                <div className="bg-gray-50 p-6 rounded-lg md:col-span-2 lg:col-span-3">
-                  <div className="flex items-center mb-4">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold mr-3" style={{ backgroundColor: '#193a59' }}>
-                      5
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">Good to know</h3>
-                  </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {goodToKnow.map((tip, index) => (
-                      <div key={index} className="flex items-start">
-                        <span className="mr-2 mt-1" style={{ color: '#193a59' }}>■</span>
-                        <span className="text-gray-700">{tip}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16">
-            <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl md:text-2xl font-bold text-black mb-4">Get Your Quote Today</h3>
-              <p className="text-sm md:text-base text-gray-600 mb-6">
-                Ready to secure funding for your business? Our specialists are standing by to help you find the perfect {title.toLowerCase()} solution.
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">Flexible Qualification</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {displayTitle} */}
+                Revenue-based approval with credit scores as low as 500 accepted.
               </p>
-              <div className="space-y-4">
-                <div className="bg-gray-50 p-3 md:p-4 rounded border-l-4" style={{ borderLeftColor: '#193a59' }}>
-                  <p className="text-xs md:text-sm text-gray-600">Call us directly:</p>
-                  <p className="text-xl md:text-2xl font-bold text-black">(305) 834-7168</p>
-                </div>
-                <Button 
-                  onClick={handleApplyNow}
-                  style={{ backgroundColor: '#193a59' }}
-                  className="w-full text-white py-3 rounded font-semibold text-base md:text-lg hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
-                >
-                  Apply Now
-                </Button>
-                <div className="grid grid-cols-2 gap-3">
-                  <Button 
-                    onClick={handleBackToSolutions}
-                    variant="outline"
-                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95"
-                  >
-                    Back to Solutions
-                  </Button>
-                  <Button 
-                    onClick={handleBackToHome}
-                    variant="outline"
-                    className="py-3 rounded font-semibold text-sm md:text-base border-black text-black hover:bg-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 transform hover:scale-105 active:scale-95"
-                  >
-                    Back to Home
-                  </Button>
-                </div>
-              </div>
             </div>
-
-            <div className="p-6 md:p-8 rounded-lg" style={{ backgroundColor: '#193a59' }}>
-              <h4 className="text-lg md:text-xl font-bold text-white mb-4">Qualification Requirements</h4>
-              <ul className="space-y-2 text-white">
-                {qualificationRequirements.map((req, index) => (
-                  <li key={index} className="text-sm md:text-base">• {req}</li>
-                ))}
-              </ul>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h3 className="text-xl font-bold text-[#193a59] mb-4">No Collateral Required</h3>
+              <p className="text-gray-700 leading-relaxed">
+                {/* Replace with optimized copy for {displayTitle} */}
+                Unsecured funding based on business performance, not personal assets.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      {faq && faq.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title} FAQ
-            </h2>
-            
-            <div className="space-y-6">
-              {faq.map((item, index) => (
-                <div key={index} className="bg-white rounded-lg p-6 shadow-md">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.question}</h3>
-                  <p className="text-gray-600">{item.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Related Industries Section */}
+      {/* H2: Which Businesses Use [Keyword]? - Auto-render internal links */}
       {relatedIndustries && relatedIndustries.length > 0 && (
-        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-16 md:py-24 bg-white" data-testid="section-related-industries">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Which Industries Use {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}?
-              </h2>
-              <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Our {title.toLowerCase()} solutions serve diverse industries with unique financing needs. Explore how businesses in these sectors leverage our funding:
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-which-businesses-use">
+              Which Industries Use {displayTitle}?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+              {/* Replace with optimized copy for {displayTitle} */}
+              Our {displayTitle.toLowerCase()} solutions serve diverse industries with unique financing needs. Explore how businesses in these sectors leverage our funding:
+            </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {relatedIndustries.map((industry, index) => (
-                <div key={index} className="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
+                <div key={index} className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
                   <h3 className="text-xl md:text-2xl font-semibold text-[#193a59] mb-4 group-hover:text-[#285d8a] transition-colors">
                     <button
                       onClick={() => {
@@ -470,7 +189,7 @@ export default function SolutionDetailTemplate({
                       {industry.anchorText}
                     </button>
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
                     {industry.reason}
                   </p>
                   <div className="mt-4 pt-4 border-t border-gray-200">
@@ -488,24 +207,161 @@ export default function SolutionDetailTemplate({
                 </div>
               ))}
             </div>
-            
-            <div className="text-center mt-12 md:mt-16">
-              <Button
-                onClick={() => {
-                  setLocation('/who-we-fund');
-                  window.scrollTo(0, 0);
-                }}
-                size="lg"
-                style={{ backgroundColor: '#193a59', color: 'white' }}
-                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
-                data-testid="button-view-all-industries"
-              >
-                View All Industries We Fund
-              </Button>
-            </div>
           </div>
         </section>
       )}
+
+      {/* H2: How Lendura Capital Helps */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12 md:mb-16" data-testid="heading-how-lendura-helps">
+            How Lendura Capital Helps
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 text-center max-w-4xl mx-auto mb-12 leading-relaxed">
+            {/* Replace with optimized copy for {displayTitle} */}
+            We specialize in {displayTitle.toLowerCase()} solutions that work for your business, not against it. See the clear advantages of choosing Lendura Capital:
+          </p>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="bg-red-50 p-8 rounded-lg border border-red-200">
+              <h3 className="text-2xl font-bold text-red-800 mb-6">Traditional Banks</h3>
+              <ul className="space-y-4">
+                {(comparison?.traditional || [
+                  "30-90 day approval process",
+                  "Extensive documentation required", 
+                  "High credit score requirements",
+                  "Rigid qualification criteria",
+                  "Limited product options"
+                ]).map((item, index) => (
+                  <li key={index} className="flex items-start" data-testid={`traditional-bank-item-${index}`}>
+                    <span className="text-red-500 mr-3 mt-1">✗</span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="bg-green-50 p-8 rounded-lg border border-green-200">
+              <h3 className="text-2xl font-bold text-green-800 mb-6">Lendura Capital</h3>
+              <ul className="space-y-4">
+                {(comparison?.fundtek || [
+                  "24-48 hour approval process",
+                  "Minimal documentation needed",
+                  "Flexible credit requirements", 
+                  "Revenue-based qualification",
+                  "12 different financing solutions"
+                ]).map((item, index) => (
+                  <li key={index} className="flex items-start" data-testid={`lendura-item-${index}`}>
+                    <span className="text-green-500 mr-3 mt-1">✓</span>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* H2: Key Benefits of [Keyword] - Use BenefitList component */}
+      <BenefitList
+        benefits={features || [
+          "Fast approval in 24-48 hours",
+          "No collateral required for most programs", 
+          "Credit scores as low as 500 accepted",
+          "Funding amounts from $10K to $750K",
+          "Multiple repayment options available",
+          "Use funds for any business purpose"
+        ]}
+        title={`Key Benefits of ${displayTitle}`}
+        variant="checkmarks"
+        columns={2}
+        iconColor="green"
+        size="md"
+        className="py-16 md:py-24 bg-white"
+        data-testid="benefit-list-key-benefits"
+      />
+
+
+      {/* H2: FAQs - Use FAQAccordion component + JSON-LD schema */}
+      {faq && faq.length > 0 && (
+        <FAQAccordion
+          faqs={faq}
+          title={`${displayTitle} FAQ`}
+          generateSchema={true}
+          className="bg-gray-50"
+          data-testid="faq-accordion-solution"
+        />
+      )}
+
+      {/* CTA block at bottom - Use CTAButton component for "Apply Now" */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#193a59] to-[#285d8a]" data-testid="section-cta-bottom">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Ready to Get {displayTitle}?
+          </h2>
+          <p className="text-lg md:text-xl text-blue-100 mb-8 md:mb-12 leading-relaxed">
+            {/* Replace with optimized copy for {displayTitle} */}
+            Get the {displayTitle.toLowerCase()} your business needs with competitive rates and fast approval. 
+            Our financing experts are ready to help you succeed.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <CTAButton
+              variant="apply-now"
+              size="lg"
+              href="https://form.jotform.com/251965461165159"
+              className="text-lg px-8 py-3 font-semibold"
+              data-testid="cta-button-apply-now"
+            >
+              Apply Now - Get Approved Fast
+            </CTAButton>
+            
+            <CTAButton
+              variant="phone"
+              size="lg"
+              href="tel:3058347168"
+              className="text-lg px-8 py-3 font-semibold"
+              data-testid="cta-button-phone"
+            >
+              Call (305) 834-7168
+            </CTAButton>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">24-48hrs</div>
+              <div className="text-sm text-blue-100">Approval Time</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">$10K+</div>
+              <div className="text-sm text-blue-100">Funding Amount</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">99%+</div>
+              <div className="text-sm text-blue-100">Approval Rate</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+              <div className="text-2xl font-bold text-white">500+</div>
+              <div className="text-sm text-blue-100">Credit Score OK</div>
+            </div>
+          </div>
+          
+          {/* Qualification Requirements */}
+          {qualificationRequirements && qualificationRequirements.length > 0 && (
+            <div className="mt-12 bg-white/10 backdrop-blur-sm p-6 rounded-lg">
+              <h3 className="text-xl font-bold text-white mb-4">Qualification Requirements</h3>
+              <div className="grid md:grid-cols-2 gap-2 text-left">
+                {qualificationRequirements.map((req, index) => (
+                  <div key={index} className="flex items-center text-blue-100" data-testid={`qualification-${index}`}>
+                    <span className="mr-2">✓</span>
+                    <span className="text-sm">{req}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
     </SolutionLayout>
   );

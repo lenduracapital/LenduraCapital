@@ -61,11 +61,9 @@ export default function FAQAccordion({
       }))
     };
 
-    // Remove existing FAQ schema
-    const existingScript = document.querySelector('script[type="application/ld+json"][data-component="faq-accordion"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
+    // Remove existing FAQ schema - use querySelectorAll to remove ALL existing scripts
+    const existingScripts = document.querySelectorAll('script[type="application/ld+json"][data-component="faq-accordion"]');
+    existingScripts.forEach(script => script.remove());
 
     // Add new FAQ schema
     const script = document.createElement('script');

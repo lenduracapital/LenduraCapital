@@ -4,6 +4,7 @@ import mortgageImage from "@assets/realestate.jpg";
 export default function MortgageFinancing() {
   return (
     <SolutionDetailTemplate 
+      slug="mortgage-financing"
       title="Mortgage Financing"
       description="Secure financing for your property investments with our comprehensive mortgage programs designed for business owners and real estate investors."
       heroImage={mortgageImage}

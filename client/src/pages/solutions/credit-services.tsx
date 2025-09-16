@@ -4,6 +4,7 @@ import creditRepairImage from "@assets/creditrepair.jpg";
 export default function CreditServicesDetail() {
   return (
     <SolutionDetailTemplate
+      slug="credit-services"
       title="Credit Repair"
       description="Professional business credit building and repair services to improve your company's financial standing."
       heroImage={creditRepairImage}

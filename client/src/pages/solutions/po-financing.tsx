@@ -4,6 +4,7 @@ import poImage from "@assets/purchaseorderfinancing.jpg";
 export default function POFinancingDetail() {
   return (
     <SolutionDetailTemplate
+      slug="po-financing"
       title="Purchase Order Financing"
       description="Purchase Order financing helps businesses fulfill large orders by providing working capital to cover supplier costs upfront."
       heroImage={poImage}
