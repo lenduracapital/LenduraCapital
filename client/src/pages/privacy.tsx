@@ -51,13 +51,6 @@ export default function PrivacyPage() {
               Improve our service and experience
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Keeping Your Info Safe</h2>
-            <p className="text-gray-700 mb-6">
-              We use secure tech and internal controls to protect your data:<br/><br/>
-              Encrypted data transfer<br/>
-              Secure storage<br/>
-              Limited access to sensitive info
-            </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">4. How Long We Keep It</h2>
             <p className="text-gray-700 mb-6">
