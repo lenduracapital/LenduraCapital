@@ -1,24 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "wouter";
 import { videoPreloader } from "@/utils/video-preloader";
 
 
-// Optimized video paths with multiple quality options
+// Optimized video paths with proper format support
 const videoSources = {
-  webm720: "/hero-video.mp4",
   mp4720: "/hero-video.mp4", 
   mp4480: "/hero-video.mp4",
   fallback: "/hero-video.mp4"
 };
-const videoPoster = "/hero-video.mp4";
-const logoPath = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+// Use an actual image for the poster, not a video file
+const videoPoster = "/pexels-mikael-blomkvist-6476808_1752763455829.jpg";
 const heroBackgroundPath = "/pexels-mikael-blomkvist-6476808_1752763455829.jpg";
 
 // Enhanced video optimization hook with intelligent loading
 function useVideoOptimization() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(true);
+  const [shouldPlayVideo] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [connectionSpeed, setConnectionSpeed] = useState<'fast' | 'slow'>('fast');
@@ -28,7 +27,7 @@ function useVideoOptimization() {
       setIsMobile(window.innerWidth <= 768);
     };
     
-    // Detect connection speed
+    // Detect connection speed and user preferences
     const checkConnectionSpeed = () => {
       if ('connection' in navigator) {
         const connection = (navigator as any).connection;
@@ -43,8 +42,15 @@ function useVideoOptimization() {
       }
     };
     
+    // Check for reduced motion preference
+    const checkReducedMotion = () => {
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      setPrefersReducedMotion(mediaQuery.matches);
+    };
+    
     checkMobile();
     checkConnectionSpeed();
+    checkReducedMotion();
     window.addEventListener('resize', checkMobile);
     
     // Start preloading video immediately
@@ -58,13 +64,12 @@ function useVideoOptimization() {
     };
   }, []);
   
-  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed };
+  return { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed, prefersReducedMotion };
 }
 
 export default function HeroSection() {
-  const [, setLocation] = useLocation();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, isVideoPlaying, setIsVideoPlaying, connectionSpeed } = useVideoOptimization();
+  const { isVideoLoaded, setIsVideoLoaded, shouldPlayVideo, isMobile, setIsVideoPlaying, connectionSpeed, prefersReducedMotion } = useVideoOptimization();
 
   // Optimized video loading with adaptive streaming
   useEffect(() => {
@@ -91,7 +96,7 @@ export default function HeroSection() {
     const loadVideo = () => {
       // Check if video is already preloaded for instant playback
       const bestSource = (isMobile || connectionSpeed === 'slow') ? 
-        videoSources.mp4480 : videoSources.webm720;
+        videoSources.mp4480 : videoSources.mp4720;
         
       if (videoPreloader.isPreloaded(bestSource)) {
         // Video is preloaded - start immediately
@@ -129,9 +134,7 @@ export default function HeroSection() {
     window.location.href = '/apply-now';
   };
 
-  const handlePhoneClick = () => {
-    window.open('https://calendly.com/lenduracapital/15min', '_blank');
-  };
+  // Phone click handler removed as not used in current hero layout
 
   return (
     <section 
@@ -141,7 +144,7 @@ export default function HeroSection() {
       }}
     >
       {/* Optimized Video Background with Adaptive Quality */}
-      {shouldPlayVideo && (
+      {shouldPlayVideo && !prefersReducedMotion && (
         <video
           ref={videoRef}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -165,24 +168,21 @@ export default function HeroSection() {
         >
           {/* Serve appropriate quality based on device and connection */}
           {!isMobile && connectionSpeed === 'fast' && (
-            <source src={videoSources.webm720} type="video/webm" />
-          )}
-          {!isMobile && connectionSpeed === 'fast' && (
             <source src={videoSources.mp4720} type="video/mp4" />
           )}
           {(isMobile || connectionSpeed === 'slow') && (
             <source src={videoSources.mp4480} type="video/mp4" />
           )}
-          <source src={videoSources.fallback} type="video/webm" />
+          <source src={videoSources.fallback} type="video/mp4" />
         </video>
       )}
       
-      {/* Poster image fallback when video is loading */}
+      {/* High-quality poster image fallback when video is loading */}
       {!isVideoLoaded && (
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: `url(${videoPoster})`,
+            backgroundImage: `url(${heroBackgroundPath})`,
             zIndex: 0
           }}
         />
@@ -194,15 +194,15 @@ export default function HeroSection() {
         <div className="flex items-center h-full">
           <div className="max-w-2xl pt-6 md:pt-8" style={{ contain: 'layout' }}>
             <h1 className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}>
-              Get Business Funding <span style={{ color: '#193a59' }}>Without the Wait</span>
+              Get Business Funding <span style={{ color: '#193a59' }}>Fast & Simple</span>
             </h1>
             
             <p className="mb-2 max-w-2xl sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed text-[24px] font-medium" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}>
-              Fast approvals, flexible terms, and funding designed for your business needs.
+              Fast approvals, flexible terms, and funding solutions designed for your business success.
             </p>
             
             <p className="mb-4 sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed text-[22px] font-medium" style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}>
-              Call <span style={{ color: '#193a59' }}>(305) 834-7168</span> or apply online in minutes.
+              Call <span style={{ color: '#193a59' }}>(305) 834-7168</span> or apply online today.
             </p>
             
             <Button 
@@ -210,7 +210,7 @@ export default function HeroSection() {
               size="lg" 
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-[#1d4ed8] text-white font-semibold rounded-lg shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 active:scale-95 bg-[#193a59] text-left w-full sm:w-auto px-4 py-3 text-base sm:px-6 sm:py-4 sm:text-lg md:px-8 md:text-[20px] h-auto min-h-[44px]"
             >
-              Get Approved in 24 Hours
+              Apply Now - 24 Hour Approval
             </Button>
           </div>
         </div>

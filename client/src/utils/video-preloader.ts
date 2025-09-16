@@ -2,7 +2,6 @@
 
 interface VideoPreloaderOptions {
   videoSources: {
-    webm720: string;
     mp4720: string;
     mp4480: string;
     fallback: string;
@@ -36,11 +35,11 @@ export class VideoPreloader {
           if (connection.effectiveType === '4g' || 
               connection.effectiveType === 'high' ||
               (connection.downlink && connection.downlink > 2)) {
-            bestSource = videoSources.webm720;
+            bestSource = videoSources.mp4720;
           }
         }
       } else if (!isMobile) {
-        bestSource = videoSources.webm720;
+        bestSource = videoSources.mp4720;
       }
 
       // Preload poster first (small file, immediate visual feedback)
@@ -61,9 +60,9 @@ export class VideoPreloader {
           });
           
           video.addEventListener('error', () => {
-            // Fallback to MP4 if WebM fails
-            if (bestSource === videoSources.webm720) {
-              video.src = videoSources.mp4720;
+            // Fallback to lower quality if high quality fails
+            if (bestSource === videoSources.mp4720) {
+              video.src = videoSources.mp4480;
             } else {
               resolve(); // Still resolve to prevent hanging
             }
