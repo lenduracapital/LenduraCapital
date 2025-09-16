@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { useLocation } from "wouter";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import SEOHead from "@/components/seo-head";
+import { SolutionLayout } from "@/components/Layout";
 import { getRelatedIndustries, generateSEOKeywords } from "@/lib/internalLinks";
 
 
@@ -77,15 +75,18 @@ export default function SolutionDetailTemplate({
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <SEOHead 
-        title={`${title} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
-        description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 834-7168.`}
-        keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding${additionalKeywords ? ', ' + additionalKeywords : ''}`}
-        canonical={`/solutions/${slug}`}
-      />
-
-      <Header />
+    <SolutionLayout
+      solutionName={title}
+      title={`${title} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
+      description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 834-7168.`}
+      keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding${additionalKeywords ? ', ' + additionalKeywords : ''}`}
+      canonical={`/solutions/${slug}`}
+      openGraph={{
+        title: `${title} for Business | Lendura Capital`,
+        description: `Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description}`,
+        type: "service"
+      }}
+    >
       
       {/* Hero Section with Image */}
       <section className="relative pt-40 md:pt-48 pb-20 md:pb-32 bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden">
@@ -506,7 +507,6 @@ export default function SolutionDetailTemplate({
         </section>
       )}
 
-      <Footer />
-    </div>
+    </SolutionLayout>
   );
 }

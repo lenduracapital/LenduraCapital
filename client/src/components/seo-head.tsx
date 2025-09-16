@@ -9,13 +9,31 @@ interface SEOHeadProps {
   image?: string;
 }
 
+// Utility function to get base URL
+function getBaseUrl(): string {
+  if (typeof window !== 'undefined') {
+    return `${window.location.protocol}//${window.location.host}`;
+  }
+  // Fallback for SSR or development
+  return 'https://lenduracapital.com';
+}
+
+// Utility function to ensure absolute URL
+function makeAbsoluteUrl(url: string): string {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  const baseUrl = getBaseUrl();
+  return `${baseUrl}${url.startsWith('/') ? url : '/' + url}`;
+}
+
 export default function SEOHead({ 
   title, 
   description, 
   keywords = "business funding, term loans, merchant cash advance, equipment financing, SBA loans",
   canonical,
   type = "website",
-  image = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png"
+  image = "/lendura-logo.png"
 }: SEOHeadProps) {
   useEffect(() => {
     // Update document title
@@ -27,109 +45,29 @@ export default function SEOHead({
     // Update keywords
     updateMetaTag("keywords", keywords);
     
+    // Generate absolute URLs
+    const absoluteCanonical = canonical ? makeAbsoluteUrl(canonical) : makeAbsoluteUrl(window.location.pathname);
+    const absoluteImage = makeAbsoluteUrl(image);
+    
     // Update canonical
-    if (canonical) {
-      updateLinkTag("canonical", canonical);
-    }
+    updateLinkTag("canonical", absoluteCanonical);
 
     // Open Graph tags
     updateMetaProperty("og:title", title);
     updateMetaProperty("og:description", description);
     updateMetaProperty("og:type", type);
-    updateMetaProperty("og:image", image);
+    updateMetaProperty("og:url", absoluteCanonical);
+    updateMetaProperty("og:image", absoluteImage);
     updateMetaProperty("og:site_name", "Lendura Capital");
     
     // Twitter Card tags
     updateMetaTag("twitter:card", "summary_large_image");
     updateMetaTag("twitter:title", title);
     updateMetaTag("twitter:description", description);
-    updateMetaTag("twitter:image", image);
+    updateMetaTag("twitter:image", absoluteImage);
 
-    // Enhanced structured data for financial service broker
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "Lendura Capital",
-      "url": "https://lenduracapital.com",
-      "logo": "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png",
-      "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
-      "telephone": "(305) 834-7168",
-      "email": "admin@lenduracapital.com",
-      "areaServed": ["United States", "Canada"],
-      "serviceType": [
-        "Business Loan Brokerage",
-        "Term Loans",
-        "Lines of Credit",
-        "Cash Advance",
-        "SBA Loans",
-        "Debt Consolidation",
-        "Equipment Loans",
-        "Factoring",
-        "P.O. Financing",
-        "CRE Lending",
-        "Card Processing",
-        "Credit Repair",
-        "Marketing"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Business Funding Solutions",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Term Loans",
-              "description": "Traditional business term loans with competitive rates and flexible repayment terms"
-            }
-          },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Equipment Financing",
-              "description": "Specialized financing for business equipment, machinery, and technology purchases"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Merchant Cash Advance",
-              "description": "Fast access to working capital based on future credit card sales with daily repayment"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "SBA Loans",
-              "description": "Government-backed SBA loans with lower down payments and competitive interest rates"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Lines of Credit",
-              "description": "Flexible revolving credit lines for ongoing business expenses and cash flow management"
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127",
-        "bestRating": "5"
-      },
-      "openingHours": [
-        "Mo-Fr 08:30-19:30"
-      ],
-      "priceRange": "$10,000 - $750,000"
-    };
-
-    updateStructuredData(structuredData);
+    // Note: Organization schema is handled by Layout.tsx to avoid duplicates
+    // SEOHead.tsx focuses only on meta tags and OpenGraph data
   }, [title, description, keywords, canonical, type, image]);
 
   return null;
@@ -165,13 +103,3 @@ function updateLinkTag(rel: string, href: string) {
   (link as HTMLLinkElement).href = href;
 }
 
-function updateStructuredData(data: object) {
-  let script = document.querySelector('script[type="application/ld+json"][data-component="seo-head"]') as HTMLScriptElement;
-  if (!script) {
-    script = document.createElement("script") as HTMLScriptElement;
-    script.type = "application/ld+json";
-    script.setAttribute('data-component', 'seo-head');
-    document.head.appendChild(script);
-  }
-  script.textContent = JSON.stringify(data);
-}

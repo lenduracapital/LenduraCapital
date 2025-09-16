@@ -79,7 +79,7 @@ export default function Layout({
       "url": "https://lenduracapital.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://lenduracapital.com/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png",
+        "url": "https://lenduracapital.com/lendura-logo.png",
         "width": "400",
         "height": "400"
       },
@@ -306,7 +306,7 @@ export const IndustryLayout = (props: Omit<LayoutProps, 'jsonLd'> & { industryNa
     "name": `${industryName} Business Funding`,
     "description": props.description,
     "about": {
-      "@type": "Industry",
+      "@type": "Thing",
       "name": industryName
     },
     "provider": {

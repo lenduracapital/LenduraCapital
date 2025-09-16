@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowLeft, Phone } from "lucide-react";
 import { useLocation } from "wouter";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import SEOHead from "@/components/seo-head";
+import { IndustryLayout } from "@/components/Layout";
 import { getRelatedSolutions, generateSEOKeywords } from "@/lib/internalLinks";
 
 interface IndustryData {
@@ -59,15 +57,18 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <SEOHead 
-        title={`${data.title} | Fast Business Funding | Lendura Capital`}
-        description={`${data.description} Get approved in 24 hours with competitive rates. Call (305) 834-7168 or apply online today.`}
-        keywords={`${data.name.toLowerCase()} financing, ${data.name.toLowerCase()} business loans, ${data.name.toLowerCase()} equipment financing, ${data.name.toLowerCase()} working capital${additionalKeywords ? ', ' + additionalKeywords : ''}`}
-        canonical={`/industries/${data.slug}`}
-      />
-      
-      <Header />
+    <IndustryLayout
+      industryName={data.name}
+      title={`${data.title} | Fast Business Funding | Lendura Capital`}
+      description={`${data.description} Get approved in 24 hours with competitive rates. Call (305) 834-7168 or apply online today.`}
+      keywords={`${data.name.toLowerCase()} financing, ${data.name.toLowerCase()} business loans, ${data.name.toLowerCase()} equipment financing, ${data.name.toLowerCase()} working capital${additionalKeywords ? ', ' + additionalKeywords : ''}`}
+      canonical={`/industries/${data.slug}`}
+      openGraph={{
+        title: `${data.title} | Lendura Capital`,
+        description: `${data.description} Get approved in 24 hours with competitive rates.`,
+        type: "website"
+      }}
+    >
       
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
@@ -333,7 +334,6 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
         </section>
       )}
 
-      <Footer />
-    </div>
+    </IndustryLayout>
   );
 }
