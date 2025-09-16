@@ -65,8 +65,8 @@ export default function Header({ }: HeaderProps) {
 
   // Sticky navigation with enhanced mobile support
   const headerClass = isScrolled 
-    ? 'sticky top-0 z-50 transition-all duration-300 bg-black/95 backdrop-blur-md shadow-lg'
-    : 'sticky top-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-sm';
+    ? 'sticky top-0 z-50 transition-all duration-300 bg-black backdrop-blur-md shadow-lg'
+    : 'sticky top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-sm';
 
   return (
     <header className={headerClass} data-testid="header-navigation">
@@ -424,7 +424,7 @@ export default function Header({ }: HeaderProps) {
         {/* Mobile Menu - Enhanced */}
         {isMobileMenuOpen && (
           <div 
-            className="lg:hidden bg-black/98 backdrop-blur-md border-t border-white/20 p-4 space-y-1 absolute left-0 right-0 top-full z-50 shadow-xl"
+            className="lg:hidden bg-black backdrop-blur-md border-t border-white/20 p-4 space-y-1 absolute left-0 right-0 top-full z-[60] shadow-xl"
             data-testid="mobile-menu"
           >
             <button 
