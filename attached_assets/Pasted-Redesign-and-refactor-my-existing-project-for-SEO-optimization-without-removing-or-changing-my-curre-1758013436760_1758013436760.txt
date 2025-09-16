@@ -1,0 +1,88 @@
+Redesign and refactor my existing project for SEO optimization without removing or changing my current 12 Solution and 18 Industry pages.
+
+1. Page Structure
+
+Keep all current slugs/URLs exactly the same.
+
+Update each Solution and Industry page layout to include:
+
+H1: Main keyword (page topic).
+
+H2: What is [Keyword]?
+
+H2: Why Businesses Use [Keyword]
+
+H2: Which Businesses Use [Keyword]? → auto-render internal links.
+
+H2: How Lendura Capital Helps
+
+H2: Key Benefits of [Keyword] (bullet list).
+
+H2: FAQs (expandable accordion + JSON-LD schema).
+
+CTA block at bottom (“Apply Now” form).
+
+2. SEO Enhancements
+
+Install and configure next-seo for dynamic meta titles, descriptions, and OpenGraph per page.
+
+Generate/update sitemap.xml and robots.txt.
+
+Add JSON-LD structured data:
+
+FAQ schema per page.
+
+Organization schema sitewide.
+
+Ensure all images use <Image> with descriptive alt text.
+
+3. Performance & UX
+
+Target Lighthouse score 90+:
+
+Compress images.
+
+Lazy-load non-critical components.
+
+Purge unused CSS/JS.
+
+Mobile-first readability: short paragraphs, bullet points, large touch targets.
+
+Sticky navbar with smooth scroll to CTAs.
+
+4. Components Refactor
+
+Create reusable components in /components:
+
+Hero.jsx
+
+CTAButton.jsx
+
+FAQAccordion.jsx
+
+BenefitList.jsx
+
+Layout.jsx
+Replace repetitive inline code across all 30 pages with these components.
+
+6. Internal Linking (Critical)
+
+Create /lib/internalLinks.js mapping file.
+
+Each Solution links to 3–5 relevant Industries.
+
+Each Industry links back to 3–5 relevant Solutions.
+
+Under “Which Businesses Use [Keyword]?”, auto-render these links dynamically.
+
+Use keyword-rich anchor text (e.g., “Trucking & Logistics Financing” instead of “Trucking”).
+
+System must be modular so updating one mapping file updates all links sitewide.
+
+7. Deliverable
+
+Do not delete or rename existing pages.
+
+Insert SEO-optimized structure + comments like:
+
+<!-- Replace with optimized copy for [Solution/Industry] -->
