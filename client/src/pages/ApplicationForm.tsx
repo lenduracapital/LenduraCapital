@@ -460,14 +460,6 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
                   </div>
                 </div>
 
-                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
-                  <p className="text-sm text-blue-800 dark:text-blue-300 mb-2 font-medium">
-                    📋 Additional Information
-                  </p>
-                  <p className="text-sm text-blue-700 dark:text-blue-400">
-                    Additional documentation and identity verification will be requested during the approval process to ensure secure and compliant processing.
-                  </p>
-                </div>
               </div>
 
               {/* Section 2: Business Information */}
@@ -698,88 +690,54 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
                   <p className="text-gray-600">Review your information and complete your application</p>
                 </div>
 
-                {/* Application Summary */}
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 space-y-4">
-                  <h3 className="text-lg font-semibold text-[#193a59] mb-4">Application Summary</h3>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">Contact Information</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.firstName} {formData.lastName}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.email}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.phone}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">Business Information</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.businessName}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.businessType}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.timeInBusiness}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">Financial Information</p>
-                      <p className="text-gray-600 dark:text-gray-400">Monthly Revenue: {formData.monthlyRevenue}</p>
-                      <p className="text-gray-600 dark:text-gray-400">Loan Amount: {formData.loanAmount}</p>
-                    </div>
-                    
-                    <div>
-                      <p className="font-medium text-gray-700 dark:text-gray-300">Loan Purpose</p>
-                      <p className="text-gray-600 dark:text-gray-400">{formData.loanPurpose}</p>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Consent Checkboxes */}
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <input
-                      id="consentToCommunications"
-                      type="checkbox"
-                      checked={formData.consentToCommunications}
-                      onChange={(e) => handleInputChange('consentToCommunications', e.target.checked)}
-                      className="mt-1"
-                      data-testid="checkbox-consent-communications"
-                    />
-                    <Label htmlFor="consentToCommunications" className="text-sm leading-relaxed">
-                      I consent to receive communications including emails, text messages, and phone calls from Lendura Capital regarding my loan application and related services. I understand I can opt out at any time. *
-                    </Label>
-                  </div>
-                  {errors.consentToCommunications && <span className="text-red-500 text-sm">{errors.consentToCommunications}</span>}
-
-                  <div className="flex items-start space-x-3">
-                    <input
-                      id="consentToCredit"
-                      type="checkbox"
-                      checked={formData.consentToCredit}
-                      onChange={(e) => handleInputChange('consentToCredit', e.target.checked)}
-                      className="mt-1"
-                      data-testid="checkbox-consent-credit"
-                    />
-                    <Label htmlFor="consentToCredit" className="text-sm leading-relaxed">
-                      I authorize Lendura Capital to obtain my credit report and share my information with potential lending partners for the purpose of securing funding. *
-                    </Label>
-                  </div>
-                  {errors.consentToCredit && <span className="text-red-500 text-sm">{errors.consentToCredit}</span>}
-
-                  {/* SMS Consent Checkbox - Optional */}
+                <div className="bg-white rounded-lg border border-gray-200 p-6 space-y-6 shadow-sm">
+                  {/* First Consent Checkbox */}
                   <div className="flex items-start space-x-3">
                     <input
                       id="smsConsent"
                       type="checkbox"
                       checked={formData.smsConsent}
                       onChange={(e) => handleInputChange('smsConsent', e.target.checked)}
-                      className="mt-1"
+                      className="mt-1 h-4 w-4 text-[#193a59] border-gray-300 rounded focus:ring-[#193a59]"
                       data-testid="checkbox-sms-consent"
                     />
-                    <Label htmlFor="smsConsent" className="text-sm leading-relaxed">
+                    <Label htmlFor="smsConsent" className="text-sm text-gray-700 leading-relaxed">
                       By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the Terms and Conditions & Privacy Policy.
                     </Label>
                   </div>
-                  
+
+                  {/* Second Consent Checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <input
+                      id="termsConsent"
+                      type="checkbox"
+                      checked={formData.consentToCommunications}
+                      onChange={(e) => handleInputChange('consentToCommunications', e.target.checked)}
+                      className="mt-1 h-4 w-4 text-[#193a59] border-gray-300 rounded focus:ring-[#193a59]"
+                      data-testid="checkbox-consent-communications"
+                    />
+                    <Label htmlFor="termsConsent" className="text-sm text-gray-700 leading-relaxed">
+                      I have read and agree with Terms and Conditions & Privacy Policy *
+                    </Label>
+                  </div>
+                  {errors.consentToCommunications && <span className="text-red-500 text-sm">{errors.consentToCommunications}</span>}
+
+                  {/* Hidden required checkboxes for validation */}
+                  <input
+                    type="checkbox"
+                    checked={formData.consentToCredit}
+                    onChange={() => handleInputChange('consentToCredit', true)}
+                    className="hidden"
+                    data-testid="checkbox-consent-credit"
+                  />
+
                   {/* Terms & Privacy Links */}
-                  <div className="text-center text-sm text-gray-600">
-                    <a href="/terms" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> | <a href="/privacy" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                  <div className="text-center pt-4 border-t border-gray-100">
+                    <a href="/privacy" className="text-[#193a59] hover:underline text-sm font-medium" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                    <span className="text-gray-400 mx-2">|</span>
+                    <a href="/terms" className="text-[#193a59] hover:underline text-sm font-medium" target="_blank" rel="noopener noreferrer">Terms of Service</a>
                   </div>
                 </div>
 
@@ -820,7 +778,7 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center px-8 py-3 bg-[#2AD0C5] hover:bg-[#22b8aa] text-white font-semibold text-lg"
+                  className="flex items-center px-8 py-4 bg-[#193a59] hover:bg-[#2a4a6b] text-white font-semibold text-lg rounded-lg shadow-lg transition-all duration-200 transform hover:scale-105"
                   data-testid="button-submit-application"
                 >
                   {isSubmitting ? (
