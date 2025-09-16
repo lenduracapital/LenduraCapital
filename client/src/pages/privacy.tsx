@@ -52,7 +52,7 @@ export default function PrivacyPage() {
             </p>
 
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. How Long We Keep It</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. How Long We Keep It</h2>
             <p className="text-gray-700 mb-6">
               We hold onto your info as long as needed to:<br/><br/>
               Provide services<br/>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
               Resolve disputes if they come up
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Your Rights</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Your Rights</h2>
             <p className="text-gray-700 mb-6">
               You can:<br/><br/>
               See the info we have on you<br/>
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
               Request deletion (unless we're legally required to keep it)
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Cookies & Tracking</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Cookies & Tracking</h2>
             <p className="text-gray-700 mb-6">
               Our site uses cookies to:<br/><br/>
               Help it run smoother<br/>
@@ -78,22 +78,22 @@ export default function PrivacyPage() {
               You can control cookies through your browser settings.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Third-Party Links</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Third-Party Links</h2>
             <p className="text-gray-700 mb-6">
               If we link to other sites, we're not responsible for how they handle your data. Always check their policies too.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Minors</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Minors</h2>
             <p className="text-gray-700 mb-6">
               Our services are for people 18 and older. We don't knowingly collect data from anyone under 18.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Changes to This Policy</h2>
             <p className="text-gray-700 mb-6">
               If we update anything, we'll post it here. Big changes? We'll try to give you a heads-up.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Us</h2>
             <p className="text-gray-700 mb-6">
               Questions? Hit us up at (305) 834-7168 or through our contact form. We're here to help.
             </p>
