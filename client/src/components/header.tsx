@@ -63,8 +63,8 @@ export default function Header({ }: HeaderProps) {
     }
   };
 
-  // Sticky navigation with enhanced mobile support
-  const headerClass = isScrolled 
+  // Sticky navigation with enhanced mobile support  
+  const headerClass = (isScrolled || isMobileMenuOpen)
     ? 'sticky top-0 z-50 transition-all duration-300 bg-black backdrop-blur-md shadow-lg'
     : 'sticky top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-sm';
 
