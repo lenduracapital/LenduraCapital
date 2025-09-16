@@ -19,18 +19,18 @@ export default function HeroSection() {
     >
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
-        <div className="flex items-start h-full pt-48 md:pt-56">
+        <div className="flex items-center h-full pt-24 md:pt-32">
           <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 
-              className="font-bold mb-4 text-white drop-shadow-lg" 
-              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+              className="font-bold mb-3 text-white drop-shadow-lg" 
+              style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-title"
             >
               Get Business Funding <span style={{ color: '#193a59' }}>Fast & Simple</span>
             </h1>
             
             <h2 
-              className="mb-4 max-w-2xl text-white font-semibold drop-shadow-lg" 
+              className="mb-3 max-w-2xl text-white font-semibold drop-shadow-lg" 
               style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-subtitle"
             >
@@ -38,7 +38,7 @@ export default function HeroSection() {
             </h2>
             
             <h3 
-              className="mb-6 text-white font-medium drop-shadow-lg" 
+              className="mb-4 text-white font-medium drop-shadow-lg" 
               style={{ fontSize: 'clamp(1rem, 2.2vw, 1.375rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-phone"
             >
