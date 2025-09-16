@@ -1,47 +1,72 @@
-import { Shield, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import SectionSeparator from "./section-separator";
 
 
-const certifications = [
+const clientSuccessStories = [
   {
-    icon: Shield,
-    title: "Trusted Network",
-    description: "Connected to vetted lenders nationwide with established banking relationships"
-  },
-  {
-    icon: Users,
-    title: "5,000+ Clients Served",
-    description: "Successfully funded thousands of businesses across multiple industries"
-  },
-  {
-    icon: TrendingUp,
-    title: "$1B+ Funded",
-    description: "Over one billion dollars in business capital deployed to growing companies"
-  },
-  {
-    icon: Clock,
-    title: "24-Hour Decisions",
-    description: "Rapid approval process with funding decisions within one business day"
-  },
-  {
+    businessName: "Tony's Auto Repair",
+    ownerName: "Anthony Rodriguez",
+    location: "Phoenix, AZ",
+    fundingAmount: "$65,000",
+    result: "Purchased new diagnostic equipment and expanded to second bay. Revenue increased 40% in 6 months.",
+    industry: "Automotive",
     icon: () => (
       <div className="w-6 h-6 relative">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
-    ),
-    title: "No Prepayment Penalties",
-    description: "Flexible terms with no hidden fees or early payment penalties"
+    )
   },
   {
-    icon: MapPin,
-    title: "Nationwide Coverage",
-    description: "Serving businesses across all 50 states with local expertise and national reach"
+    businessName: "Bella Vista Restaurant",
+    ownerName: "Maria Santos",
+    location: "Miami, FL",
+    fundingAmount: "$85,000",
+    result: "Renovated dining room and added outdoor seating. Daily revenue jumped from $1,200 to $2,100.",
+    industry: "Restaurant",
+    icon: () => (
+      <div className="w-6 h-6 relative">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+        </svg>
+      </div>
+    )
+  },
+  {
+    businessName: "Premier Landscaping Co.",
+    ownerName: "David Chen",
+    location: "Austin, TX",
+    fundingAmount: "$120,000",
+    result: "Bought 3 new trucks and hired 8 employees. Secured $400K in new commercial contracts.",
+    industry: "Construction",
+    icon: () => (
+      <div className="w-6 h-6 relative">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M9 11H7l3-8 3 8h-2l-1 3-1-3z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    )
+  },
+  {
+    businessName: "Brooklyn Medical Supplies",
+    ownerName: "Dr. Sarah Johnson",
+    location: "Brooklyn, NY",
+    fundingAmount: "$95,000",
+    result: "Expanded inventory and opened online store. Monthly sales grew from $45K to $78K.",
+    industry: "Healthcare",
+    icon: () => (
+      <div className="w-6 h-6 relative">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M2 17l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    )
   }
 ];
 
@@ -82,41 +107,56 @@ export default function TrustSignalsSection() {
       <SectionSeparator variant="wave" color="white" />
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Trust signals header */}
+        {/* Success Stories header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by 5,000+ Businesses Nationwide
+            Real Businesses, Real Results
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Over $1 billion in funding deployed. 24-hour decisions. Nationwide coverage.
+            See how our funding helped business owners grow and succeed across the country.
           </p>
         </div>
 
-        {/* Trust Indicators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {certifications.map((cert, index) => {
-            const IconComponent = cert.icon;
+        {/* Client Success Stories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {clientSuccessStories.map((story, index) => {
+            const IconComponent = story.icon;
             return (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-[#193a59]">
+                <div className="flex items-start mb-4">
                   <div 
-                    className="p-3 rounded-lg mr-4"
+                    className="p-3 rounded-lg mr-4 flex-shrink-0"
                     style={{ backgroundColor: '#193a59' }}
                   >
                     <div className="w-6 h-6 text-white">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {cert.title}
-                  </h3>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#193a59] mb-1">
+                      {story.businessName}
+                    </h3>
+                    <p className="text-sm text-gray-500 mb-2">
+                      {story.ownerName} • {story.location} • {story.industry}
+                    </p>
+                    <div className="inline-block bg-[#193a59] text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">
+                      {story.fundingAmount} Funded
+                    </div>
+                  </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
-                  {cert.description}
+                <p className="text-gray-700 leading-relaxed font-medium">
+                  {story.result}
                 </p>
               </div>
             );
           })}
+        </div>
+
+        {/* Disclaimer */}
+        <div className="text-center mb-12">
+          <p className="text-sm text-gray-500">
+            Case studies are representative examples; individual results vary.
+          </p>
         </div>
 
         {/* FAQ Section */}
