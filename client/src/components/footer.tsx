@@ -85,12 +85,12 @@ export default function Footer() {
             <ul className="space-y-5 text-sm text-black">
               {businessFinancing.map((service, index) => (
                 <li key={index}>
-                  <span
+                  <button
                     onClick={() => handleNavigation(service.href)}
-                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block bg-transparent border-none p-0 font-inherit text-left"
                   >
                     {service.name}
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -101,12 +101,12 @@ export default function Footer() {
             <ul className="space-y-5 text-sm text-black">
               {customSolutions.map((solution, index) => (
                 <li key={index}>
-                  <span
+                  <button
                     onClick={() => handleNavigation(solution.href)}
-                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block bg-transparent border-none p-0 font-inherit text-left"
                   >
                     {solution.name}
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -117,12 +117,12 @@ export default function Footer() {
             <ul className="space-y-5 text-sm text-black">
               {lenduraPages.map((page, index) => (
                 <li key={index}>
-                  <span
+                  <button
                     onClick={() => handleNavigation(page.href)}
-                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block"
+                    className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black cursor-pointer inline-block bg-transparent border-none p-0 font-inherit text-left"
                   >
                     {page.name}
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -136,12 +136,12 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {legalPages.map((page, index) => (
               <div key={index} className="flex items-center">
-                <span
+                <button
                   onClick={() => handleNavigation(page.href)}
-                  className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black text-xs md:text-sm cursor-pointer"
+                  className="hover:text-[#193a59] transition-all duration-300 ease-in-out transform hover:scale-105 text-black text-xs md:text-sm cursor-pointer bg-transparent border-none p-0 font-inherit"
                 >
                   {page.name}
-                </span>
+                </button>
                 {index < legalPages.length - 1 && (
                   <span className="ml-4 md:ml-6 text-black text-xs md:text-sm">|</span>
                 )}

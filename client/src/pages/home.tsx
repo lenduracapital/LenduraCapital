@@ -2,12 +2,9 @@ import Header from "@/components/header";
 import HeroSection from "@/components/hero-section";
 import ProcessSection from "@/components/process-section";
 import ContactFormSection from "@/components/contact-form-section";
-import WorkingCapitalSection from "@/components/working-capital-section";
-// TestimonialsSection removed - component cleaned up
 import MoveBusinessForwardSection from "@/components/move-business-forward-section";
 import BusinessSolutionsSection from "@/components/business-solutions-section";
 import TrustSignalsSection from "@/components/trust-signals-section";
-import PremiumFinancingSection from "@/components/premium-financing-section";
 
 import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
@@ -33,9 +30,7 @@ export default function Home() {
         <ProcessSection />
         <BusinessSolutionsSection />
         <MoveBusinessForwardSection />
-        <WorkingCapitalSection />
         <ContactFormSection />
-        <PremiumFinancingSection />
       </main>
       <Footer />
       <BackToTop />
