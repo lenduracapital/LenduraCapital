@@ -81,6 +81,7 @@ function ContactForm() {
           phone: "",
           company: "",
           message: "",
+          agree: false,
         });
       } else {
         throw new Error('Failed to submit contact form');
@@ -193,7 +194,7 @@ function ContactForm() {
           id="agree"
           type="checkbox"
           checked={formData.agree}
-          onChange={(e) => handleInputChange('agree', e.target.checked)}
+          onChange={(e) => setFormData(prev => ({ ...prev, agree: e.target.checked }))}
         />
         <Label htmlFor="agree" className="text-sm text-gray-700">
           By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up.  Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the <a href="https://lenduracapital.com/terms">Terms and Conditions</a> & <a href="https://lenduracapital.com/privacy">Privacy Policy</a>.
