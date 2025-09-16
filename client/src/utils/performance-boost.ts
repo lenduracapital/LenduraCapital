@@ -49,7 +49,7 @@ export function initPerformanceBoost() {
     const videos = document.querySelectorAll('video');
     videos.forEach(video => {
       video.preload = 'none';
-      video.loading = 'lazy';
+      // Note: loading attribute is not supported on video elements
     });
   };
 

@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle, ArrowLeft, Star, Wheat, Tractor, Sprout } from "lucide-react";
+import { CheckCircle, ArrowLeft, Star } from "lucide-react";
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import eagricultureImage from "@assets/eagriculture.jpg";
 
 
@@ -25,13 +26,17 @@ export default function AgricultureFarming() {
       
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url(${eagricultureImage})`
-          }}
-        />
+        <div className="absolute inset-0 z-0">
+          <OptimizedImage
+            src={eagricultureImage}
+            alt="Agriculture and farming operations with modern equipment"
+            className="w-full h-full object-cover opacity-20"
+            priority={true}
+            quality={85}
+            data-testid="image-agriculture-hero"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent z-5"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button

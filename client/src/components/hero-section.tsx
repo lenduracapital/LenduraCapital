@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { HeroImage } from "@/components/ui/optimized-image";
 import heroImage from "@assets/pexels-sanaan-3125171_1758003830156.jpg";
 
 export default function HeroSection() {
@@ -9,14 +10,26 @@ export default function HeroSection() {
   return (
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(25, 58, 89, 0.7)), url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
       data-testid="section-hero"
+      role="banner"
+      aria-label="Business funding hero section"
     >
+      {/* Optimized background image with WebP support */}
+      <div className="absolute inset-0 z-0">
+        <HeroImage
+          src={heroImage}
+          alt="Professional business funding consultation"
+          className="w-full h-full object-cover"
+          priority={true}
+          quality={90}
+          data-testid="image-hero-background"
+        />
+        {/* Gradient overlay */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#193a59]/70 to-black/50 z-10"
+          aria-hidden="true"
+        />
+      </div>
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full pt-24 md:pt-32">

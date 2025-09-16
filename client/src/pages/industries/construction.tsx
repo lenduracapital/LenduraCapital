@@ -3,6 +3,7 @@ import { CheckCircle, ArrowLeft, Star, HardHat, Truck, Building } from "lucide-r
 import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import constructionImage from "@assets/construction.jpg";
 
 
@@ -25,13 +26,17 @@ export default function Construction() {
       
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: `url(${constructionImage})`
-          }}
-        />
+        <div className="absolute inset-0 z-0">
+          <OptimizedImage
+            src={constructionImage}
+            alt="Construction workers and equipment on job site"
+            className="w-full h-full object-cover opacity-20"
+            priority={true}
+            quality={85}
+            data-testid="image-construction-hero"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent z-5"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
