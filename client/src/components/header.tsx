@@ -190,7 +190,7 @@ export default function Header({ }: HeaderProps) {
                           P.O. Financing
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/cre-lending"); setIsSolutionsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/solutions/commercial-real-estate-lending"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
                           CRE Lending
