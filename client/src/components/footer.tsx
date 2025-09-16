@@ -1,9 +1,7 @@
-import { ChartLine } from "lucide-react";
-import { FaInstagram, FaYelp, FaFacebook } from "react-icons/fa";
-import { SiTrustpilot } from "react-icons/si";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { useLocation } from "wouter";
-// Using the white and blue FundTek logo
-const fundTekLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+// Using the white and blue Lendura logo
+const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
 
 const businessFinancing = [
   { name: "Term Loans", href: "/solutions/term-loans" },
@@ -22,7 +20,7 @@ const customSolutions = [
   { name: "Credit Card Processing", href: "/solutions/credit-card-processing" }
 ];
 
-const fundTekPages = [
+const lenduraPages = [
   { name: "About Lendura", href: "/about" },
   { name: "Qualified Industries", href: "/qualified-industries" },
   { name: "Contact Us", href: "/contact" },
@@ -52,7 +50,7 @@ export default function Footer() {
           <div className="space-y-3 md:space-y-4 text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-start space-x-3">
               <img 
-                src={fundTekLogo} 
+                src={lenduraLogo} 
                 alt="Lendura Capital" 
                 className="h-20 sm:h-24 md:h-40 w-auto"
               />
@@ -117,7 +115,7 @@ export default function Footer() {
           <div>
             <h4 className="text-[#193a59] font-semibold mb-4">Lendura Capital</h4>
             <ul className="space-y-5 text-sm text-black">
-              {fundTekPages.map((page, index) => (
+              {lenduraPages.map((page, index) => (
                 <li key={index}>
                   <span
                     onClick={() => handleNavigation(page.href)}

@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-// Using the white and blue FundTek logo
-const fundTekLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+// Using the white and blue Lendura logo
+const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
 
 interface HeaderProps {
   transparent?: boolean;
 }
 
-export default function Header({ transparent = true }: HeaderProps) {
+export default function Header({ }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
@@ -41,13 +41,6 @@ export default function Header({ transparent = true }: HeaderProps) {
     window.location.href = '/apply-now';
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
 
   const handleHomeClick = () => {
     if (location === "/") {
@@ -87,7 +80,7 @@ export default function Header({ transparent = true }: HeaderProps) {
               aria-label="Go to homepage"
             >
               <img 
-                src={fundTekLogo}
+                src={lenduraLogo}
                 alt="Lendura Capital Logo" 
                 className="h-16 sm:h-18 md:h-20 lg:h-24 w-auto object-contain ml-[-3px] mr-[-3px] pl-[-8px] pr-[-8px] pt-[-7px] pb-[-7px] mt-[-3px] mb-[-3px]"
               />

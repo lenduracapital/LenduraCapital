@@ -25,8 +25,8 @@ try {
 } catch (error) {
   console.log('⚠️ Frontend build failed, creating fallback page...');
   writeFileSync('dist/public/index.html', `<!DOCTYPE html>
-<html><head><title>FundTek Capital</title></head>
-<body><h1>FundTek Capital Group</h1><p>Professional financing solutions</p></body></html>`);
+<html><head><title>Lendura Capital</title></head>
+<body><h1>Lendura Capital</h1><p>Professional financing solutions</p></body></html>`);
   console.log('✅ Fallback frontend page created');
 }
 
@@ -47,7 +47,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-console.log('🚀 FundTek Capital Group - Production Server Starting...');
+console.log('🚀 Lendura Capital - Production Server Starting...');
 console.log('📍 Environment:', process.env.NODE_ENV || 'production');
 console.log('🌐 Port:', PORT);
 
