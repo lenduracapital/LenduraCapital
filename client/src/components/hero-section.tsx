@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="flex items-center h-full pt-24 md:pt-32">
           <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 
-              className="font-bold mb-3 text-white drop-shadow-lg" 
+              className="font-bold mb-4 text-white drop-shadow-lg" 
               style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-title"
             >
@@ -42,7 +42,16 @@ export default function HeroSection() {
               style={{ fontSize: 'clamp(1rem, 2.2vw, 1.375rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-phone"
             >
-              Call <span style={{ color: '#193a59' }} className="font-semibold">(305) 834-7168</span> or apply online today.
+              Call <a 
+                href="https://calendly.com/sam-lenduracapital/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#193a59' }} 
+                className="font-semibold hover:underline"
+                data-testid="link-phone-calendly"
+              >
+                (305) 834-7168
+              </a> or apply online today.
             </h3>
             
             <Button 

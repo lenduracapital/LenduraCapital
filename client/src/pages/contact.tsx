@@ -89,7 +89,7 @@ function ContactForm() {
       console.error('Error submitting contact form:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'There was an error submitting your message. Please try again or call us directly at (305) 765-7168.'
+        message: 'There was an error submitting your message. Please try again or call us directly at (877) 763-6186.'
       });
     } finally {
       setIsSubmitting(false);
@@ -264,7 +264,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
-                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 765-7168</a>
+                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(877) 763-6186</a>
                       </div>
                     </div>
                     
@@ -297,7 +297,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
-                        <span className="text-[#193a59] font-bold text-xl">(305) 765-7168</span>
+                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(877) 763-6186</a>
                       </div>
                     </div>
                     
