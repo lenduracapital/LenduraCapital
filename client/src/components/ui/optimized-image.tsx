@@ -28,28 +28,14 @@ export function OptimizedImage({
   sizes = '100vw',
   priority = false,
   quality = 85,
-  webp = true,
+  webp = false, // Disabled until we have actual WebP images
   'data-testid': testId,
   ...props 
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(!lazy || priority);
   const [isInView, setIsInView] = useState(!lazy || priority);
   const [hasError, setHasError] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  // Generate responsive image URLs
-  const generateSrcSet = (originalSrc: string) => {
-    const widths = [400, 800, 1200, 1600, 2000];
-    const ext = originalSrc.split('.').pop() || 'jpg';
-    const baseSrc = originalSrc.replace(/\.[^/.]+$/, '');
-    
-    return widths
-      .map(w => {
-        const format = webp ? 'webp' : ext;
-        return `${baseSrc}-${w}w.${format} ${w}w`;
-      })
-      .join(', ');
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Enhanced intersection observer with performance optimization
   useEffect(() => {
@@ -68,8 +54,8 @@ export function OptimizedImage({
       }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
     }
 
     return () => observer.disconnect();
@@ -86,11 +72,9 @@ export function OptimizedImage({
 
   const shouldLoad = !lazy || isInView || priority;
 
-  // Generate WebP source with fallback
-  const webpSrc = webp ? src.replace(/\.(jpg|jpeg|png)$/i, '.webp') : null;
-
   return (
     <div 
+      ref={containerRef}
       className={`relative overflow-hidden ${className}`}
       style={{ aspectRatio }}
       data-testid={testId}
@@ -115,44 +99,29 @@ export function OptimizedImage({
           style={{ aspectRatio }}
         >
           <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
       )}
       
-      {/* Responsive image with modern format support */}
+      {/* Simple image without complex srcset generation */}
       {shouldLoad && !hasError && (
-        <picture>
-          {/* WebP source for modern browsers */}
-          {webp && webpSrc && (
-            <source
-              srcSet={generateSrcSet(webpSrc)}
-              sizes={sizes}
-              type="image/webp"
-            />
-          )}
-          
-          {/* Fallback image */}
-          <img
-            ref={imgRef}
-            src={shouldLoad ? src : placeholder || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwIDIwTTIwIDIwIiBzdHJva2U9IiNkZGRkZGQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo='}
-            srcSet={generateSrcSet(src)}
-            sizes={sizes}
-            alt={alt}
-            width={width}
-            height={height}
-            onLoad={handleLoad}
-            onError={handleError}
-            className={`
-              transition-all duration-300 ease-out
-              ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
-              w-full h-full object-cover
-            `}
-            loading={lazy && !priority ? 'lazy' : 'eager'}
-            decoding="async"
-            {...props}
-          />
-        </picture>
+        <img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          onLoad={handleLoad}
+          onError={handleError}
+          className={`
+            transition-all duration-300 ease-out
+            ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
+            w-full h-full object-cover
+          `}
+          loading={lazy && !priority ? 'lazy' : 'eager'}
+          decoding="async"
+          {...props}
+        />
       )}
     </div>
   );
@@ -165,7 +134,7 @@ export function CriticalImage(props: OptimizedImageProps) {
       {...props} 
       lazy={false} 
       priority={true}
-      webp={true}
+      webp={false}
     />
   );
 }
