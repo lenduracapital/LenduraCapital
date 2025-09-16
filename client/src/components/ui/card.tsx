@@ -4,14 +4,17 @@ import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & {
+    'data-testid'?: string
+  }
+>(({ className, 'data-testid': testId, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      "rounded-lg border bg-card text-card-foreground shadow-brand transition-shadow hover:shadow-brand-hover",
       className
     )}
+    data-testid={testId || 'card'}
     {...props}
   />
 ))
@@ -31,14 +34,17 @@ CardHeader.displayName = "CardHeader"
 
 const CardTitle = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & {
+    'data-testid'?: string
+  }
+>(({ className, 'data-testid': testId, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "text-2xl font-semibold leading-tight tracking-tight text-foreground",
       className
     )}
+    data-testid={testId || 'card-title'}
     {...props}
   />
 ))
@@ -46,11 +52,14 @@ CardTitle.displayName = "CardTitle"
 
 const CardDescription = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+  React.HTMLAttributes<HTMLDivElement> & {
+    'data-testid'?: string
+  }
+>(({ className, 'data-testid': testId, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground leading-relaxed", className)}
+    data-testid={testId || 'card-description'}
     {...props}
   />
 ))

@@ -146,39 +146,63 @@ export class ImageOptimizer {
   // Lazy load image with performance tracking
   async loadImage(src: string): Promise<HTMLImageElement> {
     if (this.imageCache.has(src)) {
-      await this.imageCache.get(src)!.catch(() => {
+      try {
+        await this.imageCache.get(src)!;
+      } catch (error) {
         // If cached promise failed, remove it and retry
         this.imageCache.delete(src);
-      });
-      return new Image(); // Return new instance
+        console.warn(`Cached image failed, retrying: ${src}`, error);
+      }
     }
 
-    const loadPromise = new Promise<void>((resolve, reject) => {
-      const img = new Image();
-      const start = performance.now();
-      
-      img.onload = () => {
-        const duration = performance.now() - start;
-        console.log(`Image ${src} loaded in ${duration.toFixed(2)}ms`);
-        resolve();
-      };
-      
-      img.onerror = () => {
-        console.warn(`Failed to load image: ${src}`);
-        reject(new Error(`Failed to load image: ${src}`));
-      };
-      
-      img.src = src;
-    });
+    if (!this.imageCache.has(src)) {
+      const loadPromise = new Promise<void>((resolve) => {
+        const img = new Image();
+        const start = performance.now();
+        
+        const cleanup = () => {
+          img.onload = null;
+          img.onerror = null;
+          img.onabort = null;
+        };
+        
+        img.onload = () => {
+          cleanup();
+          const duration = performance.now() - start;
+          console.log(`Image ${src} loaded in ${duration.toFixed(2)}ms`);
+          resolve();
+        };
+        
+        img.onerror = (error) => {
+          cleanup();
+          console.warn(`Failed to load image: ${src}`, error);
+          resolve(); // Resolve instead of reject to prevent unhandled rejection
+        };
+        
+        img.onabort = () => {
+          cleanup();
+          console.warn(`Image loading aborted: ${src}`);
+          resolve(); // Resolve instead of reject to prevent unhandled rejection
+        };
+        
+        // Set a timeout to prevent hanging promises
+        setTimeout(() => {
+          cleanup();
+          console.warn(`Image loading timeout: ${src}`);
+          resolve(); // Resolve instead of reject to prevent unhandled rejection
+        }, 10000); // 10 second timeout
+        
+        img.src = src;
+      });
 
-    this.imageCache.set(src, loadPromise);
+      this.imageCache.set(src, loadPromise);
+    }
     
     try {
-      await loadPromise;
+      await this.imageCache.get(src)!;
     } catch (error) {
-      // Remove failed promise from cache and create fallback image
-      this.imageCache.delete(src);
-      console.warn(`Image loading failed for ${src}, returning fallback`);
+      // This should not happen now, but keep as safety net
+      console.warn(`Image loading failed for ${src}:`, error);
     }
     
     const img = new Image();
@@ -193,12 +217,13 @@ export class ImageOptimizer {
     }
 
     try {
-      const response = await fetch(src).catch(() => {
-        throw new Error('Failed to fetch image for WebP conversion');
-      });
-      const blob = await response.blob().catch(() => {
-        throw new Error('Failed to get blob from response');
-      });
+      const response = await fetch(src);
+      if (!response.ok) {
+        console.warn('Failed to fetch image for WebP conversion:', response.status);
+        return src;
+      }
+      
+      const blob = await response.blob();
       
       return new Promise<string>((resolve) => {
         const canvas = document.createElement('canvas');
@@ -211,32 +236,49 @@ export class ImageOptimizer {
         
         const img = new Image();
         
+        const cleanup = () => {
+          img.onload = null;
+          img.onerror = null;
+        };
+        
         img.onload = () => {
-          canvas.width = img.width;
-          canvas.height = img.height;
-          ctx.drawImage(img, 0, 0);
-          
-          canvas.toBlob(
-            (webpBlob) => {
-              if (webpBlob) {
-                resolve(URL.createObjectURL(webpBlob));
-              } else {
-                resolve(src);
-              }
-            },
-            'image/webp',
-            quality
-          );
+          cleanup();
+          try {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+            
+            canvas.toBlob(
+              (webpBlob) => {
+                if (webpBlob) {
+                  resolve(URL.createObjectURL(webpBlob));
+                } else {
+                  resolve(src);
+                }
+              },
+              'image/webp',
+              quality
+            );
+          } catch (error) {
+            console.warn('Canvas operations failed:', error);
+            resolve(src);
+          }
         };
         
         img.onerror = () => {
+          cleanup();
+          console.warn('Image loading failed for WebP conversion');
           resolve(src); // Fallback to original on error
         };
         
+        // Add timeout to prevent hanging
+        setTimeout(() => {
+          cleanup();
+          console.warn('WebP conversion timeout');
+          resolve(src);
+        }, 5000);
+        
         img.src = URL.createObjectURL(blob);
-      }).catch(() => {
-        console.warn('WebP conversion failed, falling back to original');
-        return src;
       });
     } catch (error) {
       console.warn('WebP conversion failed:', error);

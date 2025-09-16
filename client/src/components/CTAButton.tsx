@@ -66,38 +66,28 @@ export default function CTAButton({
     }
   };
 
-  // Variant styles
+  // Variant styles - Updated to use brand tokens
   const getVariantStyles = () => {
     switch (variant) {
       case 'primary':
         return {
-          backgroundColor: '#193a59',
-          color: 'white',
-          className: 'hover:bg-[#285d8a] border-[#193a59] hover:border-[#285d8a] shadow-lg hover:shadow-xl'
+          className: 'bg-brand-primary text-white hover:bg-brand-primary-hover border-brand-primary hover:border-brand-primary-hover shadow-brand hover:shadow-brand-hover'
         };
       case 'secondary':
         return {
-          backgroundColor: 'transparent',
-          color: '#193a59',
-          className: 'border-2 border-[#193a59] hover:bg-[#193a59] hover:text-white shadow-md hover:shadow-lg'
+          className: 'bg-transparent text-brand-primary border-2 border-brand-primary hover:bg-brand-primary hover:text-white shadow-md hover:shadow-brand'
         };
       case 'apply-now':
         return {
-          backgroundColor: '#2AD0C5',
-          color: 'white',
-          className: 'hover:bg-[#22b8aa] border-[#2AD0C5] hover:border-[#22b8aa] shadow-lg hover:shadow-xl font-semibold'
+          className: 'bg-brand-secondary text-white hover:bg-brand-secondary-dark border-brand-secondary hover:border-brand-secondary-dark shadow-brand hover:shadow-brand-hover font-semibold'
         };
       case 'phone':
         return {
-          backgroundColor: '#10b981',
-          color: 'white',
-          className: 'hover:bg-[#059669] border-[#10b981] hover:border-[#059669] shadow-lg hover:shadow-xl'
+          className: 'bg-success text-white hover:bg-success/90 border-success hover:border-success/90 shadow-brand hover:shadow-brand-hover'
         };
       default:
         return {
-          backgroundColor: '#193a59',
-          color: 'white',
-          className: 'hover:bg-[#285d8a] border-[#193a59] hover:border-[#285d8a] shadow-lg hover:shadow-xl'
+          className: 'bg-brand-primary text-white hover:bg-brand-primary-hover border-brand-primary hover:border-brand-primary-hover shadow-brand hover:shadow-brand-hover'
         };
     }
   };
@@ -137,10 +127,6 @@ export default function CTAButton({
     <Button
       onClick={handleClick}
       disabled={disabled}
-      style={{
-        backgroundColor: variantStyles.backgroundColor,
-        color: variantStyles.color
-      }}
       className={`
         ${variantStyles.className}
         ${sizeClasses}
@@ -163,7 +149,7 @@ export default function CTAButton({
         disabled:hover:translate-y-0
         focus:outline-none
         focus:ring-2
-        focus:ring-[#193a59]
+        focus:ring-brand-primary
         focus:ring-offset-2
         ${className}
       `}
