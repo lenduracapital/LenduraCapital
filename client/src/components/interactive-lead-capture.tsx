@@ -104,8 +104,8 @@ export default function InteractiveLeadCapture() {
           <div className="flex items-center justify-center gap-2 text-lg text-black">
             <Phone className="w-5 h-5 text-[#193a59]" />
             <span>Questions? Call: </span>
-            <a href="https://calendly.com/sam-lenduracapital/30min" className="underline hover:text-[#193a59] font-semibold text-[#193a59]">
-              (877) 763-6186
+            <a href="tel:+13058347168" className="underline hover:text-[#193a59] font-semibold text-[#193a59]">
+              (305) 834-7168
             </a>
           </div>
         </div>
