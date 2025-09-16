@@ -49,7 +49,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
   };
 
   const handleBackToIndustries = () => {
-    setLocation("/qualified-industries");
+    setLocation("/who-we-fund");
     window.scrollTo(0, 0);
   };
 

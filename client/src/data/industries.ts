@@ -17,7 +17,7 @@ export const industriesData: Record<string, IndustryData> = {
     title: "Construction Industry Financing",
     description: "Build your business with flexible financing for equipment, projects, and working capital needs.",
     slug: "construction",
-    heroImage: "/attached_assets/construction.jpg",
+    heroImage: "/construction.jpg",
     heroImageAlt: "Construction work and equipment",
     overviewTitle: "Building Success Together",
     overviewContent: [
@@ -39,7 +39,7 @@ export const industriesData: Record<string, IndustryData> = {
     title: "Medical & Healthcare Financing",
     description: "Specialized funding solutions for medical equipment, practice expansion, and healthcare facilities.",
     slug: "medical-healthcare",
-    heroImage: "/attached_assets/medical.jpg",
+    heroImage: "/medical.jpg",
     heroImageAlt: "Medical equipment and healthcare facility",
     overviewTitle: "Supporting Healthcare Excellence",
     overviewContent: [

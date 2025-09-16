@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/generated_images/Professional_business_financing_hero_5b4196fa.png";
+import heroImage from "@assets/pexels-sanaan-3125171_1758003830156.jpg";
 
 export default function HeroSection() {
   const handleApplyNow = () => {
@@ -10,7 +10,7 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(25, 58, 89, 0.7), rgba(25, 58, 89, 0.7)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(25, 58, 89, 0.7)), url(${heroImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -19,31 +19,31 @@ export default function HeroSection() {
     >
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
-        <div className="flex items-center h-full">
-          <div className="max-w-2xl pt-6 md:pt-8" style={{ contain: 'layout' }}>
+        <div className="flex items-start h-full pt-48 md:pt-56">
+          <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 
-              className="font-bold mb-2 sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight text-[62px]" 
-              style={{ fontSize: 'clamp(1.75rem, 5vw, 3.75rem)' }}
+              className="font-bold mb-4 text-white drop-shadow-lg" 
+              style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-title"
             >
               Get Business Funding <span style={{ color: '#193a59' }}>Fast & Simple</span>
             </h1>
             
-            <p 
-              className="mb-2 max-w-2xl sm:text-lg sm:leading-relaxed md:text-xl md:leading-relaxed lg:text-[22px] lg:leading-relaxed text-[24px] font-medium" 
-              style={{ fontSize: 'clamp(1rem, 2.5vw, 1.375rem)' }}
-              data-testid="text-hero-description"
+            <h2 
+              className="mb-4 max-w-2xl text-white font-semibold drop-shadow-lg" 
+              style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
+              data-testid="text-hero-subtitle"
             >
               Fast approvals, flexible terms, and funding solutions designed for your business success.
-            </p>
+            </h2>
             
-            <p 
-              className="mb-4 sm:text-base sm:leading-relaxed md:text-lg md:leading-relaxed lg:text-[20px] lg:leading-relaxed text-[22px] font-medium" 
-              style={{ fontSize: 'clamp(0.875rem, 2.2vw, 1.25rem)' }}
+            <h3 
+              className="mb-6 text-white font-medium drop-shadow-lg" 
+              style={{ fontSize: 'clamp(1rem, 2.2vw, 1.375rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-phone"
             >
-              Call <span style={{ color: '#193a59' }}>(305) 834-7168</span> or apply online today.
-            </p>
+              Call <span style={{ color: '#193a59' }} className="font-semibold">(305) 834-7168</span> or apply online today.
+            </h3>
             
             <Button 
               onClick={handleApplyNow}
