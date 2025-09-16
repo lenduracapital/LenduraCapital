@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, memo } from "react";
-import { X, MessageCircle, Bot, Send, Phone, Clock, MapPin, ArrowLeft } from "lucide-react";
-import { useLocation } from "wouter";
+import { X, MessageCircle, Bot, Send, Phone, Clock, ArrowLeft } from "lucide-react";
 
 interface ChatMessage {
   id: string;
@@ -34,7 +33,6 @@ interface Conversation {
 }
 
 function ChatWidget() {
-  const [location] = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false); // Start collapsed on mobile
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -322,7 +320,6 @@ function ChatWidget() {
       
       const result = await response.json();
       if (result.success) {
-        console.log('Chat data submitted successfully:', result.sessionId);
         // Save session ID to local storage
         const savedSessionIds = JSON.parse(localStorage.getItem('chatSessionIds') || '[]');
         if (!savedSessionIds.includes(currentSessionId)) {
@@ -398,12 +395,6 @@ function ChatWidget() {
 
   const renderInput = () => {
     if (chatState.step === 'first_name' || chatState.step === 'phone_number' || chatState.step === 'email' || chatState.step === 'debt_q1' || chatState.step === 'debt_q2') {
-      const placeholders = {
-        'first_name': 'Enter your first name...',
-        'phone_number': 'Enter your phone number...',
-        'email': 'Enter your email address...'
-      };
-      
       return (
         <div className="flex gap-2 mt-3">
           <input

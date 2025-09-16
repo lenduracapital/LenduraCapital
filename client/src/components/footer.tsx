@@ -39,7 +39,6 @@ export default function Footer() {
   const [, setLocation] = useLocation();
 
   const handleNavigation = (href: string) => {
-    console.log('Navigating to:', href);
     setLocation(href);
   };
 

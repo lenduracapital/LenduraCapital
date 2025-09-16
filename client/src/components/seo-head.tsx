@@ -15,7 +15,7 @@ export default function SEOHead({
   keywords = "business funding, term loans, merchant cash advance, equipment financing, SBA loans",
   canonical,
   type = "website",
-  image = "/assets/lendura-og-image.jpg"
+  image = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png"
 }: SEOHeadProps) {
   useEffect(() => {
     // Update document title
@@ -51,7 +51,7 @@ export default function SEOHead({
       "@type": "FinancialService",
       "name": "Lendura Capital",
       "url": "https://lenduracapital.com",
-      "logo": "/favicon.svg",
+      "logo": "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png",
       "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
       "telephone": "(305) 834-7168",
       "email": "admin@lenduracapital.com",

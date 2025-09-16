@@ -5,23 +5,13 @@ const CRITICAL_RESOURCES = [
   // Critical CSS - already handled by Vite
   // Logo - needed for header
   '/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png',
-  // Hero video
-  '/hero-video.mp4'
-];
-
-// Video resources for preloading
-const VIDEO_RESOURCES = [
-  '/video/optimized/hero-poster.jpg', // Poster image - preload immediately
-  '/video/optimized/hero-video-480p.mp4', // Mobile/slow connection video
-  '/video/optimized/hero-video-720p.webm', // Desktop video - WebM format
-  '/video/optimized/hero-video-720p.mp4' // Desktop video - MP4 fallback
 ];
 
 // Large resources that should be deferred
 const DEFER_RESOURCES = [
   '/assets/pexels-kindelmedia-7979438_1752763530596.jpg', // 2.7MB
   '/assets/pexels-tima-miroshnichenko-6169650_1752763276873.jpg', // 2.0MB
-  '/assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg', // 1.9MB
+  '/assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg' // 1.9MB
 ];
 
 export function prioritizeResourceLoading() {
@@ -37,64 +27,12 @@ export function prioritizeResourceLoading() {
     document.head.appendChild(link);
   });
 
-  // Preload video poster immediately for faster video loading experience
-  const posterLink = document.createElement('link');
-  posterLink.rel = 'preload';
-  posterLink.as = 'image';
-  posterLink.href = '/video/optimized/hero-poster.jpg';
-  posterLink.crossOrigin = 'anonymous';
-  document.head.appendChild(posterLink);
-
   // Add resource hints for better loading
   const dnsPreconnect = document.createElement('link');
   dnsPreconnect.rel = 'dns-prefetch';
   dnsPreconnect.href = '//fonts.googleapis.com';
   document.head.appendChild(dnsPreconnect);
 
-  // Intelligently preload video based on connection and device
-  const preloadVideo = () => {
-    // Check connection speed and device type
-    const isMobile = window.innerWidth <= 768;
-    let connectionSpeed = 'fast';
-    
-    if ('connection' in navigator) {
-      const connection = (navigator as any).connection;
-      if (connection && (
-        connection.effectiveType === '3g' || 
-        connection.effectiveType === '2g' || 
-        connection.effectiveType === 'slow-2g' ||
-        (connection.downlink && connection.downlink < 1.5)
-      )) {
-        connectionSpeed = 'slow';
-      }
-    }
-
-    // Preload appropriate video quality
-    const videoLink = document.createElement('link');
-    videoLink.rel = 'preload';
-    videoLink.as = 'video';
-    
-    if (isMobile || connectionSpeed === 'slow') {
-      videoLink.href = '/video/optimized/hero-video-480p.mp4';
-    } else {
-      videoLink.href = '/video/optimized/hero-video-720p.webm';
-    }
-    
-    videoLink.crossOrigin = 'anonymous';
-    document.head.appendChild(videoLink);
-  };
-
-  // Start video preloading immediately on fast connections, defer on slow
-  if ('connection' in navigator) {
-    const connection = (navigator as any).connection;
-    if (connection && connection.effectiveType && connection.effectiveType !== '2g' && connection.effectiveType !== 'slow-2g') {
-      preloadVideo();
-    } else {
-      setTimeout(preloadVideo, 500);
-    }
-  } else {
-    preloadVideo();
-  }
 
   // Defer heavy resources until after critical path
   window.addEventListener('load', () => {

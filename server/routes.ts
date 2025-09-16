@@ -52,8 +52,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertLoanApplicationSchema.parse(req.body);
       const application = await storage.createLoanApplication(validatedData);
       
-      // Log successful loan application creation
-      console.log('Loan application created:', application.id);
       
       res.json(application);
     } catch (error) {
@@ -67,8 +65,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const applications = await storage.getLoanApplications();
       
-      // Log successful read operation
-      console.log('Loan applications fetched');
       
       res.json(applications);
     } catch (error) {
@@ -328,7 +324,6 @@ This message was automatically generated from the Lendura Capital website contac
           };
 
           await sgMail.send(msg);
-          console.log(`Contact form email sent for lead: ${leadId}`);
 
           // Store in database
           const contactData = {
@@ -542,7 +537,6 @@ This application was submitted electronically through the Lendura Capital websit
               };
 
               await sgMail.send(msg);
-              console.log(`Loan application email sent for: ${applicationId}`);
 
               // Store in database
               const loanData = {
@@ -829,7 +823,6 @@ This message was automatically generated from the Lendura Capital website chat w
           };
 
           // TODO: Configure SendGrid email sending
-          console.log('Email would be sent:', msg.subject);
         } catch (emailError: any) {
           // Store failed submission for manual processing
           const failedSubmission = {

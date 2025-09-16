@@ -42,8 +42,6 @@ export function registerAdminRoutes(app: Express) {
   // Admin dashboard data
   app.get("/api/admin/dashboard", requireAuth, async (req, res) => {
     try {
-      console.log('🔍 Admin dashboard: Starting data fetch...');
-      
       // Test each storage method individually to identify issues
       let loanApplications: any[] = [];
       let contactSubmissions: any[] = [];
@@ -51,33 +49,25 @@ export function registerAdminRoutes(app: Express) {
       let chatbotConversations: any[] = [];
 
       try {
-        console.log('📋 Fetching loan applications...');
         loanApplications = await storage.getLoanApplications();
-        console.log(`✅ Found ${loanApplications.length} loan applications`);
       } catch (error) {
         console.error('❌ Error fetching loan applications:', error);
       }
 
       try {
-        console.log('📞 Fetching contact submissions...');
         contactSubmissions = await storage.getContactSubmissions();
-        console.log(`✅ Found ${contactSubmissions.length} contact submissions`);
       } catch (error) {
         console.error('❌ Error fetching contact submissions:', error);
       }
 
       try {
-        console.log('📝 Fetching jotform submissions...');
         jotformSubmissions = await storage.getJotformSubmissions();
-        console.log(`✅ Found ${jotformSubmissions.length} jotform submissions`);
       } catch (error) {
         console.error('❌ Error fetching jotform submissions:', error);
       }
 
       try {
-        console.log('💬 Fetching chatbot conversations...');
         chatbotConversations = await storage.getChatbotConversations();
-        console.log(`✅ Found ${chatbotConversations.length} chatbot conversations`);
       } catch (error) {
         console.error('❌ Error fetching chatbot conversations:', error);
       }
@@ -107,7 +97,6 @@ export function registerAdminRoutes(app: Express) {
         }
       };
 
-      console.log('📊 Dashboard stats computed successfully');
       res.json(stats);
     } catch (error) {
       console.error('💥 Admin dashboard error:', error);

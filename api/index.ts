@@ -29,7 +29,6 @@ app.post('/api/loan-applications', async (req, res) => {
   try {
     const validatedData = insertLoanApplicationSchema.parse(req.body);
     const application = await storage.createLoanApplication(validatedData);
-    console.log('Loan application created:', application.id);
     res.json(application);
   } catch (error) {
     console.error('Failed to create loan application:', error);
@@ -40,7 +39,6 @@ app.post('/api/loan-applications', async (req, res) => {
 app.get('/api/loan-applications', async (req, res) => {
   try {
     const applications = await storage.getLoanApplications();
-    console.log('Loan applications fetched');
     res.json(applications);
   } catch (error) {
     console.error('Failed to fetch loan applications:', error);

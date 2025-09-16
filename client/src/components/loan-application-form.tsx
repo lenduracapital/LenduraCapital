@@ -1,11 +1,9 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import SignatureCanvas from 'react-signature-canvas';
 
 interface LoanApplicationData {
@@ -584,9 +582,8 @@ export default function LoanApplicationForm() {
                     accept=".pdf,.jpg,.jpeg,.png,.tiff"
                     multiple
                     className="hidden"
-                    onChange={(e) => {
+                    onChange={() => {
                       // Handle file upload here if needed
-                      console.log('Bank statements files:', e.target.files);
                     }}
                   />
                   <label htmlFor="bankStatements" className="cursor-pointer">
@@ -607,9 +604,8 @@ export default function LoanApplicationForm() {
                     accept=".pdf,.jpg,.jpeg,.png,.tiff"
                     multiple
                     className="hidden"
-                    onChange={(e) => {
+                    onChange={() => {
                       // Handle file upload here if needed
-                      console.log('Additional docs files:', e.target.files);
                     }}
                   />
                   <label htmlFor="additionalDocs" className="cursor-pointer">

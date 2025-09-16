@@ -90,14 +90,13 @@ This message was automatically generated from the Lendura Capital website contac
         };
 
         await sgMail.send(msg);
-        console.log(`Contact form email sent successfully - Lead ID: ${leadId}`);
         
         return res.status(200).json({ 
           success: true, 
           message: "Contact form submitted successfully!",
           leadId: leadId
         });
-      } catch (emailError) {
+      } catch (emailError: any) {
         console.error('SendGrid email error:', emailError);
         return res.status(500).json({ 
           error: "Failed to send email notification",
@@ -105,7 +104,6 @@ This message was automatically generated from the Lendura Capital website contac
         });
       }
     } else {
-      console.log('Contact form submitted (SendGrid not configured):', { firstName, lastName, email });
       return res.status(200).json({ 
         success: true, 
         message: "Contact form submitted successfully!" 

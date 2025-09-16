@@ -33,21 +33,6 @@
     body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff}
     .hero-section{height:100vh;position:relative;overflow:hidden;will-change:transform;contain:layout style paint}
     .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5);contain:layout style paint;font-display:swap}
-    video{opacity:1;transform:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;outline:none!important;border:none!important;pointer-events:none}
-    .video-container{position:relative;overflow:hidden;background:#1e293b}
-    video::-webkit-media-controls{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-webkit-media-controls-panel{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-webkit-media-controls-play-button{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-webkit-media-controls-start-playback-button{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-webkit-media-controls-enclosure{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-webkit-media-controls-overlay-play-button{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::-moz-media-controls{display:none!important;opacity:0!important;visibility:hidden!important}
-    video::--webkit-media-controls-overlay-play-button{display:none!important;opacity:0!important;visibility:hidden!important}
-    video:focus{outline:none!important;border:none!important}
-    video[controls]{display:none!important}
-    .hero-section video{pointer-events:none!important;-webkit-user-select:none!important;user-select:none!important}
-    .hero-section video::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:transparent;z-index:999;pointer-events:none}
-    .hero-section::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none;background:transparent}
     img{transform:translateZ(0);will-change:transform;image-rendering:crisp-edges;backface-visibility:hidden;-webkit-backface-visibility:hidden;loading:lazy}
     .component{contain:layout style paint}
     .scroll-smooth{scroll-behavior:smooth}
@@ -60,16 +45,7 @@
   <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png" as="image" fetchpriority="high">
   <link rel="modulepreload" href="/src/main.tsx">
   
-  <!-- Preload critical hero images -->
-  <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750167134599.png" as="image" fetchpriority="high" />
-  <link rel="preload" href="/attached_assets/image_1752182868701.png" as="image" fetchpriority="high" />
-  <link rel="preload" href="/attached_assets/Truck_1750271749729.jpg" as="image" />
   
-  <!-- Video optimization -->
-  <link rel="prefetch" href="/attached_assets/Video (Lendura)_1751295081956.webm" as="video" type="video/webm" />
-  <link rel="dns-prefetch" href="//8b193348-00a4-4833-9d07-3dcf3473f797-00-1dk6d2xr19cch.spock.replit.dev" />
-  
-  <!-- Video assets are loaded from attached_assets directory -->
   
   <!-- Preload critical fonts -->
   <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
