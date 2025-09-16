@@ -1,8 +1,11 @@
-import CustomContactForm from './custom-contact-form';
+import SimplifiedModernContactForm from './simplified-modern-contact-form';
+import SectionSeparator from './section-separator';
 
 export default function ContactFormSection() {
   return (
-    <section className="py-12 md:py-20" style={{ backgroundColor: '#f5f6f6' }}>
+    <>
+      <SectionSeparator variant="wave" color="white" flip={true} />
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           <div className="flex flex-col justify-between h-[400px] sm:h-[500px] md:h-[700px] lg:h-[800px] space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-0">
@@ -56,13 +59,11 @@ export default function ContactFormSection() {
           </div>
           
           <div className="w-full max-w-2xl">
-            <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">
-              Get Working Capital Today
-            </h3>
-            <CustomContactForm />
+            <SimplifiedModernContactForm />
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
