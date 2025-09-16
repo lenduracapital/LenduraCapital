@@ -50,16 +50,18 @@ export default function CTAButton({
       } else if (href.startsWith('tel:')) {
         window.location.href = href;
       } else if (href === '/apply' || href === '/app' || href === '/applynow' || href === '/apply-now') {
-        // All apply variations redirect to JotForm
-        window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
+        // Route to internal application forms
+        setLocation(href);
+        window.scrollTo(0, 0);
       } else {
         setLocation(href);
         window.scrollTo(0, 0);
       }
     } else {
-      // Default action for apply-now variant
+      // Default action for apply-now variant - route to /apply
       if (variant === 'apply-now') {
-        window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
+        setLocation('/apply');
+        window.scrollTo(0, 0);
       }
     }
   };

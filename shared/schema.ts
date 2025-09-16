@@ -21,6 +21,18 @@ export const insertLoanApplicationSchema = z.object({
   loanPurpose: z.string().optional(),
   creditScore: z.number().optional(),
   status: z.string().max(50).default("pending"),
+  // Additional metadata field to store extra form data
+  metadata: z.object({
+    dateOfBirth: z.string().optional(),
+    ssn: z.string().optional(),
+    businessAddress: z.string().optional(),
+    ein: z.string().optional(),
+    dbaName: z.string().optional(),
+    electronicSignature: z.string().optional(),
+    signatureDate: z.string().optional(),
+    submissionSource: z.string().optional(),
+    submissionDate: z.string().optional(),
+  }).optional(),
 });
 
 export const insertContactSubmissionSchema = z.object({

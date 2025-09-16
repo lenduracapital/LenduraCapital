@@ -11,7 +11,6 @@ import CookieBanner from "@/components/CookieBanner";
 // Lazy load non-critical pages for code splitting with prefetch
 const Solutions = lazy(() => import(/* webpackPrefetch: true */ "@/pages/solutions"));
 const QualifiedIndustries = lazy(() => import(/* webpackPrefetch: true */ "@/pages/who-we-fund"));
-const ApplyNow = lazy(() => import("@/pages/apply-now"));
 const ClientCashAdvanceDetail = lazy(() => import("@/pages/solutions/merchant-cash-advance"));
 const TermLoansDetail = lazy(() => import("@/pages/solutions/term-loans"));
 const LinesOfCreditDetail = lazy(() => import("@/pages/solutions/lines-of-credit"));
@@ -36,6 +35,12 @@ const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
 
 const AdminDashboard = lazy(() => import("@/pages/admin"));
+const ApplicationForm = lazy(() => import("@/pages/ApplicationForm"));
+
+// Create wrapper components to avoid inline lambdas and ensure stable mounting
+const ApplyPage = () => <ApplicationForm variant="apply" />;
+const AppPage = () => <ApplicationForm variant="app" />;
+const ApplyNowPage = () => <ApplicationForm variant="applynow" />;
 
 const NotFound = lazy(() => import("@/pages/not-found"));
 const HomeServicesContracting = lazy(() => import("@/pages/industries/home-services-contracting"));
@@ -111,8 +116,13 @@ function Router() {
 
         <Route path="/admin" component={AdminDashboard} />
 
-        <Route path="/apply" component={ApplyNow} />
-        <Route path="/apply-now" component={ApplyNow} />
+        {/* New optimized application form routes */}
+        <Route path="/apply" component={ApplyPage} />
+        <Route path="/app" component={AppPage} />
+        <Route path="/applynow" component={ApplyNowPage} />
+        
+        {/* Legacy route - keep for backwards compatibility */}
+        <Route path="/apply-now" component={ApplyPage} />
         <Route path="/industries/home-services-contracting" component={HomeServicesContracting} />
         <Route path="/industries/cleaning-janitorial-services" component={CleaningJanitorialServices} />
         <Route path="/industries/trucking-transportation" component={TruckingTransportation} />
