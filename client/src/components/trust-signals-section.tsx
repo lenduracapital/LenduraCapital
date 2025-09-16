@@ -229,7 +229,6 @@ export default function TrustSignalsSection() {
 
         </div>
       </section>
-      <SectionSeparator variant="diagonal" color="blue" />
     </>
   );
 }
