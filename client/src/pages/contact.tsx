@@ -17,7 +17,8 @@ function ContactForm() {
     phone: "",
     company: "",
     message: "",
-    agree: false,
+    smsConsent: false,
+    termsAgree: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitStatus, setSubmitStatus] = useState<{type: 'success' | 'error'; message: string} | null>(null);
@@ -81,7 +82,8 @@ function ContactForm() {
           phone: "",
           company: "",
           message: "",
-          agree: false,
+          smsConsent: false,
+          termsAgree: false,
         });
       } else {
         throw new Error('Failed to submit contact form');
@@ -189,23 +191,45 @@ function ContactForm() {
           />
           {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
         </div>
-         <div className="mb-2 flex items-start space-x-2">
-        <input
-          id="agree"
-          type="checkbox"
-          checked={formData.agree}
-          onChange={(e) => setFormData(prev => ({ ...prev, agree: e.target.checked }))}
-          data-testid="checkbox-sms-consent"
-        />
-        <Label htmlFor="agree" className="text-sm text-gray-700">
-          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies.<br/><br/>I have read and agree with the Terms and Conditions & Privacy Policy.
-        </Label>
-      </div>
-      
-      {/* Terms & Privacy Links */}
-      <div className="text-center text-sm text-gray-600 mb-4">
-        <a href="/terms" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> | <a href="/privacy" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-      </div>
+        {/* Consent Checkboxes */}
+        <div className="bg-gray-50 rounded-lg p-4 space-y-4 mb-4">
+          {/* SMS Consent Checkbox */}
+          <div className="flex items-start space-x-3">
+            <input
+              id="smsConsent"
+              type="checkbox"
+              checked={formData.smsConsent}
+              onChange={(e) => setFormData(prev => ({ ...prev, smsConsent: e.target.checked }))}
+              className="mt-1 h-4 w-4 text-[#193a59] border-gray-300 rounded focus:ring-[#193a59] focus:ring-2"
+              data-testid="checkbox-sms-consent"
+            />
+            <Label htmlFor="smsConsent" className="text-sm text-gray-700 leading-relaxed">
+              By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies.
+            </Label>
+          </div>
+
+          {/* Terms Consent Checkbox */}
+          <div className="flex items-start space-x-3">
+            <input
+              id="termsAgree"
+              type="checkbox"
+              checked={formData.termsAgree}
+              onChange={(e) => setFormData(prev => ({ ...prev, termsAgree: e.target.checked }))}
+              className="mt-1 h-4 w-4 text-[#193a59] border-gray-300 rounded focus:ring-[#193a59] focus:ring-2"
+              data-testid="checkbox-terms-consent"
+            />
+            <Label htmlFor="termsAgree" className="text-sm text-gray-700 leading-relaxed">
+              I have read and agree with the Terms and Conditions & Privacy Policy.
+            </Label>
+          </div>
+          
+          {/* Terms & Privacy Links */}
+          <div className="text-center pt-2 border-t border-gray-200">
+            <a href="/privacy" className="text-[#193a59] hover:underline text-xs font-medium" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <span className="text-gray-400 mx-2 text-xs">|</span>
+            <a href="/terms" className="text-[#193a59] hover:underline text-xs font-medium" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+          </div>
+        </div>
 
         <div className="pt-4">
           <Button 
