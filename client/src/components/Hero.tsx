@@ -60,8 +60,8 @@ export default function Hero({
   };
 
   const paddingClass = size === 'large' 
-    ? 'pt-40 md:pt-48 pb-24 md:pb-32' 
-    : 'pt-32 md:pt-40 pb-16 md:pb-24';
+    ? 'pt-24 sm:pt-32 md:pt-40 lg:pt-48 pb-16 sm:pb-20 md:pb-24 lg:pb-32' 
+    : 'pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-12 sm:pb-16 md:pb-20 lg:pb-24';
 
   const overlayClass = overlay === 'dark'
     ? 'bg-gradient-to-br from-slate-900 to-slate-800'
@@ -82,6 +82,8 @@ export default function Hero({
     <section 
       className={`relative ${paddingClass} ${overlayClass} overflow-hidden`}
       data-testid="hero-section"
+      role="banner"
+      aria-label={`Hero section: ${title}`}
     >
       {/* Background Image */}
       {backgroundImage && (
@@ -98,18 +100,18 @@ export default function Hero({
       )}
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
+        {/* Breadcrumbs - Mobile optimized */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav 
-            className="mb-8" 
+            className="mb-4 sm:mb-6 md:mb-8" 
             aria-label="Breadcrumb"
             data-testid="hero-breadcrumbs"
           >
-            <ol className="flex items-center space-x-2 text-sm">
+            <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm">
               <li>
                 <button
                   onClick={() => handleBreadcrumbClick('/')}
-                  className={`${overlay === 'dark' ? 'text-blue-200 hover:text-white' : 'text-gray-500 hover:text-gray-700'} transition-colors duration-200 flex items-center`}
+                  className={`${overlay === 'dark' ? 'text-blue-200 hover:text-white' : 'text-gray-500 hover:text-gray-700'} transition-colors duration-200 flex items-center min-h-[44px] min-w-[44px] justify-center rounded-lg hover:bg-white/10 active:bg-white/20`}
                   data-testid="breadcrumb-home"
                   aria-label="Go to homepage"
                 >
@@ -119,10 +121,10 @@ export default function Hero({
               </li>
               {breadcrumbs.map((crumb, index) => (
                 <li key={index} className="flex items-center">
-                  <ChevronRight className={`w-4 h-4 mx-2 ${overlay === 'dark' ? 'text-blue-300' : 'text-gray-400'}`} />
+                  <ChevronRight className={`w-3 h-3 sm:w-4 sm:h-4 mx-1 sm:mx-2 ${overlay === 'dark' ? 'text-blue-300' : 'text-gray-400'}`} />
                   {index === breadcrumbs.length - 1 ? (
                     <span 
-                      className={`${overlay === 'dark' ? 'text-blue-100' : 'text-gray-700'} font-medium`}
+                      className={`${overlay === 'dark' ? 'text-blue-100' : 'text-gray-700'} font-medium text-xs sm:text-sm`}
                       data-testid={`breadcrumb-current`}
                       aria-current="page"
                     >
@@ -131,7 +133,7 @@ export default function Hero({
                   ) : (
                     <button
                       onClick={() => handleBreadcrumbClick(crumb.href)}
-                      className={`${overlay === 'dark' ? 'text-blue-200 hover:text-white' : 'text-gray-500 hover:text-gray-700'} transition-colors duration-200`}
+                      className={`${overlay === 'dark' ? 'text-blue-200 hover:text-white' : 'text-gray-500 hover:text-gray-700'} transition-colors duration-200 min-h-[44px] px-2 py-1 rounded-lg hover:bg-white/10 active:bg-white/20 text-xs sm:text-sm`}
                       data-testid={`breadcrumb-${index}`}
                     >
                       {crumb.label}
@@ -146,26 +148,27 @@ export default function Hero({
         {/* Content */}
         <div className={`${alignmentClass} ${maxWidthClass}`}>
           <h1 
-            className={`text-3xl md:text-5xl lg:text-6xl font-bold ${textColorClass} mb-4 md:mb-6 leading-tight tracking-wider responsive-heading-lg`}
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${textColorClass} mb-4 sm:mb-6 leading-tight tracking-wide`}
             data-testid="hero-title"
           >
             {title}
           </h1>
           <p 
-            className={`text-base md:text-xl ${descriptionColorClass} leading-relaxed mb-8 md:mb-12 px-0 md:px-0 responsive-text`}
+            className={`text-base sm:text-lg md:text-xl lg:text-2xl ${descriptionColorClass} leading-relaxed mb-6 sm:mb-8 md:mb-10`}
             data-testid="hero-description"
           >
             {description}
           </p>
 
-          {/* CTA Button */}
-          <div className={`${alignment === 'center' ? 'flex justify-center' : ''}`}>
+          {/* CTA Button - Mobile optimized */}
+          <div className={`${alignment === 'center' ? 'flex justify-center' : ''} mt-6 sm:mt-8`}>
             <Button 
               onClick={handleCTAClick}
               size="lg"
               style={{ backgroundColor: '#193a59', color: 'white' }}
-              className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg cta-button"
+              className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold shadow-lg min-h-[48px] w-full sm:w-auto"
               data-testid="hero-cta-button"
+              aria-label={`${ctaText} - Primary action button`}
             >
               {ctaText}
             </Button>

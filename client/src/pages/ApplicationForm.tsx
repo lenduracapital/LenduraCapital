@@ -312,51 +312,54 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
           <div className="space-y-6">
             <div className="text-center mb-8">
               <Phone className="w-12 h-12 text-[#193a59] mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-[#193a59] mb-2">Contact Information</h2>
-              <p className="text-gray-600">Let's start with your personal details</p>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#193a59] mb-2">Contact Information</h2>
+              <p className="text-sm sm:text-base text-gray-600">Let's start with your personal details</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <Label htmlFor="firstName" className="text-base font-medium">First Name *</Label>
+                <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2 block">First Name *</Label>
                 <Input
                   id="firstName"
                   type="text"
                   value={formData.firstName}
                   onChange={(e) => handleInputChange('firstName', e.target.value)}
-                  className={`mt-2 ${errors.firstName ? 'border-red-500' : ''}`}
-                  data-testid="input-first-name"
+                  className={`min-h-[48px] text-base p-3 sm:p-4 ${errors.firstName ? 'border-red-500' : ''}`}
+                  data-testid="input-firstName"
                   placeholder="Enter your first name"
+                  autoComplete="given-name"
                 />
                 {errors.firstName && <span className="text-red-500 text-sm mt-1">{errors.firstName}</span>}
               </div>
 
               <div>
-                <Label htmlFor="lastName" className="text-base font-medium">Last Name *</Label>
+                <Label htmlFor="lastName" className="text-sm font-medium text-gray-700 mb-2 block">Last Name *</Label>
                 <Input
                   id="lastName"
                   type="text"
                   value={formData.lastName}
                   onChange={(e) => handleInputChange('lastName', e.target.value)}
-                  className={`mt-2 ${errors.lastName ? 'border-red-500' : ''}`}
-                  data-testid="input-last-name"
+                  className={`min-h-[48px] text-base p-3 sm:p-4 ${errors.lastName ? 'border-red-500' : ''}`}
+                  data-testid="input-lastName"
                   placeholder="Enter your last name"
+                  autoComplete="family-name"
                 />
                 {errors.lastName && <span className="text-red-500 text-sm mt-1">{errors.lastName}</span>}
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <Label htmlFor="email" className="text-base font-medium">Email Address *</Label>
+                <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">Email Address *</Label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`mt-2 ${errors.email ? 'border-red-500' : ''}`}
+                  className={`min-h-[48px] text-base p-3 sm:p-4 ${errors.email ? 'border-red-500' : ''}`}
                   data-testid="input-email"
                   placeholder="your@email.com"
+                  autoComplete="email"
                 />
                 {errors.email && <span className="text-red-500 text-sm mt-1">{errors.email}</span>}
               </div>

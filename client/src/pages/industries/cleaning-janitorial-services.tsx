@@ -23,7 +23,7 @@ export default function CleaningJanitorialServices() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 md:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-24 lg:pb-32 bg-gradient-to-br from-[#193a59] to-[#285d8a] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#193a59]/30 to-transparent"></div>
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -43,14 +43,14 @@ export default function CleaningJanitorialServices() {
           </Button>
           
           <div className="text-left max-w-4xl mt-8 md:mt-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
               Cleaning & Janitorial Services Financing
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 mb-6 sm:mb-8 leading-relaxed">
               Keep your business spotless with equipment financing, expansion capital, and working capital solutions.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
               <Button 
                 onClick={handleApplyNow}
                 style={{ backgroundColor: '#193a59', color: 'white' }}

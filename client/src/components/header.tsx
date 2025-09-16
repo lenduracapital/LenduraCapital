@@ -63,26 +63,27 @@ export default function Header({ }: HeaderProps) {
     }
   };
 
-  // Transparent initially, black background when scrolled
+  // Sticky navigation with enhanced mobile support
   const headerClass = isScrolled 
-    ? 'fixed w-full top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-md'
-    : 'fixed w-full top-0 z-50 transition-all duration-300';
+    ? 'sticky top-0 z-50 transition-all duration-300 bg-black/95 backdrop-blur-md shadow-lg'
+    : 'sticky top-0 z-50 transition-all duration-300 bg-black/80 backdrop-blur-sm';
 
   return (
-    <header className={headerClass}>
-      <nav className="w-full px-0">
-        <div className="flex items-center justify-between w-full py-1 mb-4">
-          {/* Logo on the left - aligned with hero text */}
-          <div className="flex items-center pl-6 md:pl-8 lg:pl-10">
+    <header className={headerClass} data-testid="header-navigation">
+      <nav className="w-full px-0" role="navigation" aria-label="Main navigation">
+        <div className="flex items-center justify-between w-full py-2 mb-2 md:py-1 md:mb-4">
+          {/* Logo on the left - mobile optimized */}
+          <div className="flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-10">
             <button 
               onClick={handleLogoClick}
-              className="focus:outline-none transition-transform duration-300 hover:scale-105"
+              className="focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="Go to homepage"
+              data-testid="button-logo"
             >
               <img 
                 src={lenduraLogo}
                 alt="Lendura Capital Logo" 
-                className="h-16 sm:h-18 md:h-20 lg:h-24 w-auto object-contain ml-[-3px] mr-[-3px] pl-[-8px] pr-[-8px] pt-[-7px] pb-[-7px] mt-[-3px] mb-[-3px]"
+                className="h-12 sm:h-16 md:h-18 lg:h-20 xl:h-24 w-auto object-contain"
               />
             </button>
           </div>
@@ -406,39 +407,47 @@ export default function Header({ }: HeaderProps) {
             </button>
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Enhanced touch target */}
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white hover:text-[--primary] min-h-[44px] min-w-[44px] mr-4 transition-all duration-300 hover:scale-110 hover:bg-white/10"
+            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            data-testid="button-mobile-menu"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Enhanced */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-white/20 p-4 space-y-2 absolute left-0 right-0 top-full z-50">
+          <div 
+            className="lg:hidden bg-black/98 backdrop-blur-md border-t border-white/20 p-4 space-y-1 absolute left-0 right-0 top-full z-50 shadow-xl"
+            data-testid="mobile-menu"
+          >
             <button 
               onClick={handleHomeClick}
-              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              data-testid="mobile-link-home"
             >
               Home
             </button>
             <button 
               onClick={() => { setLocation("/solutions"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              data-testid="mobile-link-solutions"
             >
               Solutions
             </button>
             <button 
               onClick={() => { setLocation("/qualified-industries"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              data-testid="mobile-link-industries"
             >
               Qualified Industries
             </button>
@@ -446,15 +455,17 @@ export default function Header({ }: HeaderProps) {
 
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium bg-[#193a59]/20 border border-[#193a59]/30"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              data-testid="mobile-button-apply"
             >
               Apply Now
             </button>
             <button 
               onClick={() => { setLocation("/contact"); setIsMobileMenuOpen(false); }}
-              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[44px] rounded hover:bg-white/10"
+              className="block text-white hover:text-[--primary] transition-colors py-3 px-4 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
               style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+              data-testid="mobile-link-contact"
             >
               Contact Us
             </button>
