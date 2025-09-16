@@ -198,7 +198,7 @@ function ContactForm() {
           data-testid="checkbox-sms-consent"
         />
         <Label htmlFor="agree" className="text-sm text-gray-700">
-          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the Terms and Conditions & Privacy Policy.
+          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies.<br/><br/>I have read and agree with the Terms and Conditions & Privacy Policy.
         </Label>
       </div>
       
