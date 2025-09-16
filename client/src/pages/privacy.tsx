@@ -51,16 +51,7 @@ export default function PrivacyPage() {
               Improve our service and experience
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Who We Share It With</h2>
-            <p className="text-gray-700 mb-6">
-              We only share your info:<br/><br/>
-              With lenders you're applying to<br/>
-              With trusted service providers (CRM, hosting, etc.)<br/>
-              When required by law<br/><br/>
-              We do not sell your info to third parties — ever.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Keeping Your Info Safe</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Keeping Your Info Safe</h2>
             <p className="text-gray-700 mb-6">
               We use secure tech and internal controls to protect your data:<br/><br/>
               Encrypted data transfer<br/>
@@ -68,7 +59,7 @@ export default function PrivacyPage() {
               Limited access to sensitive info
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. How Long We Keep It</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">4. How Long We Keep It</h2>
             <p className="text-gray-700 mb-6">
               We hold onto your info as long as needed to:<br/><br/>
               Provide services<br/>
@@ -76,7 +67,7 @@ export default function PrivacyPage() {
               Resolve disputes if they come up
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Your Rights</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Your Rights</h2>
             <p className="text-gray-700 mb-6">
               You can:<br/><br/>
               See the info we have on you<br/>
@@ -85,7 +76,7 @@ export default function PrivacyPage() {
               Request deletion (unless we're legally required to keep it)
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Cookies & Tracking</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Cookies & Tracking</h2>
             <p className="text-gray-700 mb-6">
               Our site uses cookies to:<br/><br/>
               Help it run smoother<br/>
@@ -94,22 +85,22 @@ export default function PrivacyPage() {
               You can control cookies through your browser settings.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Third-Party Links</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Third-Party Links</h2>
             <p className="text-gray-700 mb-6">
               If we link to other sites, we're not responsible for how they handle your data. Always check their policies too.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Minors</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Minors</h2>
             <p className="text-gray-700 mb-6">
               Our services are for people 18 and older. We don't knowingly collect data from anyone under 18.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to This Policy</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
             <p className="text-gray-700 mb-6">
               If we update anything, we'll post it here. Big changes? We'll try to give you a heads-up.
             </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Contact Us</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
             <p className="text-gray-700 mb-6">
               Questions? Hit us up at (305) 834-7168 or through our contact form. We're here to help.
             </p>
