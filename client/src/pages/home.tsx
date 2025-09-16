@@ -26,9 +26,9 @@ export default function Home() {
       <Header transparent={true} />
       <main id="main-content">
         <HeroSection />
-        <TrustSignalsSection />
-        <ProcessSection />
         <BusinessSolutionsSection />
+        <ProcessSection />
+        <TrustSignalsSection />
         <MoveBusinessForwardSection />
         <ContactFormSection />
       </main>

@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, DollarSign } from "lucide-react";
+import { Clock, DollarSign } from "lucide-react";
 
 export default function MoveBusinessForwardSection() {
   return (

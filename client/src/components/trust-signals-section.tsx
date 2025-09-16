@@ -129,7 +129,7 @@ export default function TrustSignalsSection() {
                     style={{ backgroundColor: '#193a59' }}
                   >
                     <div className="w-6 h-6 text-white">
-                      <IconComponent className="w-6 h-6 text-white" />
+                      <IconComponent />
                     </div>
                   </div>
                   <div>
