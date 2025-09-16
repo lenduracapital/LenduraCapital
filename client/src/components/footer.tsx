@@ -1,4 +1,5 @@
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaReddit, FaYoutube, FaTiktok } from "react-icons/fa";
+import { SiSubstack, SiQuora } from "react-icons/si";
 import { useLocation } from "wouter";
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
@@ -61,14 +62,20 @@ export default function Footer() {
               Call us today at <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-colors duration-200 font-semibold">(877) 763-6186</a>
             </p>
             <div className="flex items-center gap-0.5 justify-start">
-              <a href="https://www.instagram.com/lenduracapital/?hl=en" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
-                <FaInstagram size={24} />
+              <a href="https://www.reddit.com/user/lenduracapital/" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <FaReddit size={24} />
               </a>
-              <a href="https://x.com/lenduracapital?=11" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
-                <span className="text-2xl leading-none font-bold">𝕏</span>
+              <a href="https://substack.com/@lenduracapital?utm_source=user-menu" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <SiSubstack size={20} />
               </a>
-              <a href="https://www.facebook.com/Lenduracapital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
-                <FaFacebook size={24} />
+              <a href="https://www.tiktok.com/@lendura_capital?lang=en" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <FaTiktok size={20} />
+              </a>
+              <a href="https://www.quora.com/profile/Lendura-Capital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <SiQuora size={20} />
+              </a>
+              <a href="https://www.youtube.com/@LenduraCapital" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#1d4ed8] transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center justify-center w-6 h-6">
+                <FaYoutube size={24} />
               </a>
             </div>
             
