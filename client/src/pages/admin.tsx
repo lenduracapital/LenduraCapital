@@ -41,7 +41,7 @@ export default function AdminDashboard() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:fundtek2025')}`
+          'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:lendura2025')}`
         },
         body: JSON.stringify({ status: newStatus })
       });

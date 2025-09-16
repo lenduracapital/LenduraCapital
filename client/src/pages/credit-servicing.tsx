@@ -84,7 +84,7 @@ export default function CreditServicing() {
               Transform Your Credit Profile Into a Powerful Financial Asset
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12">
-              Your credit profile is more than just a number—it's the foundation of your financial future. FundTek's comprehensive credit servicing solutions help both individuals and businesses optimize their credit profiles, unlock better financing terms, and accelerate growth opportunities.
+              Your credit profile is more than just a number—it's the foundation of your financial future. Lendura Capital's comprehensive credit servicing solutions help both individuals and businesses optimize their credit profiles, unlock better financing terms, and accelerate growth opportunities.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8">

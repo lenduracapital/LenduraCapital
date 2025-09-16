@@ -162,8 +162,8 @@ button, a, input, textarea, select {
   --accent-dark: hsl(142, 76%, 26%);
   
   /* Improved contrast colors */
-  --fundtek-blue: #193a59; /* New brand blue for better contrast */
-  --fundtek-blue-light: #193a59; /* Updated brand blue for backgrounds */
+  --lendura-blue: #193a59; /* New brand blue for better contrast */
+  --lendura-blue-light: #193a59; /* Updated brand blue for backgrounds */
 }
 
 /* 3D Flip Animation Utilities */
@@ -208,7 +208,7 @@ button, a, input, textarea, select {
 /* Better contrast for text on blue backgrounds */
 .text-on-blue {
   color: #ffffff;
-  background-color: var(--fundtek-blue);
+  background-color: var(--lendura-blue);
 }
 
 /* Touch target compliance */
@@ -222,14 +222,14 @@ button, a, input, textarea, select {
 
 /* Focus states for accessibility */
 .focus-ring:focus {
-  outline: 2px solid var(--fundtek-blue);
+  outline: 2px solid var(--lendura-blue);
   outline-offset: 2px;
 }
 
 /* Enhanced form focus states for mobile */
 .form-focus:focus {
   background-color: rgba(25, 58, 89, 0.05);
-  border-color: var(--fundtek-blue);
+  border-color: var(--lendura-blue);
   box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
   outline: none;
   transform: scale(1.02);
@@ -238,7 +238,7 @@ button, a, input, textarea, select {
 
 .form-focus:focus-within {
   background-color: rgba(25, 58, 89, 0.05);
-  border-color: var(--fundtek-blue);
+  border-color: var(--lendura-blue);
   box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
 }
 
@@ -249,7 +249,7 @@ input[type="tel"]:focus,
 select:focus,
 textarea:focus {
   background-color: rgba(25, 58, 89, 0.05) !important;
-  border-color: var(--fundtek-blue) !important;
+  border-color: var(--lendura-blue) !important;
   box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1) !important;
   outline: none !important;
 }
@@ -325,41 +325,41 @@ button, .btn, .touch-target {
 }
 
 /* Custom utility classes */
-.bg-primary-fundtek {
+.bg-primary-lendura {
   background-color: var(--bg-primary);
 }
 
-.bg-secondary-fundtek {
+.bg-secondary-lendura {
   background-color: var(--bg-secondary);
 }
 
-.bg-tertiary-fundtek {
+.bg-tertiary-lendura {
   background-color: var(--bg-tertiary);
 }
 
-.text-primary-fundtek {
+.text-primary-lendura {
   color: var(--text-primary);
 }
 
-.text-secondary-fundtek {
+.text-secondary-lendura {
   color: var(--text-secondary);
 }
 
-.btn-primary-fundtek {
+.btn-primary-lendura {
   background-color: var(--primary);
   color: var(--primary-foreground);
 }
 
-.btn-primary-fundtek:hover {
+.btn-primary-lendura:hover {
   background-color: var(--primary-dark);
 }
 
-.btn-accent-fundtek {
+.btn-accent-lendura {
   background-color: var(--accent);
   color: var(--accent-foreground);
 }
 
-.btn-accent-fundtek:hover {
+.btn-accent-lendura:hover {
   background-color: var(--accent-dark);
 }
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fundtek-v1';
+const CACHE_NAME = 'lendura-v1';
 const urlsToCache = [
   '/',
   '/offline.html',

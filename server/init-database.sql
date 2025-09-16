@@ -1,4 +1,4 @@
--- Initialize FundTek Capital Group Database Schema
+-- Initialize Lendura Capital Database Schema
 -- This script creates the required tables for the admin dashboard
 
 -- Users table
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS audit_logs (
 );
 
 -- Insert sample admin user
-INSERT INTO users (username, password) VALUES ('admin', 'fundtek2025') ON CONFLICT (username) DO NOTHING;
+INSERT INTO users (username, password) VALUES ('admin', 'lendura2025') ON CONFLICT (username) DO NOTHING;
 
 -- Insert sample data for testing the admin dashboard
 INSERT INTO loan_applications (first_name, last_name, email, business_name, loan_amount) VALUES 

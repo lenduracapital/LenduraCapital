@@ -9,7 +9,7 @@ async function initializeDatabase() {
     try {
       await db.insert(users).values({
         username: 'admin',
-        password: 'fundtek2025'
+        password: 'lendura2025'
       }).onConflictDoNothing();
       console.log('✅ Admin user created/verified');
     } catch (error) {

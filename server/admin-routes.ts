@@ -31,7 +31,7 @@ export function registerAdminRoutes(app: Express) {
     const password = credentials[1];
     
     // Simple auth - in production, use proper hashing and database storage
-    if (username === 'admin' && password === 'fundtek2025') {
+    if (username === 'admin' && password === 'lendura2025') {
       next();
     } else {
       res.setHeader('WWW-Authenticate', 'Basic realm="Admin Area"');

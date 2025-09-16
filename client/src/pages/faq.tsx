@@ -74,10 +74,10 @@ const faqData = [
     ]
   },
   {
-    category: "Working with FundTek",
+    category: "Working with Lendura Capital",
     questions: [
       {
-        question: "What makes FundTek different from other brokers?",
+        question: "What makes Lendura Capital different from other brokers?"
         answer: "We focus on building long-term relationships, not just single transactions. Our team provides personalized service, multiple funding options, ongoing support, and we're committed to helping your business grow and succeed."
       },
       {

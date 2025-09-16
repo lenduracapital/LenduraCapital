@@ -15,7 +15,7 @@ export default function SEOHead({
   keywords = "business funding, term loans, merchant cash advance, equipment financing, SBA loans",
   canonical,
   type = "website",
-  image = "/assets/fundtek-og-image.jpg"
+  image = "/assets/lendura-og-image.jpg"
 }: SEOHeadProps) {
   useEffect(() => {
     // Update document title
@@ -55,14 +55,6 @@ export default function SEOHead({
       "description": "Professional business funding broker connecting businesses with lending partners across all 50 states and Canada. We specialize in term loans, merchant cash advances, equipment financing, SBA loans, and comprehensive financial solutions.",
       "telephone": "(305) 834-7168",
       "email": "admin@lenduracapital.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2727 Coney Island Ave",
-        "addressLocality": "Brooklyn",
-        "addressRegion": "NY",
-        "postalCode": "11235",
-        "addressCountry": "US"
-      },
       "areaServed": ["United States", "Canada"],
       "serviceType": [
         "Business Loan Brokerage",
