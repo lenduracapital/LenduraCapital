@@ -37,6 +37,7 @@ interface ApplicationFormData {
   bankAccount: boolean;
   consentToCommunications: boolean;
   consentToCredit: boolean;
+  smsConsent: boolean;
   electronicSignature: string;
   signatureDate: string;
 }
@@ -78,6 +79,7 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
     bankAccount: false,
     consentToCommunications: false,
     consentToCredit: false,
+    smsConsent: false,
     electronicSignature: "",
     signatureDate: "",
   });
@@ -254,6 +256,7 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
           bankAccount: false,
           consentToCommunications: false,
           consentToCredit: false,
+          smsConsent: false,
           electronicSignature: "",
           signatureDate: "",
         });
@@ -686,6 +689,26 @@ export default function ApplicationForm({ variant = 'apply' }: ApplicationFormPr
                 </Label>
               </div>
               {errors.consentToCredit && <span className="text-red-500 text-sm">{errors.consentToCredit}</span>}
+
+              {/* SMS Consent Checkbox - Optional */}
+              <div className="flex items-start space-x-3">
+                <input
+                  id="smsConsent"
+                  type="checkbox"
+                  checked={formData.smsConsent}
+                  onChange={(e) => handleInputChange('smsConsent', e.target.checked)}
+                  className="mt-1"
+                  data-testid="checkbox-sms-consent"
+                />
+                <Label htmlFor="smsConsent" className="text-sm leading-relaxed">
+                  By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the Terms and Conditions & Privacy Policy.
+                </Label>
+              </div>
+              
+              {/* Terms & Privacy Links */}
+              <div className="text-center text-sm text-gray-600">
+                <a href="/terms" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> | <a href="/privacy" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              </div>
             </div>
 
             {/* Electronic Signature */}

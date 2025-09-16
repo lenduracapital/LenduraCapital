@@ -195,10 +195,16 @@ function ContactForm() {
           type="checkbox"
           checked={formData.agree}
           onChange={(e) => setFormData(prev => ({ ...prev, agree: e.target.checked }))}
+          data-testid="checkbox-sms-consent"
         />
         <Label htmlFor="agree" className="text-sm text-gray-700">
-          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up.  Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the <a href="https://lenduracapital.com/terms">Terms and Conditions</a> & <a href="https://lenduracapital.com/privacy">Privacy Policy</a>.
+          By checking this box, you agree to receive text messages (e.g., payment reminders) from Lendura Capital at the cell number used when signing up. Consent is not a condition of any purchase. Reply STOP to unsubscribe, HELP for help. Message & data rates may apply. Message frequency varies. I have read and agree with the Terms and Conditions & Privacy Policy.
         </Label>
+      </div>
+      
+      {/* Terms & Privacy Links */}
+      <div className="text-center text-sm text-gray-600 mb-4">
+        <a href="/terms" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> | <a href="/privacy" className="text-[#193a59] hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
       </div>
 
         <div className="pt-4">
