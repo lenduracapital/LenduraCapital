@@ -2,6 +2,7 @@ import { Shield, Users, TrendingUp, Clock, MapPin, ChevronDown, ChevronUp } from
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
+import SectionSeparator from "./section-separator";
 
 
 const certifications = [
@@ -77,8 +78,10 @@ export default function TrustSignalsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <SectionSeparator variant="wave" color="white" />
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Trust signals header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -184,7 +187,9 @@ export default function TrustSignalsSection() {
           </div>
         </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
+      <SectionSeparator variant="diagonal" color="blue" />
+    </>
   );
 }

@@ -97,7 +97,7 @@ export default function WorkingCapitalSection() {
         <div className="max-w-6xl mx-auto mb-12 md:mb-16">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
             {/* Traditional Banks */}
-            <div className="bg-red-50 p-6 md:p-8 rounded-lg border border-red-200">
+            <div className="p-6 md:p-8 rounded-lg border border-red-200 bg-[#d9d9d9]">
               <h3 className="text-xl md:text-2xl font-bold text-red-800 mb-4 md:mb-6">Traditional Banks</h3>
               <ul className="space-y-3 md:space-y-4">
                 <li className="flex items-start">
