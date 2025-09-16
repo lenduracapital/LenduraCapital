@@ -70,7 +70,9 @@ export class FontOptimizer {
     
     try {
       await Promise.race([
-        document.fonts.load(`1em ${fontFamily}`),
+        document.fonts.load(`1em ${fontFamily}`).catch(() => {
+          throw new Error(`Font ${fontFamily} failed to load`);
+        }),
         new Promise((_, reject) => {
           setTimeout(() => reject(new Error('Font loading timeout')), timeout);
         }),
@@ -144,7 +146,10 @@ export class ImageOptimizer {
   // Lazy load image with performance tracking
   async loadImage(src: string): Promise<HTMLImageElement> {
     if (this.imageCache.has(src)) {
-      await this.imageCache.get(src);
+      await this.imageCache.get(src)!.catch(() => {
+        // If cached promise failed, remove it and retry
+        this.imageCache.delete(src);
+      });
       return new Image(); // Return new instance
     }
 
@@ -167,7 +172,14 @@ export class ImageOptimizer {
     });
 
     this.imageCache.set(src, loadPromise);
-    await loadPromise;
+    
+    try {
+      await loadPromise;
+    } catch (error) {
+      // Remove failed promise from cache and create fallback image
+      this.imageCache.delete(src);
+      console.warn(`Image loading failed for ${src}, returning fallback`);
+    }
     
     const img = new Image();
     img.src = src;
@@ -181,12 +193,22 @@ export class ImageOptimizer {
     }
 
     try {
-      const response = await fetch(src);
-      const blob = await response.blob();
+      const response = await fetch(src).catch(() => {
+        throw new Error('Failed to fetch image for WebP conversion');
+      });
+      const blob = await response.blob().catch(() => {
+        throw new Error('Failed to get blob from response');
+      });
       
-      return new Promise((resolve) => {
+      return new Promise<string>((resolve) => {
         const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d')!;
+        const ctx = canvas.getContext('2d');
+        
+        if (!ctx) {
+          resolve(src);
+          return;
+        }
+        
         const img = new Image();
         
         img.onload = () => {
@@ -207,7 +229,14 @@ export class ImageOptimizer {
           );
         };
         
+        img.onerror = () => {
+          resolve(src); // Fallback to original on error
+        };
+        
         img.src = URL.createObjectURL(blob);
+      }).catch(() => {
+        console.warn('WebP conversion failed, falling back to original');
+        return src;
       });
     } catch (error) {
       console.warn('WebP conversion failed:', error);
@@ -394,11 +423,24 @@ export const imageOptimizer = new ImageOptimizer();
 export const cssOptimizer = new CSSOptimizer();
 export const resourcePreloader = new ResourcePreloader();
 
-// Initialize critical resources on load
+// Initialize critical resources on load with error handling
 if (typeof window !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
-    resourcePreloader.initializeCriticalResources();
+    try {
+      resourcePreloader.initializeCriticalResources();
+    } catch (error) {
+      console.warn('Failed to initialize critical resources:', error);
+    }
   });
+  
+  // Add development error handler for unhandled rejections
+  if (import.meta.env.DEV) {
+    window.addEventListener('unhandledrejection', (event) => {
+      console.error('Unhandled promise rejection:', event.reason);
+      // Prevent the default behavior to avoid console spam
+      event.preventDefault();
+    });
+  }
 }
 
 // Performance budget checker

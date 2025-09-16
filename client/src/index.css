@@ -1,3 +1,6 @@
+/* Import Lendura Capital Design Tokens System */
+@import './styles/tokens.css';
+
 /* Optimized font loading moved to HTML head for better performance */
 
 @tailwind base;
@@ -5,34 +8,35 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
+  /* Shadcn/UI Component Variables - Reference Design Tokens */
+  --background: var(--color-white);
   --foreground: hsl(20, 14.3%, 4.1%);
   --muted: hsl(60, 4.8%, 95.9%);
   --muted-foreground: hsl(25, 5.3%, 44.7%);
-  --popover: hsl(0, 0%, 100%);
+  --popover: var(--color-white);
   --popover-foreground: hsl(20, 14.3%, 4.1%);
-  --card: hsl(0, 0%, 100%);
+  --card: var(--card-bg);
   --card-foreground: hsl(20, 14.3%, 4.1%);
-  --border: hsl(20, 5.9%, 90%);
-  --input: hsl(20, 5.9%, 90%);
-  --primary: hsl(216, 53%, 23%);
-  --primary-foreground: hsl(212, 100%, 99%);
+  --border: var(--card-border);
+  --input: var(--input-border);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--color-white);
   --secondary: hsl(60, 4.8%, 95.9%);
   --secondary-foreground: hsl(24, 9.8%, 10%);
-  --accent: hsl(142, 76%, 36%);
+  --accent: var(--brand-secondary);
   --accent-foreground: hsl(24, 9.8%, 10%);
-  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive: var(--color-error);
   --destructive-foreground: hsl(60, 9.1%, 97.8%);
   --ring: hsl(20, 14.3%, 4.1%);
-  --radius: 0.5rem;
+  --radius: var(--radius-lg);
   
-  /* Custom Lendura colors - Enhanced for accessibility */
-  --bg-primary: hsl(222, 84%, 5%);
-  
-  /* Enhanced signature blue with 5% darker for better contrast (4.5:1 ratio) */
-  --signature-blue: hsl(216, 53%, 23%); /* Updated to #193a59 for brand consistency */
-  --signature-blue-hover: hsl(212, 52%, 34%); /* Medium variant #285d8a */
-  --signature-blue-light: hsl(208, 51%, 45%); /* Light accent #3c7ab3 */
+  /* Legacy Variables - Updated to Reference Design Tokens */
+  --bg-primary: var(--brand-primary-900);
+  --signature-blue: var(--brand-primary);
+  --signature-blue-hover: var(--brand-primary-hover);
+  --signature-blue-light: var(--brand-primary-light);
+  --lendura-blue: var(--brand-primary);
+  --lendura-blue-light: var(--brand-primary-light);
 }
 
 /* Critical CSS for above-the-fold content */
@@ -118,21 +122,27 @@
 
 /* Enhanced focus visible improvements */
 *:focus-visible {
-  outline: 2px solid hsl(var(--ring));
+  outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
 }
 
-/* Touch target minimum 44px for accessibility */
+/* Touch target minimum 44px for accessibility - Using design tokens */
 button, a, input, textarea, select {
-  min-height: 44px;
-  min-width: 44px;
+  min-height: var(--input-height);
+  min-width: var(--input-height);
 }
 
-/* High contrast mode support */
+/* High contrast mode support - Updated to use design tokens */
 @media (prefers-contrast: high) {
   :root {
-    --signature-blue: hsl(209, 70%, 45%);
-    --border: hsl(0, 0%, 20%);
+    --brand-primary: hsl(209, 70%, 45%);
+    --card-border: hsl(0, 0%, 20%);
+    --shadow-brand: 0 4px 12px hsl(0 0% 0% / 0.3);
+  }
+  
+  .dark {
+    --brand-primary: hsl(208, 51%, 75%);
+    --color-gray-500: hsl(215, 16%, 35%);
   }
 }
 
@@ -153,17 +163,14 @@ button, a, input, textarea, select {
   }
 }
 
+/* Legacy .dark variables - Updated to reference design tokens */
 .dark {
-  --bg-secondary: hsl(215, 28%, 17%);
-  --bg-tertiary: hsl(215, 16%, 32%);
-  --text-primary: hsl(210, 40%, 98%);
-  --text-secondary: hsl(215, 14%, 70%);
-  --primary-dark: hsl(218, 91%, 55%);
-  --accent-dark: hsl(142, 76%, 26%);
-  
-  /* Improved contrast colors */
-  --lendura-blue: #193a59; /* New brand blue for better contrast */
-  --lendura-blue-light: #193a59; /* Updated brand blue for backgrounds */
+  --text-primary: var(--color-gray-100);
+  --text-secondary: var(--color-gray-400);
+  --primary-dark: var(--brand-primary-light);
+  --accent-dark: var(--brand-secondary-dark);
+  --lendura-blue: var(--brand-primary);
+  --lendura-blue-light: var(--brand-primary-light);
 }
 
 /* 3D Flip Animation Utilities */
@@ -183,21 +190,21 @@ button, a, input, textarea, select {
   backface-visibility: hidden;
 }
 
-/* Responsive typography utilities */
+/* Responsive typography utilities - Using design tokens */
 .responsive-heading-xl {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: var(--text-6xl);
 }
 
 .responsive-heading-lg {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: var(--text-5xl);
 }
 
 .responsive-heading-md {
-  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-size: var(--text-3xl);
 }
 
 .responsive-text {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-size: var(--text-base);
 }
 
 /* Hero text improvements */
@@ -205,62 +212,62 @@ button, a, input, textarea, select {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-/* Better contrast for text on blue backgrounds */
+/* Better contrast for text on blue backgrounds - Using design tokens */
 .text-on-blue {
-  color: #ffffff;
-  background-color: var(--lendura-blue);
+  color: var(--color-white);
+  background-color: var(--brand-primary);
 }
 
-/* Touch target compliance */
+/* Touch target compliance - Using design tokens */
 .touch-target {
-  min-height: 44px;
-  min-width: 44px;
+  min-height: var(--input-height);
+  min-width: var(--input-height);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Focus states for accessibility */
+/* Focus states for accessibility - Using design tokens */
 .focus-ring:focus {
-  outline: 2px solid var(--lendura-blue);
+  outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
 }
 
-/* Enhanced form focus states for mobile */
+/* Enhanced form focus states for mobile - Using design tokens */
 .form-focus:focus {
-  background-color: rgba(25, 58, 89, 0.05);
-  border-color: var(--lendura-blue);
-  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
+  background-color: var(--input-focus-ring);
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
   outline: none;
   transform: scale(1.02);
-  transition: all 0.2s ease-in-out;
+  transition: var(--transition-base);
 }
 
 .form-focus:focus-within {
-  background-color: rgba(25, 58, 89, 0.05);
-  border-color: var(--lendura-blue);
-  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1);
+  background-color: var(--input-focus-ring);
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
 }
 
-/* Input field enhancements */
+/* Input field enhancements - Using design tokens */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-  background-color: rgba(25, 58, 89, 0.05) !important;
-  border-color: var(--lendura-blue) !important;
-  box-shadow: 0 0 0 3px rgba(25, 58, 89, 0.1) !important;
+  background-color: var(--input-focus-ring) !important;
+  border-color: var(--input-focus-border) !important;
+  box-shadow: var(--input-focus-shadow) !important;
   outline: none !important;
 }
 
 
 
-/* Enhanced touch targets for mobile */
+/* Enhanced touch targets for mobile - Using design tokens */
 button, .btn, .touch-target {
-  min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 12px 16px !important;
+  min-height: var(--input-height) !important;
+  min-width: var(--input-height) !important;
+  padding: var(--space-3) var(--space-4) !important;
 }
 
 /* Improved mobile navigation */
@@ -287,27 +294,28 @@ button, .btn, .touch-target {
   height: 100%;
 }
 
+/* Shadcn/UI Dark Mode Variables - Updated to reference design tokens */
 .dark {
-  --background: hsl(240, 10%, 3.9%);
-  --foreground: hsl(0, 0%, 98%);
-  --muted: hsl(240, 3.7%, 15.9%);
-  --muted-foreground: hsl(240, 5%, 64.9%);
-  --popover: hsl(240, 10%, 3.9%);
-  --popover-foreground: hsl(0, 0%, 98%);
-  --card: hsl(240, 10%, 3.9%);
-  --card-foreground: hsl(0, 0%, 98%);
-  --border: hsl(240, 3.7%, 15.9%);
-  --input: hsl(240, 3.7%, 15.9%);
-  --primary: hsl(216, 53%, 23%);
-  --primary-foreground: hsl(212, 100%, 99%);
-  --secondary: hsl(240, 3.7%, 15.9%);
-  --secondary-foreground: hsl(0, 0%, 98%);
-  --accent: hsl(142, 76%, 36%);
-  --accent-foreground: hsl(0, 0%, 98%);
-  --destructive: hsl(0, 62.8%, 30.6%);
-  --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 4.9%, 83.9%);
-  --radius: 0.5rem;
+  --background: var(--bg-primary);
+  --foreground: var(--color-gray-100);
+  --muted: var(--bg-secondary);
+  --muted-foreground: var(--color-gray-500);
+  --popover: var(--bg-secondary);
+  --popover-foreground: var(--color-gray-100);
+  --card: var(--card-bg);
+  --card-foreground: var(--color-gray-100);
+  --border: var(--card-border);
+  --input: var(--input-border);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--color-white);
+  --secondary: var(--bg-tertiary);
+  --secondary-foreground: var(--color-gray-100);
+  --accent: var(--brand-secondary);
+  --accent-foreground: var(--color-gray-100);
+  --destructive: var(--color-error);
+  --destructive-foreground: var(--color-gray-100);
+  --ring: var(--color-gray-400);
+  --radius: var(--radius-lg);
 }
 
 .text-shadow {
@@ -320,13 +328,13 @@ button, .btn, .touch-target {
   }
 
   body {
-    @apply bg-white text-[--text-primary] font-['Inter',sans-serif] antialiased;
+    @apply bg-white text-gray-900 font-['Inter',sans-serif] antialiased;
   }
 }
 
-/* Custom utility classes */
+/* Custom utility classes - Updated to use design tokens */
 .bg-primary-lendura {
-  background-color: var(--bg-primary);
+  background-color: var(--brand-primary-900);
 }
 
 .bg-secondary-lendura {
@@ -338,63 +346,65 @@ button, .btn, .touch-target {
 }
 
 .text-primary-lendura {
-  color: var(--text-primary);
+  color: var(--color-gray-100);
 }
 
 .text-secondary-lendura {
-  color: var(--text-secondary);
+  color: var(--color-gray-400);
 }
 
 .btn-primary-lendura {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  transition: var(--transition-colors);
 }
 
 .btn-primary-lendura:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--button-primary-hover);
 }
 
 .btn-accent-lendura {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
+  background-color: var(--brand-secondary);
+  color: var(--color-white);
+  transition: var(--transition-colors);
 }
 
 .btn-accent-lendura:hover {
-  background-color: var(--accent-dark);
+  background-color: var(--brand-secondary-dark);
 }
 
-/* Enhanced Responsive Typography */
+/* Enhanced Responsive Typography - Using design tokens */
 .responsive-heading-lg {
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--font-bold);
 }
 
 .responsive-heading-md {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  font-weight: 600;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: var(--font-semibold);
 }
 
 .responsive-text {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.6;
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
 }
 
-/* Enhanced CTA button styling */
+/* Enhanced CTA button styling - Using design tokens */
 .cta-button {
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   text-transform: none;
-  letter-spacing: 0.01em;
-  box-shadow: 0 4px 12px rgba(25, 58, 89, 0.3);
-  transition: all 0.2s ease;
+  letter-spacing: var(--tracking-normal);
+  box-shadow: var(--shadow-brand);
+  transition: var(--transition-base);
 }
 
 .cta-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(25, 58, 89, 0.4);
+  box-shadow: var(--shadow-brand-hover);
 }
 
 /* Navigation text shadow for better readability */
@@ -420,6 +430,7 @@ video {
 
 /* Font rendering optimization */
 body {
+  font-family: var(--font-body);
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -471,33 +482,33 @@ img {
   contain: layout style paint;
 }
 
-/* Custom slider styling for lead capture */
+/* Custom slider styling for lead capture - Using design tokens */
 input[type="range"].slider-thumb::-webkit-slider-thumb {
   appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #22c55e;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: var(--radius-full);
+  background: var(--brand-secondary);
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border: 3px solid var(--color-white);
+  box-shadow: var(--shadow-md);
 }
 
 input[type="range"].slider-thumb::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #22c55e;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: var(--radius-full);
+  background: var(--brand-secondary);
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  border: 3px solid var(--color-white);
+  box-shadow: var(--shadow-md);
 }
 
 input[type="range"].slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 12px;
-  border-radius: 6px;
+  height: var(--space-3);
+  border-radius: var(--radius-md);
   outline: none;
 }
 

@@ -65,7 +65,11 @@ export function OptimizedImage({
     setIsLoaded(true);
   };
 
-  const handleError = () => {
+  const handleError = (error?: any) => {
+    // Silently handle the error to prevent unhandled rejections
+    if (error) {
+      console.warn('Image load failed:', src, error);
+    }
     setHasError(true);
     setIsLoaded(true);
   };
@@ -104,7 +108,7 @@ export function OptimizedImage({
         </div>
       )}
       
-      {/* Simple image without complex srcset generation */}
+      {/* Enhanced image with proper error handling */}
       {shouldLoad && !hasError && (
         <img
           src={src}
@@ -112,7 +116,7 @@ export function OptimizedImage({
           width={width}
           height={height}
           onLoad={handleLoad}
-          onError={handleError}
+          onError={(e) => handleError(e)}
           className={`
             transition-all duration-300 ease-out
             ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
@@ -120,6 +124,8 @@ export function OptimizedImage({
           `}
           loading={lazy && !priority ? 'lazy' : 'eager'}
           decoding="async"
+          onAbort={(e) => handleError(e)}
+          onStalled={(e) => handleError(e)}
           {...props}
         />
       )}
