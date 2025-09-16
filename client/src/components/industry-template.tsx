@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
+import { getRelatedSolutions, generateSEOKeywords } from "@/lib/internalLinks";
 
 interface IndustryData {
   // Basic info
@@ -45,8 +46,12 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
   const [, setLocation] = useLocation();
 
   const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251965461165159", "_blank");
+    window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
   };
+  
+  // Get related solutions for internal linking
+  const relatedSolutions = getRelatedSolutions(data.slug);
+  const additionalKeywords = generateSEOKeywords(relatedSolutions);
 
   const handleBackToIndustries = () => {
     setLocation("/who-we-fund");
@@ -58,7 +63,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
       <SEOHead 
         title={`${data.title} | Fast Business Funding | Lendura Capital`}
         description={`${data.description} Get approved in 24 hours with competitive rates. Call (305) 834-7168 or apply online today.`}
-        keywords={`${data.name.toLowerCase()} financing, ${data.name.toLowerCase()} business loans, ${data.name.toLowerCase()} equipment financing, ${data.name.toLowerCase()} working capital`}
+        keywords={`${data.name.toLowerCase()} financing, ${data.name.toLowerCase()} business loans, ${data.name.toLowerCase()} equipment financing, ${data.name.toLowerCase()} working capital${additionalKeywords ? ', ' + additionalKeywords : ''}`}
         canonical={`/industries/${data.slug}`}
       />
       
@@ -223,7 +228,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
             
             <div className="flex items-center text-[#193a59] font-semibold">
               <Phone className="w-5 h-5 mr-2" />
-              <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="hover:text-[#285d8a] transition-colors" data-testid="link-phone">
+              <a href="tel:3058347168" className="hover:text-[#285d8a] transition-colors" data-testid="link-phone">
                 (305) 834-7168
               </a>
             </div>
@@ -249,6 +254,84 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
           </div>
         </div>
       </section>
+
+      {/* Related Solutions Section */}
+      {relatedSolutions && relatedSolutions.length > 0 && (
+        <section className="py-16 md:py-20 bg-white border-t border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                Best Financing Solutions for {data.name} Businesses
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Discover the most popular funding options specifically designed for {data.name.toLowerCase()} businesses like yours:
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {relatedSolutions.map((solution, index) => (
+                <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-6 md:p-8 rounded-lg shadow-md border border-gray-200 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
+                  <h3 className="text-xl md:text-2xl font-semibold text-[#193a59] mb-4 group-hover:text-[#285d8a] transition-colors">
+                    <button
+                      onClick={() => {
+                        setLocation(`/solutions/${solution.slug}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="text-left hover:underline focus:outline-none focus:ring-2 focus:ring-[#193a59] rounded p-1 -m-1"
+                      data-testid={`link-related-solution-${solution.slug}`}
+                    >
+                      {solution.anchorText}
+                    </button>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base mb-4">
+                    {solution.reason}
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <button
+                      onClick={() => {
+                        setLocation(`/solutions/${solution.slug}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="text-[#193a59] hover:text-[#285d8a] font-medium text-sm flex items-center group-hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#193a59] rounded p-1 -m-1"
+                      data-testid={`button-learn-more-${solution.slug}`}
+                    >
+                      Learn More About This Solution →
+                    </button>
+                  </div>
+                  <div className="mt-3">
+                    <Button
+                      onClick={() => {
+                        window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
+                      }}
+                      size="sm"
+                      style={{ backgroundColor: '#193a59', color: 'white' }}
+                      className="hover:bg-[#285d8a] transition-colors text-xs px-4 py-2 font-medium shadow-sm"
+                      data-testid={`button-apply-${solution.slug}`}
+                    >
+                      Apply Now
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12 md:mt-16">
+              <Button
+                onClick={() => {
+                  setLocation('/solutions');
+                  window.scrollTo(0, 0);
+                }}
+                size="lg"
+                style={{ backgroundColor: '#193a59', color: 'white' }}
+                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
+                data-testid="button-view-all-solutions"
+              >
+                View All Financing Solutions
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

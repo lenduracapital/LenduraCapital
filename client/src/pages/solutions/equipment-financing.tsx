@@ -4,6 +4,7 @@ import equipmentImage from "@assets/equipmentloans.jpg";
 export default function EquipmentFinancingDetail() {
   return (
     <SolutionDetailTemplate
+      slug="equipment-financing"
       title="Equipment Financing"
       description="Specialized financing for purchasing or leasing business equipment, machinery, and vehicles."
       heroImage={equipmentImage}

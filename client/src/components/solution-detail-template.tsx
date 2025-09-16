@@ -4,6 +4,7 @@ import { useLocation } from "wouter";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
+import { getRelatedIndustries, generateSEOKeywords } from "@/lib/internalLinks";
 
 
 interface SolutionDetailProps {
@@ -34,6 +35,7 @@ interface SolutionDetailProps {
     traditional: string[];
     fundtek: string[];
   };
+  slug: string; // Added for internal linking
 }
 
 export default function SolutionDetailTemplate({
@@ -51,13 +53,18 @@ export default function SolutionDetailTemplate({
   askYourself,
   goodToKnow,
   faq,
-  comparison
+  comparison,
+  slug
 }: SolutionDetailProps) {
   const [, setLocation] = useLocation();
   
   const handleApplyNow = () => {
-    window.open("https://form.jotform.com/251965461165159", "_blank");
+    window.open("https://form.jotform.com/251965461165159", "_blank", 'noopener,noreferrer');
   };
+  
+  // Get related industries for internal linking
+  const relatedIndustries = getRelatedIndustries(slug);
+  const additionalKeywords = generateSEOKeywords(relatedIndustries);
 
   const handleBackToSolutions = () => {
     setLocation("/solutions");
@@ -74,8 +81,8 @@ export default function SolutionDetailTemplate({
       <SEOHead 
         title={`${title} for Business | Fast Approval & Competitive Rates | Lendura Capital`}
         description={`Get ${title.toLowerCase()} for your business with approval in 24 hours. ${description} Bad credit OK. Apply online or call (305) 834-7168.`}
-        keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding`}
-        canonical={`/solutions/${title.toLowerCase().replace(/\s+/g, '-')}`}
+        keywords={`${title.toLowerCase()}, business ${title.toLowerCase()}, ${title.toLowerCase()} Brooklyn NY, fast ${title.toLowerCase()} approval, ${title.toLowerCase()} bad credit, ${title.toLowerCase()} funding${additionalKeywords ? ', ' + additionalKeywords : ''}`}
+        canonical={`/solutions/${slug}`}
       />
 
       <Header />
@@ -429,6 +436,71 @@ export default function SolutionDetailTemplate({
                   <p className="text-gray-600">{item.answer}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Industries Section */}
+      {relatedIndustries && relatedIndustries.length > 0 && (
+        <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                Which Industries Use {title.toLowerCase().includes('merchant cash advance') || title.toLowerCase().includes('client cash advance') ? 'Merchant Cash Advance' : title}?
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Our {title.toLowerCase()} solutions serve diverse industries with unique financing needs. Explore how businesses in these sectors leverage our funding:
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {relatedIndustries.map((industry, index) => (
+                <div key={index} className="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-100 hover:shadow-xl hover:border-[#193a59] transition-all duration-300 transform hover:scale-105 group">
+                  <h3 className="text-xl md:text-2xl font-semibold text-[#193a59] mb-4 group-hover:text-[#285d8a] transition-colors">
+                    <button
+                      onClick={() => {
+                        setLocation(`/industries/${industry.slug}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="text-left hover:underline focus:outline-none focus:ring-2 focus:ring-[#193a59] rounded p-1 -m-1"
+                      data-testid={`link-related-industry-${industry.slug}`}
+                    >
+                      {industry.anchorText}
+                    </button>
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                    {industry.reason}
+                  </p>
+                  <div className="mt-4 pt-4 border-t border-gray-200">
+                    <button
+                      onClick={() => {
+                        setLocation(`/industries/${industry.slug}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="text-[#193a59] hover:text-[#285d8a] font-medium text-sm flex items-center group-hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#193a59] rounded p-1 -m-1"
+                      data-testid={`button-learn-more-${industry.slug}`}
+                    >
+                      Learn More About This Industry →
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-12 md:mt-16">
+              <Button
+                onClick={() => {
+                  setLocation('/who-we-fund');
+                  window.scrollTo(0, 0);
+                }}
+                size="lg"
+                style={{ backgroundColor: '#193a59', color: 'white' }}
+                className="hover:bg-[#285d8a] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg px-8 py-3 font-semibold shadow-lg"
+                data-testid="button-view-all-industries"
+              >
+                View All Industries We Fund
+              </Button>
             </div>
           </div>
         </section>

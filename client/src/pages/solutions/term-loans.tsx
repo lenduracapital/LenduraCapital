@@ -4,6 +4,7 @@ import termLoanImage from "@assets/termloans.jpg";
 export default function TermLoansDetail() {
   return (
     <SolutionDetailTemplate
+      slug="term-loans"
       title="Term Loans"
       description="Traditional fixed-term business loans with competitive rates and flexible repayment terms for various business needs."
       heroImage={termLoanImage}
