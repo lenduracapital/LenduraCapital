@@ -1,3 +1,68 @@
+# Robots.txt for Lendura Capital - Financial Services
+# Updated: September 16, 2025
+
+# Allow all search engines to crawl public content
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+
+# Block admin and sensitive areas
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /.well-known/
+Disallow: /server/
+
+# Block temporary and cache files
+Disallow: /*.json$
+Disallow: /*.log$
+Disallow: /*.tmp$
+
+# Allow important assets for SEO
+Allow: /assets/
+Allow: /images/
+Allow: /fonts/
+Allow: /css/
+Allow: /js/
+
+# Google Search Console specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing crawler optimization  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Yandex crawler
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 3
+
+# Social media crawlers for rich snippets
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://lenduracapital.com/sitemap.xml
+
+# Host preference (www vs non-www)
+Host: lenduracapital.com

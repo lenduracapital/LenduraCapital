@@ -97,9 +97,9 @@ function Router() {
         <Route path="/solutions/po-financing" component={POFinancingDetail} />
         <Route path="/solutions/debt-consolidation" component={DebtConsolidationDetail} />
         <Route path="/solutions/credit-services" component={CreditServicesDetail} />
-        <Route path="/solutions/credit-servicing" component={CreditServicing} />
-        <Route path="/solutions/seo-web-development" component={SEOWebDevelopment} />
-        <Route path="/solutions/credit-card-processing" component={CreditCardProcessing} />
+        <Route path="/credit-servicing" component={CreditServicing} />
+        <Route path="/seo-web-development" component={SEOWebDevelopment} />
+        <Route path="/credit-card-processing" component={CreditCardProcessing} />
         <Route path="/solutions/commercial-real-estate-lending" component={CommercialRealEstateLending} />
         <Route path="/solutions/mortgage-financing" component={MortgageFinancing} />
         <Route path="/solutions/merchant-cash-advance" component={ClientCashAdvanceDetail} />
