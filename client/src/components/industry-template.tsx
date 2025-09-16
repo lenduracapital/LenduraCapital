@@ -57,7 +57,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
     <div className="min-h-screen bg-white">
       <SEOHead 
         title={`${data.title} | Fast Business Funding | Lendura Capital`}
-        description={`${data.description} Get approved in 24 hours with competitive rates. Call (877) 763-6186 or apply online today.`}
+        description={`${data.description} Get approved in 24 hours with competitive rates. Call (305) 834-7168 or apply online today.`}
         keywords={`${data.name.toLowerCase()} financing, ${data.name.toLowerCase()} business loans, ${data.name.toLowerCase()} equipment financing, ${data.name.toLowerCase()} working capital`}
         canonical={`/industries/${data.slug}`}
       />
@@ -224,7 +224,7 @@ export default function IndustryTemplate({ data }: IndustryTemplateProps) {
             <div className="flex items-center text-[#193a59] font-semibold">
               <Phone className="w-5 h-5 mr-2" />
               <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="hover:text-[#285d8a] transition-colors" data-testid="link-phone">
-                (877) 763-6186
+                (305) 834-7168
               </a>
             </div>
           </div>

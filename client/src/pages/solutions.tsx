@@ -1,15 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard, ArrowLeft, CheckCircle, Star, Phone, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, DollarSign, Clock, FileText, Building, Truck, CreditCard, CheckCircle, Star, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 
-import truckImage from "@assets/trucking.jpg";
-import fixCreditImage from "@assets/creditrepair.jpg";
-import debtConsolidationImage from "@assets/Debt-Consolidation_1752510306630.jpeg";
 import termLoansImage from "@assets/termloans.jpg";
 import linesOfCreditImage from "@assets/lines of credit.jpg";
 import merchantCashAdvanceImage from "@assets/merchantcashadvance.jpg";

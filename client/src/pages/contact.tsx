@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -89,7 +89,7 @@ function ContactForm() {
       console.error('Error submitting contact form:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'There was an error submitting your message. Please try again or call us directly at (877) 763-6186.'
+        message: 'There was an error submitting your message. Please try again or call us directly at (305) 834-7168.'
       });
     } finally {
       setIsSubmitting(false);
@@ -223,7 +223,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white">
       <SEOHead
         title="Contact Lendura Capital | Business Loan Specialists | Brooklyn, NY"
-        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 765-7168 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
+        description="Contact Lendura Capital for business loans and funding solutions. Call (305) 834-7168 for fast approval. Brooklyn office serving all 50 states & Canada. Free consultation."
         keywords="contact business lender, Brooklyn business loans, New York business funding, business funding consultation, commercial lending contact, small business loan specialist, business capital contact"
         canonical="/contact"
       />
@@ -264,7 +264,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
-                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(877) 763-6186</a>
+                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 834-7168</a>
                       </div>
                     </div>
                     
@@ -297,7 +297,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-[#193a59] text-lg">Phone</h4>
-                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(877) 763-6186</a>
+                        <a href="https://calendly.com/sam-lenduracapital/30min" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:text-[#285d8a] transition-colors duration-200 font-bold text-xl">(305) 834-7168</a>
                       </div>
                     </div>
                     
