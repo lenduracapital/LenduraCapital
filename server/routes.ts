@@ -263,6 +263,74 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Contact page endpoint (matches /api/contact from contact.tsx)
+  app.post("/api/contact", async (req, res) => {
+    try {
+      const { 
+        firstName, 
+        lastName,
+        email, 
+        phone,
+        company,
+        message,
+        smsConsent,
+        termsAgree,
+        submissionDate,
+        source
+      } = req.body;
+
+      // Basic validation
+      if (!firstName || !lastName || !email || !phone) {
+        return res.status(400).json({ error: "Required fields missing" });
+      }
+
+      // Send email using SendGrid service
+      try {
+        await sendContactFormEmail({
+          firstName,
+          lastName,
+          email,
+          phone,
+          company,
+          message: message || '',
+          source: source || 'contact-page',
+          submissionDate
+        });
+        console.log('✅ Contact page email sent successfully');
+      } catch (emailError) {
+        console.error('⚠️  Failed to send contact page email:', emailError);
+        // Continue with success response even if email fails
+      }
+
+      // Store in database (optional)
+      try {
+        const contactData = {
+          firstName,
+          lastName,
+          email,
+          phone,
+          fundingAmount: null,
+          message: message || ''
+        };
+
+        await storage.createContactSubmission(contactData);
+        console.log('✅ Contact submission stored in database');
+      } catch (dbError) {
+        console.error('⚠️  Failed to store contact submission in database:', dbError);
+        // Continue with success response even if database storage fails
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Thank you for contacting us! We will get back to you within 24 hours."
+      });
+
+    } catch (error) {
+      console.error('Contact page submission error:', error);
+      res.status(500).json({ error: "Failed to submit contact form" });
+    }
+  });
+
   // Loan Application endpoint with PDF processing
   app.post("/api/loan-application", async (req, res) => {
     try {
