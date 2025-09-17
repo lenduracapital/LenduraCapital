@@ -354,7 +354,7 @@ export default function BlogPage() {
                   ctaButtonText="Apply Now - Free"
                 />
               </div>
-            </div>
+            </aside>
 
             {/* Main Content */}
             <div className="flex-1">
@@ -545,7 +545,7 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* CTA Section */}
       <section className="py-16 bg-white border-t">

@@ -1,7 +1,10 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { ChevronRight, Clock, Tag, User, Calendar, ArrowLeft, CheckCircle, AlertTriangle, DollarSign, FileText, Building2, CreditCard, Utensils } from "lucide-react";
+import SocialSharing from "@/components/social-sharing";
+import AuthorBio, { authorProfiles } from "@/components/author-bio";
+import CiteGuide from "@/components/cite-guide";
+import { ChevronRight, Clock, Tag, User, Calendar, ArrowLeft, CheckCircle, AlertTriangle, DollarSign, FileText, Building2, CreditCard, Utensils, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
 
@@ -94,6 +97,14 @@ export default function RestaurantFinancingGuide() {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Discover financing options specifically designed for restaurants, cafes, and food service businesses. From equipment loans to working capital solutions, this guide covers everything you need to fund your culinary venture.
             </p>
+
+            {/* Social Sharing */}
+            <SocialSharing
+              title="Restaurant Financing: Complete Funding Guide for Food Service Businesses"
+              description="Complete guide to restaurant financing including equipment loans, working capital, SBA loans for restaurants, and industry-specific funding solutions."
+              url="/guides/restaurant-financing-complete-guide"
+              className="mb-8"
+            />
           </div>
         </section>
 
@@ -593,6 +604,37 @@ export default function RestaurantFinancingGuide() {
         </div>
         </section>
       </main>
+
+      {/* Author Bio & Citation */}
+      <section className="py-8 border-t">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AuthorBio
+            {...authorProfiles["Restaurant Finance Team"]}
+            className="mb-8"
+          />
+          
+          <CiteGuide
+            title="Restaurant Financing: Complete Funding Guide for Food Service Businesses"
+            author="Restaurant Finance Team"
+            publishDate="2025-01-12"
+            url="/guides/restaurant-financing-complete-guide"
+            className="mb-8"
+          />
+          
+          {/* Compact Social Sharing */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t">
+            <div className="text-sm text-gray-500">
+              Found this guide helpful? Share it with others:
+            </div>
+            <SocialSharing
+              title="Restaurant Financing: Complete Funding Guide for Food Service Businesses"
+              description="Complete guide to restaurant financing including equipment loans, working capital, SBA loans for restaurants, and industry-specific funding solutions."
+              url="/guides/restaurant-financing-complete-guide"
+              compact={true}
+            />
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>

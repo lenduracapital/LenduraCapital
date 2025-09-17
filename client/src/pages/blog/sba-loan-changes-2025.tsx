@@ -1,7 +1,9 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { ChevronRight, Clock, User, Calendar, ArrowLeft, CheckCircle, DollarSign, FileText, TrendingUp } from "lucide-react";
+import SocialSharing from "@/components/social-sharing";
+import AuthorBio, { authorProfiles } from "@/components/author-bio";
+import { ChevronRight, Clock, User, Calendar, ArrowLeft, CheckCircle, DollarSign, FileText, TrendingUp, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
 
@@ -110,6 +112,14 @@ export default function SBALoanChanges2025() {
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
             The Small Business Administration has announced significant updates to its loan programs for 2025, including increased lending limits, streamlined application processes, and new eligibility criteria that will benefit millions of small businesses across the United States.
           </p>
+
+          {/* Social Sharing */}
+          <SocialSharing
+            title="Major SBA Loan Program Changes Coming in 2025"
+            description="The Small Business Administration announces significant updates to loan programs for 2025, including increased lending limits and streamlined application processes."
+            url="/blog/sba-loan-changes-2025"
+            className="mb-8"
+          />
         </div>
         </section>
 
@@ -154,7 +164,7 @@ export default function SBALoanChanges2025() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Increased SBA Lending Limits for Small Businesses</h2>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  One of the most significant changes for 2025 is the increase in <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline font-medium">SBA 7(a) loan</Link> limits from $5 million to $5.5 million. This $500,000 increase represents the first adjustment to these limits since 2020 and reflects the SBA's commitment to supporting larger small business growth initiatives.
+                  One of the most significant changes for 2025 is the increase in <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline font-medium">SBA 7(a) loan</Link> limits from $5 million to $5.5 million. This $500,000 increase represents the first adjustment to these limits since 2020 and reflects the SBA's commitment to supporting larger small business growth initiatives. According to the official <a href="https://www.sba.gov/funding-programs/loans/7a-loans" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:underline inline-flex items-center">SBA 7(a) loan program <ExternalLink className="w-3 h-3 ml-1" /></a>, these changes are designed to better serve modern small business capital needs.
                 </p>
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   The changes will particularly benefit businesses across industries like <Link href="/industries/construction" className="text-[#193a59] hover:underline">construction</Link>, <Link href="/industries/manufacturing" className="text-[#193a59] hover:underline">manufacturing</Link>, and <Link href="/industries/medical-healthcare" className="text-[#193a59] hover:underline">healthcare</Link>. For a comprehensive understanding of how to navigate these changes, see our <Link href="/guides/complete-sba-loan-guide-2025" className="text-[#193a59] hover:underline font-medium">Complete Guide to SBA Loans in 2025</Link>.
@@ -178,7 +188,7 @@ export default function SBALoanChanges2025() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Streamlined SBA Application Process for Small Business Owners</h2>
                 <p className="text-gray-700 mb-6 leading-relaxed">
-                  The SBA is introducing a significantly streamlined application process for loans under $500,000, addressing one of the most common complaints from small business owners about the complexity and time required for SBA loan applications. This change will benefit businesses across all sectors, from <Link href="/industries/restaurant-food-service" className="text-[#193a59] hover:underline">restaurants</Link> to <Link href="/industries/retail-e-commerce" className="text-[#193a59] hover:underline">retail businesses</Link>.
+                  The SBA is introducing a significantly streamlined application process for loans under $500,000, addressing one of the most common complaints from small business owners about the complexity and time required for SBA loan applications. This change will benefit businesses across all sectors, from <Link href="/industries/restaurant-food-service" className="text-[#193a59] hover:underline">restaurants</Link> to <Link href="/industries/retail-e-commerce" className="text-[#193a59] hover:underline">retail businesses</Link>. According to the <a href="https://www.sba.gov/" target="_blank" rel="noopener noreferrer" className="text-[#193a59] hover:underline inline-flex items-center">Small Business Administration <ExternalLink className="w-3 h-3 ml-1" /></a>, these improvements are expected to reduce processing times by up to 30%.
                 </p>
                 <p className="text-gray-700 mb-6 leading-relaxed">
                   These streamlined processes make SBA financing more accessible than ever. For step-by-step guidance on navigating the application process, check our detailed <Link href="/guides/complete-sba-loan-guide-2025" className="text-[#193a59] hover:underline font-medium">SBA loan application guide</Link> which covers all requirements and best practices.
@@ -352,6 +362,29 @@ export default function SBALoanChanges2025() {
             </div>
           </div>
         </div>
+        </section>
+
+        {/* Author Bio */}
+        <section className="py-8 border-t">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AuthorBio
+              {...authorProfiles["SBA Lending Team"]}
+              className="mb-8"
+            />
+            
+            {/* Compact Social Sharing */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t">
+              <div className="text-sm text-gray-500">
+                Was this article helpful? Share it with others:
+              </div>
+              <SocialSharing
+                title="Major SBA Loan Program Changes Coming in 2025"
+                description="The Small Business Administration announces significant updates to loan programs for 2025, including increased lending limits and streamlined application processes."
+                url="/blog/sba-loan-changes-2025"
+                compact={true}
+              />
+            </div>
+          </div>
         </section>
 
         {/* Related Articles */}

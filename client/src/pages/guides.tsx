@@ -512,7 +512,7 @@ export default function GuidesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* CTA Section */}
       <section className="py-16 bg-white border-t">
