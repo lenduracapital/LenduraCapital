@@ -34,6 +34,14 @@ const Privacy = lazy(() => import("@/pages/privacy"));
 const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
 const Guides = lazy(() => import("@/pages/guides"));
+const Blog = lazy(() => import("@/pages/blog"));
+
+// Individual Guide Pages
+const CompleteSBAGuide = lazy(() => import("@/pages/guides/complete-sba-loan-guide-2025"));
+const RestaurantFinancingGuide = lazy(() => import("@/pages/guides/restaurant-financing-complete-guide"));
+
+// Individual Blog Posts
+const SBALoanChanges2025 = lazy(() => import("@/pages/blog/sba-loan-changes-2025"));
 
 const AdminDashboard = lazy(() => import("@/pages/admin"));
 const ApplicationForm = lazy(() => import("@/pages/ApplicationForm"));
@@ -115,6 +123,14 @@ function Router() {
         <Route path="/cookies" component={Cookies} />
         <Route path="/faq" component={FAQ} />
         <Route path="/guides" component={Guides} />
+        <Route path="/blog" component={Blog} />
+        
+        {/* Individual Guide Pages */}
+        <Route path="/guides/complete-sba-loan-guide-2025" component={CompleteSBAGuide} />
+        <Route path="/guides/restaurant-financing-complete-guide" component={RestaurantFinancingGuide} />
+        
+        {/* Individual Blog Posts */}
+        <Route path="/blog/sba-loan-changes-2025" component={SBALoanChanges2025} />
 
         <Route path="/admin" component={AdminDashboard} />
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, FileText, BookOpen } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
@@ -423,14 +423,20 @@ export default function Header({ }: HeaderProps) {
                       onClick={() => { setLocation("/guides"); setIsResourceHubDropdownOpen(false); }}
                       className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
                     >
-                      <div className="font-semibold">📚 Guides</div>
+                      <div className="font-semibold flex items-center">
+                        <FileText className="w-4 h-4 mr-2 text-[#193a59]" />
+                        Guides
+                      </div>
                       <div className="text-xs text-gray-500 mt-1">Expert funding insights & how-to guides</div>
                     </button>
                     <button
                       onClick={() => { setLocation("/blog"); setIsResourceHubDropdownOpen(false); }}
                       className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
                     >
-                      <div className="font-semibold">📰 Blog</div>
+                      <div className="font-semibold flex items-center">
+                        <BookOpen className="w-4 h-4 mr-2 text-[#193a59]" />
+                        Blog
+                      </div>
                       <div className="text-xs text-gray-500 mt-1">Latest industry news & success stories</div>
                     </button>
                   </div>
@@ -510,7 +516,10 @@ export default function Header({ }: HeaderProps) {
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 data-testid="mobile-link-guides"
               >
-                📚 Guides
+                <div className="flex items-center">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Guides
+                </div>
               </button>
               <button 
                 onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
@@ -518,7 +527,10 @@ export default function Header({ }: HeaderProps) {
                 style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
                 data-testid="mobile-link-blog"
               >
-                📰 Blog
+                <div className="flex items-center">
+                  <BookOpen className="w-4 h-4 mr-2" />
+                  Blog
+                </div>
               </button>
             </div>
 
