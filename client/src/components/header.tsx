@@ -14,6 +14,7 @@ export default function Header({ }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
+  const [isResourceHubDropdownOpen, setIsResourceHubDropdownOpen] = useState(false);
   
   const [location, setLocation] = useLocation();
 
@@ -23,9 +24,10 @@ export default function Header({ }: HeaderProps) {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if ((isSolutionsDropdownOpen || isIndustriesDropdownOpen) && !(event.target as Element).closest('.dropdown-container')) {
+      if ((isSolutionsDropdownOpen || isIndustriesDropdownOpen || isResourceHubDropdownOpen) && !(event.target as Element).closest('.dropdown-container')) {
         setIsSolutionsDropdownOpen(false);
         setIsIndustriesDropdownOpen(false);
+        setIsResourceHubDropdownOpen(false);
       }
     };
 
@@ -35,7 +37,7 @@ export default function Header({ }: HeaderProps) {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [isSolutionsDropdownOpen, isIndustriesDropdownOpen]);
+  }, [isSolutionsDropdownOpen, isIndustriesDropdownOpen, isResourceHubDropdownOpen]);
 
   const handleApplyNow = () => {
     window.location.href = '/apply-now';
@@ -388,6 +390,53 @@ export default function Header({ }: HeaderProps) {
               )}
             </div>
             
+            {/* Resource Hub Dropdown */}
+            <div 
+              className="relative dropdown-container group"
+              onMouseEnter={() => setIsResourceHubDropdownOpen(true)}
+              onMouseLeave={() => setIsResourceHubDropdownOpen(false)}
+            >
+              <button 
+                className="flex items-center text-white hover:text-[#193a59] transition-all duration-300 font-medium px-4 py-2 min-h-[44px] rounded-lg focus-ring hover:scale-105 hover:bg-white/10"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+                aria-label="Access business funding resources"
+              >
+                Resource Hub
+              </button>
+
+              {/* Invisible bridge to prevent dropdown closing */}
+              <div className="absolute top-full left-0 w-full h-2 bg-transparent z-40" />
+
+              {/* Resource Hub Dropdown Menu */}
+              {isResourceHubDropdownOpen && (
+                <div 
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white rounded-lg border border-gray-200 shadow-2xl z-50 p-6 transition-all duration-200 animate-in slide-in-from-top-2"
+                  style={{ width: '280px', marginTop: '8px' }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center mb-4">
+                      <div className="w-2 h-6 bg-[#193a59] rounded-full mr-3"></div>
+                      <h3 className="font-bold text-[#193a59] text-sm uppercase tracking-wide">Resource Hub</h3>
+                    </div>
+                    <button
+                      onClick={() => { setLocation("/guides"); setIsResourceHubDropdownOpen(false); }}
+                      className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
+                    >
+                      <div className="font-semibold">📚 Guides</div>
+                      <div className="text-xs text-gray-500 mt-1">Expert funding insights & how-to guides</div>
+                    </button>
+                    <button
+                      onClick={() => { setLocation("/blog"); setIsResourceHubDropdownOpen(false); }}
+                      className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
+                    >
+                      <div className="font-semibold">📰 Blog</div>
+                      <div className="text-xs text-gray-500 mt-1">Latest industry news & success stories</div>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <button 
               onClick={handleApplyNow}
@@ -452,6 +501,26 @@ export default function Header({ }: HeaderProps) {
               Qualified Industries
             </button>
             
+            {/* Resource Hub Mobile Submenu */}
+            <div className="border-t border-white/10 pt-2 mt-2">
+              <div className="text-white/60 text-xs uppercase tracking-wide px-4 py-2 font-semibold">Resource Hub</div>
+              <button 
+                onClick={() => { setLocation("/guides"); setIsMobileMenuOpen(false); }}
+                className="block text-white hover:text-[--primary] transition-colors py-3 px-6 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+                data-testid="mobile-link-guides"
+              >
+                📚 Guides
+              </button>
+              <button 
+                onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
+                className="block text-white hover:text-[--primary] transition-colors py-3 px-6 w-full text-left min-h-[48px] rounded-lg hover:bg-white/20 active:bg-white/30 font-medium"
+                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+                data-testid="mobile-link-blog"
+              >
+                📰 Blog
+              </button>
+            </div>
 
             <button 
               onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
