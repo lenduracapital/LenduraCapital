@@ -192,8 +192,6 @@ export default function Footer() {
               <ul className="space-y-2 mb-6">
                 <li><button onClick={() => handleNavigation("/about")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">About Lendura</button></li>
                 <li><button onClick={() => handleNavigation("/more-testimonials")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Success Stories</button></li>
-                <li><button onClick={() => handleNavigation("/guides")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Funding Guides</button></li>
-                <li><button onClick={() => handleNavigation("/blog")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Industry Blog</button></li>
                 <li><button onClick={() => handleNavigation("/contact")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Contact Us</button></li>
               </ul>
               

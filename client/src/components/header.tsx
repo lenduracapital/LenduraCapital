@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, FileText, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
@@ -13,12 +13,10 @@ export default function Header({ }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSolutionsDropdownOpen, setIsSolutionsDropdownOpen] = useState(false);
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
-  const [isResourceHubDropdownOpen, setIsResourceHubDropdownOpen] = useState(false);
   
   // Mobile menu collapsible states
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
-  const [mobileResourceHubOpen, setMobileResourceHubOpen] = useState(false);
   
   const [location, setLocation] = useLocation();
 
@@ -28,10 +26,9 @@ export default function Header({ }: HeaderProps) {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if ((isSolutionsDropdownOpen || isIndustriesDropdownOpen || isResourceHubDropdownOpen) && !(event.target as Element).closest('.dropdown-container')) {
+      if ((isSolutionsDropdownOpen || isIndustriesDropdownOpen) && !(event.target as Element).closest('.dropdown-container')) {
         setIsSolutionsDropdownOpen(false);
         setIsIndustriesDropdownOpen(false);
-        setIsResourceHubDropdownOpen(false);
       }
     };
 
@@ -41,7 +38,7 @@ export default function Header({ }: HeaderProps) {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('click', handleClickOutside);
     };
-  }, [isSolutionsDropdownOpen, isIndustriesDropdownOpen, isResourceHubDropdownOpen]);
+  }, [isSolutionsDropdownOpen, isIndustriesDropdownOpen]);
 
   const handleApplyNow = () => {
     window.location.href = '/apply-now';
@@ -413,59 +410,6 @@ export default function Header({ }: HeaderProps) {
               )}
             </div>
             
-            {/* Resource Hub Dropdown */}
-            <div 
-              className="relative dropdown-container group"
-              onMouseEnter={() => setIsResourceHubDropdownOpen(true)}
-              onMouseLeave={() => setIsResourceHubDropdownOpen(false)}
-            >
-              <button 
-                className="flex items-center text-white hover:text-[#193a59] transition-all duration-300 font-medium px-4 py-2 min-h-[44px] rounded-lg focus-ring hover:scale-105 hover:bg-white/10"
-                style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
-                aria-label="Access business funding resources"
-              >
-                Resource Hub
-              </button>
-
-              {/* Invisible bridge to prevent dropdown closing */}
-              <div className="absolute top-full left-0 w-full h-2 bg-transparent z-40" />
-
-              {/* Resource Hub Dropdown Menu */}
-              {isResourceHubDropdownOpen && (
-                <div 
-                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white rounded-lg border border-gray-200 shadow-2xl z-50 p-6 transition-all duration-200 animate-in slide-in-from-top-2"
-                  style={{ width: '280px', marginTop: '8px' }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <div className="space-y-2">
-                    <div className="flex items-center mb-4">
-                      <div className="w-2 h-6 bg-[#193a59] rounded-full mr-3"></div>
-                      <h3 className="font-bold text-[#193a59] text-sm uppercase tracking-wide">Resource Hub</h3>
-                    </div>
-                    <button
-                      onClick={() => { setLocation("/guides"); setIsResourceHubDropdownOpen(false); }}
-                      className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
-                    >
-                      <div className="font-semibold flex items-center">
-                        <FileText className="w-4 h-4 mr-2 text-[#193a59]" />
-                        Guides
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">Expert funding insights & how-to guides</div>
-                    </button>
-                    <button
-                      onClick={() => { setLocation("/blog"); setIsResourceHubDropdownOpen(false); }}
-                      className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-3 px-4 rounded-lg font-medium"
-                    >
-                      <div className="font-semibold flex items-center">
-                        <BookOpen className="w-4 h-4 mr-2 text-[#193a59]" />
-                        Blog
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1">Latest industry news & success stories</div>
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
 
             <button 
               onClick={handleApplyNow}
@@ -608,36 +552,6 @@ export default function Header({ }: HeaderProps) {
               )}
             </div>
 
-            {/* Resource Hub Section */}
-            <div className="bg-white rounded-xl shadow-lg border-0 ring-1 ring-gray-200/60 backdrop-blur-sm">
-              <button
-                onClick={() => setMobileResourceHubOpen(!mobileResourceHubOpen)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
-              >
-                <span className="text-lg font-semibold text-brand-primary">Resource Hub</span>
-                {mobileResourceHubOpen ? (
-                  <ChevronUp className="w-5 h-5 text-brand-primary" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-brand-primary" />
-                )}
-              </button>
-              {mobileResourceHubOpen && (
-                <div className="border-t border-gray-100">
-                  <button
-                    onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
-                  >
-                    Blog
-                  </button>
-                  <button
-                    onClick={() => { setLocation("/guides"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
-                  >
-                    Guides
-                  </button>
-                </div>
-              )}
-            </div>
 
             {/* CTA Buttons - Enhanced with Brand Colors */}
             <div className="flex gap-4 pt-6">
