@@ -466,48 +466,48 @@ export default function Header({ }: HeaderProps) {
                 onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
               >
-                <span className="text-lg font-semibold text-brand-primary">Our Services</span>
+                <span className="text-lg font-semibold text-[#193a59]">Our Services</span>
                 {mobileSolutionsOpen ? (
-                  <ChevronUp className="w-5 h-5 text-brand-primary" />
+                  <ChevronUp className="w-5 h-5 text-[#193a59]" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-brand-primary" />
+                  <ChevronDown className="w-5 h-5 text-[#193a59]" />
                 )}
               </button>
               {mobileSolutionsOpen && (
                 <div className="border-t border-gray-100">
                   <button
                     onClick={() => { setLocation("/solutions/term-loans"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Business Term Loans
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/lines-of-credit"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Business Line of Credit
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Merchant Cash Advance
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/sba-loans"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     SBA Loans
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/equipment-financing"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Equipment Financing
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/debt-consolidation"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] transition-all duration-200 font-medium rounded-b-xl"
                   >
                     Debt Consolidation
                   </button>
@@ -521,30 +521,30 @@ export default function Header({ }: HeaderProps) {
                 onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
               >
-                <span className="text-lg font-semibold text-brand-primary">Our Company</span>
+                <span className="text-lg font-semibold text-[#193a59]">Our Company</span>
                 {mobileIndustriesOpen ? (
-                  <ChevronUp className="w-5 h-5 text-brand-primary" />
+                  <ChevronUp className="w-5 h-5 text-[#193a59]" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-brand-primary" />
+                  <ChevronDown className="w-5 h-5 text-[#193a59]" />
                 )}
               </button>
               {mobileIndustriesOpen && (
                 <div className="border-t border-gray-100">
                   <button
                     onClick={() => { setLocation("/about"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     About
                   </button>
                   <button
                     onClick={() => { setLocation("/testimonials"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Reviews
                   </button>
                   <button
                     onClick={() => { setLocation("/qualified-industries"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-4 text-gray-800 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
+                    className="block w-full text-left px-6 py-4 text-gray-900 hover:bg-[#193a59]/10 hover:text-[#193a59] transition-all duration-200 font-medium rounded-b-xl"
                   >
                     Industries
                   </button>
