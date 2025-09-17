@@ -169,13 +169,16 @@ export default function CompleteSBAGuide() {
               <div className="prose prose-lg max-w-none">
                 
                 {/* Overview Section */}
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-12 border border-blue-100">
+                <div id="overview" className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-12 border border-blue-100">
                   <div className="flex items-center mb-4">
                     <Award className="w-6 h-6 text-[#193a59] mr-3" />
                     <h2 className="text-2xl font-bold text-gray-900 mb-0">Overview: SBA Loans in 2025</h2>
                   </div>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    SBA loans remain one of the most attractive financing options for small businesses, offering competitive rates, longer repayment terms, and lower down payments than traditional bank loans. In 2025, new programs and increased lending limits make SBA financing more accessible than ever.
+                    <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline font-medium">SBA loans</Link> remain one of the most attractive financing options for small businesses, offering competitive rates, longer repayment terms, and lower down payments than traditional bank loans.
+                  </p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    In 2025, <Link href="/blog/sba-loan-changes-2025" className="text-[#193a59] hover:underline font-medium">significant program changes</Link> including increased lending limits and streamlined processes make SBA financing more accessible than ever for businesses across industries including <Link href="/industries/construction" className="text-[#193a59] hover:underline">construction</Link>, <Link href="/industries/restaurant-food-service" className="text-[#193a59] hover:underline">restaurants</Link>, and <Link href="/industries/medical-healthcare" className="text-[#193a59] hover:underline">healthcare</Link>.
                   </p>
                   <div className="grid md:grid-cols-3 gap-4 mt-6">
                     <div className="text-center">
@@ -218,10 +221,10 @@ export default function CompleteSBAGuide() {
                       <div className="flex items-start gap-4">
                         <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Determine Your Loan Type</h3>
-                          <p className="text-gray-600 mb-3">Choose between SBA 7(a) for general business purposes, SBA 504 for real estate and equipment, or microloans for smaller amounts.</p>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Determine Your SBA Loan Type</h3>
+                          <p className="text-gray-600 mb-3">Choose between <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline">SBA 7(a)</Link> for general business purposes, SBA 504 for real estate and equipment, or microloans for smaller amounts. Consider your industry needs - for example, <Link href="/industries/manufacturing" className="text-[#193a59] hover:underline">manufacturing businesses</Link> often prefer SBA 504 for equipment purchases.</p>
                           <div className="bg-blue-50 p-3 rounded-lg">
-                            <p className="text-sm text-blue-800"><strong>Tip:</strong> Most businesses start with SBA 7(a) loans due to their flexibility.</p>
+                            <p className="text-sm text-blue-800"><strong>Tip:</strong> Most businesses start with SBA 7(a) loans due to their flexibility. With the <Link href="/blog/sba-loan-changes-2025" className="text-[#193a59] hover:underline">2025 program updates</Link>, lending limits have increased to $5.5M. If you need quick funding, consider <Link href="/solutions/term-loans" className="text-[#193a59] hover:underline">alternative term loans</Link> while preparing your SBA application.</p>
                           </div>
                         </div>
                       </div>
@@ -231,8 +234,8 @@ export default function CompleteSBAGuide() {
                       <div className="flex items-start gap-4">
                         <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Check Eligibility Requirements</h3>
-                          <p className="text-gray-600 mb-3">Verify your business meets SBA size standards, operates for profit, and meets specific program requirements.</p>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Check SBA Loan Eligibility Requirements</h3>
+                          <p className="text-gray-600 mb-3">Verify your business meets SBA size standards, operates for profit, and meets specific program requirements. Industry-specific considerations apply - <Link href="/industries/technology-software" className="text-[#193a59] hover:underline">technology companies</Link> and <Link href="/industries/professional-services" className="text-[#193a59] hover:underline">professional services</Link> often have different requirements.</p>
                           <ul className="text-sm text-gray-600 space-y-1">
                             <li>• Business must operate primarily in the U.S.</li>
                             <li>• Owner must have invested their own time and money</li>
@@ -274,10 +277,10 @@ export default function CompleteSBAGuide() {
                       <div className="flex items-start gap-4">
                         <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</div>
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Submit Application</h3>
-                          <p className="text-gray-600 mb-3">Apply through an SBA-approved lender or use the SBA's online portal for faster processing.</p>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Submit Your SBA Application</h3>
+                          <p className="text-gray-600 mb-3">Apply through an SBA-approved lender or use the SBA's online portal for faster processing. While waiting for SBA approval, consider backup options like <Link href="/solutions/lines-of-credit" className="text-[#193a59] hover:underline">business lines of credit</Link> for immediate working capital needs.</p>
                           <div className="bg-green-50 p-3 rounded-lg">
-                            <p className="text-sm text-green-800"><strong>Fast Track:</strong> Use SBA Express for loans under $500K with 36-hour approval.</p>
+                            <p className="text-sm text-green-800"><strong>Fast Track:</strong> Use SBA Express for loans under $500K with 36-hour approval. For immediate funding, explore <Link href="/solutions/merchant-cash-advance" className="text-[#193a59] hover:underline">merchant cash advances</Link> as bridge financing.</p>
                           </div>
                         </div>
                       </div>
@@ -296,22 +299,24 @@ export default function CompleteSBAGuide() {
                     <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-100">
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">✅ Do This</h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Maintain strong personal and business credit scores</li>
-                        <li>• Prepare detailed financial projections</li>
+                        <li>• Maintain strong personal and business credit scores - consider <Link href="/solutions/credit-services" className="text-[#193a59] hover:underline">credit repair services</Link> if needed</li>
+                        <li>• Prepare detailed financial projections specific to your industry (<Link href="/industries/retail-e-commerce" className="text-[#193a59] hover:underline">retail</Link>, <Link href="/industries/trucking-transportation" className="text-[#193a59] hover:underline">transportation</Link>, etc.)</li>
                         <li>• Work with experienced SBA lenders</li>
                         <li>• Have a clear business plan and use of funds</li>
                         <li>• Maintain good business banking relationships</li>
+                        <li>• Consider <Link href="/solutions/equipment-financing" className="text-[#193a59] hover:underline">equipment financing</Link> for specific equipment needs</li>
                       </ul>
                     </div>
                     
                     <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-lg p-6 border border-red-100">
                       <h3 className="text-lg font-semibold text-gray-900 mb-4">❌ Avoid This</h3>
                       <ul className="space-y-2 text-gray-700">
-                        <li>• Don't apply with poor credit without improvement plan</li>
+                        <li>• Don't apply with poor credit without improvement plan - use <Link href="/solutions/credit-services" className="text-[#193a59] hover:underline">credit building services</Link> first</li>
                         <li>• Don't inflate business projections unrealistically</li>
                         <li>• Don't rush the application without proper preparation</li>
-                        <li>• Don't ignore SBA eligibility requirements</li>
+                        <li>• Don't ignore SBA eligibility requirements for your industry</li>
                         <li>• Don't apply to multiple lenders simultaneously</li>
+                        <li>• Don't overlook faster alternatives like <Link href="/solutions/term-loans" className="text-[#193a59] hover:underline">traditional business loans</Link> if you need immediate funding</li>
                       </ul>
                     </div>
                   </div>
@@ -408,13 +413,13 @@ export default function CompleteSBAGuide() {
             </div>
 
             <div id="types-of-sba-loans" className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Types of SBA Loans</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Types of SBA Loans for Different Business Needs</h2>
               
               <div className="space-y-8">
                 <div className="border border-gray-200 rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">SBA 7(a) Loans</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">SBA 7(a) Loans - Most Popular Option</h3>
                   <p className="text-gray-700 mb-4">
-                    The most popular SBA loan program, offering up to $5 million for various business purposes including working capital, equipment purchases, real estate, and debt refinancing.
+                    The most popular <Link href="/solutions/sba-loans" className="text-[#193a59] hover:underline">SBA loan program</Link>, offering up to $5.5 million for various business purposes including working capital, equipment purchases, real estate, and debt refinancing. Perfect for businesses in <Link href="/industries/professional-services" className="text-[#193a59] hover:underline">professional services</Link>, <Link href="/industries/retail-e-commerce" className="text-[#193a59] hover:underline">retail</Link>, and <Link href="/industries/technology-software" className="text-[#193a59] hover:underline">technology</Link> sectors.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -465,9 +470,9 @@ export default function CompleteSBAGuide() {
             </div>
 
             <div id="eligibility-requirements" className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Eligibility Requirements</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">SBA Loan Eligibility Requirements by Industry</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                To qualify for an SBA loan, your business must meet specific criteria set by the Small Business Administration. Here are the key requirements:
+                To qualify for an SBA loan, your business must meet specific criteria set by the Small Business Administration. While general requirements apply to all businesses, specific industries like <Link href="/industries/construction" className="text-[#193a59] hover:underline">construction</Link>, <Link href="/industries/medical-healthcare" className="text-[#193a59] hover:underline">healthcare</Link>, and <Link href="/industries/restaurant-food-service" className="text-[#193a59] hover:underline">restaurants</Link> may have additional considerations.
               </p>
 
               <div className="space-y-6">
