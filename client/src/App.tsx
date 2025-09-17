@@ -33,6 +33,7 @@ const Terms = lazy(() => import("@/pages/terms"));
 const Privacy = lazy(() => import("@/pages/privacy"));
 const Cookies = lazy(() => import("@/pages/cookies"));
 const FAQ = lazy(() => import("@/pages/faq"));
+const Guides = lazy(() => import("@/pages/guides"));
 
 const AdminDashboard = lazy(() => import("@/pages/admin"));
 const ApplicationForm = lazy(() => import("@/pages/ApplicationForm"));
@@ -113,6 +114,7 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={Cookies} />
         <Route path="/faq" component={FAQ} />
+        <Route path="/guides" component={Guides} />
 
         <Route path="/admin" component={AdminDashboard} />
 
