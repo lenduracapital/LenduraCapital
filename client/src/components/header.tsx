@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-import lenduraLogo from "@assets/IMG_4585_1758127413251.png";
+import lenduraLogo from "@assets/IMG_4581_1758127413253.png";
 
 interface HeaderProps {
   transparent?: boolean;

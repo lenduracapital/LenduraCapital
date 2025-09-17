@@ -2,7 +2,7 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { SiYelp, SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import CompactMCACalculator from "@/components/compact-mca-calculator";
-import lenduraLogo from "@assets/IMG_4576_1758127413253.png";
+import lenduraLogo from "@assets/IMG_4580_1758127413253.png";
 
 
 export default function Footer() {
