@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X, FileText, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue Lendura logo
@@ -72,8 +71,8 @@ export default function Header({ }: HeaderProps) {
 
   // Sticky navigation with enhanced mobile support  
   const headerClass = (isScrolled || isMobileMenuOpen)
-    ? 'sticky top-0 z-50 transition-all duration-300 bg-black backdrop-blur-md shadow-lg'
-    : 'sticky top-0 z-50 transition-all duration-300 bg-black/90 backdrop-blur-sm';
+    ? 'sticky top-0 z-[100] transition-all duration-300 bg-black backdrop-blur-md shadow-lg'
+    : 'sticky top-0 z-[100] transition-all duration-300 bg-black/90 backdrop-blur-sm';
 
   return (
     <header className={headerClass} data-testid="header-navigation">
@@ -96,17 +95,22 @@ export default function Header({ }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Button - Enhanced touch target */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg"
+          <button
+            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg flex items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+            }}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             data-testid="button-mobile-menu"
+            type="button"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          </button>
 
           {/* Desktop Navigation - Positioned more to the right */}
           <nav className="hidden lg:flex items-center space-x-1 flex-1 justify-center ml-32" aria-label="Main navigation">
@@ -484,7 +488,7 @@ export default function Header({ }: HeaderProps) {
         {/* Mobile Menu - Professional Card-Based Design */}
         {isMobileMenuOpen && (
           <div 
-            className="lg:hidden fixed inset-0 top-16 bg-gray-100 p-4 space-y-4 overflow-y-auto z-[60]"
+            className="lg:hidden fixed inset-0 top-16 bg-gray-100 p-4 space-y-4 overflow-y-auto z-[1000]"
             data-testid="mobile-menu"
           >
             {/* Logo and Menu Title */}
