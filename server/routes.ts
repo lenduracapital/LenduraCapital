@@ -8,6 +8,13 @@ import { registerAdminRoutes } from "./admin-routes";
 import indexNow from "./utils/indexnow";
 import { z } from "zod";
 
+// Import SendGrid email service
+import { 
+  sendLoanApplicationEmail, 
+  sendContactFormEmail, 
+  sendLeadCaptureEmail 
+} from "./utils/sendgrid-service";
+
 export async function registerRoutes(app: Express): Promise<Server> {
   
   // Register admin routes
@@ -54,6 +61,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertLoanApplicationSchema.parse(req.body);
       const application = await storage.createLoanApplication(validatedData);
       
+      // Send email notification
+      try {
+        await sendLoanApplicationEmail(validatedData);
+        console.log('✅ Loan application email sent successfully');
+      } catch (emailError) {
+        console.error('⚠️  Failed to send loan application email:', emailError);
+        // Continue with success response even if email fails
+      }
       
       res.json(application);
     } catch (error) {
@@ -147,217 +162,79 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Required fields missing" });
       }
 
-      // Format timestamp
-      const timestamp = new Date().toLocaleString('en-US', { 
-        timeZone: 'America/New_York',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      });
-
-      // Create email content
-      const emailContent = `
-New Contact Form Submission - Lendura Capital
-
-Timestamp: ${timestamp}
-Source: Home Page Contact Form
-
-Customer Information:
-- Name: ${firstName} ${lastName}
-- Email: ${email}
-- Phone: ${phone}
-- Company: ${company || 'Not provided'}
-- Business Type: ${businessType || 'Not provided'}
-- Time in Business: ${timeInBusiness || 'Not provided'}
-- Monthly Revenue: ${monthlyRevenue || 'Not provided'}
-- Credit Score: ${creditScore || 'Not provided'}
-- Funding Amount: ${fundingAmount || 'Not provided'}
-- Funding Purpose: ${fundingPurpose || 'Not provided'}
-- Timeline: ${timeline || 'Not provided'}
-- Message: ${message || 'Not provided'}
-
-Please follow up with this potential client promptly.
-
-This message was automatically generated from the Lendura Capital website contact form.
-      `.trim();
-
-      // Send email using SendGrid
-      if (process.env.SENDGRID_API_KEY) {
-        try {
-          const sgMail = require('@sendgrid/mail');
-          sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-          const leadId = `CF-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-          
-          const msg = {
-            to: 'sam@lenduracapital.com',
-            from: 'subs@lenduracapital.com',
-            subject: `New Contact Form Lead #${leadId} - ${firstName} ${lastName}`,
-            text: emailContent,
-            html: `
-              <!DOCTYPE html>
-              <html>
-              <head>
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>New Contact Form Lead - Lendura Capital</title>
-              </head>
-              <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f5f5;">
-                <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden;">
-                  
-                  <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); padding: 30px 40px; text-align: center;">
-                    <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">
-                      📋 New Contact Form Lead
-                    </h1>
-                    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0 0; font-size: 16px;">
-                      Lendura Capital
-                    </p>
-                  </div>
-
-                  <div style="padding: 40px;">
-                    <div style="background: #f8fafc; border-radius: 8px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #193a59;">
-                      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-                        <div>
-                          <p style="margin: 0; color: #64748b; font-size: 14px; font-weight: 500;">RECEIVED</p>
-                          <p style="margin: 5px 0 0 0; color: #0f172a; font-size: 16px; font-weight: 600;">${timestamp}</p>
-                        </div>
-                        <div style="background: #193a59; color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
-                          HOME PAGE FORM
-                        </div>
-                      </div>
-                    </div>
-
-                    <h2 style="color: #1e293b; margin: 0 0 20px 0; font-size: 20px; font-weight: 600;">
-                      Contact Information
-                    </h2>
-                    
-                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 20px;">
-                      <div style="background: #f1f5f9; padding: 15px 20px; border-bottom: 1px solid #e2e8f0;">
-                        <h3 style="margin: 0; color: #475569; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
-                          Customer Details
-                        </h3>
-                      </div>
-                      
-                      <div style="padding: 0;">
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Name</span>
-                          <span style="color: #0f172a; font-weight: 600; background: #fef3c7; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
-                            ${firstName} ${lastName}
-                          </span>
-                        </div>
-                        
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Email</span>
-                          <span style="color: #0f172a; font-weight: 600; background: #fce7f3; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
-                            ${email}
-                          </span>
-                        </div>
-                        
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Phone</span>
-                          <span style="color: #0f172a; font-weight: 600; background: #ecfccb; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
-                            ${phone}
-                          </span>
-                        </div>
-
-                        ${company ? `
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Company</span>
-                          <span style="color: #0f172a; font-weight: 600;">
-                            ${company}
-                          </span>
-                        </div>
-                        ` : ''}
-
-                        ${businessType ? `
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Business Type</span>
-                          <span style="color: #0f172a; font-weight: 600;">
-                            ${businessType}
-                          </span>
-                        </div>
-                        ` : ''}
-
-                        ${fundingAmount ? `
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Funding Amount</span>
-                          <span style="color: #0f172a; font-weight: 600; background: #dbeafe; padding: 4px 8px; border-radius: 6px; font-size: 14px;">
-                            ${fundingAmount}
-                          </span>
-                        </div>
-                        ` : ''}
-
-                        ${timeline ? `
-                        <div style="padding: 18px 20px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                          <span style="color: #64748b; font-weight: 500;">Timeline</span>
-                          <span style="color: #0f172a; font-weight: 600;">
-                            ${timeline}
-                          </span>
-                        </div>
-                        ` : ''}
-                      </div>
-                    </div>
-
-                    ${message ? `
-                    <h2 style="color: #1e293b; margin: 20px 0 10px 0; font-size: 18px; font-weight: 600;">
-                      Message
-                    </h2>
-                    <div style="background: #f8fafc; border-radius: 8px; padding: 20px; border-left: 4px solid #10b981;">
-                      <p style="margin: 0; color: #374151; line-height: 1.6;">
-                        ${message}
-                      </p>
-                    </div>
-                    ` : ''}
-
-                    <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); border-radius: 8px; text-align: center;">
-                      <p style="color: white; margin: 0; font-size: 14px; font-weight: 500;">
-                        📞 Follow up with this lead promptly for best conversion rates
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </body>
-              </html>
-            `
-          };
-
-          await sgMail.send(msg);
-
-          // Store in database
-          const contactData = {
-            firstName,
-            lastName,
-            email,
-            phone,
-            message: message || '',
-            source: 'home_page_form',
-            status: 'new'
-          };
-
-          await storage.createContactSubmission(contactData);
-
-          res.json({ 
-            success: true, 
-            message: "Thank you! Your submission has been sent successfully. We'll contact you within 24 hours.",
-            leadId 
-          });
-
-        } catch (emailError) {
-          console.error('SendGrid email error:', emailError);
-          res.status(500).json({ error: "Failed to send email notification" });
-        }
-      } else {
-        console.error('SENDGRID_API_KEY not configured');
-        res.status(500).json({ error: "Email service not configured" });
+      // Send email using new SendGrid service
+      try {
+        await sendContactFormEmail({
+          firstName,
+          lastName,
+          email,
+          phone,
+          company,
+          businessType,
+          timeInBusiness,
+          monthlyRevenue,
+          creditScore,
+          fundingAmount,
+          fundingPurpose,
+          timeline,
+          message
+        });
+        console.log('✅ Contact form email sent successfully');
+      } catch (emailError) {
+        console.error('⚠️  Failed to send contact form email:', emailError);
+        // Continue with success response even if email fails
       }
+
+      // Store in database
+      try {
+        const contactData = {
+          firstName,
+          lastName,
+          email,
+          phone,
+          fundingAmount: fundingAmount || null,
+          message: message || ''
+        };
+
+        await storage.createContactSubmission(contactData);
+      } catch (dbError) {
+        console.error('⚠️  Failed to store contact submission in database:', dbError);
+        // Continue with success response even if database storage fails
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Thank you! Your submission has been sent successfully. We'll contact you within 24 hours."
+      });
 
     } catch (error) {
       console.error('Contact form submission error:', error);
       res.status(500).json({ error: "Failed to submit contact form" });
+    }
+  });
+
+  // Lead capture endpoint
+  app.post("/api/lead-capture", async (req, res) => {
+    try {
+      const leadData = req.body;
+
+      // Send email using new SendGrid service
+      try {
+        await sendLeadCaptureEmail(leadData);
+        console.log('✅ Lead capture email sent successfully');
+      } catch (emailError) {
+        console.error('⚠️  Failed to send lead capture email:', emailError);
+        // Continue with success response even if email fails
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Thank you! Your lead information has been captured successfully. We'll contact you within 5 minutes for qualified leads."
+      });
+
+    } catch (error) {
+      console.error('Lead capture submission error:', error);
+      res.status(500).json({ error: "Failed to submit lead capture" });
     }
   });
 

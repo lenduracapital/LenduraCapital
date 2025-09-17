@@ -65,13 +65,14 @@ export default function InteractiveLeadCapture() {
       
       const qualified = revenue >= 10000 && timeInBiz >= 6 && credit >= 550;
 
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           firstName: leadData.firstName,
           email: leadData.email,
-          phoneNumber: leadData.phone,
+          phone: leadData.phone,
+          phoneNumber: leadData.phone, // Keep both for compatibility
           fundingAmount: formatCurrency(leadData.fundingAmount),
           monthlyRevenue: leadData.monthlyRevenue,
           timeInBusiness: leadData.timeInBusiness,

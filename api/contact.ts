@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { sendContactFormEmail } from '../server/utils/sendgrid-service';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // CORS headers
@@ -36,77 +37,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: "Required fields missing" });
     }
 
-    // Format timestamp
-    const timestamp = new Date().toLocaleString('en-US', { 
-      timeZone: 'America/New_York',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    });
-
-    // Create email content
-    const emailContent = `
-New Contact Form Submission - Lendura Capital
-
-Timestamp: ${timestamp}
-Source: Home Page Contact Form
-
-Customer Information:
-- Name: ${firstName} ${lastName}
-- Email: ${email}
-- Phone: ${phone}
-- Company: ${company || 'Not provided'}
-- Business Type: ${businessType || 'Not provided'}
-- Time in Business: ${timeInBusiness || 'Not provided'}
-- Monthly Revenue: ${monthlyRevenue || 'Not provided'}
-- Credit Score: ${creditScore || 'Not provided'}
-- Funding Amount: ${fundingAmount || 'Not provided'}
-- Funding Purpose: ${fundingPurpose || 'Not provided'}
-- Timeline: ${timeline || 'Not provided'}
-- Message: ${message || 'Not provided'}
-
-Please follow up with this potential client promptly.
-
-This message was automatically generated from the Lendura Capital website contact form.
-    `.trim();
-
-    // Send email using SendGrid
-    if (process.env.SENDGRID_API_KEY) {
-      try {
-        const sgMail = require('@sendgrid/mail');
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-        const leadId = `CF-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
-        
-        const msg = {
-          to: 'sam@lenduracapital.com',
-          from: 'subs@lenduracapital.com',
-          subject: `New Contact Form Lead #${leadId} - ${firstName} ${lastName}`,
-          text: emailContent,
-        };
-
-        await sgMail.send(msg);
-        
-        return res.status(200).json({ 
-          success: true, 
-          message: "Contact form submitted successfully!",
-          leadId: leadId
-        });
-      } catch (emailError: any) {
-        console.error('SendGrid email error:', emailError);
-        return res.status(500).json({ 
-          error: "Failed to send email notification",
-          details: emailError.message 
-        });
-      }
-    } else {
+    // Send email using new SendGrid service
+    try {
+      await sendContactFormEmail({
+        firstName,
+        lastName,
+        email,
+        phone,
+        company,
+        businessType,
+        timeInBusiness,
+        monthlyRevenue,
+        creditScore,
+        fundingAmount,
+        fundingPurpose,
+        timeline,
+        message
+      });
+      console.log('✅ Contact form email sent successfully via API');
+      
       return res.status(200).json({ 
         success: true, 
-        message: "Contact form submitted successfully!" 
+        message: "Contact form submitted successfully! We'll contact you within 24 hours."
+      });
+    } catch (emailError: any) {
+      console.error('⚠️  Failed to send contact form email via API:', emailError);
+      // Return success even if email fails to not block user experience
+      return res.status(200).json({ 
+        success: true, 
+        message: "Contact form submitted successfully!",
+        warning: "Email notification may be delayed"
       });
     }
   } catch (error) {
