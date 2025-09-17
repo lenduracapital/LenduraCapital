@@ -3,8 +3,8 @@ import { SiYelp, SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import CompactMCACalculator from "@/components/compact-mca-calculator";
 
-// Using the white and blue Lendura logo
-const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+// Using the transparent Lendura logo
+const lenduraLogo = "/lendura_favicon_32x32 (1)_1756268242782.png";
 
 
 export default function Footer() {
@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
               
               {/* Visible Social Links - Only 5 platforms */}
-              <div className="flex gap-3">
+              <div className="flex items-center gap-4">
                 <a 
                   href="https://www.instagram.com/lenduracapital/" 
                   target="_blank" 
@@ -45,7 +45,7 @@ export default function Footer() {
                   aria-label="Follow us on Instagram"
                   data-testid="footer-social-instagram"
                 >
-                  <FaInstagram size={18} />
+                  <FaInstagram size={20} />
                 </a>
                 <a 
                   href="https://www.facebook.com/lenduracapital" 
@@ -55,7 +55,7 @@ export default function Footer() {
                   aria-label="Follow us on Facebook"
                   data-testid="footer-social-facebook"
                 >
-                  <FaFacebook size={18} />
+                  <FaFacebook size={20} />
                 </a>
                 <a 
                   href="https://x.com/lenduracapital" 
@@ -65,7 +65,7 @@ export default function Footer() {
                   aria-label="Follow us on X"
                   data-testid="footer-social-x"
                 >
-                  <span className="text-lg leading-none font-bold">𝕏</span>
+                  <span className="text-xl leading-none font-bold">𝕏</span>
                 </a>
                 <a 
                   href="https://www.yelp.com/biz/lendura-capital" 
@@ -75,7 +75,7 @@ export default function Footer() {
                   aria-label="Review us on Yelp"
                   data-testid="footer-social-yelp"
                 >
-                  <SiYelp size={18} />
+                  <SiYelp size={20} />
                 </a>
                 <a 
                   href="https://www.trustpilot.com/review/lenduracapital.com" 
@@ -85,7 +85,7 @@ export default function Footer() {
                   aria-label="Review us on Trustpilot"
                   data-testid="footer-social-trustpilot"
                 >
-                  <SiTrustpilot size={18} />
+                  <SiTrustpilot size={20} />
                 </a>
               </div>
               
