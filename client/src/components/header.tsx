@@ -216,7 +216,7 @@ export default function Header({ }: HeaderProps) {
                           CRE Lending
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/credit-card-processing"); setIsSolutionsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/credit-card-processing"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
                           Card Processing
@@ -228,7 +228,7 @@ export default function Header({ }: HeaderProps) {
                           Credit Repair
                         </button>
                         <button
-                          onClick={() => { setLocation("/solutions/seo-web-development"); setIsSolutionsDropdownOpen(false); }}
+                          onClick={() => { setLocation("/seo-web-development"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
                           Marketing

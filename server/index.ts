@@ -9,6 +9,11 @@ import {
   createEnvValidationHandler,
   requestLoggingMiddleware,
 } from "./middleware/environment";
+import {
+  botPrerenderMiddleware,
+  createBotDebugHandler,
+  createSnapshotRegenHandler,
+} from "./middleware/bot-prerender";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
@@ -81,6 +86,12 @@ app.get("/health", (req, res) =>
 app.get("/api/health", createHealthCheckHandler());
 app.get("/api/env-status", createEnvValidationHandler());
 
+// SEO debug endpoints (development only)
+if (config.NODE_ENV === "development") {
+  app.get("/api/seo/bot-debug", createBotDebugHandler());
+  app.post("/api/seo/regenerate-snapshots", createSnapshotRegenHandler());
+}
+
 // Body parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -105,6 +116,11 @@ app.use(
 
     // Register API routes
     await registerRoutes(app);
+
+    // Bot Detection and Pre-rendering Middleware
+    // This must come BEFORE static serving and SPA fallback
+    console.log("🤖 Initializing SEO bot detection middleware...");
+    app.use(botPrerenderMiddleware);
 
     if (!isProd) {
       // Dev: Vite integration

@@ -153,7 +153,7 @@ const solutionCategories = {
         "Secure transactions",
         "24/7 support"
       ],
-      route: "/solutions/credit-card-processing",
+      route: "/credit-card-processing",
       image: creditCardProcessingImage
     },
     {
@@ -179,7 +179,7 @@ const solutionCategories = {
         "Digital marketing",
         "Online presence management"
       ],
-      route: "/solutions/seo-web-development",
+      route: "/seo-web-development",
       image: marketingImage
     }
   ]
