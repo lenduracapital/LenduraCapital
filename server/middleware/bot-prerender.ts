@@ -50,14 +50,12 @@ const BOT_USER_AGENTS = [
   'seozoom',
   
   // Specific crawlers (more targeted to avoid false positives)
-  'web crawler',
-  'spider/',
-  'bot/',
-  'crawl/',
-  'archiver',
-  'scrape',
-  'monitoring',
-  'validator',
+  'web-crawler', // Specific crawlers with hyphens
+  'spider-',     // More specific patterns
+  'crawler/',
+  'archiver/',
+  'scraper/',
+  'monitor/',
   
   // Specific known crawlers
   'lighthouse',
@@ -151,7 +149,7 @@ function generateFallbackMetaTags(path: string): string {
   <meta property="twitter:description" content="${metadata.twitter.description}">
   <meta property="twitter:image" content="${absoluteImageUrl}">
   
-  <meta http-equiv="refresh" content="0;url=${absoluteUrl}">
+  <!-- No meta refresh for valid routes - let crawlers index properly -->
 </head>
 <body>
   <h1>${metadata.h1 || metadata.title}</h1>
@@ -210,8 +208,9 @@ export function botPrerenderMiddleware(req: Request, res: Response, next: NextFu
       const fallbackHtml = generateFallbackMetaTags(path);
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.setHeader('Cache-Control', 'public, max-age=3600');
-      res.setHeader('X-Robots-Tag', 'index, follow');
-      res.status(200).send(fallbackHtml);
+      res.setHeader('X-Robots-Tag', 'noindex, follow'); // Don't index unknown pages
+      res.setHeader('Vary', 'User-Agent'); // CRITICAL: prevent CDN caching issues
+      res.status(404).send(fallbackHtml); // Proper 404 status for unknown routes
       return;
     }
     
