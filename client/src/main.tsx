@@ -2,9 +2,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { preventCLS } from "./utils/prevent-cls";
-import { initPerformanceBoost, registerServiceWorker } from "./utils/performance-boost";
+import { initPerformanceBoost } from "./utils/performance-boost";
 import { prioritizeResourceLoading, initPerformanceTimeline } from "./utils/critical-resources";
 import { reportWebVitals } from "./utils/performance-monitor";
+import { initAdvancedPerformance } from "./utils/advanced-performance";
 import AccessibilityEnhancer from "./utils/accessibility-enhancements";
 
 // Initialize all performance optimizations immediately
@@ -12,7 +13,17 @@ prioritizeResourceLoading();
 initPerformanceBoost();
 initPerformanceTimeline();
 preventCLS();
-registerServiceWorker();
+// Service worker registration moved to service-worker-registration.ts
+
+// Initialize advanced performance optimizations for 90+ Lighthouse scores
+initAdvancedPerformance();
+
+// Initialize service worker for aggressive caching
+if (import.meta.env.PROD) {
+  import('./utils/service-worker-registration').then(({ initServiceWorker }) => {
+    initServiceWorker();
+  });
+}
 
 // Performance monitoring and resource optimization will be handled by other utilities
 

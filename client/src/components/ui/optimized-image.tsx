@@ -13,6 +13,7 @@ interface OptimizedImageProps {
   priority?: boolean;
   quality?: number;
   webp?: boolean;
+  avif?: boolean;
   'data-testid'?: string;
 }
 
@@ -28,7 +29,8 @@ export function OptimizedImage({
   sizes = '100vw',
   priority = false,
   quality = 85,
-  webp = false, // Disabled until we have actual WebP images
+  webp = false,
+  avif = false,
   'data-testid': testId,
   ...props 
 }: OptimizedImageProps) {

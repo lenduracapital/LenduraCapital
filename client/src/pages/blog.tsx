@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 import StickySidebar from "@/components/sticky-sidebar";
+import { BlogThumbnailImage } from "@/components/ui/unsplash-image";
 import { Search, Clock, Tag, ChevronRight, Calendar, User, TrendingUp, Building2, CreditCard, FileText, Target, Filter, Star, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -369,11 +370,13 @@ export default function BlogPage() {
                     {featuredPosts.map((post) => (
                       <article key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group border border-gray-100 hover:border-[#193a59]/20">
                         <div className="aspect-video relative overflow-hidden">
-                          <img 
+                          <BlogThumbnailImage
                             src={post.image}
                             alt={`Featured article image: ${post.title} - Business funding insights covering ${post.category.toLowerCase()}`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
+                            priority={post.featured}
+                            lazy={!post.featured}
+                            data-testid={`img-featured-${post.id}`}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                           <div className="absolute top-4 left-4">
@@ -450,11 +453,12 @@ export default function BlogPage() {
                       <article key={post.id} className="bg-white border border-gray-200 rounded-lg hover:shadow-md transition-all duration-300 overflow-hidden group">
                         <div className="flex flex-col md:flex-row">
                           <div className="md:w-64 md:h-48 aspect-video md:aspect-auto relative overflow-hidden flex-shrink-0">
-                            <img 
+                            <BlogThumbnailImage
                               src={post.image}
                               alt={`${post.category} article: ${post.title} - Professional business funding advice and strategies`}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              loading="lazy"
+                              lazy={true}
+                              data-testid={`img-regular-${post.id}`}
                             />
                           </div>
                           

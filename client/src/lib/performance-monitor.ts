@@ -48,7 +48,7 @@ class PerformanceMonitor {
   }
 
   private handleMetric(metricName: keyof WebVitalsReport, metric: PerformanceMetric) {
-    this.vitals[metricName] = metric.value;
+    (this.vitals as any)[metricName] = metric.value;
     
     // Send to analytics if available
     if (typeof window.gtag === 'function') {
@@ -92,21 +92,21 @@ class PerformanceMonitor {
 
   private trackVideoPerformance() {
     const videos = document.querySelectorAll('video');
-    videos.forEach((video, index) => {
+    videos.forEach((video) => {
       const startTime = performance.now();
       
       video.addEventListener('loadstart', () => {
-        console.log(`Video ${index + 1} loading started`);
+        console.log('Video loading started');
       });
       
       video.addEventListener('canplaythrough', () => {
         const loadTime = performance.now() - startTime;
-        console.log(`Video ${index + 1} ready to play in ${Math.round(loadTime)}ms`);
+        console.log(`Video ready to play in ${Math.round(loadTime)}ms`);
         
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'video_load_time', {
             event_category: 'Performance',
-            event_label: `video_${index + 1}`,
+            event_label: 'video_load_time',
             value: Math.round(loadTime)
           });
         }
@@ -117,7 +117,7 @@ class PerformanceMonitor {
   private trackFormInteractions() {
     // Track form performance and conversion funnel
     const forms = document.querySelectorAll('form, iframe[src*="jotform"]');
-    forms.forEach((form, index) => {
+    forms.forEach((form) => {
       const startTime = performance.now();
       
       if (form.tagName === 'IFRAME') {

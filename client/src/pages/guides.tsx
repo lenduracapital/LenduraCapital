@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
 import StickySidebar from "@/components/sticky-sidebar";
+import { GuideThumbnailImage } from "@/components/ui/unsplash-image";
 import { Search, Clock, Tag, ChevronRight, BookOpen, TrendingUp, Building2, CreditCard, FileText, Target, Filter, Star, GraduationCap, Award } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

@@ -103,14 +103,8 @@ export function initPerformanceBoost() {
   }
 }
 
-// Service Worker registration for caching
+// Service Worker registration moved to service-worker-registration.ts to avoid conflicts
+// This function is now deprecated - use initServiceWorker from service-worker-registration.ts instead
 export function registerServiceWorker() {
-  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
-        .catch(() => {
-          // Silent fail - SW is optional
-        });
-    });
-  }
+  console.log('Service Worker registration moved to service-worker-registration.ts');
 }
