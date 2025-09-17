@@ -15,79 +15,118 @@ const EMAIL_CONFIG = {
   replyTo: 'sam@lenduracapital.com'
 };
 
-// Common email header template with Lendura Capital branding
-const getEmailHeader = (title: string, subtitle: string, icon: string) => `
-  <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); padding: 40px 30px; text-align: center; position: relative; overflow: hidden;">
-    <div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -30px; left: -30px; width: 60px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;"></div>
-    <div style="relative z-10;">
-      <div style="font-size: 48px; margin-bottom: 15px;">${icon}</div>
-      <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        ${title}
-      </h1>
-      <p style="color: rgba(255,255,255,0.9); margin: 12px 0 0 0; font-size: 18px; font-weight: 400;">
-        ${subtitle}
-      </p>
+// Enhanced email header template with improved Lendura Capital branding
+const getEmailHeader = (title: string, subtitle: string, icon: string, accentColor: string = '#10b981') => `
+  <div style="background: linear-gradient(135deg, #193a59 0%, #1e40af 50%, #285d8a 100%); padding: 50px 30px; text-align: center; position: relative; overflow: hidden; border-bottom: 4px solid ${accentColor};">
+    <!-- Animated background elements -->
+    <div style="position: absolute; top: -60px; right: -60px; width: 120px; height: 120px; background: rgba(255,255,255,0.08); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -40px; left: -40px; width: 80px; height: 80px; background: rgba(255,255,255,0.06); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: rgba(255,255,255,0.02); border-radius: 50%; pointer-events: none;"></div>
+    
+    <div style="position: relative; z-index: 10;">
+      <!-- Company Logo Area -->
+      <div style="margin-bottom: 25px;">
+        <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2);">
+          <div style="font-size: 56px; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${icon}</div>
+        </div>
+      </div>
+      
+      <!-- Company Name -->
+      <div style="margin-bottom: 15px;">
+        <h1 style="color: white; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.8px; text-shadow: 0 3px 6px rgba(0,0,0,0.2); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+          LENDURA CAPITAL
+        </h1>
+      </div>
+      
+      <!-- Title and Subtitle -->
+      <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; margin: 0 auto; max-width: 500px; border: 1px solid rgba(255,255,255,0.15);">
+        <h2 style="color: white; margin: 0 0 12px 0; font-size: 24px; font-weight: 700; letter-spacing: -0.3px;">
+          ${title}
+        </h2>
+        <p style="color: rgba(255,255,255,0.95); margin: 0; font-size: 16px; font-weight: 400; line-height: 1.4;">
+          ${subtitle}
+        </p>
+      </div>
     </div>
   </div>
 `;
 
-// Common email footer
+// Enhanced email footer with better branding
 const getEmailFooter = () => `
-  <div style="background: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
-    <div style="margin-bottom: 20px;">
-      <h3 style="color: #193a59; margin: 0; font-size: 20px; font-weight: 600;">
-        Lendura Capital
-      </h3>
-      <p style="color: #64748b; margin: 8px 0 0 0; font-size: 14px;">
-        Business Funding Solutions
+  <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 40px 30px; text-align: center; border-top: 4px solid #10b981;">
+    <!-- Company Info Section -->
+    <div style="margin-bottom: 30px;">
+      <div style="display: inline-block; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 20px rgba(25, 58, 89, 0.1); border: 2px solid #193a59;">
+        <h3 style="color: #193a59; margin: 0 0 8px 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
+          LENDURA CAPITAL
+        </h3>
+        <p style="color: #64748b; margin: 0; font-size: 16px; font-weight: 500;">
+          💼 Business Funding Solutions
+        </p>
+      </div>
+    </div>
+    
+    <!-- Contact Information -->
+    <div style="margin-bottom: 25px;">
+      <div style="display: inline-flex; gap: 25px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center;">
+        <div style="display: flex; align-items: center; gap: 10px; background: white; padding: 12px 20px; border-radius: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+          <span style="background: linear-gradient(135deg, #193a59, #285d8a); color: white; padding: 8px; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">📞</span>
+          <a href="tel:+13058347168" style="color: #193a59; text-decoration: none; font-weight: 600; font-size: 15px;">(305) 834-7168</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; background: white; padding: 12px 20px; border-radius: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+          <span style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 8px; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">✉️</span>
+          <a href="mailto:sam@lenduracapital.com" style="color: #193a59; text-decoration: none; font-weight: 600; font-size: 15px;">sam@lenduracapital.com</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tagline -->
+    <div style="background: rgba(25, 58, 89, 0.05); border-radius: 10px; padding: 20px; margin: 0 auto; max-width: 500px; border-left: 4px solid #193a59;">
+      <p style="color: #475569; font-size: 14px; margin: 0; line-height: 1.6; font-weight: 500;">
+        🚀 <strong>Fast Business Funding</strong><br>
+        This email was automatically generated from our secure platform.<br>
+        <em>We respond within 24 hours to ensure excellent service.</em>
       </p>
     </div>
-    
-    <div style="display: inline-flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;">
-      <div style="display: flex; align-items: center; gap: 8px; color: #475569;">
-        <span style="background: #193a59; color: white; padding: 6px; border-radius: 50%; font-size: 12px;">📞</span>
-        <a href="tel:+13058347168" style="color: #193a59; text-decoration: none; font-weight: 500;">(305) 834-7168</a>
-      </div>
-      <div style="display: flex; align-items: center; gap: 8px; color: #475569;">
-        <span style="background: #193a59; color: white; padding: 6px; border-radius: 50%; font-size: 12px;">✉️</span>
-        <a href="mailto:sam@lenduracapital.com" style="color: #193a59; text-decoration: none; font-weight: 500;">sam@lenduracapital.com</a>
-      </div>
-    </div>
-    
-    <p style="color: #9ca3af; font-size: 12px; margin: 0; line-height: 1.4;">
-      This email was automatically generated from the Lendura Capital website.<br>
-      Please respond promptly to ensure excellent customer service.
-    </p>
   </div>
 `;
 
-// Create info row component for consistent styling
-const createInfoRow = (label: string, value: string | number | undefined | null, highlight: boolean = false) => {
+// Enhanced info row component with premium styling
+const createInfoRow = (label: string, value: string | number | undefined | null, highlight: boolean = false, icon: string = '') => {
   if (!value && value !== 0) return '';
   
-  const bgColor = highlight ? '#fef3c7' : '#f1f5f9';
-  const textColor = highlight ? '#d97706' : '#0f172a';
+  const bgColor = highlight ? 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)' : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)';
+  const textColor = highlight ? '#b45309' : '#0f172a';
+  const borderColor = highlight ? '#f59e0b' : '#e2e8f0';
   
   return `
-    <div style="padding: 16px 20px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; min-height: 60px;">
-      <span style="color: #64748b; font-weight: 500; font-size: 14px;">${label}</span>
-      <span style="color: ${textColor}; font-weight: 600; background: ${bgColor}; padding: 8px 12px; border-radius: 8px; font-size: 14px; max-width: 300px; text-align: right; word-wrap: break-word;">
+    <div style="padding: 20px 25px; border-bottom: 2px solid ${borderColor}; display: flex; justify-content: space-between; align-items: center; min-height: 70px; transition: background 0.3s ease;">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+        ${icon ? `<span style="font-size: 18px; opacity: 0.8;">${icon}</span>` : ''}
+        <span style="color: #475569; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; ${icon ? '' : 'padding-left: 10px;'}">${label}</span>
+      </div>
+      <div style="background: ${bgColor}; color: ${textColor}; font-weight: 700; padding: 12px 18px; border-radius: 12px; font-size: 15px; max-width: 350px; text-align: right; word-wrap: break-word; border: 2px solid ${highlight ? '#f59e0b' : 'transparent'}; box-shadow: 0 2px 8px rgba(0,0,0,0.08); ${highlight ? 'transform: scale(1.02);' : ''}">
         ${value}
-      </span>
+      </div>
     </div>
   `;
 };
 
-// Create section component
-const createSection = (title: string, content: string, icon: string = '📊') => `
-  <div style="margin-bottom: 30px;">
-    <h2 style="color: #1e293b; margin: 0 0 20px 0; font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px;">
-      <span style="font-size: 18px;">${icon}</span>
-      ${title}
-    </h2>
-    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+// Enhanced section component with premium design
+const createSection = (title: string, content: string, icon: string = '📊', accentColor: string = '#10b981') => `
+  <div style="margin-bottom: 35px;">
+    <!-- Section Header -->
+    <div style="background: linear-gradient(135deg, ${accentColor} 0%, ${accentColor}dd 100%); border-radius: 15px 15px 0 0; padding: 20px 25px; margin-bottom: 0;">
+      <h2 style="color: white; margin: 0; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <span style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; font-size: 20px; backdrop-filter: blur(10px);">${icon}</span>
+        ${title}
+      </h2>
+    </div>
+    <!-- Section Content -->
+    <div style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); border: 2px solid ${accentColor}; border-top: none; border-radius: 0 0 15px 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); position: relative;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, ${accentColor} 0%, ${accentColor}aa 50%, ${accentColor} 100%); opacity: 0.7;"></div>
       ${content}
+      <div style="height: 8px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);"></div>
     </div>
   </div>
 `;
@@ -97,30 +136,30 @@ export const createLoanApplicationEmail = (data: InsertLoanApplication, timestam
   const leadId = `LA-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
   
   const personalInfo = [
-    createInfoRow('Full Name', `${data.firstName} ${data.lastName}`, true),
-    createInfoRow('Email Address', data.email),
-    createInfoRow('Phone Number', data.phone || 'Not provided'),
+    createInfoRow('Full Name', `${data.firstName} ${data.lastName}`, true, '👤'),
+    createInfoRow('Email Address', data.email, false, '📧'),
+    createInfoRow('Phone Number', data.phone || 'Not provided', false, '📞'),
   ].join('');
 
   const businessInfo = [
-    createInfoRow('Business Name', data.businessName, true),
-    createInfoRow('Business Type', data.businessType || 'Not specified'),
-    createInfoRow('Years in Business', data.yearsInBusiness ? `${data.yearsInBusiness} years` : 'Not provided'),
-    createInfoRow('Monthly Revenue', data.monthlyRevenue ? `$${data.monthlyRevenue.toLocaleString()}` : 'Not provided'),
+    createInfoRow('Business Name', data.businessName, true, '🏢'),
+    createInfoRow('Business Type', data.businessType || 'Not specified', false, '🏭'),
+    createInfoRow('Years in Business', data.yearsInBusiness ? `${data.yearsInBusiness} years` : 'Not provided', false, '📅'),
+    createInfoRow('Monthly Revenue', data.monthlyRevenue ? `$${data.monthlyRevenue.toLocaleString()}` : 'Not provided', true, '💰'),
   ].join('');
 
   const loanInfo = [
-    createInfoRow('Requested Amount', `$${data.loanAmount.toLocaleString()}`, true),
-    createInfoRow('Loan Purpose', data.loanPurpose || 'Not specified'),
-    createInfoRow('Credit Score', data.creditScore ? data.creditScore.toString() : 'Not provided'),
-    createInfoRow('Application Status', data.status?.toUpperCase() || 'PENDING'),
+    createInfoRow('Requested Amount', `$${data.loanAmount.toLocaleString()}`, true, '🎯'),
+    createInfoRow('Loan Purpose', data.loanPurpose || 'Not specified', false, '📋'),
+    createInfoRow('Credit Score', data.creditScore ? data.creditScore.toString() : 'Not provided', false, '📊'),
+    createInfoRow('Application Status', data.status?.toUpperCase() || 'PENDING', true, '🔄'),
   ].join('');
 
   return {
     to: EMAIL_CONFIG.to,
     from: EMAIL_CONFIG.from,
     replyTo: EMAIL_CONFIG.replyTo,
-    subject: `🎯 New Loan Application #${leadId} - ${data.firstName} ${data.lastName} ($${data.loanAmount.toLocaleString()})`,
+    subject: `💼 PRIORITY: New Loan Application #${leadId} - ${data.firstName} ${data.lastName} ($${data.loanAmount.toLocaleString()}) - URGENT REVIEW`,
     text: `New Loan Application Received
 
 Lead ID: ${leadId}
@@ -160,9 +199,9 @@ Please review and contact the applicant promptly.`,
               </div>
             </div>
 
-            ${createSection('👤 Personal Information', personalInfo)}
-            ${createSection('🏢 Business Information', businessInfo)}
-            ${createSection('💰 Loan Details', loanInfo)}
+            ${createSection('Personal Information', personalInfo, '👤', '#2563eb')}
+            ${createSection('Business Information', businessInfo, '🏢', '#059669')}
+            ${createSection('Loan Details', loanInfo, '💰', '#dc2626')}
 
             <!-- Action Required -->
             <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); border-radius: 12px; padding: 25px; text-align: center; margin-top: 30px;">
@@ -194,16 +233,16 @@ export const createLeadCaptureEmail = (data: any, timestamp: string) => {
   const leadId = `LC-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
   
   const contactInfo = [
-    createInfoRow('Full Name', data.firstName || data.name || 'Not provided', true),
-    createInfoRow('Email Address', data.email),
-    createInfoRow('Phone Number', data.phone || data.phoneNumber || 'Not provided'),
+    createInfoRow('Full Name', data.firstName || data.name || 'Not provided', true, '👤'),
+    createInfoRow('Email Address', data.email, false, '📧'),
+    createInfoRow('Phone Number', data.phone || data.phoneNumber || 'Not provided', false, '📞'),
   ].join('');
 
   const qualificationInfo = [
-    createInfoRow('Funding Amount', data.fundingAmount, true),
-    createInfoRow('Monthly Revenue', data.monthlyRevenue || 'Not provided'),
-    createInfoRow('Time in Business', data.timeInBusiness || 'Not provided'),
-    createInfoRow('Credit Score Range', data.creditScore || 'Not provided'),
+    createInfoRow('Funding Amount', data.fundingAmount, true, '🎯'),
+    createInfoRow('Monthly Revenue', data.monthlyRevenue || 'Not provided', false, '💰'),
+    createInfoRow('Time in Business', data.timeInBusiness || 'Not provided', false, '📅'),
+    createInfoRow('Credit Score Range', data.creditScore || 'Not provided', false, '📊'),
   ].join('');
 
   // Determine qualification status
@@ -216,7 +255,7 @@ export const createLeadCaptureEmail = (data: any, timestamp: string) => {
     to: EMAIL_CONFIG.to,
     from: EMAIL_CONFIG.from,
     replyTo: EMAIL_CONFIG.replyTo,
-    subject: `🚀 New Lead Capture #${leadId} - ${data.firstName || 'Lead'} (${data.fundingAmount})`,
+    subject: `🔥 HOT LEAD: Lead Capture #${leadId} - ${data.firstName || 'Lead'} (${data.fundingAmount}) - CALL NOW!`,
     text: `New Lead Capture Received
 
 Lead ID: ${leadId}
@@ -259,8 +298,8 @@ Please contact this lead immediately for best conversion rates.`,
               </div>
             </div>
 
-            ${createSection('👤 Contact Information', contactInfo)}
-            ${createSection('📊 Qualification Details', qualificationInfo)}
+            ${createSection('Contact Information', contactInfo, '👤', '#10b981')}
+            ${createSection('Qualification Details', qualificationInfo, '📊', '#f59e0b')}
 
             ${data.message ? `
             <div style="margin-bottom: 30px;">
@@ -306,27 +345,27 @@ export const createContactFormEmail = (data: any, timestamp: string) => {
   const leadId = `CF-${Date.now()}-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
   
   const contactInfo = [
-    createInfoRow('Full Name', `${data.firstName || ''} ${data.lastName || ''}`.trim() || data.name || 'Not provided', true),
-    createInfoRow('Email Address', data.email),
-    createInfoRow('Phone Number', data.phone || data.phoneNumber || 'Not provided'),
+    createInfoRow('Full Name', `${data.firstName || ''} ${data.lastName || ''}`.trim() || data.name || 'Not provided', true, '👤'),
+    createInfoRow('Email Address', data.email, false, '📧'),
+    createInfoRow('Phone Number', data.phone || data.phoneNumber || 'Not provided', false, '📞'),
   ].join('');
 
   const businessInfo = [
-    data.company ? createInfoRow('Company', data.company) : '',
-    data.businessType ? createInfoRow('Business Type', data.businessType) : '',
-    data.timeInBusiness ? createInfoRow('Time in Business', data.timeInBusiness) : '',
-    data.monthlyRevenue ? createInfoRow('Monthly Revenue', data.monthlyRevenue) : '',
-    data.creditScore ? createInfoRow('Credit Score', data.creditScore) : '',
-    data.fundingAmount ? createInfoRow('Funding Amount', data.fundingAmount, true) : '',
-    data.fundingPurpose ? createInfoRow('Funding Purpose', data.fundingPurpose) : '',
-    data.timeline ? createInfoRow('Timeline', data.timeline) : '',
+    data.company ? createInfoRow('Company', data.company, false, '🏢') : '',
+    data.businessType ? createInfoRow('Business Type', data.businessType, false, '🏭') : '',
+    data.timeInBusiness ? createInfoRow('Time in Business', data.timeInBusiness, false, '📅') : '',
+    data.monthlyRevenue ? createInfoRow('Monthly Revenue', data.monthlyRevenue, true, '💰') : '',
+    data.creditScore ? createInfoRow('Credit Score', data.creditScore, false, '📊') : '',
+    data.fundingAmount ? createInfoRow('Funding Amount', data.fundingAmount, true, '🎯') : '',
+    data.fundingPurpose ? createInfoRow('Funding Purpose', data.fundingPurpose, false, '📋') : '',
+    data.timeline ? createInfoRow('Timeline', data.timeline, false, '⏰') : '',
   ].filter(Boolean).join('');
 
   return {
     to: EMAIL_CONFIG.to,
     from: EMAIL_CONFIG.from,
     replyTo: EMAIL_CONFIG.replyTo,
-    subject: `📞 New Contact Inquiry #${leadId} - ${data.firstName || data.name || 'Contact'} ${data.lastName || ''}`.trim(),
+    subject: `💬 URGENT: Contact Inquiry #${leadId} - ${data.firstName || data.name || 'Contact'} ${data.lastName || ''} - RESPONSE NEEDED`.trim(),
     text: `New Contact Form Submission
 
 Lead ID: ${leadId}
@@ -367,9 +406,9 @@ Please follow up with this contact promptly.`,
               </div>
             </div>
 
-            ${createSection('👤 Contact Information', contactInfo)}
+            ${createSection('Contact Information', contactInfo, '👤', '#6366f1')}
             
-            ${businessInfo ? createSection('🏢 Business Information', businessInfo) : ''}
+            ${businessInfo ? createSection('Business Information', businessInfo, '🏢', '#059669') : ''}
 
             ${data.message ? `
             <div style="margin-bottom: 30px;">
