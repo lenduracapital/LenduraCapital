@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, FileText, BookOpen } from "lucide-react";
+import { Menu, X, FileText, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
 import { useLocation } from "wouter";
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
@@ -15,9 +15,10 @@ export default function Header({ }: HeaderProps) {
   const [isIndustriesDropdownOpen, setIsIndustriesDropdownOpen] = useState(false);
   const [isResourceHubDropdownOpen, setIsResourceHubDropdownOpen] = useState(false);
   
-  
-  // Debug state changes
-  console.log('Header render - isMobileMenuOpen:', isMobileMenuOpen);
+  // Mobile menu collapsible states
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
+  const [mobileResourceHubOpen, setMobileResourceHubOpen] = useState(false);
   
   const [location, setLocation] = useLocation();
 
@@ -99,7 +100,6 @@ export default function Header({ }: HeaderProps) {
             className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg flex items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm relative z-[10000] pointer-events-auto"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             onClick={(e) => {
-              console.log('BUTTON CLICKED - setting state to:', !isMobileMenuOpen);
               e.stopPropagation();
               setIsMobileMenuOpen(!isMobileMenuOpen);
             }}
@@ -489,45 +489,164 @@ export default function Header({ }: HeaderProps) {
         </nav>
       </header>
 
-      {/* Mobile Menu - Outside header for proper z-index stacking */}
+      {/* Mobile Menu - Professional Card-Based Design */}
       {isMobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-[9999] bg-red-500/70 pointer-events-auto" 
+          className="lg:hidden fixed inset-0 z-[9999] bg-gray-100 pointer-events-auto" 
           onClick={() => setIsMobileMenuOpen(false)}
           data-testid="mobile-menu"
         >
-          <div className="bg-red-500 text-white p-8 min-h-screen" onClick={(e) => e.stopPropagation()}>
-            <h2 className="text-2xl mb-4">MOBILE MENU WORKS!</h2>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-white text-black px-4 py-2 rounded mb-4"
-            >
-              Close Menu
-            </button>
-            <div className="space-y-4">
+          <div className="p-4 space-y-4 overflow-y-auto min-h-screen" onClick={(e) => e.stopPropagation()}>
+            {/* Logo and Menu Title */}
+            <div className="flex items-center justify-between mb-6 pt-4">
+              <h2 className="text-2xl font-semibold text-[#193a59]">Menu:</h2>
               <button
-                onClick={() => { setLocation("/apply-now"); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left bg-green-500 p-4 rounded text-white"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 text-gray-600 hover:text-gray-800"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Our Services Section */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+                className="w-full flex items-center justify-between px-6 py-4 text-left"
+              >
+                <span className="text-lg font-medium text-gray-900">Our Services</span>
+                {mobileSolutionsOpen ? (
+                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                )}
+              </button>
+              {mobileSolutionsOpen && (
+                <div className="border-t border-gray-200">
+                  <button
+                    onClick={() => { setLocation("/solutions/term-loans"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Business Term Loans
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/solutions/lines-of-credit"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Business Line of Credit
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Merchant Cash Advance
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/solutions/sba-loans"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    SBA Loans
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/solutions/equipment-financing"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Equipment Financing
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/solutions/debt-consolidation"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Debt Consolidation
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Our Company Section */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                className="w-full flex items-center justify-between px-6 py-4 text-left"
+              >
+                <span className="text-lg font-medium text-gray-900">Our Company</span>
+                {mobileIndustriesOpen ? (
+                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                )}
+              </button>
+              {mobileIndustriesOpen && (
+                <div className="border-t border-gray-200">
+                  <button
+                    onClick={() => { setLocation("/about"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    About
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/testimonials"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Reviews
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/qualified-industries"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Industries
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Resource Hub Section */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+              <button
+                onClick={() => setMobileResourceHubOpen(!mobileResourceHubOpen)}
+                className="w-full flex items-center justify-between px-6 py-4 text-left"
+              >
+                <span className="text-lg font-medium text-gray-900">Resource Hub</span>
+                {mobileResourceHubOpen ? (
+                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                )}
+              </button>
+              {mobileResourceHubOpen && (
+                <div className="border-t border-gray-200">
+                  <button
+                    onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Blog
+                  </button>
+                  <button
+                    onClick={() => { setLocation("/guides"); setIsMobileMenuOpen(false); }}
+                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                  >
+                    Guides
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex gap-3 pt-4">
+              <button
+                onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
+                className="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-full text-center transition-colors"
+                data-testid="mobile-button-apply"
               >
                 Apply Now
               </button>
               <button
                 onClick={() => { setLocation("/contact"); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left bg-blue-500 p-4 rounded text-white"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-full text-center transition-colors"
+                data-testid="mobile-button-contact"
               >
-                Contact Us
-              </button>
-              <button
-                onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left bg-gray-700 p-4 rounded text-white"
-              >
-                Blog
-              </button>
-              <button
-                onClick={() => { setLocation("/guides"); setIsMobileMenuOpen(false); }}
-                className="block w-full text-left bg-gray-700 p-4 rounded text-white"
-              >
-                Guides
+                Call Support
               </button>
             </div>
           </div>
