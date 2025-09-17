@@ -1,0 +1,94 @@
+Task:
+Take the existing Blog and Guides pages and optimize them for SEO, accessibility, backlinks, performance, and user guidance while preserving all current URLs.
+
+⸻
+
+✅ Step 1: Page Structure & Layout
+	•	Keep existing slugs/URLs intact.
+	•	Blog Page:
+	•	Add H1 = “Business Funding Blog” (or brand keyword).
+	•	Add category filters (Solutions / Industries / Guides).
+	•	Implement card/grid layout with featured image, excerpt, and CTA (“Read More”).
+	•	Guide Page:
+	•	H1 = “[Topic] Guide”.
+	•	Add hero section (intro + CTA).
+	•	Add sections: H2: Overview, H2: Step-by-Step, H2: Best Practices, H2: FAQs.
+	•	Both pages: Sticky sidebar/header with:
+	•	Social share buttons.
+	•	Related posts section.
+	•	CTA block (“Apply Now” / “Get Funding”).
+
+⸻
+
+✅ Step 2: SEO & Schema
+	•	Install/configure next-seo (if Next.js) or meta plugin.
+	•	Add per-page dynamic:
+	•	Title.
+	•	Meta description.
+	•	OpenGraph + Twitter card tags.
+	•	Canonical tags.
+	•	Generate/update:
+	•	sitemap.xml.
+	•	robots.txt.
+	•	Add JSON-LD structured data:
+	•	Article schema (blog posts).
+	•	FAQ schema (guides).
+	•	Breadcrumb schema (sitewide).
+	•	Organization schema (with all social handles).
+	•	Ensure <Image> tags with:
+	•	Lazy loading.
+	•	Alt text with target keywords.
+	•	Optimized sizes.
+
+⸻
+
+✅ Step 3: Content & Internal Linking
+	•	Blog posts:
+	•	H1 keyword-focused.
+	•	Add H2/H3 with semantic keywords.
+	•	Add internal links to Solutions and Industries pages.
+	•	Guides:
+	•	Add step-by-step lists with visuals (infographics, CTA buttons).
+	•	Cross-link to blog posts + service pages.
+	•	End of each post/guide:
+	•	Related articles.
+	•	CTA block (“Apply Now”).
+
+⸻
+
+✅ Step 4: Accessibility
+	•	Logical heading order (H1 → H2 → H3).
+	•	Alt text for all images.
+	•	Check WCAG AA contrast ratios.
+	•	Ensure keyboard navigation works.
+	•	Add ARIA roles where needed.
+
+⸻
+
+✅ Step 5: Performance
+	•	Target Lighthouse score 90+.
+	•	Convert images to WebP/AVIF.
+	•	Implement lazy loading.
+	•	Remove unused JS/CSS.
+	•	Enable caching + CDN delivery.
+	•	Add rel="prefetch/preload" for blog/guide assets.
+
+⸻
+
+✅ Step 6: Backlink & Share Integration
+	•	Add “Share This” buttons (LinkedIn, Facebook, X, Reddit, Quora).
+	•	Add author bio box:
+	•	Author image.
+	•	Short bio.
+	•	Link to LinkedIn + brand socials.
+	•	Add “Cite this Guide” block with copyable link.
+	•	Add outbound authority links in content for credibility.
+
+⸻
+
+✅ Step 7: Social & Brand Integration
+	•	Add social handles (Instagram, Facebook, X, TikTok, Reddit, YouTube, Yelp, Substack, Quora, Trustpilot) in:
+	•	Footer.
+	•	Author bio box.
+	•	Organization JSON-LD schema.
+	•	Verify OpenGraph/Twitter cards generate correct previews for blog + guide links.

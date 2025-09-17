@@ -2,7 +2,8 @@ import { useState, useMemo } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { Search, Clock, Tag, ChevronRight, BookOpen, TrendingUp, Building2, CreditCard, FileText, Target } from "lucide-react";
+import StickySidebar from "@/components/sticky-sidebar";
+import { Search, Clock, Tag, ChevronRight, BookOpen, TrendingUp, Building2, CreditCard, FileText, Target, Filter, Star, GraduationCap, Award } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
@@ -139,6 +140,17 @@ export default function GuidesPage() {
   const featuredGuides = filteredGuides.filter(guide => guide.featured);
   const regularGuides = filteredGuides.filter(guide => !guide.featured);
 
+  // Related guides for sidebar (top 3 most recent guides)
+  const relatedGuides = allGuides.slice(0, 3).map(guide => ({
+    id: guide.id,
+    title: guide.title,
+    excerpt: guide.excerpt,
+    readTime: guide.readTime,
+    category: guide.category,
+    slug: guide.slug,
+    image: guide.image
+  }));
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
   };
@@ -188,12 +200,38 @@ export default function GuidesPage() {
       <section className="pt-12 pb-8 bg-gradient-to-br from-[#193a59] to-[#285d8a] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Business Funding Guides
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <GraduationCap className="w-8 h-8 text-yellow-400" />
+              <span className="text-yellow-400 font-semibold text-sm uppercase tracking-wide">Expert Guides</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Complete Business Funding Guides & <span className="text-yellow-400">Step-by-Step Strategies</span>
             </h1>
-            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">
-              Expert insights and step-by-step guides to help you secure the right financing for your business. From SBA loans to industry-specific funding strategies.
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Master business financing with our comprehensive guides covering SBA loans, equipment financing, working capital management, and industry-specific funding strategies from Brooklyn's leading finance experts.
             </p>
+            
+            {/* Hero CTA Section */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+              <Button
+                onClick={handleApplyNow}
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 hover:from-yellow-500 hover:to-yellow-600 font-bold px-8 py-3 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                data-testid="hero-cta-apply"
+              >
+                <Award className="w-5 h-5 mr-2" />
+                Get Free Funding Assessment
+              </Button>
+              <div className="text-center">
+                <p className="text-sm text-gray-200">Or speak with an expert:</p>
+                <a 
+                  href="tel:3058347168"
+                  className="text-white font-bold text-lg hover:underline hover:text-yellow-400 transition-colors"
+                  data-testid="hero-phone"
+                >
+                  (305) 834-7168
+                </a>
+              </div>
+            </div>
             
             {/* Search Bar */}
             <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8" role="search">
@@ -235,26 +273,54 @@ export default function GuidesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             
-            {/* Sidebar */}
+            {/* Enhanced Category Filter Bar */}
+            <div className="lg:hidden mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-4">
+                <div className="flex items-center mb-3">
+                  <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                  <h3 className="font-semibold text-gray-900 text-sm">Filter by Category</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {guideCategories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => handleCategoryFilter(category)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        selectedCategory === category
+                          ? 'bg-[#193a59] text-white shadow-md'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                      data-testid={`button-category-mobile-${category.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar with StickySidebar Component and Category Filter */}
             <div className="lg:w-80 lg:flex-shrink-0">
-              <div className="sticky top-24 space-y-6">
-                
-                {/* Category Filter */}
-                <div className="bg-white rounded-lg shadow-sm border p-6">
-                  <h3 className="font-bold text-gray-900 text-lg mb-4">Filter by Category</h3>
+              <div className="space-y-6">
+                {/* Desktop Category Filter */}
+                <div className="hidden lg:block bg-white rounded-lg shadow-sm border p-6">
+                  <div className="flex items-center mb-4">
+                    <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                    <h3 className="font-bold text-gray-900 text-lg">Filter by Category</h3>
+                  </div>
                   <nav className="space-y-2" role="navigation" aria-label="Guide categories">
                     {guideCategories.map((category) => (
                       <button
                         key={category}
                         onClick={() => handleCategoryFilter(category)}
-                        className={`w-full text-left p-3 rounded-lg transition-colors ${
+                        className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
                           selectedCategory === category
-                            ? 'bg-[#193a59] text-white'
-                            : 'hover:bg-gray-50 text-gray-700'
+                            ? 'bg-gradient-to-r from-[#193a59] to-[#2a5a7a] text-white shadow-md'
+                            : 'hover:bg-gray-50 text-gray-700 hover:shadow-sm'
                         }`}
                         data-testid={`button-category-${category.toLowerCase().replace(/\s+/g, '-')}`}
                       >
-                        <div className="font-medium">{category}</div>
+                        <div className="font-semibold">{category}</div>
                         <div className={`text-xs ${
                           selectedCategory === category ? 'text-gray-200' : 'text-gray-500'
                         }`}>
@@ -267,24 +333,19 @@ export default function GuidesPage() {
                   </nav>
                 </div>
 
-                {/* Quick Apply CTA */}
-                <div className="bg-[#193a59] rounded-lg p-6 text-white text-center">
-                  <h3 className="font-bold text-lg mb-2">Ready to Apply?</h3>
-                  <p className="text-sm text-gray-200 mb-4">Get pre-approved in minutes</p>
-                  <Button
-                    onClick={handleApplyNow}
-                    className="bg-white text-[#193a59] hover:bg-gray-100 font-bold w-full"
-                    data-testid="sidebar-cta-apply"
-                  >
-                    Apply Now
-                  </Button>
-                  <div className="mt-3 pt-3 border-t border-gray-400">
-                    <p className="text-xs text-gray-300">Questions? Call</p>
-                    <a href="tel:3058347168" className="text-white font-bold hover:underline">
-                      (305) 834-7168
-                    </a>
-                  </div>
-                </div>
+                {/* Sticky Sidebar Component */}
+                <StickySidebar
+                  relatedPosts={relatedGuides}
+                  currentPostTitle="Business Funding Guides - Expert Strategies & Resources"
+                  showShareButtons={true}
+                  showRelatedPosts={true}
+                  showCTA={true}
+                  ctaTitle="Ready to Get Expert Guidance?"
+                  ctaDescription="Schedule a free consultation with our funding experts to discuss your specific business needs and financing options."
+                  ctaButtonText="Get Free Consultation"
+                />
+              </div>
+            </div>
 
                 {/* Quick Links */}
                 <div className="bg-white rounded-lg shadow-sm border p-6">

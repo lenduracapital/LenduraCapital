@@ -1,7 +1,8 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { ChevronRight, Clock, Tag, User, Calendar, ArrowLeft, CheckCircle, AlertTriangle, DollarSign, FileText, Building2 } from "lucide-react";
+import StickySidebar from "@/components/sticky-sidebar";
+import { ChevronRight, Clock, Tag, User, Calendar, ArrowLeft, CheckCircle, AlertTriangle, DollarSign, FileText, Building2, HelpCircle, TrendingUp, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
 
@@ -15,6 +16,37 @@ export default function CompleteSBAGuide() {
   const handleBackToGuides = () => {
     setLocation('/guides');
   };
+
+  // Related guides for sidebar
+  const relatedGuides = [
+    {
+      id: "restaurant-financing-guide",
+      title: "Restaurant Financing: Complete Funding Guide",
+      excerpt: "Discover financing options specifically designed for restaurants and food service businesses.",
+      readTime: "12 min read",
+      category: "Industry Guides",
+      slug: "restaurant-financing-complete-guide",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop"
+    },
+    {
+      id: "business-credit-building",
+      title: "Building Business Credit: A Step-by-Step Blueprint",
+      excerpt: "Learn how to establish and build business credit from scratch for better financing terms.",
+      readTime: "10 min read",
+      category: "Credit & Finance",
+      slug: "building-business-credit-blueprint",
+      image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=400&h=250&fit=crop"
+    },
+    {
+      id: "equipment-financing-guide",
+      title: "Equipment Financing vs. Leasing Guide",
+      excerpt: "Compare equipment financing and leasing options to make the best decision for your business.",
+      readTime: "8 min read",
+      category: "Equipment Financing",
+      slug: "equipment-financing-vs-leasing-guide",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -100,25 +132,216 @@ export default function CompleteSBAGuide() {
 
       {/* Article Content */}
       <section className="py-0 pb-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8">
             
-            {/* Table of Contents */}
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Table of Contents</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#what-are-sba-loans" className="text-[#193a59] hover:underline">What Are SBA Loans?</a></li>
-                <li><a href="#types-of-sba-loans" className="text-[#193a59] hover:underline">Types of SBA Loans</a></li>
-                <li><a href="#eligibility-requirements" className="text-[#193a59] hover:underline">Eligibility Requirements</a></li>
-                <li><a href="#application-process" className="text-[#193a59] hover:underline">Application Process</a></li>
-                <li><a href="#required-documents" className="text-[#193a59] hover:underline">Required Documents</a></li>
-                <li><a href="#approval-strategies" className="text-[#193a59] hover:underline">Approval Strategies</a></li>
-                <li><a href="#alternatives" className="text-[#193a59] hover:underline">SBA Loan Alternatives</a></li>
-              </ul>
+            {/* Main Content */}
+            <div className="flex-1 max-w-4xl">
+              <div className="prose prose-lg max-w-none">
+                
+                {/* Overview Section */}
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-12 border border-blue-100">
+                  <div className="flex items-center mb-4">
+                    <Award className="w-6 h-6 text-[#193a59] mr-3" />
+                    <h2 className="text-2xl font-bold text-gray-900 mb-0">Overview: SBA Loans in 2025</h2>
+                  </div>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    SBA loans remain one of the most attractive financing options for small businesses, offering competitive rates, longer repayment terms, and lower down payments than traditional bank loans. In 2025, new programs and increased lending limits make SBA financing more accessible than ever.
+                  </p>
+                  <div className="grid md:grid-cols-3 gap-4 mt-6">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#193a59] mb-1">$5.5M</div>
+                      <div className="text-sm text-gray-600">Max SBA 7(a) Loan</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#193a59] mb-1">85%</div>
+                      <div className="text-sm text-gray-600">SBA Guarantee</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#193a59] mb-1">25 Years</div>
+                      <div className="text-sm text-gray-600">Max Repayment Term</div>
+                    </div>
+                  </div>
+                </div>
+            
+                {/* Table of Contents */}
+                <div className="bg-gray-50 rounded-lg p-6 mb-8">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4">Table of Contents</h3>
+                  <ul className="space-y-2 text-sm">
+                    <li><a href="#overview" className="text-[#193a59] hover:underline">Overview</a></li>
+                    <li><a href="#step-by-step-process" className="text-[#193a59] hover:underline">Step-by-Step Application Process</a></li>
+                    <li><a href="#types-of-sba-loans" className="text-[#193a59] hover:underline">Types of SBA Loans</a></li>
+                    <li><a href="#eligibility-requirements" className="text-[#193a59] hover:underline">Eligibility Requirements</a></li>
+                    <li><a href="#best-practices" className="text-[#193a59] hover:underline">Best Practices</a></li>
+                    <li><a href="#faqs" className="text-[#193a59] hover:underline">Frequently Asked Questions</a></li>
+                  </ul>
+                </div>
+
+                {/* Step-by-Step Process Section */}
+                <div id="step-by-step-process" className="mb-12">
+                  <div className="flex items-center mb-6">
+                    <TrendingUp className="w-6 h-6 text-[#193a59] mr-3" />
+                    <h2 className="text-3xl font-bold text-gray-900">Step-by-Step Application Process</h2>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">1</div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Determine Your Loan Type</h3>
+                          <p className="text-gray-600 mb-3">Choose between SBA 7(a) for general business purposes, SBA 504 for real estate and equipment, or microloans for smaller amounts.</p>
+                          <div className="bg-blue-50 p-3 rounded-lg">
+                            <p className="text-sm text-blue-800"><strong>Tip:</strong> Most businesses start with SBA 7(a) loans due to their flexibility.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">2</div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Check Eligibility Requirements</h3>
+                          <p className="text-gray-600 mb-3">Verify your business meets SBA size standards, operates for profit, and meets specific program requirements.</p>
+                          <ul className="text-sm text-gray-600 space-y-1">
+                            <li>• Business must operate primarily in the U.S.</li>
+                            <li>• Owner must have invested their own time and money</li>
+                            <li>• Business must not be delinquent on existing federal debt</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">3</div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Prepare Required Documents</h3>
+                          <p className="text-gray-600 mb-3">Gather all necessary financial documents and business information before applying.</p>
+                          <div className="grid md:grid-cols-2 gap-4 mt-3">
+                            <div>
+                              <p className="font-medium text-gray-900 mb-2">Financial Documents:</p>
+                              <ul className="text-sm text-gray-600 space-y-1">
+                                <li>• 3 years of tax returns</li>
+                                <li>• Financial statements</li>
+                                <li>• Cash flow projections</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="font-medium text-gray-900 mb-2">Business Documents:</p>
+                              <ul className="text-sm text-gray-600 space-y-1">
+                                <li>• Business plan</li>
+                                <li>• Articles of incorporation</li>
+                                <li>• Operating agreements</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="bg-[#193a59] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">4</div>
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">Submit Application</h3>
+                          <p className="text-gray-600 mb-3">Apply through an SBA-approved lender or use the SBA's online portal for faster processing.</p>
+                          <div className="bg-green-50 p-3 rounded-lg">
+                            <p className="text-sm text-green-800"><strong>Fast Track:</strong> Use SBA Express for loans under $500K with 36-hour approval.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Best Practices Section */}
+                <div id="best-practices" className="mb-12">
+                  <div className="flex items-center mb-6">
+                    <Award className="w-6 h-6 text-[#193a59] mr-3" />
+                    <h2 className="text-3xl font-bold text-gray-900">Best Practices for SBA Loan Success</h2>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-100">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">✅ Do This</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Maintain strong personal and business credit scores</li>
+                        <li>• Prepare detailed financial projections</li>
+                        <li>• Work with experienced SBA lenders</li>
+                        <li>• Have a clear business plan and use of funds</li>
+                        <li>• Maintain good business banking relationships</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-lg p-6 border border-red-100">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4">❌ Avoid This</h3>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>• Don't apply with poor credit without improvement plan</li>
+                        <li>• Don't inflate business projections unrealistically</li>
+                        <li>• Don't rush the application without proper preparation</li>
+                        <li>• Don't ignore SBA eligibility requirements</li>
+                        <li>• Don't apply to multiple lenders simultaneously</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* FAQs Section */}
+                <div id="faqs" className="mb-12">
+                  <div className="flex items-center mb-6">
+                    <HelpCircle className="w-6 h-6 text-[#193a59] mr-3" />
+                    <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-white border border-gray-200 rounded-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">How long does SBA loan approval take?</h3>
+                      <p className="text-gray-600">Standard SBA loans typically take 30-90 days for approval. SBA Express loans can be approved in 36 hours, while SBA 504 loans may take 45-60 days due to their complexity.</p>
+                    </div>
+                    
+                    <div className="bg-white border border-gray-200 rounded-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">What credit score do I need for an SBA loan?</h3>
+                      <p className="text-gray-600">Most SBA lenders prefer a personal credit score of 650 or higher. However, some lenders may consider applicants with scores as low as 600 if other factors are strong.</p>
+                    </div>
+                    
+                    <div className="bg-white border border-gray-200 rounded-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I use SBA loans for working capital?</h3>
+                      <p className="text-gray-600">Yes, SBA 7(a) loans can be used for working capital, inventory, equipment, real estate, and other business purposes. However, some restrictions apply to certain uses.</p>
+                    </div>
+                    
+                    <div className="bg-white border border-gray-200 rounded-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">What's the difference between SBA 7(a) and SBA 504 loans?</h3>
+                      <p className="text-gray-600">SBA 7(a) loans are more flexible and can be used for various business purposes. SBA 504 loans are specifically for real estate and equipment purchases, offering lower down payments but more restrictions.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Content Sections */}
-            <div id="what-are-sba-loans" className="mb-12">
+            {/* Sidebar */}
+            <div className="lg:w-80 lg:flex-shrink-0">
+              <StickySidebar
+                relatedPosts={relatedGuides}
+                currentPostTitle="Complete Guide to SBA Loans in 2025"
+                currentPostUrl="/guides/complete-sba-loan-guide-2025"
+                showShareButtons={true}
+                showRelatedPosts={true}
+                showCTA={true}
+                ctaTitle="Ready to Apply for SBA Financing?"
+                ctaDescription="Get expert guidance on your SBA loan application. Our team has helped secure over $50M in SBA funding."
+                ctaButtonText="Start SBA Application"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
               <h2 className="text-3xl font-bold text-gray-900 mb-6">What Are SBA Loans?</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
                 Small Business Administration (SBA) loans are government-backed financing options designed to help small businesses access capital when traditional bank loans aren't available. The SBA doesn't lend money directly; instead, it guarantees a portion of the loan, reducing risk for lenders and making them more willing to lend to small businesses.

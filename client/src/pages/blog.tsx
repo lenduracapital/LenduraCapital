@@ -2,7 +2,8 @@ import { useState, useMemo } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { Search, Clock, Tag, ChevronRight, Calendar, User, TrendingUp, Building2, CreditCard, FileText, Target, Filter } from "lucide-react";
+import StickySidebar from "@/components/sticky-sidebar";
+import { Search, Clock, Tag, ChevronRight, Calendar, User, TrendingUp, Building2, CreditCard, FileText, Target, Filter, Star, BookOpen } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
@@ -150,6 +151,17 @@ export default function BlogPage() {
   const featuredPosts = filteredPosts.filter(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured);
 
+  // Related posts for sidebar (top 3 most recent posts)
+  const relatedPosts = allBlogPosts.slice(0, 3).map(post => ({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    readTime: post.readTime,
+    category: post.category,
+    slug: post.slug,
+    image: post.image
+  }));
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
   };
@@ -208,11 +220,15 @@ export default function BlogPage() {
       <section className="pt-12 pb-8 bg-gradient-to-br from-[#193a59] to-[#285d8a] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Business Funding Blog
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <BookOpen className="w-8 h-8 text-yellow-400" />
+              <span className="text-yellow-400 font-semibold text-sm uppercase tracking-wide">Expert Insights</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Business Funding News, Tips & <span className="text-yellow-400">Industry Insights</span>
             </h1>
-            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">
-              Stay informed with the latest business funding news, industry insights, and expert tips from our finance professionals.
+            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Stay ahead with expert analysis on SBA loans, business credit strategies, equipment financing trends, and funding opportunities from Brooklyn's trusted lending professionals.
             </p>
             
             {/* Search Bar */}
@@ -255,12 +271,37 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             
-            {/* Sidebar */}
+            {/* Enhanced Category Filter Bar */}
+            <div className="lg:hidden mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-4">
+                <div className="flex items-center mb-3">
+                  <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                  <h3 className="font-semibold text-gray-900 text-sm">Filter by Category</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {blogCategories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => handleCategoryFilter(category)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        selectedCategory === category
+                          ? 'bg-[#193a59] text-white shadow-md'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                      data-testid={`button-category-mobile-${category.toLowerCase().replace(/\\s+/g, '-')}`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar with StickySidebar Component and Category Filter */}
             <div className="lg:w-80 lg:flex-shrink-0">
-              <div className="sticky top-24 space-y-6">
-                
-                {/* Category Filter */}
-                <div className="bg-white rounded-lg shadow-sm border p-6">
+              <div className="space-y-6">
+                {/* Desktop Category Filter */}
+                <div className="hidden lg:block bg-white rounded-lg shadow-sm border p-6">
                   <div className="flex items-center mb-4">
                     <Filter className="w-5 h-5 text-[#193a59] mr-2" />
                     <h3 className="font-bold text-gray-900 text-lg">Filter by Category</h3>
@@ -270,14 +311,14 @@ export default function BlogPage() {
                       <button
                         key={category}
                         onClick={() => handleCategoryFilter(category)}
-                        className={`w-full text-left p-3 rounded-lg transition-colors ${
+                        className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
                           selectedCategory === category
-                            ? 'bg-[#193a59] text-white'
-                            : 'hover:bg-gray-50 text-gray-700'
+                            ? 'bg-gradient-to-r from-[#193a59] to-[#2a5a7a] text-white shadow-md'
+                            : 'hover:bg-gray-50 text-gray-700 hover:shadow-sm'
                         }`}
                         data-testid={`button-category-${category.toLowerCase().replace(/\\s+/g, '-')}`}
                       >
-                        <div className="font-medium">{category}</div>
+                        <div className="font-semibold">{category}</div>
                         <div className={`text-xs ${
                           selectedCategory === category ? 'text-gray-200' : 'text-gray-500'
                         }`}>
@@ -290,63 +331,17 @@ export default function BlogPage() {
                   </nav>
                 </div>
 
-                {/* Newsletter Signup */}
-                <div className="bg-[#193a59] rounded-lg p-6 text-white text-center">
-                  <h3 className="font-bold text-lg mb-2">Stay Updated</h3>
-                  <p className="text-sm text-gray-200 mb-4">Get the latest funding news and tips delivered to your inbox</p>
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="mb-3 bg-white text-gray-900"
-                  />
-                  <Button className="bg-white text-[#193a59] hover:bg-gray-100 font-bold w-full">
-                    Subscribe
-                  </Button>
-                </div>
-
-                {/* Quick Apply CTA */}
-                <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">Need Funding?</h3>
-                  <p className="text-sm text-gray-600 mb-4">Get pre-approved in minutes</p>
-                  <Button
-                    onClick={handleApplyNow}
-                    className="bg-[#193a59] hover:bg-[#2a4a6b] text-white font-bold w-full"
-                    data-testid="sidebar-cta-apply"
-                  >
-                    Apply Now
-                  </Button>
-                  <div className="mt-3 pt-3 border-t border-gray-200">
-                    <p className="text-xs text-gray-500">Questions? Call</p>
-                    <a href="tel:3058347168" className="text-[#193a59] font-bold hover:underline">
-                      (305) 834-7168
-                    </a>
-                  </div>
-                </div>
-
-                {/* Popular Articles */}
-                <div className="bg-white rounded-lg shadow-sm border p-6">
-                  <h3 className="font-bold text-gray-900 text-lg mb-4">Popular Articles</h3>
-                  <nav className="space-y-3" role="navigation" aria-label="Popular articles">
-                    <Link
-                      href="/blog/sba-loan-changes-2025"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors leading-relaxed"
-                    >
-                      → SBA Loan Program Changes in 2025
-                    </Link>
-                    <Link
-                      href="/blog/business-credit-score-improvement"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors leading-relaxed"
-                    >
-                      → 5 Ways to Improve Business Credit
-                    </Link>
-                    <Link
-                      href="/blog/restaurant-industry-outlook-2025"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors leading-relaxed"
-                    >
-                      → Restaurant Industry Outlook
-                    </Link>
-                  </nav>
-                </div>
+                {/* Sticky Sidebar Component */}
+                <StickySidebar
+                  relatedPosts={relatedPosts}
+                  currentPostTitle="Business Funding Blog - Latest Industry Insights"
+                  showShareButtons={true}
+                  showRelatedPosts={true}
+                  showCTA={true}
+                  ctaTitle="Ready to Secure Funding?"
+                  ctaDescription="Get pre-approved for business funding in as little as 24 hours with competitive rates and flexible terms."
+                  ctaButtonText="Apply Now - Free"
+                />
               </div>
             </div>
 
@@ -360,35 +355,39 @@ export default function BlogPage() {
                     <div className="w-24 h-1 bg-gradient-to-r from-[#193a59] to-[#285d8a] rounded-full"></div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8">
                     {featuredPosts.map((post) => (
-                      <article key={post.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group border">
+                      <article key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden group border border-gray-100 hover:border-[#193a59]/20">
                         <div className="aspect-video relative overflow-hidden">
                           <img 
                             src={post.image}
                             alt={post.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                           <div className="absolute top-4 left-4">
-                            <span className="inline-block px-3 py-1 text-xs font-medium bg-[#193a59] text-white rounded-full">
-                              Featured
-                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 rounded-full shadow-lg">
+                                <Star className="w-3 h-3" />
+                                Featured
+                              </span>
+                            </div>
+                          </div>
+                          <div className="absolute bottom-4 left-4 right-4">
+                            <div className="flex items-center gap-2 text-white">
+                              <span className="inline-block px-2 py-1 text-xs font-medium bg-white/20 backdrop-blur-sm text-white rounded">
+                                {post.category}
+                              </span>
+                              <span className="text-xs text-white/90 flex items-center gap-1">
+                                <Clock className="w-3 h-3" />
+                                {post.readTime}
+                              </span>
+                            </div>
                           </div>
                         </div>
                         
                         <div className="p-6">
-                          <div className="flex items-center gap-2 mb-3">
-                            <span className="inline-block px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded">
-                              {post.category}
-                            </span>
-                            <span className="text-xs text-gray-500 flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {post.readTime}
-                            </span>
-                          </div>
-                          
-                          <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#193a59] transition-colors">
+                          <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#193a59] transition-colors leading-tight">
                             {post.title}
                           </h3>
                           
@@ -409,11 +408,11 @@ export default function BlogPage() {
                           
                           <Button
                             onClick={() => handlePostClick(post.slug)}
-                            className="w-full bg-[#193a59] hover:bg-[#2a4a6b] text-white"
+                            className="w-full bg-gradient-to-r from-[#193a59] to-[#2a5a7a] hover:from-[#2a5a7a] hover:to-[#193a59] text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                             data-testid={`button-read-${post.id}`}
                           >
-                            Read Article
-                            <ChevronRight className="w-4 h-4 ml-2" />
+                            Read Full Article
+                            <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                           </Button>
                         </div>
                       </article>
