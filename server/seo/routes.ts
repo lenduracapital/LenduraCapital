@@ -26,20 +26,20 @@ export const ROUTE_METADATA: Record<string, RouteMetadata> = {
   // Home Page
   "/": {
     title: "Business Funding Solutions Brooklyn NY | 24 Hour Approval | Lendura Capital",
-    description: "Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK. Apply online or call (305) 834-7168.",
+    description: "Secure up to $750K+ business funding in 24 hours when others say no. 12 financing solutions including term loans, merchant cash advances & equipment financing. Bad credit approved. Call (305) 834-7168.",
     keywords: "business funding Brooklyn NY, merchant cash advance near me, 24 hour business loan approval, bad credit business loans, equipment financing, SBA loans Brooklyn, working capital loans, invoice factoring, small business funding NYC, same day business funding",
     canonical: "/",
     h1: "Business Funding Solutions | Fast Approval in 24 Hours",
-    primaryContent: "Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing and 9 more solutions. Bad credit OK.",
+    primaryContent: "Secure up to $750K+ business funding approved in 24 hours when others say no. 12 financing solutions including term loans, merchant cash advances, equipment financing. Bad credit approved.",
     openGraph: {
       title: "Business Funding Solutions Brooklyn NY | 24 Hour Approval | Lendura Capital",
-      description: "Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK.",
+      description: "Secure up to $750K+ business funding in 24 hours when others say no. 12 financing solutions including term loans, merchant cash advances & equipment financing. Bad credit approved.",
       type: "website",
       image: "/lendura-logo.png"
     },
     twitter: {
       title: "Business Funding Solutions Brooklyn NY | 24 Hour Approval | Lendura Capital",
-      description: "Get $10K-$750K business funding approved in 24 hours. Term loans, merchant cash advances, equipment financing & 9 more solutions. Bad credit OK."
+      description: "Secure up to $750K+ business funding in 24 hours when others say no. 12 financing solutions including term loans, merchant cash advances & equipment financing. Bad credit approved."
     },
     schema: [{
       "@context": "https://schema.org",
