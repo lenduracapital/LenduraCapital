@@ -1,4 +1,5 @@
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaTiktok, FaReddit, FaYoutube } from "react-icons/fa";
+import { SiYelp, SiSubstack, SiQuora, SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 
@@ -38,34 +39,124 @@ export default function Footer() {
               </div>
               
               {/* Social Links */}
-              <div className="flex items-center gap-4">
+              <div className="grid grid-cols-3 gap-3 max-w-[120px]">
                 <a 
                   href="https://www.instagram.com/lenduracapital/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-500 hover:text-[#193a59] transition-colors duration-200"
+                  className="text-gray-500 hover:text-[#E4405F] transition-colors duration-200"
                   aria-label="Follow us on Instagram"
+                  data-testid="footer-social-instagram"
                 >
-                  <FaInstagram size={20} />
+                  <FaInstagram size={18} />
                 </a>
                 <a 
                   href="https://x.com/lenduracapital" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-500 hover:text-[#193a59] transition-colors duration-200"
+                  className="text-gray-500 hover:text-black transition-colors duration-200"
                   aria-label="Follow us on X"
+                  data-testid="footer-social-x"
                 >
-                  <span className="text-xl leading-none font-bold">𝕏</span>
+                  <span className="text-lg leading-none font-bold">𝕏</span>
                 </a>
                 <a 
                   href="https://www.facebook.com/lenduracapital" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-500 hover:text-[#193a59] transition-colors duration-200"
+                  className="text-gray-500 hover:text-[#1877F2] transition-colors duration-200"
                   aria-label="Follow us on Facebook"
+                  data-testid="footer-social-facebook"
                 >
-                  <FaFacebook size={20} />
+                  <FaFacebook size={18} />
                 </a>
+                <a 
+                  href="https://www.tiktok.com/@lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-black transition-colors duration-200"
+                  aria-label="Follow us on TikTok"
+                  data-testid="footer-social-tiktok"
+                >
+                  <FaTiktok size={18} />
+                </a>
+                <a 
+                  href="https://www.reddit.com/user/lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-[#FF4500] transition-colors duration-200"
+                  aria-label="Follow us on Reddit"
+                  data-testid="footer-social-reddit"
+                >
+                  <FaReddit size={18} />
+                </a>
+                <a 
+                  href="https://www.youtube.com/@lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-[#FF0000] transition-colors duration-200"
+                  aria-label="Follow us on YouTube"
+                  data-testid="footer-social-youtube"
+                >
+                  <FaYoutube size={18} />
+                </a>
+                <a 
+                  href="https://www.yelp.com/biz/lendura-capital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-[#FF1744] transition-colors duration-200"
+                  aria-label="Review us on Yelp"
+                  data-testid="footer-social-yelp"
+                >
+                  <SiYelp size={18} />
+                </a>
+                <a 
+                  href="https://substack.com/@lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-[#FF6719] transition-colors duration-200"
+                  aria-label="Subscribe to our Substack"
+                  data-testid="footer-social-substack"
+                >
+                  <SiSubstack size={18} />
+                </a>
+                <a 
+                  href="https://www.quora.com/profile/Lendura-Capital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-[#B92B27] transition-colors duration-200"
+                  aria-label="Follow us on Quora"
+                  data-testid="footer-social-quora"
+                >
+                  <SiQuora size={18} />
+                </a>
+              </div>
+              
+              {/* Business Review Platforms */}
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-500 mb-2">Review Us:</p>
+                <div className="flex items-center gap-3">
+                  <a 
+                    href="https://www.trustpilot.com/review/lenduracapital.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-500 hover:text-[#00B67A] transition-colors duration-200"
+                    aria-label="Review us on Trustpilot"
+                    data-testid="footer-review-trustpilot"
+                  >
+                    <SiTrustpilot size={20} />
+                  </a>
+                  <a 
+                    href="https://www.google.com/search?q=lendura+capital+reviews" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-500 hover:text-[#4285F4] transition-colors duration-200 text-sm font-semibold"
+                    aria-label="View Google Reviews"
+                    data-testid="footer-review-google"
+                  >
+                    Google Reviews
+                  </a>
+                </div>
               </div>
             </div>
 

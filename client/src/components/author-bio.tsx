@@ -1,5 +1,21 @@
-import { Linkedin, Mail, Award, Building2 } from "lucide-react";
+import { Linkedin, Mail, Award, Building2, Twitter, Instagram } from "lucide-react";
+import { FaFacebook, FaTiktok, FaReddit, FaYoutube } from "react-icons/fa";
+import { SiYelp, SiSubstack, SiQuora } from "react-icons/si";
 import { Button } from "@/components/ui/button";
+
+interface SocialLinks {
+  linkedin?: string;
+  twitter?: string;
+  instagram?: string;
+  facebook?: string;
+  tiktok?: string;
+  reddit?: string;
+  youtube?: string;
+  yelp?: string;
+  substack?: string;
+  quora?: string;
+  email?: string;
+}
 
 interface AuthorBioProps {
   name: string;
@@ -8,6 +24,8 @@ interface AuthorBioProps {
   bio: string;
   image: string;
   credentials?: string[];
+  socialLinks?: SocialLinks;
+  // Legacy support
   linkedinUrl?: string;
   email?: string;
   className?: string;
@@ -21,11 +39,20 @@ export default function AuthorBio({
   bio, 
   image, 
   credentials = [], 
+  socialLinks = {},
+  // Legacy support
   linkedinUrl, 
   email, 
   className = "",
   compact = false 
 }: AuthorBioProps) {
+  
+  // Merge legacy props with new socialLinks structure
+  const allSocialLinks: SocialLinks = {
+    ...socialLinks,
+    ...(linkedinUrl && { linkedin: linkedinUrl }),
+    ...(email && { email: email })
+  };
   
   if (compact) {
     return (
@@ -39,17 +66,31 @@ export default function AuthorBio({
         <div className="flex-1 min-w-0">
           <h4 className="font-semibold text-gray-900 text-sm">{name}</h4>
           <p className="text-xs text-gray-600 truncate">{title} at {company}</p>
-          {linkedinUrl && (
-            <a
-              href={linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-[#0077b5] hover:underline mt-1"
-              data-testid={`link-author-linkedin-${name.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              <Linkedin className="w-3 h-3" />
-              Connect
-            </a>
+          {(allSocialLinks.linkedin || allSocialLinks.email) && (
+            <div className="flex items-center gap-2 mt-1">
+              {allSocialLinks.linkedin && (
+                <a
+                  href={allSocialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-[#0077b5] hover:underline"
+                  data-testid={`link-author-linkedin-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <Linkedin className="w-3 h-3" />
+                  Connect
+                </a>
+              )}
+              {allSocialLinks.email && (
+                <a
+                  href={`mailto:${allSocialLinks.email}`}
+                  className="inline-flex items-center gap-1 text-xs text-gray-600 hover:underline"
+                  data-testid={`link-author-email-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <Mail className="w-3 h-3" />
+                  Email
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -74,8 +115,8 @@ export default function AuthorBio({
                 <span>{title} at {company}</span>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              {linkedinUrl && (
+            <div className="flex items-center gap-2 flex-wrap">
+              {allSocialLinks.linkedin && (
                 <Button
                   variant="outline"
                   size="sm"
@@ -83,13 +124,27 @@ export default function AuthorBio({
                   className="text-[#0077b5] border-[#0077b5] hover:bg-[#0077b5] hover:text-white"
                   data-testid={`button-author-linkedin-${name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={allSocialLinks.linkedin} target="_blank" rel="noopener noreferrer">
                     <Linkedin className="w-4 h-4 mr-1" />
-                    Connect
+                    LinkedIn
                   </a>
                 </Button>
               )}
-              {email && (
+              {allSocialLinks.twitter && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  asChild
+                  className="text-black border-gray-300 hover:bg-black hover:text-white"
+                  data-testid={`button-author-twitter-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  <a href={allSocialLinks.twitter} target="_blank" rel="noopener noreferrer">
+                    <Twitter className="w-4 h-4 mr-1" />
+                    Twitter
+                  </a>
+                </Button>
+              )}
+              {allSocialLinks.email && (
                 <Button
                   variant="outline"
                   size="sm"
@@ -97,13 +152,68 @@ export default function AuthorBio({
                   className="text-gray-600 hover:bg-gray-100"
                   data-testid={`button-author-email-${name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <a href={`mailto:${email}`}>
+                  <a href={`mailto:${allSocialLinks.email}`}>
                     <Mail className="w-4 h-4 mr-1" />
                     Contact
                   </a>
                 </Button>
               )}
             </div>
+            
+            {/* Additional Social Links - Compact Icons */}
+            {(allSocialLinks.instagram || allSocialLinks.facebook || allSocialLinks.youtube || allSocialLinks.substack) && (
+              <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100">
+                <span className="text-xs text-gray-500 mr-2">Follow:</span>
+                {allSocialLinks.instagram && (
+                  <a
+                    href={allSocialLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-[#E4405F] transition-colors"
+                    aria-label="Follow on Instagram"
+                    data-testid={`link-author-instagram-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                )}
+                {allSocialLinks.facebook && (
+                  <a
+                    href={allSocialLinks.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-[#1877F2] transition-colors"
+                    aria-label="Follow on Facebook"
+                    data-testid={`link-author-facebook-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <FaFacebook className="w-4 h-4" />
+                  </a>
+                )}
+                {allSocialLinks.youtube && (
+                  <a
+                    href={allSocialLinks.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-[#FF0000] transition-colors"
+                    aria-label="Subscribe on YouTube"
+                    data-testid={`link-author-youtube-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <FaYoutube className="w-4 h-4" />
+                  </a>
+                )}
+                {allSocialLinks.substack && (
+                  <a
+                    href={allSocialLinks.substack}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-[#FF6719] transition-colors"
+                    aria-label="Subscribe on Substack"
+                    data-testid={`link-author-substack-${name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    <SiSubstack className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
           
           {credentials && credentials.length > 0 && (
@@ -138,7 +248,12 @@ export const authorProfiles = {
     bio: "Our SBA lending team brings over 20 years of combined experience in Small Business Administration loan programs. They stay current with all SBA policy changes and have helped thousands of businesses secure favorable financing.",
     image: "/attached_assets/generated_images/Professional_businesswoman_headshot_cb14e1cc.png",
     credentials: ["SBA Preferred Lender", "Certified Lending Professional"],
-    linkedinUrl: "https://www.linkedin.com/company/lendura-capital"
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/company/lendura-capital",
+      twitter: "https://x.com/lenduracapital",
+      email: "sba@lenduracapital.com",
+      substack: "https://substack.com/@lenduracapital"
+    }
   },
   "Credit Specialists": {
     name: "Credit Specialists",
@@ -147,7 +262,11 @@ export const authorProfiles = {
     bio: "Our credit specialists are experts in business credit building and optimization. They help businesses improve their creditworthiness and access better financing terms through strategic credit management.",
     image: "/attached_assets/generated_images/Professional_businesswoman_headshot_cb14e1cc.png",
     credentials: ["Credit Analysis Certified", "Business Finance Expert"],
-    linkedinUrl: "https://www.linkedin.com/company/lendura-capital"
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/company/lendura-capital",
+      twitter: "https://x.com/lenduracapital",
+      email: "credit@lenduracapital.com"
+    }
   },
   "Industry Analysts": {
     name: "Industry Analysts",

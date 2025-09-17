@@ -93,6 +93,19 @@ export default function Layout({
       },
       "telephone": "(305) 834-7168",
       "email": "admin@lenduracapital.com",
+      "sameAs": [
+        "https://www.instagram.com/lenduracapital/",
+        "https://x.com/lenduracapital",
+        "https://www.facebook.com/lenduracapital",
+        "https://www.tiktok.com/@lenduracapital",
+        "https://www.reddit.com/user/lenduracapital",
+        "https://www.youtube.com/@lenduracapital",
+        "https://www.yelp.com/biz/lendura-capital",
+        "https://substack.com/@lenduracapital",
+        "https://www.quora.com/profile/Lendura-Capital",
+        "https://www.trustpilot.com/review/lenduracapital.com",
+        "https://www.linkedin.com/company/lendura-capital"
+      ],
       "areaServed": [
         {
           "@type": "Country",
