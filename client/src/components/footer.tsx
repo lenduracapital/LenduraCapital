@@ -2,9 +2,7 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { SiYelp, SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
 import CompactMCACalculator from "@/components/compact-mca-calculator";
-
-// Using the transparent Lendura logo
-const lenduraLogo = "/lendura_favicon_32x32 (1)_1756268242782.png";
+import lenduraLogo from "@assets/IMG_4576_1758127413253.png";
 
 
 export default function Footer() {
@@ -28,7 +26,7 @@ export default function Footer() {
                 <img 
                   src={lenduraLogo} 
                   alt="Lendura Capital" 
-                  className="h-12 w-auto mb-4"
+                  className="h-16 w-auto mb-4"
                 />
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Businesses trusted funding partner. We've helped 5,000+ businesses secure over $1B in funding.

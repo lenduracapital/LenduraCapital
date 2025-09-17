@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-// Using the white and blue Lendura logo
-const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
+import lenduraLogo from "@assets/IMG_4585_1758127413251.png";
 
 interface HeaderProps {
   transparent?: boolean;
