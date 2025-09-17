@@ -489,74 +489,81 @@ export default function Header({ }: HeaderProps) {
         </nav>
       </header>
 
-      {/* Mobile Menu - Professional Card-Based Design */}
+      {/* Mobile Menu - Professional Card-Based Design with Brand Colors */}
       {isMobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-[9999] bg-gray-100 pointer-events-auto" 
+          className="lg:hidden fixed inset-0 z-[9999] bg-gradient-to-br from-slate-50 via-white to-slate-100 pointer-events-auto" 
           onClick={() => setIsMobileMenuOpen(false)}
           data-testid="mobile-menu"
         >
-          <div className="p-4 space-y-4 overflow-y-auto min-h-screen" onClick={(e) => e.stopPropagation()}>
-            {/* Logo and Menu Title */}
-            <div className="flex items-center justify-between mb-6 pt-4">
-              <h2 className="text-2xl font-semibold text-[#193a59]">Menu:</h2>
+          <div className="p-6 space-y-6 overflow-y-auto min-h-screen" onClick={(e) => e.stopPropagation()}>
+            {/* Header with Logo and Close Button */}
+            <div className="flex items-center justify-between mb-8 pt-6">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center shadow-lg">
+                  <div className="w-6 h-6 bg-white rounded-sm"></div>
+                </div>
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-brand-primary to-brand-primary-hover bg-clip-text text-transparent">
+                  Lendura Capital
+                </h2>
+              </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-gray-600 hover:text-gray-800"
+                className="p-3 text-gray-500 hover:text-gray-700 hover:bg-white/80 rounded-full transition-all duration-200 shadow-sm"
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Our Services Section */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white rounded-xl shadow-lg border-0 ring-1 ring-gray-200/60 backdrop-blur-sm">
               <button
                 onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left"
+                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
               >
-                <span className="text-lg font-medium text-gray-900">Our Services</span>
+                <span className="text-lg font-semibold text-brand-primary">Our Services</span>
                 {mobileSolutionsOpen ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-brand-primary" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-brand-primary" />
                 )}
               </button>
               {mobileSolutionsOpen && (
-                <div className="border-t border-gray-200">
+                <div className="border-t border-gray-100">
                   <button
                     onClick={() => { setLocation("/solutions/term-loans"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Business Term Loans
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/lines-of-credit"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Business Line of Credit
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Merchant Cash Advance
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/sba-loans"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     SBA Loans
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/equipment-financing"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Equipment Financing
                   </button>
                   <button
                     onClick={() => { setLocation("/solutions/debt-consolidation"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
                   >
                     Debt Consolidation
                   </button>
@@ -565,35 +572,35 @@ export default function Header({ }: HeaderProps) {
             </div>
 
             {/* Our Company Section */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white rounded-xl shadow-lg border-0 ring-1 ring-gray-200/60 backdrop-blur-sm">
               <button
                 onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left"
+                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
               >
-                <span className="text-lg font-medium text-gray-900">Our Company</span>
+                <span className="text-lg font-semibold text-brand-primary">Our Company</span>
                 {mobileIndustriesOpen ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-brand-primary" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-brand-primary" />
                 )}
               </button>
               {mobileIndustriesOpen && (
-                <div className="border-t border-gray-200">
+                <div className="border-t border-gray-100">
                   <button
                     onClick={() => { setLocation("/about"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     About
                   </button>
                   <button
                     onClick={() => { setLocation("/testimonials"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Reviews
                   </button>
                   <button
                     onClick={() => { setLocation("/qualified-industries"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
                   >
                     Industries
                   </button>
@@ -602,29 +609,29 @@ export default function Header({ }: HeaderProps) {
             </div>
 
             {/* Resource Hub Section */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-white rounded-xl shadow-lg border-0 ring-1 ring-gray-200/60 backdrop-blur-sm">
               <button
                 onClick={() => setMobileResourceHubOpen(!mobileResourceHubOpen)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left"
+                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gradient-to-r hover:from-brand-primary/5 hover:to-brand-primary-light/5 transition-all duration-200 rounded-t-xl"
               >
-                <span className="text-lg font-medium text-gray-900">Resource Hub</span>
+                <span className="text-lg font-semibold text-brand-primary">Resource Hub</span>
                 {mobileResourceHubOpen ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500" />
+                  <ChevronUp className="w-5 h-5 text-brand-primary" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-brand-primary" />
                 )}
               </button>
               {mobileResourceHubOpen && (
-                <div className="border-t border-gray-200">
+                <div className="border-t border-gray-100">
                   <button
                     onClick={() => { setLocation("/blog"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary border-b border-gray-50 last:border-b-0 transition-all duration-200 font-medium"
                   >
                     Blog
                   </button>
                   <button
                     onClick={() => { setLocation("/guides"); setIsMobileMenuOpen(false); }}
-                    className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                    className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-brand-primary/10 hover:text-brand-primary transition-all duration-200 font-medium rounded-b-xl"
                   >
                     Guides
                   </button>
@@ -632,21 +639,27 @@ export default function Header({ }: HeaderProps) {
               )}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex gap-3 pt-4">
+            {/* CTA Buttons - Enhanced with Brand Colors */}
+            <div className="flex gap-4 pt-6">
               <button
                 onClick={() => { handleApplyNow(); setIsMobileMenuOpen(false); }}
-                className="flex-1 bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-full text-center transition-colors"
+                className="flex-1 bg-gradient-to-r from-brand-secondary to-brand-secondary-light hover:from-brand-secondary-dark hover:to-brand-secondary text-white font-bold py-5 px-6 rounded-2xl text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 ring-2 ring-brand-secondary/20 hover:ring-brand-secondary/40"
                 data-testid="mobile-button-apply"
               >
-                Apply Now
+                <span className="relative">
+                  Apply Now
+                  <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </span>
               </button>
               <button
                 onClick={() => { setLocation("/contact"); setIsMobileMenuOpen(false); }}
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-full text-center transition-colors"
+                className="flex-1 bg-gradient-to-r from-brand-primary to-brand-primary-hover hover:from-brand-primary-dark hover:to-brand-primary text-white font-bold py-5 px-6 rounded-2xl text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 ring-2 ring-brand-primary/20 hover:ring-brand-primary/40"
                 data-testid="mobile-button-contact"
               >
-                Call Support
+                <span className="relative">
+                  Call Support
+                  <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                </span>
               </button>
             </div>
           </div>
