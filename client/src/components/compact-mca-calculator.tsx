@@ -83,7 +83,13 @@ export default function CompactMCACalculator() {
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-3">
         <Calculator className="h-5 w-5 text-[#193a59]" />
-        <h3 className="font-bold text-gray-900 text-lg">Quick MCA Estimate</h3>
+        <button 
+          onClick={() => setLocation('/solutions/merchant-cash-advance')}
+          className="font-bold text-gray-900 text-lg hover:text-[#193a59] transition-colors cursor-pointer"
+          data-testid="footer-calculator-title"
+        >
+          Merchant Cash Advance Calculator
+        </button>
       </div>
       
       <div className="space-y-3">
