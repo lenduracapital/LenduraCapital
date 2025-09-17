@@ -1,32 +1,10 @@
-import { FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaPhone, FaShieldAlt, FaClock, FaCheckCircle } from "react-icons/fa";
 import { useLocation } from "wouter";
+import { Button } from "@/components/ui/button";
 
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
 
-const financingSolutions = [
-  { name: "Small Business Term Loans", href: "/solutions/term-loans" },
-  { name: "Business Lines of Credit", href: "/solutions/lines-of-credit" },
-  { name: "Merchant Cash Advance", href: "/solutions/merchant-cash-advance" },
-  { name: "SBA Loan Programs", href: "/solutions/sba-loans" },
-  { name: "Business Debt Consolidation", href: "/solutions/debt-consolidation" },
-  { name: "Equipment Financing", href: "/solutions/equipment-financing" },
-  { name: "Invoice Factoring Services", href: "/solutions/invoice-factoring" },
-  { name: "Purchase Order Financing", href: "/solutions/po-financing" },
-  { name: "Business Credit Repair", href: "/solutions/credit-services" },
-  { name: "Digital Marketing Services", href: "/solutions/seo-web-development" },
-  { name: "Credit Card Processing", href: "/solutions/credit-card-processing" },
-  { name: "Commercial Real Estate Lending", href: "/solutions/commercial-real-estate-lending" }
-];
-
-const companyPages = [
-  { name: "About Lendura", href: "/about" },
-  { name: "Qualified Industries", href: "/qualified-industries" },
-  { name: "Testimonials", href: "/more-testimonials" },
-  { name: "Contact Us", href: "/contact" },
-  { name: "FAQ", href: "/faq" },
-  { name: "CRE Lending", href: "/solutions/commercial-real-estate-lending" }
-];
 
 export default function Footer() {
   const [, setLocation] = useLocation();
@@ -35,127 +13,179 @@ export default function Footer() {
     setLocation(href);
   };
 
+  const handleApplyNow = () => {
+    window.location.href = '/apply-now';
+  };
+
   return (
-    <footer className="bg-[#d9d9d9] py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Three-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+    <footer className="bg-[#193a59] text-white">
+      {/* Main CTA Section */}
+      <div className="bg-[#2a4a6b] py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Fund Your Business Growth?
+          </h2>
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Get pre-approved in minutes. No collateral required. Funding in as fast as 24 hours.
+          </p>
           
-          {/* Left Column - Company Info */}
-          <div className="space-y-6">
+          {/* Trust Signals */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-300">
+            <div className="flex items-center gap-2">
+              <FaCheckCircle className="text-green-400" />
+              <span>500+ Businesses Funded</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaClock className="text-blue-400" />
+              <span>24 Hour Approval</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaShieldAlt className="text-orange-400" />
+              <span>A+ BBB Rating</span>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              onClick={handleApplyNow}
+              className="bg-white text-[#193a59] hover:bg-gray-100 font-bold px-8 py-4 text-lg rounded-lg transition-all duration-300 hover:scale-105"
+              data-testid="footer-cta-apply"
+            >
+              Apply Now - Get Pre-Approved
+            </Button>
+            <a 
+              href="tel:3058347168"
+              className="flex items-center justify-center gap-2 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#193a59] font-bold px-8 py-4 text-lg rounded-lg transition-all duration-300 hover:scale-105"
+              data-testid="footer-cta-call"
+            >
+              <FaPhone />
+              Call (305) 834-7168
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Links Section */}
+      <div className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            {/* Company Column */}
             <div>
-              <img 
-                src={lenduraLogo} 
-                alt="Lendura Capital" 
-                className="h-16 w-auto"
-              />
+              <div className="mb-6">
+                <img 
+                  src={lenduraLogo} 
+                  alt="Lendura Capital" 
+                  className="h-12 w-auto mb-4"
+                />
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Brooklyn's trusted business funding partner. We've helped 500+ businesses secure over $50M in funding.
+                </p>
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex items-center gap-4">
+                <a 
+                  href="https://www.instagram.com/lenduracapital/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  aria-label="Follow us on Instagram"
+                >
+                  <FaInstagram size={20} />
+                </a>
+                <a 
+                  href="https://x.com/lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  aria-label="Follow us on X"
+                >
+                  <span className="text-xl leading-none font-bold">𝕏</span>
+                </a>
+                <a 
+                  href="https://www.facebook.com/lenduracapital" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                  aria-label="Follow us on Facebook"
+                >
+                  <FaFacebook size={20} />
+                </a>
+              </div>
             </div>
-            
-            <p className="text-gray-800 text-sm">
-              Looking for funding? Call us at{" "}
-              <a 
-                href="tel:3058347168" 
-                className="font-semibold text-gray-800 hover:underline"
-              >
-                (305) 834-7168
-              </a>{" "}
-              or apply online today.
-            </p>
-            
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://www.instagram.com/lenduracapital/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-600 hover:text-[#2AD0C5] transition-colors duration-200"
-              >
-                <FaInstagram size={24} />
-              </a>
-              <a 
-                href="https://x.com/lenduracapital" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-600 hover:text-[#2AD0C5] transition-colors duration-200"
-              >
-                <span className="text-2xl leading-none font-bold">𝕏</span>
-              </a>
-              <a 
-                href="https://www.facebook.com/lenduracapital" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-600 hover:text-[#2AD0C5] transition-colors duration-200"
-              >
-                <FaFacebook size={24} />
-              </a>
+
+            {/* Popular Solutions */}
+            <div>
+              <h3 className="font-bold text-white text-lg mb-4">Popular Solutions</h3>
+              <ul className="space-y-2">
+                <li><button onClick={() => handleNavigation("/solutions/sba-loans")} className="text-gray-300 hover:text-white text-sm transition-colors">SBA Loans</button></li>
+                <li><button onClick={() => handleNavigation("/solutions/term-loans")} className="text-gray-300 hover:text-white text-sm transition-colors">Business Term Loans</button></li>
+                <li><button onClick={() => handleNavigation("/solutions/lines-of-credit")} className="text-gray-300 hover:text-white text-sm transition-colors">Lines of Credit</button></li>
+                <li><button onClick={() => handleNavigation("/solutions/equipment-financing")} className="text-gray-300 hover:text-white text-sm transition-colors">Equipment Financing</button></li>
+                <li><button onClick={() => handleNavigation("/solutions/merchant-cash-advance")} className="text-gray-300 hover:text-white text-sm transition-colors">Cash Advance</button></li>
+                <li><button onClick={() => handleNavigation("/solutions")} className="text-white hover:text-gray-300 text-sm font-semibold transition-colors">View All Solutions →</button></li>
+              </ul>
             </div>
-          </div>
 
-          {/* Middle Column - Financing Solutions */}
-          <div>
-            <h3 className="font-bold text-gray-900 text-lg mb-6">Financing Solutions</h3>
-            <ul className="space-y-3">
-              {financingSolutions.map((solution, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => handleNavigation(solution.href)}
-                    className="text-gray-700 hover:text-gray-900 hover:underline text-sm transition-colors duration-200 text-left bg-transparent border-none p-0 cursor-pointer"
-                  >
-                    {solution.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Industries We Serve */}
+            <div>
+              <h3 className="font-bold text-white text-lg mb-4">Industries We Fund</h3>
+              <ul className="space-y-2">
+                <li><button onClick={() => handleNavigation("/industries/restaurant-food-service")} className="text-gray-300 hover:text-white text-sm transition-colors">Restaurant & Food</button></li>
+                <li><button onClick={() => handleNavigation("/industries/medical-healthcare")} className="text-gray-300 hover:text-white text-sm transition-colors">Medical & Healthcare</button></li>
+                <li><button onClick={() => handleNavigation("/industries/construction")} className="text-gray-300 hover:text-white text-sm transition-colors">Construction</button></li>
+                <li><button onClick={() => handleNavigation("/industries/retail-e-commerce")} className="text-gray-300 hover:text-white text-sm transition-colors">Retail & E-commerce</button></li>
+                <li><button onClick={() => handleNavigation("/industries/professional-services")} className="text-gray-300 hover:text-white text-sm transition-colors">Professional Services</button></li>
+                <li><button onClick={() => handleNavigation("/qualified-industries")} className="text-white hover:text-gray-300 text-sm font-semibold transition-colors">View All Industries →</button></li>
+              </ul>
+            </div>
 
-          {/* Right Column - Company Pages */}
-          <div>
-            <h3 className="font-bold text-gray-900 text-lg mb-6">Company</h3>
-            <ul className="space-y-3">
-              {companyPages.map((page, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => handleNavigation(page.href)}
-                    className="text-gray-700 hover:text-gray-900 hover:underline text-sm transition-colors duration-200 text-left bg-transparent border-none p-0 cursor-pointer"
-                  >
-                    {page.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            
-            {/* Legal Links */}
-            <div className="mt-8 pt-6 border-t border-gray-400">
-              <div className="flex flex-wrap gap-1 text-xs text-gray-600">
-                <button
-                  onClick={() => handleNavigation("/privacy")}
-                  className="hover:underline bg-transparent border-none p-0 cursor-pointer text-xs text-gray-600"
+            {/* Company & Resources */}
+            <div>
+              <h3 className="font-bold text-white text-lg mb-4">Company & Resources</h3>
+              <ul className="space-y-2 mb-6">
+                <li><button onClick={() => handleNavigation("/about")} className="text-gray-300 hover:text-white text-sm transition-colors">About Lendura</button></li>
+                <li><button onClick={() => handleNavigation("/more-testimonials")} className="text-gray-300 hover:text-white text-sm transition-colors">Success Stories</button></li>
+                <li><button onClick={() => handleNavigation("/guides")} className="text-gray-300 hover:text-white text-sm transition-colors">Funding Guides</button></li>
+                <li><button onClick={() => handleNavigation("/blog")} className="text-gray-300 hover:text-white text-sm transition-colors">Industry Blog</button></li>
+                <li><button onClick={() => handleNavigation("/contact")} className="text-gray-300 hover:text-white text-sm transition-colors">Contact Us</button></li>
+              </ul>
+              
+              {/* Quick Contact */}
+              <div className="bg-[#2a4a6b] rounded-lg p-4 text-center">
+                <p className="text-xs text-gray-300 mb-2">Need Funding Fast?</p>
+                <a 
+                  href="tel:3058347168"
+                  className="text-white font-bold text-sm hover:underline block"
                 >
-                  Privacy Policy
-                </button>
-                <span>|</span>
-                <button
-                  onClick={() => handleNavigation("/terms")}
-                  className="hover:underline bg-transparent border-none p-0 cursor-pointer text-xs text-gray-600"
-                >
-                  Terms
-                </button>
-                <span>|</span>
-                <button
-                  onClick={() => handleNavigation("/cookies")}
-                  className="hover:underline bg-transparent border-none p-0 cursor-pointer text-xs text-gray-600"
-                >
-                  Cookies
-                </button>
+                  (305) 834-7168
+                </a>
+                <p className="text-xs text-gray-400 mt-1">Mon-Fri 9AM-6PM EST</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Footer Bottom Bar */}
-        <div className="border-t border-gray-400 mt-12 pt-8 text-center">
-          <p className="text-gray-700 text-sm">
-            © 2025 Lendura Capital. All rights reserved.
-          </p>
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-600 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-sm text-gray-400">
+              © 2025 Lendura Capital. All rights reserved.
+            </div>
+            
+            {/* Legal Links */}
+            <div className="flex items-center gap-4 text-xs text-gray-400">
+              <button onClick={() => handleNavigation("/privacy")} className="hover:text-white transition-colors">Privacy Policy</button>
+              <span>•</span>
+              <button onClick={() => handleNavigation("/terms")} className="hover:text-white transition-colors">Terms & Conditions</button>
+              <span>•</span>
+              <button onClick={() => handleNavigation("/cookies")} className="hover:text-white transition-colors">Cookies Policy</button>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
