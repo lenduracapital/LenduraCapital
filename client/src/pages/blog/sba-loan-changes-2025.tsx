@@ -50,25 +50,28 @@ export default function SBALoanChanges2025() {
             <Link href="/" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <Link href="/blog" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Blog
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <span className="text-[#193a59] font-medium">SBA Loan Changes 2025</span>
           </nav>
         </div>
       </div>
 
-      {/* Article Header */}
-      <section className="py-12 bg-white">
+      {/* Main Article Content */}
+      <main id="main-content" className="py-12 bg-white" role="main">
+        {/* Article Header */}
+        <section className="pb-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Button
             onClick={handleBackToBlog}
             variant="outline"
-            className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white"
+            className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white focus:ring-2 focus:ring-[#193a59] focus:ring-offset-2 focus:outline-none"
+            aria-label="Return to blog listing page"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
             Back to Blog
           </Button>
 
@@ -78,15 +81,15 @@ export default function SBALoanChanges2025() {
             </span>
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4" aria-hidden="true" />
                 <span>January 18, 2025</span>
               </div>
               <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
+                <Clock className="w-4 h-4" aria-hidden="true" />
                 <span>6 min read</span>
               </div>
               <div className="flex items-center gap-1">
-                <User className="w-4 h-4" />
+                <User className="w-4 h-4" aria-hidden="true" />
                 <span>SBA Lending Team</span>
               </div>
             </div>
@@ -108,38 +111,38 @@ export default function SBALoanChanges2025() {
             The Small Business Administration has announced significant updates to its loan programs for 2025, including increased lending limits, streamlined application processes, and new eligibility criteria that will benefit millions of small businesses across the United States.
           </p>
         </div>
-      </section>
+        </section>
 
-      {/* Article Content */}
-      <section className="py-0 pb-12">
+        {/* Article Content */}
+        <section className="py-0 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             
             {/* Key Changes Summary */}
             <div className="bg-blue-50 border-l-4 border-[#193a59] p-6 mb-8">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                <TrendingUp className="w-6 h-6 text-[#193a59] mr-2" />
+                <TrendingUp className="w-6 h-6 text-[#193a59] mr-2" aria-hidden="true" />
                 Key Changes at a Glance
               </h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                   <span>SBA 7(a) loan limits increased from $5M to $5.5M</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                   <span>Streamlined application process for loans under $500K</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                   <span>Enhanced eligibility for startups and minority-owned businesses</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                   <span>Digital-first application platform launch</span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                   <span>Reduced fees for borrowers in underserved communities</span>
                 </li>
               </ul>
@@ -184,7 +187,7 @@ export default function SBALoanChanges2025() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div className="border border-gray-200 rounded-lg p-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <FileText className="w-5 h-5 text-[#193a59] mr-2" />
+                      <FileText className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                       Reduced Documentation
                     </h4>
                     <ul className="space-y-2 text-gray-700 text-sm">
@@ -197,7 +200,7 @@ export default function SBALoanChanges2025() {
                   
                   <div className="border border-gray-200 rounded-lg p-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
-                      <Clock className="w-5 h-5 text-[#193a59] mr-2" />
+                      <Clock className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                       Faster Processing
                     </h4>
                     <ul className="space-y-2 text-gray-700 text-sm">
@@ -270,7 +273,7 @@ export default function SBALoanChanges2025() {
                 
                 <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
                   <div className="flex items-start">
-                    <DollarSign className="w-6 h-6 text-yellow-600 mr-3 mt-1" />
+                    <DollarSign className="w-6 h-6 text-yellow-600 mr-3 mt-1" aria-hidden="true" />
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 mb-3">New Fee Structure</h4>
                       <ul className="space-y-2 text-gray-700">
@@ -349,10 +352,10 @@ export default function SBALoanChanges2025() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* Related Articles */}
-      <section className="py-16 bg-gray-50">
+        {/* Related Articles */}
+        <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Related Articles & Resources</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -422,7 +425,8 @@ export default function SBALoanChanges2025() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

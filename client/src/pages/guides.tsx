@@ -207,7 +207,7 @@ export default function GuidesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <GraduationCap className="w-8 h-8 text-yellow-400" />
+              <GraduationCap className="w-8 h-8 text-yellow-400" aria-hidden="true" />
               <span className="text-yellow-400 font-semibold text-sm uppercase tracking-wide">Expert Guides</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -224,7 +224,7 @@ export default function GuidesPage() {
                 className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 hover:from-yellow-500 hover:to-yellow-600 font-bold px-8 py-3 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 data-testid="hero-cta-apply"
               >
-                <Award className="w-5 h-5 mr-2" />
+                <Award className="w-5 h-5 mr-2" aria-hidden="true" />
                 Get Free Funding Assessment
               </Button>
               <div className="text-center">
@@ -240,7 +240,7 @@ export default function GuidesPage() {
             </div>
             
             {/* Search Bar */}
-            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8" role="search">
+            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8" role="search" aria-label="Search funding guides">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" aria-hidden="true" />
                 <Input
@@ -248,25 +248,29 @@ export default function GuidesPage() {
                   placeholder="Search guides... (e.g., 'SBA loans', 'restaurant financing')"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 pr-4 py-4 text-lg border-0 rounded-lg bg-white text-gray-900 placeholder-gray-500"
-                  aria-label="Search business funding guides"
+                  className="pl-12 pr-4 py-4 text-lg border-0 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-[#193a59] focus:outline-none"
+                  aria-label="Search business funding guides by keyword or topic"
+                  aria-describedby="guides-search-help"
                   data-testid="input-search-guides"
                 />
+                <div id="guides-search-help" className="sr-only">
+                  Enter keywords like SBA loans, restaurant financing, or equipment financing to find relevant guides
+                </div>
               </div>
             </form>
 
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-200">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
+                <BookOpen className="w-4 h-4" aria-hidden="true" />
                 <span>8+ Expert Guides</span>
               </div>
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4" />
+                <TrendingUp className="w-4 h-4" aria-hidden="true" />
                 <span>$50M+ Funded</span>
               </div>
               <div className="flex items-center gap-2">
-                <Target className="w-4 h-4" />
+                <Target className="w-4 h-4" aria-hidden="true" />
                 <span>Industry Expertise</span>
               </div>
             </div>
@@ -275,7 +279,7 @@ export default function GuidesPage() {
       </section>
 
       {/* Main Content Area */}
-      <section className="py-12 bg-gray-50">
+      <main id="main-content" className="py-12 bg-gray-50" role="main">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             
@@ -283,7 +287,7 @@ export default function GuidesPage() {
             <div className="lg:hidden mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-4">
                 <div className="flex items-center mb-3">
-                  <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                  <Filter className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                   <h3 className="font-semibold text-gray-900 text-sm">Filter by Category</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -306,12 +310,12 @@ export default function GuidesPage() {
             </div>
 
             {/* Sidebar with StickySidebar Component and Category Filter */}
-            <div className="lg:w-80 lg:flex-shrink-0">
+            <aside className="lg:w-80 lg:flex-shrink-0" role="complementary" aria-label="Guide filters and related content">
               <div className="space-y-6">
                 {/* Desktop Category Filter */}
                 <div className="hidden lg:block bg-white rounded-lg shadow-sm border p-6">
                   <div className="flex items-center mb-4">
-                    <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                    <Filter className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                     <h3 className="font-bold text-gray-900 text-lg">Filter by Category</h3>
                   </div>
                   <nav className="space-y-2" role="navigation" aria-label="Guide categories">
@@ -351,43 +355,7 @@ export default function GuidesPage() {
                   ctaButtonText="Get Free Consultation"
                 />
               </div>
-            </div>
-
-                {/* Quick Links */}
-                <div className="bg-white rounded-lg shadow-sm border p-6">
-                  <h3 className="font-bold text-gray-900 text-lg mb-4">Popular Solutions</h3>
-                  <nav className="space-y-2" role="navigation" aria-label="Popular financing solutions">
-                    <Link
-                      href="/solutions/sba-loans"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors p-2 hover:bg-gray-50 rounded"
-                      data-testid="link-sba-loans"
-                    >
-                      → SBA Loan Solutions
-                    </Link>
-                    <Link
-                      href="/solutions/term-loans"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors p-2 hover:bg-gray-50 rounded"
-                      data-testid="link-term-loans"
-                    >
-                      → Term Loans
-                    </Link>
-                    <Link
-                      href="/solutions/equipment-financing"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors p-2 hover:bg-gray-50 rounded"
-                      data-testid="link-equipment-financing"
-                    >
-                      → Equipment Financing
-                    </Link>
-                    <Link
-                      href="/solutions/lines-of-credit"
-                      className="block text-sm text-gray-600 hover:text-[#193a59] transition-colors p-2 hover:bg-gray-50 rounded"
-                    >
-                      → Lines of Credit
-                    </Link>
-                  </nav>
-                </div>
-              </div>
-            </div>
+            </aside>
 
             {/* Main Content */}
             <div className="flex-1">
@@ -405,8 +373,9 @@ export default function GuidesPage() {
                         <div className="aspect-video relative overflow-hidden">
                           <img 
                             src={guide.image}
-                            alt={guide.title}
+                            alt={`Featured guide: ${guide.title} - Comprehensive ${guide.category.toLowerCase()} resource for business owners`}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                           <div className="absolute top-4 left-4">
@@ -422,7 +391,7 @@ export default function GuidesPage() {
                               {guide.category}
                             </span>
                             <span className="text-xs text-gray-500 flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
+                              <Clock className="w-3 h-3" aria-hidden="true" />
                               {guide.readTime}
                             </span>
                           </div>
@@ -437,11 +406,12 @@ export default function GuidesPage() {
                           
                           <Button
                             onClick={() => handleGuideClick(guide.slug)}
-                            className="w-full bg-[#193a59] hover:bg-[#2a4a6b] text-white"
+                            className="w-full bg-[#193a59] hover:bg-[#2a4a6b] text-white focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none"
                             data-testid={`button-read-${guide.id}`}
+                            aria-label={`Read complete guide: ${guide.title}`}
                           >
                             Read Guide
-                            <ChevronRight className="w-4 h-4 ml-2" />
+                            <ChevronRight className="w-4 h-4 ml-2" aria-hidden="true" />
                           </Button>
                         </div>
                       </article>
@@ -480,7 +450,7 @@ export default function GuidesPage() {
                                 {guide.category}
                               </span>
                               <span className="text-xs text-gray-500 flex items-center gap-1">
-                                <Clock className="w-3 h-3" />
+                                <Clock className="w-3 h-3" aria-hidden="true" />
                                 {guide.readTime}
                               </span>
                             </div>

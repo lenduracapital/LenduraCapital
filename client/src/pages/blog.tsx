@@ -227,7 +227,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <BookOpen className="w-8 h-8 text-yellow-400" />
+              <BookOpen className="w-8 h-8 text-yellow-400" aria-hidden="true" />
               <span className="text-yellow-400 font-semibold text-sm uppercase tracking-wide">Expert Insights</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -238,7 +238,7 @@ export default function BlogPage() {
             </p>
             
             {/* Search Bar */}
-            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8" role="search">
+            <form onSubmit={handleSearch} className="max-w-2xl mx-auto mb-8" role="search" aria-label="Search blog articles">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" aria-hidden="true" />
                 <Input
@@ -246,25 +246,29 @@ export default function BlogPage() {
                   placeholder="Search articles... (e.g., 'SBA loans', 'credit tips')"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 pr-4 py-4 text-lg border-0 rounded-lg bg-white text-gray-900 placeholder-gray-500"
-                  aria-label="Search blog articles"
+                  className="pl-12 pr-4 py-4 text-lg border-0 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-[#193a59] focus:outline-none"
+                  aria-label="Search blog articles by keyword or topic"
+                  aria-describedby="search-help"
                   data-testid="input-search-blog"
                 />
+                <div id="search-help" className="sr-only">
+                  Enter keywords like SBA loans, credit tips, or financing to find relevant articles
+                </div>
               </div>
             </form>
 
             {/* Quick Stats */}
             <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-200">
               <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4" aria-hidden="true" />
                 <span>Weekly Updates</span>
               </div>
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4" />
+                <TrendingUp className="w-4 h-4" aria-hidden="true" />
                 <span>Industry Insights</span>
               </div>
               <div className="flex items-center gap-2">
-                <Target className="w-4 h-4" />
+                <Target className="w-4 h-4" aria-hidden="true" />
                 <span>Expert Analysis</span>
               </div>
             </div>
@@ -273,7 +277,7 @@ export default function BlogPage() {
       </section>
 
       {/* Main Content Area */}
-      <section className="py-12 bg-gray-50">
+      <main id="main-content" className="py-12 bg-gray-50" role="main">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             
@@ -281,7 +285,7 @@ export default function BlogPage() {
             <div className="lg:hidden mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-4">
                 <div className="flex items-center mb-3">
-                  <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                  <Filter className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                   <h3 className="font-semibold text-gray-900 text-sm">Filter by Category</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -304,12 +308,12 @@ export default function BlogPage() {
             </div>
 
             {/* Sidebar with StickySidebar Component and Category Filter */}
-            <div className="lg:w-80 lg:flex-shrink-0">
+            <aside className="lg:w-80 lg:flex-shrink-0" role="complementary" aria-label="Blog filters and related content">
               <div className="space-y-6">
                 {/* Desktop Category Filter */}
                 <div className="hidden lg:block bg-white rounded-lg shadow-sm border p-6">
                   <div className="flex items-center mb-4">
-                    <Filter className="w-5 h-5 text-[#193a59] mr-2" />
+                    <Filter className="w-5 h-5 text-[#193a59] mr-2" aria-hidden="true" />
                     <h3 className="font-bold text-gray-900 text-lg">Filter by Category</h3>
                   </div>
                   <nav className="space-y-2" role="navigation" aria-label="Blog categories">
@@ -367,14 +371,15 @@ export default function BlogPage() {
                         <div className="aspect-video relative overflow-hidden">
                           <img 
                             src={post.image}
-                            alt={post.title}
+                            alt={`Featured article image: ${post.title} - Business funding insights covering ${post.category.toLowerCase()}`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                           <div className="absolute top-4 left-4">
                             <div className="flex items-center gap-2">
                               <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 rounded-full shadow-lg">
-                                <Star className="w-3 h-3" />
+                                <Star className="w-3 h-3" aria-hidden="true" />
                                 Featured
                               </span>
                             </div>
@@ -385,7 +390,7 @@ export default function BlogPage() {
                                 {post.category}
                               </span>
                               <span className="text-xs text-white/90 flex items-center gap-1">
-                                <Clock className="w-3 h-3" />
+                                <Clock className="w-3 h-3" aria-hidden="true" />
                                 {post.readTime}
                               </span>
                             </div>
@@ -403,22 +408,23 @@ export default function BlogPage() {
 
                           <div className="flex items-center justify-between mb-4 text-xs text-gray-500">
                             <div className="flex items-center gap-1">
-                              <Calendar className="w-3 h-3" />
+                              <Calendar className="w-3 h-3" aria-hidden="true" />
                               <span>{formatDate(post.publishDate)}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <User className="w-3 h-3" />
+                              <User className="w-3 h-3" aria-hidden="true" />
                               <span>{post.author}</span>
                             </div>
                           </div>
                           
                           <Button
                             onClick={() => handlePostClick(post.slug)}
-                            className="w-full bg-gradient-to-r from-[#193a59] to-[#2a5a7a] hover:from-[#2a5a7a] hover:to-[#193a59] text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                            className="w-full bg-gradient-to-r from-[#193a59] to-[#2a5a7a] hover:from-[#2a5a7a] hover:to-[#193a59] text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none"
                             data-testid={`button-read-${post.id}`}
+                            aria-label={`Read full article: ${post.title}`}
                           >
                             Read Full Article
-                            <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                            <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                           </Button>
                         </div>
                       </article>
@@ -446,8 +452,9 @@ export default function BlogPage() {
                           <div className="md:w-64 md:h-48 aspect-video md:aspect-auto relative overflow-hidden flex-shrink-0">
                             <img 
                               src={post.image}
-                              alt={post.title}
+                              alt={`${post.category} article: ${post.title} - Professional business funding advice and strategies`}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
                             />
                           </div>
                           
@@ -458,7 +465,7 @@ export default function BlogPage() {
                                   {post.category}
                                 </span>
                                 <span className="text-xs text-gray-500 flex items-center gap-1">
-                                  <Clock className="w-3 h-3" />
+                                  <Clock className="w-3 h-3" aria-hidden="true" />
                                   {post.readTime}
                                 </span>
                               </div>
@@ -475,11 +482,11 @@ export default function BlogPage() {
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-4 text-xs text-gray-500">
                                 <div className="flex items-center gap-1">
-                                  <Calendar className="w-3 h-3" />
+                                  <Calendar className="w-3 h-3" aria-hidden="true" />
                                   <span>{formatDate(post.publishDate)}</span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                  <User className="w-3 h-3" />
+                                  <User className="w-3 h-3" aria-hidden="true" />
                                   <span>{post.author}</span>
                                 </div>
                               </div>
@@ -488,11 +495,12 @@ export default function BlogPage() {
                                 onClick={() => handlePostClick(post.slug)}
                                 variant="outline"
                                 size="sm"
-                                className="text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white"
+                                className="text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white focus:ring-2 focus:ring-[#193a59] focus:ring-offset-2 focus:outline-none"
                                 data-testid={`button-post-${post.id}`}
+                                aria-label={`Read more about: ${post.title}`}
                               >
                                 Read More
-                                <ChevronRight className="w-3 h-3 ml-1" />
+                                <ChevronRight className="w-3 h-3 ml-1" aria-hidden="true" />
                               </Button>
                             </div>
                           </div>

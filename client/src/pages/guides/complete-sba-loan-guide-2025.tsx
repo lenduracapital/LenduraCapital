@@ -94,26 +94,29 @@ export default function CompleteSBAGuide() {
             <Link href="/" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <Link href="/guides" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Guides
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <span className="text-[#193a59] font-medium">Complete SBA Loan Guide</span>
           </nav>
         </div>
       </div>
 
-      {/* Article Header */}
-      <section className="py-12 bg-white">
+      {/* Main Article Content */}
+      <main id="main-content" className="py-12 bg-white" role="main">
+        {/* Article Header */}
+        <section className="pb-0">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <Button
             onClick={handleBackToGuides}
             variant="outline"
-            className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white"
+            className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white focus:ring-2 focus:ring-[#193a59] focus:ring-offset-2 focus:outline-none"
+            aria-label="Return to guides listing page"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
             Back to Guides
           </Button>
 
@@ -124,15 +127,15 @@ export default function CompleteSBAGuide() {
             </span>
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
               <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4" aria-hidden="true" />
                 <span>January 15, 2025</span>
               </div>
               <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
+                <Clock className="w-4 h-4" aria-hidden="true" />
                 <span>15 min read</span>
               </div>
               <div className="flex items-center gap-1">
-                <User className="w-4 h-4" />
+                <User className="w-4 h-4" aria-hidden="true" />
                 <span>Lendura Capital Team</span>
               </div>
             </div>
@@ -157,10 +160,10 @@ export default function CompleteSBAGuide() {
             Everything you need to know about SBA financing programs, from application requirements to approval strategies. This comprehensive guide covers SBA 7(a), 504, and microloans with insider tips from our lending experts.
           </p>
         </div>
-      </section>
+        </section>
 
-      {/* Article Content */}
-      <section className="py-0 pb-12">
+        {/* Article Content */}
+        <section className="py-0 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
             
@@ -171,7 +174,7 @@ export default function CompleteSBAGuide() {
                 {/* Overview Section */}
                 <div id="overview" className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8 mb-12 border border-blue-100">
                   <div className="flex items-center mb-4">
-                    <Award className="w-6 h-6 text-[#193a59] mr-3" />
+                    <Award className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h2 className="text-2xl font-bold text-gray-900 mb-0">Overview: SBA Loans in 2025</h2>
                   </div>
                   <p className="text-gray-700 mb-4 leading-relaxed">
@@ -212,7 +215,7 @@ export default function CompleteSBAGuide() {
                 {/* Step-by-Step Process Section */}
                 <div id="step-by-step-process" className="mb-12">
                   <div className="flex items-center mb-6">
-                    <TrendingUp className="w-6 h-6 text-[#193a59] mr-3" />
+                    <TrendingUp className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h2 className="text-3xl font-bold text-gray-900">Step-by-Step Application Process</h2>
                   </div>
                   
@@ -291,7 +294,7 @@ export default function CompleteSBAGuide() {
                 {/* Best Practices Section */}
                 <div id="best-practices" className="mb-12">
                   <div className="flex items-center mb-6">
-                    <Award className="w-6 h-6 text-[#193a59] mr-3" />
+                    <Award className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h2 className="text-3xl font-bold text-gray-900">Best Practices for SBA Loan Success</h2>
                   </div>
                   
@@ -325,7 +328,7 @@ export default function CompleteSBAGuide() {
                 {/* FAQs Section */}
                 <div id="faqs" className="mb-12">
                   <div className="flex items-center mb-6">
-                    <HelpCircle className="w-6 h-6 text-[#193a59] mr-3" />
+                    <HelpCircle className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
                   </div>
                   
@@ -370,7 +373,8 @@ export default function CompleteSBAGuide() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>
@@ -738,7 +742,8 @@ export default function CompleteSBAGuide() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

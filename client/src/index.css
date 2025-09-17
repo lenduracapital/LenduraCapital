@@ -1,5 +1,6 @@
 /* Import Lendura Capital Design Tokens System */
 @import './styles/tokens.css';
+@import './styles/accessibility.css';
 
 /* Optimized font loading moved to HTML head for better performance */
 

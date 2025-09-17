@@ -33,68 +33,72 @@ export default function RestaurantFinancingGuide() {
             <Link href="/" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <Link href="/guides" className="text-gray-500 hover:text-[#193a59] transition-colors">
               Guides
             </Link>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-gray-400" aria-hidden="true" />
             <span className="text-[#193a59] font-medium">Restaurant Financing Guide</span>
           </nav>
         </div>
       </div>
 
-      {/* Article Header */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button
-            onClick={handleBackToGuides}
-            variant="outline"
-            className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Guides
-          </Button>
+      {/* Main Article Content */}
+      <main id="main-content" className="py-12 bg-white" role="main">
+        {/* Article Header */}
+        <section className="pb-0">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Button
+              onClick={handleBackToGuides}
+              variant="outline"
+              className="mb-8 text-[#193a59] border-[#193a59] hover:bg-[#193a59] hover:text-white focus:ring-2 focus:ring-[#193a59] focus:ring-offset-2 focus:outline-none"
+              aria-label="Return to guides listing page"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
+              Back to Guides
+            </Button>
 
-          <div className="mb-6">
-            <span className="inline-block px-3 py-1 text-sm font-medium bg-[#193a59] text-white rounded-full mb-4">
-              Industry Guides
-            </span>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                <span>January 12, 2025</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span>12 min read</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <User className="w-4 h-4" />
-                <span>Restaurant Finance Team</span>
+            <div className="mb-6">
+              <span className="inline-block px-3 py-1 text-sm font-medium bg-[#193a59] text-white rounded-full mb-4">
+                Industry Guides
+              </span>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" aria-hidden="true" />
+                  <span>January 12, 2025</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" aria-hidden="true" />
+                  <span>12 min read</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <User className="w-4 h-4" aria-hidden="true" />
+                  <span>Restaurant Finance Team</span>
+                </div>
               </div>
             </div>
+
+            <div className="aspect-video mb-8 rounded-lg overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=450&fit=crop"
+                alt="Restaurant financing guide: Modern restaurant interior with professional kitchen equipment showing dining area and commercial-grade appliances essential for food service business funding"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Restaurant Financing: Complete Funding Guide for Food Service Businesses
+            </h1>
+
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              Discover financing options specifically designed for restaurants, cafes, and food service businesses. From equipment loans to working capital solutions, this guide covers everything you need to fund your culinary venture.
+            </p>
           </div>
+        </section>
 
-          <div className="aspect-video mb-8 rounded-lg overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=450&fit=crop"
-              alt="Restaurant Interior with Professional Kitchen"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Restaurant Financing: Complete Funding Guide for Food Service Businesses
-          </h1>
-
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Discover financing options specifically designed for restaurants, cafes, and food service businesses. From equipment loans to working capital solutions, this guide covers everything you need to fund your culinary venture.
-          </p>
-        </div>
-      </section>
-
-      {/* Article Content */}
-      <section className="py-0 pb-12">
+        {/* Article Content */}
+        <section className="py-0 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             
@@ -121,7 +125,7 @@ export default function RestaurantFinancingGuide() {
 
               <div className="bg-red-50 border-l-4 border-red-400 p-6 mb-6">
                 <div className="flex items-start">
-                  <AlertTriangle className="w-6 h-6 text-red-600 mr-3 mt-1" />
+                  <AlertTriangle className="w-6 h-6 text-red-600 mr-3 mt-1" aria-hidden="true" />
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Common Restaurant Industry Challenges</h4>
                     <ul className="space-y-2 text-gray-700">
@@ -147,7 +151,7 @@ export default function RestaurantFinancingGuide() {
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-4">
-                    <Utensils className="w-6 h-6 text-[#193a59] mr-3" />
+                    <Utensils className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h3 className="text-xl font-bold text-gray-900">Startup Financing</h3>
                   </div>
                   <ul className="space-y-2 text-gray-700">
@@ -161,7 +165,7 @@ export default function RestaurantFinancingGuide() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-4">
-                    <Building2 className="w-6 h-6 text-[#193a59] mr-3" />
+                    <Building2 className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h3 className="text-xl font-bold text-gray-900">Expansion Financing</h3>
                   </div>
                   <ul className="space-y-2 text-gray-700">
@@ -175,7 +179,7 @@ export default function RestaurantFinancingGuide() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-4">
-                    <DollarSign className="w-6 h-6 text-[#193a59] mr-3" />
+                    <DollarSign className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h3 className="text-xl font-bold text-gray-900">Working Capital</h3>
                   </div>
                   <ul className="space-y-2 text-gray-700">
@@ -189,7 +193,7 @@ export default function RestaurantFinancingGuide() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-4">
-                    <CreditCard className="w-6 h-6 text-[#193a59] mr-3" />
+                    <CreditCard className="w-6 h-6 text-[#193a59] mr-3" aria-hidden="true" />
                     <h3 className="text-xl font-bold text-gray-900">Specialty Financing</h3>
                   </div>
                   <ul className="space-y-2 text-gray-700">
@@ -234,19 +238,19 @@ export default function RestaurantFinancingGuide() {
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">Equipment Loan Benefits</h4>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                       <span>100% financing available</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                       <span>Equipment serves as collateral</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                       <span>Tax benefits and depreciation</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                       <span>Preserve working capital</span>
                     </li>
                   </ul>
@@ -359,19 +363,19 @@ export default function RestaurantFinancingGuide() {
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">Advantages</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                         <span>Lower down payments (10-15%)</span>
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                         <span>Competitive interest rates</span>
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                         <span>Longer repayment terms</span>
                       </li>
                       <li className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" aria-hidden="true" />
                         <span>No prepayment penalties</span>
                       </li>
                     </ul>
@@ -587,7 +591,8 @@ export default function RestaurantFinancingGuide() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>
