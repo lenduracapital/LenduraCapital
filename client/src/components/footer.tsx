@@ -1,7 +1,7 @@
 import { FaInstagram, FaFacebook, FaTiktok, FaReddit, FaYoutube } from "react-icons/fa";
 import { SiYelp, SiSubstack, SiQuora, SiTrustpilot } from "react-icons/si";
 import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
+import CompactMCACalculator from "@/components/compact-mca-calculator";
 
 // Using the white and blue Lendura logo
 const lenduraLogo = "/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png";
@@ -14,9 +14,6 @@ export default function Footer() {
     setLocation(href);
   };
 
-  const handleApplyNow = () => {
-    window.location.href = '/apply-now';
-  };
 
   return (
     <footer className="bg-slate-50 text-gray-800">
@@ -186,33 +183,9 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Company & Resources */}
+            {/* MCA Calculator */}
             <div>
-              <h3 className="font-bold text-gray-900 text-lg mb-4">Company & Resources</h3>
-              <ul className="space-y-2 mb-6">
-                <li><button onClick={() => handleNavigation("/about")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">About Lendura</button></li>
-                <li><button onClick={() => handleNavigation("/more-testimonials")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Success Stories</button></li>
-                <li><button onClick={() => handleNavigation("/contact")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Contact Us</button></li>
-              </ul>
-              
-              {/* CTA Section */}
-              <div className="bg-[#193a59] rounded-lg p-4 text-center text-white">
-                <p className="text-xs mb-3">Ready to Get Funded?</p>
-                <Button
-                  onClick={handleApplyNow}
-                  className="bg-white text-[#193a59] hover:bg-gray-100 font-bold text-sm px-4 py-2 rounded mb-2 w-full transition-all duration-300"
-                  data-testid="footer-cta-apply"
-                >
-                  Apply Now
-                </Button>
-                <a 
-                  href="tel:3058347168"
-                  className="text-white font-bold text-sm hover:underline block"
-                >
-                  (305) 834-7168
-                </a>
-                <p className="text-xs text-gray-300 mt-1">Mon-Fri 9AM-6PM EST</p>
-              </div>
+              <CompactMCACalculator />
             </div>
           </div>
         </div>
