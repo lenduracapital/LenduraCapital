@@ -862,20 +862,65 @@ This message was automatically generated from the Lendura Capital website chat w
         : 'http://localhost:5000';
       
       const pages = [
+        // Main pages - highest priority
         { url: '/', priority: '1.0', changefreq: 'weekly' },
         { url: '/solutions', priority: '0.9', changefreq: 'weekly' },
+        { url: '/qualified-industries', priority: '0.9', changefreq: 'weekly' },
+        { url: '/contact', priority: '0.9', changefreq: 'monthly' },
+        
+        // Solution detail pages - high priority
         { url: '/solutions/term-loans', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/merchant-cash-advance', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/lines-of-credit', priority: '0.8', changefreq: 'monthly' },
-        { url: '/solutions/equipment-financing', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/sba-loans', priority: '0.8', changefreq: 'monthly' },
+        { url: '/solutions/equipment-financing', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/invoice-factoring', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/po-financing', priority: '0.8', changefreq: 'monthly' },
         { url: '/solutions/debt-consolidation', priority: '0.7', changefreq: 'monthly' },
         { url: '/solutions/credit-services', priority: '0.7', changefreq: 'monthly' },
-        { url: '/who-we-fund', priority: '0.8', changefreq: 'monthly' },
+        { url: '/solutions/commercial-real-estate-lending', priority: '0.7', changefreq: 'monthly' },
+        { url: '/solutions/mortgage-financing', priority: '0.7', changefreq: 'monthly' },
+        
+        // Industry pages - high priority for targeting
+        { url: '/industries/medical-healthcare', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/construction', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/restaurant-food-service', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/retail-e-commerce', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/manufacturing', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/trucking-transportation', priority: '0.8', changefreq: 'monthly' },
+        { url: '/industries/home-services-contracting', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/professional-services', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/technology-software', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/auto-transportation', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/beauty-wellness', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/hospitality-tourism', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/agriculture-farming', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/real-estate', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/cleaning-janitorial-services', priority: '0.7', changefreq: 'monthly' },
+        { url: '/industries/entertainment-events', priority: '0.6', changefreq: 'monthly' },
+        { url: '/industries/education-training', priority: '0.6', changefreq: 'monthly' },
+        { url: '/industries/franchises', priority: '0.6', changefreq: 'monthly' },
+        
+        // Application pages - high conversion value
+        { url: '/apply', priority: '0.9', changefreq: 'monthly' },
+        { url: '/app', priority: '0.8', changefreq: 'monthly' },
+        { url: '/applynow', priority: '0.8', changefreq: 'monthly' },
+        
+        // Content and trust pages
         { url: '/testimonials', priority: '0.7', changefreq: 'monthly' },
-        { url: '/contact', priority: '0.9', changefreq: 'monthly' }
+        { url: '/more-testimonials', priority: '0.6', changefreq: 'monthly' },
+        { url: '/about', priority: '0.7', changefreq: 'monthly' },
+        { url: '/faq', priority: '0.6', changefreq: 'monthly' },
+        
+        // Additional service pages
+        { url: '/credit-servicing', priority: '0.6', changefreq: 'monthly' },
+        { url: '/seo-web-development', priority: '0.5', changefreq: 'monthly' },
+        { url: '/credit-card-processing', priority: '0.6', changefreq: 'monthly' },
+        
+        // Legal pages - required but lower priority
+        { url: '/terms', priority: '0.3', changefreq: 'yearly' },
+        { url: '/privacy', priority: '0.3', changefreq: 'yearly' },
+        { url: '/cookies', priority: '0.3', changefreq: 'yearly' }
       ];
 
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -944,24 +989,48 @@ ${pages.map(page => `  <url>
     const robotsTxt = `User-agent: *
 Allow: /
 Allow: /solutions/
+Allow: /industries/
 Allow: /qualified-industries
 Allow: /testimonials
+Allow: /about
+Allow: /faq
 Allow: /contact
 Allow: /apply
+Allow: /app
+Allow: /applynow
+Allow: /credit-servicing
+Allow: /seo-web-development
+Allow: /credit-card-processing
+Allow: /terms
+Allow: /privacy
+Allow: /cookies
 
+# Block admin and API routes
 Disallow: /api/
 Disallow: /admin/
 Disallow: /*.json$
 Disallow: /*?*
+
+# Crawl delay to be respectful
+Crawl-delay: 1
 
 Sitemap: ${process.env.NODE_ENV === 'production' ? 'https://lenduracapital.com' : 'http://localhost:5000'}/sitemap.xml
 
 # Google-specific optimizations
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
-# Bing optimization
+# Bing optimization  
 User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Other search engines
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
 Allow: /`;
 
     res.setHeader('Content-Type', 'text/plain');
