@@ -69,14 +69,14 @@ export default function Header({ }: HeaderProps) {
     }
   };
 
-  // Sticky navigation with enhanced mobile support  
+  // Sticky navigation with enhanced mobile support - transparent by default
   const headerClass = (isScrolled || isMobileMenuOpen)
-    ? 'sticky top-0 z-[100] transition-all duration-300 bg-black backdrop-blur-md shadow-lg'
-    : 'sticky top-0 z-[100] transition-all duration-300 bg-black/90 backdrop-blur-sm';
+    ? 'fixed top-0 z-50 transition-all duration-300 bg-black/95 backdrop-blur-md shadow-lg'
+    : 'fixed top-0 z-50 transition-all duration-300 bg-transparent';
 
   return (
     <>
-      <header className={`${headerClass} relative z-[1000] pointer-events-auto`} data-testid="header-navigation">
+      <header className={`${headerClass} w-full pointer-events-auto`} data-testid="header-navigation">
         <nav className="w-full px-0" role="navigation" aria-label="Main navigation">
         <div className="flex items-center justify-between w-full py-2 mb-2 md:py-1 md:mb-4">
           {/* Logo on the left - mobile optimized */}
@@ -97,7 +97,7 @@ export default function Header({ }: HeaderProps) {
 
           {/* Mobile Menu Button - Enhanced touch target */}
           <button
-            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg flex items-center justify-center border border-white/20 bg-white/10 backdrop-blur-sm relative z-[10000] pointer-events-auto"
+            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg flex items-center justify-center border border-white/20 bg-black/30 backdrop-blur-sm relative z-50 pointer-events-auto"
             style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
             onClick={(e) => {
               e.stopPropagation();
@@ -492,7 +492,7 @@ export default function Header({ }: HeaderProps) {
       {/* Mobile Menu - Professional Card-Based Design with Brand Colors */}
       {isMobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-0 z-[9999] bg-gradient-to-br from-slate-50 via-white to-slate-100 pointer-events-auto" 
+          className="lg:hidden fixed inset-0 z-[60] bg-gradient-to-br from-slate-50 via-white to-slate-100 pointer-events-auto" 
           onClick={() => setIsMobileMenuOpen(false)}
           data-testid="mobile-menu"
         >

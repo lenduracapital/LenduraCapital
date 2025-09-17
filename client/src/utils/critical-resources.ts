@@ -1,14 +1,14 @@
 // Critical resource loading optimization
 
 // Define which resources are critical for first paint
-const CRITICAL_RESOURCES = [
+const CRITICAL_RESOURCES: string[] = [
   // Critical CSS - already handled by Vite
-  // Logo - needed for header
-  '/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png',
+  // Logo - defer loading to improve performance
 ];
 
 // Large resources that should be deferred
 const DEFER_RESOURCES = [
+  '/ChatGPT Image Aug 26, 2025, 04_32_58 PM_1756258409289.png', // Logo - defer for better performance
   '/assets/pexels-kindelmedia-7979438_1752763530596.jpg', // 2.7MB
   '/assets/pexels-tima-miroshnichenko-6169650_1752763276873.jpg', // 2.0MB
   '/assets/pexels-imin-technology-276315592-12935045_1752762977147.jpg' // 1.9MB

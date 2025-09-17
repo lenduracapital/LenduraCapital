@@ -32,7 +32,7 @@ export default function HeroSection() {
       </div>
       {/* Text Content Overlay */}
       <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
-        <div className="flex items-center h-full pt-24 md:pt-32">
+        <div className="flex items-center h-full pt-8 md:pt-12">
           <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 
               className="font-bold mb-4 text-white drop-shadow-lg" 
