@@ -30,6 +30,11 @@ const envSchema = z.object({
   GOOGLE_ANALYTICS_ID: z.string().optional(),
   SENTRY_DSN: z.string().url().optional(),
   
+  // IndexNow Configuration (Optional)
+  INDEXNOW_API_KEY: z.string().optional(),
+  INDEXNOW_ENABLED: z.string().transform(val => val === 'true').default('true'),
+  SITE_URL: z.string().url().optional(),
+  
   // Rate Limiting
   RATE_LIMIT_WINDOW_MS: z.string().transform(val => val ? parseInt(val, 10) : 900000).default('900000'),
   RATE_LIMIT_MAX_REQUESTS: z.string().transform(val => val ? parseInt(val, 10) : 100).default('100'),

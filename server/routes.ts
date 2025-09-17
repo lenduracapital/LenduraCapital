@@ -5,6 +5,8 @@ import { storage } from "./storage";
 // Import validation schemas from client-safe shared schema
 import { insertLoanApplicationSchema, insertContactSubmissionSchema } from "@shared/schema";
 import { registerAdminRoutes } from "./admin-routes";
+import indexNow from "./utils/indexnow";
+import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
@@ -937,6 +939,124 @@ ${pages.map(page => `  <url>
       res.send(sitemap);
     } catch (error) {
       res.status(500).json({ error: 'Failed to generate sitemap' });
+    }
+  });
+
+  // IndexNow API endpoint for search engine notifications
+  const notifySearchEnginesSchema = z.object({
+    urls: z.array(z.string().url()).min(1, 'At least one URL is required').max(100, 'Maximum 100 URLs allowed'),
+    type: z.enum(['new', 'updated', 'deleted']).optional().default('updated'),
+    bulk: z.boolean().optional().default(false)
+  });
+
+  app.post("/api/notify-search-engines", async (req, res) => {
+    try {
+      // Validate request body
+      const validated = notifySearchEnginesSchema.parse(req.body);
+      const { urls, type, bulk } = validated;
+
+      console.log(`🔄 IndexNow API: Received request to notify ${urls.length} URLs (type: ${type})`);
+
+      // Use bulk notification for efficiency when multiple URLs
+      const result = urls.length === 1 && !bulk 
+        ? await indexNow.notify(urls[0], type)
+        : await indexNow.notifyBulk(urls, type);
+
+      if (result.success) {
+        res.json({
+          success: true,
+          message: result.message,
+          urls: result.urls,
+          timestamp: result.timestamp,
+          statusCode: result.statusCode
+        });
+      } else {
+        res.status(400).json({
+          success: false,
+          error: result.message,
+          urls: result.urls,
+          timestamp: result.timestamp,
+          statusCode: result.statusCode
+        });
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ 
+          error: "Invalid request data",
+          details: error.errors 
+        });
+      }
+      
+      console.error('IndexNow API endpoint error:', error);
+      res.status(500).json({ error: "Failed to notify search engines" });
+    }
+  });
+
+  // Convenience endpoint for notifying about homepage updates
+  app.post("/api/notify-homepage", async (req, res) => {
+    try {
+      console.log('🏠 IndexNow API: Homepage update notification requested');
+      const result = await indexNow.notifyHomepage();
+      
+      if (result.success) {
+        res.json({
+          success: true,
+          message: result.message,
+          urls: result.urls,
+          timestamp: result.timestamp
+        });
+      } else {
+        res.status(400).json({
+          success: false,
+          error: result.message,
+          timestamp: result.timestamp
+        });
+      }
+    } catch (error) {
+      console.error('Homepage notification error:', error);
+      res.status(500).json({ error: "Failed to notify about homepage update" });
+    }
+  });
+
+  // Convenience endpoint for notifying about sitemap updates
+  app.post("/api/notify-sitemap", async (req, res) => {
+    try {
+      console.log('🗺️  IndexNow API: Sitemap update notification requested');
+      const result = await indexNow.notifySitemap();
+      
+      if (result.success) {
+        res.json({
+          success: true,
+          message: result.message,
+          urls: result.urls,
+          timestamp: result.timestamp
+        });
+      } else {
+        res.status(400).json({
+          success: false,
+          error: result.message,
+          timestamp: result.timestamp
+        });
+      }
+    } catch (error) {
+      console.error('Sitemap notification error:', error);
+      res.status(500).json({ error: "Failed to notify about sitemap update" });
+    }
+  });
+
+  // Get IndexNow status and configuration
+  app.get("/api/indexnow/status", (req, res) => {
+    try {
+      const status = indexNow.getStatus();
+      res.json({
+        ...status,
+        message: status.hasApiKey 
+          ? 'IndexNow API is properly configured with API key'
+          : 'IndexNow API is available but no API key is configured'
+      });
+    } catch (error) {
+      console.error('IndexNow status error:', error);
+      res.status(500).json({ error: "Failed to get IndexNow status" });
     }
   });
 

@@ -31,7 +31,7 @@ export default function Footer() {
                   className="h-12 w-auto mb-4"
                 />
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Businesses trusted funding partner. We've helped 500+ businesses secure over $50M in funding.
+                  Businesses trusted funding partner. We've helped 5,000+ businesses secure over $1B in funding.
                 </p>
               </div>
               

@@ -1,4 +1,5 @@
 import { getRouteMetadata, getAllRoutes, type RouteMetadata } from './routes';
+import indexNow from '../utils/indexnow';
 
 export interface SnapshotData {
   html: string;
@@ -378,6 +379,32 @@ export class SnapshotManager {
     });
     
     console.log(`Generated ${this.snapshots.size} static HTML snapshots for SEO`);
+    
+    // Notify search engines about initial snapshot generation
+    this.notifyAllSnapshots('new').catch(error => {
+      console.warn('Failed to notify search engines about initial snapshots:', error);
+    });
+  }
+  
+  /**
+   * Notify search engines about all snapshot URLs
+   */
+  private async notifyAllSnapshots(type: 'new' | 'updated' | 'deleted' = 'updated'): Promise<void> {
+    if (this.snapshots.size === 0) return;
+    
+    const paths = Array.from(this.snapshots.keys());
+    console.log(`🔄 Notifying search engines about ${paths.length} snapshot URLs (type: ${type})`);
+    
+    try {
+      const result = await indexNow.notifyPages(paths);
+      if (result.success) {
+        console.log(`✅ Successfully notified search engines about ${result.urls.length} snapshots`);
+      } else {
+        console.warn(`⚠️  Failed to notify search engines about snapshots: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('❌ Error notifying search engines about snapshots:', error);
+    }
   }
   
   public getSnapshot(path: string): SnapshotData | null {
@@ -392,7 +419,7 @@ export class SnapshotManager {
     return Array.from(this.snapshots.keys());
   }
   
-  public regenerateSnapshot(path: string): boolean {
+  public async regenerateSnapshot(path: string): Promise<boolean> {
     const metadata = getRouteMetadata(path);
     if (metadata) {
       const html = generateSnapshotHTML(path, metadata);
@@ -401,13 +428,59 @@ export class SnapshotManager {
         path,
         metadata
       });
+      
+      // Notify search engines about the updated snapshot
+      try {
+        console.log(`🔄 Notifying search engines about updated snapshot: ${path}`);
+        const result = await indexNow.notifyPages([path]);
+        if (result.success) {
+          console.log(`✅ Successfully notified search engines about updated snapshot: ${path}`);
+        } else {
+          console.warn(`⚠️  Failed to notify search engines about snapshot ${path}: ${result.message}`);
+        }
+      } catch (error) {
+        console.error(`❌ Error notifying search engines about snapshot ${path}:`, error);
+      }
+      
       return true;
     }
     return false;
   }
   
-  public regenerateAllSnapshots(): void {
+  public async regenerateAllSnapshots(): Promise<void> {
+    console.log('🔄 Regenerating all snapshots...');
     this.snapshots.clear();
     this.generateAllSnapshots();
+    
+    // Additional notification for bulk regeneration
+    await this.notifyAllSnapshots('updated');
+  }
+  
+  /**
+   * Notify search engines about specific snapshot paths
+   */
+  public async notifySnapshotUpdates(paths: string[]): Promise<void> {
+    const existingPaths = paths.filter(path => this.snapshots.has(path));
+    if (existingPaths.length === 0) return;
+    
+    console.log(`🔔 Notifying search engines about ${existingPaths.length} snapshot updates`);
+    
+    try {
+      const result = await indexNow.notifyPages(existingPaths);
+      if (result.success) {
+        console.log(`✅ Successfully notified search engines about ${result.urls.length} snapshot updates`);
+      } else {
+        console.warn(`⚠️  Failed to notify search engines: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('❌ Error notifying search engines about snapshot updates:', error);
+    }
+  }
+  
+  /**
+   * Force notify search engines about all current snapshots
+   */
+  public async forceNotifyAllSnapshots(): Promise<void> {
+    await this.notifyAllSnapshots('updated');
   }
 }
