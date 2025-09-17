@@ -4,7 +4,7 @@ build = "npm run build"
 
 [nix]
 channel = "stable-25_05"
-packages = ["chromium"]
+packages = ["chromium", "file", "mediainfo"]
 
 [deployment]
 deploymentTarget = "autoscale"
