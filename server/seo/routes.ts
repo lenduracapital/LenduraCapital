@@ -750,6 +750,80 @@ export const ROUTE_METADATA: Record<string, RouteMetadata> = {
       title: "Privacy Policy | Lendura Capital",
       description: "Read Lendura Capital's privacy policy to understand how we protect and handle your personal and business information."
     }
+  },
+
+  // Additional Services
+  "/credit-card-processing": {
+    title: "Credit Card Processing | Accept Payments Anywhere | Lendura Capital",
+    description: "Professional credit card processing with competitive rates, fast deposits, and transparent pricing. Multi-channel processing for retail, e-commerce, and mobile payments. Get same-day deposits and 24/7 support.",
+    keywords: "credit card processing, payment processing, merchant services, POS systems, mobile payments, e-commerce processing, retail payments, secure transactions",
+    canonical: "/credit-card-processing",
+    h1: "Credit Card Processing",
+    primaryContent: "Accept payments anywhere with competitive rates, fast deposits, and transparent pricing. Modern payment processing for growing businesses.",
+    openGraph: {
+      title: "Credit Card Processing | Accept Payments Anywhere | Lendura Capital",
+      description: "Professional credit card processing with competitive rates, fast deposits, and transparent pricing. Multi-channel processing for retail, e-commerce, and mobile payments.",
+      type: "service"
+    },
+    twitter: {
+      title: "Credit Card Processing | Accept Payments Anywhere | Lendura Capital",
+      description: "Professional credit card processing with competitive rates, fast deposits, and transparent pricing. Multi-channel processing for retail, e-commerce, and mobile payments."
+    },
+    schema: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Credit Card Processing",
+      "provider": {
+        "@type": "Organization",
+        "name": "Lendura Capital"
+      },
+      "description": "Professional credit card processing solutions with competitive rates and fast deposits",
+      "offers": {
+        "@type": "Offer",
+        "availability": "InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD"
+        }
+      }
+    }]
+  },
+
+  "/seo-web-development": {
+    title: "SEO & Web Development Services | Digital Marketing Solutions | Lendura Capital",
+    description: "Professional SEO optimization and web development services that drive online visibility and business growth. Custom websites, search engine optimization, and digital marketing strategies for small businesses.",
+    keywords: "SEO services, web development, digital marketing, search engine optimization, website design, online marketing, SEO optimization, custom websites, digital presence",
+    canonical: "/seo-web-development",
+    h1: "Search Engine Optimization and Web Development",
+    primaryContent: "Professional digital solutions that drive online visibility, enhance user experience, and accelerate business growth through strategic SEO and cutting-edge web development.",
+    openGraph: {
+      title: "SEO & Web Development Services | Digital Marketing Solutions | Lendura Capital",
+      description: "Professional SEO optimization and web development services that drive online visibility and business growth. Custom websites and digital marketing strategies.",
+      type: "service"
+    },
+    twitter: {
+      title: "SEO & Web Development Services | Digital Marketing Solutions | Lendura Capital",
+      description: "Professional SEO optimization and web development services that drive online visibility and business growth. Custom websites and digital marketing strategies."
+    },
+    schema: [{
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "SEO & Web Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "Lendura Capital"
+      },
+      "description": "Professional SEO optimization and web development services for business growth",
+      "serviceType": "Digital Marketing",
+      "offers": {
+        "@type": "Offer",
+        "availability": "InStock",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD"
+        }
+      }
+    }]
   }
 };
 
