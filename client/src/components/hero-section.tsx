@@ -36,7 +36,7 @@ export default function HeroSection() {
           <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 
               className="font-bold mb-4 text-white drop-shadow-lg" 
-              style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
+              style={{ fontSize: 'clamp(2.25rem, 6vw, 4rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-title"
             >
               Get Business Funding <span style={{ color: '#193a59' }}>Fast & Simple</span>
@@ -44,7 +44,7 @@ export default function HeroSection() {
             
             <h2 
               className="mb-3 max-w-2xl text-white font-semibold drop-shadow-lg" 
-              style={{ fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
+              style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-subtitle"
             >
               Fast approvals, flexible terms, and funding solutions designed for your business success.
@@ -52,7 +52,7 @@ export default function HeroSection() {
             
             <h3 
               className="mb-4 text-white font-medium drop-shadow-lg" 
-              style={{ fontSize: 'clamp(1rem, 2.2vw, 1.375rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
+              style={{ fontSize: 'clamp(1.25rem, 2.8vw, 1.75rem)', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
               data-testid="text-hero-phone"
             >
               Call <a 
