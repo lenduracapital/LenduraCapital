@@ -95,6 +95,19 @@ export default function Header({ }: HeaderProps) {
             </button>
           </div>
 
+          {/* Mobile Menu Button - Enhanced touch target */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg"
+            style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            data-testid="button-mobile-menu"
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+
           {/* Desktop Navigation - Positioned more to the right */}
           <nav className="hidden lg:flex items-center space-x-1 flex-1 justify-center ml-32" aria-label="Main navigation">
             <button 
@@ -466,19 +479,6 @@ export default function Header({ }: HeaderProps) {
               Contact Us
             </button>
           </nav>
-
-          {/* Mobile Menu Button - Enhanced touch target */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden text-white hover:text-[--primary] min-h-[48px] min-w-[48px] mr-4 sm:mr-6 transition-all duration-300 hover:scale-110 hover:bg-white/20 active:bg-white/30 rounded-lg"
-            style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            data-testid="button-mobile-menu"
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
         </div>
 
         {/* Mobile Menu - Professional Card-Based Design */}
