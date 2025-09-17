@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import SEOHead from "@/components/seo-head";
-import { ChevronRight, Clock, Tag, User, Calendar, ArrowLeft, CheckCircle, AlertTriangle, DollarSign, FileText, Building2, TrendingUp } from "lucide-react";
+import { ChevronRight, Clock, User, Calendar, ArrowLeft, CheckCircle, DollarSign, FileText, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "wouter";
 
@@ -21,8 +21,25 @@ export default function SBALoanChanges2025() {
       <SEOHead
         title="Major SBA Loan Program Changes Coming in 2025 | Lendura Capital"
         description="The Small Business Administration announces significant updates to loan programs for 2025, including increased lending limits and streamlined application processes."
-        keywords="SBA loan changes 2025, SBA program updates, small business administration news, SBA lending limits, SBA application process"
+        keywords="SBA loan changes 2025, SBA program updates, small business administration news, SBA lending limits, SBA application process, small business loans"
         canonical="/blog/sba-loan-changes-2025"
+        type="article"
+        image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=630&fit=crop"
+        articleData={{
+          headline: "Major SBA Loan Program Changes Coming in 2025",
+          author: "SBA Lending Team",
+          datePublished: "2025-01-18T00:00:00-05:00",
+          dateModified: "2025-01-18T12:00:00-05:00",
+          category: "SBA Updates",
+          readTime: "6 min read",
+          image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=630&fit=crop",
+          excerpt: "The Small Business Administration announces significant updates to loan programs for 2025, including increased lending limits and streamlined application processes."
+        }}
+        breadcrumbData={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: "SBA Loan Changes 2025", url: "/blog/sba-loan-changes-2025" }
+        ]}
       />
       <Header />
       

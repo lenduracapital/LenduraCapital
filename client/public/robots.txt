@@ -64,5 +64,17 @@ Disallow: /
 # Sitemap location
 Sitemap: https://lenduracapital.com/sitemap.xml
 
+# Blog and Guides optimization
+Allow: /blog/
+Allow: /guides/
+Allow: /blog/*
+Allow: /guides/*
+
+# Priority indexing for high-value content
+User-agent: Googlebot
+Allow: /blog/
+Allow: /guides/
+Crawl-delay: 1
+
 # Host preference (www vs non-www)
 Host: lenduracapital.com

@@ -192,8 +192,14 @@ export default function BlogPage() {
       <SEOHead
         title="Business Funding Blog | Industry News & Tips | Lendura Capital"
         description="Stay updated with the latest business funding news, SBA loan updates, industry insights, and expert tips from Lendura Capital's finance professionals."
-        keywords="business funding blog, SBA loan news, business credit tips, industry financing trends, equipment financing news, working capital strategies"
+        keywords="business funding blog, SBA loan news, business credit tips, industry financing trends, equipment financing news, working capital strategies, small business loans"
         canonical="/blog"
+        type="website"
+        image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=630&fit=crop"
+        breadcrumbData={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" }
+        ]}
       />
       <Header />
       

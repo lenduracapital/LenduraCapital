@@ -172,8 +172,14 @@ export default function GuidesPage() {
       <SEOHead
         title="Business Funding Guides | Expert Insights | Lendura Capital"
         description="Expert business funding guides covering SBA loans, industry-specific financing, credit building, and growth strategies. Free resources from Brooklyn's trusted lenders."
-        keywords="business funding guides, SBA loan guide, restaurant financing, business credit building, equipment financing guide, working capital strategies"
+        keywords="business funding guides, SBA loan guide, restaurant financing, business credit building, equipment financing guide, working capital strategies, small business financing"
         canonical="/guides"
+        type="website"
+        image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=630&fit=crop"
+        breadcrumbData={[
+          { name: "Home", url: "/" },
+          { name: "Guides", url: "/guides" }
+        ]}
       />
       <Header />
       

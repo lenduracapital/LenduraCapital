@@ -55,6 +55,35 @@ export default function CompleteSBAGuide() {
         description="Everything you need to know about SBA loans in 2025. Complete guide covering SBA 7(a), SBA 504, microloans, requirements, application process, and approval strategies."
         keywords="SBA loans 2025, SBA 7(a) loans, SBA 504 loans, SBA microloans, SBA loan requirements, SBA loan application process, small business administration loans"
         canonical="/guides/complete-sba-loan-guide-2025"
+        type="article"
+        image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=630&fit=crop"
+        breadcrumbData={[
+          { name: "Home", url: "/" },
+          { name: "Guides", url: "/guides" },
+          { name: "Complete SBA Loan Guide", url: "/guides/complete-sba-loan-guide-2025" }
+        ]}
+        faqData={[
+          {
+            question: "What is the maximum amount I can borrow with an SBA loan?",
+            answer: "SBA 7(a) loans can provide up to $5.5 million for most businesses, while SBA 504 loans can provide up to $5.5 million for real estate and equipment purchases. Microloans are limited to $50,000."
+          },
+          {
+            question: "How long does it take to get approved for an SBA loan?",
+            answer: "SBA loan approval typically takes 30-90 days, depending on the loan type and lender. SBA Express loans can be approved in as little as 36 hours, while traditional SBA 7(a) loans may take 60-90 days."
+          },
+          {
+            question: "What credit score do I need for an SBA loan?",
+            answer: "Most SBA lenders require a personal credit score of at least 640-680 for SBA 7(a) loans. However, some lenders may approve borrowers with scores as low as 620 if other factors are strong."
+          },
+          {
+            question: "Can I use an SBA loan to purchase an existing business?",
+            answer: "Yes, SBA 7(a) loans can be used to purchase an existing business, including the real estate, equipment, and working capital. This is one of the most popular uses for SBA financing."
+          },
+          {
+            question: "What are the SBA loan fees?",
+            answer: "SBA guarantee fees range from 0.5% to 3.75% depending on the loan amount and term. For loans over $1 million, there's typically a 3.75% guarantee fee. Lenders may also charge origination fees."
+          }
+        ]}
       />
       <Header />
       
