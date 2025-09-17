@@ -9,17 +9,31 @@ export default function HeroSection() {
 
   return (
     <section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="hero-section relative"
+      style={{ 
+        width: '100%', 
+        height: '100dvh', 
+        minHeight: '600px', 
+        maxHeight: '100dvh',
+        contain: 'layout style paint size'
+      }}
       data-testid="section-hero"
       role="banner"
       aria-label="Business funding hero section"
     >
-      {/* Optimized background image with WebP support */}
-      <div className="absolute inset-0 z-0">
+      {/* Optimized background image with WebP support and stable dimensions */}
+      <div className="hero-background absolute inset-0 z-0">
         <HeroImage
           src={heroImage}
           alt="Professional business funding consultation"
           className="w-full h-full object-cover"
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover',
+            backgroundColor: '#193a59',
+            contain: 'layout'
+          }}
           priority={true}
           quality={90}
           data-testid="image-hero-background"
@@ -30,8 +44,8 @@ export default function HeroSection() {
           aria-hidden="true"
         />
       </div>
-      {/* Text Content Overlay */}
-      <div className="absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
+      {/* Text Content Overlay with stable positioning */}
+      <div className="hero-content absolute left-0 top-0 z-20 text-white pl-4 md:pl-8 w-full h-full">
         <div className="flex items-center h-full pt-8 md:pt-12">
           <div className="max-w-2xl" style={{ contain: 'layout' }}>
             <h1 

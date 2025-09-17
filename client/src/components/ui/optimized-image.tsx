@@ -147,18 +147,30 @@ export function CriticalImage(props: OptimizedImageProps) {
   );
 }
 
-// Responsive hero image component
+// Responsive hero image component with enhanced CLS prevention
 export function HeroImage({ 
   src, 
   alt, 
   className = '',
+  style,
   ...props 
-}: OptimizedImageProps) {
+}: OptimizedImageProps & { style?: React.CSSProperties }) {
   return (
     <CriticalImage
       src={src}
       alt={alt}
-      className={`w-full h-screen object-cover ${className}`}
+      className={`w-full h-full object-cover ${className}`}
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        backgroundColor: '#193a59',
+        contain: 'layout',
+        minHeight: '600px',
+        ...style
+      }}
+      width={1920}
+      height={1080}
       sizes="100vw"
       aspectRatio="16/9"
       quality={90}

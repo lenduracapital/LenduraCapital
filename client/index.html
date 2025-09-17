@@ -22,26 +22,105 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
   <link rel="dns-prefetch" href="//form.jotform.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
-  <link rel="preload" href="/src/main.tsx" as="script" type="module" crossorigin>
   
-  <!-- Critical CSS for faster rendering -->
+  <!-- ENHANCED Critical CSS for CLS Prevention and Font Loading -->
   <style>
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#fff}
-    .hero-section{height:100vh;position:relative;overflow:hidden;will-change:transform;contain:layout style paint}
-    .hero-title{font-size:3rem;font-weight:700;line-height:1.1;color:white;text-shadow:0 2px 4px rgba(0,0,0,0.5);contain:layout style paint;font-display:swap}
-    img{transform:translateZ(0);will-change:transform;image-rendering:crisp-edges;backface-visibility:hidden;-webkit-backface-visibility:hidden;loading:lazy}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px;line-height:1.5}
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;font-display:swap;min-height:100vh}
+    
+    /* Hero section critical layout stability */
+    .hero-section{
+      width:100%;
+      height:100dvh;
+      min-height:600px;
+      max-height:100dvh;
+      position:relative;
+      overflow:hidden;
+      contain:layout style paint size;
+      isolation:isolate;
+      background-color:#193a59
+    }
+    
+    /* Hero content positioning */
+    .hero-content{
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      z-index:20;
+      display:flex;
+      align-items:center;
+      padding:2rem;
+      contain:layout
+    }
+    
+    /* Hero background stable dimensions */
+    .hero-background{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      z-index:1;
+      contain:layout style paint;
+      background-color:#193a59
+    }
+    
+    .hero-background img{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+      background-color:#193a59;
+      min-height:600px
+    }
+    
+    /* Font loading optimization */
+    .hero-title{
+      font-size:clamp(2.25rem,6vw,4rem);
+      font-weight:700;
+      line-height:1.1;
+      color:white;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.8);
+      contain:layout style paint;
+      font-display:swap;
+      margin:0 0 1rem 0
+    }
+    
+    /* Image stability */
+    img{
+      max-width:100%;
+      height:auto;
+      display:block;
+      contain:layout;
+      background-color:#f3f4f6
+    }
+    
+    /* Button stability */
+    button,.btn{
+      min-height:44px;
+      min-width:44px;
+      contain:layout style;
+      font-display:swap
+    }
+    
+    /* Component containment */
     .component{contain:layout style paint}
-    .scroll-smooth{scroll-behavior:smooth}
+    
+    /* Performance optimizations */
     .gpu-accelerated{transform:translateZ(0);will-change:transform}
-    @media (min-width:768px){.hero-title{font-size:4rem}}
-    @media (min-width:1024px){.hero-title{font-size:5rem}}
-    @media (prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
+    
+    /* Responsive font sizes */
+    @media (min-width:768px){.hero-title{font-size:clamp(3rem,8vw,5rem)}}
+    @media (min-width:1024px){.hero-title{font-size:clamp(3.5rem,8vw,5rem)}}
+    
+    /* Accessibility */
+    @media (prefers-reduced-motion:reduce){
+      *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+    }
+    
+    /* Font loading states */
+    .fonts-loading *{visibility:visible!important}
+    .fonts-loaded body{font-synthesis:none}
   </style>
   <!-- Preload critical assets with priority -->
   <link rel="preload" href="/attached_assets/ChatGPT Image Jun 5, 2025, 12_13_54 PM_1750718184734.png" as="image" fetchpriority="high">
-  <link rel="modulepreload" href="/src/main.tsx">
   
   
   

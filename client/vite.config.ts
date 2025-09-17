@@ -27,13 +27,13 @@ export default defineConfig({
           router: ['wouter'],
           // UI component chunk
           ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-label'],
-          // Blog and guides chunk for better caching
+          // Content pages chunk for better caching (existing files only)
           content: [
-            './src/pages/blog.tsx', 
-            './src/pages/guides.tsx',
-            './src/pages/blog/sba-loan-changes-2025.tsx',
-            './src/pages/guides/complete-sba-loan-guide-2025.tsx',
-            './src/pages/guides/restaurant-financing-complete-guide.tsx'
+            './src/pages/about.tsx', 
+            './src/pages/contact.tsx',
+            './src/pages/testimonials.tsx',
+            './src/pages/faq.tsx',
+            './src/pages/apply-now.tsx'
           ],
           // Performance utilities chunk
           performance: [

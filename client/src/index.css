@@ -40,12 +40,53 @@
   --lendura-blue-light: var(--brand-primary-light);
 }
 
-/* Critical CSS for above-the-fold content */
+/* ENHANCED Critical CSS for CLS Prevention and Performance */
 .hero-section {
   position: relative;
+  width: 100vw;
   height: 100vh;
   min-height: 600px;
+  max-height: 100vh;
   overflow: hidden;
+  contain: layout style paint size;
+  /* Prevent any layout shifts during load */
+  isolation: isolate;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  contain: layout style paint;
+  /* Prevent image loading shifts */
+  background-color: #193a59;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Reserve space during image load to prevent CLS */
+  background-color: #193a59;
+  min-height: 600px;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  contain: layout;
 }
 
 .hero-video {
@@ -56,25 +97,9 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 100%;
-  padding-top: 8rem;
-}
-
-/* Prevent layout shift by reserving space */
-.hero-section::before {
-  content: '';
-  display: block;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  position: relative;
-  z-index: 0;
+  contain: layout;
+  /* Video fallback */
+  background-color: #193a59;
 }
 
 /* Mobile-specific optimizations */
