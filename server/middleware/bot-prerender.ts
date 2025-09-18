@@ -206,11 +206,25 @@ export function botPrerenderMiddleware(req: Request, res: Response, next: NextFu
       // Fallback: serve meta tags for routes without snapshots
       console.log(`[FALLBACK META] Serving fallback meta tags for ${path}`);
       const fallbackHtml = generateFallbackMetaTags(path);
+      const metadata = getRouteMetadata(path);
+      
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.setHeader('Cache-Control', 'public, max-age=3600');
-      res.setHeader('X-Robots-Tag', 'noindex, follow'); // Don't index unknown pages
-      res.setHeader('Vary', 'User-Agent'); // CRITICAL: prevent CDN caching issues
-      res.status(404).send(fallbackHtml); // Proper 404 status for unknown routes
+      
+      // CRITICAL FIX: Only set noindex for truly unknown routes, allow indexing for legitimate routes
+      if (metadata) {
+        // This is a legitimate route - allow indexing even without snapshots
+        res.setHeader('X-Robots-Tag', 'index, follow');
+        res.setHeader('Vary', 'User-Agent');
+        res.status(200).send(fallbackHtml); // 200 status for legitimate routes
+        console.log(`[SEO FIX] Allowing indexing for legitimate route: ${path}`);
+      } else {
+        // This is truly an unknown/404 route - don't index
+        res.setHeader('X-Robots-Tag', 'noindex, follow');
+        res.setHeader('Vary', 'User-Agent');
+        res.status(404).send(fallbackHtml); // 404 status for unknown routes
+        console.log(`[SEO FIX] Blocking indexing for unknown route: ${path}`);
+      }
       return;
     }
     
