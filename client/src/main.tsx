@@ -6,6 +6,7 @@ import { initPerformanceBoost } from "./utils/performance-boost";
 import { prioritizeResourceLoading, initPerformanceTimeline } from "./utils/critical-resources";
 import { reportWebVitals } from "./utils/performance-monitor";
 import { initAdvancedPerformance } from "./utils/advanced-performance";
+import { initPerformanceOptimization } from "./utils/performance-optimization";
 import AccessibilityEnhancer from "./utils/accessibility-enhancements";
 
 // Initialize all performance optimizations immediately
@@ -17,6 +18,9 @@ preventCLS();
 
 // Initialize advanced performance optimizations for 90+ Lighthouse scores
 initAdvancedPerformance();
+
+// Initialize comprehensive performance optimization
+initPerformanceOptimization();
 
 // Initialize service worker for aggressive caching
 if (import.meta.env.PROD) {

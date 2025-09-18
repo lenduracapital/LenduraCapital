@@ -44,33 +44,62 @@ app.use(environmentMiddleware);
 app.use(requestLoggingMiddleware);
 app.use(
   compression({
-    level: 6,
-    threshold: 1024,
+    level: 9, // Maximum compression for better performance
+    threshold: 512, // Compress smaller files too
+    filter: (req, res) => {
+      // Don't compress if client doesn't support it
+      if (req.headers['x-no-compression']) {
+        return false;
+      }
+      // Compress all text-based content and specific file types
+      return compression.filter(req, res) || /\.(html|css|js|json|xml|svg|txt|woff2)$/i.test(req.url);
+    },
+    // Enhanced compression for different content types
+    chunkSize: 16 * 1024,
+    windowBits: 15,
+    memLevel: 8,
   })
 );
 
-// Global headers
+// Enhanced global headers with performance optimizations
 app.use((req, res, next) => {
   const isProd = config.NODE_ENV === "production";
   try {
+    // Security headers (production only)
     if (isProd) {
       res.setHeader("X-Content-Type-Options", "nosniff");
       res.setHeader("X-Frame-Options", "DENY");
       res.setHeader("X-XSS-Protection", "1; mode=block");
-      res.setHeader(
-        "Referrer-Policy",
-        "strict-origin-when-cross-origin"
-      );
+      res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+      res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains");
     }
+    
+    // Performance headers
+    res.setHeader("X-DNS-Prefetch-Control", "on");
+    res.setHeader("X-Powered-By", ""); // Remove for security and performance
+    
+    // HTTP/2 Push and Early Hints support
+    if (req.httpVersion === '2.0' || req.headers[':version'] === '2.0') {
+      res.setHeader("Link", [
+        "</assets/css/main.css>; rel=preload; as=style",
+        "</assets/js/vendor.js>; rel=preload; as=script",
+        "<https://fonts.googleapis.com>; rel=preconnect",
+        "<https://fonts.gstatic.com>; rel=preconnect; crossorigin"
+      ].join(", "));
+    }
+    
+    // Conditional cache headers based on resource type
+    if (req.url.match(/\.(css|js|woff2|png|jpg|jpeg|webp|avif|svg|ico)$/)) {
+      const maxAge = isProd ? 31536000 : 3600; // 1 year in prod, 1 hour in dev
+      res.setHeader("Cache-Control", `public, max-age=${maxAge}, immutable`);
+      res.setHeader("Expires", new Date(Date.now() + maxAge * 1000).toUTCString());
+    }
+    
+    // CORS headers
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Content-Type, Authorization"
-    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    
     if (req.method === "OPTIONS") return res.sendStatus(200);
   } catch (err) {
     console.error("Header middleware error:", err);
@@ -96,10 +125,38 @@ if (config.NODE_ENV === "development") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Assets
+// Enhanced asset serving with compression and modern format support
+const isProdEnv = config.NODE_ENV === "production";
 app.use(
   "/attached_assets",
-  express.static(path.join(process.cwd(), "attached_assets"))
+  express.static(path.join(process.cwd(), "attached_assets"), {
+    maxAge: isProdEnv ? "1y" : "1h",
+    etag: true,
+    immutable: isProdEnv,
+    setHeaders: (res, filePath) => {
+      // Set proper MIME types
+      if (filePath.endsWith('.webp')) {
+        res.setHeader('Content-Type', 'image/webp');
+      } else if (filePath.endsWith('.avif')) {
+        res.setHeader('Content-Type', 'image/avif');
+      } else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) {
+        res.setHeader('Content-Type', 'image/jpeg');
+      } else if (filePath.endsWith('.png')) {
+        res.setHeader('Content-Type', 'image/png');
+      }
+      
+      // Add performance headers
+      res.setHeader('Cache-Control', isProdEnv 
+        ? 'public, max-age=31536000, immutable' 
+        : 'public, max-age=3600'
+      );
+      
+      // Add compression hint
+      if (filePath.match(/\.(jpg|jpeg|png|webp|avif)$/i)) {
+        res.setHeader('Vary', 'Accept');
+      }
+    }
+  })
 );
 
 (async () => {

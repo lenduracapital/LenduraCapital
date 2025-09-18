@@ -14,7 +14,40 @@ interface OptimizedImageProps {
   quality?: number;
   webp?: boolean;
   avif?: boolean;
+  responsive?: boolean;
   'data-testid'?: string;
+}
+
+// Image optimization utility functions
+function generateImageSrcSet(src: string, widths: number[] = [480, 768, 1024, 1200, 1920]) {
+  const baseSrc = src.replace(/\.(jpg|jpeg|png)$/i, '');
+  const ext = src.match(/\.(jpg|jpeg|png)$/i)?.[1] || 'jpg';
+  
+  return widths.map(width => {
+    // For production, we'd generate different sized versions
+    // For now, we'll use the original but indicate desired width
+    return `${src} ${width}w`;
+  }).join(', ');
+}
+
+function generateModernImageSources(src: string, options: { webp?: boolean; avif?: boolean } = {}) {
+  const sources: Array<{ srcSet: string; type: string; sizes?: string }> = [];
+  
+  if (options.avif) {
+    sources.push({
+      srcSet: src.replace(/\.(jpg|jpeg|png)$/i, '.avif'),
+      type: 'image/avif'
+    });
+  }
+  
+  if (options.webp) {
+    sources.push({
+      srcSet: src.replace(/\.(jpg|jpeg|png)$/i, '.webp'),
+      type: 'image/webp'
+    });
+  }
+  
+  return sources;
 }
 
 export function OptimizedImage({ 
@@ -29,8 +62,9 @@ export function OptimizedImage({
   sizes = '100vw',
   priority = false,
   quality = 85,
-  webp = false,
+  webp = true,
   avif = false,
+  responsive = true,
   'data-testid': testId,
   ...props 
 }: OptimizedImageProps) {
@@ -110,26 +144,63 @@ export function OptimizedImage({
         </div>
       )}
       
-      {/* Enhanced image with proper error handling */}
+      {/* Enhanced image with modern format support */}
       {shouldLoad && !hasError && (
-        <img
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          onLoad={handleLoad}
-          onError={(e) => handleError(e)}
-          className={`
-            transition-all duration-300 ease-out
-            ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
-            w-full h-full object-cover
-          `}
-          loading={lazy && !priority ? 'lazy' : 'eager'}
-          decoding="async"
-          onAbort={(e) => handleError(e)}
-          onStalled={(e) => handleError(e)}
-          {...props}
-        />
+        <>
+          {(webp || avif) && responsive ? (
+            <picture className="w-full h-full">
+              {generateModernImageSources(src, { webp, avif }).map((source, index) => (
+                <source 
+                  key={index}
+                  srcSet={source.srcSet}
+                  type={source.type}
+                  sizes={sizes}
+                />
+              ))}
+              <img
+                src={src}
+                alt={alt}
+                width={width}
+                height={height}
+                onLoad={handleLoad}
+                onError={(e) => handleError(e)}
+                className={`
+                  transition-all duration-300 ease-out
+                  ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
+                  w-full h-full object-cover
+                `}
+                loading={lazy && !priority ? 'lazy' : 'eager'}
+                decoding="async"
+                sizes={sizes}
+                srcSet={responsive ? generateImageSrcSet(src) : undefined}
+                onAbort={(e) => handleError(e)}
+                onStalled={(e) => handleError(e)}
+                {...props}
+              />
+            </picture>
+          ) : (
+            <img
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              onLoad={handleLoad}
+              onError={(e) => handleError(e)}
+              className={`
+                transition-all duration-300 ease-out
+                ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
+                w-full h-full object-cover
+              `}
+              loading={lazy && !priority ? 'lazy' : 'eager'}
+              decoding="async"
+              sizes={sizes}
+              srcSet={responsive ? generateImageSrcSet(src) : undefined}
+              onAbort={(e) => handleError(e)}
+              onStalled={(e) => handleError(e)}
+              {...props}
+            />
+          )}
+        </>
       )}
     </div>
   );

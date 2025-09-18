@@ -15,13 +15,25 @@
   <meta name="theme-color" content="#193a59" />
   <meta name="robots" content="index, follow" />
   
-  <!-- Critical performance optimizations -->
+  <!-- Enhanced critical performance optimizations -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+  
+  <!-- Enhanced DNS prefetch and preconnect for critical domains -->
   <link rel="dns-prefetch" href="//form.jotform.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//images.unsplash.com">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  
+  <!-- Critical resource preloading -->
+  <link rel="modulepreload" href="/src/main.tsx">
+  <link rel="modulepreload" href="/src/App.tsx">
+  
+  <!-- Early hints for HTTP/2 server push -->
+  <link rel="preload" href="/assets/css/main.css" as="style" fetchpriority="high">
+  <link rel="preload" href="/assets/js/vendor.js" as="script" fetchpriority="high">
   
   <!-- ENHANCED Critical CSS for CLS Prevention and Font Loading -->
   <style>
