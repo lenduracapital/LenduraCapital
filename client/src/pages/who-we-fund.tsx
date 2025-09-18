@@ -145,7 +145,7 @@ export default function QualifiedIndustries() {
     <div className="min-h-screen bg-[--bg-primary] text-[--text-primary]">
       <SEOHead
         title="Industries We Fund | 18 Business Sectors | Lendura Capital Brooklyn"
-        description="FundTek provides specialized business funding for 18+ industries including trucking, medical, construction, restaurants, retail & more. Bad credit OK. Same day approval. Call (305) 834-7168."
+        description="Lendura Capital provides specialized business funding for 18+ industries including trucking, medical, construction, restaurants, retail & more. Bad credit OK. Same day approval. Call (305) 834-7168."
         keywords="business funding by industry, trucking business loans, medical practice financing, construction loans, restaurant funding, retail business loans, manufacturing financing, technology startup funding, Brooklyn business lender"
         canonical="/industries"
       />

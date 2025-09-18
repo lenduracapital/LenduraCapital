@@ -41,7 +41,7 @@ export default function AdminDashboard() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${localStorage.getItem('adminAuth') || btoa('admin:lendura2025')}`
+          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         },
         body: JSON.stringify({ status: newStatus })
       });
@@ -131,27 +131,41 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleLogin = (username: string, password: string) => {
-    if (username === 'admin' && password === 'fundtek2025') {
-      setIsAuthenticated(true);
-      localStorage.setItem('adminAuth', btoa(`${username}:${password}`));
-    } else {
-      alert('Invalid credentials');
+  const handleLogin = async (username: string, password: string) => {
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+      
+      if (response.ok) {
+        const { token } = await response.json();
+        setIsAuthenticated(true);
+        localStorage.setItem('adminToken', token);
+      } else {
+        alert('Invalid credentials');
+      }
+    } catch (error) {
+      alert('Login failed');
     }
   };
 
   useEffect(() => {
-    const storedAuth = localStorage.getItem('adminAuth');
-    if (storedAuth) {
-      try {
-        const decoded = atob(storedAuth);
-        const [username, password] = decoded.split(':');
-        if (username === 'admin' && password === 'fundtek2025') {
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      // Verify token with server
+      fetch('/api/admin/verify', {
+        headers: { 'Authorization': `Bearer ${token}` }
+      }).then(response => {
+        if (response.ok) {
           setIsAuthenticated(true);
+        } else {
+          localStorage.removeItem('adminToken');
         }
-      } catch (e) {
-        localStorage.removeItem('adminAuth');
-      }
+      }).catch(() => {
+        localStorage.removeItem('adminToken');
+      });
     }
   }, []);
 

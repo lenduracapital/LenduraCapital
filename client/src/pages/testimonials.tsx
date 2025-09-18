@@ -12,7 +12,7 @@ const testimonials = [
     title: "Auto Shop Owner",
     company: "Chen's Auto Repair",
     rating: 5,
-    text: "When our main diagnostic machine broke down, we needed quick funding to replace it. FundTek helped us get approved within two days. The application process was straightforward and the team was responsive.",
+    text: "When our main diagnostic machine broke down, we needed quick funding to replace it. Lendura Capital helped us get approved within two days. The application process was straightforward and the team was responsive.",
     image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop",
     solution: "Equipment Financing"
   },
@@ -22,7 +22,7 @@ const testimonials = [
     title: "Restaurant Owner",
     company: "La Casa Restaurant",
     rating: 5,
-    text: "We needed to upgrade our kitchen equipment before the busy season. FundTek's team walked us through the options and helped us find financing that worked with our cash flow. The approval process was much faster than our bank.",
+    text: "We needed to upgrade our kitchen equipment before the busy season. Lendura Capital's team walked us through the options and helped us find financing that worked with our cash flow. The approval process was much faster than our bank.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
     solution: "Equipment Financing"
   },
@@ -32,7 +32,7 @@ const testimonials = [
     title: "Construction Company Owner",
     company: "Chen Construction Inc.",
     rating: 5,
-    text: "The line of credit from FundTek has been a game-changer for our seasonal business. We can draw funds when we need them for materials and labor, and only pay interest on what we use. Perfect for managing cash flow.",
+    text: "The line of credit from Lendura Capital has been a game-changer for our seasonal business. We can draw funds when we need them for materials and labor, and only pay interest on what we use. Perfect for managing cash flow.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
     solution: "Lines of Credit"
   },
@@ -42,7 +42,7 @@ const testimonials = [
     title: "Medical Practice Owner",
     company: "Johnson Family Dentistry",
     rating: 5,
-    text: "FundTek understood our unique needs as a medical practice. The invoice factoring solution helped us maintain steady cash flow while waiting for insurance payments. Highly professional service.",
+    text: "Lendura Capital understood our unique needs as a medical practice. The invoice factoring solution helped us maintain steady cash flow while waiting for insurance payments. Highly professional service.",
     image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&h=400&fit=crop",
     solution: "Invoice Factoring"
   },
@@ -52,7 +52,7 @@ const testimonials = [
     title: "Tech Startup Founder",
     company: "TechFlow Solutions",
     rating: 5,
-    text: "As a growing tech company, we needed flexible funding that could scale with our business. FundTek's revenue-based financing was perfect - payments adjust with our monthly revenue.",
+    text: "As a growing tech company, we needed flexible funding that could scale with our business. Lendura Capital's revenue-based financing was perfect - payments adjust with our monthly revenue.",
     image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop",
     solution: "Revenue-Based Financing"
   },
@@ -62,7 +62,7 @@ const testimonials = [
     title: "Retail Store Owner",
     company: "Williams Boutique",
     rating: 5,
-    text: "The merchant cash advance from FundTek helped us stock up for the holiday season. Fast approval and funding within 24 hours. Our sales increased by 60% that quarter!",
+    text: "The merchant cash advance from Lendura Capital helped us stock up for the holiday season. Fast approval and funding within 24 hours. Our sales increased by 60% that quarter!",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
     solution: "Merchant Cash Advance"
   }

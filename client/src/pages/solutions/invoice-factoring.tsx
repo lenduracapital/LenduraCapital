@@ -100,7 +100,7 @@ export default function InvoiceFactoringDetail() {
           "Credit based on your score",
           "Can't monetize receivables"
         ],
-        fundtek: [
+        lendura: [
           "Specialized factoring solutions",
           "Get paid in 24-48 hours",
           "Factor handles collections",

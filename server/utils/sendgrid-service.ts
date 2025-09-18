@@ -15,118 +15,66 @@ const EMAIL_CONFIG = {
   replyTo: 'sam@lenduracapital.com'
 };
 
-// Enhanced email header template with improved Lendura Capital branding
+// Simplified email header with minimal branding
 const getEmailHeader = (title: string, subtitle: string, icon: string, accentColor: string = '#10b981') => `
-  <div style="background: linear-gradient(135deg, #193a59 0%, #1e40af 50%, #285d8a 100%); padding: 50px 30px; text-align: center; position: relative; overflow: hidden; border-bottom: 4px solid ${accentColor};">
-    <!-- Animated background elements -->
-    <div style="position: absolute; top: -60px; right: -60px; width: 120px; height: 120px; background: rgba(255,255,255,0.08); border-radius: 50%; pointer-events: none;"></div>
-    <div style="position: absolute; bottom: -40px; left: -40px; width: 80px; height: 80px; background: rgba(255,255,255,0.06); border-radius: 50%; pointer-events: none;"></div>
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: rgba(255,255,255,0.02); border-radius: 50%; pointer-events: none;"></div>
-    
-    <div style="position: relative; z-index: 10;">
-      <!-- Company Logo Area -->
-      <div style="margin-bottom: 25px;">
-        <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 20px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.2);">
-          <div style="font-size: 56px; margin-bottom: 8px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${icon}</div>
-        </div>
-      </div>
-      
-      <!-- Company Name -->
-      <div style="margin-bottom: 15px;">
-        <h1 style="color: white; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -0.8px; text-shadow: 0 3px 6px rgba(0,0,0,0.2); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-          LENDURA CAPITAL
-        </h1>
-      </div>
-      
-      <!-- Title and Subtitle -->
-      <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; margin: 0 auto; max-width: 500px; border: 1px solid rgba(255,255,255,0.15);">
-        <h2 style="color: white; margin: 0 0 12px 0; font-size: 24px; font-weight: 700; letter-spacing: -0.3px;">
-          ${title}
-        </h2>
-        <p style="color: rgba(255,255,255,0.95); margin: 0; font-size: 16px; font-weight: 400; line-height: 1.4;">
-          ${subtitle}
-        </p>
-      </div>
-    </div>
+  <div style="background: #193a59; padding: 20px; text-align: center; color: white;">
+    <div style="font-size: 24px; margin-bottom: 8px;">${icon}</div>
+    <h1 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+      LENDURA CAPITAL
+    </h1>
+    <h2 style="margin: 0 0 4px 0; font-size: 18px; font-weight: 600;">${title}</h2>
+    <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.9);">${subtitle}</p>
   </div>
 `;
 
-// Enhanced email footer with better branding
+// Simplified email footer with essential contact info
 const getEmailFooter = () => `
-  <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 40px 30px; text-align: center; border-top: 4px solid #10b981;">
-    <!-- Company Info Section -->
-    <div style="margin-bottom: 30px;">
-      <div style="display: inline-block; background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 20px rgba(25, 58, 89, 0.1); border: 2px solid #193a59;">
-        <h3 style="color: #193a59; margin: 0 0 8px 0; font-size: 24px; font-weight: 800; letter-spacing: -0.5px;">
-          LENDURA CAPITAL
-        </h3>
-        <p style="color: #64748b; margin: 0; font-size: 16px; font-weight: 500;">
-          💼 Business Funding Solutions
-        </p>
-      </div>
+  <div style="background: #f8fafc; padding: 20px; text-align: center; border-top: 2px solid #193a59;">
+    <h3 style="color: #193a59; margin: 0 0 12px 0; font-size: 18px; font-weight: 700;">LENDURA CAPITAL</h3>
+    <p style="color: #64748b; margin: 0 0 12px 0; font-size: 14px;">Business Funding Solutions</p>
+    
+    <div style="margin-bottom: 12px;">
+      <a href="tel:+13058347168" style="color: #193a59; text-decoration: none; font-weight: 600; margin-right: 20px;">📞 (305) 834-7168</a>
+      <a href="mailto:sam@lenduracapital.com" style="color: #193a59; text-decoration: none; font-weight: 600;">✉️ sam@lenduracapital.com</a>
     </div>
     
-    <!-- Contact Information -->
-    <div style="margin-bottom: 25px;">
-      <div style="display: inline-flex; gap: 25px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center;">
-        <div style="display: flex; align-items: center; gap: 10px; background: white; padding: 12px 20px; border-radius: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
-          <span style="background: linear-gradient(135deg, #193a59, #285d8a); color: white; padding: 8px; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">📞</span>
-          <a href="tel:+13058347168" style="color: #193a59; text-decoration: none; font-weight: 600; font-size: 15px;">(305) 834-7168</a>
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; background: white; padding: 12px 20px; border-radius: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
-          <span style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 8px; border-radius: 50%; font-size: 14px; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px;">✉️</span>
-          <a href="mailto:sam@lenduracapital.com" style="color: #193a59; text-decoration: none; font-weight: 600; font-size: 15px;">sam@lenduracapital.com</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Tagline -->
-    <div style="background: rgba(25, 58, 89, 0.05); border-radius: 10px; padding: 20px; margin: 0 auto; max-width: 500px; border-left: 4px solid #193a59;">
-      <p style="color: #475569; font-size: 14px; margin: 0; line-height: 1.6; font-weight: 500;">
-        🚀 <strong>Fast Business Funding</strong><br>
-        This email was automatically generated from our secure platform.<br>
-        <em>We respond within 24 hours to ensure excellent service.</em>
-      </p>
-    </div>
+    <p style="color: #64748b; font-size: 12px; margin: 0; line-height: 1.4;">
+      Fast Business Funding • We respond within 24 hours
+    </p>
   </div>
 `;
 
-// Enhanced info row component with premium styling
+// Simplified info row component
 const createInfoRow = (label: string, value: string | number | undefined | null, highlight: boolean = false, icon: string = '') => {
   if (!value && value !== 0) return '';
   
-  const bgColor = highlight ? 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)' : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)';
-  const textColor = highlight ? '#b45309' : '#0f172a';
-  const borderColor = highlight ? '#f59e0b' : '#e2e8f0';
+  const bgColor = highlight ? '#fef3c7' : '#f8fafc';
+  const textColor = highlight ? '#92400e' : '#1f2937';
   
   return `
-    <div style="padding: 20px 25px; border-bottom: 2px solid ${borderColor}; display: flex; justify-content: space-between; align-items: center; min-height: 70px; transition: background 0.3s ease;">
-      <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
-        ${icon ? `<span style="font-size: 18px; opacity: 0.8;">${icon}</span>` : ''}
-        <span style="color: #475569; font-weight: 600; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; ${icon ? '' : 'padding-left: 10px;'}">${label}</span>
+    <div style="padding: 12px 16px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        ${icon ? `<span style="font-size: 16px;">${icon}</span>` : ''}
+        <span style="color: #6b7280; font-weight: 500; font-size: 14px;">${label}</span>
       </div>
-      <div style="background: ${bgColor}; color: ${textColor}; font-weight: 700; padding: 12px 18px; border-radius: 12px; font-size: 15px; max-width: 350px; text-align: right; word-wrap: break-word; border: 2px solid ${highlight ? '#f59e0b' : 'transparent'}; box-shadow: 0 2px 8px rgba(0,0,0,0.08); ${highlight ? 'transform: scale(1.02);' : ''}">
+      <div style="background: ${bgColor}; color: ${textColor}; font-weight: 600; padding: 6px 12px; border-radius: 6px; font-size: 14px; text-align: right;">
         ${value}
       </div>
     </div>
   `;
 };
 
-// Enhanced section component with premium design
+// Simplified section component
 const createSection = (title: string, content: string, icon: string = '📊', accentColor: string = '#10b981') => `
-  <div style="margin-bottom: 35px;">
-    <!-- Section Header -->
-    <div style="background: linear-gradient(135deg, ${accentColor} 0%, ${accentColor}dd 100%); border-radius: 15px 15px 0 0; padding: 20px 25px; margin-bottom: 0;">
-      <h2 style="color: white; margin: 0; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
-        <span style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; font-size: 20px; backdrop-filter: blur(10px);">${icon}</span>
+  <div style="margin-bottom: 20px;">
+    <div style="background: ${accentColor}; padding: 12px 16px; color: white;">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 16px;">${icon}</span>
         ${title}
       </h2>
     </div>
-    <!-- Section Content -->
-    <div style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); border: 2px solid ${accentColor}; border-top: none; border-radius: 0 0 15px 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); position: relative;">
-      <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, ${accentColor} 0%, ${accentColor}aa 50%, ${accentColor} 100%); opacity: 0.7;"></div>
+    <div style="background: white; border: 1px solid #e5e7eb;">
       ${content}
-      <div style="height: 8px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);"></div>
     </div>
   </div>
 `;
@@ -181,41 +129,25 @@ Please review and contact the applicant promptly.`,
         <title>New Loan Application - Lendura Capital</title>
       </head>
       <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #334155;">
-        <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden;">
+        <div style="max-width: 600px; margin: 0 auto; background: white; border: 1px solid #e5e7eb;">
           
           ${getEmailHeader('New Loan Application', 'Lendura Capital', '📋')}
 
-          <div style="padding: 40px;">
-            <!-- Alert Banner -->
-            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: center;">
-              <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <div>
-                  <p style="margin: 0; color: #92400e; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Application Received</p>
-                  <p style="margin: 5px 0 0 0; color: #78350f; font-size: 16px; font-weight: 700;">${timestamp}</p>
-                </div>
-                <div style="background: #193a59; color: white; padding: 8px 16px; border-radius: 25px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                  LOAN APPLICATION
-                </div>
-              </div>
+          <div style="padding: 20px;">
+            <div style="background: #fef3c7; padding: 12px; margin-bottom: 16px; border-left: 4px solid #f59e0b;">
+              <p style="margin: 0; color: #92400e; font-size: 14px; font-weight: 600;">Application Received: ${timestamp}</p>
             </div>
 
             ${createSection('Personal Information', personalInfo, '👤', '#2563eb')}
             ${createSection('Business Information', businessInfo, '🏢', '#059669')}
             ${createSection('Loan Details', loanInfo, '💰', '#dc2626')}
 
-            <!-- Action Required -->
-            <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); border-radius: 12px; padding: 25px; text-align: center; margin-top: 30px;">
-              <h3 style="color: white; margin: 0 0 12px 0; font-size: 18px; font-weight: 600;">⚡ Action Required</h3>
-              <p style="color: rgba(255,255,255,0.9); margin: 0 0 20px 0; font-size: 14px; line-height: 1.5;">
-                This loan application requires immediate attention. Contact the applicant within 2 hours for optimal conversion.
-              </p>
-              <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <a href="tel:${data.phone || ''}" style="background: white; color: #193a59; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  📞 Call Now
-                </a>
-                <a href="mailto:${data.email}" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3);">
-                  ✉️ Send Email
-                </a>
+            <div style="background: #193a59; padding: 16px; text-align: center; color: white; margin-top: 20px;">
+              <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">⚡ Action Required</h3>
+              <p style="margin: 0 0 12px 0; font-size: 14px;">Contact applicant within 2 hours for optimal conversion</p>
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:${data.phone || ''}" style="background: white; color: #193a59; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">📞 Call Now</a>
+                <a href="mailto:${data.email}" style="background: #10b981; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">✉️ Email</a>
               </div>
             </div>
           </div>
@@ -277,57 +209,43 @@ Please contact this lead immediately for best conversion rates.`,
         <title>New Lead Capture - Lendura Capital</title>
       </head>
       <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #334155;">
-        <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden;">
+        <div style="max-width: 600px; margin: 0 auto; background: white; border: 1px solid #e5e7eb;">
           
           ${getEmailHeader('New Lead Capture', 'Lendura Capital', '🎯')}
 
-          <div style="padding: 40px;">
-            <!-- Alert Banner -->
-            <div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border: 2px solid #16a34a; border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: center;">
-              <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <div>
-                  <p style="margin: 0; color: #15803d; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Lead Captured</p>
-                  <p style="margin: 5px 0 0 0; color: #14532d; font-size: 16px; font-weight: 700;">${timestamp}</p>
-                </div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <div style="background: #193a59; color: white; padding: 8px 16px; border-radius: 25px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                    LEAD CAPTURE
-                  </div>
-                  ${qualificationBadge}
-                </div>
+          <div style="padding: 20px;">
+            <div style="background: #dcfce7; padding: 12px; margin-bottom: 16px; border-left: 4px solid #16a34a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+              <div>
+                <p style="margin: 0; color: #15803d; font-size: 14px; font-weight: 600;">Lead Captured: ${timestamp}</p>
               </div>
+              <div>${qualificationBadge}</div>
             </div>
 
             ${createSection('Contact Information', contactInfo, '👤', '#10b981')}
             ${createSection('Qualification Details', qualificationInfo, '📊', '#f59e0b')}
 
             ${data.message ? `
-            <div style="margin-bottom: 30px;">
-              <h2 style="color: #1e293b; margin: 0 0 15px 0; font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 10px;">
-                <span style="font-size: 16px;">💬</span>
-                Additional Notes
-              </h2>
-              <div style="background: #f1f5f9; border-left: 4px solid #10b981; border-radius: 8px; padding: 20px;">
-                <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 14px;">
+            <div style="margin-bottom: 16px;">
+              <div style="background: #10b981; padding: 12px 16px; color: white;">
+                <h2 style="margin: 0; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 16px;">💬</span>
+                  Message
+                </h2>
+              </div>
+              <div style="background: white; border: 1px solid #e5e7eb; padding: 16px;">
+                <p style="margin: 0; color: #374151; line-height: 1.6; font-size: 14px; white-space: pre-wrap;">
                   ${data.message}
                 </p>
               </div>
             </div>
             ` : ''}
 
-            <!-- Urgent Action -->
-            <div style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); border-radius: 12px; padding: 25px; text-align: center; margin-top: 30px;">
-              <h3 style="color: white; margin: 0 0 12px 0; font-size: 18px; font-weight: 600;">🚨 Time-Sensitive Lead</h3>
-              <p style="color: rgba(255,255,255,0.9); margin: 0 0 20px 0; font-size: 14px; line-height: 1.5;">
-                Lead capture forms have the highest conversion when contacted within 5 minutes. Call immediately!
-              </p>
-              <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <a href="tel:${data.phone || data.phoneNumber || ''}" style="background: white; color: #ef4444; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  📞 Call NOW
-                </a>
-                <a href="mailto:${data.email}" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3);">
-                  ✉️ Email Backup
-                </a>
+            <div style="background: #ef4444; padding: 16px; text-align: center; color: white; margin-top: 20px;">
+              <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">🚨 Time-Sensitive Lead</h3>
+              <p style="margin: 0 0 12px 0; font-size: 14px;">Contact within 5 minutes for highest conversion</p>
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:${data.phone || data.phoneNumber || ''}" style="background: white; color: #ef4444; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 14px;">📞 Call NOW</a>
+                <a href="mailto:${data.email}" style="background: #10b981; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">✉️ Email</a>
               </div>
             </div>
           </div>
@@ -388,22 +306,13 @@ Please follow up with this contact promptly.`,
         <title>New Contact Inquiry - Lendura Capital</title>
       </head>
       <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #334155;">
-        <div style="max-width: 700px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); overflow: hidden;">
+        <div style="max-width: 600px; margin: 0 auto; background: white; border: 1px solid #e5e7eb;">
           
           ${getEmailHeader('New Contact Inquiry', 'Lendura Capital', '💬')}
 
-          <div style="padding: 40px;">
-            <!-- Alert Banner -->
-            <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 2px solid #3b82f6; border-radius: 12px; padding: 20px; margin-bottom: 30px; text-align: center;">
-              <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                <div>
-                  <p style="margin: 0; color: #1d4ed8; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">Contact Received</p>
-                  <p style="margin: 5px 0 0 0; color: #1e40af; font-size: 16px; font-weight: 700;">${timestamp}</p>
-                </div>
-                <div style="background: #193a59; color: white; padding: 8px 16px; border-radius: 25px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
-                  CONTACT FORM
-                </div>
-              </div>
+          <div style="padding: 20px;">
+            <div style="background: #dbeafe; padding: 12px; margin-bottom: 16px; border-left: 4px solid #3b82f6;">
+              <p style="margin: 0; color: #1d4ed8; font-size: 14px; font-weight: 600;">Contact Received: ${timestamp}</p>
             </div>
 
             ${createSection('Contact Information', contactInfo, '👤', '#6366f1')}
@@ -424,19 +333,12 @@ Please follow up with this contact promptly.`,
             </div>
             ` : ''}
 
-            <!-- Follow-up Action -->
-            <div style="background: linear-gradient(135deg, #193a59 0%, #285d8a 100%); border-radius: 12px; padding: 25px; text-align: center; margin-top: 30px;">
-              <h3 style="color: white; margin: 0 0 12px 0; font-size: 18px; font-weight: 600;">📞 Follow-up Required</h3>
-              <p style="color: rgba(255,255,255,0.9); margin: 0 0 20px 0; font-size: 14px; line-height: 1.5;">
-                Contact this inquiry promptly to provide excellent customer service and convert the lead.
-              </p>
-              <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <a href="tel:${data.phone || data.phoneNumber || ''}" style="background: white; color: #193a59; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
-                  📞 Call Back
-                </a>
-                <a href="mailto:${data.email}" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3);">
-                  ✉️ Reply via Email
-                </a>
+            <div style="background: #193a59; padding: 16px; text-align: center; color: white; margin-top: 20px;">
+              <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600;">📞 Follow-up Required</h3>
+              <p style="margin: 0 0 12px 0; font-size: 14px;">Contact promptly for excellent service</p>
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:${data.phone || data.phoneNumber || ''}" style="background: white; color: #193a59; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">📞 Call Back</a>
+                <a href="mailto:${data.email}" style="background: #10b981; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px;">✉️ Email</a>
               </div>
             </div>
           </div>

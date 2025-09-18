@@ -60,7 +60,7 @@ export default function CreditCardProcessing() {
             Modern Payment Processing for Growing Businesses
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Stop losing sales due to payment limitations. FundTek's credit card processing solutions help businesses accept payments seamlessly across all channels - in-store, online, and mobile - with industry-leading security and competitive rates that grow with your business.
+            Stop losing sales due to payment limitations. Lendura Capital's credit card processing solutions help businesses accept payments seamlessly across all channels - in-store, online, and mobile - with industry-leading security and competitive rates that grow with your business.
           </p>
         </div>
       </section>

@@ -259,7 +259,7 @@ export default function CreditServicing() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-                Why Choose FundTek Credit Servicing?
+                Why Choose Lendura Capital Credit Servicing?
               </h2>
               
               <div className="space-y-6">
@@ -345,7 +345,7 @@ export default function CreditServicing() {
                 ))}
               </div>
               <blockquote className="text-lg md:text-xl text-gray-700 italic mb-6">
-                "FundTek's credit servicing team transformed both my personal and business credit profiles. Within 90 days, my personal score increased by 120 points, and we established strong business credit that opened doors to $500K in equipment financing."
+                "Lendura Capital's credit servicing team transformed both my personal and business credit profiles. Within 90 days, my personal score increased by 120 points, and we established strong business credit that opened doors to $500K in equipment financing."
               </blockquote>
               <div className="text-center">
                 <div className="font-bold text-gray-800">Michael Rodriguez</div>

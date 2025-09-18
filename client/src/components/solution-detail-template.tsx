@@ -33,7 +33,7 @@ interface SolutionDetailProps {
   }[];
   comparison?: {
     traditional: string[];
-    fundtek: string[];
+    lendura: string[];
   };
   slug: string; // Added for internal linking
 }
@@ -244,7 +244,7 @@ export default function SolutionDetailTemplate({
             <div className="bg-green-50 p-8 rounded-lg border border-green-200">
               <h3 className="text-2xl font-bold text-green-800 mb-6">Lendura Capital</h3>
               <ul className="space-y-4">
-                {(comparison?.fundtek || [
+                {(comparison?.lendura || [
                   "24-48 hour approval process",
                   "Minimal documentation needed",
                   "Flexible credit requirements", 

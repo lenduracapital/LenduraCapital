@@ -99,7 +99,7 @@ export default function LinesOfCreditDetail() {
           "Personal guarantees required",
           "Limited draw periods"
         ],
-        fundtek: [
+        lendura: [
           "Simple online application",
           "Transparent fee structure",
           "Revenue requirements from $15K/month",

@@ -104,7 +104,7 @@ export default function TermLoansDetail() {
           "Personal collateral often required",
           "Limited to established businesses (3+ years)"
         ],
-        fundtek: [
+        lendura: [
           "24-48 hour term loan approval",
           "Basic business documentation only",
           "Flexible credit requirements (550+)",

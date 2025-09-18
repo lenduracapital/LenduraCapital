@@ -100,7 +100,7 @@ export default function ClientCashAdvanceDetail() {
           "Lengthy application process",
           "Collateral requirements"
         ],
-        fundtek: [
+        lendura: [
           "Specialized MCA providers",
           "Credit scores from 500+",
           "Flexible daily/weekly payments",

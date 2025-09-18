@@ -200,7 +200,7 @@ export default function About() {
           </div>
           
           <div className="bg-gray-50 rounded-lg p-12">
-            <h3 className="text-3xl font-bold text-black mb-8 text-center">The FundTek Advantage</h3>
+            <h3 className="text-3xl font-bold text-black mb-8 text-center">The Lendura Capital Advantage</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -257,7 +257,7 @@ export default function About() {
       <section className="py-20 bg-[#193a59]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Experience the FundTek Difference?
+            Ready to Experience the Lendura Capital Difference?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
             Join thousands of businesses who have discovered that fast, flexible financing doesn't have to come with complicated processes. Get your funding decision in 24 hours.

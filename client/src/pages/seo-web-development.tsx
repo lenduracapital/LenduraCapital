@@ -87,7 +87,7 @@ export default function SEOWebDevelopment() {
               Transform Your Digital Presence Into a Growth Engine
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12">
-              In today's digital marketplace, your online presence determines your business success. FundTek's comprehensive SEO and web development services create powerful digital platforms that attract customers, generate leads, and drive sustainable growth.
+              In today's digital marketplace, your online presence determines your business success. Lendura Capital's comprehensive SEO and web development services create powerful digital platforms that attract customers, generate leads, and drive sustainable growth.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8">
@@ -189,7 +189,7 @@ export default function SEOWebDevelopment() {
               </ul>
             </div>
 
-            {/* FundTek */}
+            {/* Lendura Capital */}
             <div className="bg-green-50 p-8 rounded-lg">
               <h3 className="text-xl font-bold text-green-600 mb-6">Lendura Capital</h3>
               <ul className="space-y-4">

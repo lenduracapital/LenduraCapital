@@ -100,7 +100,7 @@ export default function POFinancingDetail() {
           "Can't fund supplier costs",
           "Miss large order opportunities"
         ],
-        fundtek: [
+        lendura: [
           "Specialized PO financing",
           "Customer credit matters most",
           "PO serves as collateral",

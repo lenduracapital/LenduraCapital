@@ -105,7 +105,7 @@ export default function SBALoansDetail() {
           "Slow processing times",
           "Limited business support"
         ],
-        fundtek: [
+        lendura: [
           "SBA loan specialists on staff",
           "Expert guidance through entire process",
           "Access to all SBA loan programs",

@@ -100,7 +100,7 @@ export default function CreditServicesDetail() {
           "No business credit support",
           "DIY credit improvement"
         ],
-        fundtek: [
+        lendura: [
           "Professional credit repair services",
           "Expert credit building strategies",
           "Business credit establishment",

@@ -182,7 +182,7 @@ export default function Construction() {
               {
                 name: "Miguel Torres",
                 company: "Torres Construction LLC",
-                story: "Excavator broke down on a $2M municipal job. Rental companies wanted cash upfront I didn't have. Marc from FundTek got funding approved over the weekend - saved the contract and my reputation with the city.",
+                story: "Excavator broke down on a $2M municipal job. Rental companies wanted cash upfront I didn't have. Marc from Lendura Capital got funding approved over the weekend - saved the contract and my reputation with the city.",
                 funding: "$320,000 Equipment Financing"
               },
               {

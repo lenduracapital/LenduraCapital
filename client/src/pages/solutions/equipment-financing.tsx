@@ -100,7 +100,7 @@ export default function EquipmentFinancingDetail() {
           "Restrictive equipment categories",
           "Complex documentation process"
         ],
-        fundtek: [
+        lendura: [
           "100% equipment financing available",
           "0% down payment options",
           "Same-day equipment loan approval",

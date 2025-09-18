@@ -80,7 +80,7 @@ export default function CommercialRealEstateLending() {
           "High down payment (30-40%)",
           "Limited to bank's portfolio"
         ],
-        fundtek: [
+        lendura: [
           "Nationwide CRE financing",
           "30-day approval process",
           "Flexible property types",

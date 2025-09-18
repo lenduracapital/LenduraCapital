@@ -176,7 +176,7 @@ export default function RestaurantFoodService() {
               {
                 name: "Antonio Ricci",
                 company: "Nonna's Kitchen",
-                story: "Two ovens died same week during our busiest season. Kitchen was backed up for hours. James from FundTek understood restaurants - got me funded Friday afternoon so I could get new equipment installed over weekend.",
+                story: "Two ovens died same week during our busiest season. Kitchen was backed up for hours. James from Lendura Capital understood restaurants - got me funded Friday afternoon so I could get new equipment installed over weekend.",
                 funding: "$125,000 Equipment Financing"
               },
               {
