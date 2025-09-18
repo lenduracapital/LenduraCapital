@@ -147,6 +147,7 @@ export default function InteractiveLeadCapture() {
                   step={5000}
                   className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"
                   data-testid="slider-funding-amount"
+                  aria-label={`Funding amount slider, current value ${formatCurrency(leadData.fundingAmount)}, minimum $10,000, maximum $2,000,000`}
                   style={{
                     background: `linear-gradient(to right, #193a59 0%, #193a59 ${((leadData.fundingAmount - 10000) / (2000000 - 10000)) * 100}%, #d9d9d9 ${((leadData.fundingAmount - 10000) / (2000000 - 10000)) * 100}%, #d9d9d9 100%)`
                   }}

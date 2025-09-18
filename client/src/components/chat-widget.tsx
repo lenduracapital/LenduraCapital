@@ -410,6 +410,14 @@ function ChatWidget() {
               chatState.step === 'debt_q2' ? 'Enter current balance...' :
               'Enter your response...'
             }
+            aria-label={
+              chatState.step === 'first_name' ? 'First name input field' :
+              chatState.step === 'phone_number' ? 'Phone number input field' :
+              chatState.step === 'email' ? 'Email address input field' :
+              chatState.step === 'debt_q1' ? 'Lender name input field' :
+              chatState.step === 'debt_q2' ? 'Current balance input field' :
+              'Text input field for chat response'
+            }
             className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#193a59] text-sm"
             autoFocus
           />
@@ -417,6 +425,7 @@ function ChatWidget() {
             onClick={handleSubmitText}
             disabled={!textInput.trim()}
             className="bg-[#193a59] hover:bg-[#1d4ed8] disabled:bg-gray-300 text-white px-4 py-2 rounded-lg transition-colors"
+            aria-label="Send message"
           >
             <Send className="w-4 h-4" />
           </button>

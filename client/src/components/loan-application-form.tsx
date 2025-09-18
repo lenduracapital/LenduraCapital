@@ -671,7 +671,10 @@ export default function LoanApplicationForm() {
                     canvasProps={{
                       width: 500,
                       height: 200,
-                      className: 'signature-canvas w-full h-48 border-none'
+                      className: 'signature-canvas w-full h-48 border-none',
+                      'aria-label': 'Electronic signature pad - Draw your signature using mouse, touch, or keyboard navigation',
+                      'role': 'img',
+                      'aria-describedby': 'signature-instructions'
                     }}
                     backgroundColor="rgba(255,255,255,1)"
                     penColor="black"
@@ -689,7 +692,7 @@ export default function LoanApplicationForm() {
                   </Button>
                 </div>
                 {errors.electronicSignature && <span className="text-red-500 text-sm">{errors.electronicSignature}</span>}
-                <p className="text-xs text-gray-500 mt-2">
+                <p id="signature-instructions" className="text-xs text-gray-500 mt-2">
                   Please sign above using your mouse or finger. By signing, you agree to the terms and electronically sign this application.
                 </p>
               </div>

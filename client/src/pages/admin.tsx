@@ -403,6 +403,7 @@ export default function AdminDashboard() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-64"
+                  aria-label="Search conversations"
                 />
                 <Button 
                   variant="outline" 

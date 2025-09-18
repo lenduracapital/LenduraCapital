@@ -340,8 +340,8 @@ export const BLOG_GUIDES_CONFIG: CriticalResourceConfig = {
     '/blog/sba-loan-changes-2025'
   ],
   deferredAssets: [
-    '/analytics.js',
-    '/chat-widget.js'
+    // Note: Only include actual files that exist in the public directory
+    // '/analytics.js' and '/chat-widget.js' were causing 404 errors
   ]
 };
 
