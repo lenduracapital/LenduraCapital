@@ -76,7 +76,7 @@ export default function Header({ }: HeaderProps) {
           <div className="flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-10">
             <button 
               onClick={handleLogoClick}
-              className="focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center"
+              className="bg-transparent border-none focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center p-0"
               aria-label="Go to homepage"
               data-testid="button-logo"
             >
