@@ -107,7 +107,7 @@ export default function Footer() {
                 <li><button onClick={() => handleNavigation("/solutions/term-loans")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Business Term Loans</button></li>
                 <li><button onClick={() => handleNavigation("/solutions/lines-of-credit")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Lines of Credit</button></li>
                 <li><button onClick={() => handleNavigation("/solutions/equipment-financing")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Equipment Financing</button></li>
-                <li><button onClick={() => handleNavigation("/solutions/merchant-cash-advance")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Cash Advance</button></li>
+                <li><button onClick={() => handleNavigation("/solutions/merchant-cash-advance")} className="text-gray-600 hover:text-[#193a59] text-sm transition-colors">Merchant Cash Advance</button></li>
                 <li><button onClick={() => handleNavigation("/solutions")} className="text-[#193a59] hover:text-gray-700 text-sm font-semibold transition-colors">View All Solutions →</button></li>
               </ul>
             </div>
