@@ -76,14 +76,16 @@ export default function Header({ }: HeaderProps) {
           <div className="flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-10">
             <button 
               onClick={handleLogoClick}
-              className="bg-transparent border-none focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center p-0"
+              className="!bg-transparent !border-none focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center p-0"
+              style={{ background: 'transparent !important', border: 'none !important' }}
               aria-label="Go to homepage"
               data-testid="button-logo"
             >
               <img 
                 src={lenduraLogo}
                 alt="Lendura Capital Logo" 
-                className="h-12 sm:h-16 md:h-18 lg:h-20 xl:h-24 w-auto object-contain"
+                className="h-12 sm:h-16 md:h-18 lg:h-20 xl:h-24 w-auto object-contain !bg-transparent"
+                style={{ background: 'transparent !important' }}
               />
             </button>
           </div>
@@ -166,7 +168,7 @@ export default function Header({ }: HeaderProps) {
                           onClick={() => { setLocation("/solutions/merchant-cash-advance"); setIsSolutionsDropdownOpen(false); }}
                           className="block w-full text-left text-sm text-gray-700 hover:text-[#193a59] hover:bg-[#193a59]/5 transition-all duration-150 py-2 px-3 rounded-lg font-medium"
                         >
-                          Cash Advance
+                          Merchant Cash Advance
                         </button>
                         <button
                           onClick={() => { setLocation("/solutions/sba-loans"); setIsSolutionsDropdownOpen(false); }}
