@@ -40,6 +40,16 @@
   --lendura-blue-light: var(--brand-primary-light);
 }
 
+/* LOGO FIX - Force transparent background on all logo elements */
+[data-testid="button-logo"], 
+[data-testid="button-logo"] img,
+.logo-container,
+.logo-container img {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
 /* ENHANCED Critical CSS for CLS Prevention and Performance */
 .hero-section {
   position: relative;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
-import lenduraLogo from "@assets/IMG_4581_1758127413253.png";
+import lenduraLogo from "@assets/IMG_4580_1758127413253.png";
 
 interface HeaderProps {
   transparent?: boolean;
@@ -76,16 +76,24 @@ export default function Header({ }: HeaderProps) {
           <div className="flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-10">
             <button 
               onClick={handleLogoClick}
-              className="!bg-transparent !border-none focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center p-0"
-              style={{ background: 'transparent !important', border: 'none !important' }}
+              className="focus:outline-none transition-transform duration-300 hover:scale-105 min-h-[44px] min-w-[44px] flex items-center justify-center p-0"
+              style={{ 
+                background: 'transparent !important', 
+                border: 'none !important',
+                boxShadow: 'none !important'
+              }}
               aria-label="Go to homepage"
               data-testid="button-logo"
             >
               <img 
                 src={lenduraLogo}
                 alt="Lendura Capital Logo" 
-                className="h-12 sm:h-16 md:h-18 lg:h-20 xl:h-24 w-auto object-contain !bg-transparent"
-                style={{ background: 'transparent !important' }}
+                style={{ 
+                  background: 'transparent !important',
+                  filter: 'drop-shadow(0 0 0 transparent)',
+                  mixBlendMode: 'screen'
+                }}
+                className="h-12 sm:h-16 md:h-18 lg:h-20 xl:h-24 w-auto object-contain"
               />
             </button>
           </div>
